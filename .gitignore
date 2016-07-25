@@ -58,3 +58,8 @@ fastlane/screenshots
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+# Jekyll
+_site
+.sass-cache
+.jekyll-metadata
