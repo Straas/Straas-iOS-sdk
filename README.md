@@ -13,5 +13,6 @@ multi-device user experiences.
 ## Documentation
 
 - [Guides](https://github.com/StraaS/StraaS-iOS/wiki)
-- [API Reference](https://straas.github.io/StraaS-iOS/)
+- [Player SDK API Reference](https://straas.github.io/StraaS-iOS/)
+- [Messaging SDK API Reference Draft](https://straas.github.io/StraaS-iOS/STSSDKChatRoomManager/)
 
