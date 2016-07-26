@@ -5,8 +5,6 @@
 World-class streaming and advertisement technology to drive profit and provide best multi-screen, 
 multi-device user experiences.
 
-StraaS iOS SDK provides easy-to-use interface for iOS developers. 
-
 ## Feature
 
 - Video Streaming Service
