@@ -9,7 +9,7 @@ StraaS iOS SDK provides easy-to-use interface for iOS developers.
 
 ## Feature
 
-- Streaming Player
+- Video Streaming Service
 - Messaging Service
 
 ## Documentation
