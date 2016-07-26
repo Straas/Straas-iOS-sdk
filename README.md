@@ -1,11 +1,11 @@
-# StraaS iOS SDK
+![](https://event.livehouse.in/straas.io/admintool/images/logo.png)
 
 **StraaS.io - Streaming as a Service, Your Best OTT Solution**
 
 World-class streaming and advertisement technology to drive profit and provide best multi-screen, 
 multi-device user experiences.
 
-The iOS SDK provides easy-to-use interface for iOS developers. 
+StraaS iOS SDK provides easy-to-use interface for iOS developers. 
 
 ## Feature
 
