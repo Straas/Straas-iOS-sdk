@@ -2,7 +2,7 @@
 
 **StraaS.io - Streaming as a Service, Your Best OTT Solution**
 
-World-class streaming and advertisement technology to drive profit and provide best multi-screen, 
+World-class streaming and advertisement technology to drive profit and provide best multi-screen,
 multi-device user experiences.
 
 ## Feature
@@ -13,6 +13,5 @@ multi-device user experiences.
 ## Documentation
 
 - [Guides](https://github.com/StraaS/StraaS-iOS/wiki)
-- [Player SDK API Reference](https://straas.github.io/StraaS-iOS/)
-- [Messaging SDK API Reference Draft](https://straas.github.io/StraaS-iOS/STSSDKChatRoomManager/)
-
+- [Player SDK API Reference](https://straas.github.io/StraaS-iOS-sdk/)
+- [Messaging SDK API Reference Draft](https://straas.github.io/StraaS-iOS-sdk/STSSDKChatRoomManager/)
