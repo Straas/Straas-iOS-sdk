@@ -14,13 +14,19 @@
 #import "MessageTextView.h"
 #import "TypingIndicatorView.h"
 
+@import StraaSMessagingSDK;
+
 #define DEBUG_CUSTOM_TYPING_INDICATOR 0
 
-@interface ChatViewController ()
+@interface ChatViewController () <STSChatEventDelegate>
 
 @property (nonatomic, strong) NSMutableArray *messages;
 
 @property (nonatomic, strong) NSArray *searchResult;
+
+@property (nonatomic) STSChatManager * manager;
+@property (nonatomic) NSString * channelCode;
+@property (nonatomic) NSString * JWT;
 
 @end
 
@@ -69,6 +75,8 @@
 {
     [super viewDidLoad];
 
+    [self configureStraaSMessaging];
+
     // SLKTVC's configuration
     self.bounces = YES;
     self.shakeToClearEnabled = YES;
@@ -76,12 +84,10 @@
     self.shouldScrollToBottomAfterKeyboardShows = NO;
     self.inverted = YES;
     
-    [self.leftButton setTintColor:[UIColor grayColor]];
-    
     [self.rightButton setTitle:NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
     
     self.textInputbar.autoHideRightButton = YES;
-    self.textInputbar.maxCharCount = 256;
+    self.textInputbar.maxCharCount = 120;
     self.textInputbar.counterStyle = SLKCounterStyleSplit;
     self.textInputbar.counterPosition = SLKCounterPositionTop;
     
@@ -97,6 +103,106 @@
     [self.tableView registerClass:[MessageTableViewCell class] forCellReuseIdentifier:MessengerCellIdentifier];
     
     [self.autoCompletionView registerClass:[MessageTableViewCell class] forCellReuseIdentifier:AutoCompletionCellIdentifier];
+}
+
+
+#pragma mark StraaS Messaging Configuration
+
+- (void)configureStraaSMessaging {
+    self.messages = [NSMutableArray array];
+
+    [STSApplication configureApplication:^(BOOL success, NSError *error) {
+        [self.manager connectToChannel:self.channelCode JWT:self.JWT autoCreate:YES eventDelegate:self];
+        dispatch_after(dispatch_time(DISPATCH_TIME_FOREVER, (int64_t)(15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.manager disconnectFromChannel:self.channelCode];
+        });
+    }];
+}
+
+- (STSChatManager *)manager {
+    if (!_manager) {
+        _manager = [STSChatManager new];
+    }
+    return _manager;
+}
+
+- (NSString *)channelCode {
+    return @"Winterfell";
+}
+
+- (NSString *)JWT {
+    return @"";
+}
+
+#pragma mark STSChatEventDelegate
+
+- (void)channelConnected:(NSString *)channelCode {
+    NSLog(@"\"%@\" connected", channelCode);
+    __weak ChatViewController * weakSelf = self;
+    [self.manager getMessagesForChannel:channelCode success:^(NSArray<STSChatMessage *> * _Nonnull messages) {
+        [weakSelf.messages addObjectsFromArray:messages];
+        [weakSelf.tableView reloadData];
+    } failure:^(NSError * _Nonnull error) {
+
+    }];
+}
+
+- (void)channelDisconnected:(NSString *)channelCode {
+    NSLog(@"\"%@\" disconnected", channelCode);
+}
+
+- (void)channel:(NSString *)channelCode failToConnect:(NSError *)error {
+    NSLog(@"\"%@\" fail to connect", channelCode);
+    NSLog(@"%@", error);
+}
+
+- (void)channel:(NSString *)channelCode error:(NSError *)error {
+    NSLog(@"%@", error);
+}
+
+- (void)channelModeChanged:(NSString *)channelCode {
+}
+
+- (void)channel:(NSString *)channelCode usersJoined:(NSArray<STSChatUser *> *)users {
+    NSLog(@"%@ joined %@", users, channelCode);
+}
+
+- (void)channel:(NSString *)channelCode usersUpdated:(NSArray<STSChatUser *> *)users {
+    NSLog(@"%@ updated in %@", users, channelCode);
+}
+
+- (void)channel:(NSString *)channelCode usersLeft:(NSArray<NSNumber *> *)userLabels {
+    NSLog(@"%@ left %@", userLabels, channelCode);
+}
+
+- (void)channelUserCount:(NSString *)channelCode {
+    NSLog(@"%@ user count", channelCode);
+}
+
+- (void)channel:(NSString *)channelCode messageAdded:(STSChatMessage *)message {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    UITableViewRowAnimation rowAnimation = self.inverted ? UITableViewRowAnimationBottom : UITableViewRowAnimationTop;
+    UITableViewScrollPosition scrollPosition = self.inverted ? UITableViewScrollPositionBottom : UITableViewScrollPositionTop;
+
+    [self.tableView beginUpdates];
+    [self.messages insertObject:message atIndex:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:rowAnimation];
+    [self.tableView endUpdates];
+
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:scrollPosition animated:YES];
+
+    // Fixes the cell from blinking (because of the transform, when using translucent cells)
+    // See https://github.com/slackhq/SlackTextViewController/issues/94#issuecomment-69929927
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)channel:(NSString *)channelCode messageRemoved:(NSString *)messageId {
+
+}
+
+- (void)channelMessageFlushed:(NSString *)channelCode {
+    [self.messages removeAllObjects];
+    [self.tableView reloadData];
 }
 
 
@@ -128,6 +234,12 @@
 {
     [self.textView resignFirstResponder];
 
+    [self.manager sendMessage:[self.textView.text copy] channel:self.channelCode success:^{
+
+    } failure:^(NSError * _Nonnull error) {
+
+    }];
+
     [super didPressRightButton:sender];
 }
 
@@ -146,6 +258,13 @@
     id data = userInfo[SLKTextViewPastedItemData];
     
     NSLog(@"%s : %@ (type = %ld) | data : %@",__FUNCTION__, contentType, (unsigned long)mediaType, data);
+}
+
+- (BOOL)canPressRightButton
+{
+    STSChatInputMode mode = [[self.manager chatForChannel:self.channelCode] mode];
+    return ((mode == STSChatInputNormal) ||
+            (mode == STSChatInputMember && self.JWT.length != 0));
 }
 
 - (BOOL)canShowTypingIndicator
@@ -240,6 +359,16 @@
 {
     MessageTableViewCell *cell = (MessageTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:MessengerCellIdentifier];
     
+    STSChatMessage * message = self.messages[indexPath.row];
+
+    UIImage * avator = [UIImage imageNamed:@"img-guest-photo"];
+    if (message.creator.avatar) {
+        // TODO: fetch avator
+    }
+    cell.thumbnailView.image = avator;
+    cell.titleLabel.text = message.creator.name;
+    cell.bodyLabel.text = message.text;
+
     cell.indexPath = indexPath;
     cell.usedForMessage = YES;
     
@@ -295,7 +424,42 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return kMessageTableViewCellMinimumHeight;
+    if ([tableView isEqual:self.tableView]) {
+
+        STSChatMessage * message = self.messages[indexPath.row];
+
+        NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
+        paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+        paragraphStyle.alignment = NSTextAlignmentLeft;
+
+        CGFloat pointSize = [MessageTableViewCell defaultFontSize];
+
+        NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:pointSize],
+                                     NSParagraphStyleAttributeName: paragraphStyle};
+
+        CGFloat width = CGRectGetWidth(tableView.frame)-kMessageTableViewCellAvatarHeight;
+        width -= 25.0;
+
+        CGRect titleBounds = [message.creator.name boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:NULL];
+        CGRect bodyBounds = [message.text boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:NULL];
+
+        if (message.text.length == 0) {
+            return 0.0;
+        }
+
+        CGFloat height = CGRectGetHeight(titleBounds);
+        height += CGRectGetHeight(bodyBounds);
+        height += 40.0;
+
+        if (height < kMessageTableViewCellMinimumHeight) {
+            height = kMessageTableViewCellMinimumHeight;
+        }
+
+        return height;
+    }
+    else {
+        return kMessageTableViewCellMinimumHeight;
+    }
 }
 
 
@@ -303,6 +467,7 @@
 
 - (void)dealloc
 {
+    [self.manager disconnectFromChannel:self.channelCode];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
