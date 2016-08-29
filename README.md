@@ -14,4 +14,4 @@ multi-device user experiences.
 
 - [Guides](https://github.com/StraaS/StraaS-iOS/wiki)
 - [Player SDK API Reference](https://straas.github.io/StraaS-iOS-sdk/StraaSSDK/)
-- [Messaging SDK API Reference Draft](https://straas.github.io/StraaS-iOS-sdk/StraaSMessagingSDK/)
+- [Messaging SDK API Reference](https://straas.github.io/StraaS-iOS-sdk/StraaSMessagingSDK/)
