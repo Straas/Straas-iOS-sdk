@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>STSChatEventDelegate Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Protocol/STSChatEventDelegate" class="dashAnchor"></a>
+    <a title="STSChatEventDelegate Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">StraaSMessagingSDK Docs</a> (86% documented)</p>
+        <p class="header-right"><a href="https://github.com/StraaS/StraaS-iOS-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fstraas%2Egithub%2Eio%2FStraaS%2DiOS%2Dsdk%2Fdocsets%2FStraaSMessagingSDK%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">StraaSMessagingSDK Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        STSChatEventDelegate Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/LHDataObject.html">LHDataObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSApplication.html">STSApplication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSChat.html">STSChat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSChatManager.html">STSChatManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSChatMessage.html">STSChatMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSChatUser.html">STSChatUser</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/STSChatInputMode.html">STSChatInputMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSMSGErrorCode.html">STSMSGErrorCode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/STSChatEventDelegate.html">STSChatEventDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>STSChatEventDelegate</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@protocol</span> <span class="nc">STSChatEventDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                </div>
+              </div>
+            <p>Chat room event delegate for notify chat connection event, mode change event, user event, or
+message event. Allow to handle chat room events in real time.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)channelConnected:"></a>
+                    <a name="//apple_ref/objc/Method/-channelConnected:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)channelConnected:">-channelConnected:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Chat room connected to channel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">channelConnected</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">channelCode</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">channelConnected</span><span class="p">(</span><span class="nv">channelCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>channelCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of chat room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)channelDisconnected:"></a>
+                    <a name="//apple_ref/objc/Method/-channelDisconnected:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)channelDisconnected:">-channelDisconnected:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Chat room disconnected from channel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">channelDisconnected</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">channelCode</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">channelDisconnected</span><span class="p">(</span><span class="nv">channelCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>channelCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of chat room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)channel:failToConnect:"></a>
+                    <a name="//apple_ref/objc/Method/-channel:failToConnect:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)channel:failToConnect:">-channel:failToConnect:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Chat room fail to connect to channel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">channel</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">channelCode</span>
+  <span class="nf">failToConnect</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">channel</span><span class="p">(</span><span class="nv">channelCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">failToConnect</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">NSError</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>channelCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of chat room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>error</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The error object contains detail info.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)channel:error:"></a>
+                    <a name="//apple_ref/objc/Method/-channel:error:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)channel:error:">-channel:error:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Error happened for channel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">channel</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">channelCode</span> <span class="nf">error</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">channel</span><span class="p">(</span><span class="nv">channelCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">NSError</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>channelCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of chat room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>error</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The error object contains error detail.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)channelModeChanged:"></a>
+                    <a name="//apple_ref/objc/Method/-channelModeChanged:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)channelModeChanged:">-channelModeChanged:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Chat room input mode changed for channel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">channelModeChanged</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">channelCode</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">channelModeChanged</span><span class="p">(</span><span class="nv">channelCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>channelCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of chat room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)channel:usersJoined:"></a>
+                    <a name="//apple_ref/objc/Method/-channel:usersJoined:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)channel:usersJoined:">-channel:usersJoined:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Users joined to channel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">channel</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">channelCode</span>
+    <span class="nf">usersJoined</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSChatUser.html">STSChatUser</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">users</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">channel</span><span class="p">(</span><span class="nv">channelCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">usersJoined</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>channelCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of chat room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>users</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>New user objects.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)channel:usersUpdated:"></a>
+                    <a name="//apple_ref/objc/Method/-channel:usersUpdated:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)channel:usersUpdated:">-channel:usersUpdated:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Users info updated for channel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">channel</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">channelCode</span>
+   <span class="nf">usersUpdated</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSChatUser.html">STSChatUser</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">users</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">channel</span><span class="p">(</span><span class="nv">channelCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">usersUpdated</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>channelCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of chat room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>users</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Updated user objects</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)channel:usersLeft:"></a>
+                    <a name="//apple_ref/objc/Method/-channel:usersLeft:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)channel:usersLeft:">-channel:usersLeft:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Users left from channel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">channel</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">channelCode</span>
+      <span class="nf">usersLeft</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSNumber</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">userLabels</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">channel</span><span class="p">(</span><span class="nv">channelCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">usersLeft</span> <span class="nv">userLabels</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSNumber</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>channelCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of chat room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userLabels</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Unique identifier of left users.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)channelUserCount:"></a>
+                    <a name="//apple_ref/objc/Method/-channelUserCount:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)channelUserCount:">-channelUserCount:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>User count updated for channel. Please check the chat object for new member count and guest count.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">channelUserCount</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">channelCode</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">channelUserCount</span><span class="p">(</span><span class="nv">channelCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>channelCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of chat room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)channel:messageAdded:"></a>
+                    <a name="//apple_ref/objc/Method/-channel:messageAdded:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)channel:messageAdded:">-channel:messageAdded:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Message was added to channel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">channel</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">channelCode</span>
+   <span class="nf">messageAdded</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChatMessage.html">STSChatMessage</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">message</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">channel</span><span class="p">(</span><span class="nv">channelCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">messageAdded</span> <span class="nv">message</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChatMessage.html">STSChatMessage</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>channelCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of chat room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>message</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>New message object.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)channel:messageRemoved:"></a>
+                    <a name="//apple_ref/objc/Method/-channel:messageRemoved:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)channel:messageRemoved:">-channel:messageRemoved:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Message was removed from channel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">channel</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">channelCode</span>
+ <span class="nf">messageRemoved</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">messageId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">channel</span><span class="p">(</span><span class="nv">channelCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">messageRemoved</span> <span class="nv">messageId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>channelCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of chat room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>messageId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Removed message object ID.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)channelMessageFlushed:"></a>
+                    <a name="//apple_ref/objc/Method/-channelMessageFlushed:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)channelMessageFlushed:">-channelMessageFlushed:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>All message in chat room was flushed for channel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">channelMessageFlushed</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">channelCode</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">channelMessageFlushed</span><span class="p">(</span><span class="nv">channelCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>channelCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of chat room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2016-08-26)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
