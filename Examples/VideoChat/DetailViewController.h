@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString * const STSMessagingServiceKeyword;
+
 @interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) id detailItem;
