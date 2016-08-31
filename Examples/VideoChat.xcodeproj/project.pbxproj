@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40A202371D77F93E00457359 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A202301D77F93E00457359 /* ChatViewController.m */; };
+		40A202381D77F93E00457359 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A202321D77F93E00457359 /* MessageTableViewCell.m */; };
+		40A202391D77F93E00457359 /* MessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A202341D77F93E00457359 /* MessageTextView.m */; };
+		40A2023A1D77F93E00457359 /* TypingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A202361D77F93E00457359 /* TypingIndicatorView.m */; };
 		40C779DC1D7091D0004F61CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C779DB1D7091D0004F61CA /* main.m */; };
 		40C779DF1D7091D0004F61CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C779DE1D7091D0004F61CA /* AppDelegate.m */; };
 		40C779E21D7091D0004F61CA /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C779E11D7091D0004F61CA /* MasterViewController.m */; };
@@ -18,6 +22,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		40A2022F1D77F93E00457359 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		40A202301D77F93E00457359 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		40A202311D77F93E00457359 /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
+		40A202321D77F93E00457359 /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
+		40A202331D77F93E00457359 /* MessageTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTextView.h; sourceTree = "<group>"; };
+		40A202341D77F93E00457359 /* MessageTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTextView.m; sourceTree = "<group>"; };
+		40A202351D77F93E00457359 /* TypingIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypingIndicatorView.h; sourceTree = "<group>"; };
+		40A202361D77F93E00457359 /* TypingIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypingIndicatorView.m; sourceTree = "<group>"; };
 		40C779D71D7091D0004F61CA /* VideoChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C779DB1D7091D0004F61CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		40C779DD1D7091D0004F61CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -47,6 +59,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40A2022E1D77F93E00457359 /* ChatRoom */ = {
+			isa = PBXGroup;
+			children = (
+				40A2022F1D77F93E00457359 /* ChatViewController.h */,
+				40A202301D77F93E00457359 /* ChatViewController.m */,
+				40A202311D77F93E00457359 /* MessageTableViewCell.h */,
+				40A202321D77F93E00457359 /* MessageTableViewCell.m */,
+				40A202331D77F93E00457359 /* MessageTextView.h */,
+				40A202341D77F93E00457359 /* MessageTextView.m */,
+				40A202351D77F93E00457359 /* TypingIndicatorView.h */,
+				40A202361D77F93E00457359 /* TypingIndicatorView.m */,
+			);
+			path = ChatRoom;
+			sourceTree = "<group>";
+		};
 		40C779CE1D7091D0004F61CA = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +95,7 @@
 		40C779D91D7091D0004F61CA /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				40A2022E1D77F93E00457359 /* ChatRoom */,
 				40C779DD1D7091D0004F61CA /* AppDelegate.h */,
 				40C779DE1D7091D0004F61CA /* AppDelegate.m */,
 				40C779E01D7091D0004F61CA /* MasterViewController.h */,
@@ -232,8 +260,12 @@
 			files = (
 				40C779DF1D7091D0004F61CA /* AppDelegate.m in Sources */,
 				40C779E21D7091D0004F61CA /* MasterViewController.m in Sources */,
+				40A202371D77F93E00457359 /* ChatViewController.m in Sources */,
+				40A2023A1D77F93E00457359 /* TypingIndicatorView.m in Sources */,
 				40C779DC1D7091D0004F61CA /* main.m in Sources */,
 				40C779E51D7091D0004F61CA /* DetailViewController.m in Sources */,
+				40A202391D77F93E00457359 /* MessageTextView.m in Sources */,
+				40A202381D77F93E00457359 /* MessageTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
