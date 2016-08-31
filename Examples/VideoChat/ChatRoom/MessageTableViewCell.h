@@ -20,6 +20,7 @@ static NSString *AutoCompletionCellIdentifier = @"AutoCompletionCell";
 @property (nonatomic, strong) UILabel *sideLabel;
 @property (nonatomic, strong) UILabel *bodyLabel;
 @property (nonatomic, strong) UIImageView *thumbnailView;
+@property (nonatomic, strong) UIView *separatorLineView;
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
 

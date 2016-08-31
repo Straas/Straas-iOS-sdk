@@ -29,11 +29,13 @@
     [self.contentView addSubview:self.titleLabel];
     [self.contentView addSubview:self.sideLabel];
     [self.contentView addSubview:self.bodyLabel];
+    [self.contentView addSubview:self.separatorLineView];
 
     NSDictionary *views = @{@"thumbnailView": self.thumbnailView,
                             @"titleLabel": self.titleLabel,
                             @"sideLabel": self.sideLabel,
                             @"bodyLabel": self.bodyLabel,
+                            @"lineView": self.separatorLineView,
                             };
     
     NSDictionary *metrics = @{@"tumbSize": @(kMessageTableViewCellAvatarHeight),
@@ -45,11 +47,13 @@
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-left-[thumbnailView(tumbSize)]-right-[titleLabel(>=0)]-right-|" options:0 metrics:metrics views:views]];
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-left-[thumbnailView(tumbSize)]-right-[bodyLabel(>=0)]-right-|" options:0 metrics:metrics views:views]];
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-right-[thumbnailView(tumbSize)]-(>=0)-|" options:0 metrics:metrics views:views]];
-    
+
     if ([self.reuseIdentifier isEqualToString:MessengerCellIdentifier]) {
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-right-[titleLabel(20)]-left-[bodyLabel(>=0@999)]-left-|" options:0 metrics:metrics views:views]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[sideLabel(36)]-padding-|" options:0 metrics:metrics views:views]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(12)-[sideLabel(16)]" options:0 metrics:metrics views:views]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[thumbnailView(tumbSize)]-right-[lineView(>=0)]-padding-|" options:0 metrics:metrics views:views]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[lineView(1)]-0-|" options:0 metrics:metrics views:views]];
     }
     else {
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[titleLabel]|" options:0 metrics:metrics views:views]];
@@ -131,6 +135,17 @@
         _thumbnailView.layer.masksToBounds = YES;
     }
     return _thumbnailView;
+}
+
+- (UIView *)separatorLineView {
+    if (!_separatorLineView) {
+        _separatorLineView = [UIView new];
+        _separatorLineView.translatesAutoresizingMaskIntoConstraints = NO;
+        _separatorLineView.userInteractionEnabled = NO;
+        CGFloat value = 111.0/256.0;
+        _separatorLineView.backgroundColor = [UIColor colorWithRed:value green:value blue:value alpha:0.12];
+    }
+    return _separatorLineView;
 }
 
 + (CGFloat)defaultFontSize
