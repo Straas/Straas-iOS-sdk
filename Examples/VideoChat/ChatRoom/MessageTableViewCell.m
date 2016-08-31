@@ -44,12 +44,12 @@
                               @"left": @5
                               };
     
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-left-[thumbnailView(tumbSize)]-right-[titleLabel(>=0)]-right-|" options:0 metrics:metrics views:views]];
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-left-[thumbnailView(tumbSize)]-right-[bodyLabel(>=0)]-right-|" options:0 metrics:metrics views:views]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[thumbnailView(tumbSize)]-right-[titleLabel(>=0)]-padding-|" options:0 metrics:metrics views:views]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[thumbnailView(tumbSize)]-right-[bodyLabel(>=0)]-padding-|" options:0 metrics:metrics views:views]];
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-right-[thumbnailView(tumbSize)]-(>=0)-|" options:0 metrics:metrics views:views]];
 
     if ([self.reuseIdentifier isEqualToString:MessengerCellIdentifier]) {
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-right-[titleLabel(20)]-left-[bodyLabel(>=0@999)]-left-|" options:0 metrics:metrics views:views]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-right-[titleLabel(20)]-left-[bodyLabel(>=0@999)]-right-|" options:0 metrics:metrics views:views]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[sideLabel(36)]-padding-|" options:0 metrics:metrics views:views]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(12)-[sideLabel(16)]" options:0 metrics:metrics views:views]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[thumbnailView(tumbSize)]-right-[lineView(>=0)]-padding-|" options:0 metrics:metrics views:views]];
@@ -150,7 +150,7 @@
 
 + (CGFloat)defaultFontSize
 {
-    CGFloat pointSize = 16.0;
+    CGFloat pointSize = 14.0;
     
     NSString *contentSizeCategory = [[UIApplication sharedApplication] preferredContentSizeCategory];
     pointSize += SLKPointSizeDifferenceForCategory(contentSizeCategory);

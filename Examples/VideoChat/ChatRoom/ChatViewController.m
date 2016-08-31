@@ -441,18 +441,16 @@
                                      NSParagraphStyleAttributeName: paragraphStyle};
 
         CGFloat width = CGRectGetWidth(tableView.frame)-kMessageTableViewCellAvatarHeight;
-        width -= 25.0;
+        width -= 40.0;
 
-        CGRect titleBounds = [message.creator.name boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:NULL];
         CGRect bodyBounds = [message.text boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:NULL];
 
         if (message.text.length == 0) {
             return 0.0;
         }
 
-        CGFloat height = CGRectGetHeight(titleBounds);
-        height += CGRectGetHeight(bodyBounds);
-        height += 40.0;
+        CGFloat height = CGRectGetHeight(bodyBounds);
+        height += 45.0;
 
         if (height < kMessageTableViewCellMinimumHeight) {
             height = kMessageTableViewCellMinimumHeight;

@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-static CGFloat kMessageTableViewCellMinimumHeight = 50.0;
-static CGFloat kMessageTableViewCellAvatarHeight = 30.0;
+static CGFloat kMessageTableViewCellMinimumHeight = 60.0;
+static CGFloat kMessageTableViewCellAvatarHeight = 40.0;
 
 static NSString *MessengerCellIdentifier = @"MessengerCell";
 static NSString *AutoCompletionCellIdentifier = @"AutoCompletionCell";
