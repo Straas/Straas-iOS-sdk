@@ -5,4 +5,5 @@ use_frameworks!
 
 target 'VideoChat' do
   pod 'SlackTextViewController'
+  pod 'StraaS-iOS-SDK'
 end
