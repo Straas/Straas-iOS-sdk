@@ -16,6 +16,8 @@
 
 @import StraaSMessagingSDK;
 
+#import "STSChatMessage+VideoChatUtility.h"
+
 #define DEBUG_CUSTOM_TYPING_INDICATOR 0
 
 @interface ChatViewController () <STSChatEventDelegate>
@@ -367,6 +369,7 @@
     }
     cell.thumbnailView.image = avator;
     cell.titleLabel.text = message.creator.name;
+    cell.sideLabel.text = message.shortCreatedDate;
     cell.bodyLabel.text = message.text;
 
     cell.indexPath = indexPath;

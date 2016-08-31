@@ -17,6 +17,7 @@ static NSString *AutoCompletionCellIdentifier = @"AutoCompletionCell";
 @interface MessageTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UILabel *sideLabel;
 @property (nonatomic, strong) UILabel *bodyLabel;
 @property (nonatomic, strong) UIImageView *thumbnailView;
 

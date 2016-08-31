@@ -27,10 +27,12 @@
 {
     [self.contentView addSubview:self.thumbnailView];
     [self.contentView addSubview:self.titleLabel];
+    [self.contentView addSubview:self.sideLabel];
     [self.contentView addSubview:self.bodyLabel];
 
     NSDictionary *views = @{@"thumbnailView": self.thumbnailView,
                             @"titleLabel": self.titleLabel,
+                            @"sideLabel": self.sideLabel,
                             @"bodyLabel": self.bodyLabel,
                             };
     
@@ -46,6 +48,8 @@
     
     if ([self.reuseIdentifier isEqualToString:MessengerCellIdentifier]) {
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-right-[titleLabel(20)]-left-[bodyLabel(>=0@999)]-left-|" options:0 metrics:metrics views:views]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[sideLabel(36)]-padding-|" options:0 metrics:metrics views:views]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(12)-[sideLabel(16)]" options:0 metrics:metrics views:views]];
     }
     else {
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[titleLabel]|" options:0 metrics:metrics views:views]];
@@ -61,9 +65,11 @@
     CGFloat pointSize = [MessageTableViewCell defaultFontSize];
     
     self.titleLabel.font = [UIFont boldSystemFontOfSize:pointSize];
+    self.sideLabel.font = [UIFont systemFontOfSize:12.0];
     self.bodyLabel.font = [UIFont systemFontOfSize:pointSize];
-    
+
     self.titleLabel.text = @"";
+    self.sideLabel.text = @"";
     self.bodyLabel.text = @"";
 
 }
@@ -82,6 +88,21 @@
         _titleLabel.font = [UIFont boldSystemFontOfSize:[MessageTableViewCell defaultFontSize]];
     }
     return _titleLabel;
+}
+
+- (UILabel *)sideLabel
+{
+    if (!_sideLabel) {
+        _sideLabel = [UILabel new];
+        _sideLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        _sideLabel.backgroundColor = [UIColor clearColor];
+        _sideLabel.userInteractionEnabled = NO;
+        _sideLabel.numberOfLines = 0;
+        _sideLabel.textColor = [UIColor colorWithWhite:0 alpha:0.54];
+        _sideLabel.font = [UIFont boldSystemFontOfSize:12.0];
+        _sideLabel.textAlignment = NSTextAlignmentRight;
+    }
+    return _sideLabel;
 }
 
 - (UILabel *)bodyLabel
