@@ -112,6 +112,7 @@
 
 - (void)configureStraaSMessaging {
     self.messages = [NSMutableArray array];
+    self.textView.editable = NO;
 
     [STSApplication configureApplication:^(BOOL success, NSError *error) {
         [self.manager connectToChannel:self.channelCode JWT:self.JWT autoCreate:YES eventDelegate:self];
@@ -144,6 +145,7 @@
     [self.manager getMessagesForChannel:channelCode success:^(NSArray<STSChatMessage *> * _Nonnull messages) {
         [weakSelf.messages addObjectsFromArray:messages];
         [weakSelf.tableView reloadData];
+        [weakSelf updateTextViewForChannel:channelCode];
     } failure:^(NSError * _Nonnull error) {
 
     }];
@@ -163,6 +165,7 @@
 }
 
 - (void)channelModeChanged:(NSString *)channelCode {
+    [self updateTextViewForChannel:channelCode];
 }
 
 - (void)channel:(NSString *)channelCode usersJoined:(NSArray<STSChatUser *> *)users {
@@ -205,6 +208,20 @@
 - (void)channelMessageFlushed:(NSString *)channelCode {
     [self.messages removeAllObjects];
     [self.tableView reloadData];
+}
+
+#pragma mark Event Handler
+
+- (void)updateTextViewForChannel:(NSString *)channelCode {
+    STSChatInputMode mode = [[self.manager chatForChannel:channelCode] mode];
+    if ((mode == STSChatInputNormal) ||
+        (mode == STSChatInputMember && self.JWT.length != 0)) {
+        self.textView.editable = YES;
+        self.textView.placeholder = @"Message";
+    } else {
+        self.textView.editable = NO;
+        self.textView.placeholder = @"Only member can send message";
+    }
 }
 
 
