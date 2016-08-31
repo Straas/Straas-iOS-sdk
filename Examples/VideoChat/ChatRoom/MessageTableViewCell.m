@@ -88,7 +88,7 @@
         _titleLabel.backgroundColor = [UIColor clearColor];
         _titleLabel.userInteractionEnabled = NO;
         _titleLabel.numberOfLines = 0;
-        _titleLabel.textColor = [UIColor grayColor];
+        _titleLabel.textColor = [UIColor colorWithWhite:0 alpha:0.87];
         _titleLabel.font = [UIFont boldSystemFontOfSize:[MessageTableViewCell defaultFontSize]];
     }
     return _titleLabel;
@@ -117,7 +117,7 @@
         _bodyLabel.backgroundColor = [UIColor clearColor];
         _bodyLabel.userInteractionEnabled = NO;
         _bodyLabel.numberOfLines = 0;
-        _bodyLabel.textColor = [UIColor darkGrayColor];
+        _bodyLabel.textColor = [UIColor colorWithWhite:0 alpha:0.54];
         _bodyLabel.font = [UIFont systemFontOfSize:[MessageTableViewCell defaultFontSize]];
     }
     return _bodyLabel;
