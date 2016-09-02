@@ -51,7 +51,7 @@ NSString * const STSMessagingServiceKeyword = @"StraaS.io chat room";
     constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|[chatRoom]|"
                                                           options:0 metrics:nil views:views];
     [NSLayoutConstraint activateConstraints:constraints];
-    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[chatRoom(480)]|"
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[chatRoom]|"
                                                           options:0 metrics:nil views:views];
     [NSLayoutConstraint activateConstraints:constraints];
     [self.view setNeedsLayout];
