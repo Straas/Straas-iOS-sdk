@@ -384,7 +384,9 @@
 
     UIImage * avator = [UIImage imageNamed:@"img-guest-photo"];
     if (message.creator.avatar) {
-        // TODO: fetch avator
+        NSURL * URL = [NSURL URLWithString:message.creator.avatar];
+        NSData * data = [[NSData alloc] initWithContentsOfURL:URL];
+        avator = [UIImage imageWithData:data];
     }
     cell.thumbnailView.image = avator;
     cell.titleLabel.text = message.creator.name;
