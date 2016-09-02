@@ -130,10 +130,12 @@
 }
 
 - (NSString *)channelCode {
+#warning It is a placeholder, should be replaced with an existing channel code.
     return @"Winterfell";
 }
 
 - (NSString *)JWT {
+#warning It is a placeholder, should be replaced with a CMS member JWT.
     return @"";
 }
 
