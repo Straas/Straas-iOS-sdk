@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		40A202371D77F93E00457359 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A202301D77F93E00457359 /* ChatViewController.m */; };
+		40A202381D77F93E00457359 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A202321D77F93E00457359 /* MessageTableViewCell.m */; };
+		40A202391D77F93E00457359 /* MessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A202341D77F93E00457359 /* MessageTextView.m */; };
+		40A2023A1D77F93E00457359 /* TypingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A202361D77F93E00457359 /* TypingIndicatorView.m */; };
+		40A202451D7804B400457359 /* STSChatMessage+VideoChatUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A202441D7804B400457359 /* STSChatMessage+VideoChatUtility.m */; };
+		40C779DC1D7091D0004F61CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C779DB1D7091D0004F61CA /* main.m */; };
+		40C779DF1D7091D0004F61CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C779DE1D7091D0004F61CA /* AppDelegate.m */; };
+		40C779E21D7091D0004F61CA /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C779E11D7091D0004F61CA /* MasterViewController.m */; };
+		40C779E51D7091D0004F61CA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C779E41D7091D0004F61CA /* DetailViewController.m */; };
+		40C779E81D7091D0004F61CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C779E61D7091D0004F61CA /* Main.storyboard */; };
+		40C779EA1D7091D0004F61CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C779E91D7091D0004F61CA /* Assets.xcassets */; };
+		40C779ED1D7091D0004F61CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C779EB1D7091D0004F61CA /* LaunchScreen.storyboard */; };
+		FADDAF509351485C7AE9DE21 /* Pods_VideoChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C2739ECC5559476005727D /* Pods_VideoChat.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		40A2022F1D77F93E00457359 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		40A202301D77F93E00457359 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		40A202311D77F93E00457359 /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
+		40A202321D77F93E00457359 /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
+		40A202331D77F93E00457359 /* MessageTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTextView.h; sourceTree = "<group>"; };
+		40A202341D77F93E00457359 /* MessageTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTextView.m; sourceTree = "<group>"; };
+		40A202351D77F93E00457359 /* TypingIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypingIndicatorView.h; sourceTree = "<group>"; };
+		40A202361D77F93E00457359 /* TypingIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypingIndicatorView.m; sourceTree = "<group>"; };
+		40A202431D7804B400457359 /* STSChatMessage+VideoChatUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "STSChatMessage+VideoChatUtility.h"; sourceTree = "<group>"; };
+		40A202441D7804B400457359 /* STSChatMessage+VideoChatUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "STSChatMessage+VideoChatUtility.m"; sourceTree = "<group>"; };
+		40C779D71D7091D0004F61CA /* VideoChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		40C779DB1D7091D0004F61CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		40C779DD1D7091D0004F61CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		40C779DE1D7091D0004F61CA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		40C779E01D7091D0004F61CA /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		40C779E11D7091D0004F61CA /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		40C779E31D7091D0004F61CA /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		40C779E41D7091D0004F61CA /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		40C779E71D7091D0004F61CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		40C779E91D7091D0004F61CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		40C779EC1D7091D0004F61CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		40C779EE1D7091D0004F61CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64C2739ECC5559476005727D /* Pods_VideoChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC14F7612121694672BF11EF /* Pods-VideoChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoChat/Pods-VideoChat.release.xcconfig"; sourceTree = "<group>"; };
+		F926D33A69130242491380A6 /* Pods-VideoChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoChat/Pods-VideoChat.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		40C779D41D7091D0004F61CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FADDAF509351485C7AE9DE21 /* Pods_VideoChat.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		40A2022E1D77F93E00457359 /* ChatRoom */ = {
+			isa = PBXGroup;
+			children = (
+				40A202431D7804B400457359 /* STSChatMessage+VideoChatUtility.h */,
+				40A202441D7804B400457359 /* STSChatMessage+VideoChatUtility.m */,
+				40A2022F1D77F93E00457359 /* ChatViewController.h */,
+				40A202301D77F93E00457359 /* ChatViewController.m */,
+				40A202311D77F93E00457359 /* MessageTableViewCell.h */,
+				40A202321D77F93E00457359 /* MessageTableViewCell.m */,
+				40A202331D77F93E00457359 /* MessageTextView.h */,
+				40A202341D77F93E00457359 /* MessageTextView.m */,
+				40A202351D77F93E00457359 /* TypingIndicatorView.h */,
+				40A202361D77F93E00457359 /* TypingIndicatorView.m */,
+			);
+			path = ChatRoom;
+			sourceTree = "<group>";
+		};
+		40C779CE1D7091D0004F61CA = {
+			isa = PBXGroup;
+			children = (
+				40C779D91D7091D0004F61CA /* Examples */,
+				40C779D81D7091D0004F61CA /* Products */,
+				A97E121124F4149BF9610B16 /* Pods */,
+				D28A08C5EF5AE8A8A86EB5C4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		40C779D81D7091D0004F61CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				40C779D71D7091D0004F61CA /* VideoChat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		40C779D91D7091D0004F61CA /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				40A2022E1D77F93E00457359 /* ChatRoom */,
+				40C779DD1D7091D0004F61CA /* AppDelegate.h */,
+				40C779DE1D7091D0004F61CA /* AppDelegate.m */,
+				40C779E01D7091D0004F61CA /* MasterViewController.h */,
+				40C779E11D7091D0004F61CA /* MasterViewController.m */,
+				40C779E31D7091D0004F61CA /* DetailViewController.h */,
+				40C779E41D7091D0004F61CA /* DetailViewController.m */,
+				40C779E61D7091D0004F61CA /* Main.storyboard */,
+				40C779E91D7091D0004F61CA /* Assets.xcassets */,
+				40C779EB1D7091D0004F61CA /* LaunchScreen.storyboard */,
+				40C779EE1D7091D0004F61CA /* Info.plist */,
+				40C779DA1D7091D0004F61CA /* Supporting Files */,
+			);
+			name = Examples;
+			path = VideoChat;
+			sourceTree = "<group>";
+		};
+		40C779DA1D7091D0004F61CA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				40C779DB1D7091D0004F61CA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A97E121124F4149BF9610B16 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F926D33A69130242491380A6 /* Pods-VideoChat.debug.xcconfig */,
+				EC14F7612121694672BF11EF /* Pods-VideoChat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D28A08C5EF5AE8A8A86EB5C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				64C2739ECC5559476005727D /* Pods_VideoChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		40C779D61D7091D0004F61CA /* VideoChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40C779F11D7091D0004F61CA /* Build configuration list for PBXNativeTarget "VideoChat" */;
+			buildPhases = (
+				4EC5C0177EF5A9239F156B15 /* [CP] Check Pods Manifest.lock */,
+				40C779D31D7091D0004F61CA /* Sources */,
+				40C779D41D7091D0004F61CA /* Frameworks */,
+				40C779D51D7091D0004F61CA /* Resources */,
+				BD2228DD8E56EE5D40E8F00C /* [CP] Embed Pods Frameworks */,
+				40254B0CD113DC5156F5EF90 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VideoChat;
+			productName = Example;
+			productReference = 40C779D71D7091D0004F61CA /* VideoChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		40C779CF1D7091D0004F61CA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = StraaS.io;
+				TargetAttributes = {
+					40C779D61D7091D0004F61CA = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 40C779D21D7091D0004F61CA /* Build configuration list for PBXProject "VideoChat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 40C779CE1D7091D0004F61CA;
+			productRefGroup = 40C779D81D7091D0004F61CA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				40C779D61D7091D0004F61CA /* VideoChat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		40C779D51D7091D0004F61CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40C779ED1D7091D0004F61CA /* LaunchScreen.storyboard in Resources */,
+				40C779EA1D7091D0004F61CA /* Assets.xcassets in Resources */,
+				40C779E81D7091D0004F61CA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		40254B0CD113DC5156F5EF90 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VideoChat/Pods-VideoChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4EC5C0177EF5A9239F156B15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BD2228DD8E56EE5D40E8F00C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VideoChat/Pods-VideoChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		40C779D31D7091D0004F61CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40C779DF1D7091D0004F61CA /* AppDelegate.m in Sources */,
+				40C779E21D7091D0004F61CA /* MasterViewController.m in Sources */,
+				40A202371D77F93E00457359 /* ChatViewController.m in Sources */,
+				40A2023A1D77F93E00457359 /* TypingIndicatorView.m in Sources */,
+				40A202451D7804B400457359 /* STSChatMessage+VideoChatUtility.m in Sources */,
+				40C779DC1D7091D0004F61CA /* main.m in Sources */,
+				40C779E51D7091D0004F61CA /* DetailViewController.m in Sources */,
+				40A202391D77F93E00457359 /* MessageTextView.m in Sources */,
+				40A202381D77F93E00457359 /* MessageTableViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		40C779E61D7091D0004F61CA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				40C779E71D7091D0004F61CA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		40C779EB1D7091D0004F61CA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				40C779EC1D7091D0004F61CA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		40C779EF1D7091D0004F61CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		40C779F01D7091D0004F61CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		40C779F21D7091D0004F61CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F926D33A69130242491380A6 /* Pods-VideoChat.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/VideoChat/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.straas.VideoChat;
+				PRODUCT_NAME = VideoChat;
+			};
+			name = Debug;
+		};
+		40C779F31D7091D0004F61CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC14F7612121694672BF11EF /* Pods-VideoChat.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/VideoChat/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.straas.VideoChat;
+				PRODUCT_NAME = VideoChat;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		40C779D21D7091D0004F61CA /* Build configuration list for PBXProject "VideoChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40C779EF1D7091D0004F61CA /* Debug */,
+				40C779F01D7091D0004F61CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40C779F11D7091D0004F61CA /* Build configuration list for PBXNativeTarget "VideoChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40C779F21D7091D0004F61CA /* Debug */,
+				40C779F31D7091D0004F61CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 40C779CF1D7091D0004F61CA /* Project object */;
+}
