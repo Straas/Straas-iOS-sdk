@@ -27,7 +27,7 @@
 @property (nonatomic, strong) NSArray *searchResult;
 
 @property (nonatomic) STSChatManager * manager;
-@property (nonatomic) NSString * channelCode;
+@property (nonatomic) NSString * chatRoomName;
 @property (nonatomic) NSString * JWT;
 
 @end
@@ -115,9 +115,9 @@
     self.textView.editable = NO;
 
     [STSApplication configureApplication:^(BOOL success, NSError *error) {
-        [self.manager connectToChannel:self.channelCode JWT:self.JWT autoCreate:YES eventDelegate:self];
+        [self.manager connectToChatRoom:self.chatRoomName JWT:self.JWT autoCreate:YES eventDelegate:self];
         dispatch_after(dispatch_time(DISPATCH_TIME_FOREVER, (int64_t)(15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.manager disconnectFromChannel:self.channelCode];
+            [self.manager disconnectFromChatRoom:self.chatRoomName];
         });
     }];
 }
@@ -129,7 +129,7 @@
     return _manager;
 }
 
-- (NSString *)channelCode {
+- (NSString *)chatRoomName {
 #warning It is a placeholder, should be replaced with an existing channel code.
     return @"Winterfell";
 }
@@ -141,52 +141,52 @@
 
 #pragma mark STSChatEventDelegate
 
-- (void)channelConnected:(NSString *)channelCode {
-    NSLog(@"\"%@\" connected", channelCode);
+- (void)chatRoomConnected:(NSString *)chatRoomName {
+    NSLog(@"\"%@\" connected", chatRoomName);
     __weak ChatViewController * weakSelf = self;
-    [self.manager getMessagesForChannel:channelCode success:^(NSArray<STSChatMessage *> * _Nonnull messages) {
+    [self.manager getMessagesForChatRoom:chatRoomName success:^(NSArray<STSChatMessage *> * _Nonnull messages) {
         [weakSelf.messages addObjectsFromArray:messages];
         [weakSelf.tableView reloadData];
-        [weakSelf updateTextViewForChannel:channelCode];
+        [weakSelf updateTextViewForChatRoom:chatRoomName];
     } failure:^(NSError * _Nonnull error) {
 
     }];
 }
 
-- (void)channelDisconnected:(NSString *)channelCode {
-    NSLog(@"\"%@\" disconnected", channelCode);
+- (void)chatRoomDisconnected:(NSString *)chatRoomName {
+    NSLog(@"\"%@\" disconnected", chatRoomName);
 }
 
-- (void)channel:(NSString *)channelCode failToConnect:(NSError *)error {
-    NSLog(@"\"%@\" fail to connect", channelCode);
+- (void)chatRoom:(NSString *)chatRoomName failToConnect:(NSError *)error {
+    NSLog(@"\"%@\" fail to connect", chatRoomName);
     NSLog(@"%@", error);
 }
 
-- (void)channel:(NSString *)channelCode error:(NSError *)error {
+- (void)chatRoom:(NSString *)chatRoomName error:(NSError *)error {
     NSLog(@"%@", error);
 }
 
-- (void)channelModeChanged:(NSString *)channelCode {
-    [self updateTextViewForChannel:channelCode];
+- (void)chatRoomInputModeChanged:(NSString *)chatRoomName {
+    [self updateTextViewForChatRoom:chatRoomName];
 }
 
-- (void)channel:(NSString *)channelCode usersJoined:(NSArray<STSChatUser *> *)users {
-    NSLog(@"%@ joined %@", users, channelCode);
+- (void)chatRoom:(NSString *)chatRoomName usersJoined:(NSArray<STSChatUser *> *)users {
+    NSLog(@"%@ joined %@", users, chatRoomName);
 }
 
-- (void)channel:(NSString *)channelCode usersUpdated:(NSArray<STSChatUser *> *)users {
-    NSLog(@"%@ updated in %@", users, channelCode);
+- (void)chatRoom:(NSString *)chatRoomName usersUpdated:(NSArray<STSChatUser *> *)users {
+    NSLog(@"%@ updated in %@", users, chatRoomName);
 }
 
-- (void)channel:(NSString *)channelCode usersLeft:(NSArray<NSNumber *> *)userLabels {
-    NSLog(@"%@ left %@", userLabels, channelCode);
+- (void)chatRoom:(NSString *)chatRoomName usersLeft:(NSArray<NSNumber *> *)userLabels {
+    NSLog(@"%@ left %@", userLabels, chatRoomName);
 }
 
-- (void)channelUserCount:(NSString *)channelCode {
-    NSLog(@"%@ user count", channelCode);
+- (void)chatRoomUserCount:(NSString *)chatRoomName {
+    NSLog(@"%@ user count", chatRoomName);
 }
 
-- (void)channel:(NSString *)channelCode messageAdded:(STSChatMessage *)message {
+- (void)chatRoom:(NSString *)chatRoomName messageAdded:(STSChatMessage *)message {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     UITableViewRowAnimation rowAnimation = self.inverted ? UITableViewRowAnimationBottom : UITableViewRowAnimationTop;
     UITableViewScrollPosition scrollPosition = self.inverted ? UITableViewScrollPositionBottom : UITableViewScrollPositionTop;
@@ -203,19 +203,19 @@
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-- (void)channel:(NSString *)channelCode messageRemoved:(NSString *)messageId {
+- (void)chatRoom:(NSString *)chatRoomName messageRemoved:(NSString *)messageId {
 
 }
 
-- (void)channelMessageFlushed:(NSString *)channelCode {
+- (void)chatRoomMessageFlushed:(NSString *)chatRoomName {
     [self.messages removeAllObjects];
     [self.tableView reloadData];
 }
 
 #pragma mark Event Handler
 
-- (void)updateTextViewForChannel:(NSString *)channelCode {
-    STSChatInputMode mode = [[self.manager chatForChannel:channelCode] mode];
+- (void)updateTextViewForChatRoom:(NSString *)chatRoomName {
+    STSChatInputMode mode = [[self.manager chatForChatRoom:chatRoomName] mode];
     if ((mode == STSChatInputNormal) ||
         (mode == STSChatInputMember && self.JWT.length != 0)) {
         self.textView.editable = YES;
@@ -255,7 +255,7 @@
 {
     [self.textView resignFirstResponder];
 
-    [self.manager sendMessage:[self.textView.text copy] channel:self.channelCode success:^{
+    [self.manager sendMessage:[self.textView.text copy] chatRoom:self.chatRoomName success:^{
 
     } failure:^(NSError * _Nonnull error) {
 
@@ -283,7 +283,7 @@
 
 - (BOOL)canPressRightButton
 {
-    STSChatInputMode mode = [[self.manager chatForChannel:self.channelCode] mode];
+    STSChatInputMode mode = [[self.manager chatForChatRoom:self.chatRoomName] mode];
     return ((mode == STSChatInputNormal) ||
             (mode == STSChatInputMember && self.JWT.length != 0));
 }
@@ -489,7 +489,7 @@
 
 - (void)dealloc
 {
-    [self.manager disconnectFromChannel:self.channelCode];
+    [self.manager disconnectFromChatRoom:self.chatRoomName];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
