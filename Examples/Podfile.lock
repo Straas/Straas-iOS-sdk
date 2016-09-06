@@ -16,9 +16,9 @@ PODS:
     - AFNetworking/NSURLSession
   - SlackTextViewController (1.9.4)
   - Socket.IO-Client-Swift (6.1.6)
-  - StraaS-iOS-SDK (0.1.0):
-    - StraaS-iOS-SDK/Messaging (= 0.1.0)
-  - StraaS-iOS-SDK/Messaging (0.1.0):
+  - StraaS-iOS-SDK (0.2.0):
+    - StraaS-iOS-SDK/Messaging (= 0.2.0)
+  - StraaS-iOS-SDK/Messaging (0.2.0):
     - AFNetworking (~> 3.1)
     - Socket.IO-Client-Swift (~> 6.1)
 
@@ -30,7 +30,7 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   SlackTextViewController: d490f354dba963bc469a6b9ce3213978eaed67a5
   Socket.IO-Client-Swift: 5eddbfafd3c035a77d365d5b58da93cc488af11f
-  StraaS-iOS-SDK: b845e075ec23c5e7970017147a9ca448bc759b2d
+  StraaS-iOS-SDK: a73403b2ec9d8573d58687843204fd076323cce8
 
 PODFILE CHECKSUM: 291a22bcaaa78c95d93968decfc57ee94aee7dce
 
