@@ -17,6 +17,7 @@
 @import StraaSMessagingSDK;
 
 #import "STSChatMessage+VideoChatUtility.h"
+#import "UIAlertController+VideoChatUtility.h"
 
 #define DEBUG_CUSTOM_TYPING_INDICATOR 0
 
@@ -216,8 +217,15 @@
 
 - (void)updateTextViewForChatRoom:(NSString *)chatRoomName {
     STSChatInputMode mode = [[self.manager chatForChatRoom:chatRoomName] mode];
-    if ((mode == STSChatInputNormal) ||
-        (mode == STSChatInputMember && self.JWT.length != 0)) {
+    if (mode == STSChatInputNormal
+        && self.JWT.length == 0) {
+        self.textView.editable = YES;
+        if ([self.currentUsername isEqualToString:@"Guest"]) {
+            self.textView.placeholder = @"Please enter your nickname";
+        } else {
+            self.textView.placeholder = @"Message";
+        }
+    } else if (mode == STSChatInputMember && self.JWT.length != 0) {
         self.textView.editable = YES;
         self.textView.placeholder = @"Message";
     } else {
@@ -244,7 +252,9 @@
     // Notifies the view controller that the keyboard changed status.
     
     switch (status) {
-        case SLKKeyboardStatusWillShow:     return NSLog(@"Will Show");
+        case SLKKeyboardStatusWillShow:
+            [self keyboardWillShow];
+            return NSLog(@"Will Show");
         case SLKKeyboardStatusDidShow:      return NSLog(@"Did Show");
         case SLKKeyboardStatusWillHide:     return NSLog(@"Will Hide");
         case SLKKeyboardStatusDidHide:      return NSLog(@"Did Hide");
@@ -312,6 +322,50 @@
     return cellHeight*self.searchResult.count;
 }
 
+#pragma mark - private custom method
+- (void)keyboardWillShow {
+    if ([self currentUserIsGuest]) {
+        [self presentNicknameInputView];
+    }
+}
+
+- (void)presentNicknameInputView {
+    [self.textView resignFirstResponder];
+    __weak ChatViewController * weakSelf = self;
+    void (^cancelHander)(UIAlertAction *) = ^(UIAlertAction * action) {
+        NSLog(@"update canceled");
+    };
+    void (^confirmHander)(UIAlertAction *, NSString *) = ^(UIAlertAction * action, NSString * nickName) {
+        if ([nickName isEqualToString:@""] || [nickName isEqualToString:@"Guest"]) {
+            NSLog(@"nickname update invalid");
+            return ;
+        }
+        [weakSelf.manager updateGuestNickname:nickName
+                                     chatRoom:weakSelf.chatRoomName
+                                      success:^{
+                                          [weakSelf.textView becomeFirstResponder];
+                                          [weakSelf updateTextViewForChatRoom:weakSelf.chatRoomName];
+                                          NSLog(@"update nickname success");
+                                      } failure:^(NSError * _Nonnull error) {
+                                          UIAlertController * failureController =
+                                          [UIAlertController alertControllerWithTitle:@" Failed to get nickname"
+                                                                              message:@"oops, it seem like you failed update nickname for some reason. Try to update again later."
+                                                                 confirmActionHandler:nil];
+                                          [weakSelf presentViewController:failureController animated:YES completion:nil];
+                                          NSLog(@"update nickname failure with error: %@", error);
+                                      }];
+    };
+    UIAlertController * alertController = [UIAlertController nicknameAlertControllerWithCurrentNickname:weakSelf.currentUsername cancelActionHandler:cancelHander confirmActionHandler:confirmHander];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+- (NSString *)currentUsername {
+    return [[self.manager currentUserForChatRoom:self.chatRoomName] name];
+}
+- (BOOL)currentUserIsGuest {
+    NSString * currentUser = [self currentUsername];
+    //Guest is the default unLogging user nickname
+    return [currentUser isEqual:@"Guest"] && [self.JWT isEqualToString:@""];
+}
 
 #pragma mark - SLKTextViewDelegate Methods
 
