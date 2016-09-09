@@ -221,7 +221,7 @@
         && self.JWT.length == 0) {
         self.textView.editable = YES;
         if ([self.currentUsername isEqualToString:@"Guest"]) {
-            self.textView.placeholder = @"Please enter your nickname";
+            self.textView.placeholder = @"Please Enter a Nickname";
         } else {
             self.textView.placeholder = @"Message";
         }
@@ -252,9 +252,7 @@
     // Notifies the view controller that the keyboard changed status.
     
     switch (status) {
-        case SLKKeyboardStatusWillShow:
-            [self keyboardWillShow];
-            return NSLog(@"Will Show");
+        case SLKKeyboardStatusWillShow:     return NSLog(@"Will Show");
         case SLKKeyboardStatusDidShow:      return NSLog(@"Did Show");
         case SLKKeyboardStatusWillHide:     return NSLog(@"Will Hide");
         case SLKKeyboardStatusDidHide:      return NSLog(@"Did Hide");
@@ -323,12 +321,6 @@
 }
 
 #pragma mark - private custom method
-- (void)keyboardWillShow {
-    if ([self currentUserIsGuest]) {
-        [self presentNicknameInputView];
-    }
-}
-
 - (void)presentNicknameInputView {
     [self.textView resignFirstResponder];
     __weak ChatViewController * weakSelf = self;
@@ -348,8 +340,8 @@
                                           NSLog(@"update nickname success");
                                       } failure:^(NSError * _Nonnull error) {
                                           UIAlertController * failureController =
-                                          [UIAlertController alertControllerWithTitle:@" Failed to get nickname"
-                                                                              message:@"oops, it seem like you failed update nickname for some reason. Try to update again later."
+                                          [UIAlertController alertControllerWithTitle:@"Failed to set nickname."
+                                                                              message:@"oops, it seems that you failed to update nickname for some reason. Try to update again later."
                                                                  confirmActionHandler:nil];
                                           [weakSelf presentViewController:failureController animated:YES completion:nil];
                                           NSLog(@"update nickname failure with error: %@", error);
@@ -361,7 +353,7 @@
 - (NSString *)currentUsername {
     return [[self.manager currentUserForChatRoom:self.chatRoomName] name];
 }
-- (BOOL)currentUserIsGuest {
+- (BOOL)isGuestNeedsNickname {
     NSString * currentUser = [self currentUsername];
     //Guest is the default unLogging user nickname
     return [currentUser isEqual:@"Guest"] && [self.JWT isEqualToString:@""];
@@ -402,6 +394,13 @@
     return [super textView:textView shouldInsertSuffixForFormattingWithSymbol:symbol prefixRange:prefixRange];
 }
 
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    if ([textView isEqual:self.textView] && [self isGuestNeedsNickname]) {
+        [self presentNicknameInputView];
+        return NO;
+    }
+    return YES;
+}
 
 #pragma mark - UITableViewDataSource Methods
 
