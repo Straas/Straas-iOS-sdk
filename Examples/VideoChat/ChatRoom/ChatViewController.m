@@ -17,6 +17,7 @@
 @import StraaSMessagingSDK;
 
 #import "STSChatMessage+VideoChatUtility.h"
+#import "UIAlertController+VideoChatUtility.h"
 
 #define DEBUG_CUSTOM_TYPING_INDICATOR 0
 
@@ -30,6 +31,7 @@
 @property (nonatomic) NSString * chatRoomName;
 @property (nonatomic) NSString * JWT;
 
+@property (nonatomic, getter=hasUpdatedNickname) BOOL updatedNickname;
 @end
 
 @implementation ChatViewController
@@ -216,16 +218,23 @@
 
 - (void)updateTextViewForChatRoom:(NSString *)chatRoomName {
     STSChatInputMode mode = [[self.manager chatForChatRoom:chatRoomName] mode];
-    if ((mode == STSChatInputNormal) ||
-        (mode == STSChatInputMember && self.JWT.length != 0)) {
+    if (mode == STSChatInputNormal) {
+        self.textView.editable = YES;
+        if ([self needsNickname]) {
+            self.textView.placeholder = @"Please Enter a Nickname";
+        } else {
+            self.textView.placeholder = @"Message";
+        }
+        return;
+    }
+    if (mode == STSChatInputMember && self.JWT.length != 0) {
         self.textView.editable = YES;
         self.textView.placeholder = @"Message";
-    } else {
-        self.textView.editable = NO;
-        self.textView.placeholder = @"Only member can send message";
+        return;
     }
+    self.textView.editable = NO;
+    self.textView.placeholder = @"Only member can send message";
 }
-
 
 #pragma mark - Overriden Methods
 
@@ -312,6 +321,44 @@
     return cellHeight*self.searchResult.count;
 }
 
+#pragma mark - private custom method
+- (void)presentNicknameInputView {
+    [self.textView resignFirstResponder];
+    __weak ChatViewController * weakSelf = self;
+    void (^cancelHander)(UIAlertAction *) = ^(UIAlertAction * action) {
+        NSLog(@"update canceled");
+    };
+    void (^confirmHander)(UIAlertAction *, NSString *) = ^(UIAlertAction * action, NSString * nickName) {
+        if ([nickName isEqualToString:@""]) {
+            NSLog(@"nickname update invalid");
+            return ;
+        }
+        [weakSelf.manager updateGuestNickname:nickName
+                                     chatRoom:weakSelf.chatRoomName
+                                      success:^{
+                                          [weakSelf.textView becomeFirstResponder];
+                                          [weakSelf updateTextViewForChatRoom:weakSelf.chatRoomName];
+                                          weakSelf.updatedNickname = YES;
+                                          NSLog(@"update nickname success");
+                                      } failure:^(NSError * _Nonnull error) {
+                                          UIAlertController * failureController =
+                                          [UIAlertController alertControllerWithTitle:@"Failed to set nickname."
+                                                                              message:@"Oops, it seems that you failed to update nickname for some reason. Try to update again later."
+                                                                 confirmActionHandler:nil];
+                                          [weakSelf presentViewController:failureController animated:YES completion:nil];
+                                          NSLog(@"update nickname failure with error: %@", error);
+                                      }];
+    };
+    UIAlertController * alertController = [UIAlertController nicknameAlertControllerWithCurrentNickname:weakSelf.currentUsername cancelActionHandler:cancelHander confirmActionHandler:confirmHander];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+- (NSString *)currentUsername {
+    return [[self.manager currentUserForChatRoom:self.chatRoomName] name];
+}
+
+- (BOOL)needsNickname {
+    return !self.hasUpdatedNickname && self.JWT.length == 0;
+}
 
 #pragma mark - SLKTextViewDelegate Methods
 
@@ -348,6 +395,13 @@
     return [super textView:textView shouldInsertSuffixForFormattingWithSymbol:symbol prefixRange:prefixRange];
 }
 
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    if ([self needsNickname]) {
+        [self presentNicknameInputView];
+        return NO;
+    }
+    return YES;
+}
 
 #pragma mark - UITableViewDataSource Methods
 
