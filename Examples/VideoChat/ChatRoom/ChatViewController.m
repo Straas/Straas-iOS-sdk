@@ -336,9 +336,9 @@
         [weakSelf.manager updateGuestNickname:nickName
                                      chatRoom:weakSelf.chatRoomName
                                       success:^{
+                                          weakSelf.updatedNickname = YES;
                                           [weakSelf.textView becomeFirstResponder];
                                           [weakSelf updateTextViewForChatRoom:weakSelf.chatRoomName];
-                                          weakSelf.updatedNickname = YES;
                                           NSLog(@"update nickname success");
                                       } failure:^(NSError * _Nonnull error) {
                                           UIAlertController * failureController =
