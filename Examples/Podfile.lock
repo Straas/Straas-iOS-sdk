@@ -15,23 +15,23 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - SlackTextViewController (1.9.4)
-  - Socket.IO-Client-Swift (6.1.6)
-  - StraaS-iOS-SDK (0.2.0):
-    - StraaS-iOS-SDK/Messaging (= 0.2.0)
-  - StraaS-iOS-SDK/Messaging (0.2.0):
+  - Socket.IO-Client-Swift (8.0.0)
+  - StraaS-iOS-SDK (0.3.0):
+    - StraaS-iOS-SDK/Messaging (= 0.3.0)
+  - StraaS-iOS-SDK/Messaging (0.3.0):
     - AFNetworking (~> 3.1)
-    - Socket.IO-Client-Swift (~> 6.1)
+    - Socket.IO-Client-Swift (~> 8.0)
 
 DEPENDENCIES:
   - SlackTextViewController
-  - StraaS-iOS-SDK (~> 0.2.0)
+  - StraaS-iOS-SDK (~> 0.3.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   SlackTextViewController: d490f354dba963bc469a6b9ce3213978eaed67a5
-  Socket.IO-Client-Swift: 5eddbfafd3c035a77d365d5b58da93cc488af11f
-  StraaS-iOS-SDK: a73403b2ec9d8573d58687843204fd076323cce8
+  Socket.IO-Client-Swift: b5f6c274ad849b2b73717546dcf29d48ead707eb
+  StraaS-iOS-SDK: d667a196af963b5f45bbc81214380bdb31bb2aaf
 
-PODFILE CHECKSUM: a818b3e5efd3016755da0aa4e91a5c82f2f817cf
+PODFILE CHECKSUM: 321981a2013188d29a4d635a1e01bb055bc03cc1
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.0.rc.2
