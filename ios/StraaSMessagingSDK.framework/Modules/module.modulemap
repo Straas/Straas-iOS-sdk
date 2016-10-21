@@ -1,0 +1,6 @@
+framework module StraaSMessagingSDK {
+  umbrella header "StraaSMessagingSDK.h"
+
+  export *
+  module * { export * }
+}
