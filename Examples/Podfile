@@ -13,5 +13,5 @@ end
 
 target 'VideoChat' do
   pod 'SlackTextViewController'
-  pod 'StraaS-iOS-SDK', '~> 0.3.0'
+  pod 'StraaS-iOS-SDK', :path=>'../'
 end
