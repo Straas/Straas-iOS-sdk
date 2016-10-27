@@ -131,9 +131,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param JWT           User identity information. For StraaS.io CMS member, a member JWT should be
                          used here. Use an empty string to represent guest. Don't pass nil or this
                          method return early.
- *  @param autoCreate    Create a new chat room or not, if the chat room ID can not be found. Note:
-                         auto-create feature needs to be enabled by the server side. Please contact
-                         StraaS.io support for further information.
+ *  @param autoCreate    Create a new chat room or not, if the chat room name can not be found. Note:
+                         auto-create feature only succeed to create chat while chatRoomName is the
+                         current member's id. Otherwise, create chat will fail.
  *  @param eventDelegate Chat event delegate. Chat manager not retain this delegate.
  */
 - (void)connectToChatRoom:(NSString *)chatRoomName JWT:(NSString *)JWT autoCreate:(BOOL)autoCreate
@@ -156,7 +156,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)getUsersForChatRoom:(NSString *)chatRoomName
                     success:(void(^)(NSArray<STSChatUser *> * users))success
-                    failure:(void(^)(NSError *))failure;
+                    failure:(void(^)(NSError * error))failure;
 
 /**
  *  Get chat room messages, maximum 100 messages.
@@ -168,7 +168,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)getMessagesForChatRoom:(NSString *)chatRoomName
                        success:(void(^)(NSArray<STSChatMessage *> * messages))success
-                       failure:(void(^)(NSError *))failure;
+                       failure:(void(^)(NSError * error))failure;
 
 /**
  *  Update nickname for guest user.

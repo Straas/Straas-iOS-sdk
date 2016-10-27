@@ -52,14 +52,9 @@ typedef NS_ENUM(NSUInteger, STSChatInputMode) {
 @property (nonatomic, readonly) NSString * channelCode;
 
 /**
- *  Total member number of this chat.
+ *  Total user number of this chat.
  */
-@property (nonatomic, readonly) NSUInteger memberCount;
-
-/**
- *  Total guest number of this chat.
- */
-@property (nonatomic, readonly) NSUInteger guestCount;
+@property (nonatomic, readonly) NSInteger userCount;
 
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;

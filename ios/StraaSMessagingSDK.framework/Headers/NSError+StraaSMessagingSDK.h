@@ -65,7 +65,7 @@ typedef NS_ENUM(NSUInteger, STSMSGErrorCode) {
      */
     STSMSGErrorCodeServer,
     /**
-     *  SDK internal error happened, please tra again or report issue.
+     *  SDK internal error happened, please try again or report issue.
      */
     STSMSGErrorCodeInternal,
 };
