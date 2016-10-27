@@ -15,6 +15,7 @@
 #import "TypingIndicatorView.h"
 
 @import StraaSMessagingSDK;
+@import StraaSCoreSDK;
 
 #import "STSChatMessage+VideoChatUtility.h"
 #import "UIAlertController+VideoChatUtility.h"
