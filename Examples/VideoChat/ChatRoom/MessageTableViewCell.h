@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+static CGFloat kStickerTableViewCellHeight = 115.0;
 static CGFloat kMessageTableViewCellMinimumHeight = 60.0;
 static CGFloat kMessageTableViewCellAvatarHeight = 40.0;
 
 static NSString *MessengerCellIdentifier = @"MessengerCell";
+static NSString *StickerCellIdentifier = @"StickerCell";
 static NSString *AutoCompletionCellIdentifier = @"AutoCompletionCell";
+
 
 @interface MessageTableViewCell : UITableViewCell
 
@@ -20,6 +23,7 @@ static NSString *AutoCompletionCellIdentifier = @"AutoCompletionCell";
 @property (nonatomic, strong) UILabel *sideLabel;
 @property (nonatomic, strong) UILabel *bodyLabel;
 @property (nonatomic, strong) UIImageView *thumbnailView;
+@property (nonatomic, strong) UIImageView * stickerImageView;
 @property (nonatomic, strong) UIView *separatorLineView;
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
