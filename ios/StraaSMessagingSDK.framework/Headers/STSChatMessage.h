@@ -10,6 +10,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ *  The type of the message.
+ */
+typedef NS_ENUM(NSInteger, STSChatMesssageType) {
+    /**
+     *  The message text type.
+     */
+    STSChatMessageTypeText,
+    /**
+     *  The message sticker type.
+     */
+    STSChatMessageTypeSticker,
+};
+
 @class STSChatUser;
 
 /**
@@ -21,6 +35,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Message body.
  */
 @property (nonatomic, readonly) NSString * text;
+
+/**
+ *  Chat message type.
+ */
+@property (nonatomic, readonly) STSChatMesssageType type;
 
 /**
  *  Message create time.
@@ -39,6 +58,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
+
+@end
+
+/**
+ *  Chat room message sticker category. The property is only valid when message is sent for sticker.
+ */
+@interface STSChatMessage (sticker)
+
+/**
+ *  The sticker image url.
+ */
+@property (nonatomic, readonly) NSURL * stickerURL;
 
 @end
 
