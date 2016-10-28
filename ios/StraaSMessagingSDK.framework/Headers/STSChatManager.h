@@ -83,7 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)chatRoom:(NSString *)chatRoomName usersLeft:(NSArray<NSNumber *> *)userLabels;
 
 /**
- *  User count updated for chat room. Please check the chat object for new user count.
+ *  User count updated for chat room. Please check the chat object for new member count and guest count.
  *
  *  @param chatRoomName Identifier of chat room.
  */
