@@ -10,15 +10,19 @@
 		</data>
 		<key>Headers/STSChat.h</key>
 		<data>
-		RaIhTgUTD/HlKozT2n7X9OIiMaY=
+		/KH62sMQmB93Pg72cGPnRKn2O5M=
 		</data>
 		<key>Headers/STSChatManager.h</key>
 		<data>
-		VUQ57pENVB8XvDI6JDKWtyF9sd4=
+		oOgpFS+0EzrbmAeLd6DM0mHQVrA=
 		</data>
 		<key>Headers/STSChatMessage.h</key>
 		<data>
-		3PYTYbkLatUBoGAt8jeblwDKdB8=
+		AsQqpsLrOSJUYrcTRRqdeLpUZD4=
+		</data>
+		<key>Headers/STSChatSticker.h</key>
+		<data>
+		9Kf1RhJpXSG8kAWh8aatcw7Htzw=
 		</data>
 		<key>Headers/STSChatUser.h</key>
 		<data>
@@ -26,11 +30,11 @@
 		</data>
 		<key>Headers/StraaSMessagingSDK.h</key>
 		<data>
-		Maw1/d9vHiw8it22CGxHwyRG4Zg=
+		9+vcT5sglDlXPqzbFpAWS8hnL98=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		gX/xW+oKhxG7t4QU1QwKKo97IGY=
+		S8GQtaf+rdS9t+uGFqKi9HLxFes=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -72,33 +76,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			RaIhTgUTD/HlKozT2n7X9OIiMaY=
+			/KH62sMQmB93Pg72cGPnRKn2O5M=
 			</data>
 			<key>hash2</key>
 			<data>
-			0fZ0ZTogC/S0Es4LkdvRhxDcOEn6Qf/2BgWHNwaDFJ0=
+			SViosN5aTRdFAXVJuq1VcNHOBbQsANOlrU+hgWPoF9I=
 			</data>
 		</dict>
 		<key>Headers/STSChatManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			VUQ57pENVB8XvDI6JDKWtyF9sd4=
+			oOgpFS+0EzrbmAeLd6DM0mHQVrA=
 			</data>
 			<key>hash2</key>
 			<data>
-			MFs8vkc+wfsy6EzUluOz7CgmDzni+mRJt8NumBnPU8w=
+			Gky9Huy3A99xVlBuw10HPLmkU7dTI4RT2LqBMXrC10U=
 			</data>
 		</dict>
 		<key>Headers/STSChatMessage.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3PYTYbkLatUBoGAt8jeblwDKdB8=
+			AsQqpsLrOSJUYrcTRRqdeLpUZD4=
 			</data>
 			<key>hash2</key>
 			<data>
-			2ViNvsgPSgNmjz9zWUDD5bAHrmP35mLSkCzfykuXbPc=
+			eSlppu/8HfSFk9SnjHDgOOpkcHuIIvPEIlOxHwkw+hU=
+			</data>
+		</dict>
+		<key>Headers/STSChatSticker.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9Kf1RhJpXSG8kAWh8aatcw7Htzw=
+			</data>
+			<key>hash2</key>
+			<data>
+			LsqDajPrqfkTIWq60N1p3sEBB1fokGLz87iD3+b9ZMo=
 			</data>
 		</dict>
 		<key>Headers/STSChatUser.h</key>
@@ -116,11 +131,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Maw1/d9vHiw8it22CGxHwyRG4Zg=
+			9+vcT5sglDlXPqzbFpAWS8hnL98=
 			</data>
 			<key>hash2</key>
 			<data>
-			NNz78kEEbeB2jMKKgRLbC16+gVCEDELIEQCrIoQdgyM=
+			tYpmfZZczvBhi84yhT9REQu5dTlzoRTGZEK5LbTcScw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
