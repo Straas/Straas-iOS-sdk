@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class STSChatUser;
 @class STSChatMessage;
+@class STSChatSticker;
 
 /**
  *  Chat room model
@@ -55,6 +56,11 @@ typedef NS_ENUM(NSUInteger, STSChatInputMode) {
  *  Total user number of this chat.
  */
 @property (nonatomic, readonly) NSInteger userCount;
+
+/**
+ *  The chat stickers.
+ */
+@property (nonatomic, readonly) NSArray <STSChatSticker *> * stickers;
 
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
