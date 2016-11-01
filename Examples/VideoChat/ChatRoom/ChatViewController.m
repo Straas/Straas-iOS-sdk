@@ -106,7 +106,7 @@
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[MessageTableViewCell class] forCellReuseIdentifier:MessengerCellIdentifier];
-    
+    [self.tableView registerClass:[MessageTableViewCell class] forCellReuseIdentifier:StickerCellIdentifier];
     [self.autoCompletionView registerClass:[MessageTableViewCell class] forCellReuseIdentifier:AutoCompletionCellIdentifier];
 }
 
@@ -433,10 +433,16 @@
 
 - (MessageTableViewCell *)messageCellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MessageTableViewCell *cell = (MessageTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:MessengerCellIdentifier];
-    
     STSChatMessage * message = self.messages[indexPath.row];
-
+    MessageTableViewCell *cell;
+    if (message.type == STSChatMessageTypeText) {
+        cell = (MessageTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:MessengerCellIdentifier];
+    } else {
+        cell = (MessageTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:StickerCellIdentifier];
+        NSData * imageData = [NSData dataWithContentsOfURL:message.stickerURL];
+        cell.stickerImageView.image = [UIImage imageWithData:imageData];
+    }
+    
     UIImage * avator = [UIImage imageNamed:@"img-guest-photo"];
     if (message.creator.avatar) {
         NSURL * URL = [NSURL URLWithString:message.creator.avatar];
@@ -506,7 +512,9 @@
     if ([tableView isEqual:self.tableView]) {
 
         STSChatMessage * message = self.messages[indexPath.row];
-
+        if (message.type == STSChatMessageTypeSticker) {
+            return kStickerTableViewCellHeight;
+        }
         NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
         paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
         paragraphStyle.alignment = NSTextAlignmentLeft;
