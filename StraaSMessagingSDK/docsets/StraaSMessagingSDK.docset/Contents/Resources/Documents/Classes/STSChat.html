@@ -14,9 +14,8 @@
     <a title="STSChat Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">StraaSMessagingSDK Docs</a> (86% documented)</p>
+        <p><a href="../index.html">StraaSMessagingSDK Docs</a> (91% documented)</p>
         <p class="header-right"><a href="https://github.com/StraaS/StraaS-iOS-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fstraas%2Egithub%2Eio%2FStraaS%2DiOS%2Dsdk%2Fdocsets%2FStraaSMessagingSDK%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -36,9 +35,6 @@
                 <a href="../Classes/LHDataObject.html">LHDataObject</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/STSApplication.html">STSApplication</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/STSChat.html">STSChat</a>
               </li>
               <li class="nav-group-task">
@@ -46,6 +42,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/STSChatMessage.html">STSChatMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSChatSticker.html">STSChatSticker</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/STSChatUser.html">STSChatUser</a>
@@ -57,6 +56,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/STSChatInputMode.html">STSChatInputMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSChatMesssageType.html">STSChatMesssageType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/STSMSGErrorCode.html">STSMSGErrorCode</a>
@@ -156,9 +158,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSChat(py)memberCount"></a>
-                    <a name="//apple_ref/objc/Property/memberCount" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSChat(py)memberCount">memberCount</a>
+                    <a name="/c:objc(cs)STSChat(py)userCount"></a>
+                    <a name="//apple_ref/objc/Property/userCount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChat(py)userCount">userCount</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -166,19 +168,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Total member number of this chat.</p>
+                        <p>Total user number of this chat.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">memberCount</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">userCount</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">memberCount</span><span class="p">:</span> <span class="kt">UInt</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">userCount</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -188,9 +190,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSChat(py)guestCount"></a>
-                    <a name="//apple_ref/objc/Property/guestCount" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSChat(py)guestCount">guestCount</a>
+                    <a name="/c:objc(cs)STSChat(py)stickers"></a>
+                    <a name="//apple_ref/objc/Property/stickers" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChat(py)stickers">stickers</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -198,19 +200,73 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Total guest number of this chat.</p>
+                        <p>The chat stickers.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">guestCount</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSChatSticker.html">STSChatSticker</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">stickers</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">guestCount</span><span class="p">:</span> <span class="kt">UInt</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">stickers</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/STSChatSticker.html">STSChatSticker</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChat(cm)new"></a>
+                    <a name="//apple_ref/objc/Method/+new" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChat(cm)new">+new</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">STSChat</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChat(im)init"></a>
+                    <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChat(im)init">-init</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">STSChat</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
 
                         </div>
                       </div>
@@ -222,7 +278,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2016-08-26)</p>
+          <p>&copy; 2016 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2016-11-01)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

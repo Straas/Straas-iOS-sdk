@@ -14,9 +14,8 @@
     <a title="STSMSGErrorCode Enum Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">StraaSMessagingSDK Docs</a> (86% documented)</p>
+        <p><a href="../index.html">StraaSMessagingSDK Docs</a> (91% documented)</p>
         <p class="header-right"><a href="https://github.com/StraaS/StraaS-iOS-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fstraas%2Egithub%2Eio%2FStraaS%2DiOS%2Dsdk%2Fdocsets%2FStraaSMessagingSDK%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -36,9 +35,6 @@
                 <a href="../Classes/LHDataObject.html">LHDataObject</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/STSApplication.html">STSApplication</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/STSChat.html">STSChat</a>
               </li>
               <li class="nav-group-task">
@@ -46,6 +42,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/STSChatMessage.html">STSChatMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSChatSticker.html">STSChatSticker</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/STSChatUser.html">STSChatUser</a>
@@ -57,6 +56,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/STSChatInputMode.html">STSChatInputMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSChatMesssageType.html">STSChatMesssageType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/STSMSGErrorCode.html">STSMSGErrorCode</a>
@@ -114,7 +116,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Network</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">network</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
 
                         </div>
                       </div>
@@ -146,7 +148,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">ChannelCodeLength</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">channelCodeLength</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
 
                         </div>
                       </div>
@@ -178,7 +180,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">GuestCreateChatNotSupported</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">guestCreateChatNotSupported</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
 
                         </div>
                       </div>
@@ -211,7 +213,7 @@ channel is not connected.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">ChannelNotConnected</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">channelNotConnected</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
 
                         </div>
                       </div>
@@ -243,7 +245,7 @@ channel is not connected.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">ChannelAlreadyConnected</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">channelAlreadyConnected</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
 
                         </div>
                       </div>
@@ -275,7 +277,7 @@ channel is not connected.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">MemberNicknameUpdateNotSupported</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">memberNicknameUpdateNotSupported</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
 
                         </div>
                       </div>
@@ -307,7 +309,7 @@ channel is not connected.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">NicknameLength</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">nicknameLength</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
 
                         </div>
                       </div>
@@ -339,7 +341,7 @@ channel is not connected.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">MessageLength</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">messageLength</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
 
                         </div>
                       </div>
@@ -371,7 +373,7 @@ channel is not connected.</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Unauthorized</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">unauthorized</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
 
                         </div>
                       </div>
@@ -404,7 +406,7 @@ a member-only input mode chat room).</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Permission</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">permission</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
 
                         </div>
                       </div>
@@ -436,7 +438,7 @@ a member-only input mode chat room).</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">UnknownChannel</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">unknownChannel</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
 
                         </div>
                       </div>
@@ -468,7 +470,7 @@ a member-only input mode chat room).</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Server</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">server</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
 
                         </div>
                       </div>
@@ -488,7 +490,7 @@ a member-only input mode chat room).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>SDK internal error happened, please tra again or report issue.</p>
+                        <p>SDK internal error happened, please try again or report issue.</p>
 
                       </div>
                       <div class="declaration">
@@ -500,7 +502,7 @@ a member-only input mode chat room).</p>
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Internal</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="err">`</span><span class="kd">internal</span><span class="err">`</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
 
                         </div>
                       </div>
@@ -512,7 +514,7 @@ a member-only input mode chat room).</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2016-08-26)</p>
+          <p>&copy; 2016 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2016-11-01)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
