@@ -13,6 +13,7 @@
 #import "MessageTableViewCell.h"
 #import "MessageTextView.h"
 #import "TypingIndicatorView.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @import StraaSMessagingSDK;
 @import StraaSCoreSDK;
@@ -439,17 +440,17 @@
         cell = (MessageTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:MessengerCellIdentifier];
     } else {
         cell = (MessageTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:StickerCellIdentifier];
-        NSData * imageData = [NSData dataWithContentsOfURL:message.stickerURL];
-        cell.stickerImageView.image = [UIImage imageWithData:imageData];
+        UIImage * defaultImage = [UIImage imageNamed:@"img_sticker_default"];
+        [cell.stickerImageView sd_setImageWithURL:message.stickerURL placeholderImage:defaultImage];
     }
     
     UIImage * avator = [UIImage imageNamed:@"img-guest-photo"];
     if (message.creator.avatar) {
         NSURL * URL = [NSURL URLWithString:message.creator.avatar];
-        NSData * data = [[NSData alloc] initWithContentsOfURL:URL];
-        avator = [UIImage imageWithData:data];
+        [cell.thumbnailView sd_setImageWithURL:URL placeholderImage:avator options:SDWebImageRefreshCached];
+    } else {
+        cell.thumbnailView.image = avator;
     }
-    cell.thumbnailView.image = avator;
     cell.titleLabel.text = message.creator.name;
     cell.sideLabel.text = message.shortCreatedDate;
     cell.bodyLabel.text = message.text;
