@@ -1,0 +1,6 @@
+framework module StraaSStreamingSDK {
+  umbrella header "StraaSStreamingSDK.h"
+
+  export *
+  module * { export * }
+}
