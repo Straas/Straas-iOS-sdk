@@ -14,6 +14,9 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - SlackTextViewController (1.9.4)
   - Socket.IO-Client-Swift (8.0.2)
   - StraaS-iOS-SDK (0.5.0):
@@ -26,6 +29,7 @@ PODS:
     - StraaS-iOS-SDK/Core
 
 DEPENDENCIES:
+  - SDWebImage
   - SlackTextViewController
   - StraaS-iOS-SDK (from `../`)
 
@@ -35,10 +39,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SlackTextViewController: d490f354dba963bc469a6b9ce3213978eaed67a5
   Socket.IO-Client-Swift: 136598e4a81a42b0e6855e7f94a0e5a6efdc5ff8
   StraaS-iOS-SDK: 71a567b50e51d8bee9c908112eb93097867094e8
 
-PODFILE CHECKSUM: 96f6fe08b51ae0420ca09cdf73087bdc73270a14
+PODFILE CHECKSUM: 3ff5afebf607c5d151568cc44354f6d4fcc60d0c
 
 COCOAPODS: 1.1.0.rc.2
