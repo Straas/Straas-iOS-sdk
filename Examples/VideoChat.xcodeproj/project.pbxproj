@@ -21,6 +21,7 @@
 		40C779ED1D7091D0004F61CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C779EB1D7091D0004F61CA /* LaunchScreen.storyboard */; };
 		9B16870F1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B16870E1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.m */; };
 		9B133DD61DCAF4020082C269 /* UIImage+sticker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B133DD51DCAF4020082C269 /* UIImage+sticker.m */; };
+		9B988EAA1DCB9C08009F8973 /* ChatStickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B988EA91DCB9C08009F8973 /* ChatStickerViewController.m */; };
 		9B9A9BB31DC986670017F8C1 /* StickersInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B9A9BB21DC986670017F8C1 /* StickersInputView.xib */; };
 		9B9A9BB61DC98A650017F8C1 /* StickersInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9A9BB51DC98A650017F8C1 /* StickersInputView.m */; };
 		9BBEC54A1D813F1800387012 /* UIAlertController+VideoChatUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBEC5491D813F1800387012 /* UIAlertController+VideoChatUtility.m */; };
@@ -57,6 +58,9 @@
 		9B133DD41DCAF4020082C269 /* UIImage+sticker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+sticker.h"; sourceTree = "<group>"; };
 		9B133DD51DCAF4020082C269 /* UIImage+sticker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+sticker.m"; sourceTree = "<group>"; };
 		9B6385A91DCC39FD009342F1 /* StickerInputViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerInputViewDelegate.h; sourceTree = "<group>"; };
+		9B8C940F1DCBAA53002CC4AE /* ChatStickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatStickerDelegate.h; sourceTree = "<group>"; };
+		9B988EA81DCB9C08009F8973 /* ChatStickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatStickerViewController.h; sourceTree = "<group>"; };
+		9B988EA91DCB9C08009F8973 /* ChatStickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatStickerViewController.m; sourceTree = "<group>"; };
 		9B9A9BB21DC986670017F8C1 /* StickersInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StickersInputView.xib; sourceTree = "<group>"; };
 		9B9A9BB41DC98A650017F8C1 /* StickersInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickersInputView.h; sourceTree = "<group>"; };
 		9B9A9BB51DC98A650017F8C1 /* StickersInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickersInputView.m; sourceTree = "<group>"; };
@@ -155,6 +159,9 @@
 				9B9A9BB41DC98A650017F8C1 /* StickersInputView.h */,
 				9B9A9BB51DC98A650017F8C1 /* StickersInputView.m */,
 				9B6385A91DCC39FD009342F1 /* StickerInputViewDelegate.h */,
+				9B988EA81DCB9C08009F8973 /* ChatStickerViewController.h */,
+				9B988EA91DCB9C08009F8973 /* ChatStickerViewController.m */,
+				9B8C940F1DCBAA53002CC4AE /* ChatStickerDelegate.h */,
 				9BDC48B81DD092A50095BF9B /* STSSegmentedControl.h */,
 				9BDC48B91DD092A50095BF9B /* STSSegmentedControl.m */,
 				9B133DD41DCAF4020082C269 /* UIImage+sticker.h */,
@@ -303,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40C779DF1D7091D0004F61CA /* AppDelegate.m in Sources */,
+				9B988EAA1DCB9C08009F8973 /* ChatStickerViewController.m in Sources */,
 				9B133DD61DCAF4020082C269 /* UIImage+sticker.m in Sources */,
 				9BDC48BA1DD092A50095BF9B /* STSSegmentedControl.m in Sources */,
 				9B9A9BB61DC98A650017F8C1 /* StickersInputView.m in Sources */,
