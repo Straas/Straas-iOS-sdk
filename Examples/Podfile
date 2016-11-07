@@ -15,4 +15,5 @@ target 'VideoChat' do
   pod 'SlackTextViewController'
   pod 'SDWebImage'
   pod 'StraaS-iOS-SDK/Messaging', :path=>'../'
+  pod 'StraaS-iOS-SDK/Streaming', :path=>'../'
 end
