@@ -19,6 +19,7 @@
 		40C779E81D7091D0004F61CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C779E61D7091D0004F61CA /* Main.storyboard */; };
 		40C779EA1D7091D0004F61CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C779E91D7091D0004F61CA /* Assets.xcassets */; };
 		40C779ED1D7091D0004F61CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C779EB1D7091D0004F61CA /* LaunchScreen.storyboard */; };
+		72F47A421DDA1CA000103583 /* StreamingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F47A411DDA1CA000103583 /* StreamingViewController.m */; };
 		9B16870F1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B16870E1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.m */; };
 		9B133DD61DCAF4020082C269 /* UIImage+sticker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B133DD51DCAF4020082C269 /* UIImage+sticker.m */; };
 		9B4310471DD32504002CD178 /* NSFileManager+Sticker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4310461DD32504002CD178 /* NSFileManager+Sticker.m */; };
@@ -54,6 +55,8 @@
 		40C779EC1D7091D0004F61CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40C779EE1D7091D0004F61CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64C2739ECC5559476005727D /* Pods_VideoChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72F47A401DDA1CA000103583 /* StreamingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StreamingViewController.h; path = Streaming/StreamingViewController.h; sourceTree = "<group>"; };
+		72F47A411DDA1CA000103583 /* StreamingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StreamingViewController.m; path = Streaming/StreamingViewController.m; sourceTree = "<group>"; };
 		9B16870D1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "STSChatUser+VieoChatUtility.h"; sourceTree = "<group>"; };
 		9B16870E1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "STSChatUser+VieoChatUtility.m"; sourceTree = "<group>"; };
 		9B133DD41DCAF4020082C269 /* UIImage+sticker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+sticker.h"; sourceTree = "<group>"; };
@@ -130,6 +133,7 @@
 		40C779D91D7091D0004F61CA /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				72E0939F1DD080B70045E587 /* Streaming */,
 				40A2022E1D77F93E00457359 /* ChatRoom */,
 				40C779DD1D7091D0004F61CA /* AppDelegate.h */,
 				40C779DE1D7091D0004F61CA /* AppDelegate.m */,
@@ -173,6 +177,15 @@
 				9B4310461DD32504002CD178 /* NSFileManager+Sticker.m */,
 			);
 			name = Stickers;
+			sourceTree = "<group>";
+		};
+		72E0939F1DD080B70045E587 /* Streaming */ = {
+			isa = PBXGroup;
+			children = (
+				72F47A401DDA1CA000103583 /* StreamingViewController.h */,
+				72F47A411DDA1CA000103583 /* StreamingViewController.m */,
+			);
+			name = Streaming;
 			sourceTree = "<group>";
 		};
 		A97E121124F4149BF9610B16 /* Pods */ = {
@@ -319,6 +332,7 @@
 				9B133DD61DCAF4020082C269 /* UIImage+sticker.m in Sources */,
 				9BDC48BA1DD092A50095BF9B /* STSSegmentedControl.m in Sources */,
 				9B9A9BB61DC98A650017F8C1 /* StickersInputView.m in Sources */,
+				72F47A421DDA1CA000103583 /* StreamingViewController.m in Sources */,
 				9BBEC54A1D813F1800387012 /* UIAlertController+VideoChatUtility.m in Sources */,
 				40C779E21D7091D0004F61CA /* MasterViewController.m in Sources */,
 				40A202371D77F93E00457359 /* ChatViewController.m in Sources */,
