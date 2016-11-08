@@ -7,7 +7,7 @@
 //
 
 #import "DetailViewController.h"
-#import "ChatViewController.h"
+#import "ChatStickerViewController.h"
 
 NSString * const STSMessagingServiceKeyword = @"StraaS.io chat room";
 
@@ -40,7 +40,7 @@ NSString * const STSMessagingServiceKeyword = @"StraaS.io chat room";
 }
 
 - (void)addChatView {
-    ChatViewController * controller = [ChatViewController new];
+    ChatStickerViewController * controller = [ChatStickerViewController new];
     [self addChildViewController:controller];
     [controller didMoveToParentViewController:self];
     [self.view addSubview:controller.view];

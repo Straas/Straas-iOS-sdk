@@ -39,7 +39,7 @@
 
 @end
 
-@implementation ChatViewController 
+@implementation ChatViewController
 
 - (instancetype)init
 {
@@ -70,13 +70,11 @@
 
     // Register a SLKTextView subclass, if you need any special appearance and/or behavior customisation.
     [self registerClassForTextView:[MessageTextView class]];
-    
 #if DEBUG_CUSTOM_TYPING_INDICATOR
     // Register a UIView subclass, conforming to SLKTypingIndicatorProtocol, to use a custom typing indicator view.
     [self registerClassForTypingIndicatorView:[TypingIndicatorView class]];
 #endif
 }
-
 
 #pragma mark - View lifecycle
 
@@ -92,28 +90,30 @@
     self.keyboardPanningEnabled = YES;
     self.shouldScrollToBottomAfterKeyboardShows = NO;
     self.inverted = YES;
-    
+
     [self.rightButton setTitle:NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
-    
+    [self.singleTapGesture addTarget:self action:@selector(didTapTableView)];
     self.textInputbar.autoHideRightButton = YES;
+    [self.leftButton setImage:[UIImage imageNamed:@"btn-stickers"] forState:UIControlStateNormal];
+    self.leftButton.tintColor = [UIColor colorWithWhite:0.6 alpha:1];
+    self.leftButton.userInteractionEnabled = NO;
     self.textInputbar.maxCharCount = 120;
     self.textInputbar.counterStyle = SLKCounterStyleSplit;
     self.textInputbar.counterPosition = SLKCounterPositionTop;
-    
+
     [self.textInputbar.editorTitle setTextColor:[UIColor darkGrayColor]];
     [self.textInputbar.editorLeftButton setTintColor:[UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0]];
     [self.textInputbar.editorRightButton setTintColor:[UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0]];
-    
+
 #if !DEBUG_CUSTOM_TYPING_INDICATOR
     self.typingIndicatorView.canResignByTouch = YES;
 #endif
-    
+
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[MessageTableViewCell class] forCellReuseIdentifier:MessengerCellIdentifier];
     [self.tableView registerClass:[MessageTableViewCell class] forCellReuseIdentifier:StickerCellIdentifier];
     [self.autoCompletionView registerClass:[MessageTableViewCell class] forCellReuseIdentifier:AutoCompletionCellIdentifier];
 }
-
 
 #pragma mark StraaS Messaging Configuration
 
@@ -122,7 +122,11 @@
     self.textView.editable = NO;
 
     [STSApplication configureApplication:^(BOOL success, NSError *error) {
-        [self.manager connectToChatRoom:self.chatRoomName JWT:self.JWT autoCreate:YES eventDelegate:self];
+        if (success) {
+            [self.manager connectToChatRoom:self.chatRoomName JWT:self.JWT autoCreate:YES eventDelegate:self];
+        } else {
+            NSLog(@"STSApplication configure fail with error = %@", error);
+        }
         dispatch_after(dispatch_time(DISPATCH_TIME_FOREVER, (int64_t)(15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.manager disconnectFromChatRoom:self.chatRoomName];
         });
@@ -150,6 +154,12 @@
 
 - (void)chatRoomConnected:(NSString *)chatRoomName {
     NSLog(@"\"%@\" connected", chatRoomName);
+    if ([self.delegate respondsToSelector:@selector(chatStickerDidLoad:)]) {
+        STSChat * chat = [self.manager chatForChatRoom:chatRoomName];
+        [self.delegate chatStickerDidLoad:chat.stickers];
+    }
+    self.leftButton.userInteractionEnabled = YES;
+
     __weak ChatViewController * weakSelf = self;
     [self.manager getMessagesForChatRoom:chatRoomName success:^(NSArray<STSChatMessage *> * _Nonnull messages) {
         [weakSelf.messages addObjectsFromArray:messages];
@@ -282,7 +292,7 @@
     if ([responder isKindOfClass:[UIAlertController class]]) {
         return YES;
     }
-    
+
     // On iOS 9, returning YES helps keeping the input view visible when the keyboard if presented from another app when using multi-tasking on iPad.
     return SLK_IS_IPAD;
 }
@@ -290,10 +300,16 @@
 - (void)didChangeKeyboardStatus:(SLKKeyboardStatus)status
 {
     // Notifies the view controller that the keyboard changed status.
-    
+
     switch (status) {
-        case SLKKeyboardStatusWillShow:     return NSLog(@"Will Show");
-        case SLKKeyboardStatusDidShow:      return NSLog(@"Did Show");
+        case SLKKeyboardStatusWillShow:
+            if ([self.delegate isStickerViewShowing]) {
+                [self.leftButton setImage:[UIImage imageNamed:@"btn-stickers"] forState:UIControlStateNormal];
+                [self.delegate dismissStickerView:NO];
+            }
+            return NSLog(@"Will Show");
+        case SLKKeyboardStatusDidShow:
+            return NSLog(@"Did Show");
         case SLKKeyboardStatusWillHide:     return NSLog(@"Will Hide");
         case SLKKeyboardStatusDidHide:      return NSLog(@"Did Hide");
     }
@@ -304,6 +320,10 @@
     [self.textView resignFirstResponder];
     NSString * messageText = [self.textView.text copy];
     STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
+    if ([self.delegate respondsToSelector:@selector(dismissStickerView:)]) {
+        [self.delegate dismissStickerView:NO];
+    }
+    [self.leftButton setImage:[UIImage imageNamed:@"btn-stickers"] forState:UIControlStateNormal];
     if ([currentUser.role isEqualToString:kSTSUserRoleBlocked]) {
         [self addFakeMessage:messageText];
     } else {
@@ -325,11 +345,11 @@
 {
     // Notifies the view controller when the user has pasted a media (image, video, etc) inside of the text view.
     [super didPasteMediaContent:userInfo];
-    
+
     SLKPastableMediaType mediaType = [userInfo[SLKTextViewPastedItemMediaType] integerValue];
     NSString *contentType = userInfo[SLKTextViewPastedItemContentType];
     id data = userInfo[SLKTextViewPastedItemData];
-    
+
     NSLog(@"%s : %@ (type = %ld) | data : %@",__FUNCTION__, contentType, (unsigned long)mediaType, data);
 }
 
@@ -340,6 +360,46 @@
     return ((mode == STSChatInputNormal) ||
             (mode == STSChatInputMember && self.JWT.length != 0) ||
             (mode == STSChatInputMaster && ([currentUser canChatInAnchorMode])));
+}
+
+- (void)didPressLeftButton:(id)sender {
+    STSChatInputMode mode = [[self.manager chatForChatRoom:self.chatRoomName] mode];
+    if (mode == STSChatInputMaster || (mode == STSChatInputMember && self.JWT.length == 0)) {
+        return;
+    }
+    self.restoresFocusAfterTransition = NO;
+    if ([self needsNickname]) {
+        [self presentNicknameInputView];
+        return;
+    }
+    if ([self.delegate isStickerViewShowing]) {
+        [self.leftButton setImage:[UIImage imageNamed:@"btn-stickers"] forState:UIControlStateNormal];
+        if ([self.delegate respondsToSelector:@selector(dismissStickerView:)]) {
+            [self.delegate dismissStickerView:(self.keyboardStatus == SLKKeyboardStatusDidShow)];
+        }
+        [self presentKeyboard:NO];
+    } else {
+        [self.leftButton setImage:[UIImage imageNamed:@"btn_ic_keyboard"] forState:UIControlStateNormal];
+        if ([self.delegate respondsToSelector:@selector(showStickerView:)]) {
+            [self.delegate showStickerView:(self.keyboardStatus == SLKKeyboardStatusDidHide)];
+        }
+        [self dismissKeyboard:NO];
+    }
+}
+
+- (void)didTapTableView {
+    if (![self.delegate isStickerViewShowing]) {
+        return;
+    }
+    if ([self.delegate respondsToSelector:@selector(dismissStickerView:)]) {
+        [self.leftButton setImage:[UIImage imageNamed:@"btn-stickers"] forState:UIControlStateNormal];
+        [self.delegate dismissStickerView:YES];
+    }
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gesture {
+    BOOL shouldBegin = [super gestureRecognizerShouldBegin:gesture];
+    return shouldBegin ? YES: [self.delegate isStickerViewShowing];
 }
 
 - (BOOL)canShowTypingIndicator
@@ -356,7 +416,7 @@
     self.searchResult = nil;
 
     BOOL show = (self.searchResult.count > 0);
-    
+
     [self showAutoCompletionView:show];
 }
 
@@ -364,6 +424,15 @@
 {
     CGFloat cellHeight = [self.autoCompletionView.delegate tableView:self.autoCompletionView heightForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     return cellHeight*self.searchResult.count;
+}
+
+#pragma mark - sticker view;
+- (void)didSelectStickerKey:(NSString *)key {
+    [self.manager sendMessage:key chatRoom:self.chatRoomName success:^{
+
+    } failure:^(NSError * _Nonnull error) {
+
+    }];
 }
 
 #pragma mark - private custom method
@@ -405,6 +474,7 @@
     UIAlertController * alertController = [UIAlertController nicknameAlertControllerWithCurrentNickname:weakSelf.currentUsername cancelActionHandler:cancelHander confirmActionHandler:confirmHander];
     [self presentViewController:alertController animated:YES completion:nil];
 }
+
 - (NSString *)currentUsername {
     return [[self.manager currentUserForChatRoom:self.chatRoomName] name];
 }
@@ -428,7 +498,7 @@
                                 @"creator": @{@"name":fakeName,
                                               @"avatar":avatar}};
     STSChatMessage * fakeMsg = [[STSChatMessage alloc] initWithJSON:fakeJson];
-    
+
     [self chatRoom:self.chatRoomName messageAdded:fakeMsg];
 };
 
@@ -437,24 +507,24 @@
 - (BOOL)textView:(SLKTextView *)textView shouldOfferFormattingForSymbol:(NSString *)symbol
 {
     if ([symbol isEqualToString:@">"]) {
-        
+
         NSRange selection = textView.selectedRange;
-        
+
         // The Quote formatting only applies new paragraphs
         if (selection.location == 0 && selection.length > 0) {
             return YES;
         }
-        
+
         // or older paragraphs too
         NSString *prevString = [textView.text substringWithRange:NSMakeRange(selection.location-1, 1)];
-        
+
         if ([[NSCharacterSet newlineCharacterSet] characterIsMember:[prevString characterAtIndex:0]]) {
             return YES;
         }
-        
+
         return NO;
     }
-    
+
     return [super textView:textView shouldOfferFormattingForSymbol:symbol];
 }
 
@@ -463,7 +533,7 @@
     if ([symbol isEqualToString:@">"]) {
         return NO;
     }
-    
+
     return [super textView:textView shouldInsertSuffixForFormattingWithSymbol:symbol prefixRange:prefixRange];
 }
 
@@ -513,7 +583,7 @@
         UIImage * defaultImage = [UIImage imageNamed:@"img_sticker_default"];
         [cell.stickerImageView sd_setImageWithURL:message.stickerURL placeholderImage:defaultImage];
     }
-    
+
     UIImage * avator = [UIImage imageNamed:@"img-guest-photo"];
     if (message.creator.avatar) {
         NSURL * URL = [NSURL URLWithString:message.creator.avatar];
@@ -527,11 +597,11 @@
 
     cell.indexPath = indexPath;
     cell.usedForMessage = YES;
-    
+
     // Cells must inherit the table view's transform
     // This is very important, since the main table view may be inverted
     cell.transform = self.tableView.transform;
-    
+
     return cell;
 }
 
@@ -539,44 +609,42 @@
 {
     MessageTableViewCell *cell = (MessageTableViewCell *)[self.autoCompletionView dequeueReusableCellWithIdentifier:AutoCompletionCellIdentifier];
     cell.indexPath = indexPath;
-    
+
     NSString *text = self.searchResult[indexPath.row];
-    
+
     if ([self.foundPrefix isEqualToString:@"#"]) {
         text = [NSString stringWithFormat:@"# %@", text];
     }
     else if (([self.foundPrefix isEqualToString:@":"] || [self.foundPrefix isEqualToString:@"+:"])) {
         text = [NSString stringWithFormat:@":%@:", text];
     }
-    
+
     cell.titleLabel.text = text;
     cell.selectionStyle = UITableViewCellSelectionStyleDefault;
-    
+
     return cell;
 }
-
 
 #pragma mark - UITableViewDelegate Methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([tableView isEqual:self.autoCompletionView]) {
-        
+
         NSMutableString *item = [self.searchResult[indexPath.row] mutableCopy];
-        
+
         if ([self.foundPrefix isEqualToString:@"@"] && self.foundPrefixRange.location == 0) {
             [item appendString:@":"];
         }
         else if (([self.foundPrefix isEqualToString:@":"] || [self.foundPrefix isEqualToString:@"+:"])) {
             [item appendString:@":"];
         }
-        
+
         [item appendString:@" "];
-        
+
         [self acceptAutoCompletionWithString:item keepPrefix:YES];
     }
 }
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -617,7 +685,6 @@
         return kMessageTableViewCellMinimumHeight;
     }
 }
-
 
 #pragma mark - Lifeterm
 
