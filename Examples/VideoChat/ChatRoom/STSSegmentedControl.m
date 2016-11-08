@@ -45,7 +45,7 @@
     _buttons = [NSMutableArray array];
     _itemHeight = 35.0;
     _itemWidth = 55.0;
-    _selectedSegmentIndex = 0;
+    _selectedSegmentIndex = -1;
 }
 
 - (void)setItems:(NSArray *)items {
@@ -65,7 +65,8 @@
         [self.buttons addObject:button];
         [self addSubview:button];
     }];
-    [self updateButotnsConstraint];
+    [self updateButtonsConstraint];
+    [self setSelectedSegmentIndex:0];
 }
 
 - (void)setItemHeight:(CGFloat)itemHeight {
@@ -73,7 +74,7 @@
         return;
     }
     _itemHeight = itemHeight;
-    [self updateButotnsConstraint];
+    [self updateButtonsConstraint];
 }
 
 - (void)setItemWidth:(CGFloat)itemWidth {
@@ -81,10 +82,10 @@
         return;
     }
     _itemWidth = itemWidth;
-    [self updateButotnsConstraint];
+    [self updateButtonsConstraint];
 }
 
-- (void)updateButotnsConstraint {
+- (void)updateButtonsConstraint {
     if (self.buttons.count == 0) {
         return;
     }
@@ -103,7 +104,6 @@
         [NSLayoutConstraint activateConstraints:newConstraint];
         [metric setValue:[NSNumber numberWithFloat:self.itemWidth*(idx+1)] forKey:@"offsetX"];
     }];
-    [self setSelectedSegmentIndex:0];
 }
 
 - (UIButton *)buttonForSegment:(NSUInteger)segment
@@ -123,6 +123,10 @@
 }
 
 - (void)setSelectedSegmentIndex:(NSUInteger)selectedSegmentIndex{
+    if(_selectedSegmentIndex == selectedSegmentIndex) {
+        return;
+    }
+    _selectedSegmentIndex = selectedSegmentIndex;
     [self.buttons enumerateObjectsUsingBlock:^(UIButton  * button, NSUInteger index, BOOL * _Nonnull stop) {
         if (index == selectedSegmentIndex) {
             button.selected = YES;
@@ -138,7 +142,7 @@
 
 - (void)resetSegmentedControl {
     [self.buttons makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    self.items = nil;
+    _items = nil;
 }
 
 #pragma mark - IBAction

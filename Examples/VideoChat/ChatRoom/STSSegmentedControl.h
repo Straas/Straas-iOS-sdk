@@ -16,7 +16,7 @@
 
 @interface STSSegmentedControl : UIControl
 
-@property (nonatomic) id<STSSegmentedControlDelegate> delegate;
+@property (weak ,nonatomic) id<STSSegmentedControlDelegate> delegate;
 @property (nonatomic) NSArray * items;
 @property (nonatomic) NSUInteger selectedSegmentIndex;
 @property (nonatomic, readwrite) CGFloat itemHeight;
