@@ -10,4 +10,11 @@
 
 @interface StreamingViewController : UIViewController
 
+@property (nonatomic) UITextField * titleInput;
+@property (nonatomic) UITextField * synopsisInput;
+@property (nonatomic) UIButton * startButton;
+@property (nonatomic) UIButton * cameraButton;
+@property (nonatomic) UILabel * statusLabel;
+@property (nonatomic) UIView * previewView;
+
 @end
