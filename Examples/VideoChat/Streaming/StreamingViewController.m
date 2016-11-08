@@ -12,10 +12,11 @@ CGFloat const kSTSStreamingViewInputMinWidth = 180.0;
 CGFloat const kSTSStreamingViewInputHeight = 30.0;
 CGFloat const kSTSStreamingViewSubviewMargin = 10.0;
 
-@interface StreamingViewController ()
+@interface StreamingViewController ()<UITextFieldDelegate>
 @property (nonatomic) UIScrollView * scrollView;
 @property (nonatomic) NSMutableArray<NSLayoutConstraint *> * allLayoutConstraints;
 @property (nonatomic) NSArray<NSLayoutConstraint *> * scrollViewLayoutConstraints;
+@property (nonatomic) CGFloat keyboardHeight;
 @end
 
 @implementation StreamingViewController
@@ -24,12 +25,22 @@ CGFloat const kSTSStreamingViewSubviewMargin = 10.0;
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor blackColor];
+    self.keyboardHeight = 0;
     [self addPreviewView];
     [self addScrollView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self updateLayout];
+    [self registerKeyboardNotifications];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.view endEditing:YES];
+    self.keyboardHeight = 0;
+    [self unregisterKeyboardNotifications];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -96,6 +107,7 @@ CGFloat const kSTSStreamingViewSubviewMargin = 10.0;
         [self attributeString:placeholderStr
           withForegroundColor:[UIColor lightGrayColor]
                          font:font];
+        _titleInput.delegate = self;
     }
     [_scrollView addSubview:_titleInput];
 }
@@ -117,6 +129,7 @@ CGFloat const kSTSStreamingViewSubviewMargin = 10.0;
         [self attributeString:placeholderStr
           withForegroundColor:[UIColor lightGrayColor]
                          font:font];
+        _synopsisInput.delegate = self;
     }
     [_scrollView addSubview:_synopsisInput];
 }
@@ -231,29 +244,37 @@ CGFloat const kSTSStreamingViewSubviewMargin = 10.0;
     NSDictionary * views = @{@"scrollView": self.scrollView};
     if ([self isWidthBiggerThanHeight]) {
         CGFloat width = [self inputWidth] + kSTSStreamingViewSubviewMargin;
-        NSDictionary * metrics = @{@"width": @(width)};
+        NSDictionary * metrics = @{@"width": @(width),
+                                   @"keyboardHeight": @(self.keyboardHeight)};
         NSArray * constraints;
         constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"[scrollView(width)]-(0)-|"
                                                               options:0
                                                               metrics:metrics
                                                                 views:views];
         [layoutConstraints addObjectsFromArray:constraints];
-        constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[scrollView]-(0)-|"
+        constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(0)-[scrollView]-(keyboardHeight)-|"
                                                               options:0
-                                                              metrics:nil
+                                                              metrics:metrics
                                                                 views:views];
         [layoutConstraints addObjectsFromArray:constraints];
     } else {
-        CGFloat height = CGRectGetHeight(self.view.frame)-CGRectGetWidth(self.view.frame);
-        height = MAX(height, 130);
-        NSDictionary * metrics = @{@"height": @(height)};
+        CGFloat height;
+        if (self.keyboardHeight == 0) {
+            height = CGRectGetHeight(self.view.frame) - CGRectGetWidth(self.view.frame) ;
+            height = MAX(height, 130);
+        } else {
+            height = CGRectGetHeight(self.view.frame) - self.keyboardHeight;
+            height = MIN(height, 130);
+        }
+        NSDictionary * metrics = @{@"height": @(height),
+                                   @"keyboardHeight": @(self.keyboardHeight)};
         NSArray * constraints;
         constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|-(0)-[scrollView]-(0)-|"
                                                               options:0
                                                               metrics:nil
                                                                 views:views];
         [layoutConstraints addObjectsFromArray:constraints];
-        constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[scrollView(height)]-(0)-|"
+        constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[scrollView(height)]-(keyboardHeight)-|"
                                                               options:0
                                                               metrics:metrics
                                                                 views:views];
@@ -441,6 +462,47 @@ CGFloat const kSTSStreamingViewSubviewMargin = 10.0;
 }
 
 - (void)cameraButtonPressed:(UIButton *)sender {
+}
+
+#pragma mark - handle keyboard notifications
+
+- (void)registerKeyboardNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+- (void)unregisterKeyboardNotifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+}
+
+- (void)keyboardWillShow:(NSNotification*)notification {
+    NSDictionary * info = notification.userInfo;
+    self.keyboardHeight = CGRectGetHeight([[info valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue]);
+    [self updateScrollViewLayoutConstraints];
+}
+
+- (void)keyboardWillHide:(NSNotification*)notification {
+    self.keyboardHeight = 0;
+    [self updateScrollViewLayoutConstraints];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if ([textField isEqual:self.titleInput]) {
+        [self.synopsisInput becomeFirstResponder];
+    }
+    if ([textField isEqual:self.synopsisInput]) {
+        [self.view endEditing:YES];
+    }
+    return NO;
 }
 
 @end
