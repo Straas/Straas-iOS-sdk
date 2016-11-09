@@ -57,8 +57,10 @@
         return;
     }
     _items = items;
+    [self addRecentlyUsedButton];
     [items enumerateObjectsUsingBlock:^(NSString * mainImage, NSUInteger idx, BOOL * _Nonnull stop) {
-        UIButton * button = [self buttonForSegment:idx];
+        // +1 since the index 0 is recently used sticker button.
+        UIButton * button = [self buttonForSegment:(idx+1)];
         UIImage * image = [UIImage imageWithStickerMainImage:mainImage];
         [button setImage:[UIImage desaturatedImage:image] forState:UIControlStateNormal];
         [button setImage:image forState:UIControlStateSelected];
@@ -67,6 +69,14 @@
     }];
     [self updateButtonsConstraint];
     [self setSelectedSegmentIndex:0];
+}
+
+- (void)addRecentlyUsedButton {
+    UIButton * button = [self buttonForSegment:0];
+    [button setImage:[UIImage imageNamed:@"btn-ic-history_g"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"btn-ic-history_w"] forState:UIControlStateSelected];
+    [self.buttons addObject:button];
+    [self addSubview:button];
 }
 
 - (void)setItemHeight:(CGFloat)itemHeight {
