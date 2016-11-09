@@ -15,6 +15,8 @@
 @property (nonatomic) UIButton * startButton;
 @property (nonatomic) UIButton * cameraButton;
 @property (nonatomic) UILabel * statusLabel;
+@property (nonatomic) UILabel * streamingStatusLabel;
 @property (nonatomic) UIView * previewView;
+@property (nonatomic) NSString * JWT;
 
 @end

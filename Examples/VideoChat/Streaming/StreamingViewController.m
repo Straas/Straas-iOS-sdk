@@ -7,16 +7,23 @@
 //
 
 #import "StreamingViewController.h"
+#import <StraaSStreamingSDK/StraaSStreamingSDK.h>
+#import <StraaSCoreSDK/StraaSCoreSDK.h>
 
 CGFloat const kSTSStreamingViewInputMinWidth = 180.0;
 CGFloat const kSTSStreamingViewInputHeight = 30.0;
 CGFloat const kSTSStreamingViewSubviewMargin = 10.0;
+CGFloat const KSTSStreamingOutputSize = 720;
+NSUInteger const kSTSStreaingViewMaxRetryCount = 5;
+NSUInteger const kSTSStreaingViewRetryInterval = 2;
 
-@interface StreamingViewController ()<UITextFieldDelegate>
+@interface StreamingViewController ()<UITextFieldDelegate, STSStreamingManagerDelegate>
 @property (nonatomic) UIScrollView * scrollView;
 @property (nonatomic) NSMutableArray<NSLayoutConstraint *> * allLayoutConstraints;
 @property (nonatomic) NSArray<NSLayoutConstraint *> * scrollViewLayoutConstraints;
 @property (nonatomic) CGFloat keyboardHeight;
+@property (nonatomic) NSUInteger retryCount;
+@property (nonatomic) STSStreamingManager *streamingManager;
 @end
 
 @implementation StreamingViewController
@@ -28,6 +35,8 @@ CGFloat const kSTSStreamingViewSubviewMargin = 10.0;
     self.keyboardHeight = 0;
     [self addPreviewView];
     [self addScrollView];
+    self.retryCount = 0;
+    [self configureApplication];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -58,6 +67,7 @@ CGFloat const kSTSStreamingViewSubviewMargin = 10.0;
     }
     [self.view addSubview:_previewView];
     [self addCameraButton];
+    [self addStreamingStatusLabel];
 }
 
 - (void)addCameraButton {
@@ -75,6 +85,22 @@ CGFloat const kSTSStreamingViewSubviewMargin = 10.0;
                 forControlEvents:UIControlEventTouchUpInside];
     }
     [_previewView addSubview:_cameraButton];
+}
+
+- (void)addStreamingStatusLabel {
+    if (!_streamingStatusLabel) {
+        _streamingStatusLabel = [UILabel new];
+        _streamingStatusLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        _streamingStatusLabel.backgroundColor = [UIColor clearColor];
+        _streamingStatusLabel.textColor = [UIColor whiteColor];
+        _streamingStatusLabel.font = [UIFont systemFontOfSize:16];
+        _streamingStatusLabel.numberOfLines = 0;
+        _streamingStatusLabel.textAlignment = NSTextAlignmentCenter;
+        _streamingStatusLabel.layer.cornerRadius = 3;
+        _streamingStatusLabel.clipsToBounds = YES;
+        _streamingStatusLabel.text = @"";
+    }
+    [self.previewView addSubview:_streamingStatusLabel];
 }
 
 - (void)addScrollView {
@@ -177,6 +203,7 @@ CGFloat const kSTSStreamingViewSubviewMargin = 10.0;
     self.allLayoutConstraints = [NSMutableArray array];
     [self addPreviewViewLayoutConstraints];
     [self addCameraButtonLayoutConstraints];
+    [self addStreamingStatusLabelLayoutConstraints];
     [self updateScrollViewLayoutConstraints];
     [self addTitleInputLayoutConstraints];
     [self addSynopsisInputLayoutConstraints];
@@ -223,6 +250,28 @@ CGFloat const kSTSStreamingViewSubviewMargin = 10.0;
                                                             views:views];
     [layoutConstraints addObjectsFromArray:constraints];
     constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(margin)-[cameraButton]"
+                                                          options:0
+                                                          metrics:metrics
+                                                            views:views];
+    [layoutConstraints addObjectsFromArray:constraints];
+    [NSLayoutConstraint activateConstraints:layoutConstraints];
+    [self.allLayoutConstraints addObjectsFromArray:layoutConstraints];
+}
+
+- (void)addStreamingStatusLabelLayoutConstraints {
+    if (!self.streamingStatusLabel || ![self.streamingStatusLabel superview]) {
+        return;
+     }
+    NSMutableArray * layoutConstraints = [NSMutableArray array];
+    NSDictionary * views = @{@"streamingStatusLabel": self.streamingStatusLabel};
+    NSDictionary * metrics = @{@"margin": @(kSTSStreamingViewSubviewMargin)};
+    NSArray * constraints;
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|-(margin)-[streamingStatusLabel]-(margin)-|"
+                                                          options:0
+                                                          metrics:metrics
+                                                            views:views];
+    [layoutConstraints addObjectsFromArray:constraints];
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(margin)-[streamingStatusLabel]"
                                                           options:0
                                                           metrics:metrics
                                                             views:views];
@@ -459,9 +508,30 @@ CGFloat const kSTSStreamingViewSubviewMargin = 10.0;
 #pragma mark - button actions
 
 - (void)startButtonPressed:(UIButton *)sender {
-}
+    [self.view endEditing:YES];
+    if (self.streamingManager.state == STSStreamingStatePrepared
+        && [self.titleInput.text length] > 0) {
+        self.streamingStatusLabel.text = @"Connecting";
+        [self startStreaming];
+        return;
+    }
+    if (self.streamingManager.state == STSStreamingStateStreaming) {
+        self.statusLabel.text = @"Disconnecting";
+        [self stopStreaming];
+    }}
 
 - (void)cameraButtonPressed:(UIButton *)sender {
+#if !TARGET_IPHONE_SIMULATOR
+    [self.view endEditing:YES];
+    if (!self.streamingManager) {
+        return;
+    }
+    if (self.streamingManager.captureDevicePosition == AVCaptureDevicePositionFront) {
+        self.streamingManager.captureDevicePosition = AVCaptureDevicePositionBack;
+    } else {
+        self.streamingManager.captureDevicePosition = AVCaptureDevicePositionFront;
+    }
+#endif
 }
 
 #pragma mark - handle keyboard notifications
@@ -504,5 +574,117 @@ CGFloat const kSTSStreamingViewSubviewMargin = 10.0;
     }
     return NO;
 }
+
+#pragma mark - integration with StraaS SDK
+
+- (void)configureApplication {
+    if ([self didConfigureApplication]) {
+        [self configureApplicationSuccess];
+        return;
+    }
+    __weak StreamingViewController * weakSelf = self;
+    [STSApplication configureApplication:^(BOOL success, NSError *error) {
+        if (!weakSelf) {
+            return;
+        }
+        if (!success) {
+            weakSelf.retryCount++;
+            if (weakSelf.retryCount >= kSTSStreaingViewMaxRetryCount) {
+                [weakSelf configureApplicationFailedWithError:error];
+                return;
+            }
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kSTSStreaingViewRetryInterval * NSEC_PER_SEC)),
+                           dispatch_get_main_queue(), ^{
+                               [weakSelf configureApplication];
+                           });
+            return;
+        }
+        [weakSelf configureApplicationSuccess];
+    }];
+}
+
+- (BOOL)didConfigureApplication {
+    return ([[STSSDKAuthManager sharedManager].token length] != 0);
+}
+
+- (void)configureApplicationSuccess {
+    self.retryCount = 0;
+    self.statusLabel.hidden = YES;
+    self.startButton.hidden = NO;
+#if TARGET_IPHONE_SIMULATOR
+    self.streamingStatusLabel.text = @"Requires an actual device to stream.";
+#else
+    [self performSelectorOnMainThread:@selector(prepare) withObject:nil waitUntilDone:YES];
+#endif
+}
+
+- (void)configureApplicationFailedWithError:(NSError *)error {
+    NSLog(@"configure application failed with error: %@", error);
+    self.statusLabel.text = @"Cofigure applicaion failed.";
+}
+
+- (void)prepare {
+    void (^success)(void) = ^(){
+        self.streamingStatusLabel.text = @"Prepared";
+    };
+    void (^failure)(NSError *) = ^(NSError * error) {
+        NSLog(@"preparation failed with error: %@", error);
+        self.streamingStatusLabel.text = @"Error";
+    };
+    self.streamingStatusLabel.text = @"Preparing";
+    [self setupStreamingManager];
+    CGSize size = CGSizeMake(KSTSStreamingOutputSize, KSTSStreamingOutputSize);
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    [self.streamingManager prepareWithVideoSize:size
+                                    previewView:self.previewView
+                         outputImageOrientation:orientation
+                                        success:success
+                                        failure:failure];
+}
+
+- (void)setupStreamingManager {
+    if (self.streamingManager) {
+        return;
+    }
+    self.streamingManager = [STSStreamingManager new];
+    self.streamingManager.delegate = self;
+    self.streamingManager.captureDevicePosition = AVCaptureDevicePositionBack;
+}
+
+- (void)startStreaming {
+    NSString *title = self.titleInput.text;
+    NSString *synopsis = self.synopsisInput.text;
+    [self.streamingManager startStreamingWithJWT:self.JWT
+                                           title:title
+                                        synopsis:synopsis
+                                          listed:YES
+                                  reuseLiveEvent:YES];
+}
+
+- (void)stopStreaming {
+    [self.streamingManager stopStreaming];
+}
+
+#pragma mark - STSStreamingManagerDelegate
+
+- (void)streamingManager:(STSStreamingManager *)streamingManager didStartStreaming:(NSString *)liveId {
+    self.streamingStatusLabel.text = @"Streaming";
+    [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
+}
+
+- (void)streamingManager:(STSStreamingManager *)streamingManager didStopStreaming:(BOOL)complete {
+    self.streamingStatusLabel.text = @"Stopped(Prepared)";
+    [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+}
+
+- (void)streamingManager:(STSStreamingManager *)streamingManager
+                 onError:(NSError *)error
+                  liveId:(NSString * _Nullable)liveId
+{
+    NSLog(@"Streaming manager stopped with:\nerror: %@,\nliveId: %@", error, liveId);
+    self.streamingStatusLabel.text = @"Error.";
+    [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+}
+
 
 @end

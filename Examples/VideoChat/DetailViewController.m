@@ -70,6 +70,7 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 
 - (void)addStreamingView {
     StreamingViewController * controller = [StreamingViewController new];
+    controller.JWT = <#PUT_YOUR_MEMEBER_JWT_HERE#>;
     [self addChildViewController:controller];
     [controller didMoveToParentViewController:self];
     [self.view addSubview:controller.view];
