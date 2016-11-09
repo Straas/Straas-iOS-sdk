@@ -9,6 +9,7 @@
 #import "StickersInputView.h"
 #import "UIImage+sticker.h"
 #import <SDWebImage/SDWebImage-umbrella.h>
+#import "NSFileManager+Sticker.h"
 
 NSString * const kStickersInputView = @"StickersInputView";
 
@@ -16,7 +17,9 @@ NSString * const kStickersInputView = @"StickersInputView";
 @property (nonatomic, nullable) NSArray<STSChatSticker *> * stickers;
 @property (nonatomic, nullable) NSMutableArray <UIScrollView *> * itemScrollView;
 @property (nonatomic, nullable) NSMutableArray <NSLayoutConstraint *> * stickerItemScrollviewConstraints;
+@property (nonatomic, nonnull) UILabel * noRecentlyStickerLabel;
 @property (nonatomic) NSLayoutConstraint * segmentedWidthConstraint;
+@property (nonatomic) BOOL shouldUpdateRecentlyScrollView;
 @end
 
 @implementation StickersInputView {
@@ -53,6 +56,7 @@ NSString * const kStickersInputView = @"StickersInputView";
     self.stickerItemScrollview.showsHorizontalScrollIndicator = NO;
     self.stickerItemScrollview.bounces = NO;
     self.stickerItemScrollview.delegate = self;
+    self.shouldUpdateRecentlyScrollView = NO;
     [self addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew context:nil];
 }
 
@@ -80,7 +84,8 @@ NSString * const kStickersInputView = @"StickersInputView";
     }
     _stickers = stickers;
     self.segmentedControl.items = items;
-    [self setSegmentedWidthWithItemsCount:items.count];
+    //due to recently stickers, segment width would be items.count +1
+    [self setSegmentedWidthWithItemsCount:items.count + 1];
     [self addStickerItemsScrollView];
 }
 
@@ -94,6 +99,7 @@ NSString * const kStickersInputView = @"StickersInputView";
 }
 
 - (void)addStickerItemsScrollView {
+    [self addRecentylyUsedStickerScrollView];
     [self.stickers enumerateObjectsUsingBlock:^(STSChatSticker * _Nonnull sticker, NSUInteger idx, BOOL * _Nonnull stop) {
         UIScrollView * scrollView = [UIScrollView new];
         scrollView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -111,6 +117,7 @@ NSString * const kStickersInputView = @"StickersInputView";
 
 - (void)updateItemScrollViewLayout {
     [self updateItemsScrollViewConstraint];
+    self.noRecentlyStickerLabel.frame = self.stickerItemScrollview.frame;
     CGFloat offsetX = self.segmentedControl.selectedSegmentIndex * CGRectGetWidth(self.frame);
     CGPoint endPoint = CGPointMake(offsetX, 0.0);
     [self.stickerItemScrollview setContentOffset:endPoint animated:YES];
@@ -174,6 +181,77 @@ NSString * const kStickersInputView = @"StickersInputView";
     [self removeObserver:self forKeyPath:@"bounds"];
 }
 
+#pragma mark - recentlyUsedSticker
+- (void)addRecentylyUsedStickerScrollView {
+    UIScrollView * scrollView = [UIScrollView new];
+    scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+    scrollView.pagingEnabled = NO;
+    scrollView.scrollEnabled = YES;
+    [scrollView addSubview:self.noRecentlyStickerLabel];
+    [self setupRecentlyUsedStickerScrollViewSubviews:scrollView];
+    [self.itemScrollView addObject:scrollView];
+    [self.stickerItemScrollview addSubview:scrollView];
+}
+
+- (void)setupRecentlyUsedStickerScrollViewSubviews:(UIScrollView *)scrollView {
+    NSArray <NSDictionary *>* recentlyUsedSticker = [NSFileManager getRecentlyUsedStickerItems];
+    if (recentlyUsedSticker.count > 0) {
+        self.noRecentlyStickerLabel.hidden = YES;
+        [recentlyUsedSticker enumerateObjectsUsingBlock:^(NSDictionary * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [self addButtonWithImageURL:obj.allValues[0] key:obj.allKeys[0] scrollView:scrollView];
+        }];
+    } else {
+        self.noRecentlyStickerLabel.hidden = NO;
+    }
+}
+
+- (UILabel *)noRecentlyStickerLabel {
+    if (!_noRecentlyStickerLabel) {
+        UILabel * label = [UILabel new];
+        label.text = NSLocalizedString(@"Recent Stickers", nil);
+        label.textColor = [UIColor colorWithWhite:0.6 alpha:1];
+        label.font = [UIFont systemFontOfSize:14.0];
+        label.textAlignment = NSTextAlignmentCenter;
+        _noRecentlyStickerLabel = label;
+    }
+    return _noRecentlyStickerLabel;
+}
+
+- (void)reloadRecentlyUsedStickerScrollView {
+    if ((self.segmentedControl.selectedSegmentIndex == 0) && self.shouldUpdateRecentlyScrollView) {
+        return;
+    }
+    UIScrollView * recentlyUsedScrollView= self.itemScrollView[0];
+    NSArray * buttons = [self buttonsInItemsScrollView:recentlyUsedScrollView];
+    [buttons makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self setupRecentlyUsedStickerScrollViewSubviews:recentlyUsedScrollView];
+    buttons = [self buttonsInItemsScrollView:recentlyUsedScrollView];
+    __block CGFloat stickerItemOffsetX = viewStickerPadding;
+    __block CGFloat stickerItemOffsetY = viewStickerPadding;
+    CGFloat paddingBetweenStickerItems = self.paddingBetweenStickerItems;
+    [buttons enumerateObjectsUsingBlock:^(UIButton * button, NSUInteger idx, BOOL * _Nonnull stop) {
+        CGRect buttonFrame = CGRectMake(stickerItemOffsetX, stickerItemOffsetY,
+                                        stickerItemSideLength, stickerItemSideLength);
+        [button setFrame:buttonFrame];
+        if ((idx+1) % self.stickerItemsInOneRaw == 0) {
+            stickerItemOffsetY += paddingBetweenStickerItems + stickerItemSideLength;
+            stickerItemOffsetX = viewStickerPadding;
+        } else {
+            stickerItemOffsetX += stickerItemSideLength + paddingBetweenStickerItems;
+        }
+    }];
+    self.shouldUpdateRecentlyScrollView = NO;
+}
+
+- (NSString *)imageURLWithStickerText:(NSString *)text {
+    for (STSChatSticker * sticker in self.stickers) {
+        if ([sticker.stickers valueForKey:text]) {
+            return [sticker.stickers valueForKey:text];
+        }
+    }
+    return nil;
+}
+
 #pragma mark - Accessor
 - (CGFloat)viewWidth {
     return CGRectGetWidth(self.frame);
@@ -196,8 +274,13 @@ NSString * const kStickersInputView = @"StickersInputView";
 
 #pragma mark - IBAction
 - (IBAction)didClickStickerItemButton:(UIButton *)button {
+    self.shouldUpdateRecentlyScrollView = YES;
+    NSString * stickerText = button.currentTitle;
+    NSString * imageURL = [self imageURLWithStickerText:stickerText];
+    [NSFileManager addRecentlyUsedStickerItem:@{stickerText: imageURL}];
+    [self reloadRecentlyUsedStickerScrollView];
     if ([self.delegate respondsToSelector:@selector(didSelectStickerKey:)]) {
-        [self.delegate didSelectStickerKey:button.currentTitle];
+        [self.delegate didSelectStickerKey:stickerText];
     }
 }
 
@@ -216,6 +299,7 @@ NSString * const kStickersInputView = @"StickersInputView";
 - (void)segmentedControl:(STSSegmentedControl *)segmentedControl didSelectSegmentIndex:(NSUInteger)index {
     CGFloat offsetX = index * CGRectGetWidth(self.frame);
     CGPoint endPoint = CGPointMake(offsetX, 0.0);
+    [self reloadRecentlyUsedStickerScrollView];
     [self.stickerItemScrollview setContentOffset:endPoint animated:YES];
 }
 
