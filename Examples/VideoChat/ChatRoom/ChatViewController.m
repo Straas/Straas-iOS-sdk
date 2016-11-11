@@ -34,6 +34,8 @@
 @property (nonatomic) NSString * JWT;
 
 @property (nonatomic, getter=hasUpdatedNickname) BOOL updatedNickname;
+@property (nonatomic) NSString * fakeName;
+
 @end
 
 @implementation ChatViewController 
@@ -354,6 +356,14 @@
                                           [weakSelf updateTextViewForChatRoom:weakSelf.chatRoomName];
                                           NSLog(@"update nickname success");
                                       } failure:^(NSError * _Nonnull error) {
+                                          STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
+                                          if ([currentUser.role isEqualToString:kSTSUserRoleBlocked]) {
+                                              weakSelf.updatedNickname = YES;
+                                              [weakSelf.textView becomeFirstResponder];
+                                              [weakSelf updateTextViewForChatRoom:weakSelf.chatRoomName];
+                                              self.fakeName = nickName;
+                                              return;
+                                          }
                                           UIAlertController * failureController =
                                           [UIAlertController alertControllerWithTitle:@"Failed to set nickname."
                                                                               message:@"Oops, it seems that you failed to update nickname for some reason. Try to update again later."
