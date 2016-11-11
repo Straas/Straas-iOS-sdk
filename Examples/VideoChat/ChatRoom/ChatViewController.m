@@ -36,7 +36,7 @@
 @property (nonatomic, getter=hasUpdatedNickname) BOOL updatedNickname;
 @end
 
-@implementation ChatViewController
+@implementation ChatViewController 
 
 - (instancetype)init
 {
@@ -208,7 +208,18 @@
 }
 
 - (void)chatRoom:(NSString *)chatRoomName messageRemoved:(NSString *)messageId {
-
+    [self.messages enumerateObjectsUsingBlock:^(STSChatMessage * msg, NSUInteger index, BOOL * _Nonnull stop) {
+        if ([msg.messageId isEqualToString:messageId]) {
+            NSIndexPath * indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+            UITableViewRowAnimation rowAnimation = self.inverted ? UITableViewRowAnimationBottom : UITableViewRowAnimationTop;
+            [self.tableView beginUpdates];
+            [self.messages removeObject:msg];
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:rowAnimation];
+            [self.tableView endUpdates];
+            * stop = YES;
+            return;
+        }
+    }];
 }
 
 - (void)chatRoomMessageFlushed:(NSString *)chatRoomName {
@@ -268,9 +279,9 @@
 
     [self.manager sendMessage:[self.textView.text copy] chatRoom:self.chatRoomName success:^{
 
-    } failure:^(NSError * _Nonnull error) {
+        } failure:^(NSError * _Nonnull error) {
 
-    }];
+        }];
 
     [super didPressRightButton:sender];
 }
