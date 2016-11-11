@@ -20,6 +20,7 @@
 
 #import "STSChatMessage+VideoChatUtility.h"
 #import "UIAlertController+VideoChatUtility.h"
+#import "STSChatUser+VieoChatUtility.h"
 
 #define DEBUG_CUSTOM_TYPING_INDICATOR 0
 
@@ -181,6 +182,12 @@
 }
 
 - (void)chatRoom:(NSString *)chatRoomName usersUpdated:(NSArray<STSChatUser *> *)users {
+    STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
+    for (STSChatUser * user in users) {
+        if ([user isEqual:currentUser]) {
+            [self updateTextViewForChatRoom:self.chatRoomName];
+        }
+    }
     NSLog(@"%@ updated in %@", users, chatRoomName);
 }
 
@@ -233,22 +240,39 @@
 
 - (void)updateTextViewForChatRoom:(NSString *)chatRoomName {
     STSChatInputMode mode = [[self.manager chatForChatRoom:chatRoomName] mode];
-    if (mode == STSChatInputNormal) {
-        self.textView.editable = YES;
-        if ([self needsNickname]) {
-            self.textView.placeholder = @"Please Enter a Nickname";
-        } else {
-            self.textView.placeholder = @"Message";
-        }
-        return;
+    STSChatUser * currentUser = [self.manager currentUserForChatRoom:chatRoomName];
+    NSString * placeholder;
+    BOOL editable;
+    switch (mode) {
+        case STSChatInputNormal:
+            editable = YES;
+            placeholder = self.needsNickname ? @"Please Enter a Nickname" : @"Message";
+            break;
+        case STSChatInputMember:
+            if (self.JWT.length != 0) {
+                editable = YES;
+                placeholder = @"Message";
+            } else {
+                editable = NO;
+                placeholder = @"Only member can send message";
+            }
+            break;
+        case STSChatInputMaster:
+            if ([currentUser canChatInAnchorMode]) {
+                editable = YES;
+                placeholder = @"Message";
+            } else {
+                editable = NO;
+                placeholder = @"Only master can send message";
+            }
+            break;
+        default:
+            editable = NO;
+            placeholder = @"Conneting to Chatroom...";
+            break;
     }
-    if (mode == STSChatInputMember && self.JWT.length != 0) {
-        self.textView.editable = YES;
-        self.textView.placeholder = @"Message";
-        return;
-    }
-    self.textView.editable = NO;
-    self.textView.placeholder = @"Only member can send message";
+    self.textView.editable = editable;
+    self.textView.placeholder = placeholder;
 }
 
 #pragma mark - Overriden Methods
@@ -312,8 +336,10 @@
 - (BOOL)canPressRightButton
 {
     STSChatInputMode mode = [[self.manager chatForChatRoom:self.chatRoomName] mode];
+    STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
     return ((mode == STSChatInputNormal) ||
-            (mode == STSChatInputMember && self.JWT.length != 0));
+            (mode == STSChatInputMember && self.JWT.length != 0) ||
+            (mode == STSChatInputMaster && ([currentUser canChatInAnchorMode])));
 }
 
 - (BOOL)canShowTypingIndicator
