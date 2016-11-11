@@ -278,13 +278,17 @@
 - (void)didPressRightButton:(id)sender
 {
     [self.textView resignFirstResponder];
-
-    [self.manager sendMessage:[self.textView.text copy] chatRoom:self.chatRoomName success:^{
+    NSString * messageText = [self.textView.text copy];
+    STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
+    if ([currentUser.role isEqualToString:kSTSUserRoleBlocked]) {
+        [self addFakeMessage:messageText];
+    } else {
+        [self.manager sendMessage:messageText chatRoom:self.chatRoomName success:^{
 
         } failure:^(NSError * _Nonnull error) {
 
         }];
-
+    }
     [super didPressRightButton:sender];
 }
 
@@ -382,6 +386,25 @@
 - (BOOL)needsNickname {
     return !self.hasUpdatedNickname && self.JWT.length == 0;
 }
+
+- (void)addFakeMessage:(NSString *)fakeMessage {
+    STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
+    NSDateFormatter * formatter = [NSDateFormatter new];
+    formatter.dateFormat = @"YYYY-MM-dd HH:mm:ss";
+    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    NSString *strDate = [[formatter stringFromDate:[NSDate date]] stringByAppendingString:@".666Z"];
+    strDate = [strDate stringByReplacingCharactersInRange:NSMakeRange(10, 1) withString:@"T"];
+    NSString * avatar = currentUser.avatar ? : @"";
+    NSString * fakeName = (self.JWT.length == 0) ? self.fakeName : currentUser.name;
+    NSDictionary * fakeJson = @{@"text":fakeMessage,
+                                @"type":@0,
+                                @"createdDate": strDate,
+                                @"creator": @{@"name":fakeName,
+                                              @"avatar":avatar}};
+    STSChatMessage * fakeMsg = [[STSChatMessage alloc] initWithJSON:fakeJson];
+    
+    [self chatRoom:self.chatRoomName messageAdded:fakeMsg];
+};
 
 #pragma mark - SLKTextViewDelegate Methods
 
