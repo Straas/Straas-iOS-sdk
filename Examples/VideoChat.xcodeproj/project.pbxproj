@@ -19,6 +19,7 @@
 		40C779E81D7091D0004F61CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C779E61D7091D0004F61CA /* Main.storyboard */; };
 		40C779EA1D7091D0004F61CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C779E91D7091D0004F61CA /* Assets.xcassets */; };
 		40C779ED1D7091D0004F61CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C779EB1D7091D0004F61CA /* LaunchScreen.storyboard */; };
+		9B16870F1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B16870E1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.m */; };
 		9BBEC54A1D813F1800387012 /* UIAlertController+VideoChatUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBEC5491D813F1800387012 /* UIAlertController+VideoChatUtility.m */; };
 		FADDAF509351485C7AE9DE21 /* Pods_VideoChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C2739ECC5559476005727D /* Pods_VideoChat.framework */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,8 @@
 		40C779EC1D7091D0004F61CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40C779EE1D7091D0004F61CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64C2739ECC5559476005727D /* Pods_VideoChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B16870D1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "STSChatUser+VieoChatUtility.h"; sourceTree = "<group>"; };
+		9B16870E1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "STSChatUser+VieoChatUtility.m"; sourceTree = "<group>"; };
 		9BBEC5481D813F1800387012 /* UIAlertController+VideoChatUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+VideoChatUtility.h"; sourceTree = "<group>"; };
 		9BBEC5491D813F1800387012 /* UIAlertController+VideoChatUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+VideoChatUtility.m"; sourceTree = "<group>"; };
 		EC14F7612121694672BF11EF /* Pods-VideoChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoChat/Pods-VideoChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -72,6 +75,8 @@
 				40A202441D7804B400457359 /* STSChatMessage+VideoChatUtility.m */,
 				9BBEC5481D813F1800387012 /* UIAlertController+VideoChatUtility.h */,
 				9BBEC5491D813F1800387012 /* UIAlertController+VideoChatUtility.m */,
+				9B16870D1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.h */,
+				9B16870E1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.m */,
 				40A2022F1D77F93E00457359 /* ChatViewController.h */,
 				40A202301D77F93E00457359 /* ChatViewController.m */,
 				40A202311D77F93E00457359 /* MessageTableViewCell.h */,
@@ -274,6 +279,7 @@
 				40A202371D77F93E00457359 /* ChatViewController.m in Sources */,
 				40A2023A1D77F93E00457359 /* TypingIndicatorView.m in Sources */,
 				40A202451D7804B400457359 /* STSChatMessage+VideoChatUtility.m in Sources */,
+				9B16870F1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.m in Sources */,
 				40C779DC1D7091D0004F61CA /* main.m in Sources */,
 				40C779E51D7091D0004F61CA /* DetailViewController.m in Sources */,
 				40A202391D77F93E00457359 /* MessageTextView.m in Sources */,
