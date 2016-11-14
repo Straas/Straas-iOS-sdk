@@ -20,6 +20,7 @@
 
 #import "STSChatMessage+VideoChatUtility.h"
 #import "UIAlertController+VideoChatUtility.h"
+#import "STSChatUser+VieoChatUtility.h"
 
 #define DEBUG_CUSTOM_TYPING_INDICATOR 0
 
@@ -34,9 +35,11 @@
 @property (nonatomic) NSString * JWT;
 
 @property (nonatomic, getter=hasUpdatedNickname) BOOL updatedNickname;
+@property (nonatomic) NSString * fakeName;
+
 @end
 
-@implementation ChatViewController
+@implementation ChatViewController 
 
 - (instancetype)init
 {
@@ -179,6 +182,12 @@
 }
 
 - (void)chatRoom:(NSString *)chatRoomName usersUpdated:(NSArray<STSChatUser *> *)users {
+    STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
+    for (STSChatUser * user in users) {
+        if ([user isEqual:currentUser]) {
+            [self updateTextViewForChatRoom:self.chatRoomName];
+        }
+    }
     NSLog(@"%@ updated in %@", users, chatRoomName);
 }
 
@@ -208,7 +217,18 @@
 }
 
 - (void)chatRoom:(NSString *)chatRoomName messageRemoved:(NSString *)messageId {
-
+    [self.messages enumerateObjectsUsingBlock:^(STSChatMessage * msg, NSUInteger index, BOOL * _Nonnull stop) {
+        if ([msg.messageId isEqualToString:messageId]) {
+            NSIndexPath * indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+            UITableViewRowAnimation rowAnimation = self.inverted ? UITableViewRowAnimationBottom : UITableViewRowAnimationTop;
+            [self.tableView beginUpdates];
+            [self.messages removeObject:msg];
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:rowAnimation];
+            [self.tableView endUpdates];
+            * stop = YES;
+            return;
+        }
+    }];
 }
 
 - (void)chatRoomMessageFlushed:(NSString *)chatRoomName {
@@ -220,22 +240,39 @@
 
 - (void)updateTextViewForChatRoom:(NSString *)chatRoomName {
     STSChatInputMode mode = [[self.manager chatForChatRoom:chatRoomName] mode];
-    if (mode == STSChatInputNormal) {
-        self.textView.editable = YES;
-        if ([self needsNickname]) {
-            self.textView.placeholder = @"Please Enter a Nickname";
-        } else {
-            self.textView.placeholder = @"Message";
-        }
-        return;
+    STSChatUser * currentUser = [self.manager currentUserForChatRoom:chatRoomName];
+    NSString * placeholder;
+    BOOL editable;
+    switch (mode) {
+        case STSChatInputNormal:
+            editable = YES;
+            placeholder = self.needsNickname ? @"Please Enter a Nickname" : @"Message";
+            break;
+        case STSChatInputMember:
+            if (self.JWT.length != 0) {
+                editable = YES;
+                placeholder = @"Message";
+            } else {
+                editable = NO;
+                placeholder = @"Only member can send message";
+            }
+            break;
+        case STSChatInputMaster:
+            if ([currentUser canChatInAnchorMode]) {
+                editable = YES;
+                placeholder = @"Message";
+            } else {
+                editable = NO;
+                placeholder = @"Only master can send message";
+            }
+            break;
+        default:
+            editable = NO;
+            placeholder = @"Conneting to Chatroom...";
+            break;
     }
-    if (mode == STSChatInputMember && self.JWT.length != 0) {
-        self.textView.editable = YES;
-        self.textView.placeholder = @"Message";
-        return;
-    }
-    self.textView.editable = NO;
-    self.textView.placeholder = @"Only member can send message";
+    self.textView.editable = editable;
+    self.textView.placeholder = placeholder;
 }
 
 #pragma mark - Overriden Methods
@@ -265,13 +302,17 @@
 - (void)didPressRightButton:(id)sender
 {
     [self.textView resignFirstResponder];
+    NSString * messageText = [self.textView.text copy];
+    STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
+    if ([currentUser.role isEqualToString:kSTSUserRoleBlocked]) {
+        [self addFakeMessage:messageText];
+    } else {
+        [self.manager sendMessage:messageText chatRoom:self.chatRoomName success:^{
 
-    [self.manager sendMessage:[self.textView.text copy] chatRoom:self.chatRoomName success:^{
+        } failure:^(NSError * _Nonnull error) {
 
-    } failure:^(NSError * _Nonnull error) {
-
-    }];
-
+        }];
+    }
     [super didPressRightButton:sender];
 }
 
@@ -295,8 +336,10 @@
 - (BOOL)canPressRightButton
 {
     STSChatInputMode mode = [[self.manager chatForChatRoom:self.chatRoomName] mode];
+    STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
     return ((mode == STSChatInputNormal) ||
-            (mode == STSChatInputMember && self.JWT.length != 0));
+            (mode == STSChatInputMember && self.JWT.length != 0) ||
+            (mode == STSChatInputMaster && ([currentUser canChatInAnchorMode])));
 }
 
 - (BOOL)canShowTypingIndicator
@@ -343,6 +386,14 @@
                                           [weakSelf updateTextViewForChatRoom:weakSelf.chatRoomName];
                                           NSLog(@"update nickname success");
                                       } failure:^(NSError * _Nonnull error) {
+                                          STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
+                                          if ([currentUser.role isEqualToString:kSTSUserRoleBlocked]) {
+                                              weakSelf.updatedNickname = YES;
+                                              [weakSelf.textView becomeFirstResponder];
+                                              [weakSelf updateTextViewForChatRoom:weakSelf.chatRoomName];
+                                              self.fakeName = nickName;
+                                              return;
+                                          }
                                           UIAlertController * failureController =
                                           [UIAlertController alertControllerWithTitle:@"Failed to set nickname."
                                                                               message:@"Oops, it seems that you failed to update nickname for some reason. Try to update again later."
@@ -361,6 +412,25 @@
 - (BOOL)needsNickname {
     return !self.hasUpdatedNickname && self.JWT.length == 0;
 }
+
+- (void)addFakeMessage:(NSString *)fakeMessage {
+    STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
+    NSDateFormatter * formatter = [NSDateFormatter new];
+    formatter.dateFormat = @"YYYY-MM-dd HH:mm:ss";
+    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    NSString *strDate = [[formatter stringFromDate:[NSDate date]] stringByAppendingString:@".666Z"];
+    strDate = [strDate stringByReplacingCharactersInRange:NSMakeRange(10, 1) withString:@"T"];
+    NSString * avatar = currentUser.avatar ? : @"";
+    NSString * fakeName = (self.JWT.length == 0) ? self.fakeName : currentUser.name;
+    NSDictionary * fakeJson = @{@"text":fakeMessage,
+                                @"type":@0,
+                                @"createdDate": strDate,
+                                @"creator": @{@"name":fakeName,
+                                              @"avatar":avatar}};
+    STSChatMessage * fakeMsg = [[STSChatMessage alloc] initWithJSON:fakeJson];
+    
+    [self chatRoom:self.chatRoomName messageAdded:fakeMsg];
+};
 
 #pragma mark - SLKTextViewDelegate Methods
 
