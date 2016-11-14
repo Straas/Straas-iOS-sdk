@@ -32,6 +32,11 @@ typedef NS_ENUM(NSInteger, STSChatMesssageType) {
 @interface STSChatMessage : LHDataObject
 
 /**
+ *  Message Id.
+ */
+@property (nonatomic, readonly) NSString * messageId;
+
+/**
  *  Message body.
  */
 @property (nonatomic, readonly) NSString * text;

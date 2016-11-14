@@ -10,20 +10,23 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ *  Chat sticker model.
+ */
 @interface STSChatSticker : LHDataObject
 
 /**
- * The sticker name.
+ *  The sticker name.
  */
 @property (nonatomic, readonly) NSString * name;
 
 /**
- * The main image of the sticker.
+ *  The main image of the sticker.
  */
 @property (nonatomic, readonly) NSString * mainImage;
 
 /**
- * The stickers dictionary whose key indicate sticker text and value indicate sticker url.
+ *  The stickers dictionary whose key indicate sticker text and value indicate sticker url.
  */
 @property (nonatomic, readonly) NSDictionary * stickers;
 
