@@ -119,7 +119,6 @@
 - (UIButton *)buttonForSegment:(NSUInteger)segment
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button addTarget:self action:@selector(willSelectedButton:) forControlEvents:UIControlEventTouchDown];
     [button addTarget:self action:@selector(didSelectButton:) forControlEvents:UIControlEventTouchDragOutside|UIControlEventTouchDragInside|UIControlEventTouchDragEnter|UIControlEventTouchDragExit|UIControlEventTouchCancel|UIControlEventTouchUpInside|UIControlEventTouchUpOutside];
     
     button.backgroundColor = [UIColor clearColor];
@@ -156,9 +155,6 @@
 }
 
 #pragma mark - IBAction
-- (void)willSelectedButton:(UIButton *)button {
-    [self.delegate segmentedControl:self willSelectSegmentIndex:button.tag];
-}
 
 - (void)didSelectButton:(UIButton *)button {
     [self setSelectedSegmentIndex:button.tag];

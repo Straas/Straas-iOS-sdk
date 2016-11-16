@@ -10,7 +10,6 @@
 @class STSSegmentedControl;
 
 @protocol STSSegmentedControlDelegate <NSObject>
-- (void)segmentedControl:(STSSegmentedControl *)segmentedControl willSelectSegmentIndex:(NSUInteger)index;
 - (void)segmentedControl:(STSSegmentedControl *)segmentedControl didSelectSegmentIndex:(NSUInteger)index;
 @end
 

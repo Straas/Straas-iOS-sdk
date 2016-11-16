@@ -312,9 +312,6 @@ NSString * const kStickersInputView = @"StickersInputView";
 }
 
 #pragma mark - STSSegmentedControlDelegate methods
-- (void)segmentedControl:(STSSegmentedControl *)segmentedControl willSelectSegmentIndex:(NSUInteger)index {
-    
-}
 
 - (void)segmentedControl:(STSSegmentedControl *)segmentedControl didSelectSegmentIndex:(NSUInteger)index {
     CGFloat offsetX = index * CGRectGetWidth(self.frame);
