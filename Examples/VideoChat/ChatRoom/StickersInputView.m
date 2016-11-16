@@ -22,9 +22,7 @@ NSString * const kStickersInputView = @"StickersInputView";
 @property (nonatomic) BOOL shouldUpdateRecentlyScrollView;
 @end
 
-@implementation StickersInputView {
-    __weak id _weakSelf;
-}
+@implementation StickersInputView
 
 - (instancetype)init {
     return [self initWithFrame:CGRectZero];
@@ -44,7 +42,6 @@ NSString * const kStickersInputView = @"StickersInputView";
 }
 
 - (void)commonInit {
-    _weakSelf = self;
     [self.stickerGroupScrollView addSubview:self.segmentedControl];
     self.segmentedControl.delegate = self;
     self.itemScrollView = [NSMutableArray array];
@@ -65,11 +62,11 @@ NSString * const kStickersInputView = @"StickersInputView";
     self.stickerItemScrollview.bounces = NO;
     self.stickerItemScrollview.delegate = self;
     self.shouldUpdateRecentlyScrollView = NO;
-    [self addObserver:self forKeyPath:@"bounds" options:NSKeyValueObservingOptionNew context:nil];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-    [_weakSelf updateItemScrollViewLayout];
+- (void)setBounds:(CGRect)bounds {
+    [super setBounds:bounds];
+    [self updateItemScrollViewLayout];
 }
 
 - (STSSegmentedControl *)segmentedControl {
@@ -196,10 +193,6 @@ NSString * const kStickersInputView = @"StickersInputView";
     [self.segmentedControl.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.stickerItemScrollview.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.itemScrollView removeAllObjects];
-}
-
-- (void)dealloc {
-    [self removeObserver:self forKeyPath:@"bounds"];
 }
 
 #pragma mark - recentlyUsedSticker
