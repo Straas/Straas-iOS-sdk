@@ -86,10 +86,7 @@ NSString * const kStickersInputView = @"StickersInputView";
     if (self.stickers.count > 0) {
         [self resetStickerInputView];
     }
-    NSMutableArray * items = [NSMutableArray new];
-    for (STSChatSticker * sticker in stickers) {
-        [items addObject:sticker.mainImage];
-    }
+    NSArray * items = [stickers valueForKey:@"mainImage"];
     _stickers = stickers;
     self.segmentedControl.items = items;
     //due to recently stickers, segment width would be items.count +1
