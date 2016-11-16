@@ -129,6 +129,9 @@ NSString * const kStickersInputView = @"StickersInputView";
 }
 
 - (void)updateItemScrollViewLayout {
+    if (!self.stickers) {
+        return;
+    }
     [self updateItemsScrollViewConstraint];
     self.noRecentlyStickerLabel.frame = self.stickerItemScrollview.frame;
     CGFloat offsetX = self.segmentedControl.selectedSegmentIndex * CGRectGetWidth(self.frame);
@@ -145,7 +148,7 @@ NSString * const kStickersInputView = @"StickersInputView";
     CGFloat paddingBetweenStickerItems = self.paddingBetweenStickerItems;
     if (self.stickerItemScrollviewConstraints) {
         [NSLayoutConstraint deactivateConstraints:self.stickerItemScrollviewConstraints];
-        self.stickerItemScrollviewConstraints = nil;
+        [self.stickerItemScrollviewConstraints removeAllObjects];
     }
     [self.itemScrollView enumerateObjectsUsingBlock:^(UIScrollView * scrollView, NSUInteger idx, BOOL * _Nonnull stop) {
         __block CGRect frame = CGRectMake(offsetX, 0, self.viewWidth, 0);
@@ -195,6 +198,7 @@ NSString * const kStickersInputView = @"StickersInputView";
     _stickers = @[];
     [self.segmentedControl.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.stickerItemScrollview.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.itemScrollView removeAllObjects];
 }
 
 - (void)dealloc {

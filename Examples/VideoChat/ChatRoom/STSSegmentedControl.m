@@ -151,6 +151,7 @@
 
 - (void)resetSegmentedControl {
     [self.buttons makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.buttons removeAllObjects];
     _items = nil;
 }
 
