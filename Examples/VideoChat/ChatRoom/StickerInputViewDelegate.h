@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @protocol StickerInputViewDelegate <NSObject>
-- (void)didSelectStickerKey:(NSString *)key;
+- (void)didSelectStickerKey:(NSString *)key
+                   imageURL:(NSString *)imageURL;
 @end

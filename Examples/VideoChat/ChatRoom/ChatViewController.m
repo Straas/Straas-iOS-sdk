@@ -39,7 +39,12 @@
 
 @end
 
-@implementation ChatViewController
+@interface STSChatMessage (FakeMsg)
+@property (nonatomic) STSChatMesssageType type;
+@property (nonatomic) NSURL * stickerURL;
+@end
+
+@implementation ChatViewController 
 
 - (instancetype)init
 {
@@ -325,7 +330,7 @@
     }
     [self.leftButton setImage:[UIImage imageNamed:@"btn-stickers"] forState:UIControlStateNormal];
     if ([currentUser.role isEqualToString:kSTSUserRoleBlocked]) {
-        [self addFakeMessage:messageText];
+        [self addFakeMessage:messageText type:STSChatMessageTypeText imageURL:nil];
     } else {
         [self.manager sendMessage:messageText chatRoom:self.chatRoomName success:^{
 
@@ -427,12 +432,17 @@
 }
 
 #pragma mark - sticker view;
-- (void)didSelectStickerKey:(NSString *)key {
-    [self.manager sendMessage:key chatRoom:self.chatRoomName success:^{
+- (void)didSelectStickerKey:(NSString *)key imageURL:(NSString *)imageURL{
+    STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
+    if ([currentUser.role isEqualToString:kSTSUserRoleBlocked]) {
+        [self addFakeMessage:key type:STSChatMessageTypeSticker imageURL:imageURL];
+    } else {
+        [self.manager sendMessage:key chatRoom:self.chatRoomName success:^{
 
-    } failure:^(NSError * _Nonnull error) {
+        } failure:^(NSError * _Nonnull error) {
 
-    }];
+        }];
+    }
 }
 
 #pragma mark - private custom method
@@ -483,7 +493,7 @@
     return !self.hasUpdatedNickname && self.JWT.length == 0;
 }
 
-- (void)addFakeMessage:(NSString *)fakeMessage {
+- (void)addFakeMessage:(NSString *)fakeMessage type:(STSChatMesssageType)type imageURL:(NSString *)imageURL{
     STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
     NSDateFormatter * formatter = [NSDateFormatter new];
     formatter.dateFormat = @"YYYY-MM-dd HH:mm:ss";
@@ -493,12 +503,12 @@
     NSString * avatar = currentUser.avatar ? : @"";
     NSString * fakeName = (self.JWT.length == 0) ? self.fakeName : currentUser.name;
     NSDictionary * fakeJson = @{@"text":fakeMessage,
-                                @"type":@0,
                                 @"createdDate": strDate,
                                 @"creator": @{@"name":fakeName,
                                               @"avatar":avatar}};
     STSChatMessage * fakeMsg = [[STSChatMessage alloc] initWithJSON:fakeJson];
-
+    fakeMsg.type = type;
+    fakeMsg.stickerURL = imageURL ? [NSURL URLWithString:imageURL]: nil;
     [self chatRoom:self.chatRoomName messageAdded:fakeMsg];
 };
 

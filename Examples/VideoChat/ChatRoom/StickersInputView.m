@@ -303,8 +303,8 @@ NSString * const kStickersInputView = @"StickersInputView";
     NSString * imageURL = [self imageURLWithStickerText:stickerText];
     [NSFileManager addRecentlyUsedStickerItem:@{stickerText: imageURL}];
     [self reloadRecentlyUsedStickerScrollView];
-    if ([self.delegate respondsToSelector:@selector(didSelectStickerKey:)]) {
-        [self.delegate didSelectStickerKey:stickerText];
+    if ([self.delegate respondsToSelector:@selector(didSelectStickerKey:imageURL:)]) {
+        [self.delegate didSelectStickerKey:stickerText imageURL:imageURL];
     }
 }
 
