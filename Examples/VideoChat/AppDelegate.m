@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DetailViewController.h"
+#import "StreamingViewController.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -45,6 +46,30 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Managing Interface Geometry
+
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window {
+    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+    UIViewController * topViewController = [[splitViewController.viewControllers lastObject] topViewController];
+    if ([topViewController isKindOfClass:[UINavigationController class]]) {
+        topViewController = [(UINavigationController *)topViewController topViewController];
+    }
+    if ([topViewController isKindOfClass:[DetailViewController class]]) {
+        DetailViewController * detailViewController = (DetailViewController *)topViewController;
+        UIViewController * contentViewController = detailViewController.contentViewController;
+        if ([contentViewController isKindOfClass:[StreamingViewController class]]) {
+            return ((StreamingViewController *)contentViewController).supportedInterfaceOrientations;
+        }
+    }
+    return UIInterfaceOrientationMaskAll;
+}
+
+- (UIViewController *)topViewController {
+    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+    UIViewController * topViewController = [[splitViewController.viewControllers lastObject] topViewController];
+    return topViewController;
 }
 
 #pragma mark - Split view

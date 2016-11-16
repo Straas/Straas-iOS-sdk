@@ -14,7 +14,7 @@ NSString * const STSMessagingServiceKeyword = @"StraaS.io chat room";
 NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 
 @interface DetailViewController ()
-
+@property (nonatomic) UIViewController * contentViewController;
 @end
 
 @implementation DetailViewController
@@ -41,10 +41,10 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
         self.detailDescriptionLabel.text = [self.detailItem description];
         self.navigationItem.title = [self.detailItem description];
     }
-    if (self.detailItem == STSMessagingServiceKeyword) {
+    if ([self.detailItem isEqualToString:STSMessagingServiceKeyword]) {
         [self addChatView];
     }
-    if (self.detailItem == STSStreamingServiceKeyword) {
+    if ([self.detailItem isEqualToString:STSStreamingServiceKeyword]) {
         [self addStreamingView];
     }
 }
@@ -70,6 +70,7 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 
 - (void)addStreamingView {
     StreamingViewController * controller = [StreamingViewController new];
+    self.contentViewController = controller;
     controller.JWT = <#PUT_YOUR_MEMEBER_JWT_HERE#>;
     [self addChildViewController:controller];
     [controller didMoveToParentViewController:self];

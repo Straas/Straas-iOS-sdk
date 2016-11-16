@@ -24,9 +24,19 @@ NSUInteger const kSTSStreaingViewRetryInterval = 2;
 @property (nonatomic) CGFloat keyboardHeight;
 @property (nonatomic) NSUInteger retryCount;
 @property (nonatomic) STSStreamingManager *streamingManager;
+@property (nonatomic) UIInterfaceOrientation initialOrientation;
+
 @end
 
 @implementation StreamingViewController
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _initialOrientation = UIInterfaceOrientationUnknown;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,6 +65,23 @@ NSUInteger const kSTSStreaingViewRetryInterval = 2;
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self updateLayout];
+}
+
+#pragma mark - public methods
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    switch (self.initialOrientation) {
+        case UIInterfaceOrientationPortrait:
+            return UIInterfaceOrientationMaskPortrait;
+        case UIInterfaceOrientationPortraitUpsideDown:
+            return UIInterfaceOrientationMaskPortraitUpsideDown;
+        case UIInterfaceOrientationLandscapeLeft:
+            return UIInterfaceOrientationMaskLandscapeLeft;
+        case UIInterfaceOrientationLandscapeRight:
+            return UIInterfaceOrientationMaskLandscapeRight;
+        default:
+            return UIInterfaceOrientationMaskAll;
+    }
 }
 
 #pragma mark - subviews
@@ -634,10 +661,12 @@ NSUInteger const kSTSStreaingViewRetryInterval = 2;
     self.streamingStatusLabel.text = @"Preparing";
     [self setupStreamingManager];
     CGSize size = CGSizeMake(KSTSStreamingOutputSize, KSTSStreamingOutputSize);
-    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    if (self.initialOrientation == UIInterfaceOrientationUnknown) {
+        self.initialOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+    }
     [self.streamingManager prepareWithVideoSize:size
                                     previewView:self.previewView
-                         outputImageOrientation:orientation
+                         outputImageOrientation:self.initialOrientation
                                         success:success
                                         failure:failure];
 }
