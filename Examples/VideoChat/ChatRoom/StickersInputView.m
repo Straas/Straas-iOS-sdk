@@ -49,9 +49,17 @@ NSString * const kStickersInputView = @"StickersInputView";
     self.segmentedControl.delegate = self;
     self.itemScrollView = [NSMutableArray array];
     self.stickerItemScrollviewConstraints = [NSMutableArray array];
-    NSArray * constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[segmentedControl(35)]" options:0 metrics:nil views:@{@"segmentedControl": self.segmentedControl}];
+    NSArray * constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[segmentedControl(35)]"
+                                                                    options:0
+                                                                    metrics:nil
+                                                                      views:@{@"segmentedControl": self.segmentedControl}];
     [NSLayoutConstraint activateConstraints:constraints];
-    [NSLayoutConstraint activateConstraints:@[[NSLayoutConstraint constraintWithItem:self.segmentedControl attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.stickerGroupScrollView attribute:NSLayoutAttributeLeft multiplier:1 constant:0]]];
+    [NSLayoutConstraint activateConstraints:@[[NSLayoutConstraint constraintWithItem:self.segmentedControl
+                                                                           attribute:NSLayoutAttributeLeft
+                                                                           relatedBy:NSLayoutRelationEqual
+                                                                              toItem:self.stickerGroupScrollView
+                                                                           attribute:NSLayoutAttributeLeft
+                                                                          multiplier:1 constant:0]]];
     self.stickerItemScrollview.pagingEnabled = YES;
     self.stickerItemScrollview.showsHorizontalScrollIndicator = NO;
     self.stickerItemScrollview.bounces = NO;
@@ -94,7 +102,12 @@ NSString * const kStickersInputView = @"StickersInputView";
         [NSLayoutConstraint deactivateConstraints:@[self.segmentedWidthConstraint]];
     }
     CGFloat width = kStickerSegmentWidth * itemsCount;
-    self.segmentedWidthConstraint = [NSLayoutConstraint constraintWithItem:self.segmentedControl attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:width];
+    self.segmentedWidthConstraint = [NSLayoutConstraint constraintWithItem:self.segmentedControl
+                                                                 attribute:NSLayoutAttributeWidth
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:nil
+                                                                 attribute:NSLayoutAttributeNotAnAttribute
+                                                                multiplier:1 constant:width];
     [NSLayoutConstraint activateConstraints:@[self.segmentedWidthConstraint]];
 }
 
@@ -107,7 +120,7 @@ NSString * const kStickersInputView = @"StickersInputView";
         scrollView.pagingEnabled = NO;
         scrollView.scrollEnabled = YES;
         [sticker.stickers enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull value, BOOL * _Nonnull stop) {
-            [self addButtonWithImageURL:value key:key scrollView:scrollView];
+            [self addButtonWithImageURL:value key:key toScrollView:scrollView];
         }];
         [self.itemScrollView addObject:scrollView];
     }];
@@ -124,7 +137,7 @@ NSString * const kStickersInputView = @"StickersInputView";
 }
 
 - (void)updateItemsScrollViewConstraint {
-    self.stickerItemScrollview.frame = CGRectMake(0, 0, self.viewWidth, kStickerItemsHeight);
+    self.stickerItemScrollview.frame = CGRectMake(0, 0, self.viewWidth, kStickerItemScrollViewHeight);
     self.stickerItemScrollview.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     
     __block CGFloat offsetX = 0.0;
@@ -139,8 +152,15 @@ NSString * const kStickersInputView = @"StickersInputView";
         __block CGFloat stickerItemOffsetX = viewStickerPadding;
         __block CGFloat stickerItemOffsetY = viewStickerPadding;
         scrollView.frame = CGRectMake(offsetX, 0, self.viewWidth, CGRectGetHeight(self.stickerItemScrollview.frame));
-        [self.stickerItemScrollviewConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[scrollView(height)]" options:0 metrics:@{@"height": [NSNumber numberWithFloat:CGRectGetHeight(self.stickerItemScrollview.frame)]} views:@{@"scrollView":scrollView}]];
-        [self.stickerItemScrollviewConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(offsetX)-[scrollView(width)]" options:0 metrics:@{@"offsetX":[NSNumber numberWithFloat:offsetX], @"width":[NSNumber numberWithFloat:CGRectGetWidth(frame)]} views:@{@"scrollView":scrollView}]];
+        [self.stickerItemScrollviewConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[scrollView(height)]"
+                                                                                                           options:0
+                                                                                                           metrics:@{@"height": [NSNumber numberWithFloat:CGRectGetHeight(self.stickerItemScrollview.frame)]}
+                                                                                                             views:@{@"scrollView":scrollView}]];
+        [self.stickerItemScrollviewConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(offsetX)-[scrollView(width)]"
+                                                                                                           options:0
+                                                                                                           metrics:@{@"offsetX":[NSNumber numberWithFloat:offsetX],
+                                                                                                                     @"width":[NSNumber numberWithFloat:CGRectGetWidth(frame)]}
+                                                                                                             views:@{@"scrollView":scrollView}]];
         NSArray * buttons = [self buttonsInItemsScrollView:scrollView];
         [buttons enumerateObjectsUsingBlock:^(UIButton * button, NSUInteger idx, BOOL * _Nonnull stop) {
             CGRect buttonFrame = CGRectMake(stickerItemOffsetX, stickerItemOffsetY,
@@ -162,7 +182,7 @@ NSString * const kStickersInputView = @"StickersInputView";
     self.stickerItemScrollview.contentSize = contentSize;
 }
 
-- (void)addButtonWithImageURL:(NSString *)imageURL key:(NSString *)key scrollView:(UIScrollView *)scrollView {
+- (void)addButtonWithImageURL:(NSString *)imageURL key:(NSString *)key toScrollView:(UIScrollView *)scrollView {
     UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button sd_setImageWithURL:[NSURL URLWithString:imageURL] forState:UIControlStateNormal
               placeholderImage:[UIImage imageNamed:@"img_sticker_default"] options:SDWebImageRefreshCached];
@@ -198,7 +218,7 @@ NSString * const kStickersInputView = @"StickersInputView";
     if (recentlyUsedSticker.count > 0) {
         self.noRecentlyStickerLabel.hidden = YES;
         [recentlyUsedSticker enumerateObjectsUsingBlock:^(NSDictionary * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [self addButtonWithImageURL:obj.allValues[0] key:obj.allKeys[0] scrollView:scrollView];
+            [self addButtonWithImageURL:obj.allValues[0] key:obj.allKeys[0] toScrollView:scrollView];
         }];
     } else {
         self.noRecentlyStickerLabel.hidden = NO;

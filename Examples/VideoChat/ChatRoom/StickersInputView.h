@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 extern NSString * const kStickersInputView;
 static CGFloat const kStickerSegmentWidth = 55.0;
 static CGFloat const kStickerSegmentHeight = 35.0;
-static CGFloat const kStickerItemsHeight = 180.0;
+static CGFloat const kStickerItemScrollViewHeight = 180.0;
 
 static CGFloat const stickerItemSideLength = 62.0;
 static CGFloat const viewStickerPadding = 10.0;
