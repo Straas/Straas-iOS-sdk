@@ -13,6 +13,11 @@
 @property (nonatomic, nullable) NSMutableArray * buttons;
 @end
 
+@interface UIButton (SegmentedButton)
+- (void)selectSegmentedButton;
+- (void)unselectSegmentedButton;
+@end
+
 @implementation STSSegmentedControl
 
 - (instancetype)init
@@ -45,7 +50,7 @@
     _buttons = [NSMutableArray array];
     _itemHeight = 35.0;
     _itemWidth = 55.0;
-    _selectedSegmentIndex = -1;
+    _selectedSegmentIndex = 0;
 }
 
 - (void)setItems:(NSArray *)items {
@@ -64,11 +69,12 @@
         UIImage * image = [UIImage imageWithStickerMainImage:mainImage];
         [button setImage:[UIImage desaturatedImage:image] forState:UIControlStateNormal];
         [button setImage:image forState:UIControlStateSelected];
+        [button unselectSegmentedButton];
         [self.buttons addObject:button];
         [self addSubview:button];
     }];
     [self updateButtonsConstraint];
-    [self setSelectedSegmentIndex:0];
+    [self.buttons[0] selectSegmentedButton];
 }
 
 - (void)addRecentlyUsedButton {
@@ -135,18 +141,12 @@
     if(_selectedSegmentIndex == selectedSegmentIndex) {
         return;
     }
+    UIButton * unselectedButton = [self.buttons objectAtIndex:self.selectedSegmentIndex];
+    UIButton * selectedButton = [self.buttons objectAtIndex:selectedSegmentIndex];
+    
+    [unselectedButton unselectSegmentedButton];
+    [selectedButton selectSegmentedButton];
     _selectedSegmentIndex = selectedSegmentIndex;
-    [self.buttons enumerateObjectsUsingBlock:^(UIButton  * button, NSUInteger index, BOOL * _Nonnull stop) {
-        if (index == selectedSegmentIndex) {
-            button.selected = YES;
-            button.userInteractionEnabled = NO;
-            [button setBackgroundColor:[UIColor colorWithWhite:0.8 alpha:1]];
-        } else {
-            button.selected = NO;
-            button.userInteractionEnabled = YES;
-            [button setBackgroundColor:[UIColor whiteColor]];
-        }
-    }];
 }
 
 - (void)resetSegmentedControl {
@@ -159,6 +159,22 @@
 - (void)didSelectButton:(UIButton *)button {
     [self setSelectedSegmentIndex:button.tag];
     [self.delegate segmentedControl:self didSelectSegmentIndex:button.tag];
+}
+
+@end
+
+
+@implementation UIButton (SegmentedButton)
+- (void)selectSegmentedButton {
+    self.selected = YES;
+    self.userInteractionEnabled = NO;
+    [self setBackgroundColor:[UIColor colorWithWhite:0.8 alpha:1]];
+};
+
+- (void)unselectSegmentedButton {
+    self.selected = NO;
+    self.userInteractionEnabled = YES;
+    [self setBackgroundColor:[UIColor whiteColor]];
 }
 
 @end
