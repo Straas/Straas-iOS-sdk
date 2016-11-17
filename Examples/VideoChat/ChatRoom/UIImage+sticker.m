@@ -10,21 +10,6 @@
 #import <SDWebImage/SDWebImageManager.h>
 
 @implementation UIImage (sticker)
-+ (instancetype)imageWithStickerMainImage:(NSString *)mainImage {
-    SDWebImageManager * sharedManager = [SDWebImageManager sharedManager];
-    UIImage * cacheImage = [sharedManager.imageCache imageFromDiskCacheForKey:mainImage];
-    if (!cacheImage) {
-        NSURL * url = [NSURL URLWithString:mainImage];
-        NSData * data = [NSData dataWithContentsOfURL:url];
-        UIImage * image = [UIImage imageWithImage:[UIImage imageWithData:data] scaledToSize:CGSizeMake(stickerMainImageSideLength, stickerMainImageSideLength)];
-        [sharedManager saveImageToCache:image forURL:url];
-        return image;
-    }
-    if (cacheImage.size.height != stickerMainImageSideLength || cacheImage.size.width != stickerMainImageSideLength) {
-        cacheImage = [UIImage imageWithImage:cacheImage scaledToSize:CGSizeMake(stickerMainImageSideLength, stickerMainImageSideLength)];
-    }
-    return cacheImage;
-}
 
 + (instancetype)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
     UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);

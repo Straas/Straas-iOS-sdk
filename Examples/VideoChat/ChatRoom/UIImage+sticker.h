@@ -11,7 +11,6 @@ static CGFloat const stickerMainImageSideLength = 30.0;
 
 @interface UIImage (sticker)
 
-+ (instancetype)imageWithStickerMainImage:(NSString *)mainImage;
 + (instancetype)desaturatedImage:(UIImage *)image;
 + (instancetype)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
 

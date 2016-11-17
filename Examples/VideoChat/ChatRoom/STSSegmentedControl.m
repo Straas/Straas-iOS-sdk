@@ -8,6 +8,7 @@
 
 #import "STSSegmentedControl.h"
 #import "UIImage+sticker.h"
+#import <SDWebImage/UIButton+WebCache.h>
 
 @interface STSSegmentedControl()
 @property (nonatomic, nullable) NSMutableArray * buttons;
@@ -66,9 +67,14 @@
     [items enumerateObjectsUsingBlock:^(NSString * mainImage, NSUInteger idx, BOOL * _Nonnull stop) {
         // +1 since the index 0 is recently used sticker button.
         UIButton * button = [self buttonForSegment:(idx+1)];
-        UIImage * image = [UIImage imageWithStickerMainImage:mainImage];
-        [button setImage:[UIImage desaturatedImage:image] forState:UIControlStateNormal];
-        [button setImage:image forState:UIControlStateSelected];
+        __weak UIButton * weakButton = button;
+        UIImage * placeholderImage = [UIImage imageNamed:@"img_sticker_default"];
+        NSURL * mainImageURL = [NSURL URLWithString:mainImage];
+        [button sd_setImageWithURL:mainImageURL forState:UIControlStateNormal placeholderImage:placeholderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            UIImage * mainImage = [UIImage imageWithImage:image scaledToSize:CGSizeMake(30.0, 30.0)];
+            [weakButton setImage:mainImage forState:UIControlStateSelected];
+            [weakButton setImage:[UIImage desaturatedImage:mainImage] forState:UIControlStateNormal];
+        }];
         [button unselectSegmentedButton];
         [self.buttons addObject:button];
         [self addSubview:button];
