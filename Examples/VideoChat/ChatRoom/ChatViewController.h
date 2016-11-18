@@ -7,7 +7,12 @@
 //
 
 #import <SlackTextViewController/SLKTextViewController.h>
+#import "ChatStickerDelegate.h"
+#import "StickerInputViewDelegate.h"
 
-@interface ChatViewController : SLKTextViewController
+
+@interface ChatViewController : SLKTextViewController<StickerInputViewDelegate>
+
+@property (weak, nonatomic) id<ChatStickerDelegate> delegate;
 
 @end
