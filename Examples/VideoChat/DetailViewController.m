@@ -8,14 +8,21 @@
 
 #import "DetailViewController.h"
 #import "ChatStickerViewController.h"
+#import "StreamingViewController.h"
 
 NSString * const STSMessagingServiceKeyword = @"StraaS.io chat room";
+NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 
 @interface DetailViewController ()
-
+@property (nonatomic) UIViewController * contentViewController;
 @end
 
 @implementation DetailViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+}
 
 #pragma mark - Managing the detail item
 
@@ -34,8 +41,11 @@ NSString * const STSMessagingServiceKeyword = @"StraaS.io chat room";
         self.detailDescriptionLabel.text = [self.detailItem description];
         self.navigationItem.title = [self.detailItem description];
     }
-    if (self.detailItem == STSMessagingServiceKeyword) {
+    if ([self.detailItem isEqualToString:STSMessagingServiceKeyword]) {
         [self addChatView];
+    }
+    if ([self.detailItem isEqualToString:STSStreamingServiceKeyword]) {
+        [self addStreamingView];
     }
 }
 
@@ -52,6 +62,27 @@ NSString * const STSMessagingServiceKeyword = @"StraaS.io chat room";
                                                           options:0 metrics:nil views:views];
     [NSLayoutConstraint activateConstraints:constraints];
     constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[chatRoom]|"
+                                                          options:0 metrics:nil views:views];
+    [NSLayoutConstraint activateConstraints:constraints];
+    [self.view setNeedsLayout];
+    [self.view layoutIfNeeded];
+}
+
+- (void)addStreamingView {
+    StreamingViewController * controller = [StreamingViewController new];
+    self.contentViewController = controller;
+    controller.JWT = <#PUT_YOUR_MEMEBER_JWT_HERE#>;
+    [self addChildViewController:controller];
+    [controller didMoveToParentViewController:self];
+    [self.view addSubview:controller.view];
+    controller.view.clipsToBounds = YES;
+    controller.view.translatesAutoresizingMaskIntoConstraints = NO;
+    NSDictionary * views = @{@"streamingView": controller.view};
+    NSArray * constraints;
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|[streamingView]|"
+                                                          options:0 metrics:nil views:views];
+    [NSLayoutConstraint activateConstraints:constraints];
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[streamingView]|"
                                                           options:0 metrics:nil views:views];
     [NSLayoutConstraint activateConstraints:constraints];
     [self.view setNeedsLayout];

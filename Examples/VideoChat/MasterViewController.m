@@ -11,7 +11,7 @@
 
 @interface MasterViewController ()
 
-@property (nonatomic) NSMutableArray *objects;
+@property (nonatomic) NSArray *objects;
 @end
 
 @implementation MasterViewController
@@ -33,9 +33,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSMutableArray *)objects {
+- (NSArray *)objects {
     if (!_objects) {
-        _objects = [NSMutableArray arrayWithObjects:STSMessagingServiceKeyword, nil];
+        _objects = @[STSMessagingServiceKeyword, STSStreamingServiceKeyword];
     }
     return _objects;
 }
