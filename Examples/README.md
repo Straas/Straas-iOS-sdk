@@ -60,7 +60,7 @@ Use command line to go to your project folder which will use our UI example, and
 That's all you have to do. Open your submodule file, you should see `StraaS-iOS-sdk` there waiting to serve you.
 
 #### Import Message UI
-1. Drag the ChatRoom file into your project.
+1. Drag the ChatRoom directory into your project.
 
 2. Replace JWT & chatRoomName by your business logic in ChatViewController.m class.
 
@@ -84,7 +84,7 @@ Since you've forked our repository, it is free to do any customized change about
 This chapter shows how to update your existing message UI to have sticker input view if you don't have this feature yet.
 
 1. Pull the latest version example.
-2. copy `ChatRoom` file in `VideoChat` to your project.
+2. copy `ChatRoom` directory in `VideoChat` to your project.
 
   NOTE: If you've made modifications to our example, you should resolve the conflicts may be caused.
 3. Use `ChatStickerViewController` as the main ViewController to build your message UI instead of using `ChatViewController`.
