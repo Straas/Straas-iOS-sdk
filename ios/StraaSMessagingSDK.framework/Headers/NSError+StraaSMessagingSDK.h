@@ -48,6 +48,10 @@ typedef NS_ENUM(NSUInteger, STSMSGErrorCode) {
      */
     STSMSGErrorCodeMessageLength,
     /**
+     *  The role to be updated can only be NORMAL or MODERATER.
+     */
+    STSMSGErrorCodeUserRole,
+    /**
      *  Member JWT is invalid or expired. Please try again with a new member JWT.
      */
     STSMSGErrorCodeUnauthorized,

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/NSError+StraaSMessagingSDK.h</key>
 		<data>
-		8Gw5xl/GfpNoNU5ZPGjRVBLgT5M=
+		3AQDwYU6OPYqE4d/AeH5k7U4Isc=
 		</data>
 		<key>Headers/STSChat.h</key>
 		<data>
@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/STSChatManager.h</key>
 		<data>
-		oOgpFS+0EzrbmAeLd6DM0mHQVrA=
+		Xz47m1YLoHbPDv0QMsEmczy3MEc=
 		</data>
 		<key>Headers/STSChatMessage.h</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		vT8cp8GiFn1P9ur/94L3rNj3mD0=
+		ZgE7D4ZtTSlUS3V579DHa0c3+74=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -44,7 +44,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			gx7c3F4bBTaY0vcqzzwcfXNjrP8=
+			z2Q9IHmeIz8sjXpvTYx8SHzt0vU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -53,7 +53,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			FgMznmswi+gJay5cx8/GuFHp4x0=
+			GbfNTyjnmJHHN5uWP+5B9txOgns=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -65,11 +65,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8Gw5xl/GfpNoNU5ZPGjRVBLgT5M=
+			3AQDwYU6OPYqE4d/AeH5k7U4Isc=
 			</data>
 			<key>hash2</key>
 			<data>
-			bnjDlnEJCnHBJTILtHzxJEs/+Lh7ebd9XEA5rjDBvYw=
+			nyG7JSgwJ4h07YPvsiSlW675HSpPCpZwaRIAZMXYOvg=
 			</data>
 		</dict>
 		<key>Headers/STSChat.h</key>
@@ -87,11 +87,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oOgpFS+0EzrbmAeLd6DM0mHQVrA=
+			Xz47m1YLoHbPDv0QMsEmczy3MEc=
 			</data>
 			<key>hash2</key>
 			<data>
-			Gky9Huy3A99xVlBuw10HPLmkU7dTI4RT2LqBMXrC10U=
+			jNRu52pHG5a5DKBx8hoeuhUfZuDr4KTaeYETHNHFZfQ=
 			</data>
 		</dict>
 		<key>Headers/STSChatMessage.h</key>
@@ -153,11 +153,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			gx7c3F4bBTaY0vcqzzwcfXNjrP8=
+			z2Q9IHmeIz8sjXpvTYx8SHzt0vU=
 			</data>
 			<key>hash2</key>
 			<data>
-			uYfgUeO81wAnIIoQza783s7FoKp7PgMlZOpPNXGKvI4=
+			0+v5M6UskwLxYDdGGHYTz6P7XnP+k00WmjB4C4XpKw4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -166,11 +166,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			FgMznmswi+gJay5cx8/GuFHp4x0=
+			GbfNTyjnmJHHN5uWP+5B9txOgns=
 			</data>
 			<key>hash2</key>
 			<data>
-			iT+n/Xq+t1oQCWKdeXpEgUqbtZhcUWfmJQeLsGyEicI=
+			JbK8JnHkEJVPDFzKW4tjOBnEzV17IKjkCXxm/iXud0I=
 			</data>
 			<key>optional</key>
 			<true/>

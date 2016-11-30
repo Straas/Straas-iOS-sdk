@@ -182,6 +182,39 @@ NS_ASSUME_NONNULL_BEGIN
                     success:(void(^)())success failure:(void(^)(NSError * error))failure;
 
 /**
+ *  Update role for given user.
+ *
+ *  @param role         The role want to be updated for target user. Role can be either kSTSUserRoleNormal or kSTSUserRoleModerator only.
+ *  @param targetUser   The users needs to be updated.
+ *  @param chatRoomName Identifier of chat room.
+ *  @param success      Handler for successful request.
+ *  @param failure      Error handler.
+ */
+- (void)updateUserRole:(NSString *)role targetUser:(STSChatUser *)targetUser chatRoom:(NSString *)chatRoomName
+               success:(void(^)())success failure:(void(^)(NSError * error))failure;
+/**
+ *  Block users by current user. Only succeed when current user has the privilege.
+ *
+ *  @param users        The users in chat going to be blocked
+ *  @param chatRoomName Identifier of chat room.
+ *  @param success      Handler for successful request.
+ *  @param failure      Error handler.
+ */
+- (void)blockUsers:(NSArray <STSChatUser *>*)users chatRoom:(NSString *)chatRoomName
+           success:(void(^)())success failure:(void(^)(NSError * error))failure;
+
+/**
+ *  Revive users by current user. Only succeed when current user has the privilege.
+ *
+ *  @param users        The users in chat going to be revived.
+ *  @param chatRoomName Identifier of chat room.
+ *  @param success      Handler for successful request.
+ *  @param failure      Error handler.
+ */
+- (void)reviveUsers:(NSArray <STSChatUser *>*)users chatRoom:(NSString *)chatRoomName
+            success:(void(^)())success failure:(void(^)(NSError * error))failure;
+
+/**
  *  Send chat message.
  *
  *  @param message      Message text. Should be between 1~120 characters.
@@ -191,6 +224,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)sendMessage:(NSString *)message chatRoom:(NSString *)chatRoomName
             success:(void(^)())success failure:(void(^)(NSError * error))failure;
+
+/**
+ *  Remove chat message. 
+ *  Note: This method works only when the current user of target chatroom has the privilege.
+ *
+ *  @param message      The message Id which you want to remove.
+ *  @param chatRoomName Identifier of chat room.
+ *  @param success      Handler for successful request.
+ *  @param failure      Error handler.
+ */
+- (void)removeMessage:(NSString *)messageId chatRoom:(NSString *)chatRoomName
+              success:(void(^)())success failure:(void(^)(NSError * error))failure;
 
 /**
  *  Returns the chat object.
