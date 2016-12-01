@@ -11,13 +11,24 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  The keys of the user role. Get more informations in the following link.
- *  https://github.com/StraaS/StraaS-web-document/wiki/Messaging-Service#roles-of-messaging-service
+ *  User role Local Manager key.
  */
 extern NSString * const kSTSUserRoleLocalManager;
+/**
+ *  User role Master key.
+ */
 extern NSString * const kSTSUserRoleMaster;
+/**
+ *  User role Moderator key.
+ */
 extern NSString * const kSTSUserRoleModerator;
+/**
+ *  User role Normal key.
+ */
 extern NSString * const kSTSUserRoleNormal;
+/**
+ *  User role Blocked key.
+ */
 extern NSString * const kSTSUserRoleBlocked;
 
 /**
@@ -47,11 +58,19 @@ extern NSString * const kSTSUserRoleBlocked;
 @property (nonatomic, readonly, nullable) NSString * updatedDate;
 
 /**
- *  User's role.
+ *  User's role. Get more informations in the following link. 
+ *  https://github.com/StraaS/StraaS-web-document/wiki/Messaging-Service#roles-of-messaging-service
  */
 @property (nonatomic, readonly, nullable) NSString * role;
 
+/**
+ *  Using new to create a STSChatUser instance is unavailable.
+ */
 + (instancetype)new NS_UNAVAILABLE;
+
+/**
+ *  Using init to create a STSChatUser instance is unavailable.
+ */
 - (instancetype)init NS_UNAVAILABLE;
 
 @end

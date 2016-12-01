@@ -61,7 +61,14 @@ typedef NS_ENUM(NSInteger, STSChatMesssageType) {
  */
 @property (nonatomic, readonly) STSChatUser * creator;
 
+/**
+ *  Using new to create a STSChatMessage instance is unavailable.
+ */
 + (instancetype)new NS_UNAVAILABLE;
+
+/**
+ *  Using int to create a STSChatMessage instance is unavailable.
+ */
 - (instancetype)init NS_UNAVAILABLE;
 
 @end
