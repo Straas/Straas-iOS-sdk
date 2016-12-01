@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/STSChat.h</key>
 		<data>
-		/KH62sMQmB93Pg72cGPnRKn2O5M=
+		ciAmxnpF2mkCUMu/eJ68CnAMGp4=
 		</data>
 		<key>Headers/STSChatManager.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/STSChatMessage.h</key>
 		<data>
-		mKoXwWEOWpAwhe6PTvbxC4UKnpg=
+		cwJyuiT3YIRkHAgaxK8TM6Zzio8=
 		</data>
 		<key>Headers/STSChatSticker.h</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/STSChatUser.h</key>
 		<data>
-		Vv5WGY7itbaeCfLrDot9XF/G5k8=
+		oD/s/5qhJ2JDbEfVUPTThLJJ7pM=
 		</data>
 		<key>Headers/StraaSMessagingSDK.h</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ZgE7D4ZtTSlUS3V579DHa0c3+74=
+		cqgmQSjd55356M+cOZm9jKwbibs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -76,11 +76,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/KH62sMQmB93Pg72cGPnRKn2O5M=
+			ciAmxnpF2mkCUMu/eJ68CnAMGp4=
 			</data>
 			<key>hash2</key>
 			<data>
-			SViosN5aTRdFAXVJuq1VcNHOBbQsANOlrU+hgWPoF9I=
+			dyUeCon4VmAOw14h46h5uyvRTKgOLWbLc8r82e51NsU=
 			</data>
 		</dict>
 		<key>Headers/STSChatManager.h</key>
@@ -98,11 +98,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mKoXwWEOWpAwhe6PTvbxC4UKnpg=
+			cwJyuiT3YIRkHAgaxK8TM6Zzio8=
 			</data>
 			<key>hash2</key>
 			<data>
-			1BVPjOZSsBgfgU79rAAtGt67nyHrmm9494zeB4WG8Gc=
+			0PnS3rqya5TD9I7cz45vznEatZ+rehMMzPYwcUERn2Y=
 			</data>
 		</dict>
 		<key>Headers/STSChatSticker.h</key>
@@ -120,11 +120,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Vv5WGY7itbaeCfLrDot9XF/G5k8=
+			oD/s/5qhJ2JDbEfVUPTThLJJ7pM=
 			</data>
 			<key>hash2</key>
 			<data>
-			yXCZAkmPayr6IbT8JgqHJuGgSL5PJqtfOHjaknksA+Q=
+			Bn4sQi5nhYE/0NNgmkIL9KosYqYhMH3tgKDEj1EXjjw=
 			</data>
 		</dict>
 		<key>Headers/StraaSMessagingSDK.h</key>
@@ -194,11 +194,6 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
-		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -243,11 +238,6 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
-		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>

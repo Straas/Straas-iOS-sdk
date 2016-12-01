@@ -62,7 +62,14 @@ typedef NS_ENUM(NSUInteger, STSChatInputMode) {
  */
 @property (nonatomic, readonly) NSArray <STSChatSticker *> * stickers;
 
+/**
+ *  Using new to create a STSChat instance is unavailable.
+ */
 + (instancetype)new NS_UNAVAILABLE;
+
+/**
+ *  Using init to create a STSChat instance is unavailable.
+ */
 - (instancetype)init NS_UNAVAILABLE;
 
 @end

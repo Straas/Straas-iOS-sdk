@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		nkrLit7+T25UOOCmP1NM6SDp5dA=
+		Ka/5LxfOT7mDWy+h48pGfOQSfEQ=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -82,7 +82,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		oonBygu+aerhY9Qgg8wzqwyiWI8=
+		XmHKNBNHt52D9bf3pqOwvK8shO0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -121,11 +121,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nkrLit7+T25UOOCmP1NM6SDp5dA=
+			Ka/5LxfOT7mDWy+h48pGfOQSfEQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			Z8kIBBp8YZ04+L9peLWD4gNed3ZYVzhieHEwpzwp5yc=
+			SJoW02CBXqB1rTNzJ/XUStaoU9sHhT5S0NzcUm+whaE=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -404,11 +404,6 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
-		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -453,11 +448,6 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
-		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>
