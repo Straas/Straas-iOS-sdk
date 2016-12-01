@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>STSSDKPlayerView Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/STSSDKPlayerView" class="dashAnchor"></a>
+    <a title="STSSDKPlayerView Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">StraaSPlayerSDK Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/StraaS/StraaS-iOS-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">StraaSPlayerSDK Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        STSSDKPlayerView Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/STSCMSManager.html">STSCMSManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSCategory.html">STSCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSLive.html">STSLive</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSPagination.html">STSPagination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSPlaylist.html">STSPlaylist</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSPlaylistItem.html">STSPlaylistItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSSDKPlayerControlView.html">STSSDKPlayerControlView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSSDKStreamingTimelineView.html">STSSDKStreamingTimelineView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSTag.html">STSTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSVideo.html">STSVideo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSVideoMetadata.html">STSVideoMetadata</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/STSPlayerErrorCode.html">STSPlayerErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSSDKPlaybackStatus.html">STSSDKPlaybackStatus</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/STSPlayerLiveEventDelegate.html">STSPlayerLiveEventDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STSPlayerPlaybackEventDelegate.html">STSPlayerPlaybackEventDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STSPlayerPlaylistEventDelegate.html">STSPlayerPlaylistEventDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STSSDKPlayerViewDelegate.html">STSSDKPlayerViewDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>STSSDKPlayerView</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">STSSDKPlayerView</span> <span class="p">:</span> <span class="nc">UIView</span></code></pre>
+
+                </div>
+              </div>
+            <p>An instance of STSSDKPlayerView is a means for loading media to play and control playback.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(py)delegate"></a>
+                    <a name="//apple_ref/objc/Property/delegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(py)delegate">delegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The receiver’s delegate.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span>
+    <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/STSSDKPlayerViewDelegate.html">STSSDKPlayerViewDelegate</a></span><span class="p">,</span> <span class="n"><a href="../Protocols/STSPlayerPlaybackEventDelegate.html">STSPlayerPlaybackEventDelegate</a></span><span class="o">&gt;</span>
+        <span class="n">delegate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Protocols/STSPlayerPlaybackEventDelegate.html">STSPlayerPlaybackEventDelegate</a></span> </code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(py)playlistEventDelegate"></a>
+                    <a name="//apple_ref/objc/Property/playlistEventDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(py)playlistEventDelegate">playlistEventDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The object that acts as the playlist event delegate of the player view. Set nil if it has no playlist event delegate.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/STSPlayerPlaylistEventDelegate.html">STSPlayerPlaylistEventDelegate</a></span><span class="o">&gt;</span>
+    <span class="n">playlistEventDelegate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">weak</span> <span class="k">var</span> <span class="nv">playlistEventDelegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/STSPlayerPlaylistEventDelegate.html">STSPlayerPlaylistEventDelegate</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(py)liveEventDelegate"></a>
+                    <a name="//apple_ref/objc/Property/liveEventDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(py)liveEventDelegate">liveEventDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The object that acts as the live event delegate of the player view. Set nil if it has no live event delegate.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/STSPlayerLiveEventDelegate.html">STSPlayerLiveEventDelegate</a></span><span class="o">&gt;</span>
+    <span class="n">liveEventDelegate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">weak</span> <span class="k">var</span> <span class="nv">liveEventDelegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/STSPlayerLiveEventDelegate.html">STSPlayerLiveEventDelegate</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(py)playerControlView"></a>
+                    <a name="//apple_ref/objc/Property/playerControlView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(py)playerControlView">playerControlView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The view that contains playback controls and infos.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n"><a href="../Classes/STSSDKPlayerControlView.html">STSSDKPlayerControlView</a></span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">playerControlView</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">playerControlView</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSSDKPlayerControlView.html">STSSDKPlayerControlView</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(py)canShowPlayerControlView"></a>
+                    <a name="//apple_ref/objc/Property/canShowPlayerControlView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(py)canShowPlayerControlView">canShowPlayerControlView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A boolean value indicates whether the player view is able to display the player control when necessary.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">canShowPlayerControlView</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">canShowPlayerControlView</span><span class="p">:</span> <span class="kt">Int32</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(py)canShowErrorView"></a>
+                    <a name="//apple_ref/objc/Property/canShowErrorView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(py)canShowErrorView">canShowErrorView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A boolean value indicates whether the player view is able to display the default error view when error occurs.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">canShowErrorView</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">canShowErrorView</span><span class="p">:</span> <span class="kt">Int32</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(py)currentItemIndex"></a>
+                    <a name="//apple_ref/objc/Property/currentItemIndex" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(py)currentItemIndex">currentItemIndex</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The index of the current playlist item.
+If the player view are not playing a playlist (e.g., playing a video or alive), returns NSNotFound.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSInteger</span> <span class="n">currentItemIndex</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">currentItemIndex</span><span class="p">:</span> <span class="kt">Int32</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(py)playlistItems"></a>
+                    <a name="//apple_ref/objc/Property/playlistItems" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(py)playlistItems">playlistItems</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The items in the current playlist.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span>
+    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSPlaylistItem.html">STSPlaylistItem</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">playlistItems</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(py)playlist"></a>
+                    <a name="//apple_ref/objc/Property/playlist" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(py)playlist">playlist</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The current playlist.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/STSPlaylist.html">STSPlaylist</a></span> <span class="o">*</span><span class="n">playlist</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">playlist</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSPlaylist.html">STSPlaylist</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(py)video"></a>
+                    <a name="//apple_ref/objc/Property/video" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(py)video">video</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The current playing video.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/STSVideo.html">STSVideo</a></span> <span class="o">*</span><span class="n">video</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">video</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSVideo.html">STSVideo</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(py)live"></a>
+                    <a name="//apple_ref/objc/Property/live" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(py)live">live</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The currently playing live.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n"><a href="../Classes/STSLive.html">STSLive</a></span> <span class="o">*</span><span class="n">live</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">live</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSLive.html">STSLive</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(im)loadVideoWithId:"></a>
+                    <a name="//apple_ref/objc/Method/-loadVideoWithId:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(im)loadVideoWithId:">-loadVideoWithId:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Loads and starts playing a specific video.
+  If the player view is playing a playlist and the current playlist contains this video,
+  the player view will jump to the index of that video.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">loadVideoWithId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">videoId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">loadVideo</span><span class="p">(</span><span class="n">withId</span> <span class="nv">videoId</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>videoId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the video you want to load.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(im)loadPlaylistWithId:"></a>
+                    <a name="//apple_ref/objc/Method/-loadPlaylistWithId:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(im)loadPlaylistWithId:">-loadPlaylistWithId:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Loads and starts playing the first item of a specific playlist.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">loadPlaylistWithId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">playlistId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">loadPlaylist</span><span class="p">(</span><span class="n">withId</span> <span class="nv">playlistId</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playlistId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The id of the playlist you want to load.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(im)loadLiveWithId:"></a>
+                    <a name="//apple_ref/objc/Method/-loadLiveWithId:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(im)loadLiveWithId:">-loadLiveWithId:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Loads and starts playing a specific live.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">loadLiveWithId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">liveId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">loadLive</span><span class="p">(</span><span class="n">withId</span> <span class="nv">liveId</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>liveId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the live you want to load.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(im)playItemAtIndex:"></a>
+                    <a name="//apple_ref/objc/Method/-playItemAtIndex:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(im)playItemAtIndex:">-playItemAtIndex:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Play a playlist item at the given index.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">playItemAtIndex</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">index</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">playItem</span><span class="p">(</span><span class="n">atIndex</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>index</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The index of the target item in the current playlist.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(im)playNextItem"></a>
+                    <a name="//apple_ref/objc/Method/-playNextItem" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(im)playNextItem">-playNextItem</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Play the next item in the current playlist.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">playNextItem</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">playNextItem</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(im)playPreviousItem"></a>
+                    <a name="//apple_ref/objc/Method/-playPreviousItem" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(im)playPreviousItem">-playPreviousItem</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Play the previous item in the current playlist.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">playPreviousItem</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">playPreviousItem</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(im)togglePlayPause"></a>
+                    <a name="//apple_ref/objc/Method/-togglePlayPause" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(im)togglePlayPause">-togglePlayPause</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Toggle player between play and pause.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">togglePlayPause</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">togglePlayPause</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2016-11-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

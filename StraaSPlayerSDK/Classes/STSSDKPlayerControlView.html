@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>STSSDKPlayerControlView Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/STSSDKPlayerControlView" class="dashAnchor"></a>
+    <a title="STSSDKPlayerControlView Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">StraaSPlayerSDK Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/StraaS/StraaS-iOS-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">StraaSPlayerSDK Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        STSSDKPlayerControlView Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/STSCMSManager.html">STSCMSManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSCategory.html">STSCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSLive.html">STSLive</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSPagination.html">STSPagination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSPlaylist.html">STSPlaylist</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSPlaylistItem.html">STSPlaylistItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSSDKPlayerControlView.html">STSSDKPlayerControlView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSSDKStreamingTimelineView.html">STSSDKStreamingTimelineView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSTag.html">STSTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSVideo.html">STSVideo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSVideoMetadata.html">STSVideoMetadata</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/STSPlayerErrorCode.html">STSPlayerErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSSDKPlaybackStatus.html">STSSDKPlaybackStatus</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/STSPlayerLiveEventDelegate.html">STSPlayerLiveEventDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STSPlayerPlaybackEventDelegate.html">STSPlayerPlaybackEventDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STSPlayerPlaylistEventDelegate.html">STSPlayerPlaylistEventDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STSSDKPlayerViewDelegate.html">STSSDKPlayerViewDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>STSSDKPlayerControlView</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">STSSDKPlayerControlView</span> <span class="p">:</span> <span class="nc">UIView</span></code></pre>
+
+                </div>
+              </div>
+            <p>An instance of STSSDKPlayerControlView is a means for displaying playback controls
+ (e.g. play button, pause button) and infos (e.g. title label, subtitle label).</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)containerView"></a>
+                    <a name="//apple_ref/objc/Property/containerView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)containerView">containerView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The container view is the default superview of the content displayed by the player control view.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">UIImageView</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">containerView</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)titleLabel"></a>
+                    <a name="//apple_ref/objc/Property/titleLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)titleLabel">titleLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The label that shows the title of the current playing video.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">titleLabel</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)subtitleLabel"></a>
+                    <a name="//apple_ref/objc/Property/subtitleLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)subtitleLabel">subtitleLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The label that shows the synopsis of the current playing video.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">UILabel</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">subtitleLabel</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)playButton"></a>
+                    <a name="//apple_ref/objc/Property/playButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)playButton">playButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The play button.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">playButton</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)pauseButton"></a>
+                    <a name="//apple_ref/objc/Property/pauseButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)pauseButton">pauseButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The pause button.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">pauseButton</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)replayButton"></a>
+                    <a name="//apple_ref/objc/Property/replayButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)replayButton">replayButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The replay button.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">replayButton</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)qualityButton"></a>
+                    <a name="//apple_ref/objc/Property/qualityButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)qualityButton">qualityButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The quality selection button.
+User can press this button to show a quality selection menu.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">qualityButton</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)prevButton"></a>
+                    <a name="//apple_ref/objc/Property/prevButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)prevButton">prevButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The previous button, only shows when player is playing a playlist.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">prevButton</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)nextButton"></a>
+                    <a name="//apple_ref/objc/Property/nextButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)nextButton">nextButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The next button, only shows when player is playing a playlist.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">nextButton</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)playbackTimelineView"></a>
+                    <a name="//apple_ref/objc/Property/playbackTimelineView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)playbackTimelineView">playbackTimelineView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The view that shows the playback time and duration.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n"><a href="../Classes/STSSDKStreamingTimelineView.html">STSSDKStreamingTimelineView</a></span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">playbackTimelineView</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)liveMark"></a>
+                    <a name="//apple_ref/objc/Property/liveMark" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)liveMark">liveMark</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The view that indicates the currently playing item is a live.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">UIView</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">liveMark</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)sphericalMark"></a>
+                    <a name="//apple_ref/objc/Property/sphericalMark" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)sphericalMark">sphericalMark</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The view that indicates the currently playing item is a 360 video/live.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">UIImageView</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">sphericalMark</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)subviewLayoutConstraints"></a>
+                    <a name="//apple_ref/objc/Property/subviewLayoutConstraints" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)subviewLayoutConstraints">subviewLayoutConstraints</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The layout constraints of the subviews embedded in the containerView.
+Change this property to customize the layout of the playback controls and infos.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSLayoutConstraint</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">subviewLayoutConstraints</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)canShowTitleLabel"></a>
+                    <a name="//apple_ref/objc/Property/canShowTitleLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)canShowTitleLabel">canShowTitleLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A boolean value indicates whether the player control view is able to display the titleLabel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">canShowTitleLabel</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)canShowSubtitleLabel"></a>
+                    <a name="//apple_ref/objc/Property/canShowSubtitleLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)canShowSubtitleLabel">canShowSubtitleLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A boolean value indicates whether the player control view is able to display the subtitleLabel.
+This property works only when the player is playing a video/playlist. The subtitleLabel is always
+hidden when player is playing a live.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">canShowSubtitleLabel</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)canShowPlaybackControlButtons"></a>
+                    <a name="//apple_ref/objc/Property/canShowPlaybackControlButtons" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)canShowPlaybackControlButtons">canShowPlaybackControlButtons</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A boolean value indicates whether the player control view is able to display the playback controls.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">canShowPlaybackControlButtons</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)canShowQualityButton"></a>
+                    <a name="//apple_ref/objc/Property/canShowQualityButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)canShowQualityButton">canShowQualityButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A boolean value indicates whether the player control view is able to display the qualityButton.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">canShowQualityButton</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)canShowPlaybackTimelineView"></a>
+                    <a name="//apple_ref/objc/Property/canShowPlaybackTimelineView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)canShowPlaybackTimelineView">canShowPlaybackTimelineView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A boolean value indicates whether the player control view is able to display the playbackTimelineView.
+This property works only when the player is playing a video/playlist. The playbackTimelineView
+is always hidden when player is playing a live.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">canShowPlaybackTimelineView</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)canShowLiveMark"></a>
+                    <a name="//apple_ref/objc/Property/canShowLiveMark" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)canShowLiveMark">canShowLiveMark</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A boolean value indicates whether the player control view is able to display the liveMark.
+This property works only when the player is playing a live. The liveMark is always hidden when
+player is playing a video or a playlist.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">canShowLiveMark</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)canShowSphericalMark"></a>
+                    <a name="//apple_ref/objc/Property/canShowSphericalMark" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)canShowSphericalMark">canShowSphericalMark</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A boolean value indicates whether the player control view is able to display the sphericalMark.
+This property works only when the player is playing a 360 video/live.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">canShowSphericalMark</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2016-11-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
