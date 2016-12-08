@@ -372,7 +372,6 @@
     if (mode == STSChatInputMaster || (mode == STSChatInputMember && self.JWT.length == 0)) {
         return;
     }
-    self.restoresFocusAfterTransition = NO;
     if ([self needsNickname]) {
         [self presentNicknameInputView];
         return;
