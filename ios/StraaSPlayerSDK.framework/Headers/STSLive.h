@@ -6,7 +6,7 @@
 //  Copyright © 2016年 StraaS.io. All rights reserved.
 //
 
-#import "LHDataObject.h"
+#import <StraaSCoreSDK/LHDataObject.h>
 #import "STSVideo.h"
 
 NS_ASSUME_NONNULL_BEGIN
