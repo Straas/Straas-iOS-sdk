@@ -1,6 +1,6 @@
 Welcome to StraaS and thanks for submitting an issue!
 
-If not, please feel free to fill in the following info so we can help faster!
+Please feel free to fill in the following info so we can help faster!
 
 ### Step 1: Are you in the right place?
 
