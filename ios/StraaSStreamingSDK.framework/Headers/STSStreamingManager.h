@@ -44,6 +44,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)streamingManager:(STSStreamingManager *)streamingManager onError:(NSError *)error liveId:(NSString * _Nullable)liveId;
 @end
 
+
+/**
+ *  StraaS.io streaming manager
+ */
 @interface STSStreamingManager : NSObject
 
 /**

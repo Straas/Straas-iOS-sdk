@@ -18,3 +18,5 @@ FOUNDATION_EXPORT const unsigned char StraaSMessagingSDKVersionString[];
 #import <StraaSMessagingSDK/NSError+StraaSMessagingSDK.h>
 #import <StraaSMessagingSDK/STSChatManager.h>
 #import <StraaSMessagingSDK/STSChatSticker.h>
+#import <StraaSMessagingSDK/STSChatroomConnectionOptions.h>
+#import <StraaSMessagingSDK/STSGetMessagesConfiguration.h>
