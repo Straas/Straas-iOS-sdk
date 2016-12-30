@@ -56,6 +56,27 @@
     
 }
 
+- (void)setJWT:(NSString *)JWT {
+    if (JWT) {
+        _JWT = JWT;
+        self.chatVC.JWT = JWT;
+    }
+}
+
+- (void)setChatroomName:(NSString *)chatroomName {
+    if (chatroomName) {
+        _chatroomName = chatroomName;
+        self.chatVC.chatroomName = chatroomName;
+    }
+}
+
+- (void)setConnectionOptions:(NSUInteger)connectionOptions {
+    if (connectionOptions) {
+        _connectionOptions = connectionOptions;
+        self.chatVC.connectionOptions = connectionOptions;
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 }

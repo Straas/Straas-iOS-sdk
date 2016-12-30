@@ -24,6 +24,10 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
     self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
+- (NSString *)JWT {
+    return <#PUT_YOUR_MEMEBER_JWT_HERE#>;
+}
+
 #pragma mark - Managing the detail item
 
 - (void)setDetailItem:(id)newDetailItem {
@@ -51,6 +55,9 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 
 - (void)addChatView {
     ChatStickerViewController * controller = [ChatStickerViewController new];
+    controller.JWT = self.JWT;
+    controller.chatroomName = <#PUT_YOUR_CHATROOMNAME_HERE#>;
+    controller.connectionOptions = <#PUT_YOUR_CONNECTIONOPTIONS_HERE#>;
     [self addChildViewController:controller];
     [controller didMoveToParentViewController:self];
     [self.view addSubview:controller.view];
@@ -71,7 +78,7 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 - (void)addStreamingView {
     StreamingViewController * controller = [StreamingViewController new];
     self.contentViewController = controller;
-    controller.JWT = <#PUT_YOUR_MEMEBER_JWT_HERE#>;
+    controller.JWT = self.JWT;
     [self addChildViewController:controller];
     [controller didMoveToParentViewController:self];
     [self.view addSubview:controller.view];

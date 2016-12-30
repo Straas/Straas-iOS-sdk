@@ -10,4 +10,8 @@
 
 @interface ChatStickerViewController : UIViewController
 
+@property (nonatomic) NSString * JWT;
+@property (nonatomic) NSString * chatroomName;
+@property (nonatomic) NSUInteger connectionOptions;
+
 @end
