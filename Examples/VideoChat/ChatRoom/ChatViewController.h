@@ -13,6 +13,10 @@
 
 @interface ChatViewController : SLKTextViewController<StickerInputViewDelegate>
 
+@property (nonatomic) NSUInteger connectionOptions;
+@property (nonatomic) NSString * chatroomName;
+@property (nonatomic) NSString * JWT;
+
 @property (weak, nonatomic) id<ChatStickerDelegate> delegate;
 
 @end
