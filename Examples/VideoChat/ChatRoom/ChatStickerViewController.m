@@ -19,6 +19,16 @@
 
 @implementation ChatStickerViewController
 
++ (instancetype)chatStickerViewControllerWithJWT:(NSString *)JWT
+                                    chatroomName:(NSString *)chatroomName
+                               connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
+    ChatStickerViewController * viewController = [ChatStickerViewController new];
+    viewController.chatVC.JWT = JWT;
+    viewController.chatVC.chatroomName = chatroomName;
+    viewController.chatVC.connectionOptions = connectionOptions;
+    return viewController;
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -54,27 +64,6 @@
     [NSLayoutConstraint activateConstraints:constraints];
     [self setStickerViewHeight:0.0];
     
-}
-
-- (void)setJWT:(NSString *)JWT {
-    if (JWT) {
-        _JWT = JWT;
-        self.chatVC.JWT = JWT;
-    }
-}
-
-- (void)setChatroomName:(NSString *)chatroomName {
-    if (chatroomName) {
-        _chatroomName = chatroomName;
-        self.chatVC.chatroomName = chatroomName;
-    }
-}
-
-- (void)setConnectionOptions:(STSChatroomConnectionOptions)connectionOptions {
-    if (connectionOptions) {
-        _connectionOptions = connectionOptions;
-        self.chatVC.connectionOptions = connectionOptions;
-    }
 }
 
 - (void)viewDidLoad {

@@ -28,6 +28,14 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
     return <#PUT_YOUR_MEMEBER_JWT_HERE#>;
 }
 
+- (NSString *)chatroomName {
+   return <#PUT_YOUR_CHATROOMNAME_HERE#>;
+}
+
+- (STSChatroomConnectionOptions)chatroomConnectionOptions {
+    return <#PUT_YOUR_CONNECTIONOPTIONS_HERE#>;
+}
+
 #pragma mark - Managing the detail item
 
 - (void)setDetailItem:(id)newDetailItem {
@@ -54,10 +62,10 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 }
 
 - (void)addChatView {
-    ChatStickerViewController * controller = [ChatStickerViewController new];
-    controller.JWT = self.JWT;
-    controller.chatroomName = <#PUT_YOUR_CHATROOMNAME_HERE#>;
-    controller.connectionOptions = <#PUT_YOUR_CONNECTIONOPTIONS_HERE#>;
+    ChatStickerViewController * controller =
+    [ChatStickerViewController chatStickerViewControllerWithJWT:self.JWT
+                                                   chatroomName:self.chatroomName
+                                              connectionOptions:self.chatroomConnectionOptions];
     [self addChildViewController:controller];
     [controller didMoveToParentViewController:self];
     [self.view addSubview:controller.view];
