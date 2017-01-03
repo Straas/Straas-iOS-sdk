@@ -72,14 +72,28 @@ typedef NS_ENUM(NSUInteger, STSMSGErrorCode) {
      *  SDK internal error happened, please try again or report issue.
      */
     STSMSGErrorCodeInternal,
+    /**
+     *  Data channel is not enabled. If you want to use data channel, remember to connect to chatroom with option STSChatroomConnectionWithDataChannel.
+     */
+    STSMSGErrorCodeDataChannelNotEnabled,
+    /**
+     *  Aggregate data length must be between 1~50 characters.
+     */
+    STSMSGErrorCodeAggregatedDataLength,
+    /**
+     *  Raw data must be an object which can be converted to JSON object.
+     */
+    STSMSGErrorCodeRawDataFormatNotAllowed,
 };
 
 @interface NSError (StraaSMessagingSDK)
 
 + (instancetype)STSMSGUnknownChannelError;
 + (instancetype)STSMSGNotConnectedError;
++ (instancetype)STSMSGAggregateDataLengthError;
++ (instancetype)STSMSGDataChannelNotEnabledError;
++ (instancetype)STSMSGRawDataCannotBeConvertedToJson;
 + (instancetype)STSMSGInternalError;
-
 - (instancetype)STSMSGError;
 
 @end

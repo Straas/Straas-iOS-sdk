@@ -48,9 +48,9 @@ typedef NS_ENUM(NSUInteger, STSChatInputMode) {
 @property (nonatomic, readonly) STSChatInputMode mode;
 
 /**
- *  Chat channel code.
+ *  Chatroom name.
  */
-@property (nonatomic, readonly) NSString * channelCode;
+@property (nonatomic, readonly) NSString * chatroomName;
 
 /**
  *  Total user number of this chat.
@@ -61,6 +61,11 @@ typedef NS_ENUM(NSUInteger, STSChatInputMode) {
  *  The chat stickers.
  */
 @property (nonatomic, readonly) NSArray <STSChatSticker *> * stickers;
+
+/**
+ *  A boolean value indicates whether the chat object is personal or not.
+ */
+@property (nonatomic, readonly) BOOL isPersonalChat;
 
 /**
  *  Using new to create a STSChat instance is unavailable.

@@ -19,6 +19,16 @@
 
 @implementation ChatStickerViewController
 
++ (instancetype)chatStickerViewControllerWithJWT:(NSString *)JWT
+                                    chatroomName:(NSString *)chatroomName
+                               connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
+    ChatStickerViewController * viewController = [ChatStickerViewController new];
+    viewController.chatVC.JWT = JWT;
+    viewController.chatVC.chatroomName = chatroomName;
+    viewController.chatVC.connectionOptions = connectionOptions;
+    return viewController;
+}
+
 - (instancetype)init
 {
     self = [super init];

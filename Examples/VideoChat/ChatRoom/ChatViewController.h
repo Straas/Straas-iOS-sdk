@@ -7,12 +7,16 @@
 //
 
 #import <SlackTextViewController/SLKTextViewController.h>
+#import <StraaSMessagingSDK/STSChatroomConnectionOptions.h>
 #import "ChatStickerDelegate.h"
 #import "StickerInputViewDelegate.h"
 
 
 @interface ChatViewController : SLKTextViewController<StickerInputViewDelegate>
 
+@property (nonatomic) NSString * JWT;
+@property (nonatomic) NSString * chatroomName;
+@property (nonatomic) STSChatroomConnectionOptions connectionOptions;
 @property (weak, nonatomic) id<ChatStickerDelegate> delegate;
 
 @end

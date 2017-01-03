@@ -31,8 +31,7 @@
 @property (nonatomic, strong) NSArray *searchResult;
 
 @property (nonatomic) STSChatManager * manager;
-@property (nonatomic) NSString * chatRoomName;
-@property (nonatomic) NSString * JWT;
+@property (nonatomic) STSChat * currentChat;
 
 @property (nonatomic, getter=hasUpdatedNickname) BOOL updatedNickname;
 @property (nonatomic) NSString * fakeName;
@@ -128,12 +127,12 @@
 
     [STSApplication configureApplication:^(BOOL success, NSError *error) {
         if (success) {
-            [self.manager connectToChatRoom:self.chatRoomName JWT:self.JWT autoCreate:YES eventDelegate:self];
+            [self.manager connectToChatroom:self.chatroomName JWT:self.JWT options:self.connectionOptions eventDelegate:self];
         } else {
             NSLog(@"STSApplication configure fail with error = %@", error);
         }
         dispatch_after(dispatch_time(DISPATCH_TIME_FOREVER, (int64_t)(15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.manager disconnectFromChatRoom:self.chatRoomName];
+            [self.manager disconnectFromChatroom:self.currentChat];
         });
     }];
 }
@@ -145,76 +144,74 @@
     return _manager;
 }
 
-- (NSString *)chatRoomName {
-#warning It is a placeholder, should be replaced with an existing channel code.
-    return @"Winterfell";
+- (STSChat *)currentChat {
+    return [self.manager chatForChatroomName:self.chatroomName isPersonalChat:self.isPersonalChat];
 }
 
-- (NSString *)JWT {
-#warning It is a placeholder, should be replaced with a CMS member JWT.
-    return @"";
+- (BOOL)isPersonalChat {
+    return self.connectionOptions & STSChatroomConnectionIsPersonalChat;
 }
 
 #pragma mark STSChatEventDelegate
 
-- (void)chatRoomConnected:(NSString *)chatRoomName {
-    NSLog(@"\"%@\" connected", chatRoomName);
+- (void)chatroomConnected:(STSChat *)chatroom {
+    NSLog(@"\"%@\" connected", chatroom.chatroomName);
     if ([self.delegate respondsToSelector:@selector(chatStickerDidLoad:)]) {
-        STSChat * chat = [self.manager chatForChatRoom:chatRoomName];
-        [self.delegate chatStickerDidLoad:chat.stickers];
+        [self.delegate chatStickerDidLoad:chatroom.stickers];
     }
     self.leftButton.userInteractionEnabled = YES;
 
     __weak ChatViewController * weakSelf = self;
-    [self.manager getMessagesForChatRoom:chatRoomName success:^(NSArray<STSChatMessage *> * _Nonnull messages) {
+    [self.manager getMessagesForChatroom:chatroom configuration:nil success:^(NSArray<STSChatMessage *> * _Nonnull messages) {
+        [weakSelf.messages removeAllObjects];
         [weakSelf.messages addObjectsFromArray:messages];
         [weakSelf.tableView reloadData];
-        [weakSelf updateTextViewForChatRoom:chatRoomName];
+        [weakSelf updateTextViewForChatRoom:chatroom];
     } failure:^(NSError * _Nonnull error) {
-
+        
     }];
 }
 
-- (void)chatRoomDisconnected:(NSString *)chatRoomName {
-    NSLog(@"\"%@\" disconnected", chatRoomName);
+- (void)chatroomDisconnected:(STSChat *)chatroom {
+    NSLog(@"\"%@\" disconnected", chatroom.chatroomName);
 }
 
-- (void)chatRoom:(NSString *)chatRoomName failToConnect:(NSError *)error {
-    NSLog(@"\"%@\" fail to connect", chatRoomName);
+- (void)chatroom:(STSChat *)chatroom failToConnect:(NSError *)error {
+    NSLog(@"\"%@\" fail to connect", chatroom.chatroomName);
     NSLog(@"%@", error);
 }
 
-- (void)chatRoom:(NSString *)chatRoomName error:(NSError *)error {
-    NSLog(@"%@", error);
+- (void)chatroom:(STSChat *)chatroom error:(NSError *)error {
+    NSLog(@"chatroom %@ error %@", chatroom.chatroomName, error);
 }
 
-- (void)chatRoomInputModeChanged:(NSString *)chatRoomName {
-    [self updateTextViewForChatRoom:chatRoomName];
+- (void)chatroomInputModeChanged:(STSChat *)chatroom {
+    [self updateTextViewForChatRoom:chatroom];
 }
 
-- (void)chatRoom:(NSString *)chatRoomName usersJoined:(NSArray<STSChatUser *> *)users {
-    NSLog(@"%@ joined %@", users, chatRoomName);
+-(void)chatroom:(STSChat *)chatroom usersJoined:(NSArray<STSChatUser *> *)users {
+    NSLog(@"%@ joined %@", users, chatroom.chatroomName);
 }
 
-- (void)chatRoom:(NSString *)chatRoomName usersUpdated:(NSArray<STSChatUser *> *)users {
-    STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
+- (void)chatroom:(STSChat *)chatroom usersUpdated:(NSArray<STSChatUser *> *)users {
+    STSChatUser * currentUser = [self.manager currentUserForChatroom:chatroom];
+    __weak ChatViewController * weakSelf = self;
     for (STSChatUser * user in users) {
         if ([user isEqual:currentUser]) {
-            [self updateTextViewForChatRoom:self.chatRoomName];
+            [weakSelf updateTextViewForChatRoom:chatroom];
         }
     }
-    NSLog(@"%@ updated in %@", users, chatRoomName);
+    NSLog(@"%@ updated in %@", users, chatroom);
+}
+- (void)chatroom:(STSChat *)chatroom usersLeft:(NSArray<NSNumber *> *)userLabels {
+    NSLog(@"%@ left %@", userLabels, chatroom.chatroomName);
 }
 
-- (void)chatRoom:(NSString *)chatRoomName usersLeft:(NSArray<NSNumber *> *)userLabels {
-    NSLog(@"%@ left %@", userLabels, chatRoomName);
+- (void)chatroomUserCount:(STSChat *)chatroom {
+    NSLog(@"%@ user count = %d", chatroom, (int)chatroom.userCount);
 }
 
-- (void)chatRoomUserCount:(NSString *)chatRoomName {
-    NSLog(@"%@ user count", chatRoomName);
-}
-
-- (void)chatRoom:(NSString *)chatRoomName messageAdded:(STSChatMessage *)message {
+- (void)chatroom:(STSChat *)chatroom messageAdded:(STSChatMessage *)message {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     UITableViewRowAnimation rowAnimation = self.inverted ? UITableViewRowAnimationBottom : UITableViewRowAnimationTop;
     UITableViewScrollPosition scrollPosition = self.inverted ? UITableViewScrollPositionBottom : UITableViewScrollPositionTop;
@@ -253,9 +250,9 @@
 
 #pragma mark Event Handler
 
-- (void)updateTextViewForChatRoom:(NSString *)chatRoomName {
-    STSChatInputMode mode = [[self.manager chatForChatRoom:chatRoomName] mode];
-    STSChatUser * currentUser = [self.manager currentUserForChatRoom:chatRoomName];
+- (void)updateTextViewForChatRoom:(STSChat *)chatroom {
+    STSChatInputMode mode = chatroom.mode;
+    STSChatUser * currentUser = [self.manager currentUserForChatroom:chatroom];
     NSString * placeholder;
     BOOL editable;
     switch (mode) {
@@ -324,7 +321,7 @@
 {
     [self.textView resignFirstResponder];
     NSString * messageText = [self.textView.text copy];
-    STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
+    STSChatUser * currentUser = [self.manager currentUserForChatroom:self.currentChat];
     if ([self.delegate respondsToSelector:@selector(dismissStickerView:)]) {
         [self.delegate dismissStickerView:NO];
     }
@@ -332,7 +329,7 @@
     if ([currentUser.role isEqualToString:kSTSUserRoleBlocked]) {
         [self addFakeMessage:messageText type:STSChatMessageTypeText imageURL:nil];
     } else {
-        [self.manager sendMessage:messageText chatRoom:self.chatRoomName success:^{
+        [self.manager sendMessage:messageText chatroom:self.currentChat success:^{
 
         } failure:^(NSError * _Nonnull error) {
 
@@ -360,15 +357,15 @@
 
 - (BOOL)canPressRightButton
 {
-    STSChatInputMode mode = [[self.manager chatForChatRoom:self.chatRoomName] mode];
-    STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
+    STSChatInputMode mode = self.currentChat.mode;
+    STSChatUser * currentUser = [self.manager currentUserForChatroom:self.currentChat];
     return ((mode == STSChatInputNormal) ||
             (mode == STSChatInputMember && self.JWT.length != 0) ||
             (mode == STSChatInputMaster && ([currentUser canChatInAnchorMode])));
 }
 
 - (void)didPressLeftButton:(id)sender {
-    STSChatInputMode mode = [[self.manager chatForChatRoom:self.chatRoomName] mode];
+    STSChatInputMode mode = self.currentChat.mode;
     if (mode == STSChatInputMaster || (mode == STSChatInputMember && self.JWT.length == 0)) {
         return;
     }
@@ -432,12 +429,12 @@
 
 #pragma mark - sticker view;
 - (void)didSelectStickerKey:(NSString *)key imageURL:(NSString *)imageURL{
-    STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
+    STSChatUser * currentUser = [self.manager currentUserForChatroom:self.currentChat];
     if ([currentUser.role isEqualToString:kSTSUserRoleBlocked]) {
         [self addFakeMessage:key type:STSChatMessageTypeSticker imageURL:imageURL];
     } else {
-        [self.manager sendMessage:key chatRoom:self.chatRoomName success:^{
-
+        [self.manager sendMessage:key chatroom:self.currentChat success:^{
+            
         } failure:^(NSError * _Nonnull error) {
 
         }];
@@ -457,18 +454,18 @@
             return ;
         }
         [weakSelf.manager updateGuestNickname:nickName
-                                     chatRoom:weakSelf.chatRoomName
+                                     chatroom:weakSelf.currentChat
                                       success:^{
                                           weakSelf.updatedNickname = YES;
                                           [weakSelf.textView becomeFirstResponder];
-                                          [weakSelf updateTextViewForChatRoom:weakSelf.chatRoomName];
+                                          [weakSelf updateTextViewForChatRoom:weakSelf.currentChat];
                                           NSLog(@"update nickname success");
                                       } failure:^(NSError * _Nonnull error) {
-                                          STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
+                                          STSChatUser * currentUser = [self.manager currentUserForChatroom:self.currentChat];
                                           if ([currentUser.role isEqualToString:kSTSUserRoleBlocked]) {
                                               weakSelf.updatedNickname = YES;
                                               [weakSelf.textView becomeFirstResponder];
-                                              [weakSelf updateTextViewForChatRoom:weakSelf.chatRoomName];
+                                              [weakSelf updateTextViewForChatRoom:weakSelf.currentChat];
                                               self.fakeName = nickName;
                                               return;
                                           }
@@ -485,7 +482,7 @@
 }
 
 - (NSString *)currentUsername {
-    return [[self.manager currentUserForChatRoom:self.chatRoomName] name];
+    return [[self.manager currentUserForChatroom:self.currentChat] name];
 }
 
 - (BOOL)needsNickname {
@@ -493,7 +490,7 @@
 }
 
 - (void)addFakeMessage:(NSString *)fakeMessage type:(STSChatMesssageType)type imageURL:(NSString *)imageURL{
-    STSChatUser * currentUser = [self.manager currentUserForChatRoom:self.chatRoomName];
+    STSChatUser * currentUser = [self.manager currentUserForChatroom:self.currentChat];
     NSDateFormatter * formatter = [NSDateFormatter new];
     formatter.dateFormat = @"YYYY-MM-dd HH:mm:ss";
     [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
@@ -508,7 +505,7 @@
     STSChatMessage * fakeMsg = [[STSChatMessage alloc] initWithJSON:fakeJson];
     fakeMsg.type = type;
     fakeMsg.stickerURL = imageURL ? [NSURL URLWithString:imageURL]: nil;
-    [self chatRoom:self.chatRoomName messageAdded:fakeMsg];
+    [self chatroom:self.currentChat messageAdded:fakeMsg];
 };
 
 #pragma mark - SLKTextViewDelegate Methods
@@ -699,7 +696,7 @@
 
 - (void)dealloc
 {
-    [self.manager disconnectFromChatRoom:self.chatRoomName];
+    [self.manager disconnectFromChatroom:self.currentChat];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

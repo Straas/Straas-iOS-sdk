@@ -10,6 +10,8 @@
 #import "STSChat.h"
 #import "STSChatUser.h"
 #import "STSChatMessage.h"
+#import "STSChatroomConnectionOptions.h"
+#import "STSGetMessagesConfiguration.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,93 +26,110 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Chat room connected.
  *
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom A STSChat object informing the delegate about the connection of chatroom.
  */
-- (void)chatRoomConnected:(NSString *)chatRoomName;
+- (void)chatroomConnected:(STSChat *)chatroom;
 
 /**
  *  Chat room disconnected.
  *
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom A STSChat object informing the delegate about the disconnection.
  */
-- (void)chatRoomDisconnected:(NSString *)chatRoomName;
+- (void)chatroomDisconnected:(STSChat *)chatroom;
 
 /**
  *  Chat room fail to connect.
  *
- *  @param chatRoomName Identifier of chat room.
- *  @param error        The error object contains detail info.
+ *  @param chatroom A STSChat object informing the delegate about the failure of chatroom connection.
+ *  @param error    The error object contains detail info.
  */
-- (void)chatRoom:(NSString *)chatRoomName failToConnect:(NSError *)error;
+- (void)chatroom:(STSChat *)chatroom failToConnect:(NSError *)error;
 
 /**
  *  Error happened for chat room.
  *
- *  @param chatRoomName Identifier of chat room.
- *  @param error        The error object contains error detail.
+ *  @param chatroom A STSChat object informing the delegate about the error.
+ *  @param error    The error object contains error detail.
  */
-- (void)chatRoom:(NSString *)chatRoomName error:(NSError *)error;
+- (void)chatroom:(STSChat *)chatroom error:(NSError *)error;
 
 /**
  *  Chat room input mode changed.
  *
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom A STSChat object informing the delegate about the mode changed.
  */
-- (void)chatRoomInputModeChanged:(NSString *)chatRoomName;
+- (void)chatroomInputModeChanged:(STSChat *)chatroom;
 
 /**
  *  Users joined to chat room.
  *
- *  @param chatRoomName Identifier of chat room.
- *  @param users        New user objects.
+ *  @param chatroom A STSChat object informing the delegate about users joined.
+ *  @param users    New user objects.
  */
-- (void)chatRoom:(NSString *)chatRoomName usersJoined:(NSArray<STSChatUser *> *)users;
+- (void)chatroom:(STSChat *)chatroom usersJoined:(NSArray<STSChatUser *> *)users;
 
 /**
  *  Users info updated for chat room.
  *
- *  @param chatRoomName Identifier of chat room.
- *  @param users        Updated user objects
+ *  @param chatroom A STSChat object informing the delegate about users updated.
+ *  @param users    Updated user objects
  */
-- (void)chatRoom:(NSString *)chatRoomName usersUpdated:(NSArray<STSChatUser *> *)users;
+- (void)chatroom:(STSChat *)chatroom usersUpdated:(NSArray<STSChatUser *> *)users;
 
 /**
  *  Users left from chat room.
  *
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom     A STSChat object informing the delegate about users left.
  *  @param userLabels   Unique identifier of left users.
  */
-- (void)chatRoom:(NSString *)chatRoomName usersLeft:(NSArray<NSNumber *> *)userLabels;
+- (void)chatroom:(STSChat *)chatroom usersLeft:(NSArray<NSNumber *> *)userLabels;
 
 /**
  *  User count updated for chat room. Please check the chat object for new user count.
  *
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom     A STSChat object informing the delegate about users count changed.
  */
-- (void)chatRoomUserCount:(NSString *)chatRoomName;
+- (void)chatroomUserCount:(STSChat *)chatroom;
 
 /**
  *  Message was added to chat room.
  *
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom     A STSChat object informing the delegate about message added.
  *  @param message      New message object.
  */
-- (void)chatRoom:(NSString *)chatRoomName messageAdded:(STSChatMessage *)message;
+- (void)chatroom:(STSChat *)chatroom messageAdded:(STSChatMessage *)message;
 
 /**
  *  Message was removed from chat room.
  *
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom     A STSChat object informing the delegate about message removed.
  *  @param messageId    Removed message object ID.
  */
-- (void)chatRoom:(NSString *)chatRoomName messageRemoved:(NSString *)messageId;
+- (void)chatroom:(STSChat *)chatroom messageRemoved:(NSString *)messageId;
 
 /**
  *  All message in chat room was flushed for chat room.
  *
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom     A STSChat object informing the delegate about message flushed.
  */
-- (void)chatRoomMessageFlushed:(NSString *)chatRoomName;
+- (void)chatroomMessageFlushed:(STSChat *)chatroom;
+
+@optional
+/**
+ *  Tells the delegate that an aggregated data has been added to data channel.
+ *
+ *  @param chatroom A STSChat object informing the delegate about aggregated data added.
+ *  @param aggregatedData An NSDictionary object of aggregated data from data channel.
+ */
+- (void)chatroom:(STSChat *)chatroom aggregatedDataAdded:(NSDictionary *)aggregatedData;
+
+/**
+ *  Tells the delegate that a raw data has been added to data channel.
+ *
+ *  @param chatroom A STSChat object informing the delegate about raw data added.
+ *  @param rawData A valid JSON object from data channel.
+ */
+- (void)chatroom:(STSChat *)chatroom rawDataAdded:(id)rawData;
 
 @end
 
@@ -120,53 +139,48 @@ NS_ASSUME_NONNULL_BEGIN
 @interface STSChatManager : NSObject
 
 /**
- *  A collection of connected chat room IDs.
- */
-@property (nonatomic, readonly) NSSet<NSString *> * connectedChatRoomNames;
-
-/**
  *  Connect to chat room with user JWT.
  *
- *  @param chatRoomName  Identifier of chat room. Don't pass nil or this method return early.
- *  @param JWT           User identity information. For StraaS.io CMS member, a member JWT should be
-                         used here. Use an empty string to represent guest. Don't pass nil or this
-                         method return early.
- *  @param autoCreate    Create a new chat room or not, if the chat room name can not be found. Note:
-                         auto-create feature only succeed to create chat while chatRoomName is the
-                         current member's id. Otherwise, create chat will fail.
+ *  @param chatroomName Identifier of chat room. Don't pass nil or this method return early.
+ *  @param JWT          User identity information. For StraaS.io CMS member, a member JWT should be
+                        used here. Use an empty string to represent guest. Don't pass nil or this
+                        method return early.
+ *  @param options      Options for connecting to the chatroom you want.
  *  @param eventDelegate Chat event delegate. Chat manager not retain this delegate.
  */
-- (void)connectToChatRoom:(NSString *)chatRoomName JWT:(NSString *)JWT autoCreate:(BOOL)autoCreate
+- (void)connectToChatroom:(NSString *)chatroomName JWT:(NSString *)JWT options:(STSChatroomConnectionOptions)options
             eventDelegate:(nullable id<STSChatEventDelegate>)eventDelegate;
 
 /**
  *  Disconnect from a connected chat room.
  *
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom The STSChat object you want to disconnect.
  */
-- (void)disconnectFromChatRoom:(NSString *)chatRoomName;
+- (void)disconnectFromChatroom:(STSChat *)chatroom;
 
 /**
  *  Get chat room active users, maximum 200 users.
  *
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom     The STSChat object you want to get users.
  *  @param success      Handler for successful request. It takes an `NSArray` of `STSChatUser`
                         argument that contains chat room active users.
  *  @param failure      Error handler.
  */
-- (void)getUsersForChatRoom:(NSString *)chatRoomName
+- (void)getUsersForChatroom:(STSChat *)chatroom
                     success:(void(^)(NSArray<STSChatUser *> * users))success
                     failure:(void(^)(NSError * error))failure;
 
 /**
- *  Get chat room messages, maximum 100 messages.
+ *  Get chat room messages.
  *
- *  @param chatRoomName Identifier of chat room.
- *  @param success      Handler for successful request. It takes an `NSArray` of `STSChatMessage`
-                        argument that contains chat room messages.
- *  @param failure      Error handler.
+ *  @param chatroom      The STSChat object you want to get messages.
+ *  @param configuration A STSGetMessagesConfiguration object that specifies the request rules for getting messages.
+ *  @param success       Handler for successful request. It takes an `NSArray` of `STSChatMessage`
+                         argument that contains chat room messages.
+ *  @param failure       Error handler.
  */
-- (void)getMessagesForChatRoom:(NSString *)chatRoomName
+- (void)getMessagesForChatroom:(STSChat *)chatroom
+                 configuration:(STSGetMessagesConfiguration * _Nullable)configuration
                        success:(void(^)(NSArray<STSChatMessage *> * messages))success
                        failure:(void(^)(NSError * error))failure;
 
@@ -174,11 +188,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Update nickname for guest user.
  *
  *  @param nickname     New nickname. Should be between 1~20 characters.
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom     The STSChat object you want to update nickname.
  *  @param success      Handler for successful request.
  *  @param failure      Error handler.
  */
-- (void)updateGuestNickname:(NSString *)nickname chatRoom:(NSString *)chatRoomName
+- (void)updateGuestNickname:(NSString *)nickname chatroom:(STSChat *)chatroom
                     success:(void(^)())success failure:(void(^)(NSError * error))failure;
 
 /**
@@ -186,91 +200,119 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param role         The role want to be updated for target user. Role can be either kSTSUserRoleNormal or kSTSUserRoleModerator only.
  *  @param targetUser   The users needs to be updated.
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom     The STSChat object you want to update user role.
  *  @param success      Handler for successful request.
  *  @param failure      Error handler.
  */
-- (void)updateUserRole:(NSString *)role targetUser:(STSChatUser *)targetUser chatRoom:(NSString *)chatRoomName
+- (void)updateUserRole:(NSString *)role targetUser:(STSChatUser *)targetUser chatroom:(STSChat *)chatroom
                success:(void(^)())success failure:(void(^)(NSError * error))failure;
 /**
  *  Block users by current user. Only succeed when current user has the privilege.
  *
  *  @param users        The users in chat going to be blocked
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom     The STSChat object you want to block users.
  *  @param success      Handler for successful request.
  *  @param failure      Error handler.
  */
-- (void)blockUsers:(NSArray <STSChatUser *>*)users chatRoom:(NSString *)chatRoomName
+- (void)blockUsers:(NSArray <STSChatUser *>*)users chatroom:(STSChat *)chatroom
            success:(void(^)())success failure:(void(^)(NSError * error))failure;
 
 /**
  *  Revive users by current user. Only succeed when current user has the privilege.
  *
  *  @param users        The users in chat going to be revived.
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom     The STSChat object you want to revive users.
  *  @param success      Handler for successful request.
  *  @param failure      Error handler.
  */
-- (void)reviveUsers:(NSArray <STSChatUser *>*)users chatRoom:(NSString *)chatRoomName
+- (void)reviveUsers:(NSArray <STSChatUser *>*)users chatroom:(STSChat *)chatroom
             success:(void(^)())success failure:(void(^)(NSError * error))failure;
 
 /**
  *  Send chat message.
  *
  *  @param message      Message text. Should be between 1~120 characters.
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom     The STSChat object you want to send message.
  *  @param success      Handler for successful request.
  *  @param failure      Error handler.
  */
-- (void)sendMessage:(NSString *)message chatRoom:(NSString *)chatRoomName
+- (void)sendMessage:(NSString *)message chatroom:(STSChat *)chatroom
             success:(void(^)())success failure:(void(^)(NSError * error))failure;
 
 /**
- *  Remove chat message. 
+ *  Remove chat message.
  *  Note: This method works only when the current user of target chatroom has the privilege.
  *
- *  @param message      The message Id which you want to remove.
- *  @param chatRoomName Identifier of chat room.
+ *  @param messageId    The message Id which you want to remove.
+ *  @param chatroom     The STSChat object you want to remove message.
  *  @param success      Handler for successful request.
  *  @param failure      Error handler.
  */
-- (void)removeMessage:(NSString *)messageId chatRoom:(NSString *)chatRoomName
+- (void)removeMessage:(NSString *)messageId chatroom:(STSChat *)chatroom
               success:(void(^)())success failure:(void(^)(NSError * error))failure;
 
 /**
  *  Returns the chat object.
  *
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroomName Identifier of chat room.
+ *  @param isPersonalChat A boolean value indicates whether the chat object is personal or not.
  *
  *  @return A `STSChat` instance if the chat room is connected, or nil.
  */
-- (nullable STSChat *)chatForChatRoom:(NSString *)chatRoomName;
+- (nullable STSChat *)chatForChatroomName:(NSString *)chatroomName isPersonalChat:(BOOL)isPersonalChat;
 
 /**
  *  Returns the current chat user object.
  *
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom     The STSChat object you want to get current user.
  *
  *  @return A `STSChatUser` instance if the chat room is connected, or nil.
  */
-- (nullable STSChatUser *)currentUserForChatRoom:(NSString *)chatRoomName;
+- (nullable STSChatUser *)currentUserForChatroom:(STSChat *)chatroom;
 
 /**
  *  Returns the cooldown to send next message for chat room.
  *
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom     The STSChat object you want to get the cooldown time.
  *
  *  @return The cooldown in seconds.
  */
-- (NSTimeInterval)cooldownForChatRoom:(NSString *)chatRoomName;
+- (NSTimeInterval)cooldownForChatroom:(STSChat *)chatroom ;
 
 /**
  *  Update the chat room event delegate.
  *
  *  @param delegate     Chat room event delegate.
- *  @param chatRoomName Identifier of chat room.
+ *  @param chatroom     The STSChat object you want to set with the event delegate.
  */
-- (void)setEventDelegate:(nullable id<STSChatEventDelegate>)delegate forChatRoom:(NSString *)chatRoomName;
+- (void)setEventDelegate:(nullable id<STSChatEventDelegate>)delegate forChatroom:(STSChat *)chatroom;
+
+@end
+
+@interface STSChatManager(DataChaanel)
+
+/**
+ *  Send aggregate data to data channel.
+ *
+ *  @param data         The Aggregate data string. Should be between 1~50 characters.
+ *  @param chatroom     The STSChat object you want to send message.
+ *  @param success      Handler for successful request.
+ *  @param failure      Error handler.
+ */
+- (void)sendAggregatedData:(NSString *)data chatroom:(STSChat *)chatroom
+                   success:(void(^)())success failure:(void(^)(NSError * error))failure;
+
+/**
+ *  Send raw data to data channel. Raw data should be a valid JSON object only.
+ *  ref: https://developer.apple.com/reference/foundation/jsonserialization/1418461-isvalidjsonobject
+ *
+ *  @param rawData      The jsonObject raw data.
+ *  @param chatroom     The STSChat object you want to send message.
+ *  @param success      Handler for successful request.
+ *  @param failure      Error handler.
+ */
+- (void)sendRawData:(id)rawData chatroom:(STSChat *)chatroom
+            success:(void(^)())success failure:(void(^)(NSError * error))failure;
 
 @end
 
