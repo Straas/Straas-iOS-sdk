@@ -70,7 +70,7 @@
     }
 }
 
-- (void)setConnectionOptions:(NSUInteger)connectionOptions {
+- (void)setConnectionOptions:(STSChatroomConnectionOptions)connectionOptions {
     if (connectionOptions) {
         _connectionOptions = connectionOptions;
         self.chatVC.connectionOptions = connectionOptions;

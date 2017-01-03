@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <StraaSMessagingSDK/STSChatroomConnectionOptions.h>
 
 @interface ChatStickerViewController : UIViewController
 
 @property (nonatomic) NSString * JWT;
 @property (nonatomic) NSString * chatroomName;
-@property (nonatomic) NSUInteger connectionOptions;
+@property (nonatomic) STSChatroomConnectionOptions connectionOptions;
 
 @end
