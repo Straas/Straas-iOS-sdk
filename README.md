@@ -9,6 +9,7 @@ multi-device user experiences.
 
 - Video Streaming Service
 - Messaging Service
+- Player Service
 
 ## Documentation
 
@@ -16,3 +17,4 @@ multi-device user experiences.
 - [Core SDK API Reference](https://straas.github.io/StraaS-iOS-sdk/StraaSCoreSDK/)
 - [Messaging SDK API Reference](https://straas.github.io/StraaS-iOS-sdk/StraaSMessagingSDK/)
 - [Streaming SDK API Reference](https://straas.github.io/StraaS-iOS-sdk/StraaSStreamingSDK/)
+- [Player SDK API Reference](https://straas.github.io/StraaS-iOS-sdk/StraaSPlayerSDK/)
