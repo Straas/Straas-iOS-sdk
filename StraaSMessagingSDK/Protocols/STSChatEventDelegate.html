@@ -16,6 +16,7 @@
       <div class="content-wrapper">
         <p><a href="../index.html">StraaSMessagingSDK Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/StraaS/StraaS-iOS-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fstraas%2Egithub%2Eio%2FStraaS%2DiOS%2Dsdk%2Fdocsets%2FStraaSMessagingSDK%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -45,6 +46,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/STSChatUser.html">STSChatUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSGetMessagesConfiguration.html">STSGetMessagesConfiguration</a>
               </li>
             </ul>
           </li>
@@ -76,6 +80,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/STSChatMesssageType.html">STSChatMesssageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSChatroomConnectionOptions.html">STSChatroomConnectionOptions</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/STSMSGErrorCode.html">STSMSGErrorCode</a>
@@ -112,9 +119,9 @@ message event. Allow to handle chat room events in real time.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatRoomConnected:"></a>
-                    <a name="//apple_ref/objc/Method/-chatRoomConnected:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatRoomConnected:">-chatRoomConnected:</a>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatroomConnected:"></a>
+                    <a name="//apple_ref/objc/Method/-chatroomConnected:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatroomConnected:">-chatroomConnected:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -129,12 +136,12 @@ message event. Allow to handle chat room events in real time.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatRoomConnected</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatroomConnected</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatRoomConnected</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatroomConnected</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -145,12 +152,12 @@ message event. Allow to handle chat room events in real time.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>A STSChat object informing the delegate about the connection of chatroom.</p>
 
                                 </div>
                               </td>
@@ -164,9 +171,9 @@ message event. Allow to handle chat room events in real time.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatRoomDisconnected:"></a>
-                    <a name="//apple_ref/objc/Method/-chatRoomDisconnected:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatRoomDisconnected:">-chatRoomDisconnected:</a>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatroomDisconnected:"></a>
+                    <a name="//apple_ref/objc/Method/-chatroomDisconnected:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatroomDisconnected:">-chatroomDisconnected:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -181,12 +188,12 @@ message event. Allow to handle chat room events in real time.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatRoomDisconnected</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatroomDisconnected</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatRoomDisconnected</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatroomDisconnected</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -197,12 +204,12 @@ message event. Allow to handle chat room events in real time.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>A STSChat object informing the delegate about the disconnection.</p>
 
                                 </div>
                               </td>
@@ -216,9 +223,9 @@ message event. Allow to handle chat room events in real time.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatRoom:failToConnect:"></a>
-                    <a name="//apple_ref/objc/Method/-chatRoom:failToConnect:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatRoom:failToConnect:">-chatRoom:failToConnect:</a>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatroom:failToConnect:"></a>
+                    <a name="//apple_ref/objc/Method/-chatroom:failToConnect:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatroom:failToConnect:">-chatroom:failToConnect:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -233,13 +240,13 @@ message event. Allow to handle chat room events in real time.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
     <span class="nf">failToConnect</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatRoom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">failToConnect</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatroom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="n">failToConnect</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -250,12 +257,12 @@ message event. Allow to handle chat room events in real time.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>A STSChat object informing the delegate about the failure of chatroom connection.</p>
 
                                 </div>
                               </td>
@@ -282,9 +289,9 @@ message event. Allow to handle chat room events in real time.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatRoom:error:"></a>
-                    <a name="//apple_ref/objc/Method/-chatRoom:error:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatRoom:error:">-chatRoom:error:</a>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatroom:error:"></a>
+                    <a name="//apple_ref/objc/Method/-chatroom:error:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatroom:error:">-chatroom:error:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -299,13 +306,12 @@ message event. Allow to handle chat room events in real time.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span>
-           <span class="nf">error</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span> <span class="nf">error</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatRoom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatroom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -316,12 +322,12 @@ message event. Allow to handle chat room events in real time.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>A STSChat object informing the delegate about the error.</p>
 
                                 </div>
                               </td>
@@ -348,9 +354,9 @@ message event. Allow to handle chat room events in real time.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatRoomInputModeChanged:"></a>
-                    <a name="//apple_ref/objc/Method/-chatRoomInputModeChanged:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatRoomInputModeChanged:">-chatRoomInputModeChanged:</a>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatroomInputModeChanged:"></a>
+                    <a name="//apple_ref/objc/Method/-chatroomInputModeChanged:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatroomInputModeChanged:">-chatroomInputModeChanged:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -365,12 +371,12 @@ message event. Allow to handle chat room events in real time.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatRoomInputModeChanged</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatroomInputModeChanged</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatRoomInputModeChanged</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatroomInputModeChanged</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -381,12 +387,12 @@ message event. Allow to handle chat room events in real time.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>A STSChat object informing the delegate about the mode changed.</p>
 
                                 </div>
                               </td>
@@ -400,9 +406,9 @@ message event. Allow to handle chat room events in real time.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatRoom:usersJoined:"></a>
-                    <a name="//apple_ref/objc/Method/-chatRoom:usersJoined:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatRoom:usersJoined:">-chatRoom:usersJoined:</a>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatroom:usersJoined:"></a>
+                    <a name="//apple_ref/objc/Method/-chatroom:usersJoined:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatroom:usersJoined:">-chatroom:usersJoined:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -417,13 +423,13 @@ message event. Allow to handle chat room events in real time.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
      <span class="nf">usersJoined</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSChatUser.html">STSChatUser</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">users</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatRoom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">usersJoined</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatroom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="n">usersJoined</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">])</span></code></pre>
 
                         </div>
                       </div>
@@ -434,12 +440,12 @@ message event. Allow to handle chat room events in real time.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>A STSChat object informing the delegate about users joined.</p>
 
                                 </div>
                               </td>
@@ -466,9 +472,9 @@ message event. Allow to handle chat room events in real time.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatRoom:usersUpdated:"></a>
-                    <a name="//apple_ref/objc/Method/-chatRoom:usersUpdated:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatRoom:usersUpdated:">-chatRoom:usersUpdated:</a>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatroom:usersUpdated:"></a>
+                    <a name="//apple_ref/objc/Method/-chatroom:usersUpdated:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatroom:usersUpdated:">-chatroom:usersUpdated:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -483,13 +489,13 @@ message event. Allow to handle chat room events in real time.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
     <span class="nf">usersUpdated</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSChatUser.html">STSChatUser</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">users</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatRoom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">usersUpdated</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatroom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="n">usersUpdated</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">])</span></code></pre>
 
                         </div>
                       </div>
@@ -500,12 +506,12 @@ message event. Allow to handle chat room events in real time.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>A STSChat object informing the delegate about users updated.</p>
 
                                 </div>
                               </td>
@@ -532,9 +538,9 @@ message event. Allow to handle chat room events in real time.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatRoom:usersLeft:"></a>
-                    <a name="//apple_ref/objc/Method/-chatRoom:usersLeft:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatRoom:usersLeft:">-chatRoom:usersLeft:</a>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatroom:usersLeft:"></a>
+                    <a name="//apple_ref/objc/Method/-chatroom:usersLeft:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatroom:usersLeft:">-chatroom:usersLeft:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -549,13 +555,13 @@ message event. Allow to handle chat room events in real time.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
        <span class="nf">usersLeft</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSNumber</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">userLabels</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatRoom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">usersLeft</span> <span class="nv">userLabels</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSNumber</span><span class="p">])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatroom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="n">usersLeft</span> <span class="nv">userLabels</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSNumber</span><span class="p">])</span></code></pre>
 
                         </div>
                       </div>
@@ -566,12 +572,12 @@ message event. Allow to handle chat room events in real time.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>A STSChat object informing the delegate about users left.</p>
 
                                 </div>
                               </td>
@@ -598,9 +604,9 @@ message event. Allow to handle chat room events in real time.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatRoomUserCount:"></a>
-                    <a name="//apple_ref/objc/Method/-chatRoomUserCount:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatRoomUserCount:">-chatRoomUserCount:</a>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatroomUserCount:"></a>
+                    <a name="//apple_ref/objc/Method/-chatroomUserCount:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatroomUserCount:">-chatroomUserCount:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -615,12 +621,12 @@ message event. Allow to handle chat room events in real time.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatRoomUserCount</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatroomUserCount</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatRoomUserCount</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatroomUserCount</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -631,12 +637,12 @@ message event. Allow to handle chat room events in real time.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>A STSChat object informing the delegate about users count changed.</p>
 
                                 </div>
                               </td>
@@ -650,9 +656,9 @@ message event. Allow to handle chat room events in real time.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatRoom:messageAdded:"></a>
-                    <a name="//apple_ref/objc/Method/-chatRoom:messageAdded:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatRoom:messageAdded:">-chatRoom:messageAdded:</a>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatroom:messageAdded:"></a>
+                    <a name="//apple_ref/objc/Method/-chatroom:messageAdded:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatroom:messageAdded:">-chatroom:messageAdded:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -667,13 +673,13 @@ message event. Allow to handle chat room events in real time.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
     <span class="nf">messageAdded</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChatMessage.html">STSChatMessage</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">message</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatRoom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">messageAdded</span> <span class="nv">message</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChatMessage.html">STSChatMessage</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatroom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="n">messageAdded</span> <span class="nv">message</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChatMessage.html">STSChatMessage</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -684,12 +690,12 @@ message event. Allow to handle chat room events in real time.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>A STSChat object informing the delegate about message added.</p>
 
                                 </div>
                               </td>
@@ -716,9 +722,9 @@ message event. Allow to handle chat room events in real time.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatRoom:messageRemoved:"></a>
-                    <a name="//apple_ref/objc/Method/-chatRoom:messageRemoved:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatRoom:messageRemoved:">-chatRoom:messageRemoved:</a>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatroom:messageRemoved:"></a>
+                    <a name="//apple_ref/objc/Method/-chatroom:messageRemoved:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatroom:messageRemoved:">-chatroom:messageRemoved:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -733,13 +739,13 @@ message event. Allow to handle chat room events in real time.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
     <span class="nf">messageRemoved</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">messageId</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatRoom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">messageRemoved</span> <span class="nv">messageId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatroom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="n">messageRemoved</span> <span class="nv">messageId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -750,12 +756,12 @@ message event. Allow to handle chat room events in real time.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>A STSChat object informing the delegate about message removed.</p>
 
                                 </div>
                               </td>
@@ -782,9 +788,9 @@ message event. Allow to handle chat room events in real time.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatRoomMessageFlushed:"></a>
-                    <a name="//apple_ref/objc/Method/-chatRoomMessageFlushed:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatRoomMessageFlushed:">-chatRoomMessageFlushed:</a>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatroomMessageFlushed:"></a>
+                    <a name="//apple_ref/objc/Method/-chatroomMessageFlushed:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatroomMessageFlushed:">-chatroomMessageFlushed:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -799,12 +805,12 @@ message event. Allow to handle chat room events in real time.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatRoomMessageFlushed</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatroomMessageFlushed</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatRoomMessageFlushed</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatroomMessageFlushed</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -815,12 +821,143 @@ message event. Allow to handle chat room events in real time.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>A STSChat object informing the delegate about message flushed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatroom:aggregatedDataAdded:"></a>
+                    <a name="//apple_ref/objc/Method/-chatroom:aggregatedDataAdded:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatroom:aggregatedDataAdded:">-chatroom:aggregatedDataAdded:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Tells the delegate that an aggregated data has been added to data channel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+    <span class="nf">aggregatedDataAdded</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">aggregatedData</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatroom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="n">aggregatedDataAdded</span> <span class="nv">aggregatedData</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A STSChat object informing the delegate about aggregated data added.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>aggregatedData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An NSDictionary object of aggregated data from data channel.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatroom:rawDataAdded:"></a>
+                    <a name="//apple_ref/objc/Method/-chatroom:rawDataAdded:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatroom:rawDataAdded:">-chatroom:rawDataAdded:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Tells the delegate that a raw data has been added to data channel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span> <span class="nf">rawDataAdded</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span><span class="p">)</span><span class="nv">rawData</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatroom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="n">rawDataAdded</span> <span class="nv">rawData</span><span class="p">:</span> <span class="kt">Any</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A STSChat object informing the delegate about raw data added.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rawData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A valid JSON object from data channel.</p>
 
                                 </div>
                               </td>
@@ -836,8 +973,8 @@ message event. Allow to handle chat room events in real time.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2016-11-30)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>2017 © COPYRIGHT STRAAS.IO</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

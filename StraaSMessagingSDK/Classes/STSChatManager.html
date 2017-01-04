@@ -16,6 +16,7 @@
       <div class="content-wrapper">
         <p><a href="../index.html">StraaSMessagingSDK Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/StraaS/StraaS-iOS-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fstraas%2Egithub%2Eio%2FStraaS%2DiOS%2Dsdk%2Fdocsets%2FStraaSMessagingSDK%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -45,6 +46,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/STSChatUser.html">STSChatUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSGetMessagesConfiguration.html">STSGetMessagesConfiguration</a>
               </li>
             </ul>
           </li>
@@ -76,6 +80,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/STSChatMesssageType.html">STSChatMesssageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSChatroomConnectionOptions.html">STSChatroomConnectionOptions</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/STSMSGErrorCode.html">STSMSGErrorCode</a>
@@ -111,42 +118,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSChatManager(py)connectedChatRoomNames"></a>
-                    <a name="//apple_ref/objc/Property/connectedChatRoomNames" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSChatManager(py)connectedChatRoomNames">connectedChatRoomNames</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A collection of connected chat room IDs.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n">NSSet</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">connectedChatRoomNames</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">connectedChatRoomNames</span><span class="p">:</span> <span class="kt">Set</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)STSChatManager(im)connectToChatRoom:JWT:autoCreate:eventDelegate:"></a>
-                    <a name="//apple_ref/objc/Method/-connectToChatRoom:JWT:autoCreate:eventDelegate:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSChatManager(im)connectToChatRoom:JWT:autoCreate:eventDelegate:">-connectToChatRoom:JWT:autoCreate:eventDelegate:</a>
+                    <a name="/c:objc(cs)STSChatManager(im)connectToChatroom:JWT:options:eventDelegate:"></a>
+                    <a name="//apple_ref/objc/Method/-connectToChatroom:JWT:options:eventDelegate:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)connectToChatroom:JWT:options:eventDelegate:">-connectToChatroom:JWT:options:eventDelegate:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -161,15 +135,15 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">connectToChatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">connectToChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroomName</span>
                       <span class="nf">JWT</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">JWT</span>
-               <span class="nf">autoCreate</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">autoCreate</span>
+                  <span class="nf">options</span><span class="p">:(</span><span class="n"><a href="../Enums/STSChatroomConnectionOptions.html">STSChatroomConnectionOptions</a></span><span class="p">)</span><span class="nv">options</span>
             <span class="nf">eventDelegate</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/STSChatEventDelegate.html">STSChatEventDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">eventDelegate</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">connect</span><span class="p">(</span><span class="n">toChatRoom</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">jwt</span> <span class="kt">JWT</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">autoCreate</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">eventDelegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/STSChatEventDelegate.html">STSChatEventDelegate</a></span><span class="p">?)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">connect</span><span class="p">(</span><span class="n">toChatroom</span> <span class="nv">chatroomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">jwt</span> <span class="kt">JWT</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="kt"><a href="../Enums/STSChatroomConnectionOptions.html">STSChatroomConnectionOptions</a></span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">eventDelegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/STSChatEventDelegate.html">STSChatEventDelegate</a></span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
@@ -180,7 +154,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroomName</em>
                                 </code>
                               </td>
                               <td>
@@ -208,14 +182,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>autoCreate</em>
+                                <em>options</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Create a new chat room or not, if the chat room name can not be found. Note:
-                     auto-create feature only succeed to create chat while chatRoomName is the
-                     current member&rsquo;s id. Otherwise, create chat will fail.</p>
+                                  <p>Options for connecting to the chatroom you want.</p>
 
                                 </div>
                               </td>
@@ -242,9 +214,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSChatManager(im)disconnectFromChatRoom:"></a>
-                    <a name="//apple_ref/objc/Method/-disconnectFromChatRoom:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSChatManager(im)disconnectFromChatRoom:">-disconnectFromChatRoom:</a>
+                    <a name="/c:objc(cs)STSChatManager(im)disconnectFromChatroom:"></a>
+                    <a name="//apple_ref/objc/Method/-disconnectFromChatroom:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)disconnectFromChatroom:">-disconnectFromChatroom:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -259,12 +231,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">disconnectFromChatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">disconnectFromChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">disconnect</span><span class="p">(</span><span class="n">fromChatRoom</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">disconnect</span><span class="p">(</span><span class="n">fromChatroom</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -275,12 +247,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>The STSChat object you want to disconnect.</p>
 
                                 </div>
                               </td>
@@ -294,9 +266,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSChatManager(im)getUsersForChatRoom:success:failure:"></a>
-                    <a name="//apple_ref/objc/Method/-getUsersForChatRoom:success:failure:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSChatManager(im)getUsersForChatRoom:success:failure:">-getUsersForChatRoom:success:failure:</a>
+                    <a name="/c:objc(cs)STSChatManager(im)getUsersForChatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-getUsersForChatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)getUsersForChatroom:success:failure:">-getUsersForChatroom:success:failure:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -312,14 +284,14 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="nf">getUsersForChatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span>
+<span class="nf">getUsersForChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
             <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSChatUser.html">STSChatUser</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">success</span>
             <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getUsersForChatRoom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getUsersForChatroom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -330,12 +302,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>The STSChat object you want to get users.</p>
 
                                 </div>
                               </td>
@@ -376,9 +348,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSChatManager(im)getMessagesForChatRoom:success:failure:"></a>
-                    <a name="//apple_ref/objc/Method/-getMessagesForChatRoom:success:failure:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSChatManager(im)getMessagesForChatRoom:success:failure:">-getMessagesForChatRoom:success:failure:</a>
+                    <a name="/c:objc(cs)STSChatManager(im)getMessagesForChatroom:configuration:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-getMessagesForChatroom:configuration:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)getMessagesForChatroom:configuration:success:failure:">-getMessagesForChatroom:configuration:success:failure:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -386,22 +358,24 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get chat room messages, maximum 100 messages.</p>
+                        <p>Get chat room messages.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getMessagesForChatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span>
-                       <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span>
-                                   <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSChatMessage.html">STSChatMessage</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
-                       <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="nf">getMessagesForChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+         <span class="nf">configuration</span><span class="p">:(</span><span class="n"><a href="../Classes/STSGetMessagesConfiguration.html">STSGetMessagesConfiguration</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">configuration</span>
+               <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSChatMessage.html">STSChatMessage</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span>
+                           <span class="n">success</span>
+               <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getMessagesForChatRoom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/STSChatMessage.html">STSChatMessage</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getMessagesForChatroom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSGetMessagesConfiguration.html">STSGetMessagesConfiguration</a></span><span class="p">?,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/STSChatMessage.html">STSChatMessage</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -412,12 +386,25 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>The STSChat object you want to get messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A STSGetMessagesConfiguration object that specifies the request rules for getting messages.</p>
 
                                 </div>
                               </td>
@@ -458,9 +445,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSChatManager(im)updateGuestNickname:chatRoom:success:failure:"></a>
-                    <a name="//apple_ref/objc/Method/-updateGuestNickname:chatRoom:success:failure:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSChatManager(im)updateGuestNickname:chatRoom:success:failure:">-updateGuestNickname:chatRoom:success:failure:</a>
+                    <a name="/c:objc(cs)STSChatManager(im)updateGuestNickname:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-updateGuestNickname:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)updateGuestNickname:chatroom:success:failure:">-updateGuestNickname:chatroom:success:failure:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -476,14 +463,14 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updateGuestNickname</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">nickname</span>
-                   <span class="nf">chatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span>
+                   <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
                     <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">success</span>
                     <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateGuestNickname</span><span class="p">(</span><span class="n">_</span> <span class="nv">nickname</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">chatRoom</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateGuestNickname</span><span class="p">(</span><span class="n">_</span> <span class="nv">nickname</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -507,12 +494,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>The STSChat object you want to update nickname.</p>
 
                                 </div>
                               </td>
@@ -552,9 +539,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSChatManager(im)updateUserRole:targetUser:chatRoom:success:failure:"></a>
-                    <a name="//apple_ref/objc/Method/-updateUserRole:targetUser:chatRoom:success:failure:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSChatManager(im)updateUserRole:targetUser:chatRoom:success:failure:">-updateUserRole:targetUser:chatRoom:success:failure:</a>
+                    <a name="/c:objc(cs)STSChatManager(im)updateUserRole:targetUser:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-updateUserRole:targetUser:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)updateUserRole:targetUser:chatroom:success:failure:">-updateUserRole:targetUser:chatroom:success:failure:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -571,14 +558,14 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updateUserRole</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">role</span>
             <span class="nf">targetUser</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChatUser.html">STSChatUser</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">targetUser</span>
-              <span class="nf">chatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span>
+              <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
                <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">success</span>
                <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateUserRole</span><span class="p">(</span><span class="n">_</span> <span class="nv">role</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">targetUser</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">,</span> <span class="n">chatRoom</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateUserRole</span><span class="p">(</span><span class="n">_</span> <span class="nv">role</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">targetUser</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -615,12 +602,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>The STSChat object you want to update user role.</p>
 
                                 </div>
                               </td>
@@ -660,9 +647,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSChatManager(im)blockUsers:chatRoom:success:failure:"></a>
-                    <a name="//apple_ref/objc/Method/-blockUsers:chatRoom:success:failure:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSChatManager(im)blockUsers:chatRoom:success:failure:">-blockUsers:chatRoom:success:failure:</a>
+                    <a name="/c:objc(cs)STSChatManager(im)blockUsers:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-blockUsers:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)blockUsers:chatroom:success:failure:">-blockUsers:chatroom:success:failure:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -678,14 +665,14 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">blockUsers</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSChatUser.html">STSChatUser</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">users</span>
-          <span class="nf">chatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span>
+          <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
            <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">success</span>
            <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">blockUsers</span><span class="p">(</span><span class="n">_</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">],</span> <span class="n">chatRoom</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">blockUsers</span><span class="p">(</span><span class="n">_</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">],</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -709,12 +696,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>The STSChat object you want to block users.</p>
 
                                 </div>
                               </td>
@@ -754,9 +741,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSChatManager(im)reviveUsers:chatRoom:success:failure:"></a>
-                    <a name="//apple_ref/objc/Method/-reviveUsers:chatRoom:success:failure:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSChatManager(im)reviveUsers:chatRoom:success:failure:">-reviveUsers:chatRoom:success:failure:</a>
+                    <a name="/c:objc(cs)STSChatManager(im)reviveUsers:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-reviveUsers:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)reviveUsers:chatroom:success:failure:">-reviveUsers:chatroom:success:failure:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -772,14 +759,14 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">reviveUsers</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSChatUser.html">STSChatUser</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">users</span>
-           <span class="nf">chatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span>
+           <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
             <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">success</span>
             <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">reviveUsers</span><span class="p">(</span><span class="n">_</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">],</span> <span class="n">chatRoom</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">reviveUsers</span><span class="p">(</span><span class="n">_</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">],</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -803,12 +790,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>The STSChat object you want to revive users.</p>
 
                                 </div>
                               </td>
@@ -848,9 +835,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSChatManager(im)sendMessage:chatRoom:success:failure:"></a>
-                    <a name="//apple_ref/objc/Method/-sendMessage:chatRoom:success:failure:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSChatManager(im)sendMessage:chatRoom:success:failure:">-sendMessage:chatRoom:success:failure:</a>
+                    <a name="/c:objc(cs)STSChatManager(im)sendMessage:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-sendMessage:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)sendMessage:chatroom:success:failure:">-sendMessage:chatroom:success:failure:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -866,14 +853,14 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendMessage</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">message</span>
-           <span class="nf">chatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span>
+           <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
             <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">success</span>
             <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">sendMessage</span><span class="p">(</span><span class="n">_</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">chatRoom</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">sendMessage</span><span class="p">(</span><span class="n">_</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -897,12 +884,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>The STSChat object you want to send message.</p>
 
                                 </div>
                               </td>
@@ -942,9 +929,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSChatManager(im)removeMessage:chatRoom:success:failure:"></a>
-                    <a name="//apple_ref/objc/Method/-removeMessage:chatRoom:success:failure:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSChatManager(im)removeMessage:chatRoom:success:failure:">-removeMessage:chatRoom:success:failure:</a>
+                    <a name="/c:objc(cs)STSChatManager(im)removeMessage:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-removeMessage:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)removeMessage:chatroom:success:failure:">-removeMessage:chatroom:success:failure:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -952,7 +939,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Remove chat message. 
+                        <p>Remove chat message.
   Note: This method works only when the current user of target chatroom has the privilege.</p>
 
                       </div>
@@ -961,14 +948,14 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeMessage</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">messageId</span>
-             <span class="nf">chatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span>
+             <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
               <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">success</span>
               <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">removeMessage</span><span class="p">(</span><span class="n">_</span> <span class="nv">messageId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">chatRoom</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">removeMessage</span><span class="p">(</span><span class="n">_</span> <span class="nv">messageId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -979,7 +966,7 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>message</em>
+                                <em>messageId</em>
                                 </code>
                               </td>
                               <td>
@@ -992,12 +979,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>The STSChat object you want to remove message.</p>
 
                                 </div>
                               </td>
@@ -1037,9 +1024,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSChatManager(im)chatForChatRoom:"></a>
-                    <a name="//apple_ref/objc/Method/-chatForChatRoom:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSChatManager(im)chatForChatRoom:">-chatForChatRoom:</a>
+                    <a name="/c:objc(cs)STSChatManager(im)chatForChatroomName:isPersonalChat:"></a>
+                    <a name="//apple_ref/objc/Method/-chatForChatroomName:isPersonalChat:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)chatForChatroomName:isPersonalChat:">-chatForChatroomName:isPersonalChat:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1054,12 +1041,13 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">chatForChatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">chatForChatroomName</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroomName</span>
+                           <span class="nf">isPersonalChat</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">isPersonalChat</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">chat</span><span class="p">(</span><span class="n">forChatRoom</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">chat</span><span class="p">(</span><span class="n">forChatroomName</span> <span class="nv">chatroomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">isPersonalChat</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -1070,12 +1058,25 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroomName</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
                                   <p>Identifier of chat room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isPersonalChat</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A boolean value indicates whether the chat object is personal or not.</p>
 
                                 </div>
                               </td>
@@ -1094,9 +1095,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSChatManager(im)currentUserForChatRoom:"></a>
-                    <a name="//apple_ref/objc/Method/-currentUserForChatRoom:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSChatManager(im)currentUserForChatRoom:">-currentUserForChatRoom:</a>
+                    <a name="/c:objc(cs)STSChatManager(im)currentUserForChatroom:"></a>
+                    <a name="//apple_ref/objc/Method/-currentUserForChatroom:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)currentUserForChatroom:">-currentUserForChatroom:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1111,13 +1112,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/STSChatUser.html">STSChatUser</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">currentUserForChatRoom</span><span class="p">:</span>
-    <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/STSChatUser.html">STSChatUser</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">currentUserForChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">currentUser</span><span class="p">(</span><span class="n">forChatRoom</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">currentUser</span><span class="p">(</span><span class="n">forChatroom</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -1128,12 +1128,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>The STSChat object you want to get current user.</p>
 
                                 </div>
                               </td>
@@ -1152,9 +1152,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSChatManager(im)cooldownForChatRoom:"></a>
-                    <a name="//apple_ref/objc/Method/-cooldownForChatRoom:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSChatManager(im)cooldownForChatRoom:">-cooldownForChatRoom:</a>
+                    <a name="/c:objc(cs)STSChatManager(im)cooldownForChatroom:"></a>
+                    <a name="//apple_ref/objc/Method/-cooldownForChatroom:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)cooldownForChatroom:">-cooldownForChatroom:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1169,12 +1169,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="nf">cooldownForChatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="nf">cooldownForChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">cooldown</span><span class="p">(</span><span class="n">forChatRoom</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">TimeInterval</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">cooldown</span><span class="p">(</span><span class="n">forChatroom</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">TimeInterval</span></code></pre>
 
                         </div>
                       </div>
@@ -1185,12 +1185,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>The STSChat object you want to get the cooldown time.</p>
 
                                 </div>
                               </td>
@@ -1209,9 +1209,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSChatManager(im)setEventDelegate:forChatRoom:"></a>
-                    <a name="//apple_ref/objc/Method/-setEventDelegate:forChatRoom:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSChatManager(im)setEventDelegate:forChatRoom:">-setEventDelegate:forChatRoom:</a>
+                    <a name="/c:objc(cs)STSChatManager(im)setEventDelegate:forChatroom:"></a>
+                    <a name="//apple_ref/objc/Method/-setEventDelegate:forChatroom:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)setEventDelegate:forChatroom:">-setEventDelegate:forChatroom:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1227,12 +1227,12 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setEventDelegate</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/STSChatEventDelegate.html">STSChatEventDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span>
-             <span class="nf">forChatRoom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatRoomName</span><span class="p">;</span></code></pre>
+             <span class="nf">forChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setEventDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/STSChatEventDelegate.html">STSChatEventDelegate</a></span><span class="p">?,</span> <span class="n">forChatRoom</span> <span class="nv">chatRoomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setEventDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/STSChatEventDelegate.html">STSChatEventDelegate</a></span><span class="p">?,</span> <span class="n">forChatroom</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1256,12 +1256,212 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>chatRoomName</em>
+                                <em>chatroom</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>Identifier of chat room.</p>
+                                  <p>The STSChat object you want to set with the event delegate.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/DataChaanel"></a>
+                <a name="//apple_ref/objc/Section/DataChaanel" class="dashAnchor"></a>
+                <a href="#/DataChaanel">
+                  <h3 class="section-name">DataChaanel</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)sendAggregatedData:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-sendAggregatedData:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)sendAggregatedData:chatroom:success:failure:">-sendAggregatedData:chatroom:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send aggregate data to data channel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendAggregatedData</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
+                  <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+                   <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">success</span>
+                   <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">sendAggregatedData</span><span class="p">(</span><span class="n">_</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Aggregate data string. Should be between 1~50 characters.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to send message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)sendRawData:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-sendRawData:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)sendRawData:chatroom:success:failure:">-sendRawData:chatroom:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send raw data to data channel. Raw data should be a valid JSON object only.
+  ref: <a href="https://developer.apple.com/reference/foundation/jsonserialization/1418461-isvalidjsonobject">https://developer.apple.com/reference/foundation/jsonserialization/1418461-isvalidjsonobject</a></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendRawData</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span><span class="p">)</span><span class="nv">rawData</span>
+           <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+            <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">success</span>
+            <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">sendRawData</span><span class="p">(</span><span class="n">_</span> <span class="nv">rawData</span><span class="p">:</span> <span class="kt">Any</span><span class="p">,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rawData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The jsonObject raw data.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to send message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
 
                                 </div>
                               </td>
@@ -1277,8 +1477,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2016-11-30)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>2017 © COPYRIGHT STRAAS.IO</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

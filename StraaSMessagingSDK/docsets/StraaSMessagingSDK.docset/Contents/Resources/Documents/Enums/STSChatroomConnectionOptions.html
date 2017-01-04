@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>STSChatInputMode Enum Reference</title>
+    <title>STSChatroomConnectionOptions Enum Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/objc/Enum/STSChatInputMode" class="dashAnchor"></a>
-    <a title="STSChatInputMode Enum Reference"></a>
+    <a name="//apple_ref/objc/Enum/STSChatroomConnectionOptions" class="dashAnchor"></a>
+    <a title="STSChatroomConnectionOptions Enum Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">StraaSMessagingSDK Docs</a> (100% documented)</p>
@@ -23,7 +23,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">StraaSMessagingSDK Reference</a>
         <img id="carat" src="../img/carat.png" />
-        STSChatInputMode Enum Reference
+        STSChatroomConnectionOptions Enum Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -102,15 +102,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>STSChatInputMode</h1>
+            <h1>STSChatroomConnectionOptions</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="k">enum</span> <span class="n">STSChatInputMode</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+                  <pre class="highlight"><code><span class="k">enum</span> <span class="n">STSChatroomConnectionOptions</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
 
                 </div>
               </div>
-            <p>StraaS.io chat room support user privilege control. Each input mode has different chat ability
-limitation depends on user&rsquo;s role.</p>
+            <p>STSChatroomConnectionOptions Options for connecting to the chatroom you want.</p>
 
           </section>
           <section class="section task-group-section">
@@ -119,9 +118,9 @@ limitation depends on user&rsquo;s role.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSChatInputMode@STSChatInputUndefined"></a>
-                    <a name="//apple_ref/objc/Case/STSChatInputUndefined" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSChatInputMode@STSChatInputUndefined">STSChatInputUndefined</a>
+                    <a name="/c:@E@STSChatroomConnectionOptions@STSChatroomConnectionNone"></a>
+                    <a name="//apple_ref/objc/Case/STSChatroomConnectionNone" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@STSChatroomConnectionOptions@STSChatroomConnectionNone">STSChatroomConnectionNone</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -129,19 +128,14 @@ limitation depends on user&rsquo;s role.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Mode undefined, it should not happen.</p>
+                        <p>Default option, connect to the chatroom based on the chatroomName.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSChatInputUndefined</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">undefined</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight"><code><span class="n">STSChatroomConnectionNone</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
 
                         </div>
                       </div>
@@ -151,9 +145,9 @@ limitation depends on user&rsquo;s role.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSChatInputMode@STSChatInputNormal"></a>
-                    <a name="//apple_ref/objc/Case/STSChatInputNormal" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSChatInputMode@STSChatInputNormal">STSChatInputNormal</a>
+                    <a name="/c:@E@STSChatroomConnectionOptions@STSChatroomConnectionIsPersonalChat"></a>
+                    <a name="//apple_ref/objc/Case/STSChatroomConnectionIsPersonalChat" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@STSChatroomConnectionOptions@STSChatroomConnectionIsPersonalChat">STSChatroomConnectionIsPersonalChat</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -161,19 +155,19 @@ limitation depends on user&rsquo;s role.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Normal mode, every user can chat.</p>
+                        <p>Connect to the personal chatroom.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSChatInputNormal</span></code></pre>
+                          <pre class="highlight"><code><span class="n">STSChatroomConnectionIsPersonalChat</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">normal</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">isPersonalChat</span><span class="p">:</span> <span class="kt">STSChatroomConnectionOptions</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -183,9 +177,9 @@ limitation depends on user&rsquo;s role.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSChatInputMode@STSChatInputMember"></a>
-                    <a name="//apple_ref/objc/Case/STSChatInputMember" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSChatInputMode@STSChatInputMember">STSChatInputMember</a>
+                    <a name="/c:@E@STSChatroomConnectionOptions@STSChatroomConnectionWithDataChannel"></a>
+                    <a name="//apple_ref/objc/Case/STSChatroomConnectionWithDataChannel" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@STSChatroomConnectionOptions@STSChatroomConnectionWithDataChannel">STSChatroomConnectionWithDataChannel</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -193,51 +187,19 @@ limitation depends on user&rsquo;s role.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Member-only mode, guest can not send message in this mode.</p>
+                        <p>Connect to the chatroom with data channel.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSChatInputMember</span></code></pre>
+                          <pre class="highlight"><code><span class="n">STSChatroomConnectionWithDataChannel</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">member</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@STSChatInputMode@STSChatInputMaster"></a>
-                    <a name="//apple_ref/objc/Case/STSChatInputMaster" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSChatInputMode@STSChatInputMaster">STSChatInputMaster</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Master mode, only the master of channel can send message.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSChatInputMaster</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">master</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">withDataChannel</span><span class="p">:</span> <span class="kt">STSChatroomConnectionOptions</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>

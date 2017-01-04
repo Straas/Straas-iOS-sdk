@@ -16,6 +16,7 @@
       <div class="content-wrapper">
         <p><a href="../index.html">StraaSMessagingSDK Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/StraaS/StraaS-iOS-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fstraas%2Egithub%2Eio%2FStraaS%2DiOS%2Dsdk%2Fdocsets%2FStraaSMessagingSDK%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -45,6 +46,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/STSChatUser.html">STSChatUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSGetMessagesConfiguration.html">STSGetMessagesConfiguration</a>
               </li>
             </ul>
           </li>
@@ -76,6 +80,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/STSChatMesssageType.html">STSChatMesssageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSChatroomConnectionOptions.html">STSChatroomConnectionOptions</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/STSMSGErrorCode.html">STSMSGErrorCode</a>
@@ -131,11 +138,6 @@
                           <pre class="highlight"><code><span class="n">STSMSGErrorCodeNetwork</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">network</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -163,11 +165,6 @@
                           <pre class="highlight"><code><span class="n">STSMSGErrorCodeChannelCodeLength</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">channelCodeLength</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -193,11 +190,6 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="n">STSMSGErrorCodeGuestCreateChatNotSupported</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">guestCreateChatNotSupported</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
 
                         </div>
                       </div>
@@ -228,11 +220,6 @@ channel is not connected.</p>
                           <pre class="highlight"><code><span class="n">STSMSGErrorCodeChannelNotConnected</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">channelNotConnected</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -258,11 +245,6 @@ channel is not connected.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="n">STSMSGErrorCodeChannelAlreadyConnected</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">channelAlreadyConnected</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
 
                         </div>
                       </div>
@@ -292,11 +274,6 @@ channel is not connected.</p>
                           <pre class="highlight"><code><span class="n">STSMSGErrorCodeMemberNicknameUpdateNotSupported</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">memberNicknameUpdateNotSupported</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -322,11 +299,6 @@ channel is not connected.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="n">STSMSGErrorCodeNicknameLength</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">nicknameLength</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
 
                         </div>
                       </div>
@@ -356,11 +328,6 @@ channel is not connected.</p>
                           <pre class="highlight"><code><span class="n">STSMSGErrorCodeMessageLength</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">messageLength</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -386,11 +353,6 @@ channel is not connected.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="n">STSMSGErrorCodeUserRole</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">userRole</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
 
                         </div>
                       </div>
@@ -420,11 +382,6 @@ channel is not connected.</p>
                           <pre class="highlight"><code><span class="n">STSMSGErrorCodeUnauthorized</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">unauthorized</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -442,7 +399,7 @@ channel is not connected.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Current user does not have right to perform operation(e.g. guest send a message to 
+                        <p>Current user does not have right to perform operation(e.g. guest send a message to
 a member-only input mode chat room).</p>
 
                       </div>
@@ -451,11 +408,6 @@ a member-only input mode chat room).</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="n">STSMSGErrorCodePermission</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">permission</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
 
                         </div>
                       </div>
@@ -485,11 +437,6 @@ a member-only input mode chat room).</p>
                           <pre class="highlight"><code><span class="n">STSMSGErrorCodeUnknownChannel</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">unknownChannel</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -515,11 +462,6 @@ a member-only input mode chat room).</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="n">STSMSGErrorCodeServer</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">server</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
 
                         </div>
                       </div>
@@ -549,9 +491,85 @@ a member-only input mode chat room).</p>
                           <pre class="highlight"><code><span class="n">STSMSGErrorCodeInternal</span></code></pre>
 
                         </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@STSMSGErrorCode@STSMSGErrorCodeDataChannelNotEnabled"></a>
+                    <a name="//apple_ref/objc/Case/STSMSGErrorCodeDataChannelNotEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@STSMSGErrorCode@STSMSGErrorCodeDataChannelNotEnabled">STSMSGErrorCodeDataChannelNotEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Data channel is not enabled. If you want to use data channel, remember to connect to chatroom with option STSChatroomConnectionWithDataChannel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
                         <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="err">`</span><span class="kd">internal</span><span class="err">`</span> <span class="o">=</span> <span class="mi">13</span></code></pre>
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="n">STSMSGErrorCodeDataChannelNotEnabled</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@STSMSGErrorCode@STSMSGErrorCodeAggregatedDataLength"></a>
+                    <a name="//apple_ref/objc/Case/STSMSGErrorCodeAggregatedDataLength" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@STSMSGErrorCode@STSMSGErrorCodeAggregatedDataLength">STSMSGErrorCodeAggregatedDataLength</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Aggregate data length must be between 1~50 characters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="n">STSMSGErrorCodeAggregatedDataLength</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@STSMSGErrorCode@STSMSGErrorCodeRawDataFormatNotAllowed"></a>
+                    <a name="//apple_ref/objc/Case/STSMSGErrorCodeRawDataFormatNotAllowed" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@STSMSGErrorCode@STSMSGErrorCodeRawDataFormatNotAllowed">STSMSGErrorCodeRawDataFormatNotAllowed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Raw data must be an object which can be converted to JSON object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="n">STSMSGErrorCodeRawDataFormatNotAllowed</span></code></pre>
 
                         </div>
                       </div>
@@ -563,8 +581,8 @@ a member-only input mode chat room).</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2016-11-30)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>2017 © COPYRIGHT STRAAS.IO</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
