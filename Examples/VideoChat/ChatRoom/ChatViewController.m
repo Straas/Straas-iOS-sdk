@@ -30,6 +30,9 @@
 
 @property (nonatomic, strong) NSArray *searchResult;
 
+@property (nonatomic, readwrite) NSString * JWT;
+@property (nonatomic, readwrite) NSString * chatroomName;
+@property (nonatomic, readwrite) STSChatroomConnectionOptions connectionOptions;
 @property (nonatomic) STSChatManager * manager;
 @property (nonatomic) STSChat * currentChat;
 
@@ -45,11 +48,20 @@
 
 @implementation ChatViewController 
 
-- (instancetype)init
-{
-    self = [super initWithTableViewStyle:UITableViewStylePlain];
-    if (self) {
++ (instancetype)chatViewControllerWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
+    ChatViewController * controller =
+    [[ChatViewController alloc] initWithJWT:JWT
+                               chatroomName:chatroomName
+                          connectionOptions:connectionOptions];
+    return controller;
+}
+
+- (instancetype)initWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
+    if ([super initWithTableViewStyle:UITableViewStylePlain]) {
         [self commonInit];
+        self.JWT = JWT;
+        self.chatroomName = chatroomName;
+        self.connectionOptions = connectionOptions;
     }
     return self;
 }

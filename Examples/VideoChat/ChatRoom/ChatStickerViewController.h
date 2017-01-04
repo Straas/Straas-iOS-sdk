@@ -18,4 +18,8 @@
                                     chatroomName:(NSString *)chatroomName
                                connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
 
+- (instancetype)initWithJWT:(NSString *)JWT
+               chatroomName:(NSString *)chatroomName
+          connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
+
 @end
