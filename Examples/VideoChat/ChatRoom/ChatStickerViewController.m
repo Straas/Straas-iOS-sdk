@@ -22,17 +22,22 @@
 + (instancetype)chatStickerViewControllerWithJWT:(NSString *)JWT
                                     chatroomName:(NSString *)chatroomName
                                connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
-    ChatStickerViewController * viewController = [ChatStickerViewController new];
-    viewController.chatVC.JWT = JWT;
-    viewController.chatVC.chatroomName = chatroomName;
-    viewController.chatVC.connectionOptions = connectionOptions;
+    ChatStickerViewController * viewController =
+    [[ChatStickerViewController alloc] initWithJWT:JWT
+                                      chatroomName:chatroomName
+                                 connectionOptions:connectionOptions];
     return viewController;
 }
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
+- (instancetype)initWithJWT:(NSString *)JWT
+               chatroomName:(NSString *)chatroomName
+          connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
+    if (self = [super init]) {
+        ChatViewController * chatVC =
+        [ChatViewController chatViewControllerWithJWT:JWT
+                                         chatroomName:chatroomName
+                                    connectionOptions:connectionOptions];
+        self.chatVC = chatVC;
         [self commonInit];
     }
     return self;
@@ -48,6 +53,7 @@
 }
 
 - (void)commonInit {
+    self.chatVC.view.translatesAutoresizingMaskIntoConstraints = NO;
     [self addChildViewController:self.chatVC];
     [self.view addSubview:self.chatVC.view];
     [self.view addSubview:self.stickerView];
@@ -115,14 +121,6 @@
         _stickerView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _stickerView;
-}
-
-- (ChatViewController *)chatVC {
-    if (!_chatVC) {
-        _chatVC = [ChatViewController new];
-        _chatVC.view.translatesAutoresizingMaskIntoConstraints = NO;
-    }
-    return _chatVC;
 }
 
 @end

@@ -14,9 +14,20 @@
 
 @interface ChatViewController : SLKTextViewController<StickerInputViewDelegate>
 
-@property (nonatomic) NSString * JWT;
-@property (nonatomic) NSString * chatroomName;
-@property (nonatomic) STSChatroomConnectionOptions connectionOptions;
+@property (nonatomic, readonly) NSString * JWT;
+@property (nonatomic, readonly) NSString * chatroomName;
+@property (nonatomic, readonly) STSChatroomConnectionOptions connectionOptions;
 @property (weak, nonatomic) id<ChatStickerDelegate> delegate;
+
++ (instancetype)chatViewControllerWithJWT:(NSString *)JWT
+                             chatroomName:(NSString *)chatroomName
+                        connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
+
+- (instancetype)initWithJWT:(NSString *)JWT
+               chatroomName:(NSString *)chatroomName
+          connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
+
++ (instancetype)new __attribute__((unavailable("Use chatViewControllerWithJWT:chatroomName:connectionOptions: instead.")));
+- (instancetype)init  __attribute__((unavailable("Use initWithJWT:chatroomName:connectionOptions: instead.")));
 
 @end
