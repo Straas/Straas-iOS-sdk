@@ -14,17 +14,14 @@
 #import "MessageTextView.h"
 #import "TypingIndicatorView.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-
-@import StraaSMessagingSDK;
-@import StraaSCoreSDK;
-
+#import <StraaSCoreSDK/StraaSCoreSDK.h>
 #import "STSChatMessage+VideoChatUtility.h"
 #import "UIAlertController+VideoChatUtility.h"
 #import "STSChatUser+VieoChatUtility.h"
 
 #define DEBUG_CUSTOM_TYPING_INDICATOR 0
 
-@interface ChatViewController () <STSChatEventDelegate>
+@interface ChatViewController () 
 
 @property (nonatomic, strong) NSMutableArray *messages;
 
@@ -33,8 +30,9 @@
 @property (nonatomic, readwrite) NSString * JWT;
 @property (nonatomic, readwrite) NSString * chatroomName;
 @property (nonatomic, readwrite) STSChatroomConnectionOptions connectionOptions;
-@property (nonatomic) STSChatManager * manager;
+@property (nonatomic, readwrite) STSChatManager * manager;
 @property (nonatomic) STSChat * currentChat;
+@property (nonatomic) BOOL disconnectingChat;
 
 @property (nonatomic, getter=hasUpdatedNickname) BOOL updatedNickname;
 @property (nonatomic) NSString * fakeName;
@@ -59,11 +57,17 @@
 - (instancetype)initWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
     if ([super initWithTableViewStyle:UITableViewStylePlain]) {
         [self commonInit];
-        self.JWT = JWT;
-        self.chatroomName = chatroomName;
-        self.connectionOptions = connectionOptions;
+        [self setJWT:JWT chatroomName:chatroomName connectionOptions:connectionOptions];
     }
     return self;
+}
+
+- (void)setJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
+    NSAssert(!self.JWT, @"self.JWT should be nil when calling setJWT:chatroomName:connectionOptions:.");
+    NSAssert(!self.chatroomName, @"self.chatroomName should be nil when calling setJWT:chatroomName:connectionOptions:.");
+    self.JWT = JWT;
+    self.chatroomName = chatroomName;
+    self.connectionOptions = connectionOptions;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -92,27 +96,44 @@
 #endif
 }
 
+- (void)connectToChat {
+    if (self.currentChat) {
+        return;
+    }
+    [self.manager connectToChatroom:self.chatroomName JWT:self.JWT options:self.connectionOptions eventDelegate:self.eventDelegate];
+}
+
+- (void)disconnectCurrentChatIfNeeded {
+    if (self.currentChat) {
+        self.disconnectingChat = YES;
+        [self.manager disconnectFromChatroom:self.currentChat];
+    }
+}
+- (void)connectToChatWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
+    if (![JWT isEqualToString:self.JWT] || ![chatroomName isEqualToString:self.chatroomName] || connectionOptions != self.connectionOptions) {
+        [self disconnectCurrentChatIfNeeded];
+    }
+    self.JWT = JWT;
+    self.chatroomName = chatroomName;
+    self.connectionOptions = connectionOptions;
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    [self configureStraaSMessaging];
-
+    self.textView.editable = NO;
     // SLKTVC's configuration
     self.bounces = YES;
     self.shakeToClearEnabled = YES;
     self.keyboardPanningEnabled = YES;
     self.shouldScrollToBottomAfterKeyboardShows = NO;
     self.inverted = YES;
-
+    [self showStickerButtonIfNeeded];
     [self.rightButton setTitle:NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
     [self.singleTapGesture addTarget:self action:@selector(didTapTableView)];
     self.textInputbar.autoHideRightButton = YES;
-    [self.leftButton setImage:[UIImage imageNamed:@"btn-stickers"] forState:UIControlStateNormal];
-    self.leftButton.tintColor = [UIColor colorWithWhite:0.6 alpha:1];
-    self.leftButton.userInteractionEnabled = NO;
     self.textInputbar.maxCharCount = 120;
     self.textInputbar.counterStyle = SLKCounterStyleSplit;
     self.textInputbar.counterPosition = SLKCounterPositionTop;
@@ -133,20 +154,8 @@
 
 #pragma mark StraaS Messaging Configuration
 
-- (void)configureStraaSMessaging {
-    self.messages = [NSMutableArray array];
-    self.textView.editable = NO;
-
-    [STSApplication configureApplication:^(BOOL success, NSError *error) {
-        if (success) {
-            [self.manager connectToChatroom:self.chatroomName JWT:self.JWT options:self.connectionOptions eventDelegate:self];
-        } else {
-            NSLog(@"STSApplication configure fail with error = %@", error);
-        }
-        dispatch_after(dispatch_time(DISPATCH_TIME_FOREVER, (int64_t)(15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.manager disconnectFromChatroom:self.currentChat];
-        });
-    }];
+- (void)configureApplication:(void (^)(BOOL, NSError *))completionBlock {
+    [STSApplication configureApplication:completionBlock];
 }
 
 - (STSChatManager *)manager {
@@ -154,6 +163,13 @@
         _manager = [STSChatManager new];
     }
     return _manager;
+}
+
+- (NSMutableArray *)messages {
+    if (!_messages) {
+        _messages = [NSMutableArray array];
+    }
+    return _messages;
 }
 
 - (STSChat *)currentChat {
@@ -164,10 +180,53 @@
     return self.connectionOptions & STSChatroomConnectionIsPersonalChat;
 }
 
+- (id<STSChatEventDelegate>)eventDelegate {
+    if (!_eventDelegate) {
+        _eventDelegate = self;
+    }
+    return _eventDelegate;
+}
+
+- (UIImage *)avatarPlaceholderImage {
+    if (!_avatarPlaceholderImage) {
+        _avatarPlaceholderImage = [UIImage imageNamed:@"img-guest-photo"];
+    }
+    return _avatarPlaceholderImage;
+}
+
+- (UIImage *)stickerPlaceholderImage {
+    if (!_stickerPlaceholderImage) {
+        _stickerPlaceholderImage = [UIImage imageNamed:@"img_sticker_default"];
+    }
+    return _stickerPlaceholderImage;
+}
+
+- (UIImage *)stickerInputButtonImage {
+    if (!_stickerInputButtonImage) {
+        _stickerInputButtonImage = [UIImage imageNamed:@"btn-stickers"];
+    }
+    return _stickerInputButtonImage;
+}
+
+- (UIImage *)textInputButtonImage {
+    if (!_textInputButtonImage) {
+        _textInputButtonImage = [UIImage imageNamed:@"btn_ic_keyboard"];
+    }
+    return _textInputButtonImage;
+}
+
+- (void)showStickerButtonIfNeeded {
+    if (!self.delegate) {
+        return;
+    }
+    [self.leftButton setImage:self.stickerInputButtonImage forState:UIControlStateNormal];
+    self.leftButton.tintColor = [UIColor colorWithWhite:0.6 alpha:1];
+    self.leftButton.userInteractionEnabled = NO;
+}
+
 #pragma mark STSChatEventDelegate
 
 - (void)chatroomConnected:(STSChat *)chatroom {
-    NSLog(@"\"%@\" connected", chatroom.chatroomName);
     if ([self.delegate respondsToSelector:@selector(chatStickerDidLoad:)]) {
         [self.delegate chatStickerDidLoad:chatroom.stickers];
     }
@@ -178,31 +237,14 @@
         [weakSelf.messages removeAllObjects];
         [weakSelf.messages addObjectsFromArray:messages];
         [weakSelf.tableView reloadData];
-        [weakSelf updateTextViewForChatRoom:chatroom];
+        [weakSelf updateTextViewForChatroom:chatroom];
     } failure:^(NSError * _Nonnull error) {
         
     }];
 }
 
-- (void)chatroomDisconnected:(STSChat *)chatroom {
-    NSLog(@"\"%@\" disconnected", chatroom.chatroomName);
-}
-
-- (void)chatroom:(STSChat *)chatroom failToConnect:(NSError *)error {
-    NSLog(@"\"%@\" fail to connect", chatroom.chatroomName);
-    NSLog(@"%@", error);
-}
-
-- (void)chatroom:(STSChat *)chatroom error:(NSError *)error {
-    NSLog(@"chatroom %@ error %@", chatroom.chatroomName, error);
-}
-
 - (void)chatroomInputModeChanged:(STSChat *)chatroom {
-    [self updateTextViewForChatRoom:chatroom];
-}
-
--(void)chatroom:(STSChat *)chatroom usersJoined:(NSArray<STSChatUser *> *)users {
-    NSLog(@"%@ joined %@", users, chatroom.chatroomName);
+    [self updateTextViewForChatroom:chatroom];
 }
 
 - (void)chatroom:(STSChat *)chatroom usersUpdated:(NSArray<STSChatUser *> *)users {
@@ -210,17 +252,9 @@
     __weak ChatViewController * weakSelf = self;
     for (STSChatUser * user in users) {
         if ([user isEqual:currentUser]) {
-            [weakSelf updateTextViewForChatRoom:chatroom];
+            [weakSelf updateTextViewForChatroom:chatroom];
         }
     }
-    NSLog(@"%@ updated in %@", users, chatroom);
-}
-- (void)chatroom:(STSChat *)chatroom usersLeft:(NSArray<NSNumber *> *)userLabels {
-    NSLog(@"%@ left %@", userLabels, chatroom.chatroomName);
-}
-
-- (void)chatroomUserCount:(STSChat *)chatroom {
-    NSLog(@"%@ user count = %d", chatroom, (int)chatroom.userCount);
 }
 
 - (void)chatroom:(STSChat *)chatroom messageAdded:(STSChatMessage *)message {
@@ -240,7 +274,7 @@
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-- (void)chatRoom:(NSString *)chatRoomName messageRemoved:(NSString *)messageId {
+- (void)chatroom:(STSChat *)chatroom messageRemoved:(NSString *)messageId {
     [self.messages enumerateObjectsUsingBlock:^(STSChatMessage * msg, NSUInteger index, BOOL * _Nonnull stop) {
         if ([msg.messageId isEqualToString:messageId]) {
             NSIndexPath * indexPath = [NSIndexPath indexPathForRow:index inSection:0];
@@ -255,14 +289,29 @@
     }];
 }
 
-- (void)chatRoomMessageFlushed:(NSString *)chatRoomName {
+- (void)chatroomMessageFlushed:(STSChat *)chatroom {
     [self.messages removeAllObjects];
     [self.tableView reloadData];
 }
 
+
+- (void)chatroomDisconnected:(STSChat *)chatroom {
+    if (self.disconnectingChat) {
+        self.disconnectingChat = NO;
+        [self connectToChat];
+    }
+}
+- (void)chatroom:(STSChat *)chatroom usersLeft:(NSArray<NSNumber *> *)userLabels {}
+- (void)chatroomUserCount:(STSChat *)chatroom {}
+- (void)chatroom:(STSChat *)chatroom failToConnect:(NSError *)error {}
+- (void)chatroom:(STSChat *)chatroom error:(NSError *)error {}
+- (void)chatroom:(STSChat *)chatroom usersJoined:(NSArray<STSChatUser *> *)users {}
+- (void)chatroom:(STSChat *)chatroom aggregatedDataAdded:(NSDictionary *)aggregatedData {}
+- (void)chatroom:(STSChat *)chatroom rawDataAdded:(id)rawData {}
+
 #pragma mark Event Handler
 
-- (void)updateTextViewForChatRoom:(STSChat *)chatroom {
+- (void)updateTextViewForChatroom:(STSChat *)chatroom {
     STSChatInputMode mode = chatroom.mode;
     STSChatUser * currentUser = [self.manager currentUserForChatroom:chatroom];
     NSString * placeholder;
@@ -318,7 +367,7 @@
     switch (status) {
         case SLKKeyboardStatusWillShow:
             if ([self.delegate isStickerViewShowing]) {
-                [self.leftButton setImage:[UIImage imageNamed:@"btn-stickers"] forState:UIControlStateNormal];
+                [self.leftButton setImage:self.stickerInputButtonImage forState:UIControlStateNormal];
                 [self.delegate dismissStickerView:NO];
             }
             return NSLog(@"Will Show");
@@ -337,7 +386,9 @@
     if ([self.delegate respondsToSelector:@selector(dismissStickerView:)]) {
         [self.delegate dismissStickerView:NO];
     }
-    [self.leftButton setImage:[UIImage imageNamed:@"btn-stickers"] forState:UIControlStateNormal];
+    if (self.delegate) {
+        [self.leftButton setImage:self.stickerInputButtonImage forState:UIControlStateNormal];
+    }
     if ([currentUser.role isEqualToString:kSTSUserRoleBlocked]) {
         [self addFakeMessage:messageText type:STSChatMessageTypeText imageURL:nil];
     } else {
@@ -386,13 +437,13 @@
         return;
     }
     if ([self.delegate isStickerViewShowing]) {
-        [self.leftButton setImage:[UIImage imageNamed:@"btn-stickers"] forState:UIControlStateNormal];
+        [self.leftButton setImage:self.stickerInputButtonImage forState:UIControlStateNormal];
         if ([self.delegate respondsToSelector:@selector(dismissStickerView:)]) {
             [self.delegate dismissStickerView:(self.keyboardStatus == SLKKeyboardStatusDidShow)];
         }
         [self presentKeyboard:NO];
     } else {
-        [self.leftButton setImage:[UIImage imageNamed:@"btn_ic_keyboard"] forState:UIControlStateNormal];
+        [self.leftButton setImage:self.textInputButtonImage forState:UIControlStateNormal];
         if ([self.delegate respondsToSelector:@selector(showStickerView:)]) {
             [self.delegate showStickerView:(self.keyboardStatus == SLKKeyboardStatusDidHide)];
         }
@@ -405,7 +456,7 @@
         return;
     }
     if ([self.delegate respondsToSelector:@selector(dismissStickerView:)]) {
-        [self.leftButton setImage:[UIImage imageNamed:@"btn-stickers"] forState:UIControlStateNormal];
+        [self.leftButton setImage:self.stickerInputButtonImage forState:UIControlStateNormal];
         [self.delegate dismissStickerView:YES];
     }
 }
@@ -440,7 +491,7 @@
 }
 
 #pragma mark - sticker view;
-- (void)didSelectStickerKey:(NSString *)key imageURL:(NSString *)imageURL{
+- (void)didSelectStickerKey:(NSString *)key imageURL:(NSString *)imageURL {
     STSChatUser * currentUser = [self.manager currentUserForChatroom:self.currentChat];
     if ([currentUser.role isEqualToString:kSTSUserRoleBlocked]) {
         [self addFakeMessage:key type:STSChatMessageTypeSticker imageURL:imageURL];
@@ -470,14 +521,14 @@
                                       success:^{
                                           weakSelf.updatedNickname = YES;
                                           [weakSelf.textView becomeFirstResponder];
-                                          [weakSelf updateTextViewForChatRoom:weakSelf.currentChat];
+                                          [weakSelf updateTextViewForChatroom:weakSelf.currentChat];
                                           NSLog(@"update nickname success");
                                       } failure:^(NSError * _Nonnull error) {
                                           STSChatUser * currentUser = [self.manager currentUserForChatroom:self.currentChat];
                                           if ([currentUser.role isEqualToString:kSTSUserRoleBlocked]) {
                                               weakSelf.updatedNickname = YES;
                                               [weakSelf.textView becomeFirstResponder];
-                                              [weakSelf updateTextViewForChatRoom:weakSelf.currentChat];
+                                              [weakSelf updateTextViewForChatroom:weakSelf.currentChat];
                                               self.fakeName = nickName;
                                               return;
                                           }
@@ -501,7 +552,7 @@
     return !self.hasUpdatedNickname && self.JWT.length == 0;
 }
 
-- (void)addFakeMessage:(NSString *)fakeMessage type:(STSChatMesssageType)type imageURL:(NSString *)imageURL{
+- (void)addFakeMessage:(NSString *)fakeMessage type:(STSChatMesssageType)type imageURL:(NSString *)imageURL {
     STSChatUser * currentUser = [self.manager currentUserForChatroom:self.currentChat];
     NSDateFormatter * formatter = [NSDateFormatter new];
     formatter.dateFormat = @"YYYY-MM-dd HH:mm:ss";
@@ -598,16 +649,14 @@
         cell = (MessageTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:MessengerCellIdentifier];
     } else {
         cell = (MessageTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:StickerCellIdentifier];
-        UIImage * defaultImage = [UIImage imageNamed:@"img_sticker_default"];
-        [cell.stickerImageView sd_setImageWithURL:message.stickerURL placeholderImage:defaultImage];
+        [cell.stickerImageView sd_setImageWithURL:message.stickerURL placeholderImage:self.stickerPlaceholderImage];
     }
 
-    UIImage * avator = [UIImage imageNamed:@"img-guest-photo"];
     if (message.creator.avatar) {
         NSURL * URL = [NSURL URLWithString:message.creator.avatar];
-        [cell.thumbnailView sd_setImageWithURL:URL placeholderImage:avator options:SDWebImageRefreshCached];
+        [cell.thumbnailView sd_setImageWithURL:URL placeholderImage:self.avatarPlaceholderImage options:SDWebImageRefreshCached];
     } else {
-        cell.thumbnailView.image = avator;
+        cell.thumbnailView.image = self.avatarPlaceholderImage;
     }
     cell.titleLabel.text = message.creator.name;
     cell.sideLabel.text = message.shortCreatedDate;
