@@ -7,7 +7,8 @@
 //
 
 #import "DetailViewController.h"
-#import "ChatStickerViewController.h"
+#import "ChatExampleViewController.h"
+#import "ChatStickerExampleViewController.h"
 #import "StreamingViewController.h"
 
 NSString * const STSMessagingServiceKeyword = @"StraaS.io chat room";
@@ -62,10 +63,12 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 }
 
 - (void)addChatView {
-    ChatStickerViewController * controller =
-    [ChatStickerViewController chatStickerViewControllerWithJWT:self.JWT
-                                                   chatroomName:self.chatroomName
-                                              connectionOptions:self.chatroomConnectionOptions];
+    ChatExampleViewController * chatExampleViewController = [ChatExampleViewController new];
+    ChatStickerExampleViewController * controller =
+    [ChatStickerExampleViewController viewControllerWithJWT:self.JWT
+                                               chatroomName:self.chatroomName
+                                          connectionOptions:self.chatroomConnectionOptions
+                                         chatViewController:chatExampleViewController];
     [self addChildViewController:controller];
     [controller didMoveToParentViewController:self];
     [self.view addSubview:controller.view];
