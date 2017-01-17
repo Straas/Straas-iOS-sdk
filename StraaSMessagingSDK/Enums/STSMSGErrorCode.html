@@ -399,7 +399,7 @@ channel is not connected.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Current user does not have right to perform operation(e.g. guest send a message to
+                        <p>Current user does not have right to perform operation(e.g. guest send a message to 
 a member-only input mode chat room).</p>
 
                       </div>
@@ -417,9 +417,9 @@ a member-only input mode chat room).</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSMSGErrorCode@STSMSGErrorCodeUnknownChannel"></a>
-                    <a name="//apple_ref/objc/Case/STSMSGErrorCodeUnknownChannel" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSMSGErrorCode@STSMSGErrorCodeUnknownChannel">STSMSGErrorCodeUnknownChannel</a>
+                    <a name="/c:@E@STSMSGErrorCode@STSMSGErrorCodeChatroomNotfound"></a>
+                    <a name="//apple_ref/objc/Case/STSMSGErrorCodeChatroomNotfound" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@STSMSGErrorCode@STSMSGErrorCodeChatroomNotfound">STSMSGErrorCodeChatroomNotfound</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -427,14 +427,15 @@ a member-only input mode chat room).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Can not connect to an unknown channel(channel is not exist and auto create is disabled).</p>
+                        <p>Can not connect to chatroom since it is not found on our server.
+Please make sure you&rsquo;ve created this chatroom before trying to connect it.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSMSGErrorCodeUnknownChannel</span></code></pre>
+                          <pre class="highlight"><code><span class="n">STSMSGErrorCodeChatroomNotfound</span></code></pre>
 
                         </div>
                       </div>
