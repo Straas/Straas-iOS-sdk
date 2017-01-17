@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/NSError+StraaSMessagingSDK.h</key>
 		<data>
-		+WCAGb17rCQ8kUz+2FLU4dCeBD8=
+		abgnens+2c7oGoTuFjwdyFSbl+c=
 		</data>
 		<key>Headers/STSChat.h</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Q1k5qsIExddMYtegK1L6kDIIUgs=
+		WyOuBYbWDLztUXVQFlifGy68GLY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -52,7 +52,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GU0gH1NgV2rz+s6y+LxEpUFgY8U=
+			ad1KwP1dcXxk74mmsDSc5Fvc7wc=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -61,7 +61,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+eyYuaMgegnUNE6+9pSHWUyz3ZE=
+			+LT7vWUcdhzYf/eJCdj8aLKsqDQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -73,11 +73,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+WCAGb17rCQ8kUz+2FLU4dCeBD8=
+			abgnens+2c7oGoTuFjwdyFSbl+c=
 			</data>
 			<key>hash2</key>
 			<data>
-			JSEdlwt6s43UI56RG7Z+dHT9b5Go4lHPrgWoI63a2hQ=
+			HUhi50mPCLkMUUMSPjQbOwnY0lwzFe8y3I9EOYpAFpA=
 			</data>
 		</dict>
 		<key>Headers/STSChat.h</key>
@@ -183,11 +183,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GU0gH1NgV2rz+s6y+LxEpUFgY8U=
+			ad1KwP1dcXxk74mmsDSc5Fvc7wc=
 			</data>
 			<key>hash2</key>
 			<data>
-			SvRL+zmcyWLaJvcfLMN7CLsj76EErJxW7/JINHGbgHQ=
+			4yMlVYUTuvR8ZEJSzqIyApmKHSdmV+Dx1Q4rmZaSm5U=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -196,11 +196,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+eyYuaMgegnUNE6+9pSHWUyz3ZE=
+			+LT7vWUcdhzYf/eJCdj8aLKsqDQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			U/LZCZ2jEZW+1xZpHy3u11AU5zZJx/FkaGBjUJPut4E=
+			lvrlBi97dJwpjXdPcF2fL7GurHTHJWkRoFlr1AwFX78=
 			</data>
 			<key>optional</key>
 			<true/>

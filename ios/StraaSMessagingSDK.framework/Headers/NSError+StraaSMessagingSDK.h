@@ -61,9 +61,10 @@ typedef NS_ENUM(NSUInteger, STSMSGErrorCode) {
      */
     STSMSGErrorCodePermission,
     /**
-     *  Can not connect to an unknown channel(channel is not exist and auto create is disabled).
+     *  Can not connect to chatroom since it is not found on our server.
+     *  Please make sure you've created this chatroom before trying to connect it.
      */
-    STSMSGErrorCodeUnknownChannel,
+    STSMSGErrorCodeChatroomNotfound,
     /**
      *  Server side error happened, please try again later or contact with service provider.
      */
@@ -88,7 +89,7 @@ typedef NS_ENUM(NSUInteger, STSMSGErrorCode) {
 
 @interface NSError (StraaSMessagingSDK)
 
-+ (instancetype)STSMSGUnknownChannelError;
++ (instancetype)STSMSGChatroomNotFoundError;
 + (instancetype)STSMSGNotConnectedError;
 + (instancetype)STSMSGAggregateDataLengthError;
 + (instancetype)STSMSGDataChannelNotEnabledError;
