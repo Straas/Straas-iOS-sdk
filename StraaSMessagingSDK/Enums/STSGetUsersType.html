@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>STSChatroomConnectionOptions Enum Reference</title>
+    <title>STSGetUsersType Enum Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/objc/Enum/STSChatroomConnectionOptions" class="dashAnchor"></a>
-    <a title="STSChatroomConnectionOptions Enum Reference"></a>
+    <a name="//apple_ref/objc/Enum/STSGetUsersType" class="dashAnchor"></a>
+    <a title="STSGetUsersType Enum Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">StraaSMessagingSDK Docs</a> (100% documented)</p>
@@ -23,7 +23,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">StraaSMessagingSDK Reference</a>
         <img id="carat" src="../img/carat.png" />
-        STSChatroomConnectionOptions Enum Reference
+        STSGetUsersType Enum Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -108,14 +108,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>STSChatroomConnectionOptions</h1>
+            <h1>STSGetUsersType</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="k">enum</span> <span class="n">STSChatroomConnectionOptions</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+                  <pre class="highlight"><code><span class="k">enum</span> <span class="n">STSGetUsersType</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
 
                 </div>
               </div>
-            <p>STSChatroomConnectionOptions Options for connecting to the chatroom you want.</p>
+            <p>The type of users you want to get.</p>
 
           </section>
           <section class="section task-group-section">
@@ -124,9 +124,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSChatroomConnectionOptions@STSChatroomConnectionNone"></a>
-                    <a name="//apple_ref/objc/Case/STSChatroomConnectionNone" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSChatroomConnectionOptions@STSChatroomConnectionNone">STSChatroomConnectionNone</a>
+                    <a name="/c:@E@STSGetUsersType@STSGetUsersTypeOnlineUsers"></a>
+                    <a name="//apple_ref/objc/Case/STSGetUsersTypeOnlineUsers" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@STSGetUsersType@STSGetUsersTypeOnlineUsers">STSGetUsersTypeOnlineUsers</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -134,14 +134,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Default option, connect to the chatroom based on the chatroomName.</p>
+                        <p>Get the online users from user list.
+STSGetUsersTypeOnlineUsers will return every online user except those who were blocked.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSChatroomConnectionNone</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight"><code><span class="n">STSGetUsersTypeOnlineUsers</span></code></pre>
 
                         </div>
                       </div>
@@ -151,9 +152,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSChatroomConnectionOptions@STSChatroomConnectionIsPersonalChat"></a>
-                    <a name="//apple_ref/objc/Case/STSChatroomConnectionIsPersonalChat" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSChatroomConnectionOptions@STSChatroomConnectionIsPersonalChat">STSChatroomConnectionIsPersonalChat</a>
+                    <a name="/c:@E@STSGetUsersType@STSGetUsersTypeBlocked"></a>
+                    <a name="//apple_ref/objc/Case/STSGetUsersTypeBlocked" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@STSGetUsersType@STSGetUsersTypeBlocked">STSGetUsersTypeBlocked</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -161,14 +162,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Connect to the personal chatroom.</p>
+                        <p>Get the blocked users from user list no matter the user is online or not.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSChatroomConnectionIsPersonalChat</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight"><code><span class="n">STSGetUsersTypeBlocked</span></code></pre>
 
                         </div>
                       </div>
@@ -178,9 +179,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSChatroomConnectionOptions@STSChatroomConnectionWithDataChannel"></a>
-                    <a name="//apple_ref/objc/Case/STSChatroomConnectionWithDataChannel" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSChatroomConnectionOptions@STSChatroomConnectionWithDataChannel">STSChatroomConnectionWithDataChannel</a>
+                    <a name="/c:@E@STSGetUsersType@STSGetUsersTypeSupervisor"></a>
+                    <a name="//apple_ref/objc/Case/STSGetUsersTypeSupervisor" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@STSGetUsersType@STSGetUsersTypeSupervisor">STSGetUsersTypeSupervisor</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -188,14 +189,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Connect to the chatroom with data channel.</p>
+                        <p>Get the supervisors user from user list.
+STSGetUsersTypeModerator will return whose role is Globale manager, localManager, master, or moderator. No matter that user is online or not.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSChatroomConnectionWithDataChannel</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span></code></pre>
+                          <pre class="highlight"><code><span class="n">STSGetUsersTypeSupervisor</span></code></pre>
 
                         </div>
                       </div>
