@@ -10,6 +10,7 @@
 #import "STSPlayerLiveEventDelegate.h"
 #import "STSPlayerPlaybackEventDelegate.h"
 #import "STSPlayerPlaylistEventDelegate.h"
+#import "STSVideoScalingMode.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @class STSSDKPlayerView;
@@ -77,6 +78,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  A boolean value indicates whether the player view is able to display the default error view when error occurs.
  */
 @property (nonatomic) BOOL canShowErrorView;
+
+/**
+ *  The scaling mode to use when displaying the video. The default value of this property is STSVideoScalingModeAspectFit. This property only works when current video is not 360-degree.
+ */
+@property (nonatomic) STSVideoScalingMode videoScalingMode;
 
 /**
  *  The index of the current playlist item.

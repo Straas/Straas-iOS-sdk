@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		vsQqxWAm7g7QoxBVNsyCIT8/C6Y=
+		bIDJ4IsSan8SENRz9v1GEMLl2dI=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Headers/STSSDKPlayerView.h</key>
 		<data>
-		5sZIyXpgzJFEI7b+8rt63FmmE7U=
+		aXJtyWFx0j8RhxKR8II6hL+mO4A=
 		</data>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
 		<data>
@@ -76,13 +76,17 @@
 		<data>
 		LobaM6WJAm8YPbTdCJInAmKHWFg=
 		</data>
+		<key>Headers/STSVideoScalingMode.h</key>
+		<data>
+		xC8pNm5r86rZJX09nAhbVdjyIWs=
+		</data>
 		<key>Headers/StraaSPlayerSDK.h</key>
 		<data>
-		0WDBQlvmf8JZ/1p2whYOZB5sWK8=
+		9VQrYbBut42G8TETG0QWPAuh+dE=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		PGwmbHMDwygnqdJOP6frUAMN9xw=
+		DIUoh8FSdsMjcBZLPR1ltNq4PF0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -121,11 +125,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vsQqxWAm7g7QoxBVNsyCIT8/C6Y=
+			bIDJ4IsSan8SENRz9v1GEMLl2dI=
 			</data>
 			<key>hash2</key>
 			<data>
-			4qWoONS7g7f17sm0bO+M3bIDSruoAcbDLB+VZwqw6uQ=
+			IBTnf7hYzhBC2LuxAVRlgRUAPvTDkn8KSH1gDG94H6E=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -264,11 +268,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5sZIyXpgzJFEI7b+8rt63FmmE7U=
+			aXJtyWFx0j8RhxKR8II6hL+mO4A=
 			</data>
 			<key>hash2</key>
 			<data>
-			qKZgidGM+3WqJ3K/vgpBKAh4NO2n89GLKty/x/f0w2A=
+			3jooaZn/VLOevF/NgZmcaOS9LuYUr01j/hLboB8zLVE=
 			</data>
 		</dict>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
@@ -315,15 +319,26 @@
 			kNWN/b/mmaT3iwXjVvTTdn0KjHW7Y7e4fh+IMeWNRYg=
 			</data>
 		</dict>
+		<key>Headers/STSVideoScalingMode.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xC8pNm5r86rZJX09nAhbVdjyIWs=
+			</data>
+			<key>hash2</key>
+			<data>
+			lxKDCOU8At4bqrLdwvJC0tRixeQhX1t3Ez9cBeSCcTs=
+			</data>
+		</dict>
 		<key>Headers/StraaSPlayerSDK.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0WDBQlvmf8JZ/1p2whYOZB5sWK8=
+			9VQrYbBut42G8TETG0QWPAuh+dE=
 			</data>
 			<key>hash2</key>
 			<data>
-			97gHj6YZEHevV1rL97B5WVssAQL+1Dl8Cyqm1Riwl0k=
+			5JdkvP7gLp/KNbReOz9dZuz7yqzp7wipX1JtVp3E+BM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -404,11 +419,6 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
-		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -453,11 +463,6 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
-		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>

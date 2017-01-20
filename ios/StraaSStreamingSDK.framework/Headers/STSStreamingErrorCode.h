@@ -53,6 +53,10 @@ typedef NS_ENUM(NSUInteger, STSStreamingErrorCode) {
      *  Couldn't create new event because of limitation of user's live event count.
      */
     STSStreamingErrorCodeLiveCountLimit,
+    /**
+     *  Live event expired, please remove this event by calling STSStreamingManager's `cleanLiveEvent:success:failure:` method.
+     */
+    STSStreamingErrorCodeEventExpired,
 };
 
 #endif /* STSStreamingSDKErrorCode_h */

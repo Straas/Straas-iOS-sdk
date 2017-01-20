@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/STSSDKAuthManager.h</key>
 		<data>
-		y746JvUpDP1+Evnbz/W1sXjKFA8=
+		fKWL6U93t+pCRcVlqNKpeA1PMwM=
 		</data>
 		<key>Headers/StraaSCoreSDK.h</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		EvCTNM9S1dgH8YTtwf4SY4K/L5g=
+		6mEzbHUiYHdAf/pFhSnq+N3dPL8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -90,11 +90,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			y746JvUpDP1+Evnbz/W1sXjKFA8=
+			fKWL6U93t+pCRcVlqNKpeA1PMwM=
 			</data>
 			<key>hash2</key>
 			<data>
-			CWC70JmiQ3njyMPYuxgltwLhV0axzQ458hxPRoUsDU0=
+			AHK2TxE/Hj1jkUiNbSSLoig2MJZ8ZzBmk8yj4WbkhD4=
 			</data>
 		</dict>
 		<key>Headers/StraaSCoreSDK.h</key>
@@ -164,11 +164,6 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
-		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -213,11 +208,6 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
-		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>

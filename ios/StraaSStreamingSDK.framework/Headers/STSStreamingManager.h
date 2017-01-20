@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "STSStreamingState.h"
+#import "STSStreamingLiveEventConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -30,9 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Called when streaming is finished.
  *
  *  @param streamingManager The streamingManager that sent the message.
- ** @param completed Indicates whether the live event is set to ended successfully or not. YES if the live events ends successfully, NO if not.
+ *  @param liveId The live event id of the stopped streaming.
  */
-- (void)streamingManager:(STSStreamingManager *)streamingManager didStopStreaming:(BOOL)completed;
+- (void)streamingManager:(STSStreamingManager *)streamingManager didStopStreaming:(NSString *)liveId;
 /**
  *  Called when an error occurs when the streamingManager connects to a server or streams.
  *
@@ -85,15 +86,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  live event owned by provided member JWT and start to stream. 
  *
  *  @param JWT The member token got from StraaS server.
- *  @param title The title of the live event.
- *  @param synopsis The synopsis of the live event.
- *  @param listed Indicates whether the live event should be listed.
+ *  @param configuration The configuration of the live event.
  *  @param reuseLiveEvent Indicates whether to reuse the last unended live event. YES if you want to reuse the last event, NO if not. This parameter works only when there is an unended event.
  */
 - (void)startStreamingWithJWT:(NSString *)JWT
-                        title:(NSString *)title
-                     synopsis:(NSString * _Nullable)synopsis
-                       listed:(BOOL)listed
+                 confguration:(STSStreamingLiveEventConfig *)configuration
                reuseLiveEvent:(BOOL)reuseLiveEvent;
 
 /**
