@@ -12,6 +12,7 @@
 #import "STSChatMessage.h"
 #import "STSChatroomConnectionOptions.h"
 #import "STSGetMessagesConfiguration.h"
+#import "STSGetUsersType.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -162,11 +163,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Get chat room active users, maximum 200 users.
  *
  *  @param chatroom     The STSChat object you want to get users.
+ *  @param userType     The type of users you want to get.
  *  @param success      Handler for successful request. It takes an `NSArray` of `STSChatUser`
                         argument that contains chat room active users.
  *  @param failure      Error handler.
  */
 - (void)getUsersForChatroom:(STSChat *)chatroom
+                   userType:(STSGetUsersType)userType
                     success:(void(^)(NSArray<STSChatUser *> * users))success
                     failure:(void(^)(NSError * error))failure;
 
@@ -289,7 +292,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface STSChatManager(DataChaanel)
+/**
+ *  The following methods only valid when connect to channel with data channel
+ */
+@interface STSChatManager(DataChannel)
 
 /**
  *  Send aggregate data to data channel.

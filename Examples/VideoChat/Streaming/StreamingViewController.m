@@ -539,7 +539,7 @@ NSUInteger const kSTSStreaingViewRetryInterval = 2;
     if (self.streamingManager.state == STSStreamingStatePrepared
         && [self.titleInput.text length] > 0) {
         self.streamingStatusLabel.text = @"Connecting";
-        [self startStreaming];
+        [self startStreaming:NO];
         return;
     }
     if (self.streamingManager.state == STSStreamingStateStreaming) {
@@ -680,28 +680,51 @@ NSUInteger const kSTSStreaingViewRetryInterval = 2;
     self.streamingManager.captureDevicePosition = AVCaptureDevicePositionBack;
 }
 
-- (void)startStreaming {
+- (void)startStreaming:(BOOL)reuseLiveEvent {
     NSString *title = self.titleInput.text;
     NSString *synopsis = self.synopsisInput.text;
+    STSStreamingLiveEventConfig * confguration =
+    [STSStreamingLiveEventConfig liveEventConfigWithTitle:title listed:YES];
+    confguration.synopsis = synopsis;
+    // Set the live event category.
+    // confguration.categoryId = <#CATEGORY_ID_OF_LIVE_EVET#>
+    // Set the tags of the live event.
+    // confguration.tags = @[@"<#ANY_TAGS#>"];
+
     [self.streamingManager startStreamingWithJWT:self.JWT
-                                           title:title
-                                        synopsis:synopsis
-                                          listed:YES
-                                  reuseLiveEvent:YES];
+                                    confguration:confguration
+                                  reuseLiveEvent:reuseLiveEvent];
 }
 
 - (void)stopStreaming {
     [self.streamingManager stopStreaming];
 }
 
+- (void)endLiveEvent:(NSString *)liveId success:(void(^)())success{
+    [self.streamingManager cleanLiveEvent:liveId success:^{
+        NSLog(@"Live event did end: liveId=%@", liveId);
+        if (success) {
+            success();
+        }
+    } failure:^(NSError * error){
+        NSLog(@"Failed to end live event: liveId=%@", liveId);
+    }];
+}
+
 #pragma mark - STSStreamingManagerDelegate
 
 - (void)streamingManager:(STSStreamingManager *)streamingManager didStartStreaming:(NSString *)liveId {
+    NSLog(@"did start streaming: %@", liveId);
     self.streamingStatusLabel.text = @"Streaming";
     [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
 }
 
-- (void)streamingManager:(STSStreamingManager *)streamingManager didStopStreaming:(BOOL)complete {
+- (void)streamingManager:(STSStreamingManager *)streamingManager didStopStreaming:(NSString *)liveId {
+    NSLog(@"did stop streaming: %@", liveId);
+    // `stopStreaming` no longer sets the current live event to ended.
+    // If you want to start a new live event on next time you start streaming,
+    // call `STSStreamingManager` `cleanLiveEvent:success:failure:` method to end it.
+    // [self endLiveEvent:liveId success:nil];
     self.streamingStatusLabel.text = @"Stopped(Prepared)";
     [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
 }
@@ -711,6 +734,27 @@ NSUInteger const kSTSStreaingViewRetryInterval = 2;
                   liveId:(NSString * _Nullable)liveId
 {
     NSLog(@"Streaming manager stopped with:\nerror: %@,\nliveId: %@", error, liveId);
+    if ([error.domain isEqualToString:STSStreamingErrorDomain]) {
+        switch (error.code) {
+            case STSStreamingErrorCodeEventExpired:
+            {
+                // The live event expired, try to end it and restart streaming with new live event.
+                __weak StreamingViewController * weakSelf = self;
+                [self endLiveEvent:liveId success:^{
+                    [weakSelf startStreaming:NO];
+                }];
+                break;
+            }
+            case STSStreamingErrorCodeLiveCountLimit:
+            {
+                // Current member has an unended live event, try to start streaming by reusing that event.
+                [self startStreaming:YES];
+                break;
+            }
+            default:
+                break;
+        }
+    }
     self.streamingStatusLabel.text = @"Error.";
     [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
 }

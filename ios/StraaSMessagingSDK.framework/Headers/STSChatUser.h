@@ -11,6 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
+ *  User role Global Manager key.
+ */
+extern NSString * const kSTSUserRoleGlobalManager;
+/**
  *  User role Local Manager key.
  */
 extern NSString * const kSTSUserRoleLocalManager;

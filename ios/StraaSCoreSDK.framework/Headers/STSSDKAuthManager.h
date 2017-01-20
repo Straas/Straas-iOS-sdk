@@ -10,8 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ *  StraaS.io auth manager.
+ */
 @interface STSSDKAuthManager : NSObject
-
 
 /**
  * The account id of current vendor.
@@ -23,8 +25,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) NSString * token;
 
+/**
+ *  Using new to create a STSSDKAuthManager instance is unavailable.
+ */
 + (instancetype)new NS_UNAVAILABLE;
+
+/**
+ *  Using init to create a STSSDKAuthManager instance is unavailable.
+ */
 - (instancetype)init NS_UNAVAILABLE;
+
 /**
  * Returns the STSSDKAuthManager instance, creating it if it doesn’t exist yet.
  *

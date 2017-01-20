@@ -53,6 +53,11 @@ typedef NS_ENUM(NSUInteger, STSChatInputMode) {
 @property (nonatomic, readonly) NSString * chatroomName;
 
 /**
+ *  The current user object in this chat.
+ */
+@property (nonatomic, readonly) STSChatUser * currentUser;
+
+/**
  *  Total user number of this chat.
  */
 @property (nonatomic, readonly) NSInteger userCount;

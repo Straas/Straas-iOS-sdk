@@ -4,13 +4,21 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Headers/STSStreamingConstants.h</key>
+		<data>
+		agBOQJ3on+Gj4w+hAithXzGBxgY=
+		</data>
 		<key>Headers/STSStreamingErrorCode.h</key>
 		<data>
-		veKuwRJ51+wIyEs9/cffjbEdO6o=
+		cDpV3TJbG3kQ/AdAybS3UviuBPU=
+		</data>
+		<key>Headers/STSStreamingLiveEventConfig.h</key>
+		<data>
+		LLO2jKjYNYEOGS7SFchFfF8As0g=
 		</data>
 		<key>Headers/STSStreamingManager.h</key>
 		<data>
-		JKz1EcoDMK1R0WTxstK3DjfwUbU=
+		t3eWpSNyQw4+xneUmkBhfO77RDA=
 		</data>
 		<key>Headers/STSStreamingState.h</key>
 		<data>
@@ -18,15 +26,15 @@
 		</data>
 		<key>Headers/StraaSStreamingSDK.h</key>
 		<data>
-		9GmLx2svM0qCbWbcgtdHy+rDgAE=
+		lij9DCrEIZ6CIA95TDpXR/uwqSU=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		1WufaBxLBoB7HK6wwcXeQOenNtE=
+		3KyQSJg3ni2JVvDUXQ778DHkKAY=
 		</data>
 		<key>Localizable.strings</key>
 		<data>
-		+ZEOWH4RKiUhy44AmM0UHSJFiqs=
+		eDKZNFcKa0TlcR7JfgsbbMEOL1k=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -35,26 +43,48 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Headers/STSStreamingConstants.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			agBOQJ3on+Gj4w+hAithXzGBxgY=
+			</data>
+			<key>hash2</key>
+			<data>
+			lWkX1twaEDLdaKcKt2cxYZJfraZ9EDDMPO9gazPR5wc=
+			</data>
+		</dict>
 		<key>Headers/STSStreamingErrorCode.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			veKuwRJ51+wIyEs9/cffjbEdO6o=
+			cDpV3TJbG3kQ/AdAybS3UviuBPU=
 			</data>
 			<key>hash2</key>
 			<data>
-			iZnpRbNdxLkAmXoSVG7+UbbWyWMRS3BtHY/B1S22dKM=
+			8lyPB9lLIT0fsLZH11OHG23TscoaYKGeYZEGucNV8iI=
+			</data>
+		</dict>
+		<key>Headers/STSStreamingLiveEventConfig.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LLO2jKjYNYEOGS7SFchFfF8As0g=
+			</data>
+			<key>hash2</key>
+			<data>
+			1G0FuIqLHXrWDdn2YI5+klA/8FEtmeqtpzXUN19mnqc=
 			</data>
 		</dict>
 		<key>Headers/STSStreamingManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			JKz1EcoDMK1R0WTxstK3DjfwUbU=
+			t3eWpSNyQw4+xneUmkBhfO77RDA=
 			</data>
 			<key>hash2</key>
 			<data>
-			VEYpLYdRv1eR3qluvPaA6JbweKnfxicT59234EW0/zU=
+			kMMfVh10xNFz/3IAtzlAwJIqZZv5adrz/l1cKagA6CQ=
 			</data>
 		</dict>
 		<key>Headers/STSStreamingState.h</key>
@@ -72,22 +102,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9GmLx2svM0qCbWbcgtdHy+rDgAE=
+			lij9DCrEIZ6CIA95TDpXR/uwqSU=
 			</data>
 			<key>hash2</key>
 			<data>
-			sq+dhSAp5F4dLnrLoW+8AIafIA7tqFw2NQPIczq7UCE=
+			f4m8lxuchzavNG1xPAj7kGAKEn+YnDi702YbE3GAcgg=
 			</data>
 		</dict>
 		<key>Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+ZEOWH4RKiUhy44AmM0UHSJFiqs=
+			eDKZNFcKa0TlcR7JfgsbbMEOL1k=
 			</data>
 			<key>hash2</key>
 			<data>
-			7womzWrDpgt907j0nMfadHPVtMBanzUwgp+gHIQHL2o=
+			SlK3RSs9MnC3nSaL02vlWOpZifplfoTZrAwzESTBLds=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -119,11 +149,6 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
-		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
 		</dict>
 		<key>^version.plist$</key>
 		<true/>
@@ -169,11 +194,6 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
-		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>
