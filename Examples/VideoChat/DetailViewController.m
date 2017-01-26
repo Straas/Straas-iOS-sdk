@@ -11,7 +11,8 @@
 #import "ChatStickerExampleViewController.h"
 #import "StreamingViewController.h"
 
-NSString * const STSMessagingServiceKeyword = @"StraaS.io chat room";
+NSString * const STSMessagingServiceKeyword = @"StraaS.io default chatroom";
+NSString * const STSMessagingServiceCustomUIKeyword = @"StraaS.io Customed chatroom";
 NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 
 @interface DetailViewController ()
@@ -55,52 +56,53 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
         self.navigationItem.title = [self.detailItem description];
     }
     if ([self.detailItem isEqualToString:STSMessagingServiceKeyword]) {
-        [self addChatView];
+        [self addDefaultChatView];
+    }
+    if ([self.detailItem isEqualToString:STSMessagingServiceCustomUIKeyword]) {
+        [self addCustomChatView];
     }
     if ([self.detailItem isEqualToString:STSStreamingServiceKeyword]) {
         [self addStreamingView];
     }
 }
 
-- (void)addChatView {
-    ChatExampleViewController * chatExampleViewController = [ChatExampleViewController new];
+- (void)addDefaultChatView {
+    ChatViewController * controller =
+    [ChatViewController chatViewControllerWithJWT:self.JWT
+                                     chatroomName:self.chatroomName
+                                connectionOptions:self.chatroomConnectionOptions];
+    [self addControllerAndSetAutoLayout:controller];
+}
+
+- (void)addCustomChatView {
+    ChatExampleViewController * chatExampleViewController =
+    [ChatExampleViewController chatViewControllerWithJWT:self.JWT
+                                            chatroomName:self.chatroomName
+                                       connectionOptions:self.chatroomConnectionOptions];
     ChatStickerExampleViewController * controller =
-    [ChatStickerExampleViewController viewControllerWithJWT:self.JWT
-                                               chatroomName:self.chatroomName
-                                          connectionOptions:self.chatroomConnectionOptions
-                                         chatViewController:chatExampleViewController];
-    [self addChildViewController:controller];
-    [controller didMoveToParentViewController:self];
-    [self.view addSubview:controller.view];
-    controller.view.clipsToBounds = YES;
-    controller.view.translatesAutoresizingMaskIntoConstraints = NO;
-    NSDictionary * views = @{@"chatRoom": controller.view};
-    NSArray * constraints;
-    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|[chatRoom]|"
-                                                          options:0 metrics:nil views:views];
-    [NSLayoutConstraint activateConstraints:constraints];
-    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[chatRoom]|"
-                                                          options:0 metrics:nil views:views];
-    [NSLayoutConstraint activateConstraints:constraints];
-    [self.view setNeedsLayout];
-    [self.view layoutIfNeeded];
+    [ChatStickerExampleViewController viewControllerWithChatViewController:chatExampleViewController];
+    [self addControllerAndSetAutoLayout:controller];
 }
 
 - (void)addStreamingView {
     StreamingViewController * controller = [StreamingViewController new];
     self.contentViewController = controller;
     controller.JWT = self.JWT;
+    [self addControllerAndSetAutoLayout:controller];
+}
+
+- (void)addControllerAndSetAutoLayout:(UIViewController *)controller {
     [self addChildViewController:controller];
     [controller didMoveToParentViewController:self];
     [self.view addSubview:controller.view];
     controller.view.clipsToBounds = YES;
     controller.view.translatesAutoresizingMaskIntoConstraints = NO;
-    NSDictionary * views = @{@"streamingView": controller.view};
+    NSDictionary * views = @{@"controllerView": controller.view};
     NSArray * constraints;
-    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|[streamingView]|"
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|[controllerView]|"
                                                           options:0 metrics:nil views:views];
     [NSLayoutConstraint activateConstraints:constraints];
-    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[streamingView]|"
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[controllerView]|"
                                                           options:0 metrics:nil views:views];
     [NSLayoutConstraint activateConstraints:constraints];
     [self.view setNeedsLayout];

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 extern NSString * const STSMessagingServiceKeyword;
+extern NSString * const STSMessagingServiceCustomUIKeyword;
 extern NSString * const STSStreamingServiceKeyword;
 
 @interface DetailViewController : UIViewController
