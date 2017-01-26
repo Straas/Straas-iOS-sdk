@@ -20,7 +20,7 @@
  ChatVC is kind of ChatViewController object.
  You may customize its UI by setting its property.
  */
-@property (nonatomic, readonly) id chatVC;
+@property (nonatomic, readonly) ChatViewController * chatVC;
 
 /**
  Current member token.

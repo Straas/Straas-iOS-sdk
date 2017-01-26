@@ -9,6 +9,7 @@
 #import "ChatStickerViewController.h"
 
 @class STSChatManager;
+@class ChatViewController;
 
 @interface ChatStickerExampleViewController : ChatStickerViewController
 
