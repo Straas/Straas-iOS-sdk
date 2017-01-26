@@ -114,11 +114,6 @@
 - (void)connectToChat;
 
 /**
- Disconnect current chat if needed.
- */
-- (void)disconnectCurrentChatIfNeeded;
-
-/**
  This method would replace the current connection into the chat with corresponding JWT, chatroomName and connectionOptions.
  */
 - (void)connectToChatWithJWT:(NSString *)JWT

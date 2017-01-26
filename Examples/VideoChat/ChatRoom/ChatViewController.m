@@ -32,7 +32,7 @@
 @property (nonatomic, readwrite) STSChatroomConnectionOptions connectionOptions;
 @property (nonatomic, readwrite) STSChatManager * manager;
 @property (nonatomic) STSChat * currentChat;
-@property (nonatomic) BOOL disconnectingChat;
+@property (nonatomic) BOOL forceDisconnectChat;
 
 @property (nonatomic, getter=hasUpdatedNickname) BOOL updatedNickname;
 @property (nonatomic) NSString * fakeName;
@@ -104,15 +104,15 @@
     [self.manager connectToChatroom:self.chatroomName JWT:self.JWT options:self.connectionOptions eventDelegate:self.eventDelegate];
 }
 
-- (void)disconnectCurrentChatIfNeeded {
+- (void)forceDisconnectCurrentChatIfNeeded {
     if (self.currentChat) {
-        self.disconnectingChat = YES;
+        self.forceDisconnectChat = YES;
         [self.manager disconnectFromChatroom:self.currentChat];
     }
 }
 - (void)connectToChatWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
     if (![JWT isEqualToString:self.JWT] || ![chatroomName isEqualToString:self.chatroomName] || connectionOptions != self.connectionOptions) {
-        [self disconnectCurrentChatIfNeeded];
+        [self forceDisconnectCurrentChatIfNeeded];
     }
     self.JWT = JWT;
     self.chatroomName = chatroomName;
@@ -306,9 +306,14 @@
 
 
 - (void)chatroomDisconnected:(STSChat *)chatroom {
-    if (self.disconnectingChat) {
-        self.disconnectingChat = NO;
-        [self connectToChat];
+    if (self.forceDisconnectChat) {
+        self.forceDisconnectChat = NO;
+        __weak ChatViewController * weakSelf = self;
+        dispatch_after(1.0, dispatch_get_main_queue(), ^{
+            if (weakSelf.currentChat != chatroom) {
+                [weakSelf connectToChat];
+            }
+        });
     }
 }
 - (void)chatroom:(STSChat *)chatroom usersLeft:(NSArray<NSNumber *> *)userLabels {}
