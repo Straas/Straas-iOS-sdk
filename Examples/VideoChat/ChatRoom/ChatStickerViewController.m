@@ -32,15 +32,9 @@ NSUInteger const defaultStickerViewHeight = 215;
     return viewController;
 }
 
-+ (instancetype)chatStickerViewControllerWithJWT:(NSString *)JWT
-                                    chatroomName:(NSString *)chatroomName
-                               connectionOptions:(STSChatroomConnectionOptions)connectionOptions
-                              chatViewController:(id)chatViewController {
++ (instancetype)chatStickerViewControllerWithChatViewController:(ChatViewController *)chatViewController {
     ChatStickerViewController * viewController =
-    [[ChatStickerViewController alloc] initWithJWT:JWT
-                                      chatroomName:chatroomName
-                                 connectionOptions:connectionOptions
-                                chatViewController:chatViewController];
+    [[ChatStickerViewController alloc] initWithChatViewController:chatViewController];
     return viewController;
 }
 
@@ -58,11 +52,8 @@ NSUInteger const defaultStickerViewHeight = 215;
     return self;
 }
 
-- (instancetype)initWithJWT:(NSString *)JWT
-               chatroomName:(NSString *)chatroomName
-          connectionOptions:(STSChatroomConnectionOptions)connectionOptions
-         chatViewController:(id)chatViewController {
-    NSAssert([chatViewController isKindOfClass:[chatViewController class]],
+- (instancetype)initWithChatViewController:(ChatViewController *)chatViewController {
+    NSAssert([chatViewController isKindOfClass:[ChatViewController class]],
              @"chatViewController should be kind of ChatViewController object.");
     if (self = [super init]) {
         self.chatVC = chatViewController;

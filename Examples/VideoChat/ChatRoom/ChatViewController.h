@@ -93,22 +93,16 @@
           connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
 
 /**
- This method is only valid when ChatViewController object's JWT and chatroomName haven't been set.
- If you want to change the connection to the other chat. Use connectToChatWithJWT:chatroomName:connectionOptions: instead.
- 
- @param JWT The StraaS member token.
- @param chatroomName The chatroom name you want to connect to.
- @param connectionOptions The connection options to connect to the chat you want.
- */
-- (void)setJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
-
-/**
  Configure application to StraaS.io service.
 
  @param completionBlock A block object to be executed when configuration finishes. 
  If sucess is true, means configuration successfully, else the error object would describe the error that occurred.
  */
 - (void)configureApplication:(void(^)(BOOL success, NSError * error))completionBlock;
+/// :nodoc:
++ (instancetype)new __attribute__((unavailable("Use chatViewControllerWithJWT:chatroomName:connectionOptions: instead.")));
+/// :nodoc:
+- (instancetype)init  __attribute__((unavailable("Use initWithJWT:chatroomName:connectionOptions: instead.")));
 
 /**
  Connect to chat will use current JWT, chatroomName, and connectionOptions to connect.

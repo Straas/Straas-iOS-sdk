@@ -27,18 +27,11 @@
     return viewController;
 }
 
-+ (instancetype)viewControllerWithJWT:(NSString *)JWT
-                                    chatroomName:(NSString *)chatroomName
-                               connectionOptions:(STSChatroomConnectionOptions)connectionOptions
-                              chatViewController:(id)chatViewController {
++ (instancetype)viewControllerWithChatViewController:(ChatViewController *)chatViewController {
     NSAssert([chatViewController isKindOfClass:[ChatViewController class]],
              @"chatViewController should be ChatViewController class of its subclass");
-    [chatViewController setJWT:JWT chatroomName:chatroomName connectionOptions:connectionOptions];
     ChatStickerExampleViewController * viewController =
-    [[ChatStickerExampleViewController alloc] initWithJWT:JWT
-                                          chatroomName:chatroomName
-                                     connectionOptions:connectionOptions
-                                    chatViewController:chatViewController];
+    [ChatStickerExampleViewController chatStickerViewControllerWithChatViewController:chatViewController];
     return viewController;
 }
 

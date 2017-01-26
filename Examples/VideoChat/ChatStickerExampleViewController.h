@@ -17,9 +17,6 @@
                          chatroomName:(NSString *)chatroomName
                     connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
 
-+ (instancetype)viewControllerWithJWT:(NSString *)JWT
-                         chatroomName:(NSString *)chatroomName
-                    connectionOptions:(STSChatroomConnectionOptions)connectionOptions
-                   chatViewController:(id)chatViewController;
++ (instancetype)viewControllerWithChatViewController:(ChatViewController *)chatViewController;
 
 @end
