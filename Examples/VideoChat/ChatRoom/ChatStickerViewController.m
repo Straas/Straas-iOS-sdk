@@ -129,12 +129,6 @@ NSUInteger const defaultStickerViewHeight = 215;
 }
 
 #pragma mark - Public methods
-- (void)configureApplication:(void (^)())success failure:(void (^)(NSError *))failure {
-    [self.chatVC configureApplication:^(BOOL succeedConfiguration, NSError *error) {
-        succeedConfiguration? success():failure(error);
-    }];
-}
-
 - (void)connectToChat {
     [self.chatVC connectToChat];
 }

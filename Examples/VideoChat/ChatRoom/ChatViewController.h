@@ -49,6 +49,17 @@
 @property (weak, nonatomic) id<STSChatEventDelegate> eventDelegate;
 
 /**
+ This block would be called after ChatViewController finish configuration application.
+ The configureApplication process would start in viewDidLoad:.
+ */
+@property (nonatomic, copy) void(^configurationFinishHandler)(BOOL success, NSError * error);
+
+/**
+ This property indicates whether ChatViewController connect to chatroom automatically when configureApplication finished. Default is YES.
+ */
+@property (nonatomic) BOOL autoConnect;
+
+/**
  The avatar image. Default is img-guest-photo.png.
  */
 @property (nonatomic) UIImage * avatarPlaceholderImage;
@@ -92,13 +103,6 @@
                chatroomName:(NSString *)chatroomName
           connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
 
-/**
- Configure application to StraaS.io service.
-
- @param completionBlock A block object to be executed when configuration finishes. 
- If sucess is true, means configuration successfully, else the error object would describe the error that occurred.
- */
-- (void)configureApplication:(void(^)(BOOL success, NSError * error))completionBlock;
 /// :nodoc:
 + (instancetype)new __attribute__((unavailable("Use chatViewControllerWithJWT:chatroomName:connectionOptions: instead.")));
 /// :nodoc:

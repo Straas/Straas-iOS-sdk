@@ -90,6 +90,7 @@
 
     // Register a SLKTextView subclass, if you need any special appearance and/or behavior customisation.
     [self registerClassForTextView:[MessageTextView class]];
+    _autoConnect = YES;
 #if DEBUG_CUSTOM_TYPING_INDICATOR
     // Register a UIView subclass, conforming to SLKTypingIndicatorProtocol, to use a custom typing indicator view.
     [self registerClassForTypingIndicatorView:[TypingIndicatorView class]];
@@ -124,6 +125,7 @@
 {
     [super viewDidLoad];
     self.textView.editable = NO;
+    [self configureApplication];
     // SLKTVC's configuration
     self.bounces = YES;
     self.shakeToClearEnabled = YES;
@@ -154,8 +156,16 @@
 
 #pragma mark StraaS Messaging Configuration
 
-- (void)configureApplication:(void (^)(BOOL, NSError *))completionBlock {
-    [STSApplication configureApplication:completionBlock];
+- (void)configureApplication {
+    __weak ChatViewController * weakSelf = self;
+    [STSApplication configureApplication:^(BOOL success, NSError *error) {
+        if (weakSelf.configurationFinishHandler) {
+            weakSelf.configurationFinishHandler(success,error);
+        }
+        if (weakSelf.autoConnect) {
+            [weakSelf connectToChat];
+        }
+    }];
 }
 
 - (STSChatManager *)manager {

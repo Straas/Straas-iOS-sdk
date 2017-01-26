@@ -89,14 +89,6 @@
  @param chatViewController A subclass of ChatViewController object.
  @return An instance of ChatStickerViewController.
  */
-/**
- Configure application to use StraaS.io serveice.
-
- @param success A block object to be executed when the configuration finishes successfully.
- @param failure A block object to be executed when the task finishes unsuccessfully.
- */
-- (void)configureApplication:(void(^)())success
-                     failure:(void(^)(NSError * error))failure NS_REQUIRES_SUPER;
 - (instancetype)initWithChatViewController:(ChatViewController *)chatViewController;
 
 /**
@@ -117,8 +109,9 @@
                 chatroomName:(NSString *)chatroomName
            connectionOptions:(STSChatroomConnectionOptions)connectionOptions NS_REQUIRES_SUPER;
 
-
+/// :nodoc:
 + (instancetype)new __attribute__((unavailable("Use chatStickerViewControllerWithJWT:chatroomName:connectionOptions: instead.")));
+/// :nodoc:
 - (instancetype)init  __attribute__((unavailable("Use initWithJWT:chatroomName:connectionOptions: instead.")));
 
 #pragma mark - STSChatEventDelegate

@@ -47,12 +47,6 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _weakSelf = self;
-    [self configureApplication:^{
-        [_weakSelf connectToChat];
-    } failure:^(NSError *error) {
-        NSLog(@"fail to connect to chat with error %@", error);
-    }];
 }
 
 #pragma mark - STSChatEventDelegate
