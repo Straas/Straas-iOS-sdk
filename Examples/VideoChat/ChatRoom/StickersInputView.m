@@ -220,7 +220,6 @@ NSString * const kStickersInputView = @"StickersInputView";
     UIScrollView * scrollView = [UIScrollView new];
     scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     scrollView.pagingEnabled = NO;
-    scrollView.scrollEnabled = YES;
     [scrollView addSubview:self.noRecentlyStickerLabel];
     [self setupRecentlyUsedStickerScrollViewSubviews:scrollView];
     [self.itemScrollView addObject:scrollView];
@@ -230,12 +229,14 @@ NSString * const kStickersInputView = @"StickersInputView";
 - (void)setupRecentlyUsedStickerScrollViewSubviews:(UIScrollView *)scrollView {
     NSArray <NSDictionary *>* recentlyUsedSticker = [NSFileManager getRecentlyUsedStickerItems];
     if (recentlyUsedSticker.count > 0) {
+        scrollView.scrollEnabled = YES;
         self.noRecentlyStickerLabel.hidden = YES;
         [recentlyUsedSticker enumerateObjectsUsingBlock:^(NSDictionary * obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [self addButtonWithImageURL:obj.allValues[0] key:obj.allKeys[0] toScrollView:scrollView];
         }];
     } else {
         self.noRecentlyStickerLabel.hidden = NO;
+        scrollView.scrollEnabled = NO;
     }
 }
 
