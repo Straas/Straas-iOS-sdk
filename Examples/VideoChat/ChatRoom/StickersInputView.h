@@ -27,6 +27,7 @@ static CGFloat const minPaddingBetweenStickerItems = 10;
 @property (weak, nonatomic) id<StickerInputViewDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIScrollView *stickerGroupScrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView *stickerItemScrollview;
+@property (nonatomic) CGFloat stickerInputViewHeight;
 @property (nonatomic) STSSegmentedControl * segmentedControl;
 - (void)setStickers:(NSArray <STSChatSticker *>*)stickers;
 

@@ -17,6 +17,9 @@ NSString * const kStickersInputView = @"StickersInputView";
 @property (nonatomic, nullable) NSArray<STSChatSticker *> * stickers;
 @property (nonatomic, nullable) NSMutableArray <UIScrollView *> * itemScrollView;
 @property (nonatomic, nullable) NSMutableArray <NSLayoutConstraint *> * stickerItemScrollviewConstraints;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *stickerItemScrollViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet UIView *seperateLine;
+@property (nonatomic) CGFloat stickerItemScrollViewHeight;
 @property (nonatomic, nonnull) UILabel * noRecentlyStickerLabel;
 @property (nonatomic) NSLayoutConstraint * segmentedWidthConstraint;
 @property (nonatomic) BOOL shouldUpdateRecentlyScrollView;
@@ -79,6 +82,23 @@ NSString * const kStickersInputView = @"StickersInputView";
     return _segmentedControl;
 }
 
+- (CGFloat)stickerItemScrollViewHeight {
+    if (!_stickerItemScrollViewHeight) {
+        _stickerItemScrollViewHeight = kStickerItemScrollViewHeight;
+    }
+    return _stickerItemScrollViewHeight;
+}
+
+- (void)setStickerInputViewHeight:(CGFloat)stickerInputViewHeight {
+    _stickerInputViewHeight = stickerInputViewHeight;
+    self.stickerItemScrollViewHeight = stickerInputViewHeight - kStickerSegmentHeight - self.seperateViewHeight;
+    self.stickerItemScrollViewHeightConstraint.constant = self.stickerItemScrollViewHeight;
+}
+
+- (CGFloat)seperateViewHeight {
+    return CGRectGetHeight(self.seperateLine.frame);
+}
+
 - (void)setStickers:(NSArray *)stickers {
     if (self.stickers.count > 0) {
         [self resetStickerInputView];
@@ -134,7 +154,7 @@ NSString * const kStickersInputView = @"StickersInputView";
 }
 
 - (void)updateItemsScrollViewConstraint {
-    self.stickerItemScrollview.frame = CGRectMake(0, 0, self.viewWidth, kStickerItemScrollViewHeight);
+    self.stickerItemScrollview.frame = CGRectMake(0, 0, self.viewWidth, self.stickerItemScrollViewHeight);
     self.stickerItemScrollview.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     
     __block CGFloat offsetX = 0.0;

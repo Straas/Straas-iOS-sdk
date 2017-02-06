@@ -76,6 +76,7 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
     ChatExampleViewController * chatExampleViewController = [ChatExampleViewController new];
     ChatStickerExampleViewController * controller =
     [ChatStickerExampleViewController viewControllerWithChatViewController:chatExampleViewController];
+    controller.stickerViewShowingHeight = 180;
     [self addControllerAndSetAutoLayout:controller];
     [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName connectionOptions:self.chatroomConnectionOptions];
 }

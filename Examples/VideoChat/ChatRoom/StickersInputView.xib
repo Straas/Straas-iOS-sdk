@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,41 +15,43 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="215"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BHQ-Vq-JaG">
-                    <rect key="frame" x="0.0" y="180" width="375" height="35"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="35" id="cNt-tc-ydm"/>
-                    </constraints>
-                </scrollView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXE-jh-Ff2">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="179"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="179.5" id="bZs-86-53i"/>
+                        <constraint firstAttribute="height" constant="179" id="bZs-86-53i"/>
                     </constraints>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tkp-uH-Zo6" userLabel="Seperate line">
                     <rect key="frame" x="0.0" y="179" width="375" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="0.5" id="kUi-Rk-lNx"/>
+                        <constraint firstAttribute="height" constant="1" id="Bcc-Sg-ryG"/>
                     </constraints>
                 </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BHQ-Vq-JaG">
+                    <rect key="frame" x="0.0" y="180" width="375" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="Ou6-eY-wf6"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="BHQ-Vq-JaG" firstAttribute="top" secondItem="Tkp-uH-Zo6" secondAttribute="bottom" id="CNk-Ae-H0T"/>
+                <constraint firstItem="Tkp-uH-Zo6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8Yt-uG-j2w"/>
+                <constraint firstItem="BHQ-Vq-JaG" firstAttribute="top" secondItem="Tkp-uH-Zo6" secondAttribute="bottom" id="8h4-dx-i3G"/>
+                <constraint firstAttribute="trailing" secondItem="Tkp-uH-Zo6" secondAttribute="trailing" id="JNm-eh-gFc"/>
                 <constraint firstItem="KXE-jh-Ff2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Jey-FL-mj2"/>
                 <constraint firstItem="KXE-jh-Ff2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Lzr-mm-JMf"/>
-                <constraint firstItem="BHQ-Vq-JaG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="M4q-Fi-DDD"/>
-                <constraint firstItem="Tkp-uH-Zo6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="drA-vh-e3Q"/>
+                <constraint firstItem="Tkp-uH-Zo6" firstAttribute="top" secondItem="KXE-jh-Ff2" secondAttribute="bottom" id="c1A-e1-mw2"/>
                 <constraint firstAttribute="trailing" secondItem="KXE-jh-Ff2" secondAttribute="trailing" id="eE1-kW-5Lg"/>
-                <constraint firstItem="Tkp-uH-Zo6" firstAttribute="baseline" secondItem="KXE-jh-Ff2" secondAttribute="baseline" id="nfm-y6-GgA"/>
-                <constraint firstAttribute="trailing" secondItem="Tkp-uH-Zo6" secondAttribute="trailing" id="qBv-6b-DQc"/>
-                <constraint firstItem="BHQ-Vq-JaG" firstAttribute="width" secondItem="KXE-jh-Ff2" secondAttribute="width" id="sNc-qK-M4P"/>
+                <constraint firstItem="BHQ-Vq-JaG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="miy-Xy-oH1"/>
+                <constraint firstAttribute="trailing" secondItem="BHQ-Vq-JaG" secondAttribute="trailing" id="qGz-ra-WFM"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="seperateLine" destination="Tkp-uH-Zo6" id="0wa-cb-tov"/>
                 <outlet property="stickerGroupScrollView" destination="BHQ-Vq-JaG" id="l7A-w5-goe"/>
+                <outlet property="stickerItemScrollViewHeightConstraint" destination="bZs-86-53i" id="zj1-uH-KE9"/>
                 <outlet property="stickerItemScrollview" destination="KXE-jh-Ff2" id="WI4-xX-BM9"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="53.5"/>
