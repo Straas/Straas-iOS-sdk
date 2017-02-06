@@ -32,7 +32,6 @@
 @property (nonatomic, readwrite) STSChatroomConnectionOptions connectionOptions;
 @property (nonatomic, readwrite) STSChatManager * manager;
 @property (nonatomic) STSChat * currentChat;
-@property (nonatomic) BOOL forceDisconnectChat;
 
 @property (nonatomic, getter=hasUpdatedNickname) BOOL updatedNickname;
 @property (nonatomic) NSString * fakeName;
@@ -81,20 +80,32 @@
 #endif
 }
 
-- (void)forceDisconnectCurrentChatIfNeeded {
+- (void)disconnectCurrentChatIfNeeded {
     if (self.currentChat) {
-        self.forceDisconnectChat = YES;
         [self.manager disconnectFromChatroom:self.currentChat];
     }
 }
 
 - (void)connectToChatWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
     if (![JWT isEqualToString:self.JWT] || ![chatroomName isEqualToString:self.chatroomName] || connectionOptions != self.connectionOptions) {
-        [self forceDisconnectCurrentChatIfNeeded];
+        [self disconnectCurrentChatIfNeeded];
     }
     self.JWT = JWT;
     self.chatroomName = chatroomName;
     self.connectionOptions = connectionOptions;
+    __weak ChatViewController * weakSelf = self;
+    [STSApplication configureApplication:^(BOOL success, NSError *error) {
+        if (weakSelf.configurationFinishHandler) {
+            weakSelf.configurationFinishHandler(success,error);
+            weakSelf.configurationFinishHandler = success ? nil : weakSelf.configurationFinishHandler;
+        }
+        if (success) {
+            [weakSelf.manager connectToChatroom:chatroomName
+                                            JWT:JWT
+                                        options:connectionOptions
+                                  eventDelegate:weakSelf.eventDelegate];
+        }
+    }];
 }
 
 - (void)disconnect {
@@ -107,7 +118,6 @@
 {
     [super viewDidLoad];
     self.textView.editable = NO;
-    [self configureApplication];
     // SLKTVC's configuration
     self.bounces = YES;
     self.shakeToClearEnabled = YES;
@@ -137,18 +147,6 @@
 }
 
 #pragma mark StraaS Messaging Configuration
-
-- (void)configureApplication {
-    __weak ChatViewController * weakSelf = self;
-    [STSApplication configureApplication:^(BOOL success, NSError *error) {
-        if (weakSelf.configurationFinishHandler) {
-            weakSelf.configurationFinishHandler(success,error);
-        }
-        if (weakSelf.autoConnect) {
-            [weakSelf connectToChat];
-        }
-    }];
-}
 
 - (STSChatManager *)manager {
     if (!_manager) {
@@ -288,19 +286,9 @@
 
 
 - (void)chatroomDisconnected:(STSChat *)chatroom {
-    if (self.forceDisconnectChat) {
-        self.forceDisconnectChat = NO;
-        __weak ChatViewController * weakSelf = self;
-        dispatch_after(1.0, dispatch_get_main_queue(), ^{
-            if (weakSelf.currentChat != chatroom) {
-                [weakSelf.manager connectToChatroom:weakSelf.chatroomName
-                                                JWT:weakSelf.JWT
-                                            options:weakSelf.connectionOptions
-                                      eventDelegate:weakSelf.eventDelegate];
-            }
-        });
-    }
+
 }
+
 - (void)chatroom:(STSChat *)chatroom usersLeft:(NSArray<NSNumber *> *)userLabels {}
 - (void)chatroomUserCount:(STSChat *)chatroom {}
 - (void)chatroom:(STSChat *)chatroom failToConnect:(NSError *)error {}
