@@ -46,28 +46,12 @@
 
 @implementation ChatViewController 
 
-+ (instancetype)chatViewControllerWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
-    ChatViewController * controller =
-    [[ChatViewController alloc] initWithJWT:JWT
-                               chatroomName:chatroomName
-                          connectionOptions:connectionOptions];
-    return controller;
-}
 
-- (instancetype)initWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
-    if ([super initWithTableViewStyle:UITableViewStylePlain]) {
+- (instancetype)init {
+    if (self = [super init]) {
         [self commonInit];
-        [self setJWT:JWT chatroomName:chatroomName connectionOptions:connectionOptions];
     }
     return self;
-}
-
-- (void)setJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
-    NSAssert(!self.JWT, @"self.JWT should be nil when calling setJWT:chatroomName:connectionOptions:.");
-    NSAssert(!self.chatroomName, @"self.chatroomName should be nil when calling setJWT:chatroomName:connectionOptions:.");
-    self.JWT = JWT;
-    self.chatroomName = chatroomName;
-    self.connectionOptions = connectionOptions;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -97,19 +81,13 @@
 #endif
 }
 
-- (void)connectToChat {
-    if (self.currentChat) {
-        return;
-    }
-    [self.manager connectToChatroom:self.chatroomName JWT:self.JWT options:self.connectionOptions eventDelegate:self.eventDelegate];
-}
-
 - (void)forceDisconnectCurrentChatIfNeeded {
     if (self.currentChat) {
         self.forceDisconnectChat = YES;
         [self.manager disconnectFromChatroom:self.currentChat];
     }
 }
+
 - (void)connectToChatWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
     if (![JWT isEqualToString:self.JWT] || ![chatroomName isEqualToString:self.chatroomName] || connectionOptions != self.connectionOptions) {
         [self forceDisconnectCurrentChatIfNeeded];
@@ -117,6 +95,10 @@
     self.JWT = JWT;
     self.chatroomName = chatroomName;
     self.connectionOptions = connectionOptions;
+}
+
+- (void)disconnect {
+    [self.manager disconnectFromChatroom:self.currentChat];
 }
 
 #pragma mark - View lifecycle
@@ -311,7 +293,10 @@
         __weak ChatViewController * weakSelf = self;
         dispatch_after(1.0, dispatch_get_main_queue(), ^{
             if (weakSelf.currentChat != chatroom) {
-                [weakSelf connectToChat];
+                [weakSelf.manager connectToChatroom:weakSelf.chatroomName
+                                                JWT:weakSelf.JWT
+                                            options:weakSelf.connectionOptions
+                                      eventDelegate:weakSelf.eventDelegate];
             }
         });
     }

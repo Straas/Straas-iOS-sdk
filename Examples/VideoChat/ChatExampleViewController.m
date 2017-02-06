@@ -16,25 +16,6 @@
     __weak id _weakSelf;
 }
 
-+ (instancetype)viewControllerWithJWT:(NSString *)JWT
-                         chatroomName:(NSString *)chatroomName
-                    connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
-    ChatExampleViewController * viewController =
-    [[ChatExampleViewController alloc] initWithJWT:JWT
-                                          chatroomName:chatroomName
-                                     connectionOptions:connectionOptions];
-    return viewController;
-}
-
-- (instancetype)initWithJWT:(NSString *)JWT
-               chatroomName:(NSString *)chatroomName
-          connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
-    if (self = [super initWithJWT:JWT chatroomName:chatroomName connectionOptions:connectionOptions]) {
-        //Do custom init here.
-    }
-    return self;
-}
-
 #pragma mark - STSChatEventDelegate
 //This is the example showing you how to customize the STSChatEventEelegate callback.
 - (void)chatroomConnected:(STSChat *)chatroom {

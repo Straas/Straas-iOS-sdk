@@ -80,45 +80,16 @@
 @property (nonatomic) UIImage * textInputButtonImage;
 
 /**
- Return a ChatViewController object.
- 
- @param JWT The StraaS member token.
- @param chatroomName The chatroom name you want to connect to.
- @param connectionOptions The connection options to connect to the chat you want.
- @return An instance of ChatViewController.
- */
-+ (instancetype)chatViewControllerWithJWT:(NSString *)JWT
-                             chatroomName:(NSString *)chatroomName
-                        connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
-
-/**
- Return a ChatStickerViewController object initialized from JWT, chatroomName and connectionOptions.
- 
- @param JWT The StraaS member token.
- @param chatroomName The chatroom name you want to connect to.
- @param connectionOptions The connection options to connect to the chat you want.
- @return An instance of ChatStickerViewController.
- */
-- (instancetype)initWithJWT:(NSString *)JWT
-               chatroomName:(NSString *)chatroomName
-          connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
-
-/// :nodoc:
-+ (instancetype)new __attribute__((unavailable("Use chatViewControllerWithJWT:chatroomName:connectionOptions: instead.")));
-/// :nodoc:
-- (instancetype)init  __attribute__((unavailable("Use initWithJWT:chatroomName:connectionOptions: instead.")));
-
-/**
- Connect to chat will use current JWT, chatroomName, and connectionOptions to connect.
- */
-- (void)connectToChat;
-
-/**
  This method would replace the current connection into the chat with corresponding JWT, chatroomName and connectionOptions.
  */
 - (void)connectToChatWithJWT:(NSString *)JWT
                 chatroomName:(NSString *)chatroomName
            connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
+
+/**
+ Disconnect current chatroom.
+ */
+- (void)disconnect;
 
 /**
  Update text view input bar for certain event. You may override it.

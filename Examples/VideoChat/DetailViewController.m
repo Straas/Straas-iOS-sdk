@@ -67,21 +67,17 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 }
 
 - (void)addDefaultChatView {
-    ChatViewController * controller =
-    [ChatViewController chatViewControllerWithJWT:self.JWT
-                                     chatroomName:self.chatroomName
-                                connectionOptions:self.chatroomConnectionOptions];
+    ChatViewController * controller = [ChatViewController new];
     [self addControllerAndSetAutoLayout:controller];
+    [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName connectionOptions:self.chatroomConnectionOptions];
 }
 
 - (void)addCustomChatView {
-    ChatExampleViewController * chatExampleViewController =
-    [ChatExampleViewController chatViewControllerWithJWT:self.JWT
-                                            chatroomName:self.chatroomName
-                                       connectionOptions:self.chatroomConnectionOptions];
+    ChatExampleViewController * chatExampleViewController = [ChatExampleViewController new];
     ChatStickerExampleViewController * controller =
     [ChatStickerExampleViewController viewControllerWithChatViewController:chatExampleViewController];
     [self addControllerAndSetAutoLayout:controller];
+    [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName connectionOptions:self.chatroomConnectionOptions];
 }
 
 - (void)addStreamingView {

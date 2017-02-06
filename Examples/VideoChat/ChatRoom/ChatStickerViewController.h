@@ -48,19 +48,6 @@
 @property (nonatomic) NSUInteger stickerViewShowingHeight;
 
 /**
- Return a ChatStickerViewController object with default ChatViewController object as property.
- If you wanna override ChatViewController's method, use chatStickerViewControllerWithChatViewController: instead.
-
- @param JWT The StraaS member token.
- @param chatroomName The chatroom name you want to connect to.
- @param connectionOptions The connection options to connect to the chat you want.
- @return An instance of ChatStickerViewController.
- */
-+ (instancetype)chatStickerViewControllerWithJWT:(NSString *)JWT
-                                    chatroomName:(NSString *)chatroomName
-                               connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
-
-/**
  Return a ChatStickerViewController object with subclass of ChatViewController as property.
  If you do not have the needs to subclass ChatViewController, use chatStickerViewControllerWithJWT:chatroomName:connectionOptions: instead.
  
@@ -70,19 +57,6 @@
 + (instancetype)chatStickerViewControllerWithChatViewController:(ChatViewController *)chatViewController;
 
 /**
- Return a ChatStickerViewController object initialized from JWT, chatroomName and connectionOptions.
- If you wanna override ChatViewController's method, use initWithChatViewController: instead.
- 
- @param JWT The StraaS member token.
- @param chatroomName The chatroom name you want to connect to.
- @param connectionOptions The connection options to connect to the chat you want.
- @return An instance of ChatStickerViewController.
- */
-- (instancetype)initWithJWT:(NSString *)JWT
-               chatroomName:(NSString *)chatroomName
-          connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
-
-/**
  Return a ChatStickerViewController object initialized from JWT, chatroomName and connectionOptionsjo.
  If you do not have the needs to subclass ChatViewController, use chatStickerViewControllerWithJWT:chatroomName:connectionOptions: instead.
  
@@ -90,11 +64,6 @@
  @return An instance of ChatStickerViewController.
  */
 - (instancetype)initWithChatViewController:(ChatViewController *)chatViewController;
-
-/**
- Connect to the chatroom with current JWT, chatroom name, and connection options.
- */
-- (void)connectToChat NS_REQUIRES_SUPER;
 
 /**
  Connect to the chatroom with specific JWT, chatroom name, and connection options.
@@ -108,11 +77,10 @@
 - (void)connectToChatWithJWT:(NSString *)JWT
                 chatroomName:(NSString *)chatroomName
            connectionOptions:(STSChatroomConnectionOptions)connectionOptions NS_REQUIRES_SUPER;
-
-/// :nodoc:
-+ (instancetype)new __attribute__((unavailable("Use chatStickerViewControllerWithJWT:chatroomName:connectionOptions: instead.")));
-/// :nodoc:
-- (instancetype)init  __attribute__((unavailable("Use initWithJWT:chatroomName:connectionOptions: instead.")));
+/**
+ Disconnect current chatroom.
+ */
+- (void)disconnect;
 
 #pragma mark - STSChatEventDelegate
 /**

@@ -12,8 +12,5 @@
 
 @interface ChatExampleViewController : ChatViewController
 
-+ (instancetype)viewControllerWithJWT:(NSString *)JWT
-                         chatroomName:(NSString *)chatroomName
-                    connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
 
 @end

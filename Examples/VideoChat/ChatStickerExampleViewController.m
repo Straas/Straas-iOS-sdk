@@ -17,31 +17,12 @@
     __weak id _weakSelf;
 }
 
-+ (instancetype)viewControllerWithJWT:(NSString *)JWT
-                         chatroomName:(NSString *)chatroomName
-                    connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
-    ChatStickerExampleViewController * viewController =
-    [[ChatStickerExampleViewController alloc] initWithJWT:JWT
-                                          chatroomName:chatroomName
-                                     connectionOptions:connectionOptions];
-    return viewController;
-}
-
 + (instancetype)viewControllerWithChatViewController:(ChatViewController *)chatViewController {
     NSAssert([chatViewController isKindOfClass:[ChatViewController class]],
              @"chatViewController should be ChatViewController class of its subclass");
     ChatStickerExampleViewController * viewController =
     [ChatStickerExampleViewController chatStickerViewControllerWithChatViewController:chatViewController];
     return viewController;
-}
-
-- (instancetype)initWithJWT:(NSString *)JWT
-               chatroomName:(NSString *)chatroomName
-          connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
-    if (self = [super initWithJWT:JWT chatroomName:chatroomName connectionOptions:connectionOptions]) {
-        //Do custom init here.
-    }
-    return self;
 }
 
 #pragma mark - life cycle

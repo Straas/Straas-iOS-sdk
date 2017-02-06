@@ -13,10 +13,6 @@
 
 @interface ChatStickerExampleViewController : ChatStickerViewController
 
-+ (instancetype)viewControllerWithJWT:(NSString *)JWT
-                         chatroomName:(NSString *)chatroomName
-                    connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
-
 + (instancetype)viewControllerWithChatViewController:(ChatViewController *)chatViewController;
 
 @end
