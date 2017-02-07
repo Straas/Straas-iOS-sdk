@@ -66,7 +66,8 @@
 - (instancetype)initWithChatViewController:(ChatViewController *)chatViewController;
 
 /**
- Connect to the chatroom with specific JWT, chatroom name, and connection options.
+ Connect to chatroom. This method checks authentication of a legal developer and connects to target chatroom.
+ You may set configurationFinishHandler block in chatVC to be executed after the authentication finish.
  Note: ChatStickerViewController is designed to connect one chatroom only.
  This method would disconnect current connection and make a new connection to the chatroom.
 

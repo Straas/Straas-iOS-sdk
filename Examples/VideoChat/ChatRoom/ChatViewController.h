@@ -80,7 +80,14 @@
 @property (nonatomic) UIImage * textInputButtonImage;
 
 /**
- This method would replace the current connection into the chat with corresponding JWT, chatroomName and connectionOptions.
+ Connect to chatroom. This method checks authentication of a legal developer and connects to target chatroom.
+ You may set configurationFinishHandler block to be executed after the authentication finish.
+ Note: ChatViewController is designed to connect one chatroom only.
+ This method would disconnect current connection and make a new connection to the chatroom.
+
+ @param JWT The StraaS member JWT.
+ @param chatroomName The chatroom name you want to connect to.
+ @param connectionOptions The connection options to connect to the chat you want.
  */
 - (void)connectToChatWithJWT:(NSString *)JWT
                 chatroomName:(NSString *)chatroomName
