@@ -20,9 +20,7 @@ NSUInteger const defaultStickerViewHeight = 215;
 @property (nonatomic) ChatViewController * chatVC;
 @end
 
-@implementation ChatStickerViewController {
-    CGFloat _stickerViewShowingHeight;
-}
+@implementation ChatStickerViewController
 
 + (instancetype)chatStickerViewControllerWithJWT:(NSString *)JWT
                                     chatroomName:(NSString *)chatroomName
@@ -77,6 +75,7 @@ NSUInteger const defaultStickerViewHeight = 215;
     [self addChildViewController:self.chatVC];
     [self.view addSubview:self.chatVC.view];
     [self.view addSubview:self.stickerView];
+    self.stickerViewShowingHeight = defaultStickerViewHeight;
     self.stickerView.delegate = self.chatVC;
     NSDictionary * views = @{@"chatVC": self.chatVC.view,
     @"stickerView": self.stickerView};
@@ -118,13 +117,6 @@ NSUInteger const defaultStickerViewHeight = 215;
 
 - (STSChatManager *)manager {
     return self.chatVC.manager;
-}
-
-- (NSUInteger)stickerViewShowingHeight {
-    if (!_stickerViewShowingHeight) {
-        _stickerViewShowingHeight = defaultStickerViewHeight;
-    }
-    return _stickerViewShowingHeight;
 }
 
 - (void)setStickerViewShowingHeight:(NSUInteger)stickerViewShowingHeight {
