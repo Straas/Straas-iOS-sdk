@@ -20,11 +20,15 @@
 + (instancetype)viewControllerWithChatViewController:(ChatViewController *)chatViewController {
     NSAssert([chatViewController isKindOfClass:[ChatViewController class]],
              @"chatViewController should be ChatViewController class of its subclass");
-    ChatStickerExampleViewController * viewController =
-    [ChatStickerExampleViewController chatStickerViewControllerWithChatViewController:chatViewController];
-    return viewController;
+    return [[self alloc] initWithChatViewController:chatViewController];
 }
 
+- (instancetype)initWithChatViewController:(ChatViewController *)chatViewController {
+    if (self = [super initWithChatViewController:chatViewController]) {
+        //Do some init here.
+    }
+    return self;
+}
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
