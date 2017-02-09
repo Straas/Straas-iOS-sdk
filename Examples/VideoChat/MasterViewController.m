@@ -35,7 +35,7 @@
 
 - (NSArray *)objects {
     if (!_objects) {
-        _objects = @[STSMessagingServiceKeyword, STSStreamingServiceKeyword];
+        _objects = @[STSMessagingServiceKeyword, STSMessagingServiceCustomUIKeyword, STSStreamingServiceKeyword];
     }
     return _objects;
 }
