@@ -37,9 +37,14 @@ typedef NS_ENUM(NSInteger, STSChatMesssageType) {
 @property (nonatomic, readonly) NSString * messageId;
 
 /**
- *  Message body.
+ *  Message text, only valid when recieves normal text message.
  */
-@property (nonatomic, readonly) NSString * text;
+@property (nonatomic, readonly, nullable) NSString * text;
+
+/**
+ *  Message value, only valid when recieves data chanenl rawdata.
+ */
+@property (nonatomic, readonly, nullable) id value;
 
 /**
  *  Chat message type.

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		bIDJ4IsSan8SENRz9v1GEMLl2dI=
+		5hxMaDWBtrTkRZLff2oIOqxZvCI=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -86,7 +86,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		DIUoh8FSdsMjcBZLPR1ltNq4PF0=
+		NanzIQl3PKPNaAkyzZnw6zoxUG8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -125,11 +125,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			bIDJ4IsSan8SENRz9v1GEMLl2dI=
+			5hxMaDWBtrTkRZLff2oIOqxZvCI=
 			</data>
 			<key>hash2</key>
 			<data>
-			IBTnf7hYzhBC2LuxAVRlgRUAPvTDkn8KSH1gDG94H6E=
+			qr2YRVoGDQIQNiA5FUGXPZiOnP+1NA1JLrviGAUkiVA=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -419,6 +419,11 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
+		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -463,6 +468,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>

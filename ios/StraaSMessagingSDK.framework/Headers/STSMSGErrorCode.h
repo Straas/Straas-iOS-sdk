@@ -43,7 +43,7 @@ typedef NS_ENUM(NSUInteger, STSMSGErrorCode) {
      */
     STSMSGErrorCodeNicknameLength,
     /**
-     *  Message length must be between 1~120 characters.
+     *  Message length must be between 1~300 characters.
      */
     STSMSGErrorCodeMessageLength,
     /**
@@ -77,7 +77,7 @@ typedef NS_ENUM(NSUInteger, STSMSGErrorCode) {
      */
     STSMSGErrorCodeDataChannelNotEnabled,
     /**
-     *  Aggregate data length must be between 1~50 characters.
+     *  Aggregate data length must be between 1~100 characters.
      */
     STSMSGErrorCodeAggregatedDataLength,
     /**

@@ -4,17 +4,21 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Headers/STSAggregatedData.h</key>
+		<data>
+		SOO3gQs1+fE96Qi91QyqgSSWMoA=
+		</data>
 		<key>Headers/STSChat.h</key>
 		<data>
 		ZtRpA9wGsJR1XjZ+0NN5Ty0hUkI=
 		</data>
 		<key>Headers/STSChatManager.h</key>
 		<data>
-		mPuqQHj9cn38NTCyecYh6cpQEko=
+		m6fsWlP3DWdjymPXplxk4WK2Yqo=
 		</data>
 		<key>Headers/STSChatMessage.h</key>
 		<data>
-		cwJyuiT3YIRkHAgaxK8TM6Zzio8=
+		wQPmj9ELvklNPSYIxzrJDTtybtc=
 		</data>
 		<key>Headers/STSChatSticker.h</key>
 		<data>
@@ -26,7 +30,7 @@
 		</data>
 		<key>Headers/STSChatroomConnectionOptions.h</key>
 		<data>
-		f0v9s7N5WNvy+SlTOuGUDJsvz8w=
+		FLY8iKWGwSsrUdWMrrlKjEdS9n8=
 		</data>
 		<key>Headers/STSGetMessagesConfiguration.h</key>
 		<data>
@@ -38,15 +42,15 @@
 		</data>
 		<key>Headers/STSMSGErrorCode.h</key>
 		<data>
-		R53Ezx9s6AM9wFlLsvS4Xr5O+pk=
+		tsXr2wElX1O31YEcTTRNHtUaMQg=
 		</data>
 		<key>Headers/StraaSMessagingSDK.h</key>
 		<data>
-		DP0k4ydGDnFfNfl6Bl03tQFSNtI=
+		kUCxNB/vBebYkC/7cJzO7gCoUNQ=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		u9mU8hfLonsoffPfH+PA7vYpfdI=
+		ZxiwLUwyxRdrwq5R9TYXdOgvewA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -56,7 +60,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ad1KwP1dcXxk74mmsDSc5Fvc7wc=
+			DAk3d6lv47QLUX6Xv7QH3FtWg+c=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -65,7 +69,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+LT7vWUcdhzYf/eJCdj8aLKsqDQ=
+			A0ZyWWC/9cVXLHfdZPFsV1tKaMs=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -73,6 +77,17 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Headers/STSAggregatedData.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			SOO3gQs1+fE96Qi91QyqgSSWMoA=
+			</data>
+			<key>hash2</key>
+			<data>
+			nDhE0tpfZob4UR5k3fn4G8pJrJrriZpVtaVw3KeX2rs=
+			</data>
+		</dict>
 		<key>Headers/STSChat.h</key>
 		<dict>
 			<key>hash</key>
@@ -88,22 +103,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mPuqQHj9cn38NTCyecYh6cpQEko=
+			m6fsWlP3DWdjymPXplxk4WK2Yqo=
 			</data>
 			<key>hash2</key>
 			<data>
-			RvzQCINu4Aoaiygd+4/C71oQKLZx+1rY+OLU2b4fXh4=
+			QSRMRMCX/eQZ088A0Nw8+THDaOvYZpZ+e22nWtaZMFg=
 			</data>
 		</dict>
 		<key>Headers/STSChatMessage.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cwJyuiT3YIRkHAgaxK8TM6Zzio8=
+			wQPmj9ELvklNPSYIxzrJDTtybtc=
 			</data>
 			<key>hash2</key>
 			<data>
-			0PnS3rqya5TD9I7cz45vznEatZ+rehMMzPYwcUERn2Y=
+			zO5vd0GioHC09Gc69bY8H1pJYfX36Zf/O4QjqQwuWpw=
 			</data>
 		</dict>
 		<key>Headers/STSChatSticker.h</key>
@@ -132,11 +147,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			f0v9s7N5WNvy+SlTOuGUDJsvz8w=
+			FLY8iKWGwSsrUdWMrrlKjEdS9n8=
 			</data>
 			<key>hash2</key>
 			<data>
-			o0bX6YV2Kff2cBySmTVLtTzTUMB3ltLV7S0mI31Gu5s=
+			We14x4LHRpZyjC2uIuGCxUe2iMG3mRsR1wLYNusw9dM=
 			</data>
 		</dict>
 		<key>Headers/STSGetMessagesConfiguration.h</key>
@@ -165,22 +180,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			R53Ezx9s6AM9wFlLsvS4Xr5O+pk=
+			tsXr2wElX1O31YEcTTRNHtUaMQg=
 			</data>
 			<key>hash2</key>
 			<data>
-			wq9KeTk9RnipgwfNK1X4VS2oPMT6QWj8LUWChUELMLM=
+			RzF+Xg/ptGIBYrGsSChaenjtgeSVzWLUpcUjontM2VQ=
 			</data>
 		</dict>
 		<key>Headers/StraaSMessagingSDK.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			DP0k4ydGDnFfNfl6Bl03tQFSNtI=
+			kUCxNB/vBebYkC/7cJzO7gCoUNQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			GqRACHshJ/xyu71miYdNwf3siawEsffFLTtjxxMr29Q=
+			S0O0Z5IdWtg+o3m9mMU735fbNsGhb8z2Lz1JYMUZkPA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -198,11 +213,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ad1KwP1dcXxk74mmsDSc5Fvc7wc=
+			DAk3d6lv47QLUX6Xv7QH3FtWg+c=
 			</data>
 			<key>hash2</key>
 			<data>
-			4yMlVYUTuvR8ZEJSzqIyApmKHSdmV+Dx1Q4rmZaSm5U=
+			HDIps+hLBvpd6PeJ2k85t1tOs938gfHpUST4OcOtZt8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -211,11 +226,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+LT7vWUcdhzYf/eJCdj8aLKsqDQ=
+			A0ZyWWC/9cVXLHfdZPFsV1tKaMs=
 			</data>
 			<key>hash2</key>
 			<data>
-			lvrlBi97dJwpjXdPcF2fL7GurHTHJWkRoFlr1AwFX78=
+			WlHj5S01EZvXwaw8OJ8rjbH2v/5EtvegQzy3HLc0QlI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -238,6 +253,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^version.plist$</key>
 		<true/>
@@ -283,6 +303,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>
