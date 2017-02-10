@@ -16,26 +16,26 @@ typedef NS_ENUM(NSUInteger, STSStreamingState) {
     /**
      *  The initial state.
      */
-    STSStreamingStateIdle,
+    STSStreamingStateIdle = 0,
     /**
      *  The STSStreamingManager is in the process of preparing.
      */
-    STSStreamingStatePreparing,
+    STSStreamingStatePreparing = 1,
     /**
      *  The STSStreamingManager is ready for streaming. You can start streaming in this state.
      */
-    STSStreamingStatePrepared,
+    STSStreamingStatePrepared = 2,
     /**
      *  The STSStreamingManager is connecting to the server, but is not yet connected.
      */
-    STSStreamingStateConnecting,
+    STSStreamingStateConnecting = 3,
     /**
      *  The STSStreamingManager is streaming to the server.
      */
-    STSStreamingStateStreaming,
+    STSStreamingStateStreaming = 4,
     /**
      *  The STSStreamingManager is in the process of disconnecting.
      */
-    STSStreamingStateDisconnecting
+    STSStreamingStateDisconnecting = 5
 };
 #endif /* STSStreamingState_h */

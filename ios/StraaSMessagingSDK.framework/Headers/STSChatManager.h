@@ -10,6 +10,7 @@
 #import "STSChat.h"
 #import "STSChatUser.h"
 #import "STSChatMessage.h"
+#import "STSAggregatedData.h"
 #import "STSChatroomConnectionOptions.h"
 #import "STSGetMessagesConfiguration.h"
 #import "STSGetUsersType.h"
@@ -96,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Message was added to chat room.
  *
  *  @param chatroom     A STSChat object informing the delegate about message added.
- *  @param message      New message object.
+ *  @param message      A STSChatMessage object with valid `text` property.
  */
 - (void)chatroom:(STSChat *)chatroom messageAdded:(STSChatMessage *)message;
 
@@ -120,17 +121,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Tells the delegate that an aggregated data has been added to data channel.
  *
  *  @param chatroom A STSChat object informing the delegate about aggregated data added.
- *  @param aggregatedData An NSDictionary object of aggregated data from data channel.
+ *  @param aggregatedData An STSChatAggregatedData object of aggregated data from data channel.
  */
-- (void)chatroom:(STSChat *)chatroom aggregatedDataAdded:(NSDictionary *)aggregatedData;
+- (void)chatroom:(STSChat *)chatroom aggregatedDataAdded:(NSArray<STSAggregatedData *>*)aggregatedData;
 
 /**
  *  Tells the delegate that a raw data has been added to data channel.
  *
  *  @param chatroom A STSChat object informing the delegate about raw data added.
- *  @param rawData A valid JSON object from data channel.
+ *  @param rawData A STSChatMessage object with valid `value` property from data channel.
  */
-- (void)chatroom:(STSChat *)chatroom rawDataAdded:(id)rawData;
+- (void)chatroom:(STSChat *)chatroom rawDataAdded:(STSChatMessage *)rawData;
 
 @end
 
@@ -234,7 +235,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Send chat message.
  *
- *  @param message      Message text. Should be between 1~120 characters.
+ *  @param message      Message text. Should be between 1~300 characters.
  *  @param chatroom     The STSChat object you want to send message.
  *  @param success      Handler for successful request.
  *  @param failure      Error handler.
@@ -300,13 +301,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Send aggregate data to data channel.
  *
- *  @param data         The Aggregate data string. Should be between 1~50 characters.
+ *  @param key          The Aggregate data string key. Should be between 1~100 characters.
  *  @param chatroom     The STSChat object you want to send message.
  *  @param success      Handler for successful request.
  *  @param failure      Error handler.
  */
-- (void)sendAggregatedData:(NSString *)data chatroom:(STSChat *)chatroom
-                   success:(void(^)())success failure:(void(^)(NSError * error))failure;
+- (void)sendAggregatedDataWithKey:(NSString *)key chatroom:(STSChat *)chatroom
+                          success:(void(^)())success failure:(void(^)(NSError * error))failure;
 
 /**
  *  Send raw data to data channel. Raw data should be a valid JSON object only.

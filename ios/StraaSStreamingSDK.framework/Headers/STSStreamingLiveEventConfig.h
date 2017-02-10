@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "STSStreamingResolution.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -45,6 +46,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  A boolean value indicates whether the live event should be listed.
  */
 @property (nonatomic, readonly) BOOL listed;
+
+/**
+ *  The max resolution of the live event. Defaults to `STSStreamingResolution1080p`.
+ */
+@property (nonatomic) STSStreamingResolution maxResolution;
 
 /// :nodoc:
 + (instancetype)new __attribute__((unavailable("new not available, call `liveEventConfigWithTitle:synopsis:listed:` instead.")));

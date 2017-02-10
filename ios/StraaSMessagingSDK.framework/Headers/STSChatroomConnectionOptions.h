@@ -21,10 +21,6 @@ typedef NS_OPTIONS(NSUInteger, STSChatroomConnectionOptions) {
      *  Connect to the personal chatroom.
      */
     STSChatroomConnectionIsPersonalChat     = 1 << 0,
-    /**
-     *  Connect to the chatroom with data channel.
-     */
-    STSChatroomConnectionWithDataChannel    = 1 << 1,
 };
 
 #endif /* STSChatroomConnectionOptions_h */
