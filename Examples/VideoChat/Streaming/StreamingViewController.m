@@ -711,7 +711,7 @@ NSUInteger const kSTSStreaingViewRetryInterval = 2;
     __weak StreamingViewController * weakSelf = self;
     [self.streamingManager startStreamingWithliveId:liveId success:^{
         NSLog(@"Did start streaming: liveId=%@", liveId);
-        self.streamingStatusLabel.text = @"Streaming";
+        weakSelf.streamingStatusLabel.text = @"Streaming";
         [weakSelf.startButton setTitle:@"Stop" forState:UIControlStateNormal];
     } failure:^(NSError * error) {
         NSLog(@"Failed to start streaming with error: %@, liveId=%@", error, liveId);
