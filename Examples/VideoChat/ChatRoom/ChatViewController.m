@@ -294,8 +294,8 @@
 - (void)chatroom:(STSChat *)chatroom failToConnect:(NSError *)error {}
 - (void)chatroom:(STSChat *)chatroom error:(NSError *)error {}
 - (void)chatroom:(STSChat *)chatroom usersJoined:(NSArray<STSChatUser *> *)users {}
-- (void)chatroom:(STSChat *)chatroom aggregatedDataAdded:(NSDictionary *)aggregatedData {}
-- (void)chatroom:(STSChat *)chatroom rawDataAdded:(id)rawData {}
+- (void)chatroom:(STSChat *)chatroom aggregatedDataAdded:(NSArray<STSAggregatedData *> *)aggregatedData {}
+- (void)chatroom:(STSChat *)chatroom rawDataAdded:(STSChatMessage *)rawData {}
 
 #pragma mark Event Handler
 

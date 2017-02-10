@@ -539,7 +539,7 @@ NSUInteger const kSTSStreaingViewRetryInterval = 2;
     if (self.streamingManager.state == STSStreamingStatePrepared
         && [self.titleInput.text length] > 0) {
         self.streamingStatusLabel.text = @"Connecting";
-        [self startStreaming:NO];
+        [self startStreaming];
         return;
     }
     if (self.streamingManager.state == STSStreamingStateStreaming) {
@@ -651,8 +651,9 @@ NSUInteger const kSTSStreaingViewRetryInterval = 2;
 }
 
 - (void)prepare {
-    void (^success)(void) = ^(){
+    void (^success)(CGSize) = ^(CGSize outputVideoSize){
         self.streamingStatusLabel.text = @"Prepared";
+        NSLog(@"prepare success with output size: %@", NSStringFromCGSize(outputVideoSize));
     };
     void (^failure)(NSError *) = ^(NSError * error) {
         NSLog(@"preparation failed with error: %@", error);
@@ -660,47 +661,86 @@ NSUInteger const kSTSStreaingViewRetryInterval = 2;
     };
     self.streamingStatusLabel.text = @"Preparing";
     [self setupStreamingManager];
-    CGSize size = CGSizeMake(KSTSStreamingOutputSize, KSTSStreamingOutputSize);
     if (self.initialOrientation == UIInterfaceOrientationUnknown) {
         self.initialOrientation = [[UIApplication sharedApplication] statusBarOrientation];
     }
-    [self.streamingManager prepareWithVideoSize:size
-                                    previewView:self.previewView
-                         outputImageOrientation:self.initialOrientation
-                                        success:success
-                                        failure:failure];
+    STSStreamingPrepareConfig * config = [STSStreamingPrepareConfig new];
+    config.targetOutputSize = CGSizeMake(KSTSStreamingOutputSize, KSTSStreamingOutputSize);
+    config.outputImageOrientation = self.initialOrientation;
+    [self.streamingManager prepareWithPreviewView:self.previewView
+                                    configuration:config
+                                          success:success
+                                          failure:failure];
 }
 
 - (void)setupStreamingManager {
     if (self.streamingManager) {
         return;
     }
-    self.streamingManager = [STSStreamingManager new];
+    self.streamingManager = [STSStreamingManager streamingManagerWithJWT:self.JWT];
     self.streamingManager.delegate = self;
     self.streamingManager.captureDevicePosition = AVCaptureDevicePositionBack;
 }
 
-- (void)startStreaming:(BOOL)reuseLiveEvent {
+- (void)startStreaming {
     NSString *title = self.titleInput.text;
     NSString *synopsis = self.synopsisInput.text;
-    STSStreamingLiveEventConfig * confguration =
+    STSStreamingLiveEventConfig * configuration =
     [STSStreamingLiveEventConfig liveEventConfigWithTitle:title listed:YES];
-    confguration.synopsis = synopsis;
+    configuration.synopsis = synopsis;
     // Set the live event category.
     // confguration.categoryId = <#CATEGORY_ID_OF_LIVE_EVET#>
     // Set the tags of the live event.
     // confguration.tags = @[@"<#ANY_TAGS#>"];
 
-    [self.streamingManager startStreamingWithJWT:self.JWT
-                                    confguration:confguration
-                                  reuseLiveEvent:reuseLiveEvent];
+    __weak StreamingViewController * weakSelf = self;
+    [self.streamingManager createLiveEventConfguration:configuration success:^(NSString * liveId) {
+        [weakSelf startStreamingWithLiveId:liveId];
+    } failure:^(NSError * error, NSString * liveId) {
+        if ([error.domain isEqualToString:STSStreamingErrorDomain]
+            && error.code == STSStreamingErrorCodeLiveCountLimit) {
+            NSLog(@"Current member has an unended live event, try to start streaming by reusing that event. liveId=%@", liveId);
+            [weakSelf startStreamingWithLiveId:liveId];
+            return;
+        }
+        NSLog(@"create live event failed with error: %@, liveId=%@", error, liveId);
+        [weakSelf onError];
+    }];
 }
 
+- (void)startStreamingWithLiveId:(NSString *)liveId {
+    __weak StreamingViewController * weakSelf = self;
+    [self.streamingManager startStreamingWithliveId:liveId success:^{
+        NSLog(@"Did start streaming: liveId=%@", liveId);
+        weakSelf.streamingStatusLabel.text = @"Streaming";
+        [weakSelf.startButton setTitle:@"Stop" forState:UIControlStateNormal];
+    } failure:^(NSError * error) {
+        NSLog(@"Failed to start streaming with error: %@, liveId=%@", error, liveId);
+        if ([error.domain isEqualToString:STSStreamingErrorDomain]
+            && error.code == STSStreamingErrorCodeEventExpired) {
+            NSLog(@"The live event expired, try to end it and restart streaming. liveId=%@", liveId);
+            [weakSelf endLiveEvent:liveId success:^{
+                [weakSelf startStreaming];
+            } failure:^(NSError * endLiveEventError) {
+                [weakSelf onError];
+            }];
+            return;
+        }
+        [weakSelf onError];
+    }];
+}
 - (void)stopStreaming {
-    [self.streamingManager stopStreaming];
+    __weak StreamingViewController * weakSelf = self;
+    [self.streamingManager stopStreamingWithSuccess:^(NSString * liveId) {
+        NSLog(@"Did stop streaming: liveId=%@", liveId);
+        weakSelf.streamingStatusLabel.text = @"Stopped(Prepared)";
+        [weakSelf.startButton setTitle:@"Start" forState:UIControlStateNormal];
+    } failure:^(NSError * error, NSString * liveId) {
+        NSLog(@"Failed to stop streaming with error: %@, liveId=%@", error, liveId);
+    }];
 }
 
-- (void)endLiveEvent:(NSString *)liveId success:(void(^)())success{
+- (void)endLiveEvent:(NSString *)liveId success:(void(^)())success failure:(void(^)(NSError * error))failure {
     [self.streamingManager cleanLiveEvent:liveId success:^{
         NSLog(@"Live event did end: liveId=%@", liveId);
         if (success) {
@@ -711,52 +751,19 @@ NSUInteger const kSTSStreaingViewRetryInterval = 2;
     }];
 }
 
-#pragma mark - STSStreamingManagerDelegate
-
-- (void)streamingManager:(STSStreamingManager *)streamingManager didStartStreaming:(NSString *)liveId {
-    NSLog(@"did start streaming: %@", liveId);
-    self.streamingStatusLabel.text = @"Streaming";
-    [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
-}
-
-- (void)streamingManager:(STSStreamingManager *)streamingManager didStopStreaming:(NSString *)liveId {
-    NSLog(@"did stop streaming: %@", liveId);
-    // `stopStreaming` no longer sets the current live event to ended.
-    // If you want to start a new live event on next time you start streaming,
-    // call `STSStreamingManager` `cleanLiveEvent:success:failure:` method to end it.
-    // [self endLiveEvent:liveId success:nil];
-    self.streamingStatusLabel.text = @"Stopped(Prepared)";
+- (void)onError {
+    self.streamingStatusLabel.text = @"error";
     [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
 }
+
+#pragma mark - STSStreamingManagerDelegate
 
 - (void)streamingManager:(STSStreamingManager *)streamingManager
                  onError:(NSError *)error
                   liveId:(NSString * _Nullable)liveId
 {
     NSLog(@"Streaming manager stopped with:\nerror: %@,\nliveId: %@", error, liveId);
-    if ([error.domain isEqualToString:STSStreamingErrorDomain]) {
-        switch (error.code) {
-            case STSStreamingErrorCodeEventExpired:
-            {
-                // The live event expired, try to end it and restart streaming with new live event.
-                __weak StreamingViewController * weakSelf = self;
-                [self endLiveEvent:liveId success:^{
-                    [weakSelf startStreaming:NO];
-                }];
-                break;
-            }
-            case STSStreamingErrorCodeLiveCountLimit:
-            {
-                // Current member has an unended live event, try to start streaming by reusing that event.
-                [self startStreaming:YES];
-                break;
-            }
-            default:
-                break;
-        }
-    }
-    self.streamingStatusLabel.text = @"Error.";
-    [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+    [self onError];
 }
 
 
