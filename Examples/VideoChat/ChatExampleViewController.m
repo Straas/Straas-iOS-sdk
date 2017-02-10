@@ -80,14 +80,14 @@
     NSLog(@"ChatExampleViewController: \"%@\" \n message flushed", chatroom.chatroomName);
 }
 
-- (void)chatroom:(STSChat *)chatroom aggregatedDataAdded:(NSDictionary *)aggregatedData {
+- (void)chatroom:(STSChat *)chatroom aggregatedDataAdded:(NSArray<STSAggregatedData *> *)aggregatedData {
     [super chatroom:chatroom aggregatedDataAdded:aggregatedData];
     NSLog(@"ChatExampleViewController: \"%@\" \n aggregated data add: %@", chatroom.chatroomName, aggregatedData);
 }
 
-- (void)chatroom:(STSChat *)chatroom rawDataAdded:(id)rawData {
+- (void)chatroom:(STSChat *)chatroom rawDataAdded:(STSChatMessage *)rawData {
     [super chatroom:chatroom rawDataAdded:rawData];
-    NSLog(@"ChatExampleViewController: \"%@\" \n raw data add: %@", chatroom.chatroomName, rawData);
+    NSLog(@"ChatExampleViewController: \"%@\" \n raw data add: %@", chatroom.chatroomName, rawData.value);
 }
 
 @end

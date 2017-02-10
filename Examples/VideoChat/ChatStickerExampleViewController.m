@@ -103,9 +103,9 @@
     NSLog(@"ChatStickerExampleViewController: \"%@\" \n aggregated data add: %@", chatroom.chatroomName, aggregatedData);
 }
 
-- (void)chatroom:(STSChat *)chatroom rawDataAdded:(id)rawData {
+- (void)chatroom:(STSChat *)chatroom rawDataAdded:(STSChatMessage *)rawData {
     [super chatroom:chatroom rawDataAdded:rawData];
-    NSLog(@"ChatStickerExampleViewController: \"%@\" \n raw data add: %@", chatroom.chatroomName, rawData);
+    NSLog(@"ChatStickerExampleViewController: \"%@\" \n raw data add: %@", chatroom.chatroomName, rawData.value);
 }
 
 @end
