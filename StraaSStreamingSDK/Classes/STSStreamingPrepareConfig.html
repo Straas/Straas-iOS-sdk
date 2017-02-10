@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>STSStreamingState Enum Reference</title>
+    <title>STSStreamingPrepareConfig Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/objc/Enum/STSStreamingState" class="dashAnchor"></a>
-    <a title="STSStreamingState Enum Reference"></a>
+    <a name="//apple_ref/objc/Class/STSStreamingPrepareConfig" class="dashAnchor"></a>
+    <a title="STSStreamingPrepareConfig Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">StraaSStreamingSDK Docs</a> (100% documented)</p>
@@ -23,7 +23,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">StraaSStreamingSDK Reference</a>
         <img id="carat" src="../img/carat.png" />
-        STSStreamingState Enum Reference
+        STSStreamingPrepareConfig Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -78,14 +78,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>STSStreamingState</h1>
+            <h1>STSStreamingPrepareConfig</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="k">enum</span> <span class="n">STSStreamingState</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">STSStreamingPrepareConfig</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
 
                 </div>
               </div>
-            <p>The state of the STSStreamingManager.</p>
+            <p>A STSStreamingPrepareConfig object defines the prepare configuration of the stream manager.</p>
 
           </section>
           <section class="section task-group-section">
@@ -94,9 +94,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSStreamingState@STSStreamingStateIdle"></a>
-                    <a name="//apple_ref/objc/Case/STSStreamingStateIdle" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSStreamingState@STSStreamingStateIdle">STSStreamingStateIdle</a>
+                    <a name="/c:objc(cs)STSStreamingPrepareConfig(py)targetOutputSize"></a>
+                    <a name="//apple_ref/objc/Property/targetOutputSize" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSStreamingPrepareConfig(py)targetOutputSize">targetOutputSize</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -104,14 +104,21 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The initial state.</p>
+                        <p>The target size of the output video. Defaults to <code>CGSizeZero</code>.
+The width and height should both be the positive even number.
+If this property is set to <code>CGSizeZero</code>, the output video size will be calculated by the streaming manager according to property <code><a href="../Classes/STSStreamingPrepareConfig.html#/c:objc(cs)STSStreamingPrepareConfig(py)fitAllCamera">fitAllCamera</a></code>, <code><a href="../Classes/STSStreamingPrepareConfig.html#/c:objc(cs)STSStreamingPrepareConfig(py)maxResolution">maxResolution</a></code> and the aspect ratio of the preview view.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSStreamingStateIdle</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">CGSize</span> <span class="n">targetOutputSize</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">targetOutputSize</span><span class="p">:</span> <span class="kt">CGSize</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -121,9 +128,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSStreamingState@STSStreamingStatePreparing"></a>
-                    <a name="//apple_ref/objc/Case/STSStreamingStatePreparing" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSStreamingState@STSStreamingStatePreparing">STSStreamingStatePreparing</a>
+                    <a name="/c:objc(cs)STSStreamingPrepareConfig(py)fitAllCamera"></a>
+                    <a name="//apple_ref/objc/Property/fitAllCamera" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSStreamingPrepareConfig(py)fitAllCamera">fitAllCamera</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -131,14 +138,21 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The STSStreamingManager is in the process of preparing.</p>
+                        <p>A boolean value indicates if the size of the output video should fit all available cameras on the device.
+Defaults to <code>YES</code>. This property will be used only when <code><a href="../Classes/STSStreamingPrepareConfig.html#/c:objc(cs)STSStreamingPrepareConfig(py)targetOutputSize">targetOutputSize</a></code> is equal to <code>CGSizeZero</code>.
+If this property is set to <code>NO</code>, the output video size will be limited by the max resolution of the current camera. If this property is set to <code>YES</code>, the output video size will be limited by the max resolution of all available cameras.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSStreamingStatePreparing</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">fitAllCamera</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">fitAllCamera</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -148,9 +162,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSStreamingState@STSStreamingStatePrepared"></a>
-                    <a name="//apple_ref/objc/Case/STSStreamingStatePrepared" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSStreamingState@STSStreamingStatePrepared">STSStreamingStatePrepared</a>
+                    <a name="/c:objc(cs)STSStreamingPrepareConfig(py)maxResolution"></a>
+                    <a name="//apple_ref/objc/Property/maxResolution" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSStreamingPrepareConfig(py)maxResolution">maxResolution</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -158,14 +172,21 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The STSStreamingManager is ready for streaming. You can start streaming in this state.</p>
+                        <p>The max resolution of the output video. Defaluts to <code>STSStreamingResolution720p</code>.
+Both the width and the height of the output video will be limited by this value.
+This property will be used only when <code><a href="../Classes/STSStreamingPrepareConfig.html#/c:objc(cs)STSStreamingPrepareConfig(py)targetOutputSize">targetOutputSize</a></code> is equal to <code>CGSizeZero</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSStreamingStatePrepared</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/STSStreamingResolution.html">STSStreamingResolution</a></span> <span class="n">maxResolution</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">maxResolution</span><span class="p">:</span> <span class="kt"><a href="../Enums/STSStreamingResolution.html">STSStreamingResolution</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -175,9 +196,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSStreamingState@STSStreamingStateConnecting"></a>
-                    <a name="//apple_ref/objc/Case/STSStreamingStateConnecting" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSStreamingState@STSStreamingStateConnecting">STSStreamingStateConnecting</a>
+                    <a name="/c:objc(cs)STSStreamingPrepareConfig(py)outputImageOrientation"></a>
+                    <a name="//apple_ref/objc/Property/outputImageOrientation" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSStreamingPrepareConfig(py)outputImageOrientation">outputImageOrientation</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -185,68 +206,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The STSStreamingManager is connecting to the server, but is not yet connected.</p>
+                        <p>The orientation of the output video. Defaults to <code>UIInterfaceOrientationPortrait</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSStreamingStateConnecting</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">UIInterfaceOrientation</span> <span class="n">outputImageOrientation</span><span class="p">;</span></code></pre>
 
                         </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@STSStreamingState@STSStreamingStateStreaming"></a>
-                    <a name="//apple_ref/objc/Case/STSStreamingStateStreaming" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSStreamingState@STSStreamingStateStreaming">STSStreamingStateStreaming</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The STSStreamingManager is streaming to the server.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
                         <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSStreamingStateStreaming</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@STSStreamingState@STSStreamingStateDisconnecting"></a>
-                    <a name="//apple_ref/objc/Case/STSStreamingStateDisconnecting" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSStreamingState@STSStreamingStateDisconnecting">STSStreamingStateDisconnecting</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The STSStreamingManager is in the process of disconnecting.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSStreamingStateDisconnecting</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">outputImageOrientation</span><span class="p">:</span> <span class="kt">Int32</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
