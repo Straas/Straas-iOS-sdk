@@ -38,6 +38,9 @@
               <li class="nav-group-task">
                 <a href="../Classes/STSStreamingManager.html">STSStreamingManager</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSStreamingPrepareConfig.html">STSStreamingPrepareConfig</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -53,6 +56,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/STSStreamingErrorCode.html">STSStreamingErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSStreamingResolution.html">STSStreamingResolution</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/STSStreamingState.html">STSStreamingState</a>
@@ -85,138 +91,6 @@
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(pl)STSStreamingManagerDelegate(im)streamingManager:didStartStreaming:"></a>
-                    <a name="//apple_ref/objc/Method/-streamingManager:didStartStreaming:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)STSStreamingManagerDelegate(im)streamingManager:didStartStreaming:">-streamingManager:didStartStreaming:</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Called when streaming starts.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">streamingManager</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSStreamingManager.html">STSStreamingManager</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">streamingManager</span>
-       <span class="nf">didStartStreaming</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">liveId</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">streamingManager</span><span class="p">(</span><span class="n">_</span> <span class="nv">streamingManager</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSStreamingManager.html">STSStreamingManager</a></span><span class="p">,</span> <span class="n">didStartStreaming</span> <span class="nv">liveId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>streamingManager</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The streamingManager that sent the message.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>liveId</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The id of the current streaming live event.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(pl)STSStreamingManagerDelegate(im)streamingManager:didStopStreaming:"></a>
-                    <a name="//apple_ref/objc/Method/-streamingManager:didStopStreaming:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)STSStreamingManagerDelegate(im)streamingManager:didStopStreaming:">-streamingManager:didStopStreaming:</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Called when streaming is finished.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">streamingManager</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSStreamingManager.html">STSStreamingManager</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">streamingManager</span>
-        <span class="nf">didStopStreaming</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">liveId</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">streamingManager</span><span class="p">(</span><span class="n">_</span> <span class="nv">streamingManager</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSStreamingManager.html">STSStreamingManager</a></span><span class="p">,</span> <span class="n">didStopStreaming</span> <span class="nv">liveId</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>streamingManager</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The streamingManager that sent the message.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>liveId</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The live event id of the stopped streaming.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
                 <li class="item">
                   <div>
                     <code>
