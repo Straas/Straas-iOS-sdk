@@ -666,6 +666,7 @@ NSUInteger const kSTSStreaingViewRetryInterval = 2;
     }
     STSStreamingPrepareConfig * config = [STSStreamingPrepareConfig new];
     config.targetOutputSize = CGSizeMake(KSTSStreamingOutputSize, KSTSStreamingOutputSize);
+    config.outputImageOrientation = self.initialOrientation;
     [self.streamingManager prepareWithPreviewView:self.previewView
                                     configuration:config
                                           success:success
