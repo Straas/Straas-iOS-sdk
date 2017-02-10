@@ -651,8 +651,9 @@ NSUInteger const kSTSStreaingViewRetryInterval = 2;
 }
 
 - (void)prepare {
-    void (^success)(void) = ^(){
+    void (^success)(CGSize) = ^(CGSize outputVideoSize){
         self.streamingStatusLabel.text = @"Prepared";
+        NSLog(@"prepare success with output size: %@", NSStringFromCGSize(outputVideoSize));
     };
     void (^failure)(NSError *) = ^(NSError * error) {
         NSLog(@"preparation failed with error: %@", error);
@@ -660,15 +661,15 @@ NSUInteger const kSTSStreaingViewRetryInterval = 2;
     };
     self.streamingStatusLabel.text = @"Preparing";
     [self setupStreamingManager];
-    CGSize size = CGSizeMake(KSTSStreamingOutputSize, KSTSStreamingOutputSize);
     if (self.initialOrientation == UIInterfaceOrientationUnknown) {
         self.initialOrientation = [[UIApplication sharedApplication] statusBarOrientation];
     }
-    [self.streamingManager prepareWithVideoSize:size
-                                    previewView:self.previewView
-                         outputImageOrientation:self.initialOrientation
-                                        success:success
-                                        failure:failure];
+    STSStreamingPrepareConfig * config = [STSStreamingPrepareConfig new];
+    config.targetOutputSize = CGSizeMake(KSTSStreamingOutputSize, KSTSStreamingOutputSize);
+    [self.streamingManager prepareWithPreviewView:self.previewView
+                                    configuration:config
+                                          success:success
+                                          failure:failure];
 }
 
 - (void)setupStreamingManager {
