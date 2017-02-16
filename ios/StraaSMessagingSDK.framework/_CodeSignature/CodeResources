@@ -34,7 +34,11 @@
 		</data>
 		<key>Headers/STSGetMessagesConfiguration.h</key>
 		<data>
-		jl5V94n0nU4+Goj5xmP/IHWhZk8=
+		m8/JPV290ILHqXjA3b3vhXe5mIo=
+		</data>
+		<key>Headers/STSGetMessagesOrder.h</key>
+		<data>
+		hUqfp4F5gCspzeakMs6bNtBJfI8=
 		</data>
 		<key>Headers/STSGetUsersType.h</key>
 		<data>
@@ -50,7 +54,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		/f6C3KtRgehbxtOB9+sietPWCDs=
+		UJ7LII1otf9MhV5wmCfLrMPctaQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -158,11 +162,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jl5V94n0nU4+Goj5xmP/IHWhZk8=
+			m8/JPV290ILHqXjA3b3vhXe5mIo=
 			</data>
 			<key>hash2</key>
 			<data>
-			D9lpOoF7MRGFXnQJMBaw4mZ68xX+R+EyT8vQk4MfYLY=
+			g6KCy8f8FEum4E3EWaic1LnJwUE+mV2I5vfgwqzWLSU=
+			</data>
+		</dict>
+		<key>Headers/STSGetMessagesOrder.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			hUqfp4F5gCspzeakMs6bNtBJfI8=
+			</data>
+			<key>hash2</key>
+			<data>
+			gxEwBZ9/uAgJtOhr1xHq1SghNHX1+1Hc2GTprNhBfz0=
 			</data>
 		</dict>
 		<key>Headers/STSGetUsersType.h</key>
