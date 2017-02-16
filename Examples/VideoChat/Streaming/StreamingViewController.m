@@ -693,6 +693,11 @@ NSUInteger const kSTSStreaingViewRetryInterval = 2;
     // Set the tags of the live event.
     // confguration.tags = @[@"<#ANY_TAGS#>"];
 
+    // Set `vodAvailable` to YES if you want the new VOD of the live event to be available.
+    // confguration.vodAvailable = YES;
+    // Set `vodListed` to YES if you want the new VOD of the live event to be listed.
+    // confguration.vodListed = YES;
+
     __weak StreamingViewController * weakSelf = self;
     [self.streamingManager createLiveEventConfguration:configuration success:^(NSString * liveId) {
         [weakSelf startStreamingWithLiveId:liveId];
