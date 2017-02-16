@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "STSGetMessagesOrder.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -35,6 +36,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Latest date of request messages. Unix time in millisecond.
  */
 @property (nonatomic, nullable) NSNumber * latestDate;
+
+/**
+ *  Indicates in what order the message will be sorted by created date. Default value is STSGetMessagesOrderDescending.
+ */
+@property (nonatomic) STSGetMessagesOrder order;
 
 @end
 

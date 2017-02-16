@@ -48,6 +48,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) BOOL listed;
 
 /**
+ *  A boolean value indicates whether to list the new VoD of the live event or not.
+ *  Defaults to `NO`.
+ */
+@property (nonatomic) BOOL vodListed;
+
+/**
+ *  A boolean value indicates Whether the new VoD of the live event is available by users or not.
+ *  Defaults to `NO`.
+ */
+@property (nonatomic) BOOL vodAvailable;
+
+/**
  *  The max resolution of the live event. Defaults to `STSStreamingResolution1080p`.
  */
 @property (nonatomic) STSStreamingResolution maxResolution;
