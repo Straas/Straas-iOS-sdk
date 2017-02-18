@@ -728,7 +728,7 @@
         }
 
         CGFloat height = CGRectGetHeight(bodyBounds);
-        height += 45.0;
+        height += 46.0;
 
         if (height < kMessageTableViewCellMinimumHeight) {
             height = kMessageTableViewCellMinimumHeight;
