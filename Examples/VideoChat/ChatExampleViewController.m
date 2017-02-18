@@ -82,7 +82,10 @@
 
 - (void)chatroom:(STSChat *)chatroom aggregatedDataAdded:(NSArray<STSAggregatedData *> *)aggregatedData {
     [super chatroom:chatroom aggregatedDataAdded:aggregatedData];
-    NSLog(@"ChatExampleViewController: \"%@\" \n aggregated data add: %@", chatroom.chatroomName, aggregatedData);
+    NSLog(@"ChatExampleViewController: \"%@\" aggregated data add:", chatroom.chatroomName);
+    for (STSAggregatedData * data in aggregatedData) {
+        NSLog(@"key: %@, count: %@", data.key, data.count);
+    }
 }
 
 - (void)chatroom:(STSChat *)chatroom rawDataAdded:(STSChatMessage *)rawData {
