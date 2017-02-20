@@ -449,6 +449,166 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSPlayerLiveEventDelegate(im)playerView:liveCCUChanged:value:"></a>
+                    <a name="//apple_ref/objc/Method/-playerView:liveCCUChanged:value:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSPlayerLiveEventDelegate(im)playerView:liveCCUChanged:value:">-playerView:liveCCUChanged:value:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when CCU of the live changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">playerView</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">playerView</span>
+    <span class="nf">liveCCUChanged</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">liveId</span>
+             <span class="nf">value</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">ccu</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">playerView</span><span class="p">(</span><span class="n">_</span> <span class="nv">playerView</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span><span class="o">!</span><span class="p">,</span> <span class="n">liveCCUChanged</span> <span class="nv">liveId</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="n">value</span> <span class="nv">ccu</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playerView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player view that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>liveId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The live event id who&rsquo;s CCU changed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>ccu</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Current CCU of the live event;</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSPlayerLiveEventDelegate(im)playerView:liveHitCountChanged:value:"></a>
+                    <a name="//apple_ref/objc/Method/-playerView:liveHitCountChanged:value:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSPlayerLiveEventDelegate(im)playerView:liveHitCountChanged:value:">-playerView:liveHitCountChanged:value:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when hit count of the live changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">playerView</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">playerView</span>
+    <span class="nf">liveHitCountChanged</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">liveId</span>
+                  <span class="nf">value</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">hitCount</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">playerView</span><span class="p">(</span><span class="n">_</span> <span class="nv">playerView</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span><span class="o">!</span><span class="p">,</span> <span class="n">liveHitCountChanged</span> <span class="nv">liveId</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="n">value</span> <span class="nv">hitCount</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playerView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player view that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>liveId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The live event id who&rsquo;s hit count changed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hitCount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Current hit count of the live event;</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
