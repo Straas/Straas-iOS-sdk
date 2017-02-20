@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, STSChatMesssageType) {
 };
 
 @class STSChatUser;
+@class STSAggregatedData;
 
 /**
  *  Chat room message model
@@ -37,14 +38,14 @@ typedef NS_ENUM(NSInteger, STSChatMesssageType) {
 @property (nonatomic, readonly) NSString * messageId;
 
 /**
- *  Message text, only valid when recieves normal text message.
+ *  Message text. It may be the normal text or rawData text.
  */
-@property (nonatomic, readonly, nullable) NSString * text;
+@property (nonatomic, readonly) NSString * text;
 
 /**
- *  Message value, only valid when recieves data chanenl rawdata.
+ *  Message RawData, only valid when recieves data chanenl RawData.
  */
-@property (nonatomic, readonly, nullable) id value;
+@property (nonatomic, readonly, nullable) id rawData;
 
 /**
  *  Chat message type.

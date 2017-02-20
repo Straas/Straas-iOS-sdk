@@ -57,6 +57,26 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)playerView:(STSSDKPlayerView *)playerView waitingForStream:(NSString *)liveId;
 
+@optional
+
+/**
+ *  Called when CCU of the live changed.
+ *
+ * @param playerView The player view that sent the message.
+ *  @param liveId    The live event id who's CCU changed.
+ * @param ccu        Current CCU of the live event;
+ */
+- (void)playerView:(STSSDKPlayerView *)playerView liveCCUChanged:(NSString *)liveId value:(NSNumber *)ccu;
+
+/**
+ *  Called when hit count of the live changed.
+ *
+ *  @param playerView The player view that sent the message.
+ *  @param liveId     The live event id who's hit count changed.
+ *  @param hitCount   Current hit count of the live event;
+ */
+- (void)playerView:(STSSDKPlayerView *)playerView liveHitCountChanged:(NSString *)liveId value:(NSNumber *)hitCount;
+
 @end
 
 NS_ASSUME_NONNULL_END

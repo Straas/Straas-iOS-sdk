@@ -28,9 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) UILabel * titleLabel;
 
 /**
- *  The label that shows the synopsis of the current playing video.
+ *  The label that shows the views count of the current playing video.
  */
-@property (nonatomic, readonly) UILabel * subtitleLabel;
+@property (nonatomic, readonly) UILabel * viewsCountLabel;
 
 /**
  *  The play button.
@@ -90,11 +90,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL canShowTitleLabel;
 
 /**
- *  A boolean value indicates whether the player control view is able to display the subtitleLabel.
- *  This property works only when the player is playing a video/playlist. The subtitleLabel is always
- *  hidden when player is playing a live.
+ *  A boolean value indicates whether the player control view is able to display the `viewsCountLabel`. Defaults to YES.
+ *  This property works only when the player is playing a video/playlist. The `viewsCountLabel` is always hidden when player is playing a live.
  */
-@property (nonatomic) BOOL canShowSubtitleLabel;
+@property (nonatomic) BOOL canShowViewsCountLabel;
 
 /**
  *  A boolean value indicates whether the player control view is able to display the playback controls.

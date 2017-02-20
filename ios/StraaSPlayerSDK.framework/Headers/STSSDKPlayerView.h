@@ -155,5 +155,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)togglePlayPause;
 
+/**
+ *  Gets the CCU of the currently playing live.
+ *
+ *  @return the CCU of the currently plyaing live. Returns nil if there is no live playing.
+ */
+- (NSNumber * _Nullable)ccuOfCurrentlyPlayingLive;
+
+/**
+ *  Gets the hitCount of the the currently playing live.
+ *
+ *  @return the hitCount of the currently playing live. Returns nil if there is no live playing.
+ */
+- (NSNumber * _Nullable)hitCountOfCurrentlyPlayingLive;
+
 @end
 NS_ASSUME_NONNULL_END
