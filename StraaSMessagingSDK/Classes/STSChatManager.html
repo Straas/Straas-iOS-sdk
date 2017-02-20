@@ -36,6 +36,9 @@
                 <a href="../Classes/STSAggregatedData.html">STSAggregatedData</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/STSAggregatedItem.html">STSAggregatedItem</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/STSChat.html">STSChat</a>
               </li>
               <li class="nav-group-task">
@@ -1322,7 +1325,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Send aggregate data to data channel.</p>
+                        <p>Send a key to the data channel which will be aggregated to STSAggregatedItem in <code>chatroom:aggregatedItemsAdded:</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1353,7 +1356,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The Aggregate data string key. Should be between 1~100 characters.</p>
+                                  <p>The Aggregated item string key. Should be between 1~100 characters.</p>
 
                                 </div>
                               </td>
@@ -1475,6 +1478,221 @@
                               <td>
                                 <div>
                                   <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)getAggregatedDataForChatroom:configuration:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-getAggregatedDataForChatroom:configuration:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)getAggregatedDataForChatroom:configuration:success:failure:">-getAggregatedDataForChatroom:configuration:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <ul>
+<li>Get chat room aggregated data.
+*</li>
+<li>- parameter: chatroom      The STSChat object you want to get aggregated data.</li>
+<li>- parameter: configuration A STSGetMessagesConfiguration object that specifies the request rules for getting messages.</li>
+<li>- parameter: success       Handler for successful request. It takes an <code>NSArray</code> of <code><a href="../Classes/STSChatMessage.html">STSChatMessage</a></code>
+argument that contains chat room messages.</li>
+<li>- parameter: failure       Error handler.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="nf">getAggregatedDataForChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+               <span class="nf">configuration</span><span class="p">:</span>
+                   <span class="p">(</span><span class="n"><a href="../Classes/STSGetMessagesConfiguration.html">STSGetMessagesConfiguration</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">configuration</span>
+                     <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span>
+                                 <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSAggregatedData.html">STSAggregatedData</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
+                     <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getAggregatedData</span><span class="p">(</span><span class="n">forChatroom</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSGetMessagesConfiguration.html">STSGetMessagesConfiguration</a></span><span class="p">?,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/STSAggregatedData.html">STSAggregatedData</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to get aggregated data.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A STSGetMessagesConfiguration object that specifies the request rules for getting messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <pre class="highlight plaintext"><code>  Handler for successful request. It takes an `NSArray` of `STSChatMessage`
+</code></pre>
+
+<p>argument that contains chat room messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)getRawDataForChatroom:configuration:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-getRawDataForChatroom:configuration:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)getRawDataForChatroom:configuration:success:failure:">-getRawDataForChatroom:configuration:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <ul>
+<li>Get chat room raw data.
+*</li>
+<li>- parameter: chatroom      The STSChat object you want to get raw data.</li>
+<li>- parameter: configuration A STSGetMessagesConfiguration object that specifies the request rules for getting messages.</li>
+<li>- parameter: success       Handler for successful request. It takes an <code>NSArray</code> of <code><a href="../Classes/STSChatMessage.html">STSChatMessage</a></code>
+argument that contains chat room messages.</li>
+<li>- parameter: failure       Error handler.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="nf">getRawDataForChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+        <span class="nf">configuration</span><span class="p">:(</span><span class="n"><a href="../Classes/STSGetMessagesConfiguration.html">STSGetMessagesConfiguration</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">configuration</span>
+              <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSAggregatedData.html">STSAggregatedData</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span>
+                          <span class="n">success</span>
+              <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getRawData</span><span class="p">(</span><span class="n">forChatroom</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSGetMessagesConfiguration.html">STSGetMessagesConfiguration</a></span><span class="p">?,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/STSAggregatedData.html">STSAggregatedData</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to get raw data.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A STSGetMessagesConfiguration object that specifies the request rules for getting messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <pre class="highlight plaintext"><code>  Handler for successful request. It takes an `NSArray` of `STSChatMessage`
+</code></pre>
+
+<p>argument that contains chat room messages.</p>
 
                                 </div>
                               </td>
