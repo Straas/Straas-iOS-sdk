@@ -98,7 +98,7 @@
     NSLog(@"ChatStickerExampleViewController: \"%@\" \n message flushed", chatroom.chatroomName);
 }
 
-- (void)chatroom:(STSChat *)chatroom aggregatedDataAdded:(NSDictionary *)aggregatedData {
+- (void)chatroom:(STSChat *)chatroom aggregatedDataAdded:(NSArray<STSAggregatedData *> *)aggregatedData {
     [super chatroom:chatroom aggregatedDataAdded:aggregatedData];
     NSLog(@"ChatStickerExampleViewController: \"%@\" \n aggregated data add: %@", chatroom.chatroomName, aggregatedData);
 }
