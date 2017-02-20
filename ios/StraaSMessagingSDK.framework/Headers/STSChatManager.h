@@ -118,18 +118,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 /**
- *  Tells the delegate that an aggregated data has been added to data channel.
+ *  Tells the delegate that an array of aggregated items has been added to data channel.
  *
- *  @param chatroom A STSChat object informing the delegate about aggregated data added.
- *  @param aggregatedData An STSChatAggregatedData object of aggregated data from data channel.
+ *  @param chatroom A STSChat object informing the delegate about aggregated items added.
+ *  @param aggregatedItems An array of STSAggregatedItem objects.
  */
-- (void)chatroom:(STSChat *)chatroom aggregatedDataAdded:(NSArray<STSAggregatedData *>*)aggregatedData;
+- (void)chatroom:(STSChat *)chatroom aggregatedItemsAdded:(NSArray<STSAggregatedItem *> *)aggregatedItems;
 
 /**
  *  Tells the delegate that a raw data has been added to data channel.
  *
  *  @param chatroom A STSChat object informing the delegate about raw data added.
- *  @param rawData A STSChatMessage object with valid `value` property from data channel.
+ *  @param rawData A STSChatMessage object with valid `rawData` property from data channel.
  */
 - (void)chatroom:(STSChat *)chatroom rawDataAdded:(STSChatMessage *)rawData;
 
@@ -299,9 +299,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface STSChatManager(DataChannel)
 
 /**
- *  Send aggregate data to data channel.
+ *  Send a key to the data channel which will be aggregated to STSAggregatedItem in `chatroom:aggregatedItemsAdded:`.
  *
- *  @param key          The Aggregate data string key. Should be between 1~100 characters.
+ *  @param key          The Aggregated item string key. Should be between 1~100 characters.
  *  @param chatroom     The STSChat object you want to send message.
  *  @param success      Handler for successful request.
  *  @param failure      Error handler.
@@ -320,6 +320,34 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)sendRawData:(id)rawData chatroom:(STSChat *)chatroom
             success:(void(^)())success failure:(void(^)(NSError * error))failure;
+
+/**
+ *  Get chat room aggregated data.
+ *
+ *  @param chatroom      The STSChat object you want to get aggregated data.
+ *  @param configuration A STSGetMessagesConfiguration object that specifies the request rules for getting messages.
+ *  @param success       Handler for successful request. It takes an `NSArray` of `STSChatMessage`
+ argument that contains chat room messages.
+ *  @param failure       Error handler.
+ */
+- (void)getAggregatedDataForChatroom:(STSChat *)chatroom
+                       configuration:(STSGetMessagesConfiguration * _Nullable)configuration
+                             success:(void(^)(NSArray<STSAggregatedData *> * messages))success
+                             failure:(void(^)(NSError * error))failure;
+
+/**
+ *  Get chat room raw data.
+ *
+ *  @param chatroom      The STSChat object you want to get raw data.
+ *  @param configuration A STSGetMessagesConfiguration object that specifies the request rules for getting messages.
+ *  @param success       Handler for successful request. It takes an `NSArray` of `STSChatMessage`
+ argument that contains chat room messages.
+ *  @param failure       Error handler.
+ */
+- (void)getRawDataForChatroom:(STSChat *)chatroom
+                configuration:(STSGetMessagesConfiguration * _Nullable)configuration
+                      success:(void(^)(NSArray<STSAggregatedData *> * aggregatedData))success
+                      failure:(void(^)(NSError * error))failure;
 
 @end
 

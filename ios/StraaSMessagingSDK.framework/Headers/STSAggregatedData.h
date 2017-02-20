@@ -10,21 +10,24 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class STSAggregatedItem;
+
 /**
- *  STSAggregatedData class defines the usage of an aggregated data.
+ *  STSAggregatedData class defines an aggregated data which being sent on certain time.
  */
 @interface STSAggregatedData : LHDataObject
 
 /**
- *  The key of an aggregated data.
+ *  The aggregated items.
  */
-@property (nonatomic, readonly) NSString * key;
+@property(nonatomic, readonly) NSArray<STSAggregatedItem *> * items;
 
 /**
- *  The number of count indicates how many times that `key` be sent in one period.
+ *  The aggregated data created date.
  */
-@property (nonatomic, readonly) NSNumber * count;
+@property(nonatomic, readonly) NSString * createdDate;
 
 @end
+
 
 NS_ASSUME_NONNULL_END

@@ -6,19 +6,23 @@
 	<dict>
 		<key>Headers/STSAggregatedData.h</key>
 		<data>
-		SOO3gQs1+fE96Qi91QyqgSSWMoA=
+		Pl6QBUSyHWtriFuuutyf4Swwu20=
+		</data>
+		<key>Headers/STSAggregatedItem.h</key>
+		<data>
+		R6vP2xnUhJs//Y47CWe7J4Efktw=
 		</data>
 		<key>Headers/STSChat.h</key>
 		<data>
-		ZtRpA9wGsJR1XjZ+0NN5Ty0hUkI=
+		kgIoc+iVgTmgIQ2PT8ae2wDKWhY=
 		</data>
 		<key>Headers/STSChatManager.h</key>
 		<data>
-		m6fsWlP3DWdjymPXplxk4WK2Yqo=
+		U3XzXjhN7AdSNXfyK3Y2Pq3hWXA=
 		</data>
 		<key>Headers/STSChatMessage.h</key>
 		<data>
-		wQPmj9ELvklNPSYIxzrJDTtybtc=
+		LTxReo9q/CHrurByt+dT3PKoa1o=
 		</data>
 		<key>Headers/STSChatSticker.h</key>
 		<data>
@@ -50,11 +54,11 @@
 		</data>
 		<key>Headers/StraaSMessagingSDK.h</key>
 		<data>
-		kUCxNB/vBebYkC/7cJzO7gCoUNQ=
+		FuAUHzbPdKv6a2pHLhsVK2fopIQ=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		UJ7LII1otf9MhV5wmCfLrMPctaQ=
+		KIxVNYFWOaTirpmU49FAWPkUa88=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -85,44 +89,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SOO3gQs1+fE96Qi91QyqgSSWMoA=
+			Pl6QBUSyHWtriFuuutyf4Swwu20=
 			</data>
 			<key>hash2</key>
 			<data>
-			nDhE0tpfZob4UR5k3fn4G8pJrJrriZpVtaVw3KeX2rs=
+			mcjoy8hy+CHyZzPMmr5QpFM63KMYgWI044W+NjMtBEs=
+			</data>
+		</dict>
+		<key>Headers/STSAggregatedItem.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			R6vP2xnUhJs//Y47CWe7J4Efktw=
+			</data>
+			<key>hash2</key>
+			<data>
+			gUlGdZFmo85eaGlJQD/Y9jDB03dCe6L/175p1Vsti9E=
 			</data>
 		</dict>
 		<key>Headers/STSChat.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ZtRpA9wGsJR1XjZ+0NN5Ty0hUkI=
+			kgIoc+iVgTmgIQ2PT8ae2wDKWhY=
 			</data>
 			<key>hash2</key>
 			<data>
-			wWbwV/wPbaYc+0DdmqkNBcbebvyx8KLMEWopTpFUwnI=
+			KADd+ZUO0cl6PRMyj7DvskTFEKAvtW837qtvy147iH4=
 			</data>
 		</dict>
 		<key>Headers/STSChatManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			m6fsWlP3DWdjymPXplxk4WK2Yqo=
+			U3XzXjhN7AdSNXfyK3Y2Pq3hWXA=
 			</data>
 			<key>hash2</key>
 			<data>
-			QSRMRMCX/eQZ088A0Nw8+THDaOvYZpZ+e22nWtaZMFg=
+			fNtpiSunEN3gjUAB403vgAA7PJJN8IkBg70lSpujtvc=
 			</data>
 		</dict>
 		<key>Headers/STSChatMessage.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			wQPmj9ELvklNPSYIxzrJDTtybtc=
+			LTxReo9q/CHrurByt+dT3PKoa1o=
 			</data>
 			<key>hash2</key>
 			<data>
-			zO5vd0GioHC09Gc69bY8H1pJYfX36Zf/O4QjqQwuWpw=
+			FcaK2/XJPNezvuEEWunj9MSZLEx/7057J5dmlWHUGfA=
 			</data>
 		</dict>
 		<key>Headers/STSChatSticker.h</key>
@@ -206,11 +221,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kUCxNB/vBebYkC/7cJzO7gCoUNQ=
+			FuAUHzbPdKv6a2pHLhsVK2fopIQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			S0O0Z5IdWtg+o3m9mMU735fbNsGhb8z2Lz1JYMUZkPA=
+			QS2jd4KuBtaqtE97y6CsTF5A6BJcaugZSoZ6fTSuvQI=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -269,6 +284,11 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
+		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -313,6 +333,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>

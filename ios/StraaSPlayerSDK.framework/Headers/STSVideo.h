@@ -68,5 +68,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) BOOL free;
 
+/**
+ *  The total views count.
+ */
+@property (nonatomic, readonly) NSNumber * viewsCount;
+
+/**
+ *  The total viewers count.
+ */
+@property (nonatomic, readonly) NSNumber * viewersCount;
+
+/**
+ *  The total watched duration.
+ */
+@property (nonatomic, readonly) NSNumber * timeWatched;
+
+
 @end
 NS_ASSUME_NONNULL_END

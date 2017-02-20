@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class STSChatUser;
 @class STSChatMessage;
 @class STSChatSticker;
+@class STSAggregatedItem;
 
 /**
  *  Chat room model
@@ -61,6 +62,12 @@ typedef NS_ENUM(NSUInteger, STSChatInputMode) {
  *  Total user number of this chat.
  */
 @property (nonatomic, readonly) NSInteger userCount;
+
+/**
+ *  Total total aggregated items contain all of the aggregated items that a chatroom have.
+ *  The count property in each STSAggregatedItem indicates how many times this aggregated item key being sent.
+ */
+@property (nonatomic, readonly) NSArray <STSAggregatedItem *> * totalAggregatedItems;
 
 /**
  *  The chat stickers.
