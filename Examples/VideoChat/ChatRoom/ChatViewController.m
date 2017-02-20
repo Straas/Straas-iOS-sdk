@@ -122,6 +122,8 @@
     self.bounces = YES;
     self.shakeToClearEnabled = YES;
     self.keyboardPanningEnabled = YES;
+    self.tableView.estimatedRowHeight = 115;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.shouldScrollToBottomAfterKeyboardShows = NO;
     self.inverted = YES;
     [self showStickerButtonIfNeeded];
@@ -698,46 +700,6 @@
         [item appendString:@" "];
 
         [self acceptAutoCompletionWithString:item keepPrefix:YES];
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([tableView isEqual:self.tableView]) {
-
-        STSChatMessage * message = self.messages[indexPath.row];
-        if (message.type == STSChatMessageTypeSticker) {
-            return kStickerTableViewCellHeight;
-        }
-        NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
-        paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
-        paragraphStyle.alignment = NSTextAlignmentLeft;
-
-        CGFloat pointSize = [MessageTableViewCell defaultFontSize];
-
-        NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:pointSize],
-                                     NSParagraphStyleAttributeName: paragraphStyle};
-
-        CGFloat width = CGRectGetWidth(tableView.frame)-kMessageTableViewCellAvatarHeight;
-        width -= 40.0;
-
-        CGRect bodyBounds = [message.text boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:NULL];
-
-        if (message.text.length == 0) {
-            return 0.0;
-        }
-
-        CGFloat height = CGRectGetHeight(bodyBounds);
-        height += 46.0;
-
-        if (height < kMessageTableViewCellMinimumHeight) {
-            height = kMessageTableViewCellMinimumHeight;
-        }
-
-        return height;
-    }
-    else {
-        return kMessageTableViewCellMinimumHeight;
     }
 }
 

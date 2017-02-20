@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-static CGFloat kStickerTableViewCellHeight = 115.0;
-static CGFloat kMessageTableViewCellMinimumHeight = 60.0;
 static CGFloat kMessageTableViewCellAvatarHeight = 40.0;
 
 static NSString *MessengerCellIdentifier = @"MessengerCell";
