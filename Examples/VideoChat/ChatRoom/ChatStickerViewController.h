@@ -100,7 +100,7 @@
 - (void)chatroom:(STSChat *)chatroom messageAdded:(STSChatMessage *)message NS_REQUIRES_SUPER;
 - (void)chatroom:(STSChat *)chatroom messageRemoved:(NSString *)messageId NS_REQUIRES_SUPER;
 - (void)chatroomMessageFlushed:(STSChat *)chatroom NS_REQUIRES_SUPER;
-- (void)chatroom:(STSChat *)chatroom aggregatedDataAdded:(NSArray<STSAggregatedData *> *)aggregatedData NS_REQUIRES_SUPER;
+- (void)chatroom:(STSChat *)chatroom aggregatedItemsAdded:(NSArray<STSAggregatedItem *> *)aggregatedItems NS_REQUIRES_SUPER;
 - (void)chatroom:(STSChat *)chatroom rawDataAdded:(STSChatMessage *)rawData NS_REQUIRES_SUPER;
 
 #pragma mark - ChatStickerDelegate

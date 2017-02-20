@@ -226,8 +226,8 @@ NSUInteger const defaultStickerViewHeight = 215;
     [self.chatVC chatroomMessageFlushed:chatroom];
 }
 
-- (void)chatroom:(STSChat *)chatroom aggregatedDataAdded:(NSArray<STSAggregatedData *> *)aggregatedData {
-    [self.chatVC chatroom:chatroom aggregatedDataAdded:aggregatedData];
+- (void)chatroom:(STSChat *)chatroom aggregatedItemsAdded:(NSArray<STSAggregatedItem *> *)aggregatedItems {
+    [self.chatVC chatroom:chatroom aggregatedItemsAdded:aggregatedItems];
 }
 
 - (void)chatroom:(STSChat *)chatroom rawDataAdded:(STSChatMessage *)rawData {

@@ -98,14 +98,17 @@
     NSLog(@"ChatStickerExampleViewController: \"%@\" \n message flushed", chatroom.chatroomName);
 }
 
-- (void)chatroom:(STSChat *)chatroom aggregatedDataAdded:(NSArray<STSAggregatedData *> *)aggregatedData {
-    [super chatroom:chatroom aggregatedDataAdded:aggregatedData];
-    NSLog(@"ChatStickerExampleViewController: \"%@\" \n aggregated data add: %@", chatroom.chatroomName, aggregatedData);
+- (void)chatroom:(STSChat *)chatroom aggregatedItemsAdded:(NSArray<STSAggregatedItem *> *)aggregatedItems {
+    [super chatroom:chatroom aggregatedItemsAdded:aggregatedItems];
+    NSLog(@"ChatStickerExampleViewController: \"%@\"", chatroom.chatroomName);
+    for (STSAggregatedItem * item in aggregatedItems) {
+        NSLog(@"aggregatedItem key: %@, count: %@", item.key, item.count);
+    }
 }
 
 - (void)chatroom:(STSChat *)chatroom rawDataAdded:(STSChatMessage *)rawData {
     [super chatroom:chatroom rawDataAdded:rawData];
-    NSLog(@"ChatStickerExampleViewController: \"%@\" \n raw data add: %@", chatroom.chatroomName, rawData.value);
+    NSLog(@"ChatStickerExampleViewController: \"%@\" \n raw data add: %@", chatroom.chatroomName, rawData.rawData);
 }
 
 @end
