@@ -55,8 +55,7 @@ typedef NS_ENUM(NSUInteger, STSMSGErrorCode) {
      */
     STSMSGErrorCodeUnauthorized,
     /**
-     *  Current user does not have right to perform operation(e.g. guest send a message to
-     *  a member-only input mode chat room).
+     *  This task is not permitted by server since what you want to do is not allowed or the identity of current user has no permission to execute the task.
      */
     STSMSGErrorCodePermission,
     /**
@@ -64,6 +63,11 @@ typedef NS_ENUM(NSUInteger, STSMSGErrorCode) {
      *  Please make sure you've created this chatroom before trying to connect it.
      */
     STSMSGErrorCodeChatroomNotfound,
+    /**
+     *  Can not update role since member id is not found.
+     *  Please make sure you've created this member id before trying to update role.
+     */
+    STSMSGErrorCodeMemberIdNotFound,
     /**
      *  Server side error happened, please try again later or contact with service provider.
      */

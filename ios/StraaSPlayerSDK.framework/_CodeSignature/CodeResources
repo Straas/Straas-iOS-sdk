@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		fIYa+HX7lc2Av+cT4u4IrlB55sI=
+		43+regMQMq+fvo4fiJ1509NXMFc=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Headers/STSVideo.h</key>
 		<data>
-		hOeXfpPzK21RxaUXTU2ctclDJ68=
+		vBpD6JGLxQIL7K5LZGd5Rahe2sM=
 		</data>
 		<key>Headers/STSVideoMetadata.h</key>
 		<data>
@@ -86,7 +86,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		rLqoza+tl7kvb+JeQ+RjDii+gtY=
+		2oMdKIq7be8+OsEA47mkv1o8Wo4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -125,11 +125,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fIYa+HX7lc2Av+cT4u4IrlB55sI=
+			43+regMQMq+fvo4fiJ1509NXMFc=
 			</data>
 			<key>hash2</key>
 			<data>
-			VvXjkF278OMgOYOfibhhWtbaPa3RfHe0swCZYPjyMvc=
+			gKRyW6OiwLzo0p2mNmpwhZQDmmwW68BNclIhfPcW5To=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -301,11 +301,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hOeXfpPzK21RxaUXTU2ctclDJ68=
+			vBpD6JGLxQIL7K5LZGd5Rahe2sM=
 			</data>
 			<key>hash2</key>
 			<data>
-			EhdOSav+J+z9cYlWrzXbk5ilEU7kLVNLP2N8oK3x9ms=
+			hNuuGXOCkv+5b0MUUYrJhKF2FT02g1B8d6Cwji18TWg=
 			</data>
 		</dict>
 		<key>Headers/STSVideoMetadata.h</key>
@@ -419,11 +419,6 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
-		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -468,11 +463,6 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
-		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>

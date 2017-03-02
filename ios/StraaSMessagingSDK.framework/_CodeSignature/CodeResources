@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/STSChatManager.h</key>
 		<data>
-		U3XzXjhN7AdSNXfyK3Y2Pq3hWXA=
+		pZ5dkhWX5iKBszXlDlVCPKu+YqI=
 		</data>
 		<key>Headers/STSChatMessage.h</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Headers/STSMSGErrorCode.h</key>
 		<data>
-		tsXr2wElX1O31YEcTTRNHtUaMQg=
+		Ejwz592+ijnefJ2cFq1sE1tnYyg=
 		</data>
 		<key>Headers/StraaSMessagingSDK.h</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		KIxVNYFWOaTirpmU49FAWPkUa88=
+		9qUEeoCuHEIFdugfuViWf8hJFUo=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -68,7 +68,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DAk3d6lv47QLUX6Xv7QH3FtWg+c=
+			8Mu/W8vekBS0j4PShB83zdhqrQ4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -77,7 +77,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			A0ZyWWC/9cVXLHfdZPFsV1tKaMs=
+			ThrpS72WCohzjosLxe/5A059KoQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -122,11 +122,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			U3XzXjhN7AdSNXfyK3Y2Pq3hWXA=
+			pZ5dkhWX5iKBszXlDlVCPKu+YqI=
 			</data>
 			<key>hash2</key>
 			<data>
-			fNtpiSunEN3gjUAB403vgAA7PJJN8IkBg70lSpujtvc=
+			oAIhs41313Io2o2YPTkhiZ1kQ9qFRbpjzwqOe9oU/dQ=
 			</data>
 		</dict>
 		<key>Headers/STSChatMessage.h</key>
@@ -210,11 +210,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			tsXr2wElX1O31YEcTTRNHtUaMQg=
+			Ejwz592+ijnefJ2cFq1sE1tnYyg=
 			</data>
 			<key>hash2</key>
 			<data>
-			RzF+Xg/ptGIBYrGsSChaenjtgeSVzWLUpcUjontM2VQ=
+			bbEC3shlcZCRuNSJsODL3FN2IpcQ6rYOnH5Sf4lGqS8=
 			</data>
 		</dict>
 		<key>Headers/StraaSMessagingSDK.h</key>
@@ -243,11 +243,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DAk3d6lv47QLUX6Xv7QH3FtWg+c=
+			8Mu/W8vekBS0j4PShB83zdhqrQ4=
 			</data>
 			<key>hash2</key>
 			<data>
-			HDIps+hLBvpd6PeJ2k85t1tOs938gfHpUST4OcOtZt8=
+			o7yqVcQ786vR0IJdMfcS1lbmoFJNH6m5iq0I97inKic=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -256,11 +256,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			A0ZyWWC/9cVXLHfdZPFsV1tKaMs=
+			ThrpS72WCohzjosLxe/5A059KoQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			WlHj5S01EZvXwaw8OJ8rjbH2v/5EtvegQzy3HLc0QlI=
+			gNgOKgLNGJrw5IO9Qxl8kGKAZoM7+9I/2Z7ITlVJ8MA=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -283,11 +283,6 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
-		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
 		</dict>
 		<key>^version.plist$</key>
 		<true/>
@@ -333,11 +328,6 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
-		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>
