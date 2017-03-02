@@ -70,19 +70,51 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The total views count.
+ *  This property is deprecated. Use `playCountSum` instead.
  */
-@property (nonatomic, readonly) NSNumber * viewsCount;
+@property (nonatomic, readonly) NSNumber * viewsCount __attribute__((deprecated("Use playCountSum instead.")));
 
 /**
  *  The total viewers count.
+ *  This property is deprecated and will be removed in a feature release.
  */
-@property (nonatomic, readonly) NSNumber * viewersCount;
+@property (nonatomic, readonly) NSNumber * viewersCount __attribute__((deprecated("This property will be removed in a feature release.")));
 
 /**
  *  The total watched duration.
+ *  This property is deprecated. Use `playDurationSum` instead.
  */
-@property (nonatomic, readonly) NSNumber * timeWatched;
+@property (nonatomic, readonly) NSNumber * timeWatched __attribute__((deprecated("Use playDurationSum instead.")));
 
+/**
+ *  The sum of number of times the media (Live or VOD) played.
+ */
+@property (nonatomic, readonly) NSNumber * playCountSum;
+
+/**
+ *  The play count inherited from related media.
+ */
+@property (nonatomic, readonly) NSNumber * basePlayCount;
+
+/**
+ *  The sum of play duration of the media (Live or VOD) in seconds.
+ */
+@property (nonatomic, readonly) NSNumber * playDurationSum;
+
+/**
+ *  The play duration inherited from related media.
+ */
+@property (nonatomic, readonly) NSNumber * basePlayDuration;
+
+/**
+ *  The sum of number of times the media (Live or VOD) hit.
+ */
+@property (nonatomic, readonly) NSNumber * hitCountSum;
+
+/**
+ *  The hit count inherited from related media.
+ */
+@property (nonatomic, readonly) NSNumber * baseHitCount;
 
 @end
 NS_ASSUME_NONNULL_END

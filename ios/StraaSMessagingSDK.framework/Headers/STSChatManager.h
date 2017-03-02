@@ -210,6 +210,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)updateUserRole:(NSString *)role targetUser:(STSChatUser *)targetUser chatroom:(STSChat *)chatroom
                success:(void(^)())success failure:(void(^)(NSError * error))failure;
+
+/**
+ *  Update role for given memberId.
+ *
+ *  @param role         The role want to be updated for target user. Role can be either kSTSUserRoleNormal or kSTSUserRoleModerator only.
+ *  @param memberId     The CMS member id.
+ *  @param chatroom     The STSChat object you want to update user role.
+ *  @param success      Handler for successful request.
+ *  @param failure      Error handler.
+ */
+- (void)updateUserRole:(NSString *)role memberId:(NSString *)memberId chatroom:(STSChat *)chatroom
+               success:(void(^)())success failure:(void(^)(NSError * error))failure;
+
 /**
  *  Block users by current user. Only succeed when current user has the privilege.
  *
@@ -326,8 +339,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param chatroom      The STSChat object you want to get aggregated data.
  *  @param configuration A STSGetMessagesConfiguration object that specifies the request rules for getting messages.
- *  @param success       Handler for successful request. It takes an `NSArray` of `STSChatMessage`
- argument that contains chat room messages.
+ *  @param success       Handler for successful request. It takes an `NSArray` of `STSChatMessage` 
+                         argument that contains chat room messages.
  *  @param failure       Error handler.
  */
 - (void)getAggregatedDataForChatroom:(STSChat *)chatroom
@@ -341,7 +354,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param chatroom      The STSChat object you want to get raw data.
  *  @param configuration A STSGetMessagesConfiguration object that specifies the request rules for getting messages.
  *  @param success       Handler for successful request. It takes an `NSArray` of `STSChatMessage`
- argument that contains chat room messages.
+                         argument that contains chat room messages.
  *  @param failure       Error handler.
  */
 - (void)getRawDataForChatroom:(STSChat *)chatroom
