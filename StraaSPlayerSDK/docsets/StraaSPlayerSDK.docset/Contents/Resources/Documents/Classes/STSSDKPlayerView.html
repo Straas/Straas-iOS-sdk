@@ -319,6 +319,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(py)canShowLoadingIndicator"></a>
+                    <a name="//apple_ref/objc/Property/canShowLoadingIndicator" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(py)canShowLoadingIndicator">canShowLoadingIndicator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A boolean value indicates whether the player view is able to display the default loading indicator on loading.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">canShowLoadingIndicator</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">canShowLoadingIndicator</span><span class="p">:</span> <span class="kt">Int32</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)STSSDKPlayerView(py)videoScalingMode"></a>
                     <a name="//apple_ref/objc/Property/videoScalingMode" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)STSSDKPlayerView(py)videoScalingMode">videoScalingMode</a>
@@ -807,6 +839,59 @@ If the player view are not playing a playlist (e.g., playing a video or alive), 
                           <pre class="highlight"><code><span class="kd">func</span> <span class="nf">togglePlayPause</span><span class="p">()</span></code></pre>
 
                         </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(im)seekToTime:"></a>
+                    <a name="//apple_ref/objc/Method/-seekToTime:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(im)seekToTime:">-seekToTime:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the current playback time to the specified time.
+  This method won&rsquo;t work if the current playing media is a live.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">seekToTime</span><span class="p">:(</span><span class="kt">float</span><span class="p">)</span><span class="nv">timeInSeconds</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">seek</span><span class="p">(</span><span class="n">toTime</span> <span class="nv">timeInSeconds</span><span class="p">:</span> <span class="kt">Float</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>timeInSeconds</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The time to which to seek.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

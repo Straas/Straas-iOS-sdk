@@ -394,6 +394,138 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:mediaDurationChanged:"></a>
+                    <a name="//apple_ref/objc/Method/-playerView:mediaDurationChanged:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:mediaDurationChanged:">-playerView:mediaDurationChanged:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when the duration of the current media changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">playerView</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">playerView</span>
+    <span class="nf">mediaDurationChanged</span><span class="p">:(</span><span class="n">Float64</span><span class="p">)</span><span class="nv">duration</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">playerView</span><span class="p">(</span><span class="n">_</span> <span class="nv">playerView</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span><span class="o">!</span><span class="p">,</span> <span class="n">mediaDurationChanged</span> <span class="nv">duration</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playerView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player view that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>duration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new duration (in seconds) of the current media.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:mediaCurrentTimeChanged:"></a>
+                    <a name="//apple_ref/objc/Method/-playerView:mediaCurrentTimeChanged:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:mediaCurrentTimeChanged:">-playerView:mediaCurrentTimeChanged:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when the current time of the current media changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">playerView</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">playerView</span>
+    <span class="nf">mediaCurrentTimeChanged</span><span class="p">:(</span><span class="n">Float64</span><span class="p">)</span><span class="nv">currentTime</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">playerView</span><span class="p">(</span><span class="n">_</span> <span class="nv">playerView</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span><span class="o">!</span><span class="p">,</span> <span class="n">mediaCurrentTimeChanged</span> <span class="nv">currentTime</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playerView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player view that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>currentTime</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The curent time (in seconds) of the media.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
