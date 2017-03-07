@@ -85,6 +85,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSArray<NSLayoutConstraint *> * subviewLayoutConstraints;
 
 /**
+ *  The time interval (in seconds) to auto dismiss `containerView` after showing it. Defaults to three.
+ *  Set this property to zero if you don't want `containerView` to be auto dismissed.
+ *  `contrainerView` will be auto dismissed after given time interval only when the player is playing.
+ *  Note: If you update this property when `containerView` is visible, the new value will work the next time that `containerView` becomes visible.
+ */
+@property (nonatomic) NSUInteger containerViewDismissTimeInterval;
+
+/**
  *  A boolean value indicates whether the player control view is able to display the titleLabel.
  */
 @property (nonatomic) BOOL canShowTitleLabel;

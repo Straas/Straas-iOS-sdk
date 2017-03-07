@@ -53,6 +53,24 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)playerView:(STSSDKPlayerView *)playerView error:(NSError *)error;
 
+@optional
+
+/**
+ *  Called when the duration of the current media changed.
+ *
+ *  @param playerView The player view that sent the message.
+ *  @param duration   The new duration (in seconds) of the current media.
+ */
+- (void)playerView:(STSSDKPlayerView *)playerView mediaDurationChanged:(Float64)duration;
+
+/**
+ *  Called when the current time of the current media changed.
+ *
+ *  @param playerView  The player view that sent the message.
+ *  @param currentTime The curent time (in seconds) of the media.
+ */
+- (void)playerView:(STSSDKPlayerView *)playerView mediaCurrentTimeChanged:(Float64)currentTime;
+
 @end
 
 NS_ASSUME_NONNULL_END
