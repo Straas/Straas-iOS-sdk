@@ -80,6 +80,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL canShowErrorView;
 
 /**
+ *  A boolean value indicates whether the player view is able to display the default loading indicator on loading.
+ */
+@property (nonatomic) BOOL canShowLoadingIndicator;
+
+/**
  *  The scaling mode to use when displaying the video. The default value of this property is STSVideoScalingModeAspectFit. This property only works when current video is not 360-degree.
  */
 @property (nonatomic) STSVideoScalingMode videoScalingMode;
@@ -154,6 +159,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Toggle player between play and pause.
  */
 - (void)togglePlayPause;
+
+/**
+ *  Sets the current playback time to the specified time.
+ *  This method won't work if the current playing media is a live.
+ *
+ *  @param timeInSeconds The time to which to seek.
+ */
+- (void)seekToTime:(float)timeInSeconds;
 
 /**
  *  Gets the CCU of the currently playing live.
