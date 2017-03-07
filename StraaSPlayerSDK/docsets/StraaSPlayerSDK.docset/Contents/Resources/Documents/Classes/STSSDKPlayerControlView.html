@@ -478,6 +478,37 @@ Change this property to customize the layout of the playback controls and infos.
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)containerViewDismissTimeInterval"></a>
+                    <a name="//apple_ref/objc/Property/containerViewDismissTimeInterval" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)containerViewDismissTimeInterval">containerViewDismissTimeInterval</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The time interval (in seconds) to auto dismiss <code><a href="../Classes/STSSDKPlayerControlView.html#/c:objc(cs)STSSDKPlayerControlView(py)containerView">containerView</a></code> after showing it. Defaults to three.
+Set this property to zero if you don&rsquo;t want <code><a href="../Classes/STSSDKPlayerControlView.html#/c:objc(cs)STSSDKPlayerControlView(py)containerView">containerView</a></code> to be auto dismissed.
+<code>contrainerView</code> will be auto dismissed after given time interval only when the player is playing.
+Note: If you update this property when <code><a href="../Classes/STSSDKPlayerControlView.html#/c:objc(cs)STSSDKPlayerControlView(py)containerView">containerView</a></code> is visible, the new value will work the next time that <code><a href="../Classes/STSSDKPlayerControlView.html#/c:objc(cs)STSSDKPlayerControlView(py)containerView">containerView</a></code> becomes visible.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSUInteger</span> <span class="n">containerViewDismissTimeInterval</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)STSSDKPlayerControlView(py)canShowTitleLabel"></a>
                     <a name="//apple_ref/objc/Property/canShowTitleLabel" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)canShowTitleLabel">canShowTitleLabel</a>
