@@ -36,6 +36,9 @@
 @property (nonatomic, getter=hasUpdatedNickname) BOOL updatedNickname;
 @property (nonatomic) NSString * fakeName;
 
+//Custom view
+@property (nonatomic) UIActivityIndicatorView * indicator;
+@property (nonatomic) NSMutableArray * allLayoutConstraints;
 @end
 
 @interface STSChatMessage (FakeMsg)
@@ -74,10 +77,55 @@
     // Register a SLKTextView subclass, if you need any special appearance and/or behavior customisation.
     [self registerClassForTextView:[MessageTextView class]];
     _autoConnect = YES;
+    _shouldAddIndicatorView = YES;
+    _allLayoutConstraints = [NSMutableArray new];
 #if DEBUG_CUSTOM_TYPING_INDICATOR
     // Register a UIView subclass, conforming to SLKTypingIndicatorProtocol, to use a custom typing indicator view.
     [self registerClassForTypingIndicatorView:[TypingIndicatorView class]];
 #endif
+}
+
+- (void)addIndicatorView {
+    if (!_indicator) {
+        _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        _indicator.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    [self.view addSubview:_indicator];
+}
+
+- (void)addActivityIndicatorViewConstraints {
+    NSMutableArray * layoutConstraints = [NSMutableArray array];
+    NSLayoutConstraint * constraint;
+    constraint = [NSLayoutConstraint constraintWithItem:self.indicator
+                                              attribute:NSLayoutAttributeCenterX
+                                              relatedBy:NSLayoutRelationEqual
+                                                 toItem:self.view
+                                              attribute:NSLayoutAttributeCenterX
+                                             multiplier:1 constant:0];
+    [layoutConstraints addObject:constraint];
+    constraint = [NSLayoutConstraint constraintWithItem:self.indicator
+                                              attribute:NSLayoutAttributeCenterY
+                                              relatedBy:NSLayoutRelationEqual
+                                                 toItem:self.view
+                                              attribute:NSLayoutAttributeCenterY
+                                             multiplier:1 constant:0];
+    [layoutConstraints addObject:constraint];
+    constraint = [NSLayoutConstraint constraintWithItem:self.indicator
+                                              attribute:NSLayoutAttributeWidth
+                                              relatedBy:NSLayoutRelationEqual
+                                                 toItem:nil
+                                              attribute:NSLayoutAttributeNotAnAttribute
+                                             multiplier:1 constant:40];
+    [layoutConstraints addObject:constraint];
+    constraint = [NSLayoutConstraint constraintWithItem:self.indicator
+                                              attribute:NSLayoutAttributeHeight
+                                              relatedBy:NSLayoutRelationEqual
+                                                 toItem:nil
+                                              attribute:NSLayoutAttributeNotAnAttribute
+                                             multiplier:1 constant:40];
+    [layoutConstraints addObject:constraint];
+    [self.allLayoutConstraints addObjectsFromArray:layoutConstraints];
+    [NSLayoutConstraint activateConstraints:layoutConstraints];
 }
 
 - (void)disconnectCurrentChatIfNeeded {
@@ -90,6 +138,7 @@
     if (![JWT isEqualToString:self.JWT] || ![chatroomName isEqualToString:self.chatroomName] || connectionOptions != self.connectionOptions) {
         [self disconnectCurrentChatIfNeeded];
     }
+    [self.indicator startAnimating];
     self.JWT = JWT;
     self.chatroomName = chatroomName;
     self.connectionOptions = connectionOptions;
@@ -104,6 +153,8 @@
                                             JWT:JWT
                                         options:connectionOptions
                                   eventDelegate:weakSelf.eventDelegate];
+        } else {
+            [self.indicator stopAnimating];
         }
     }];
 }
@@ -126,6 +177,10 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.shouldScrollToBottomAfterKeyboardShows = NO;
     self.inverted = YES;
+    if (self.shouldAddIndicatorView) {
+        [self addIndicatorView];
+        [self addActivityIndicatorViewConstraints];
+    }
     [self showStickerButtonIfNeeded];
     [self.rightButton setTitle:NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
     [self.singleTapGesture addTarget:self action:@selector(didTapTableView)];
@@ -223,7 +278,7 @@
         [self.delegate chatStickerDidLoad:chatroom.stickers];
     }
     self.leftButton.userInteractionEnabled = YES;
-
+    [self.indicator stopAnimating];
     __weak ChatViewController * weakSelf = self;
     [self.manager getMessagesForChatroom:chatroom configuration:nil success:^(NSArray<STSChatMessage *> * _Nonnull messages) {
         [weakSelf.messages removeAllObjects];
@@ -258,7 +313,7 @@
     [self.messages insertObject:message atIndex:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:rowAnimation];
     [self.tableView endUpdates];
-
+    
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:scrollPosition animated:YES];
 
     // Fixes the cell from blinking (because of the transform, when using translucent cells)
@@ -293,7 +348,9 @@
 
 - (void)chatroom:(STSChat *)chatroom usersLeft:(NSArray<NSNumber *> *)userLabels {}
 - (void)chatroomUserCount:(STSChat *)chatroom {}
-- (void)chatroom:(STSChat *)chatroom failToConnect:(NSError *)error {}
+- (void)chatroom:(STSChat *)chatroom failToConnect:(NSError *)error {
+    [self.indicator stopAnimating];
+}
 - (void)chatroom:(STSChat *)chatroom error:(NSError *)error {}
 - (void)chatroom:(STSChat *)chatroom usersJoined:(NSArray<STSChatUser *> *)users {}
 - (void)chatroom:(STSChat *)chatroom aggregatedItemsAdded:(NSArray<STSAggregatedItem *> *)aggregatedItems {}

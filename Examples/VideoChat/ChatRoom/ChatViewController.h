@@ -60,6 +60,12 @@
 @property (nonatomic) BOOL autoConnect;
 
 /**
+ A boolean value indicates whether to add default activityIndicatorView at chatViewController's view.
+ Default is YES, if you want to add your custom loading view set it false.
+ */
+@property (nonatomic) BOOL shouldAddIndicatorView;
+
+/**
  The avatar image. Default is img-guest-photo.png.
  */
 @property (nonatomic) UIImage * avatarPlaceholderImage;
