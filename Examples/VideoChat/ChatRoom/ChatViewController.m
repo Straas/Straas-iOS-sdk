@@ -39,6 +39,10 @@
 //Custom view
 @property (nonatomic) UIActivityIndicatorView * indicator;
 @property (nonatomic) NSMutableArray * allLayoutConstraints;
+
+@property (nonatomic) NSMutableArray * cachedAddMessages;
+@property (nonatomic) NSMutableArray * cachedRemoveMessageIds;
+@property (nonatomic, weak) NSTimer * updateTableViewTimer;
 @end
 
 @interface STSChatMessage (FakeMsg)
@@ -76,6 +80,7 @@
 
     // Register a SLKTextView subclass, if you need any special appearance and/or behavior customisation.
     [self registerClassForTextView:[MessageTextView class]];
+    _refreshTableViewTimeInteval = 1.0;
     _autoConnect = YES;
     _shouldAddIndicatorView = YES;
     _allLayoutConstraints = [NSMutableArray new];
@@ -219,6 +224,20 @@
     return _messages;
 }
 
+- (NSMutableArray *)cachedAddMessages {
+    if (!_cachedAddMessages) {
+        _cachedAddMessages = [NSMutableArray array];
+    }
+    return _cachedAddMessages;
+}
+
+- (NSMutableArray *)cachedRemoveMessageIds {
+    if (!_cachedRemoveMessageIds) {
+        _cachedRemoveMessageIds = [NSMutableArray array];
+    }
+    return _cachedRemoveMessageIds;
+}
+
 - (STSChat *)currentChat {
     return [self.manager chatForChatroomName:self.chatroomName isPersonalChat:self.isPersonalChat];
 }
@@ -277,6 +296,7 @@
     if ([self.delegate respondsToSelector:@selector(chatStickerDidLoad:)]) {
         [self.delegate chatStickerDidLoad:chatroom.stickers];
     }
+    [self startUpdateTableViewTimer];
     self.leftButton.userInteractionEnabled = YES;
     [self.indicator stopAnimating];
     __weak ChatViewController * weakSelf = self;
@@ -305,35 +325,28 @@
 }
 
 - (void)chatroom:(STSChat *)chatroom messageAdded:(STSChatMessage *)message {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    UITableViewRowAnimation rowAnimation = self.inverted ? UITableViewRowAnimationBottom : UITableViewRowAnimationTop;
-    UITableViewScrollPosition scrollPosition = self.inverted ? UITableViewScrollPositionBottom : UITableViewScrollPositionTop;
-
-    [self.tableView beginUpdates];
-    [self.messages insertObject:message atIndex:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:rowAnimation];
-    [self.tableView endUpdates];
-    
-    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:scrollPosition animated:YES];
-
-    // Fixes the cell from blinking (because of the transform, when using translucent cells)
-    // See https://github.com/slackhq/SlackTextViewController/issues/94#issuecomment-69929927
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    if (!message) {
+        return;
+    }
+    [self.cachedAddMessages insertObject:message atIndex:0];
 }
 
 - (void)chatroom:(STSChat *)chatroom messageRemoved:(NSString *)messageId {
-    [self.messages enumerateObjectsUsingBlock:^(STSChatMessage * msg, NSUInteger index, BOOL * _Nonnull stop) {
+    if (!messageId) {
+        return;
+    }
+    __block BOOL deleteMesageFromCached = NO;
+    [self.cachedAddMessages enumerateObjectsUsingBlock:^(STSChatMessage * msg, NSUInteger index, BOOL * _Nonnull stop) {
         if ([msg.messageId isEqualToString:messageId]) {
-            NSIndexPath * indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-            UITableViewRowAnimation rowAnimation = self.inverted ? UITableViewRowAnimationBottom : UITableViewRowAnimationTop;
-            [self.tableView beginUpdates];
-            [self.messages removeObject:msg];
-            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:rowAnimation];
-            [self.tableView endUpdates];
+            [self.cachedAddMessages removeObject:msg];
+            deleteMesageFromCached = YES;
             * stop = YES;
             return;
         }
     }];
+    if (!deleteMesageFromCached) {
+        [self.cachedRemoveMessageIds addObject:messageId];
+    }
 }
 
 - (void)chatroomMessageFlushed:(STSChat *)chatroom {
@@ -341,9 +354,8 @@
     [self.tableView reloadData];
 }
 
-
 - (void)chatroomDisconnected:(STSChat *)chatroom {
-
+    [self cancelUpdateTableViewTimer];
 }
 
 - (void)chatroom:(STSChat *)chatroom usersLeft:(NSArray<NSNumber *> *)userLabels {}
@@ -618,6 +630,48 @@
     [self chatroom:self.currentChat messageAdded:fakeMsg];
 };
 
+#pragma mark - update tableView timer
+
+- (void)startUpdateTableViewTimer {
+    self.updateTableViewTimer = [NSTimer scheduledTimerWithTimeInterval:self.refreshTableViewTimeInteval
+                                                                 target:self
+                                                               selector:@selector(updateTabelViewTimerFired)
+                                                               userInfo:nil
+                                                                repeats:YES];
+}
+
+- (void)updateTabelViewTimerFired {
+    NSUInteger cachedAddMessagesCount = self.cachedAddMessages.count;
+    NSUInteger cachedRemoveMessageIdsCount = self.cachedRemoveMessageIds.count;
+    if (cachedAddMessagesCount == 0 && cachedRemoveMessageIdsCount == 0) {
+        return;
+    }
+    if (cachedAddMessagesCount != 0) {
+        NSIndexSet * indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, cachedAddMessagesCount)];
+        [self.messages insertObjects:self.cachedAddMessages atIndexes:indexSet];
+    }
+    for (NSString * messageId in self.cachedRemoveMessageIds) {
+        for (STSChatMessage * message in self.messages) {
+            if ([message.messageId isEqualToString:messageId]) {
+                [self.messages removeObject:message];
+                break;
+            }
+        }
+    }
+    [self.cachedAddMessages removeAllObjects];
+    [self.cachedRemoveMessageIds removeAllObjects];
+
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)cancelUpdateTableViewTimer {
+    if (!self.updateTableViewTimer) {
+        return;
+    }
+    [self.updateTableViewTimer invalidate];
+    self.updateTableViewTimer = nil;
+}
+
 #pragma mark - SLKTextViewDelegate Methods
 
 - (BOOL)textView:(SLKTextView *)textView shouldOfferFormattingForSymbol:(NSString *)symbol
@@ -765,6 +819,7 @@
 - (void)dealloc
 {
     [self.manager disconnectFromChatroom:self.currentChat];
+    [self cancelUpdateTableViewTimer];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

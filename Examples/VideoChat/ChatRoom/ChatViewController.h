@@ -66,6 +66,14 @@
 @property (nonatomic) BOOL shouldAddIndicatorView;
 
 /**
+ An NSTimeInterval value indicates how long to reload tableView.
+ Add message and remove message socket event will be cached in memory.
+ Those changes will be updated when next refresh time interval comes.
+ Default value is 1.0.
+ */
+@property (nonatomic) NSTimeInterval refreshTableViewTimeInteval;
+
+/**
  The avatar image. Default is img-guest-photo.png.
  */
 @property (nonatomic) UIImage * avatarPlaceholderImage;
