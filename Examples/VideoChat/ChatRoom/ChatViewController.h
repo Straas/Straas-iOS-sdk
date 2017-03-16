@@ -74,6 +74,12 @@
 @property (nonatomic) NSTimeInterval refreshTableViewTimeInteval;
 
 /**
+ An unsigned integer to limit the max number of cached messages.
+ Default is 500. 0 means unlimited.
+ */
+@property (nonatomic) NSUInteger maxMessagesCount;
+
+/**
  The avatar image. Default is img-guest-photo.png.
  */
 @property (nonatomic) UIImage * avatarPlaceholderImage;

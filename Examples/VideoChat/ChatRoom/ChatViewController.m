@@ -80,6 +80,7 @@
 
     // Register a SLKTextView subclass, if you need any special appearance and/or behavior customisation.
     [self registerClassForTextView:[MessageTextView class]];
+    _maxMessagesCount = 500;
     _refreshTableViewTimeInteval = 1.0;
     _autoConnect = YES;
     _shouldAddIndicatorView = YES;
@@ -660,7 +661,7 @@
     }
     [self.cachedAddMessages removeAllObjects];
     [self.cachedRemoveMessageIds removeAllObjects];
-
+    [self removeMessagesCachedIfNeeded];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
@@ -670,6 +671,16 @@
     }
     [self.updateTableViewTimer invalidate];
     self.updateTableViewTimer = nil;
+}
+
+- (void)removeMessagesCachedIfNeeded {
+    if (self.messages.count <= self.maxMessagesCount ||
+        self.maxMessagesCount == 0) {
+        return;
+    }
+    NSRange deleteRange = NSMakeRange(self.maxMessagesCount, self.messages.count - self.maxMessagesCount);
+    [self.messages removeObjectsInRange:deleteRange];
+
 }
 
 #pragma mark - SLKTextViewDelegate Methods
