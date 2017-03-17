@@ -40,8 +40,8 @@
 @property (nonatomic) UIActivityIndicatorView * indicator;
 @property (nonatomic) NSMutableArray * allLayoutConstraints;
 
-@property (nonatomic) NSMutableArray * cachedAddMessages;
-@property (nonatomic) NSMutableArray * cachedRemoveMessageIds;
+@property (nonatomic) NSMutableArray * cachedAddedMessages;
+@property (nonatomic) NSMutableArray * cachedRemovedMessageIds;
 @property (nonatomic, weak) NSTimer * updateTableViewTimer;
 @end
 
@@ -225,18 +225,18 @@
     return _messages;
 }
 
-- (NSMutableArray *)cachedAddMessages {
-    if (!_cachedAddMessages) {
-        _cachedAddMessages = [NSMutableArray array];
+- (NSMutableArray *)cachedAddedMessages {
+    if (!_cachedAddedMessages) {
+        _cachedAddedMessages = [NSMutableArray array];
     }
-    return _cachedAddMessages;
+    return _cachedAddedMessages;
 }
 
-- (NSMutableArray *)cachedRemoveMessageIds {
-    if (!_cachedRemoveMessageIds) {
-        _cachedRemoveMessageIds = [NSMutableArray array];
+- (NSMutableArray *)cachedRemovedMessageIds {
+    if (!_cachedRemovedMessageIds) {
+        _cachedRemovedMessageIds = [NSMutableArray array];
     }
-    return _cachedRemoveMessageIds;
+    return _cachedRemovedMessageIds;
 }
 
 - (STSChat *)currentChat {
@@ -329,7 +329,7 @@
     if (!message) {
         return;
     }
-    [self.cachedAddMessages insertObject:message atIndex:0];
+    [self.cachedAddedMessages insertObject:message atIndex:0];
 }
 
 - (void)chatroom:(STSChat *)chatroom messageRemoved:(NSString *)messageId {
@@ -337,16 +337,16 @@
         return;
     }
     __block BOOL deleteMesageFromCached = NO;
-    [self.cachedAddMessages enumerateObjectsUsingBlock:^(STSChatMessage * msg, NSUInteger index, BOOL * _Nonnull stop) {
+    [self.cachedAddedMessages enumerateObjectsUsingBlock:^(STSChatMessage * msg, NSUInteger index, BOOL * _Nonnull stop) {
         if ([msg.messageId isEqualToString:messageId]) {
-            [self.cachedAddMessages removeObject:msg];
+            [self.cachedAddedMessages removeObject:msg];
             deleteMesageFromCached = YES;
             * stop = YES;
             return;
         }
     }];
     if (!deleteMesageFromCached) {
-        [self.cachedRemoveMessageIds addObject:messageId];
+        [self.cachedRemovedMessageIds addObject:messageId];
     }
 }
 
@@ -647,16 +647,16 @@
 }
 
 - (void)updateTabelViewTimerFired {
-    NSUInteger cachedAddMessagesCount = self.cachedAddMessages.count;
-    NSUInteger cachedRemoveMessageIdsCount = self.cachedRemoveMessageIds.count;
-    if (cachedAddMessagesCount == 0 && cachedRemoveMessageIdsCount == 0) {
+    NSUInteger cachedAddedMessagesCount = self.cachedAddedMessages.count;
+    NSUInteger cachedRemovedMessageIdsCount = self.cachedRemovedMessageIds.count;
+    if (cachedAddedMessagesCount == 0 && cachedRemovedMessageIdsCount == 0) {
         return;
     }
-    if (cachedAddMessagesCount != 0) {
-        NSIndexSet * indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, cachedAddMessagesCount)];
-        [self.messages insertObjects:self.cachedAddMessages atIndexes:indexSet];
+    if (cachedAddedMessagesCount != 0) {
+        NSIndexSet * indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, cachedAddedMessagesCount)];
+        [self.messages insertObjects:self.cachedAddedMessages atIndexes:indexSet];
     }
-    for (NSString * messageId in self.cachedRemoveMessageIds) {
+    for (NSString * messageId in self.cachedRemovedMessageIds) {
         for (STSChatMessage * message in self.messages) {
             if ([message.messageId isEqualToString:messageId]) {
                 [self.messages removeObject:message];
@@ -664,8 +664,8 @@
             }
         }
     }
-    [self.cachedAddMessages removeAllObjects];
-    [self.cachedRemoveMessageIds removeAllObjects];
+    [self.cachedAddedMessages removeAllObjects];
+    [self.cachedRemovedMessageIds removeAllObjects];
     [self removeMessagesCachedIfNeeded];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
