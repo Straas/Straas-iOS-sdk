@@ -18,6 +18,7 @@
 #import "STSChatMessage+VideoChatUtility.h"
 #import "UIAlertController+VideoChatUtility.h"
 #import "STSChatUser+VieoChatUtility.h"
+#import "NSTimer+SafeTimer.h"
 
 #define DEBUG_CUSTOM_TYPING_INDICATOR 0
 
@@ -639,11 +640,10 @@
 #pragma mark - update tableView timer
 
 - (void)startUpdateTableViewTimer {
-    self.updateTableViewTimer = [NSTimer scheduledTimerWithTimeInterval:self.refreshTableViewTimeInteval
-                                                                 target:self
-                                                               selector:@selector(updateTabelViewTimerFired)
-                                                               userInfo:nil
-                                                                repeats:YES];
+    __weak ChatViewController * weakSelf = self;
+    self.updateTableViewTimer = [NSTimer safeScheduledTimerWithTimeInterval:weakSelf.refreshTableViewTimeInteval
+                                                                      block:^{[weakSelf updateTabelViewTimerFired];}
+                                                                    repeats:YES];
 }
 
 - (void)updateTabelViewTimerFired {
