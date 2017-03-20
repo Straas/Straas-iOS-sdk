@@ -92,12 +92,31 @@
 #endif
 }
 
-- (void)addIndicatorView {
+#pragma mark - indicator view.
+
+- (void)setShouldAddIndicatorView:(BOOL)shouldAddIndicatorView {
+    if (_shouldAddIndicatorView == shouldAddIndicatorView) {
+        return;
+    }
+    if (shouldAddIndicatorView) {
+        [self addIndicatorView];
+        [self addActivityIndicatorViewConstraints];
+    } else {
+        [self.indicator removeFromSuperview];
+    }
+    _shouldAddIndicatorView = shouldAddIndicatorView;
+}
+
+- (UIActivityIndicatorView *)indicator {
     if (!_indicator) {
         _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         _indicator.translatesAutoresizingMaskIntoConstraints = NO;
     }
-    [self.view addSubview:_indicator];
+    return _indicator;
+}
+
+- (void)addIndicatorView {
+    [self.view addSubview:self.indicator];
 }
 
 - (void)addActivityIndicatorViewConstraints {
