@@ -29,6 +29,7 @@
 		9B9A9BB31DC986670017F8C1 /* StickersInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B9A9BB21DC986670017F8C1 /* StickersInputView.xib */; };
 		9B9A9BB61DC98A650017F8C1 /* StickersInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9A9BB51DC98A650017F8C1 /* StickersInputView.m */; };
 		9B4E12FC1DE8027B00380A92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B4E12FB1DE8027B00380A92 /* Assets.xcassets */; };
+		9BB9B32F1E7C569C00245AB7 /* NSTimer+SafeTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB9B32E1E7C569C00245AB7 /* NSTimer+SafeTimer.m */; };
 		9BBEC54A1D813F1800387012 /* UIAlertController+VideoChatUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBEC5491D813F1800387012 /* UIAlertController+VideoChatUtility.m */; };
 		9BDC48BA1DD092A50095BF9B /* STSSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC48B91DD092A50095BF9B /* STSSegmentedControl.m */; };
 		FADDAF509351485C7AE9DE21 /* Pods_VideoChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C2739ECC5559476005727D /* Pods_VideoChat.framework */; };
@@ -78,6 +79,8 @@
 		9B9A9BB41DC98A650017F8C1 /* StickersInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickersInputView.h; sourceTree = "<group>"; };
 		9B9A9BB51DC98A650017F8C1 /* StickersInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickersInputView.m; sourceTree = "<group>"; };
 		9B4E12FB1DE8027B00380A92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9BB9B32D1E7C569C00245AB7 /* NSTimer+SafeTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+SafeTimer.h"; sourceTree = "<group>"; };
+		9BB9B32E1E7C569C00245AB7 /* NSTimer+SafeTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+SafeTimer.m"; sourceTree = "<group>"; };
 		9BBEC5481D813F1800387012 /* UIAlertController+VideoChatUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+VideoChatUtility.h"; sourceTree = "<group>"; };
 		9BBEC5491D813F1800387012 /* UIAlertController+VideoChatUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+VideoChatUtility.m"; sourceTree = "<group>"; };
 		9BDC48B81DD092A50095BF9B /* STSSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSSegmentedControl.h; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 				40A202341D77F93E00457359 /* MessageTextView.m */,
 				40A202351D77F93E00457359 /* TypingIndicatorView.h */,
 				40A202361D77F93E00457359 /* TypingIndicatorView.m */,
+				9BB9B32D1E7C569C00245AB7 /* NSTimer+SafeTimer.h */,
+				9BB9B32E1E7C569C00245AB7 /* NSTimer+SafeTimer.m */,
 			);
 			path = ChatRoom;
 			sourceTree = "<group>";
@@ -352,6 +357,7 @@
 				9B98A7B61E1E3ABA00E8CE7C /* ChatStickerExampleViewController.m in Sources */,
 				40A202371D77F93E00457359 /* ChatViewController.m in Sources */,
 				9B4310471DD32504002CD178 /* NSFileManager+Sticker.m in Sources */,
+				9BB9B32F1E7C569C00245AB7 /* NSTimer+SafeTimer.m in Sources */,
 				40A2023A1D77F93E00457359 /* TypingIndicatorView.m in Sources */,
 				40A202451D7804B400457359 /* STSChatMessage+VideoChatUtility.m in Sources */,
 				9B16870F1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.m in Sources */,

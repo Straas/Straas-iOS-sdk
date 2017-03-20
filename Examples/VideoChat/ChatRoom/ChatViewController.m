@@ -18,6 +18,7 @@
 #import "STSChatMessage+VideoChatUtility.h"
 #import "UIAlertController+VideoChatUtility.h"
 #import "STSChatUser+VieoChatUtility.h"
+#import "NSTimer+SafeTimer.h"
 
 #define DEBUG_CUSTOM_TYPING_INDICATOR 0
 
@@ -36,6 +37,13 @@
 @property (nonatomic, getter=hasUpdatedNickname) BOOL updatedNickname;
 @property (nonatomic) NSString * fakeName;
 
+//Custom view
+@property (nonatomic) UIActivityIndicatorView * indicator;
+@property (nonatomic) NSMutableArray * allLayoutConstraints;
+
+@property (nonatomic) NSMutableArray * cachedAddedMessages;
+@property (nonatomic) NSMutableArray * cachedRemovedMessageIds;
+@property (nonatomic, weak) NSTimer * updateTableViewTimer;
 @end
 
 @interface STSChatMessage (FakeMsg)
@@ -73,11 +81,77 @@
 
     // Register a SLKTextView subclass, if you need any special appearance and/or behavior customisation.
     [self registerClassForTextView:[MessageTextView class]];
+    _maxMessagesCount = 500;
+    _refreshTableViewTimeInteval = 1.0;
     _autoConnect = YES;
+    _shouldAddIndicatorView = YES;
+    _allLayoutConstraints = [NSMutableArray new];
 #if DEBUG_CUSTOM_TYPING_INDICATOR
     // Register a UIView subclass, conforming to SLKTypingIndicatorProtocol, to use a custom typing indicator view.
     [self registerClassForTypingIndicatorView:[TypingIndicatorView class]];
 #endif
+}
+
+#pragma mark - indicator view.
+
+- (void)setShouldAddIndicatorView:(BOOL)shouldAddIndicatorView {
+    if (_shouldAddIndicatorView == shouldAddIndicatorView) {
+        return;
+    }
+    if (shouldAddIndicatorView) {
+        [self addIndicatorView];
+        [self addActivityIndicatorViewConstraints];
+    } else {
+        [self.indicator removeFromSuperview];
+    }
+    _shouldAddIndicatorView = shouldAddIndicatorView;
+}
+
+- (UIActivityIndicatorView *)indicator {
+    if (!_indicator) {
+        _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        _indicator.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _indicator;
+}
+
+- (void)addIndicatorView {
+    [self.view addSubview:self.indicator];
+}
+
+- (void)addActivityIndicatorViewConstraints {
+    NSMutableArray * layoutConstraints = [NSMutableArray array];
+    NSLayoutConstraint * constraint;
+    constraint = [NSLayoutConstraint constraintWithItem:self.indicator
+                                              attribute:NSLayoutAttributeCenterX
+                                              relatedBy:NSLayoutRelationEqual
+                                                 toItem:self.view
+                                              attribute:NSLayoutAttributeCenterX
+                                             multiplier:1 constant:0];
+    [layoutConstraints addObject:constraint];
+    constraint = [NSLayoutConstraint constraintWithItem:self.indicator
+                                              attribute:NSLayoutAttributeCenterY
+                                              relatedBy:NSLayoutRelationEqual
+                                                 toItem:self.view
+                                              attribute:NSLayoutAttributeCenterY
+                                             multiplier:1 constant:0];
+    [layoutConstraints addObject:constraint];
+    constraint = [NSLayoutConstraint constraintWithItem:self.indicator
+                                              attribute:NSLayoutAttributeWidth
+                                              relatedBy:NSLayoutRelationEqual
+                                                 toItem:nil
+                                              attribute:NSLayoutAttributeNotAnAttribute
+                                             multiplier:1 constant:40];
+    [layoutConstraints addObject:constraint];
+    constraint = [NSLayoutConstraint constraintWithItem:self.indicator
+                                              attribute:NSLayoutAttributeHeight
+                                              relatedBy:NSLayoutRelationEqual
+                                                 toItem:nil
+                                              attribute:NSLayoutAttributeNotAnAttribute
+                                             multiplier:1 constant:40];
+    [layoutConstraints addObject:constraint];
+    [self.allLayoutConstraints addObjectsFromArray:layoutConstraints];
+    [NSLayoutConstraint activateConstraints:layoutConstraints];
 }
 
 - (void)disconnectCurrentChatIfNeeded {
@@ -90,6 +164,7 @@
     if (![JWT isEqualToString:self.JWT] || ![chatroomName isEqualToString:self.chatroomName] || connectionOptions != self.connectionOptions) {
         [self disconnectCurrentChatIfNeeded];
     }
+    [self.indicator startAnimating];
     self.JWT = JWT;
     self.chatroomName = chatroomName;
     self.connectionOptions = connectionOptions;
@@ -104,6 +179,8 @@
                                             JWT:JWT
                                         options:connectionOptions
                                   eventDelegate:weakSelf.eventDelegate];
+        } else {
+            [self.indicator stopAnimating];
         }
     }];
 }
@@ -126,6 +203,10 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.shouldScrollToBottomAfterKeyboardShows = NO;
     self.inverted = YES;
+    if (self.shouldAddIndicatorView) {
+        [self addIndicatorView];
+        [self addActivityIndicatorViewConstraints];
+    }
     [self showStickerButtonIfNeeded];
     [self.rightButton setTitle:NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
     [self.singleTapGesture addTarget:self action:@selector(didTapTableView)];
@@ -162,6 +243,20 @@
         _messages = [NSMutableArray array];
     }
     return _messages;
+}
+
+- (NSMutableArray *)cachedAddedMessages {
+    if (!_cachedAddedMessages) {
+        _cachedAddedMessages = [NSMutableArray array];
+    }
+    return _cachedAddedMessages;
+}
+
+- (NSMutableArray *)cachedRemovedMessageIds {
+    if (!_cachedRemovedMessageIds) {
+        _cachedRemovedMessageIds = [NSMutableArray array];
+    }
+    return _cachedRemovedMessageIds;
 }
 
 - (STSChat *)currentChat {
@@ -222,8 +317,9 @@
     if ([self.delegate respondsToSelector:@selector(chatStickerDidLoad:)]) {
         [self.delegate chatStickerDidLoad:chatroom.stickers];
     }
+    [self startUpdateTableViewTimer];
     self.leftButton.userInteractionEnabled = YES;
-
+    [self.indicator stopAnimating];
     __weak ChatViewController * weakSelf = self;
     [self.manager getMessagesForChatroom:chatroom configuration:nil success:^(NSArray<STSChatMessage *> * _Nonnull messages) {
         [weakSelf.messages removeAllObjects];
@@ -250,35 +346,28 @@
 }
 
 - (void)chatroom:(STSChat *)chatroom messageAdded:(STSChatMessage *)message {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    UITableViewRowAnimation rowAnimation = self.inverted ? UITableViewRowAnimationBottom : UITableViewRowAnimationTop;
-    UITableViewScrollPosition scrollPosition = self.inverted ? UITableViewScrollPositionBottom : UITableViewScrollPositionTop;
-
-    [self.tableView beginUpdates];
-    [self.messages insertObject:message atIndex:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:rowAnimation];
-    [self.tableView endUpdates];
-
-    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:scrollPosition animated:YES];
-
-    // Fixes the cell from blinking (because of the transform, when using translucent cells)
-    // See https://github.com/slackhq/SlackTextViewController/issues/94#issuecomment-69929927
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    if (!message) {
+        return;
+    }
+    [self.cachedAddedMessages insertObject:message atIndex:0];
 }
 
 - (void)chatroom:(STSChat *)chatroom messageRemoved:(NSString *)messageId {
-    [self.messages enumerateObjectsUsingBlock:^(STSChatMessage * msg, NSUInteger index, BOOL * _Nonnull stop) {
+    if (!messageId) {
+        return;
+    }
+    __block BOOL deleteMesageFromCached = NO;
+    [self.cachedAddedMessages enumerateObjectsUsingBlock:^(STSChatMessage * msg, NSUInteger index, BOOL * _Nonnull stop) {
         if ([msg.messageId isEqualToString:messageId]) {
-            NSIndexPath * indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-            UITableViewRowAnimation rowAnimation = self.inverted ? UITableViewRowAnimationBottom : UITableViewRowAnimationTop;
-            [self.tableView beginUpdates];
-            [self.messages removeObject:msg];
-            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:rowAnimation];
-            [self.tableView endUpdates];
+            [self.cachedAddedMessages removeObject:msg];
+            deleteMesageFromCached = YES;
             * stop = YES;
             return;
         }
     }];
+    if (!deleteMesageFromCached) {
+        [self.cachedRemovedMessageIds addObject:messageId];
+    }
 }
 
 - (void)chatroomMessageFlushed:(STSChat *)chatroom {
@@ -286,14 +375,15 @@
     [self.tableView reloadData];
 }
 
-
 - (void)chatroomDisconnected:(STSChat *)chatroom {
-
+    [self cancelUpdateTableViewTimer];
 }
 
 - (void)chatroom:(STSChat *)chatroom usersLeft:(NSArray<NSNumber *> *)userLabels {}
 - (void)chatroomUserCount:(STSChat *)chatroom {}
-- (void)chatroom:(STSChat *)chatroom failToConnect:(NSError *)error {}
+- (void)chatroom:(STSChat *)chatroom failToConnect:(NSError *)error {
+    [self.indicator stopAnimating];
+}
 - (void)chatroom:(STSChat *)chatroom error:(NSError *)error {}
 - (void)chatroom:(STSChat *)chatroom usersJoined:(NSArray<STSChatUser *> *)users {}
 - (void)chatroom:(STSChat *)chatroom aggregatedItemsAdded:(NSArray<STSAggregatedItem *> *)aggregatedItems {}
@@ -378,6 +468,10 @@
     }
     if (self.delegate) {
         [self.leftButton setImage:self.stickerInputButtonImage forState:UIControlStateNormal];
+    }
+    if (!messageText) {
+        [super didPressRightButton:sender];
+        return;
     }
     if ([currentUser.role isEqualToString:kSTSUserRoleBlocked]) {
         [self addFakeMessage:messageText type:STSChatMessageTypeText imageURL:nil];
@@ -514,12 +608,12 @@
                                           [weakSelf updateTextViewForChatroom:weakSelf.currentChat];
                                           NSLog(@"update nickname success");
                                       } failure:^(NSError * _Nonnull error) {
-                                          STSChatUser * currentUser = [self.manager currentUserForChatroom:self.currentChat];
+                                          STSChatUser * currentUser = [weakSelf.manager currentUserForChatroom:weakSelf.currentChat];
                                           if ([currentUser.role isEqualToString:kSTSUserRoleBlocked]) {
                                               weakSelf.updatedNickname = YES;
                                               [weakSelf.textView becomeFirstResponder];
                                               [weakSelf updateTextViewForChatroom:weakSelf.currentChat];
-                                              self.fakeName = nickName;
+                                              weakSelf.fakeName = nickName;
                                               return;
                                           }
                                           UIAlertController * failureController =
@@ -530,7 +624,9 @@
                                           NSLog(@"update nickname failure with error: %@", error);
                                       }];
     };
-    UIAlertController * alertController = [UIAlertController nicknameAlertControllerWithCurrentNickname:weakSelf.currentUsername cancelActionHandler:cancelHander confirmActionHandler:confirmHander];
+    UIAlertController * alertController = [UIAlertController nicknameAlertControllerWithCurrentNickname:weakSelf.currentUsername
+                                                                                    cancelActionHandler:cancelHander
+                                                                                   confirmActionHandler:confirmHander];
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
@@ -551,6 +647,7 @@
     strDate = [strDate stringByReplacingCharactersInRange:NSMakeRange(10, 1) withString:@"T"];
     NSString * avatar = currentUser.avatar ? : @"";
     NSString * fakeName = (self.JWT.length == 0) ? self.fakeName : currentUser.name;
+    fakeName = fakeName ? fakeName : @"";
     NSDictionary * fakeJson = @{@"text":fakeMessage,
                                 @"createdDate": strDate,
                                 @"creator": @{@"name":fakeName,
@@ -560,6 +657,57 @@
     fakeMsg.stickerURL = imageURL ? [NSURL URLWithString:imageURL]: nil;
     [self chatroom:self.currentChat messageAdded:fakeMsg];
 };
+
+#pragma mark - update tableView timer
+
+- (void)startUpdateTableViewTimer {
+    __weak ChatViewController * weakSelf = self;
+    self.updateTableViewTimer = [NSTimer safeScheduledTimerWithTimeInterval:weakSelf.refreshTableViewTimeInteval
+                                                                      block:^{[weakSelf updateTabelViewTimerFired];}
+                                                                    repeats:YES];
+}
+
+- (void)updateTabelViewTimerFired {
+    NSUInteger cachedAddedMessagesCount = self.cachedAddedMessages.count;
+    NSUInteger cachedRemovedMessageIdsCount = self.cachedRemovedMessageIds.count;
+    if (cachedAddedMessagesCount == 0 && cachedRemovedMessageIdsCount == 0) {
+        return;
+    }
+    if (cachedAddedMessagesCount != 0) {
+        NSIndexSet * indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, cachedAddedMessagesCount)];
+        [self.messages insertObjects:self.cachedAddedMessages atIndexes:indexSet];
+    }
+    for (NSString * messageId in self.cachedRemovedMessageIds) {
+        for (STSChatMessage * message in self.messages) {
+            if ([message.messageId isEqualToString:messageId]) {
+                [self.messages removeObject:message];
+                break;
+            }
+        }
+    }
+    [self.cachedAddedMessages removeAllObjects];
+    [self.cachedRemovedMessageIds removeAllObjects];
+    [self removeMessagesCachedIfNeeded];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)cancelUpdateTableViewTimer {
+    if (!self.updateTableViewTimer) {
+        return;
+    }
+    [self.updateTableViewTimer invalidate];
+    self.updateTableViewTimer = nil;
+}
+
+- (void)removeMessagesCachedIfNeeded {
+    if (self.messages.count <= self.maxMessagesCount ||
+        self.maxMessagesCount == 0) {
+        return;
+    }
+    NSRange deleteRange = NSMakeRange(self.maxMessagesCount, self.messages.count - self.maxMessagesCount);
+    [self.messages removeObjectsInRange:deleteRange];
+
+}
 
 #pragma mark - SLKTextViewDelegate Methods
 
@@ -708,6 +856,7 @@
 - (void)dealloc
 {
     [self.manager disconnectFromChatroom:self.currentChat];
+    [self cancelUpdateTableViewTimer];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
