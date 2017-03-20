@@ -589,12 +589,12 @@
                                           [weakSelf updateTextViewForChatroom:weakSelf.currentChat];
                                           NSLog(@"update nickname success");
                                       } failure:^(NSError * _Nonnull error) {
-                                          STSChatUser * currentUser = [self.manager currentUserForChatroom:self.currentChat];
+                                          STSChatUser * currentUser = [weakSelf.manager currentUserForChatroom:weakSelf.currentChat];
                                           if ([currentUser.role isEqualToString:kSTSUserRoleBlocked]) {
                                               weakSelf.updatedNickname = YES;
                                               [weakSelf.textView becomeFirstResponder];
                                               [weakSelf updateTextViewForChatroom:weakSelf.currentChat];
-                                              self.fakeName = nickName;
+                                              weakSelf.fakeName = nickName;
                                               return;
                                           }
                                           UIAlertController * failureController =
@@ -605,7 +605,9 @@
                                           NSLog(@"update nickname failure with error: %@", error);
                                       }];
     };
-    UIAlertController * alertController = [UIAlertController nicknameAlertControllerWithCurrentNickname:weakSelf.currentUsername cancelActionHandler:cancelHander confirmActionHandler:confirmHander];
+    UIAlertController * alertController = [UIAlertController nicknameAlertControllerWithCurrentNickname:weakSelf.currentUsername
+                                                                                    cancelActionHandler:cancelHander
+                                                                                   confirmActionHandler:confirmHander];
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
