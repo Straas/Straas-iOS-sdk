@@ -387,7 +387,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get chat room messages.</p>
+                        <p>Get chat room messages.
+  Note: If there are over 5000 ccu in the chatroom, this method will return an empty array.</p>
 
                       </div>
                       <div class="declaration">
@@ -982,7 +983,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Send chat message.</p>
+                        <p>Send message to chatroom. 
+  Note: Call this method more than once a second is not allowed.</p>
 
                       </div>
                       <div class="declaration">
@@ -1682,7 +1684,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Handler for successful request. It takes an <code>NSArray</code> of <code>STSChatMessage</code>
+                                  <p>Handler for successful request. It takes an <code>NSArray</code> of <code>STSChatMessage</code> 
                   argument that contains chat room messages.</p>
 
                                 </div>
