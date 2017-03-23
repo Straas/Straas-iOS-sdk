@@ -182,5 +182,28 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSNumber * _Nullable)hitCountOfCurrentlyPlayingLive;
 
+/**
+ *  Get the quality names of the current playing media (Live or VOD).
+ *
+ *  @return The name of the available qualities.
+ */
+- (NSArray * _Nullable)availableQualityNames;
+
+/**
+ *  Get the current selected quality name of the playing media (Live or VOD).
+ *
+ *  @return The name of the current selected quality.
+ */
+- (NSString * _Nullable)currentQualityName;
+
+/**
+ *  Switch player to the given media quality.
+ *  Note: Load a new media will reset the media quality to "auto".
+ *
+ *  @param qualityName The name of the media quality you want switch to.
+ *  @return YES if the media quality did change to the target quality; otherwise, NO.
+ */
+- (BOOL)setMediaQuality:(NSString *)qualityName;
+
 @end
 NS_ASSUME_NONNULL_END

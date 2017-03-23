@@ -12,6 +12,7 @@
 #import "STSStreamingState.h"
 #import "STSStreamingLiveEventConfig.h"
 #import "STSStreamingPrepareConfig.h"
+#import <DSGPUImage/GPUImageFramework.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -63,6 +64,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly, nullable) NSString * currentStreamingLiveId;
 
+/**
+ *  The filter for the output video.
+ */
+@property (nonatomic, nullable) GPUImageFilter * filter;
+
+/**
+ *  A boolean valule indicates whether the default beauty filter is enabled. Defaults to YES.
+ */
+@property (nonatomic) BOOL enableDefaultBeautyFilter;
 
 /// :nodoc:
 + (instancetype)new __attribute__((unavailable("new not available, call `streamingManagerWithJWT:` instead.")));

@@ -176,6 +176,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Get chat room messages.
+ *  Note: If there are over 5000 ccu in the chatroom, this method will return an empty array.
  *
  *  @param chatroom      The STSChat object you want to get messages.
  *  @param configuration A STSGetMessagesConfiguration object that specifies the request rules for getting messages.
@@ -246,7 +247,8 @@ NS_ASSUME_NONNULL_BEGIN
             success:(void(^)())success failure:(void(^)(NSError * error))failure;
 
 /**
- *  Send chat message.
+ *  Send message to chatroom. 
+ *  Note: Call this method more than once a second is not allowed.
  *
  *  @param message      Message text. Should be between 1~300 characters.
  *  @param chatroom     The STSChat object you want to send message.
