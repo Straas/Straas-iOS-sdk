@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		xqaNSuwWugMJYgaKGEpywlM0o8A=
+		0ukSNmNKQIBrf9P4KVKWySv/72Y=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -20,21 +20,29 @@
 		<data>
 		kACUbBSJORmLX4A74mJzm9V39aw=
 		</data>
+		<key>Headers/STSLiveBroadcastState.h</key>
+		<data>
+		XOU1IjgQ03t2blXjJ83CE47hedw=
+		</data>
+		<key>Headers/STSLiveEventListener.h</key>
+		<data>
+		dcWgyRKCWKHdGyWy+F38mRqTUgQ=
+		</data>
 		<key>Headers/STSPagination.h</key>
 		<data>
 		MttK+pfMNPMO6W0WWgoCO62lvIY=
 		</data>
 		<key>Headers/STSPlayerErrorCode.h</key>
 		<data>
-		peCNoblUrLtpRZNi1yWBEsuCdA8=
+		WlZelms3YOUfgc0ScSs9OeGRqZQ=
 		</data>
 		<key>Headers/STSPlayerLiveEventDelegate.h</key>
 		<data>
-		hG1P0Vf48OR+3bfm7VVYQmhsbCM=
+		YoRjYt5J66/28M7XsPQYm0bYGsc=
 		</data>
 		<key>Headers/STSPlayerPlaybackEventDelegate.h</key>
 		<data>
-		6d3i5fmwPkfaMN1lkwqFBGRqgQs=
+		Tf5EfNc8+9SPUTxiRy+Tjv4e7EY=
 		</data>
 		<key>Headers/STSPlayerPlaylistEventDelegate.h</key>
 		<data>
@@ -58,7 +66,7 @@
 		</data>
 		<key>Headers/STSSDKPlayerView.h</key>
 		<data>
-		SmsHVtfq9sLJCfBQPhVb2a7upD8=
+		quTv+JM6kteLuv7GWbQgOnpJWL4=
 		</data>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
 		<data>
@@ -82,11 +90,11 @@
 		</data>
 		<key>Headers/StraaSPlayerSDK.h</key>
 		<data>
-		9VQrYbBut42G8TETG0QWPAuh+dE=
+		p+t1hkR407HicN+zs4+Md1KOx9o=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		tRahrVeqQzU7kPYloyW5rNEvwOY=
+		wvZ7VVK5KXdgF0tQ9i84mrZicO0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -125,11 +133,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xqaNSuwWugMJYgaKGEpywlM0o8A=
+			0ukSNmNKQIBrf9P4KVKWySv/72Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			tTZGg0eWYID2fnwrwFPaMqxXTmnidZDJEOdgImOQmTo=
+			8+5hfufJFGxfUVWCgOfaNtVqvaAv8mfNSvSERzIF710=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -165,6 +173,28 @@
 			Qk7yADbpmjeWMKzGuWhhc37E6ZhEAP8ZoQecZHH+Jr0=
 			</data>
 		</dict>
+		<key>Headers/STSLiveBroadcastState.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XOU1IjgQ03t2blXjJ83CE47hedw=
+			</data>
+			<key>hash2</key>
+			<data>
+			/qtNRKcAI0SaZUdkFVBi2jPSeV6302ge8Yj1IcGs96Q=
+			</data>
+		</dict>
+		<key>Headers/STSLiveEventListener.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dcWgyRKCWKHdGyWy+F38mRqTUgQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			zqx/Qx4v19EtPBLDtenAbPJaU2/G0sHiAPjKmyIWIlQ=
+			</data>
+		</dict>
 		<key>Headers/STSPagination.h</key>
 		<dict>
 			<key>hash</key>
@@ -180,33 +210,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			peCNoblUrLtpRZNi1yWBEsuCdA8=
+			WlZelms3YOUfgc0ScSs9OeGRqZQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			TbQogslsxj9yEAl2M25NAn9EJDgSzjQzfpsrS0llKgE=
+			7XuNS2Nk43HIl+yFhnVhrxcU7wuZrZit20qQH+cDx+M=
 			</data>
 		</dict>
 		<key>Headers/STSPlayerLiveEventDelegate.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hG1P0Vf48OR+3bfm7VVYQmhsbCM=
+			YoRjYt5J66/28M7XsPQYm0bYGsc=
 			</data>
 			<key>hash2</key>
 			<data>
-			woZYXie/9gpjZZukiIt4vY3GTPfom2Y4FtrMogwSMZw=
+			OX+1B8qlYQo+y/cmThjJ9ZvFmmBtHuu+ndwJYhVRQco=
 			</data>
 		</dict>
 		<key>Headers/STSPlayerPlaybackEventDelegate.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6d3i5fmwPkfaMN1lkwqFBGRqgQs=
+			Tf5EfNc8+9SPUTxiRy+Tjv4e7EY=
 			</data>
 			<key>hash2</key>
 			<data>
-			WVfvwRMtLeY8bitYu1c01Dhrt9RwYz8kOgIJFZWvjHQ=
+			3P98n9wFoA357AjPI8o2ABUhiQIlv1Z4UyEyoYpaKYg=
 			</data>
 		</dict>
 		<key>Headers/STSPlayerPlaylistEventDelegate.h</key>
@@ -268,11 +298,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SmsHVtfq9sLJCfBQPhVb2a7upD8=
+			quTv+JM6kteLuv7GWbQgOnpJWL4=
 			</data>
 			<key>hash2</key>
 			<data>
-			iP4NAKbnSE+QzJ/NkXMze3Ed5vOciqLyAFzfMhC4d8E=
+			CaGIOw5qatGuNNR2JbWWpUl0WHNd6v55Xo6AEpe/lT0=
 			</data>
 		</dict>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
@@ -334,11 +364,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9VQrYbBut42G8TETG0QWPAuh+dE=
+			p+t1hkR407HicN+zs4+Md1KOx9o=
 			</data>
 			<key>hash2</key>
 			<data>
-			5JdkvP7gLp/KNbReOz9dZuz7yqzp7wipX1JtVp3E+BM=
+			xCF2pHvR8C0NS0tfwqaN+kDasB33ZQbPkEg2QD+7k+M=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -22,11 +22,15 @@
 		</data>
 		<key>Headers/StraaSCoreSDK.h</key>
 		<data>
-		98DhKNUL2wnOm4XFiGqyGmwgtnE=
+		uYD0tO8hbietVOzLPDQ5TlwheaY=
+		</data>
+		<key>Headers/UIDevice+STSUtility.h</key>
+		<data>
+		nDZfKlFQ/NGiWJFRqHTF8Fp+o3M=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		0GEMLEN5+bQmh+SL8KXJwrd9hcQ=
+		d045pPunjlg9b7irt47cKJcypG4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -101,11 +105,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			98DhKNUL2wnOm4XFiGqyGmwgtnE=
+			uYD0tO8hbietVOzLPDQ5TlwheaY=
 			</data>
 			<key>hash2</key>
 			<data>
-			7wTrL0KUwDEs9nZjEo55+AZEuTjJBIo0IWVOAVsdZc4=
+			LAowVCsXxpAWc+MII2krkj7wSSI8ZdU+zXAmjkdIjgY=
+			</data>
+		</dict>
+		<key>Headers/UIDevice+STSUtility.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			nDZfKlFQ/NGiWJFRqHTF8Fp+o3M=
+			</data>
+			<key>hash2</key>
+			<data>
+			gZqrvNY1RNljHcXsEeR0vCgLZUH8jsTnJfr3MNm+8QA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

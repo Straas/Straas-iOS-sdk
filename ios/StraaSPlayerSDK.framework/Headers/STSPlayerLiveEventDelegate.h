@@ -9,6 +9,8 @@
 #ifndef STSPlayerLiveEventDelegate_h
 #define STSPlayerLiveEventDelegate_h
 
+#import "STSLiveBroadcastState.h"
+
 @class STSSDKPlayerView;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -34,28 +36,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)playerView:(STSSDKPlayerView *)playerView didLoadLive:(NSString *)liveId;
 
 /**
- *  Called when the stream of a live event starts.
+ *  Called when the broadcast state of the live changed.
  *
- *  @param playerView The player view that sent the message.
- *  @param liveId     The StraaS live id of the started live stream.
+ *  @param playerView     The player view that sent the message.
+ *  @param liveId         The StraaS live id of the live whose broadcast state changed.
+ *  @param broadcastState The new broadcast state of the live.
  */
-- (void)playerView:(STSSDKPlayerView *)playerView streamDidStart:(NSString *)liveId;
-
-/**
- *  Called when the stream of a live event stops.
- *
- *  @param playerView The player view that sent the message.
- *  @param liveId     The StraaS live id of the stopped live stream.
- */
-- (void)playerView:(STSSDKPlayerView *)playerView streamDidStop:(NSString *)liveId;
-
-/**
- *  Called when a live is waiting for stream.
- *
- *  @param playerView The player view that sent the message.
- *  @param liveId     The StraaS live id of the live event that is waiting for stream.
- */
-- (void)playerView:(STSSDKPlayerView *)playerView waitingForStream:(NSString *)liveId;
+- (void)playerView:(STSSDKPlayerView *)playerView live:(NSString *)liveId broadcastStateChanged:(STSLiveBroadcastState)broadcastState;
 
 @optional
 
@@ -76,6 +63,33 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param hitCount   Current hit count of the live event;
  */
 - (void)playerView:(STSSDKPlayerView *)playerView liveHitCountChanged:(NSString *)liveId value:(NSNumber *)hitCount;
+
+/**
+ *  Called when the stream of a live event starts.
+ *  This method has been deprecated. Use `playerView:live:broadcastStateChanged:` instead.
+ *
+ *  @param playerView The player view that sent the message.
+ *  @param liveId     The StraaS live id of the started live stream.
+ */
+- (void)playerView:(STSSDKPlayerView *)playerView streamDidStart:(NSString *)liveId __attribute__((deprecated("`playerView:streamDidStart:` has been deprecated. Use `playerView:live:broadcastStateChanged:` instead.")));
+
+/**
+ *  Called when the stream of a live event stops.
+ *  This method has been deprecated. Use `playerView:live:broadcastStateChanged:` instead.
+ *
+ *  @param playerView The player view that sent the message.
+ *  @param liveId     The StraaS live id of the stopped live stream.
+ */
+- (void)playerView:(STSSDKPlayerView *)playerView streamDidStop:(NSString *)liveId __attribute__((deprecated("`playerView:streamDidStop:` has been deprecated. Use `playerView:live:broadcastStateChanged:` instead.")));
+
+/**
+ *  Called when a live is waiting for stream.
+ *  This method has been deprecated. Use `playerView:live:broadcastStateChanged:` instead.
+ *
+ *  @param playerView The player view that sent the message.
+ *  @param liveId     The StraaS live id of the live event that is waiting for stream.
+ */
+- (void)playerView:(STSSDKPlayerView *)playerView waitingForStream:(NSString *)liveId __attribute__((deprecated("`playerView:waitingForStream:` has been deprecated. Use `playerView:live:broadcastStateChanged:` instead.")));
 
 @end
 
