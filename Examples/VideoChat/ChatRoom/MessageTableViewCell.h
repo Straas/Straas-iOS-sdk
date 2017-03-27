@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IconLabel.h"
 
 static CGFloat kMessageTableViewCellAvatarHeight = 40.0;
 
@@ -17,7 +18,7 @@ static NSString *AutoCompletionCellIdentifier = @"AutoCompletionCell";
 
 @interface MessageTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) IconLabel *titleLabel;
 @property (nonatomic, strong) UILabel *sideLabel;
 @property (nonatomic, strong) UILabel *bodyLabel;
 @property (nonatomic, strong) UIImageView *thumbnailView;
