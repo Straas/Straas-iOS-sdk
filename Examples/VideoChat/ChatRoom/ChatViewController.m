@@ -885,6 +885,19 @@
     } else {
         cell.thumbnailView.image = self.avatarPlaceholderImage;
     }
+    NSString * creatorRole = message.creator.role;
+    if ([creatorRole isEqualToString:kSTSUserRoleNormal] ||
+        [creatorRole isEqualToString:kSTSUserRoleBlocked]) {
+        [cell.titleLabel setIconImage:nil];
+        cell.titleLabel.textColor = [UIColor blackColor];
+    } else if ([creatorRole isEqualToString:kSTSUserRoleMaster]) {
+        [cell.titleLabel setIconImage:[UIImage imageNamed:@"ic_host_chatroom"]];
+        cell.titleLabel.textColor = [UIColor colorWithRed:242.0/255.0 green:154.0/255.0 blue:11.0/255.0 alpha:1];
+    } else {
+        [cell.titleLabel setIconImage:[UIImage imageNamed:@"ic_moderator_chatroom"]];
+        cell.titleLabel.textColor = [UIColor colorWithRed:123.0/255.0 green:75.0/255.0 blue:163.0/255.0 alpha:1];
+    }
+    
     cell.titleLabel.text = message.creator.name;
     cell.sideLabel.text = message.shortCreatedDate;
     cell.bodyLabel.text = message.text;
