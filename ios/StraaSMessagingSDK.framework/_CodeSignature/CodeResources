@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/STSChatManager.h</key>
 		<data>
-		hI7mJmDa9GsfatXSw+WaNbEXIA0=
+		yhuDMM6Q1hPtlK+0eLlzFM/ZUHs=
 		</data>
 		<key>Headers/STSChatMessage.h</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		UYJBFgZVXELYbC9cU2raKQMD5SI=
+		uR7Lj5NCaUK4u4MFpfd9x84EqD4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -122,11 +122,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hI7mJmDa9GsfatXSw+WaNbEXIA0=
+			yhuDMM6Q1hPtlK+0eLlzFM/ZUHs=
 			</data>
 			<key>hash2</key>
 			<data>
-			vkd/o67XDO2tny+1Pr44pQ5Qp+oMAtyk24kQe9Tb+7s=
+			XLspg5jaZtnvfdDf6LzUCYCIP4zx+LY6MknxbkCPrrM=
 			</data>
 		</dict>
 		<key>Headers/STSChatMessage.h</key>
@@ -284,6 +284,11 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
+		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -328,6 +333,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>

@@ -64,11 +64,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSString * projection;
 
 /**
- *  Indicates whether the video is free of not.
- */
-@property (nonatomic, readonly) BOOL free;
-
-/**
  *  The total views count.
  *  This property is deprecated. Use `playCountSum` instead.
  */

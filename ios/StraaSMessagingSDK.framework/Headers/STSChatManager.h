@@ -347,7 +347,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)getAggregatedDataForChatroom:(STSChat *)chatroom
                        configuration:(STSGetMessagesConfiguration * _Nullable)configuration
-                             success:(void(^)(NSArray<STSAggregatedData *> * messages))success
+                             success:(void(^)(NSArray<STSAggregatedData *> * arrayAggregatedData))success
                              failure:(void(^)(NSError * error))failure;
 
 /**
@@ -361,7 +361,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)getRawDataForChatroom:(STSChat *)chatroom
                 configuration:(STSGetMessagesConfiguration * _Nullable)configuration
-                      success:(void(^)(NSArray<STSAggregatedData *> * aggregatedData))success
+                      success:(void(^)(NSArray<STSChatMessage *> * arrayRawData))success
                       failure:(void(^)(NSError * error))failure;
 
 @end
