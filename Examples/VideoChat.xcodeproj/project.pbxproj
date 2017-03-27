@@ -30,6 +30,7 @@
 		9B9A9BB61DC98A650017F8C1 /* StickersInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9A9BB51DC98A650017F8C1 /* StickersInputView.m */; };
 		9B4E12FC1DE8027B00380A92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B4E12FB1DE8027B00380A92 /* Assets.xcassets */; };
 		9BB9B32F1E7C569C00245AB7 /* NSTimer+SafeTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB9B32E1E7C569C00245AB7 /* NSTimer+SafeTimer.m */; };
+		9BBCBDEA1E88B7D9006D3500 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9BBCBDEC1E88B7D9006D3500 /* Localizable.strings */; };
 		9BBEC54A1D813F1800387012 /* UIAlertController+VideoChatUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBEC5491D813F1800387012 /* UIAlertController+VideoChatUtility.m */; };
 		9BDC48BA1DD092A50095BF9B /* STSSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC48B91DD092A50095BF9B /* STSSegmentedControl.m */; };
 		FADDAF509351485C7AE9DE21 /* Pods_VideoChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C2739ECC5559476005727D /* Pods_VideoChat.framework */; };
@@ -81,6 +82,8 @@
 		9B4E12FB1DE8027B00380A92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BB9B32D1E7C569C00245AB7 /* NSTimer+SafeTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+SafeTimer.h"; sourceTree = "<group>"; };
 		9BB9B32E1E7C569C00245AB7 /* NSTimer+SafeTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+SafeTimer.m"; sourceTree = "<group>"; };
+		9BBCBDEB1E88B7D9006D3500 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9BBCBDED1E88B7DB006D3500 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9BBEC5481D813F1800387012 /* UIAlertController+VideoChatUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+VideoChatUtility.h"; sourceTree = "<group>"; };
 		9BBEC5491D813F1800387012 /* UIAlertController+VideoChatUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+VideoChatUtility.m"; sourceTree = "<group>"; };
 		9BDC48B81DD092A50095BF9B /* STSSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSSegmentedControl.h; sourceTree = "<group>"; };
@@ -193,6 +196,7 @@
 				9B133DD51DCAF4020082C269 /* UIImage+sticker.m */,
 				9B4310451DD32504002CD178 /* NSFileManager+Sticker.h */,
 				9B4310461DD32504002CD178 /* NSFileManager+Sticker.m */,
+				9BBCBDEC1E88B7D9006D3500 /* Localizable.strings */,
 			);
 			name = Stickers;
 			sourceTree = "<group>";
@@ -267,6 +271,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hant",
 			);
 			mainGroup = 40C779CE1D7091D0004F61CA;
 			productRefGroup = 40C779D81D7091D0004F61CA /* Products */;
@@ -284,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40C779ED1D7091D0004F61CA /* LaunchScreen.storyboard in Resources */,
+				9BBCBDEA1E88B7D9006D3500 /* Localizable.strings in Resources */,
 				9B9A9BB31DC986670017F8C1 /* StickersInputView.xib in Resources */,
 				40C779EA1D7091D0004F61CA /* Assets.xcassets in Resources */,
 				9B4E12FC1DE8027B00380A92 /* Assets.xcassets in Resources */,
@@ -386,6 +392,15 @@
 				40C779EC1D7091D0004F61CA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9BBCBDEC1E88B7D9006D3500 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BBCBDEB1E88B7D9006D3500 /* en */,
+				9BBCBDED1E88B7DB006D3500 /* zh-Hant */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

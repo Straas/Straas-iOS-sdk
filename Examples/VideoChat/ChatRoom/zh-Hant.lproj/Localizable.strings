@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  VideoChat
+
+  Created by Lee on 27/03/2017.
+  Copyright © 2017 StraaS.io. All rights reserved.
+*/
+
+"encourage_to_chat" = "跟主播說些話，讓他/她知道你來了";
+
+"enter_nickname" = "請輸入訪客名稱";
+
+"jump_to_lastest_message" = "跳至新訊息";
+
+"plz_signin" = "需登入後才可發言";
+
+"Send" = "送出";
+
+"input_hint" = "輸入訊息...";
+
+"update_nickname_fail" = "輸入名稱失敗";
+
+"user_join_welcome" = "%@ 來了！";
