@@ -45,10 +45,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) NSString * posterURL;
 
-/**
- *  Indicates whether the playlist is free of not.
- */
-@property (nonatomic, readonly) BOOL free;
 @end
 
 NS_ASSUME_NONNULL_END

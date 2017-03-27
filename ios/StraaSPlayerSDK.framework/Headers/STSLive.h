@@ -67,11 +67,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, nullable) NSArray <STSVideo *> * videos;
 
 /**
- *  Indicates whether the live is free of not.
- */
-@property (nonatomic, readonly) BOOL free;
-
-/**
  *  Indicate if the source is 360-degree streaming or not.
  *  "equirectangular" if the source is 360-degree streaming. "flat" if not.
  */
