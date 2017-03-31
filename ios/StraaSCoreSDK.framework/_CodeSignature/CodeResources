@@ -8,6 +8,10 @@
 		<data>
 		8LBQMNvAwknmgziXDcTdo7uWZzM=
 		</data>
+		<key>Headers/NSError+STSUtility.h</key>
+		<data>
+		lzUYfr63Ep1NKhGPhEkIEBgDoCo=
+		</data>
 		<key>Headers/STSApplication.h</key>
 		<data>
 		xQq8nRIql4epukfHpQTZcJrbRfU=
@@ -22,7 +26,7 @@
 		</data>
 		<key>Headers/StraaSCoreSDK.h</key>
 		<data>
-		uYD0tO8hbietVOzLPDQ5TlwheaY=
+		8BLyHSNHkLnTig/3IlGUnVVO+Hk=
 		</data>
 		<key>Headers/UIDevice+STSUtility.h</key>
 		<data>
@@ -30,7 +34,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		FzqEeTLbonMpph7YrL7YmOrRzhc=
+		5PD1GuRsej2iTobwjahT8C5b+wY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -66,6 +70,17 @@
 			<key>hash2</key>
 			<data>
 			tVYZc/ZiNrfbADgt1xBkD2Erm7iHkGprmxE7i+VKfZU=
+			</data>
+		</dict>
+		<key>Headers/NSError+STSUtility.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			lzUYfr63Ep1NKhGPhEkIEBgDoCo=
+			</data>
+			<key>hash2</key>
+			<data>
+			71lKidaO0D+I2JHWhKVWo802681BhElEYM+/ZevKLgA=
 			</data>
 		</dict>
 		<key>Headers/STSApplication.h</key>
@@ -105,11 +120,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uYD0tO8hbietVOzLPDQ5TlwheaY=
+			8BLyHSNHkLnTig/3IlGUnVVO+Hk=
 			</data>
 			<key>hash2</key>
 			<data>
-			LAowVCsXxpAWc+MII2krkj7wSSI8ZdU+zXAmjkdIjgY=
+			bAETETEU8h4+khVWHGW6NSqCyzZ8oMw3DPeRw8vlkvE=
 			</data>
 		</dict>
 		<key>Headers/UIDevice+STSUtility.h</key>
@@ -179,11 +194,6 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
-		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -228,11 +238,6 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
-		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>
