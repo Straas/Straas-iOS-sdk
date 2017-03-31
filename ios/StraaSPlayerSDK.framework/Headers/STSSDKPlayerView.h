@@ -85,6 +85,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL canShowLoadingIndicator;
 
 /**
+ *  A boolean value indicates whether the player view can display the default broadcast state message when the player is playing a live. Defaults to `YES`.
+ */
+@property (nonatomic) BOOL canShowBroadcastStateMessage;
+
+/**
  *  The scaling mode to use when displaying the video. The default value of this property is STSVideoScalingModeAspectFit. This property only works when current video is not 360-degree.
  */
 @property (nonatomic) STSVideoScalingMode videoScalingMode;

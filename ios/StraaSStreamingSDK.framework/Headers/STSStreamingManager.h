@@ -70,9 +70,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable) GPUImageFilter * filter;
 
 /**
- *  A boolean valule indicates whether the default beauty filter is enabled. Defaults to YES.
+ *  A boolean value indicates whether the default beauty filter is enabled. Defaults to YES.
  */
 @property (nonatomic) BOOL enableDefaultBeautyFilter;
+
+/**
+ *  A boolean value indicates whether the video stream of the front camera will be flipped horizontally from the preview. Defaults to `YES`.
+ */
+@property (nonatomic) BOOL flipFrontCameraOutputHorizontally;
 
 /// :nodoc:
 + (instancetype)new __attribute__((unavailable("new not available, call `streamingManagerWithJWT:` instead.")));

@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)playerViewPaused:(STSSDKPlayerView *)playerView;
 
 /**
- *  Sent when playback is paused.
+ *  Called when an error occurs.
  *
  *  @param playerView The player view that sent the message.
  */

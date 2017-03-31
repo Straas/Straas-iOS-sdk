@@ -58,7 +58,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		uR7Lj5NCaUK4u4MFpfd9x84EqD4=
+		3Jn9diOqzFIqwKPAUroUJ6DPpuU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -68,7 +68,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8Mu/W8vekBS0j4PShB83zdhqrQ4=
+			fwyNudiiSZO/AGFcNH/ErV2g3oE=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -77,7 +77,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ThrpS72WCohzjosLxe/5A059KoQ=
+			04sjWepQ6xBM27RflcBWr7i37FU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -243,11 +243,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8Mu/W8vekBS0j4PShB83zdhqrQ4=
+			fwyNudiiSZO/AGFcNH/ErV2g3oE=
 			</data>
 			<key>hash2</key>
 			<data>
-			o7yqVcQ786vR0IJdMfcS1lbmoFJNH6m5iq0I97inKic=
+			6E8IT+MMgNDyrdJ0+odi4xMRCejH7MjNp7fGK3pNvZE=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -256,11 +256,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ThrpS72WCohzjosLxe/5A059KoQ=
+			04sjWepQ6xBM27RflcBWr7i37FU=
 			</data>
 			<key>hash2</key>
 			<data>
-			gNgOKgLNGJrw5IO9Qxl8kGKAZoM7+9I/2Z7ITlVJ8MA=
+			1cOwqAwz7BM95SlEwTzrP6taZ1W+QEtZH55bwu1WStc=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -283,11 +283,6 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
-		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
 		</dict>
 		<key>^version.plist$</key>
 		<true/>
@@ -333,11 +328,6 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
-		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>

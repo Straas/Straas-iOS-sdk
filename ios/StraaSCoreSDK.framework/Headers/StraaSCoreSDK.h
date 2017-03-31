@@ -22,3 +22,4 @@ FOUNDATION_EXPORT const unsigned char StraaSCoreSDKVersionString[];
 #import <StraaSCoreSDK/STSSDKAuthManager.h>
 #import <StraaSCOreSDK/STSCoreErrorCode.h>
 #import <StraaSCoreSDK/UIDevice+STSUtility.h>
+#import <StraaSCoreSDK/NSError+STSUtility.h>
