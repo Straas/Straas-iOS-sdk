@@ -25,6 +25,14 @@
     self.attachment = attachment;
 }
 
+- (void)setAttachment:(NSTextAttachment *)attachment {
+    if ([_attachment isEqual:attachment]) {
+        return;
+    }
+    _attachment = attachment;
+    [self setText:self.text];
+}
+
 - (void)setText:(NSString *)text {
     if (!self.attachment || [text length] == 0) {
         self.attributedText = nil;
