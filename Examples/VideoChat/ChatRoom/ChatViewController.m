@@ -984,6 +984,27 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    STSChatMessage * msg = self.messages[indexPath.row];
+    if (msg.type == STSChatMessageTypeText) {
+        CGFloat cellBodyLabelWidth = [MessageTableViewCell estimateBodyLabelWidth];
+        CGSize size =CGSizeMake(cellBodyLabelWidth, CGFLOAT_MAX);
+        CGFloat estimateLabelHeight = [self estimateTextHeight:msg.text inSize:size];
+        return estimateLabelHeight + 45.0;
+    } else {
+        return 115.0;
+    }
+}
+
+- (CGFloat)estimateTextHeight:(NSString *)text inSize:(CGSize)size {
+    NSDictionary * attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0],
+                                  NSParagraphStyleAttributeName: [NSParagraphStyle defaultParagraphStyle]};
+    CGRect estimateRect = [text boundingRectWithSize:size
+                                             options:NSStringDrawingUsesLineFragmentOrigin
+                                          attributes:attributes context:nil];
+    return estimateRect.size.height;
+}
+
 - (void)scrollViewDidScroll:(UITableView *)scrollView {
     [super scrollViewDidScroll:scrollView];
     if ([self isTableViewReachBottom:scrollView] && self.jumpToLatestButton.alpha != 0) {

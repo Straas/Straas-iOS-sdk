@@ -175,4 +175,10 @@
     return pointSize;
 }
 
++ (CGFloat)estimateBodyLabelWidth {
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = bounds.size.width;
+    return screenWidth - 80.0;
+}
+
 @end

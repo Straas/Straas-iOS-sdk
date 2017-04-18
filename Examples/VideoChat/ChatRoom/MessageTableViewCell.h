@@ -30,5 +30,5 @@ static NSString *AutoCompletionCellIdentifier = @"AutoCompletionCell";
 @property (nonatomic) BOOL usedForMessage;
 
 + (CGFloat)defaultFontSize;
-
++ (CGFloat)estimateBodyLabelWidth;
 @end
