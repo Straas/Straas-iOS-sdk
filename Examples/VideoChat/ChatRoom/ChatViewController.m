@@ -190,6 +190,12 @@
     } completion:nil];
 }
 
+- (void)showJumpToLatestButtonIfNeeded {
+    if (![self isTableViewReachBottom:self.tableView] && self.jumpToLatestButton.alpha == 0) {
+        [self showJumpToLatestButton];
+    }
+}
+
 - (void)showJumpToLatestButton {
     self.jumpToLatestButtonBottomConstant = -10.0;
     [self.view setNeedsLayout];
@@ -765,7 +771,8 @@
     if (cachedAddedMessagesCount != 0) {
         NSIndexSet * indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, cachedAddedMessagesCount)];
         [self.messages insertObjects:self.cachedAddedMessages atIndexes:indexSet];
-    }
+        [self showJumpToLatestButtonIfNeeded];
+}
     for (NSString * messageId in self.cachedRemovedMessageIds) {
         for (STSChatMessage * message in self.messages) {
             if ([message.messageId isEqualToString:messageId]) {
@@ -774,10 +781,34 @@
             }
         }
     }
+    if (![self isTableViewReachBottom:self.tableView]) {
+        CGPoint contentOffset = self.tableView.contentOffset;
+        [self.tableView reloadData];
+        //Force tableview layout, or content offset would have issue.
+        [self.tableView setNeedsLayout];
+        [self.tableView layoutIfNeeded];
+        CGFloat diffContentOffsetY = [self diffContentOffSetYForTableView:self.tableView
+                                                 cachedAddedMessagesCount:cachedAddedMessagesCount];
+        contentOffset.y += diffContentOffsetY;
+        self.tableView.contentOffset = contentOffset;
+    } else {
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+    
     [self.cachedAddedMessages removeAllObjects];
     [self.cachedRemovedMessageIds removeAllObjects];
     [self removeMessagesCachedIfNeeded];
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (CGFloat)diffContentOffSetYForTableView:(UITableView *)tableView
+                 cachedAddedMessagesCount:(NSUInteger)cachedAddedMessagesCount {
+    CGFloat contentOffsetY = 0;
+    for (NSUInteger i = 0; i < cachedAddedMessagesCount; i++) {
+        NSIndexPath * indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        CGRect cellBounds = [tableView rectForRowAtIndexPath:indexPath];
+        contentOffsetY += CGRectGetHeight(cellBounds);
+    }
+    return contentOffsetY;
 }
 
 - (void)cancelUpdateTableViewTimer {
@@ -955,13 +986,15 @@
 
 - (void)scrollViewDidScroll:(UITableView *)scrollView {
     [super scrollViewDidScroll:scrollView];
-    NSIndexPath * firstIndexPath = scrollView.indexPathsForVisibleRows.firstObject;
-    if (firstIndexPath.row == 0) {
+    if ([self isTableViewReachBottom:scrollView] && self.jumpToLatestButton.alpha != 0) {
         [self dismissJumpToLatestButton];
-    } else if (scrollView.dragging) {
-        [self showJumpToLatestButton];
     }
 }
+
+- (BOOL)isTableViewReachBottom:(UITableView *)tableView {
+    return tableView.contentOffset.y <= 0;
+}
+
 #pragma mark - Lifeterm
 
 - (void)dealloc
