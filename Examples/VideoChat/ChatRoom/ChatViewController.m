@@ -22,7 +22,7 @@
 
 #define DEBUG_CUSTOM_TYPING_INDICATOR 0
 
-@interface ChatViewController () 
+@interface ChatViewController ()
 
 @property (nonatomic, strong) NSMutableArray *messages;
 
@@ -54,7 +54,7 @@
 @property (nonatomic) NSURL * stickerURL;
 @end
 
-@implementation ChatViewController 
+@implementation ChatViewController
 
 
 - (instancetype)init {
@@ -414,15 +414,19 @@
     }
     [self startUpdateTableViewTimer];
     self.leftButton.userInteractionEnabled = YES;
-    [self.indicator stopAnimating];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.indicator stopAnimating];
+    });
     __weak ChatViewController * weakSelf = self;
     [self.manager getMessagesForChatroom:chatroom configuration:nil success:^(NSArray<STSChatMessage *> * _Nonnull messages) {
         [weakSelf.messages removeAllObjects];
         [weakSelf.messages addObjectsFromArray:messages];
-        [weakSelf.tableView reloadData];
-        [weakSelf updateTextViewForChatroom:chatroom];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.tableView reloadData];
+            [weakSelf updateTextViewForChatroom:chatroom];
+        });
     } failure:^(NSError * _Nonnull error) {
-        
+
     }];
 }
 
@@ -467,7 +471,9 @@
 
 - (void)chatroomMessageFlushed:(STSChat *)chatroom {
     [self.messages removeAllObjects];
-    [self.tableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
 }
 
 - (void)chatroomDisconnected:(STSChat *)chatroom {
@@ -543,7 +549,6 @@
         case SLKKeyboardStatusWillShow:
             if ([self.delegate isStickerViewShowing]) {
                 [self.leftButton setImage:self.stickerInputButtonImage forState:UIControlStateNormal];
-                [self.delegate dismissStickerView:NO];
             }
             return NSLog(@"Will Show");
         case SLKKeyboardStatusDidShow:
@@ -617,10 +622,11 @@
     }
     if ([self.delegate isStickerViewShowing]) {
         [self.leftButton setImage:self.stickerInputButtonImage forState:UIControlStateNormal];
+        BOOL keyBoardDidShow = (self.keyboardStatus == SLKKeyboardStatusDidShow);
         if ([self.delegate respondsToSelector:@selector(dismissStickerView:)]) {
-            [self.delegate dismissStickerView:(self.keyboardStatus == SLKKeyboardStatusDidShow)];
+            [self.delegate dismissStickerView:keyBoardDidShow];
         }
-        [self presentKeyboard:NO];
+        keyBoardDidShow ? [self dismissKeyboard:YES]: [self presentKeyboard:NO];
     } else {
         [self.leftButton setImage:self.textInputButtonImage forState:UIControlStateNormal];
         if ([self.delegate respondsToSelector:@selector(showStickerView:)]) {
@@ -676,7 +682,7 @@
         [self addFakeMessage:key type:STSChatMessageTypeSticker imageURL:imageURL];
     } else {
         [self.manager sendMessage:key chatroom:self.currentChat success:^{
-            
+
         } failure:^(NSError * _Nonnull error) {
 
         }];
@@ -757,9 +763,11 @@
 
 - (void)startUpdateTableViewTimer {
     __weak ChatViewController * weakSelf = self;
-    self.updateTableViewTimer = [NSTimer safeScheduledTimerWithTimeInterval:weakSelf.refreshTableViewTimeInteval
-                                                                      block:^{[weakSelf updateTabelViewTimerFired];}
-                                                                    repeats:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.updateTableViewTimer = [NSTimer safeScheduledTimerWithTimeInterval:weakSelf.refreshTableViewTimeInteval
+                                                                          block:^{[weakSelf updateTabelViewTimerFired];}
+                                                                        repeats:YES];
+    });
 }
 
 - (void)updateTabelViewTimerFired {
@@ -791,10 +799,15 @@
                                                  cachedAddedMessagesCount:cachedAddedMessagesCount];
         contentOffset.y += diffContentOffsetY;
         self.tableView.contentOffset = contentOffset;
+        dispatch_async(dispatch_get_main_queue(), ^{
+          [self.tableView setContentOffset:contentOffset animated:NO];
+        });
     } else {
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+      dispatch_async(dispatch_get_main_queue(), ^{
+          [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+      });
     }
-    
+
     [self.cachedAddedMessages removeAllObjects];
     [self.cachedRemovedMessageIds removeAllObjects];
     [self removeMessagesCachedIfNeeded];
@@ -928,7 +941,7 @@
         [cell.titleLabel setIconImage:[UIImage imageNamed:@"ic_moderator_chatroom"]];
         cell.titleLabel.textColor = [UIColor colorWithRed:123.0/255.0 green:75.0/255.0 blue:163.0/255.0 alpha:1];
     }
-    
+
     cell.titleLabel.text = message.creator.name;
     cell.sideLabel.text = message.shortCreatedDate;
     cell.bodyLabel.text = message.text;

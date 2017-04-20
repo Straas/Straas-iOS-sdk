@@ -100,15 +100,17 @@ NSString * const kStickersInputView = @"StickersInputView";
 }
 
 - (void)setStickers:(NSArray *)stickers {
-    if (self.stickers.count > 0) {
-        [self resetStickerInputView];
-    }
-    NSArray * items = [stickers valueForKey:@"mainImage"];
-    _stickers = stickers;
-    self.segmentedControl.items = items;
-    //due to recently stickers, segment width would be items.count +1
-    [self setSegmentedWidthWithItemsCount:items.count + 1];
-    [self addStickerItemsScrollView];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.stickers.count > 0) {
+            [self resetStickerInputView];
+        }
+        NSArray * items = [stickers valueForKey:@"mainImage"];
+        _stickers = stickers;
+        self.segmentedControl.items = items;
+        //due to recently stickers, segment width would be items.count +1
+        [self setSegmentedWidthWithItemsCount:items.count + 1];
+        [self addStickerItemsScrollView];
+    });
 }
 
 - (void)setSegmentedWidthWithItemsCount:(NSInteger)itemsCount {
