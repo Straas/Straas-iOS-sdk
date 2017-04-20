@@ -39,6 +39,9 @@
 
 //Custom view
 @property (nonatomic) UIActivityIndicatorView * indicator;
+@property (nonatomic) UIButton * jumpToLatestButton;
+@property (nonatomic) CGFloat jumpToLatestButtonBottomConstant;
+@property (nonatomic) NSLayoutConstraint * jumpToLatestButtonBottomConstraint;
 @property (nonatomic) NSMutableArray * allLayoutConstraints;
 
 @property (nonatomic) NSMutableArray * cachedAddedMessages;
@@ -92,7 +95,7 @@
 #endif
 }
 
-#pragma mark - indicator view.
+#pragma mark - Custom View.
 
 - (void)setShouldAddIndicatorView:(BOOL)shouldAddIndicatorView {
     if (_shouldAddIndicatorView == shouldAddIndicatorView) {
@@ -154,6 +157,97 @@
     [NSLayoutConstraint activateConstraints:layoutConstraints];
 }
 
+- (UIButton *)jumpToLatestButton {
+    if (!_jumpToLatestButton) {
+        UIButton * jumpToLatestButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        jumpToLatestButton.translatesAutoresizingMaskIntoConstraints = NO;
+        jumpToLatestButton.backgroundColor = [UIColor colorWithRed:76.0/255.0 green:171.0/255.0 blue:181.0/255.0 alpha:1];
+        jumpToLatestButton.titleLabel.textColor = [UIColor whiteColor];
+        jumpToLatestButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
+        [jumpToLatestButton addTarget:self action:@selector(didPressJumpToLatestButton:) forControlEvents:UIControlEventTouchUpInside];
+        [jumpToLatestButton setTitle:NSLocalizedString(@"jump_to_lastest_message", nil) forState:UIControlStateNormal];
+        [jumpToLatestButton setImage:[UIImage imageNamed:@"ic_arrow_downward_chatroom"] forState:UIControlStateNormal];
+        jumpToLatestButton.imageEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 10);
+        jumpToLatestButton.layer.cornerRadius = 15;
+        jumpToLatestButton.alpha = 0;
+        _jumpToLatestButton = jumpToLatestButton;
+    }
+    return _jumpToLatestButton;
+}
+
+- (void)didPressJumpToLatestButton:(UIButton *)button {
+    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    [self dismissJumpToLatestButton];
+}
+
+- (void)dismissJumpToLatestButton {
+    self.jumpToLatestButtonBottomConstant = 40;
+    [self.view setNeedsLayout];
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.jumpToLatestButton.alpha = 0;
+        [self.view layoutIfNeeded];
+    } completion:nil];
+}
+
+- (void)showJumpToLatestButtonIfNeeded {
+    if (![self isTableViewReachBottom:self.tableView] && self.jumpToLatestButton.alpha == 0) {
+        [self showJumpToLatestButton];
+    }
+}
+
+- (void)showJumpToLatestButton {
+    self.jumpToLatestButtonBottomConstant = -10.0;
+    [self.view setNeedsLayout];
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.jumpToLatestButton.alpha = 1;
+        [self.view layoutIfNeeded];
+    } completion:nil];
+}
+
+- (void)addJumpToLatestButton {
+    [self.view insertSubview:self.jumpToLatestButton belowSubview:self.textInputbar];
+    NSMutableArray * layoutConstraints = [NSMutableArray array];
+    [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.jumpToLatestButton
+                                                              attribute:NSLayoutAttributeCenterX
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:self.tableView
+                                                              attribute:NSLayoutAttributeCenterX
+                                                             multiplier:1 constant:0]];
+    [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.jumpToLatestButton
+                                                              attribute:NSLayoutAttributeHeight
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:nil
+                                                              attribute:NSLayoutAttributeNotAnAttribute
+                                                             multiplier:1 constant:30]];
+    [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.jumpToLatestButton
+                                                              attribute:NSLayoutAttributeWidth
+                                                              relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                                 toItem:nil
+                                                              attribute:NSLayoutAttributeNotAnAttribute
+                                                             multiplier:1 constant:120]];
+    self.jumpToLatestButtonBottomConstant = 40.0;
+    [self.allLayoutConstraints addObjectsFromArray:layoutConstraints];
+    [NSLayoutConstraint activateConstraints:layoutConstraints];
+}
+
+- (void)setJumpToLatestButtonBottomConstant:(CGFloat)jumpToLatestButtonBottomConstant {
+    if (_jumpToLatestButtonBottomConstant == jumpToLatestButtonBottomConstant) {
+        return;
+    }
+    self.jumpToLatestButtonBottomConstraint.active = NO;
+    [self.allLayoutConstraints removeObject:self.jumpToLatestButtonBottomConstraint];
+    self.jumpToLatestButtonBottomConstraint = [NSLayoutConstraint constraintWithItem:self.jumpToLatestButton
+                                                                          attribute:NSLayoutAttributeBottom
+                                                                          relatedBy:NSLayoutRelationEqual
+                                                                             toItem:self.textInputbar
+                                                                          attribute:NSLayoutAttributeTop
+                                                                         multiplier:1 constant:jumpToLatestButtonBottomConstant];
+    self.jumpToLatestButtonBottomConstraint.active = YES;
+    [self.allLayoutConstraints addObject:self.jumpToLatestButtonBottomConstraint];
+    _jumpToLatestButtonBottomConstant = jumpToLatestButtonBottomConstant;
+}
+
 - (void)disconnectCurrentChatIfNeeded {
     if (self.currentChat) {
         [self.manager disconnectFromChatroom:self.currentChat];
@@ -207,6 +301,7 @@
         [self addIndicatorView];
         [self addActivityIndicatorViewConstraints];
     }
+    [self addJumpToLatestButton];
     [self showStickerButtonIfNeeded];
     [self.rightButton setTitle:NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
     [self.singleTapGesture addTarget:self action:@selector(didTapTableView)];
@@ -676,7 +771,8 @@
     if (cachedAddedMessagesCount != 0) {
         NSIndexSet * indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, cachedAddedMessagesCount)];
         [self.messages insertObjects:self.cachedAddedMessages atIndexes:indexSet];
-    }
+        [self showJumpToLatestButtonIfNeeded];
+}
     for (NSString * messageId in self.cachedRemovedMessageIds) {
         for (STSChatMessage * message in self.messages) {
             if ([message.messageId isEqualToString:messageId]) {
@@ -685,10 +781,34 @@
             }
         }
     }
+    if (![self isTableViewReachBottom:self.tableView]) {
+        CGPoint contentOffset = self.tableView.contentOffset;
+        [self.tableView reloadData];
+        //Force tableview layout, or content offset would have issue.
+        [self.tableView setNeedsLayout];
+        [self.tableView layoutIfNeeded];
+        CGFloat diffContentOffsetY = [self diffContentOffSetYForTableView:self.tableView
+                                                 cachedAddedMessagesCount:cachedAddedMessagesCount];
+        contentOffset.y += diffContentOffsetY;
+        self.tableView.contentOffset = contentOffset;
+    } else {
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+    
     [self.cachedAddedMessages removeAllObjects];
     [self.cachedRemovedMessageIds removeAllObjects];
     [self removeMessagesCachedIfNeeded];
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (CGFloat)diffContentOffSetYForTableView:(UITableView *)tableView
+                 cachedAddedMessagesCount:(NSUInteger)cachedAddedMessagesCount {
+    CGFloat contentOffsetY = 0;
+    for (NSUInteger i = 0; i < cachedAddedMessagesCount; i++) {
+        NSIndexPath * indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        CGRect cellBounds = [tableView rectForRowAtIndexPath:indexPath];
+        contentOffsetY += CGRectGetHeight(cellBounds);
+    }
+    return contentOffsetY;
 }
 
 - (void)cancelUpdateTableViewTimer {
@@ -796,6 +916,19 @@
     } else {
         cell.thumbnailView.image = self.avatarPlaceholderImage;
     }
+    NSString * creatorRole = message.creator.role;
+    if ([creatorRole isEqualToString:kSTSUserRoleNormal] ||
+        [creatorRole isEqualToString:kSTSUserRoleBlocked]) {
+        [cell.titleLabel setIconImage:nil];
+        cell.titleLabel.textColor = [UIColor blackColor];
+    } else if ([creatorRole isEqualToString:kSTSUserRoleMaster]) {
+        [cell.titleLabel setIconImage:[UIImage imageNamed:@"ic_host_chatroom"]];
+        cell.titleLabel.textColor = [UIColor colorWithRed:242.0/255.0 green:154.0/255.0 blue:11.0/255.0 alpha:1];
+    } else {
+        [cell.titleLabel setIconImage:[UIImage imageNamed:@"ic_moderator_chatroom"]];
+        cell.titleLabel.textColor = [UIColor colorWithRed:123.0/255.0 green:75.0/255.0 blue:163.0/255.0 alpha:1];
+    }
+    
     cell.titleLabel.text = message.creator.name;
     cell.sideLabel.text = message.shortCreatedDate;
     cell.bodyLabel.text = message.text;
@@ -849,6 +982,38 @@
 
         [self acceptAutoCompletionWithString:item keepPrefix:YES];
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    STSChatMessage * msg = self.messages[indexPath.row];
+    if (msg.type == STSChatMessageTypeText) {
+        CGFloat cellBodyLabelWidth = [MessageTableViewCell estimateBodyLabelWidth];
+        CGSize size =CGSizeMake(cellBodyLabelWidth, CGFLOAT_MAX);
+        CGFloat estimateLabelHeight = [self estimateTextHeight:msg.text inSize:size];
+        return estimateLabelHeight + 45.0;
+    } else {
+        return 115.0;
+    }
+}
+
+- (CGFloat)estimateTextHeight:(NSString *)text inSize:(CGSize)size {
+    NSDictionary * attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0],
+                                  NSParagraphStyleAttributeName: [NSParagraphStyle defaultParagraphStyle]};
+    CGRect estimateRect = [text boundingRectWithSize:size
+                                             options:NSStringDrawingUsesLineFragmentOrigin
+                                          attributes:attributes context:nil];
+    return estimateRect.size.height;
+}
+
+- (void)scrollViewDidScroll:(UITableView *)scrollView {
+    [super scrollViewDidScroll:scrollView];
+    if ([self isTableViewReachBottom:scrollView] && self.jumpToLatestButton.alpha != 0) {
+        [self dismissJumpToLatestButton];
+    }
+}
+
+- (BOOL)isTableViewReachBottom:(UITableView *)tableView {
+    return tableView.contentOffset.y <= 0;
 }
 
 #pragma mark - Lifeterm

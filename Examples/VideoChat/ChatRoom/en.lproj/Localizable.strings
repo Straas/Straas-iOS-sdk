@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  VideoChat
+
+  Created by Lee on 27/03/2017.
+  Copyright © 2017 StraaS.io. All rights reserved.
+*/
+
+
+"encourage_to_chat" = "say something, let anchor know you're here!";
+
+"enter_nickname" = "Please Enter a Nickname";
+
+"jump_to_lastest_message" = "Jump to latest";
+
+"plz_signin" = "Please sign in to chat";
+
+"Send" = "Send";
+
+"input_hint" = "Type a message...";
+
+"update_nickname_fail" = "Failed to set nickname.";
+
+"user_join_welcome" = "%@ is coming!";
