@@ -581,6 +581,38 @@ If the player view are not playing a playlist (e.g., playing a video or alive), 
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(py)isInLowLatencyMode"></a>
+                    <a name="//apple_ref/objc/Property/isInLowLatencyMode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(py)isInLowLatencyMode">isInLowLatencyMode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A boolean value indicates whether current live stream is in low latency mode.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">isInLowLatencyMode</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">isInLowLatencyMode</span><span class="p">:</span> <span class="kt">Int32</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)STSSDKPlayerView(im)loadVideoWithId:"></a>
                     <a name="//apple_ref/objc/Method/-loadVideoWithId:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)STSSDKPlayerView(im)loadVideoWithId:">-loadVideoWithId:</a>
@@ -697,7 +729,7 @@ If the player view are not playing a playlist (e.g., playing a video or alive), 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Loads and starts playing a specific live.</p>
+                        <p>Loads and starts playing a specific live without lowLatencyFirst.</p>
 
                       </div>
                       <div class="declaration">
@@ -726,6 +758,76 @@ If the player view are not playing a playlist (e.g., playing a video or alive), 
                               <td>
                                 <div>
                                   <p>The ID of the live you want to load.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(im)loadLiveWithId:lowLatencyFirst:"></a>
+                    <a name="//apple_ref/objc/Method/-loadLiveWithId:lowLatencyFirst:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(im)loadLiveWithId:lowLatencyFirst:">-loadLiveWithId:lowLatencyFirst:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Loads and starts playing a specific live with lowLatencyFirst or not.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">loadLiveWithId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">liveId</span>
+       <span class="nf">lowLatencyFirst</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">lowLatencyFirst</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">loadLive</span><span class="p">(</span><span class="n">withId</span> <span class="nv">liveId</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">lowLatencyFirst</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>liveId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The ID of the live you want to load.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lowLatencyFirst</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A boolean value indicates whether to play low latency live stream.
+                        Set lowLatencyFirst to YES can significantly reduce the live latency between broadcaster and viewers but no adaptive playback.
+                        If the player fails to load the low latency stream, it will turn to play the adaptive stream instead. <code>playerViewFailToLoadLowLatencyStream:liveId</code> in STSPlayerLiveEventDelegate will be triggered too.
+                        Currently, 360 low latency playback is not supported yet.
+                        When this flag is true and effective, <code>availableQualityNames</code>, <code>currentQualityName</code> and <code>setMediaQuality</code> will be nil.</p>
 
                                 </div>
                               </td>
@@ -1024,7 +1126,8 @@ If the player view are not playing a playlist (e.g., playing a video or alive), 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the quality names of the current playing media (Live or VOD).</p>
+                        <p>Get the quality names of the current playing media (Live or VOD).
+  Return nil when playing a live and lowLatencyFirst is true and effective.</p>
 
                       </div>
                       <div class="declaration">
@@ -1061,7 +1164,8 @@ If the player view are not playing a playlist (e.g., playing a video or alive), 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the current selected quality name of the playing media (Live or VOD).</p>
+                        <p>Get the current selected quality name of the playing media (Live or VOD).
+  Return nil when playing a live and lowLatencyFirst is true and effective.</p>
 
                       </div>
                       <div class="declaration">
@@ -1099,7 +1203,8 @@ If the player view are not playing a playlist (e.g., playing a video or alive), 
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Switch player to the given media quality.
-  Note: Load a new media will reset the media quality to <q>auto</q>.</p>
+  Note: Load a new media will reset the media quality to <q>auto</q>.
+  Return NO when playing a live and lowLatencyFirst is true and effective.</p>
 
                       </div>
                       <div class="declaration">
