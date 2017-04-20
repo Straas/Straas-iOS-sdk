@@ -65,6 +65,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)playerView:(STSSDKPlayerView *)playerView liveHitCountChanged:(NSString *)liveId value:(NSNumber *)hitCount;
 
 /**
+ *  Called when a live with lowLatencyFirst stream fail to load.
+ *
+ *  @param playerView The player view that sent the message.
+ *  @param liveId     The StraaS live id of the live event that is waiting for stream.
+ */
+- (void)playerViewFailToLoadLowLatencyStream:(STSSDKPlayerView *)playerView liveId:(NSString *)liveId;
+
+/**
  *  Called when the stream of a live event starts.
  *  This method has been deprecated. Use `playerView:live:broadcastStateChanged:` instead.
  *

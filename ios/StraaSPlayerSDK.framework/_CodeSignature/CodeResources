@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		JB4ZZENZ1yjyJ4Odax+PRlIIgXg=
+		/masUnMYRHcFyKpzyt6PmnMXCdg=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Headers/STSPlayerLiveEventDelegate.h</key>
 		<data>
-		YoRjYt5J66/28M7XsPQYm0bYGsc=
+		ccPcfvdB5Xj2yhq7CHKXkzsVlIE=
 		</data>
 		<key>Headers/STSPlayerPlaybackEventDelegate.h</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Headers/STSSDKPlayerView.h</key>
 		<data>
-		UUjjQzrsjpRMhbVdbkEehR0RsSc=
+		nEmS3bY2kiWzGYMAu5r+enmYiHY=
 		</data>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
 		<data>
@@ -94,7 +94,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		9u3n5lqhG+ILQC2dHaU9q2oR6PM=
+		QcsfnRu/8L5QSruT/3wm3d3/ljc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -133,11 +133,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JB4ZZENZ1yjyJ4Odax+PRlIIgXg=
+			/masUnMYRHcFyKpzyt6PmnMXCdg=
 			</data>
 			<key>hash2</key>
 			<data>
-			zIEC16xSVJI2Uh+BZfMUZZ+b8Ma3zCjgMbH/j07SVnU=
+			RRgZh6TiLh4aHykJwDS2xsM76eLxArYRVSBnPH/3Bc4=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -221,11 +221,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YoRjYt5J66/28M7XsPQYm0bYGsc=
+			ccPcfvdB5Xj2yhq7CHKXkzsVlIE=
 			</data>
 			<key>hash2</key>
 			<data>
-			OX+1B8qlYQo+y/cmThjJ9ZvFmmBtHuu+ndwJYhVRQco=
+			wCQvTTDKRlUFHtFaY8dTYr/92Wlf68SSquIrItIlx9o=
 			</data>
 		</dict>
 		<key>Headers/STSPlayerPlaybackEventDelegate.h</key>
@@ -298,11 +298,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UUjjQzrsjpRMhbVdbkEehR0RsSc=
+			nEmS3bY2kiWzGYMAu5r+enmYiHY=
 			</data>
 			<key>hash2</key>
 			<data>
-			XoH0upImRiUCRMQJO2IZIpC4YtUAZbMqHpQ4iiWVh30=
+			8WAkTm2/9I6iiut1UVxeN2zy2c3upAEMCKZtZM8VPmM=
 			</data>
 		</dict>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
@@ -449,6 +449,11 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
+		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -493,6 +498,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>
