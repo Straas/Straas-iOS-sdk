@@ -48,10 +48,11 @@ NS_ASSUME_NONNULL_BEGIN
  * @param refreshToken The token wants to be refresh
  * @param success      Handler for successful request. It takes refreshed token argument.
  * @param failure      Error handler.
+ * @return The new session data task. Returns `nil` if the application is unauthorized.
  */
-- (void)refreshMemberToken:(NSString *)refreshToken
-                   success:(void(^)(NSString * token))success
-                   failure:(void(^)(NSError * error))failure;
+- (NSURLSessionDataTask * _Nullable)refreshMemberToken:(NSString *)refreshToken
+                                               success:(void(^)(NSString * token))success
+                                               failure:(void(^)(NSError * error))failure;
 
 @end
 NS_ASSUME_NONNULL_END

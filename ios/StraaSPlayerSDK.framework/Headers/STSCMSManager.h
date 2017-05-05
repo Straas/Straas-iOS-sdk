@@ -33,10 +33,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  If you don't call this method, other STSCMSManager methods would return the resources that a guest can reach only.
  *  If you want your member could get their purchased goods, set their member JWT before call other STSCMSManager methods.
  *
- *  @param JWT The member token got from StraaS server.
+ *  @param JWT The member token got from StraaS server. `nil` if the current user is a guest.
  *  @param completion A block object to be executed when the task finishes. This block has no return value and takes one argument: a boolean value indicates whether or not the JWT is succesfully setted. You should successfully configure your app by calling STSApplication's configureApplication method before setting the JWT, otherwise, member JWT won't be setted.
  */
-- (void)setJWT:(NSString *)JWT completion:(void(^ _Nullable)(BOOL success))completion;
+- (void)setJWT:(NSString * _Nullable)JWT completion:(void(^ _Nullable)(BOOL success))completion;
 
 /**
  *  Request a video that matchs the request parameter.
@@ -44,74 +44,87 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param videoId The id of the video you want to find.
  *  @param success A block object to be executed when the task finishes successfully. This block has no return value and takes one argument: the STSVideo object.
  *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
-- (void)getVideoWithVideoId:(NSString *)videoId
-                    success:(void (^)(STSVideo *))success
-                    failure:(void (^)(NSError *))failure;
+- (NSString * _Nullable)getVideoWithVideoId:(NSString *)videoId
+                                    success:(void (^)(STSVideo *))success
+                                    failure:(void (^)(NSError *))failure;
+
 /**
  *  Request a playlist that matches the request parameter.
  *
  *  @param playlistId The id of the playlist you want to find.
  *  @param success A block object to be executed when the task finishes successfully. This block has no return value and takes one argument: the STSPlaylist object.
  *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
-- (void)getPlaylistWithPlaylistId:(NSString *)playlistId
-                          success:(void(^)(STSPlaylist *))success
-                          failure:(void(^)(NSError *))failure;
+- (NSString * _Nullable)getPlaylistWithPlaylistId:(NSString *)playlistId
+                                          success:(void(^)(STSPlaylist *))success
+                                          failure:(void(^)(NSError *))failure;
+
 /**
  *  Request the list of playlist items of the specified playlist.
  *
  *  @param playlistId The id of the playlist you want to to get playlist items.
  *  @param success A block object to be executed when the task finishes successfully. This block has no return value and takes one argument: an array of STSPlaylistItem objects.
  *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
-- (void)getPlaylistItemsWithPlaylistId:(NSString *)playlistId
-                               success:(void(^)(NSArray <STSPlaylistItem*> *))success
-                               failure:(void(^)(NSError *))failure;
+- (NSString * _Nullable)getPlaylistItemsWithPlaylistId:(NSString *)playlistId
+                                               success:(void(^)(NSArray <STSPlaylistItem*> *))success
+                                               failure:(void(^)(NSError *))failure;
+
 /**
  *  Request the list of categories that match the request parameter.
  *
  *  @param page The page of results to fetch.
  *  @param success A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: an array of STSCategory objects, and the pagination object.
  *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
-- (void)getCategoryListWithPage:(NSUInteger)page
-                        success:(void (^)(NSArray <STSCategory*> *,
-                                          STSPagination *))success
-                        failure:(void (^)(NSError *))failure;
+- (NSString * _Nullable)getCategoryListWithPage:(NSUInteger)page
+                                        success:(void (^)(NSArray <STSCategory*> *,
+                                                          STSPagination *))success
+                                        failure:(void (^)(NSError *))failure;
+
 /**
  *  Request the list of tags that match the request parameter.
  *
  *  @param page The page of results to fetch.
  *  @param success A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: an array of STSTag objects, and the pagination object.
  *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
-- (void)getTagListWithPage:(NSUInteger)page
-                   success:(void (^)(NSArray <STSTag*> *,
-                                               STSPagination *))success
-                   failure:(void (^)(NSError *))failure;
+- (NSString * _Nullable)getTagListWithPage:(NSUInteger)page
+                                   success:(void (^)(NSArray <STSTag*> *,
+                                                     STSPagination *))success
+                                   failure:(void (^)(NSError *))failure;
+
 /**
  *  Request the list of videos that match the request parameter.
  *
  *  @param page The page of results to fetch.
  *  @param success A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: an array of STSVideo objects, and the pagination object.
  *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
-- (void)getVideoListWithPage:(NSUInteger)page
-                        success:(void (^)(NSArray <STSVideo*> *,
-                                                    STSPagination *))success
-                        failure:(void (^)(NSError *))failure;
+- (NSString * _Nullable)getVideoListWithPage:(NSUInteger)page
+                                     success:(void (^)(NSArray <STSVideo*> *,
+                                                       STSPagination *))success
+                                     failure:(void (^)(NSError *))failure;
+
 /**
  *  Request the list of playlists that match the request parameter.
  *
  *  @param page The page of results to fetch.
  *  @param success A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: an array of STSPlaylist objects, and the pagination object.
  *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
-- (void)getPlaylistsWithPage:(NSUInteger)page
-                     success:(void(^)(NSArray<STSPlaylist*>*,
-                                      STSPagination *))success
-                     failure:(void(^)(NSError *))failure;
+- (NSString * _Nullable)getPlaylistsWithPage:(NSUInteger)page
+                                     success:(void(^)(NSArray<STSPlaylist*>*,
+                                                      STSPagination *))success
+                                     failure:(void(^)(NSError *))failure;
 
 
 /**
@@ -120,10 +133,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param liveId  The id of the live you want to find.
  *  @param success A block object to be executed when the task finishes successfully. This block has no return value and takes one argument: the live object.
  *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
-- (void)getLiveWithId:(NSString *)liveId
-              success:(void (^)(STSLive *))success
-              failure:(void (^)(NSError *))failure;
+- (NSString * _Nullable)getLiveWithId:(NSString *)liveId
+                              success:(void (^)(STSLive *))success
+                              failure:(void (^)(NSError *))failure;
 
 /**
  *  Request a list of available lives.
@@ -131,10 +145,18 @@ NS_ASSUME_NONNULL_BEGIN
  * @param page  The page of results to fetch.
  * @param success A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: the live object array, and the pagination object.
  * @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
-- (void)getLiveListWithPage:(NSUInteger)page
-                     success:(void (^)(NSArray <STSLive *> *, STSPagination *))success
-                     failure:(void (^)(NSError *))failure;
+- (NSString * _Nullable)getLiveListWithPage:(NSUInteger)page
+                                    success:(void (^)(NSArray <STSLive *> *, STSPagination *))success
+                                    failure:(void (^)(NSError *))failure;
+
+/**
+ *  Cancel a request by ID.
+ *
+ *  @param requestID The ID of the request.
+ */
+- (void)cancelRequest:(NSString *)requestID;
 
 @end
 NS_ASSUME_NONNULL_END

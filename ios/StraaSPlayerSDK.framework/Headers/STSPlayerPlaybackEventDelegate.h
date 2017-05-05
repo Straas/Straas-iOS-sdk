@@ -79,6 +79,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)playerView:(STSSDKPlayerView *)playerView loadedTimeRangesChanged:(NSArray<NSValue *> *)loadedTimeRanges;
 
+/**
+ *  Called when the audio session interruption starts or ends.
+ *
+ *  This method may be called when a phone call arrives, a Clock or Calendar alarm sounds, or another app activates its audio session. The playback will be paused when the audio session interruption starts. Some of the player view methods will not work when the audio session is interrupted, see the description of each method for details.
+ *
+ *  @param playerView    The player view that sent the message.
+ *  @param isInterrupted `YES` if the audio session interruption starts, `NO` if the interruption ends.
+ */
+- (void)playerView:(STSSDKPlayerView *)playerView onAudioSessionInterrupt:(BOOL)isInterrupted;
+
 @end
 
 NS_ASSUME_NONNULL_END

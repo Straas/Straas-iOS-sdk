@@ -6,11 +6,11 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		/masUnMYRHcFyKpzyt6PmnMXCdg=
+		AHnocK5OU43XCQAjKVGAzRpwiqY=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
-		la1L/5i69B1vFekKnzEgkBsp0qk=
+		A7qiJOu+lmQr34aH3ueM2pswJBg=
 		</data>
 		<key>Headers/STSCategory.h</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/STSLiveEventListener.h</key>
 		<data>
-		dcWgyRKCWKHdGyWy+F38mRqTUgQ=
+		oVlN6fXcCyaz2j180gKBfvZvRH8=
 		</data>
 		<key>Headers/STSPagination.h</key>
 		<data>
@@ -38,11 +38,11 @@
 		</data>
 		<key>Headers/STSPlayerLiveEventDelegate.h</key>
 		<data>
-		ccPcfvdB5Xj2yhq7CHKXkzsVlIE=
+		ZFwFpcrbcNtgegk8XhPhKyJEk94=
 		</data>
 		<key>Headers/STSPlayerPlaybackEventDelegate.h</key>
 		<data>
-		gfb5EyFgQgDjJAg7XIDXOzRtvD4=
+		k0Ngch9YNZx8cR6+3Z8EwBh7xaE=
 		</data>
 		<key>Headers/STSPlayerPlaylistEventDelegate.h</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Headers/STSSDKPlayerView.h</key>
 		<data>
-		nEmS3bY2kiWzGYMAu5r+enmYiHY=
+		76ht3GGJnt5nhUnHFV34Ayjtg0I=
 		</data>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
 		<data>
@@ -94,7 +94,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		QcsfnRu/8L5QSruT/3wm3d3/ljc=
+		3nctFDEWG5v9tprNMkYzm7UkcBw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -112,7 +112,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			N2pszMA2NVP/yxXWTZ537QRP8jA=
+			7rxS3FApWc1aA7GbHlKxL61Qbb0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -121,7 +121,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			gsyjzOAiFTMH9B3lKAmINRD7z1A=
+			XpLCn8SDg5r5XrVCXc3Rm5eIM1E=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -133,22 +133,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/masUnMYRHcFyKpzyt6PmnMXCdg=
+			AHnocK5OU43XCQAjKVGAzRpwiqY=
 			</data>
 			<key>hash2</key>
 			<data>
-			RRgZh6TiLh4aHykJwDS2xsM76eLxArYRVSBnPH/3Bc4=
+			aTpuWlNAsbK8SqckP1GAeOTMj1zXvbp7dhSdtFAMCMo=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			la1L/5i69B1vFekKnzEgkBsp0qk=
+			A7qiJOu+lmQr34aH3ueM2pswJBg=
 			</data>
 			<key>hash2</key>
 			<data>
-			L2CwQnihGcZt5udq1MYFsf+4mPQWWmQzpp6oDFm3ntI=
+			Zkn3onv3XwIcUGDjkKYXNrHYQhq5uiaXKPlgpHWYRgE=
 			</data>
 		</dict>
 		<key>Headers/STSCategory.h</key>
@@ -188,11 +188,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dcWgyRKCWKHdGyWy+F38mRqTUgQ=
+			oVlN6fXcCyaz2j180gKBfvZvRH8=
 			</data>
 			<key>hash2</key>
 			<data>
-			zqx/Qx4v19EtPBLDtenAbPJaU2/G0sHiAPjKmyIWIlQ=
+			ZTD4YIEwTtTOQLLWkbi99hewD1o4GEg+pRAIW5mHMVM=
 			</data>
 		</dict>
 		<key>Headers/STSPagination.h</key>
@@ -221,22 +221,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ccPcfvdB5Xj2yhq7CHKXkzsVlIE=
+			ZFwFpcrbcNtgegk8XhPhKyJEk94=
 			</data>
 			<key>hash2</key>
 			<data>
-			wCQvTTDKRlUFHtFaY8dTYr/92Wlf68SSquIrItIlx9o=
+			nZPpixh+fCBj61jsTtuOMYPFH4FoMCqYJ0Knfo2IVwg=
 			</data>
 		</dict>
 		<key>Headers/STSPlayerPlaybackEventDelegate.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gfb5EyFgQgDjJAg7XIDXOzRtvD4=
+			k0Ngch9YNZx8cR6+3Z8EwBh7xaE=
 			</data>
 			<key>hash2</key>
 			<data>
-			bzpvt/hYCuRGbvoUCQOXlGwjrmuYuJZYxvi5szWf7V4=
+			y3rBmVakowkY8YD2biOzcNRRr7H4UyQ08jrljYPLbH4=
 			</data>
 		</dict>
 		<key>Headers/STSPlayerPlaylistEventDelegate.h</key>
@@ -298,11 +298,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nEmS3bY2kiWzGYMAu5r+enmYiHY=
+			76ht3GGJnt5nhUnHFV34Ayjtg0I=
 			</data>
 			<key>hash2</key>
 			<data>
-			8WAkTm2/9I6iiut1UVxeN2zy2c3upAEMCKZtZM8VPmM=
+			NMRHf7gAtg44cCfxg+2y1IE53IROQK4OO/GMki0HXOo=
 			</data>
 		</dict>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
@@ -408,11 +408,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			N2pszMA2NVP/yxXWTZ537QRP8jA=
+			7rxS3FApWc1aA7GbHlKxL61Qbb0=
 			</data>
 			<key>hash2</key>
 			<data>
-			m+ekjVV2uCanRCB+/WXUIgicSizckBgDVX8G5sYL+xI=
+			qVlih3tJJKMDrqkXOBClD1InYDeDzhzFJe+KfRaXuks=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -421,11 +421,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			gsyjzOAiFTMH9B3lKAmINRD7z1A=
+			XpLCn8SDg5r5XrVCXc3Rm5eIM1E=
 			</data>
 			<key>hash2</key>
 			<data>
-			C+ENw1S/8xez5VhXJgmGF0xBFs42uMmTYNBdIkqBU9k=
+			fE1k5MZ7TgqdtHVRVvrJdPEwJ8Mlg688Z60kNHzDGmU=
 			</data>
 			<key>optional</key>
 			<true/>

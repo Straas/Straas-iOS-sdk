@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "StraaS-iOS-SDK"
-  s.version      = "0.10.6"
+  s.version      = "0.10.7"
   s.summary      = "StraaS.io iOS SDK"
 
   s.description  = "StraaS.io - Streaming as a Service, Your Best OTT Solution."
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
 
   s.source       = { :git => "https://github.com/StraaS/StraaS-iOS-sdk.git",
-                     :tag => "0.10.6" }
+                     :tag => "0.10.7" }
 
   s.subspec 'Messaging' do |msg|
     msg.vendored_frameworks = "ios/StraaSMessagingSDK.framework"
