@@ -503,6 +503,87 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(pl)STSPlayerLiveEventDelegate(im)playerView:broadcastStartTimeChanged:value:"></a>
+                    <a name="//apple_ref/objc/Method/-playerView:broadcastStartTimeChanged:value:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSPlayerLiveEventDelegate(im)playerView:broadcastStartTimeChanged:value:">-playerView:broadcastStartTimeChanged:value:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when the broadcast start time of the live stream changed.
+  The time may change when the stream starts or stops.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">playerView</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">playerView</span>
+    <span class="nf">broadcastStartTimeChanged</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">liveId</span>
+                        <span class="nf">value</span><span class="p">:(</span><span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">broadcastStartTimeInMS</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">playerView</span><span class="p">(</span><span class="n">_</span> <span class="nv">playerView</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span><span class="o">!</span><span class="p">,</span> <span class="n">broadcastStartTimeChanged</span> <span class="nv">liveId</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="n">value</span> <span class="nv">broadcastStartTimeInMS</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playerView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player view that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>liveId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The live event id who&rsquo;s broadcast start time changed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>broadcastStartTimeInMS</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The broadcast start time in millisecond. <code>nil</code> if the stream is stopped.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(pl)STSPlayerLiveEventDelegate(im)playerViewFailToLoadLowLatencyStream:liveId:"></a>
                     <a name="//apple_ref/objc/Method/-playerViewFailToLoadLowLatencyStream:liveId:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(pl)STSPlayerLiveEventDelegate(im)playerViewFailToLoadLowLatencyStream:liveId:">-playerViewFailToLoadLowLatencyStream:liveId:</a>

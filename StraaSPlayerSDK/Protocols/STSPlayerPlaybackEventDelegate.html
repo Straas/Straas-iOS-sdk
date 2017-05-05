@@ -601,6 +601,74 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:onAudioSessionInterrupt:"></a>
+                    <a name="//apple_ref/objc/Method/-playerView:onAudioSessionInterrupt:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:onAudioSessionInterrupt:">-playerView:onAudioSessionInterrupt:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when the audio session interruption starts or ends.</p>
+
+<p>This method may be called when a phone call arrives, a Clock or Calendar alarm sounds, or another app activates its audio session. The playback will be paused when the audio session interruption starts. Some of the player view methods will not work when the audio session is interrupted, see the description of each method for details.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">playerView</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">playerView</span>
+    <span class="nf">onAudioSessionInterrupt</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">isInterrupted</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">playerView</span><span class="p">(</span><span class="n">_</span> <span class="nv">playerView</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span><span class="o">!</span><span class="p">,</span> <span class="n">onAudioSessionInterrupt</span> <span class="nv">isInterrupted</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playerView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player view that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isInterrupted</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>YES</code> if the audio session interruption starts, <code>NO</code> if the interruption ends.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
