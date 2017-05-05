@@ -20,12 +20,12 @@ PODS:
   - SDWebImage/Core (4.0.0)
   - SlackTextViewController (1.9.5)
   - Socket.IO-Client-Swift (8.3.3)
-  - StraaS-iOS-SDK/Core (0.10.6):
+  - StraaS-iOS-SDK/Core (0.10.7):
     - AFNetworking (~> 3.0)
     - Socket.IO-Client-Swift (~> 8.3)
-  - StraaS-iOS-SDK/Messaging (0.10.6):
+  - StraaS-iOS-SDK/Messaging (0.10.7):
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Streaming (0.10.6):
+  - StraaS-iOS-SDK/Streaming (0.10.7):
     - DSGPUImage (= 0.1.8)
     - StraaS-iOS-SDK/Core
 
@@ -45,7 +45,7 @@ SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SlackTextViewController: fbcdadbb8090673f604484ff5b6eb8d77baed42a
   Socket.IO-Client-Swift: a2faffdbde89c63aebc5d631041530c1068b02b8
-  StraaS-iOS-SDK: 99eb2661c89cff1912d30d6064b8c4122ff4bcf2
+  StraaS-iOS-SDK: 6a63cc01a7939321a429f5ca3d482ab3e1699d1e
 
 PODFILE CHECKSUM: 69138ee2267b0354d1e9f8b097a905b3de19c332
 
