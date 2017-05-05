@@ -392,6 +392,73 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSLiveEventListenerDelegate(im)liveEventListener:broadcastStartTimeChanged:"></a>
+                    <a name="//apple_ref/objc/Method/-liveEventListener:broadcastStartTimeChanged:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSLiveEventListenerDelegate(im)liveEventListener:broadcastStartTimeChanged:">-liveEventListener:broadcastStartTimeChanged:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when the broadcast start time of the live stream changed.
+  The time may change when the stream starts or stops.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">liveEventListener</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSLiveEventListener.html">STSLiveEventListener</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">liveEventListener</span>
+    <span class="nf">broadcastStartTimeChanged</span><span class="p">:(</span><span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">broadcastStartTimeInMS</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">liveEventListener</span><span class="p">(</span><span class="n">_</span> <span class="nv">liveEventListener</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSLiveEventListener.html">STSLiveEventListener</a></span><span class="p">,</span> <span class="n">broadcastStartTimeChanged</span> <span class="nv">broadcastStartTimeInMS</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>liveEventListener</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSLiveEventListener instance that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>broadcastStartTime</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The broadcast start time in millisecond. <code>nil</code> if the live stream is stopped.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
