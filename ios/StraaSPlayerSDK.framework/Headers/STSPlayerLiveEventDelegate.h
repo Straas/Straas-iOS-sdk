@@ -65,6 +65,16 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)playerView:(STSSDKPlayerView *)playerView liveHitCountChanged:(NSString *)liveId value:(NSNumber *)hitCount;
 
 /**
+ *  Called when the broadcast start time of the live stream changed.
+ *  The time may change when the stream starts or stops.
+ *
+ *  @param playerView             The player view that sent the message.
+ *  @param liveId                 The live event id who's broadcast start time changed.
+ *  @param broadcastStartTimeInMS The broadcast start time in millisecond. `nil` if the stream is stopped.
+ */
+- (void)playerView:(STSSDKPlayerView *)playerView broadcastStartTimeChanged:(NSString *)liveId value:(NSNumber * _Nullable)broadcastStartTimeInMS;
+
+/**
  *  Called when a live with lowLatencyFirst stream fail to load.
  *
  *  @param playerView The player view that sent the message.

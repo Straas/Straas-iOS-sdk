@@ -22,7 +22,7 @@
 		</data>
 		<key>Headers/STSSDKAuthManager.h</key>
 		<data>
-		fKWL6U93t+pCRcVlqNKpeA1PMwM=
+		/f8uPLrlafKIaUGFXj2G1em8Cgs=
 		</data>
 		<key>Headers/StraaSCoreSDK.h</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		9Ah1VJwK5mVZaLvPJ8OOmxfglTY=
+		+5uQRWcutke5okZYsVXF1nm3Vbk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -109,11 +109,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fKWL6U93t+pCRcVlqNKpeA1PMwM=
+			/f8uPLrlafKIaUGFXj2G1em8Cgs=
 			</data>
 			<key>hash2</key>
 			<data>
-			AHK2TxE/Hj1jkUiNbSSLoig2MJZ8ZzBmk8yj4WbkhD4=
+			hlE4z2JdWFTrllXvjGxsidwFPLxkwMxs8QSdFMosxH4=
 			</data>
 		</dict>
 		<key>Headers/StraaSCoreSDK.h</key>

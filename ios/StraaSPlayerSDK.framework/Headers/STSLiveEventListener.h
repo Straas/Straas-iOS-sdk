@@ -51,6 +51,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param hitCount          Current hit count of the live;
  */
 - (void)liveEventListener:(STSLiveEventListener *)liveEventListener hitCountUpdated:(NSNumber *)hitCount;
+
+/**
+ *  Called when the broadcast start time of the live stream changed.
+ *  The time may change when the stream starts or stops.
+ *
+ *  @param liveEventListener  The STSLiveEventListener instance that sent the message.
+ *  @param broadcastStartTime The broadcast start time in millisecond. `nil` if the live stream is stopped.
+ */
+- (void)liveEventListener:(STSLiveEventListener *)liveEventListener broadcastStartTimeChanged:(NSNumber * _Nullable)broadcastStartTimeInMS;
+
 @end
 
 
@@ -68,6 +78,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  The CCU of the current live.
  */
 @property (nonatomic, readonly, nullable) NSNumber * hitCount;
+
+/**
+ *  The broadcast start time in millisecond. `nil` if the live stream is stopped.
+ */
+@property (nonatomic, readonly, nullable) NSNumber * broadcastStartTimeInMS;
 
 /**
  *  The id of the live.

@@ -70,6 +70,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) STSSDKPlayerControlView * playerControlView;
 
 /**
+ *  The image that will show in the control center.
+ *  If this property is `nil`, the player view will use the thumbnail of the media (live or VOD) as the control center image.
+ */
+@property (nonatomic, nullable) UIImage * imageForControlCenter;
+
+/**
  *  A boolean value indicates whether the player view is able to display the player control when necessary.
  */
 @property (nonatomic) BOOL canShowPlayerControlView;
@@ -88,6 +94,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  A boolean value indicates whether the player view can display the default broadcast state message when the player is playing a live. Defaults to `YES`.
  */
 @property (nonatomic) BOOL canShowBroadcastStateMessage;
+
+/**
+ *  A boolean value indicates whether the player can keep playing in background. Defaults to `NO`.
+ */
+@property (nonatomic) BOOL allowsPlayingInBackground;
+
+/**
+ *  A boolean value indicates whether the player should respond to the remote control events while playing a media.
+ *  Defaults to `NO`.
+ */
+@property (nonatomic) BOOL remoteControlEnabled;
 
 /**
  *  The scaling mode to use when displaying the video. The default value of this property is STSVideoScalingModeAspectFit. This property only works when current video is not 360-degree.
@@ -126,7 +143,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) BOOL isInLowLatencyMode;
 
 /**
+ *  A boolean value indicates whether the audio session is interrupted. Some of the player view methods will not work when this property is `YES`, see the description of each method for details.
+ */
+@property (nonatomic, readonly) BOOL audioSessionIsInterrupted;
+
+/**
+ *  The member token got from StraaS server. Set this property to nil if the current user is a guest.
+ *
+ *  If you update this property when the player is playing, the new value will work the next time you load a media (live, VOD, or playlist).
+ */
+@property (nonatomic, nullable) NSString * JWT;
+
+/**
  *  Loads and starts playing a specific video.
+ *
+ *  This method won't work if `audioSessionIsInterrupted` is `YES`.
+ *
  *  If the player view is playing a playlist and the current playlist contains this video,
  *  the player view will jump to the index of that video.
  *
@@ -137,6 +169,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Loads and starts playing the first item of a specific playlist.
  *
+ *  This method won't work if `audioSessionIsInterrupted` is `YES`.
+ *
  *  @param playlistId The id of the playlist you want to load.
  */
 - (void)loadPlaylistWithId:(NSString *)playlistId;
@@ -144,12 +178,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Loads and starts playing a specific live without lowLatencyFirst.
  *
+ *  This method won't work if `audioSessionIsInterrupted` is `YES`.
+ *
  *  @param liveId The ID of the live you want to load.
  */
 - (void)loadLiveWithId:(NSString *)liveId;
 
 /**
  *  Loads and starts playing a specific live with lowLatencyFirst or not.
+ *
+ *  This method won't work if `audioSessionIsInterrupted` is `YES`.
  *
  *  @param liveId           The ID of the live you want to load.
  *  @param lowLatencyFirst  A boolean value indicates whether to play low latency live stream.
@@ -163,28 +201,37 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Play a playlist item at the given index.
  *
+ *  This method won't work if `audioSessionIsInterrupted` is `YES`.
+ *
  * @param index The index of the target item in the current playlist.
  */
 - (void)playItemAtIndex:(NSInteger)index;
 
 /**
  *  Play the next item in the current playlist.
+ *
+ *  This method won't work if `audioSessionIsInterrupted` is `YES`.
  */
 - (void)playNextItem;
 
 /**
  *  Play the previous item in the current playlist.
+ *
+ *  This method won't work if `audioSessionIsInterrupted` is `YES`.
  */
 - (void)playPreviousItem;
 
 /**
  *  Toggle player between play and pause.
+ *
+ *  This method won't work if `audioSessionIsInterrupted` is `NO`.
  */
 - (void)togglePlayPause;
 
 /**
  *  Sets the current playback time to the specified time.
- *  This method won't work if the current playing media is a live.
+ *
+ *  This method won't work if the current playing media is a live, or if `audioSessionIsInterrupted` is `YES`.
  *
  *  @param timeInSeconds The time to which to seek.
  */
@@ -203,6 +250,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return the hitCount of the currently playing live. Returns nil if there is no live playing.
  */
 - (NSNumber * _Nullable)hitCountOfCurrentlyPlayingLive;
+
+/**
+ *  Gets the broadcast start time of the currently playing live stream.
+ *
+ *  @return The broadcast start time in millisecond of of the currently playing live stream. Returns `nil` if the live stream is stopped or if there is no live playing.
+ */
+- (NSNumber * _Nullable)broadcastStartTimeOfCurrentlyPlayingLive;
 
 /**
  *  Get the quality names of the current playing media (Live or VOD).
