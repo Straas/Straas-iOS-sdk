@@ -148,6 +148,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) BOOL audioSessionIsInterrupted;
 
 /**
+ *  A boolean value indicates whether the audio output is muted.
+ */
+@property (nonatomic) BOOL muted;
+
+/**
  *  The member token got from StraaS server. Set this property to nil if the current user is a guest.
  *
  *  If you update this property when the player is playing, the new value will work the next time you load a media (live, VOD, or playlist).

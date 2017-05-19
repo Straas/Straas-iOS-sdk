@@ -50,9 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
  * @param failure      Error handler.
  * @return The new session data task. Returns `nil` if the application is unauthorized.
  */
-- (NSURLSessionDataTask * _Nullable)refreshMemberToken:(NSString *)refreshToken
-                                               success:(void(^)(NSString * token))success
-                                               failure:(void(^)(NSError * error))failure;
+- (NSURLSessionDataTask *)refreshMemberToken:(NSString *)refreshToken
+                                     success:(void(^)(NSString * token))success
+                                     failure:(void(^)(NSError * error))failure;
 
 @end
 NS_ASSUME_NONNULL_END
