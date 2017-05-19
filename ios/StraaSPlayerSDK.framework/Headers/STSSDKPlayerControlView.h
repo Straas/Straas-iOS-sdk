@@ -64,6 +64,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) UIButton * nextButton;
 
 /**
+ *  The mute switch button.
+ */
+@property (nonatomic, readonly) UIButton * muteSwitchButton;
+
+/**
  *  The view that shows the playback time and duration.
  */
 @property (nonatomic, readonly) STSSDKStreamingTimelineView * playbackTimelineView;
@@ -133,6 +138,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  This property works only when the player is playing a 360 video/live.
  */
 @property (nonatomic) BOOL canShowSphericalMark;
+
+/**
+ *  A boolean value indicates whether the player control view is able to display the muteSwitchButton.
+ */
+@property (nonatomic) BOOL canShowMuteSwitchButton;
 
 @end
 
