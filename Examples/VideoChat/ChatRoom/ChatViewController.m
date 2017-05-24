@@ -418,7 +418,9 @@
         [self.indicator stopAnimating];
     });
     __weak ChatViewController * weakSelf = self;
-    [self.manager getMessagesForChatroom:chatroom configuration:nil success:^(NSArray<STSChatMessage *> * _Nonnull messages) {
+    STSGetMessagesConfiguration * configuration = [STSGetMessagesConfiguration new];
+    configuration.perPage = @40;
+    [self.manager getMessagesForChatroom:chatroom configuration:configuration success:^(NSArray<STSChatMessage *> * _Nonnull messages) {
         [weakSelf.messages removeAllObjects];
         [weakSelf.messages addObjectsFromArray:messages];
         dispatch_async(dispatch_get_main_queue(), ^{
