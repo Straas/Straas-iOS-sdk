@@ -8,11 +8,13 @@
 
 #import "DetailViewController.h"
 #import "ChatExampleViewController.h"
+#import "ECommerceChatViewController.h"
 #import "ChatStickerExampleViewController.h"
 #import "StreamingViewController.h"
 
 NSString * const STSMessagingServiceKeyword = @"StraaS.io default chatroom";
-NSString * const STSMessagingServiceCustomUIKeyword = @"StraaS.io Customed chatroom";
+NSString * const STSMessagingServiceCustomUIKeyword = @"StraaS.io customed chatroom";
+NSString * const STSMessagingServiceECommerceUIKeyword = @"StraaS.io ECommerce chatroom";
 NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 
 @interface DetailViewController ()
@@ -31,7 +33,7 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 }
 
 - (NSString *)chatroomName {
-   return <#PUT_YOUR_CHATROOMNAME_HERE#>;
+    return <#PUT_YOUR_CHATROOMNAME_HERE#>;
 }
 
 - (STSChatroomConnectionOptions)chatroomConnectionOptions {
@@ -61,6 +63,9 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
     if ([self.detailItem isEqualToString:STSMessagingServiceCustomUIKeyword]) {
         [self addCustomChatView];
     }
+    if ([self.detailItem isEqualToString:STSMessagingServiceECommerceUIKeyword]) {
+        [self addECommerceChatView];
+    }
     if ([self.detailItem isEqualToString:STSStreamingServiceKeyword]) {
         [self addStreamingView];
     }
@@ -77,6 +82,12 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
     ChatStickerExampleViewController * controller =
     [ChatStickerExampleViewController viewControllerWithChatViewController:chatExampleViewController];
     controller.stickerViewShowingHeight = 180;
+    [self addControllerAndSetAutoLayout:controller];
+    [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName connectionOptions:self.chatroomConnectionOptions];
+}
+
+- (void)addECommerceChatView {
+    ECommerceChatViewController *controller = [ECommerceChatViewController new];
     [self addControllerAndSetAutoLayout:controller];
     [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName connectionOptions:self.chatroomConnectionOptions];
 }

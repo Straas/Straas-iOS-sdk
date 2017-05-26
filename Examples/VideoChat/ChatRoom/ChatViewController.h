@@ -38,6 +38,11 @@
 @property (nonatomic, readonly) STSChatManager * manager;
 
 /**
+ Current messages
+ */
+@property (nonatomic, readonly) NSMutableArray *messages;
+
+/**
  The delegate would sent message to object which must conform ChatStickerDelegate protocol.
  */
 @property (weak, nonatomic) id<ChatStickerDelegate> delegate;

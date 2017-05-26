@@ -10,6 +10,7 @@
 
 extern NSString * const STSMessagingServiceKeyword;
 extern NSString * const STSMessagingServiceCustomUIKeyword;
+extern NSString * const STSMessagingServiceECommerceUIKeyword;
 extern NSString * const STSStreamingServiceKeyword;
 
 @interface DetailViewController : UIViewController
