@@ -105,4 +105,28 @@
     [super didPressRightButton:sender];
 }
 
+- (void)chatroomConnected:(STSChat *)chatroom {
+    [super chatroomConnected:chatroom];
+    NSLog(@"connected to chatroom: %@", chatroom.chatroomName);
+}
+- (void)chatroomDisconnected:(STSChat *)chatroom {
+    NSLog(@"disconnect from chatroom: %@", chatroom.chatroomName);
+}
+
+- (void)chatroom:(STSChat *)chatroom failToConnect:(NSError *)error {
+    NSLog(@"fail to connect to chatroom: %@ with error: %@", chatroom.chatroomName, error);
+}
+
+- (void)chatroom:(STSChat *)chatroom error:(NSError *)error {
+    NSLog(@"chatroom: %@ with error: %@", chatroom.chatroomName, error);
+}
+
+- (void)chatroom:(STSChat *)chatroom aggregatedItemsAdded:(NSArray<STSAggregatedItem *> *)aggregatedItems {
+    [self.dataChannelDelegate aggregatedItemsAdded:aggregatedItems];
+}
+
+- (void)chatroom:(STSChat *)chatroom rawDataAdded:(STSChatMessage *)rawData {
+    [self.dataChannelDelegate rawDataAdded:rawData];
+}
+
 @end
