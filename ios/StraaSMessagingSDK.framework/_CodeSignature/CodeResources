@@ -12,13 +12,17 @@
 		<data>
 		R6vP2xnUhJs//Y47CWe7J4Efktw=
 		</data>
+		<key>Headers/STSArchivedMessagesMeta.h</key>
+		<data>
+		WD5WGKbJoxPftpLyTIy8q6AbSdI=
+		</data>
 		<key>Headers/STSChat.h</key>
 		<data>
 		kgIoc+iVgTmgIQ2PT8ae2wDKWhY=
 		</data>
 		<key>Headers/STSChatManager.h</key>
 		<data>
-		yhuDMM6Q1hPtlK+0eLlzFM/ZUHs=
+		0uVfSqe9qYfcrlVhZ0AVT2QGNvE=
 		</data>
 		<key>Headers/STSChatMessage.h</key>
 		<data>
@@ -36,6 +40,10 @@
 		<data>
 		FLY8iKWGwSsrUdWMrrlKjEdS9n8=
 		</data>
+		<key>Headers/STSGetArchivedMessagesConfiguration.h</key>
+		<data>
+		4qmU9Mi/sE4qrRBZGE7jpOh5F9w=
+		</data>
 		<key>Headers/STSGetMessagesConfiguration.h</key>
 		<data>
 		m8/JPV290ILHqXjA3b3vhXe5mIo=
@@ -50,15 +58,15 @@
 		</data>
 		<key>Headers/STSMSGErrorCode.h</key>
 		<data>
-		Ejwz592+ijnefJ2cFq1sE1tnYyg=
+		oThH3NyHp76W2cR3XPKoARbr6gw=
 		</data>
 		<key>Headers/StraaSMessagingSDK.h</key>
 		<data>
-		FuAUHzbPdKv6a2pHLhsVK2fopIQ=
+		9NJ7nRATznnkdMfifmEL5NpHzN8=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		HEIDMQCR7INBmv6snARijdlRuXk=
+		s0Pa5KuvSHxbgNM9C8cHhjKXCOU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -68,7 +76,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fwyNudiiSZO/AGFcNH/ErV2g3oE=
+			LcarIeIdtZmY3L+0LpB+D1ppwdQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -77,7 +85,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			04sjWepQ6xBM27RflcBWr7i37FU=
+			S0e4wzd0EaDEIH0SztcBKSjOVrE=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -107,6 +115,17 @@
 			gUlGdZFmo85eaGlJQD/Y9jDB03dCe6L/175p1Vsti9E=
 			</data>
 		</dict>
+		<key>Headers/STSArchivedMessagesMeta.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			WD5WGKbJoxPftpLyTIy8q6AbSdI=
+			</data>
+			<key>hash2</key>
+			<data>
+			Sigsmd7vF/CkRMSh7kBmuLwQs/pVXRtShSpKAR7qCTA=
+			</data>
+		</dict>
 		<key>Headers/STSChat.h</key>
 		<dict>
 			<key>hash</key>
@@ -122,11 +141,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			yhuDMM6Q1hPtlK+0eLlzFM/ZUHs=
+			0uVfSqe9qYfcrlVhZ0AVT2QGNvE=
 			</data>
 			<key>hash2</key>
 			<data>
-			XLspg5jaZtnvfdDf6LzUCYCIP4zx+LY6MknxbkCPrrM=
+			8QjfBrB/V+qgaqevlcBVl1zXTuzIAbiaUXuOuDF/X/A=
 			</data>
 		</dict>
 		<key>Headers/STSChatMessage.h</key>
@@ -173,6 +192,17 @@
 			We14x4LHRpZyjC2uIuGCxUe2iMG3mRsR1wLYNusw9dM=
 			</data>
 		</dict>
+		<key>Headers/STSGetArchivedMessagesConfiguration.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			4qmU9Mi/sE4qrRBZGE7jpOh5F9w=
+			</data>
+			<key>hash2</key>
+			<data>
+			3mn2sT66r5Syo1Bok7iAfyNl4JiAOhjOzmmqzusJzX4=
+			</data>
+		</dict>
 		<key>Headers/STSGetMessagesConfiguration.h</key>
 		<dict>
 			<key>hash</key>
@@ -210,22 +240,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ejwz592+ijnefJ2cFq1sE1tnYyg=
+			oThH3NyHp76W2cR3XPKoARbr6gw=
 			</data>
 			<key>hash2</key>
 			<data>
-			bbEC3shlcZCRuNSJsODL3FN2IpcQ6rYOnH5Sf4lGqS8=
+			MZrkYqeLGQw4v46byYtdHrbBK+SlqpSksS3vojsAb8c=
 			</data>
 		</dict>
 		<key>Headers/StraaSMessagingSDK.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			FuAUHzbPdKv6a2pHLhsVK2fopIQ=
+			9NJ7nRATznnkdMfifmEL5NpHzN8=
 			</data>
 			<key>hash2</key>
 			<data>
-			QS2jd4KuBtaqtE97y6CsTF5A6BJcaugZSoZ6fTSuvQI=
+			2PHaqFDK7wWTK/nupeY6HDReU4mCoWOmPLo58cHcf3o=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -243,11 +273,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fwyNudiiSZO/AGFcNH/ErV2g3oE=
+			LcarIeIdtZmY3L+0LpB+D1ppwdQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			6E8IT+MMgNDyrdJ0+odi4xMRCejH7MjNp7fGK3pNvZE=
+			TGo3sEQ3q+VTxzaUWox+awgLAFSg0ZeQ/IVtAUz+kVU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -256,11 +286,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			04sjWepQ6xBM27RflcBWr7i37FU=
+			S0e4wzd0EaDEIH0SztcBKSjOVrE=
 			</data>
 			<key>hash2</key>
 			<data>
-			1cOwqAwz7BM95SlEwTzrP6taZ1W+QEtZH55bwu1WStc=
+			6zt3QvJ5a7Mff8gx2RHqaCBfCXiOG1neZoxETwek1mQ=
 			</data>
 			<key>optional</key>
 			<true/>

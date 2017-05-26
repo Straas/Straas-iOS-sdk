@@ -22,3 +22,5 @@ FOUNDATION_EXPORT const unsigned char StraaSMessagingSDKVersionString[];
 #import <StraaSMessagingSDK/STSAggregatedItem.h>
 #import <StraaSMessagingSDK/STSChatroomConnectionOptions.h>
 #import <StraaSMessagingSDK/STSGetMessagesConfiguration.h>
+#import <StraaSMessagingSDK/STSArchivedMessagesMeta.h>
+#import <StraaSMessagingSDK/STSGetArchivedMessagesConfiguration.h>
