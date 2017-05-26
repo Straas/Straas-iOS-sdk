@@ -20,13 +20,13 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self) {
-        [self createControls];
+        [self commonInit];
     }
     
     return self;
 }
 
-- (void)createControls {
+- (void)commonInit {
     self.backgroundColor = [UIColor clearColor];
     NSMutableArray *constraints = [NSMutableArray array];
     
