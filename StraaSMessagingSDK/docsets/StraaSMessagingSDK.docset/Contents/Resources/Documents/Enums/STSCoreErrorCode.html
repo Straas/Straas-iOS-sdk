@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>STSGetMessagesOrder Enum Reference</title>
+    <title>STSCoreErrorCode Enum Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/objc/Enum/STSGetMessagesOrder" class="dashAnchor"></a>
-    <a title="STSGetMessagesOrder Enum Reference"></a>
+    <a name="//apple_ref/objc/Enum/STSCoreErrorCode" class="dashAnchor"></a>
+    <a title="STSCoreErrorCode Enum Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">StraaSMessagingSDK Docs</a> (98% documented)</p>
@@ -23,7 +23,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">StraaSMessagingSDK Reference</a>
         <img id="carat" src="../img/carat.png" />
-        STSGetMessagesOrder Enum Reference
+        STSCoreErrorCode Enum Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -132,14 +132,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>STSGetMessagesOrder</h1>
+            <h1>STSCoreErrorCode</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="k">enum</span> <span class="n">STSGetMessagesOrder</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+                  <pre class="highlight"><code><span class="k">enum</span> <span class="n">STSCoreErrorCode</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
 
                 </div>
               </div>
-            <p>Options for how the messages will be sorted.</p>
+            <p>StraaS.io core SDK error code</p>
 
           </section>
           <section class="section task-group-section">
@@ -148,9 +148,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSGetMessagesOrder@STSGetMessagesOrderAscending"></a>
-                    <a name="//apple_ref/objc/Case/STSGetMessagesOrderAscending" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSGetMessagesOrder@STSGetMessagesOrderAscending">STSGetMessagesOrderAscending</a>
+                    <a name="/c:@E@STSCoreErrorCode@STSCoreErrorCodeNetwork"></a>
+                    <a name="//apple_ref/objc/Case/STSCoreErrorCodeNetwork" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@STSCoreErrorCode@STSCoreErrorCodeNetwork">STSCoreErrorCodeNetwork</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -158,14 +158,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get messages with ascending order.</p>
+                        <p>Network error, underlying error object is included in the user info dictionary.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSGetMessagesOrderAscending</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight"><code><span class="n">STSCoreErrorCodeNetwork</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">network</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
 
                         </div>
                       </div>
@@ -175,9 +180,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSGetMessagesOrder@STSGetMessagesOrderDescending"></a>
-                    <a name="//apple_ref/objc/Case/STSGetMessagesOrderDescending" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSGetMessagesOrder@STSGetMessagesOrderDescending">STSGetMessagesOrderDescending</a>
+                    <a name="/c:@E@STSCoreErrorCode@STSCoreErrorCodeWrongInformation"></a>
+                    <a name="//apple_ref/objc/Case/STSCoreErrorCodeWrongInformation" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@STSCoreErrorCode@STSCoreErrorCodeWrongInformation">STSCoreErrorCodeWrongInformation</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -185,14 +190,85 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get messages with descending order.</p>
+                        <p>Check if you&rsquo;ve set the STSSDKClientID corresponding to your Bundle id in your project info.plist
+and have called STSApplication configureApplication successfully before use this class.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSGetMessagesOrderDescending</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+                          <pre class="highlight"><code><span class="n">STSCoreErrorCodeWrongInformation</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">wrongInformation</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@STSCoreErrorCode@STSCoreErrorCodeUnauthorized"></a>
+                    <a name="//apple_ref/objc/Case/STSCoreErrorCodeUnauthorized" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@STSCoreErrorCode@STSCoreErrorCodeUnauthorized">STSCoreErrorCodeUnauthorized</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Succeed to reach our server, but fail to get authorized. Check if you&rsquo;ve set the authorized
+STSSDKClientID and bundleId pair.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="n">STSCoreErrorCodeUnauthorized</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">unauthorized</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@STSCoreErrorCode@STSCoreErrorCodeServer"></a>
+                    <a name="//apple_ref/objc/Case/STSCoreErrorCodeServer" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@STSCoreErrorCode@STSCoreErrorCodeServer">STSCoreErrorCodeServer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Server side error happened, please try again later or contact with service provider.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="n">STSCoreErrorCodeServer</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">server</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
 
                         </div>
                       </div>
