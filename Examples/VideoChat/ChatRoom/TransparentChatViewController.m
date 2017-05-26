@@ -33,41 +33,56 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Override Methods
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    STSChatMessage * message = self.messages[indexPath.row];
-    
-    TransparentMessageTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:TransparentMessengerCellIdentifier
-                                                                                 forIndexPath:indexPath];
-    NSString *nameString = [NSString stringWithFormat:@"%@: ", message.creator.name];
-    NSString *text = [NSString stringWithFormat:@"%@%@", nameString, message.text];
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text];
-    [attributedString addAttribute:NSForegroundColorAttributeName
-                             value:[UIColor orangeColor]
-                             range:NSMakeRange(0, nameString.length)];
-    [attributedString addAttribute:NSForegroundColorAttributeName
-                             value:[UIColor whiteColor]
-                             range:NSMakeRange(nameString.length, message.text.length)];
-    [attributedString addAttribute:NSFontAttributeName
-                             value:[UIFont systemFontOfSize:16]
-                             range:NSMakeRange(0, text.length)];
-    [cell setBodyAttributedText:attributedString];
-    
-    // Cells must inherit the table view's transform
-    // This is very important, since the main table view may be inverted
-    cell.transform = self.tableView.transform;
-    
-    return cell;
+    if ([tableView isEqual:self.tableView]) {
+        STSChatMessage * message = self.messages[indexPath.row];
+        
+        TransparentMessageTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:TransparentMessengerCellIdentifier
+                                                                                     forIndexPath:indexPath];
+        NSString *nameString = [NSString stringWithFormat:@"%@: ", message.creator.name];
+        NSString *text = [NSString stringWithFormat:@"%@%@", nameString, message.text];
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text];
+        [attributedString addAttribute:NSForegroundColorAttributeName
+                                 value:[UIColor orangeColor]
+                                 range:NSMakeRange(0, nameString.length)];
+        [attributedString addAttribute:NSForegroundColorAttributeName
+                                 value:[UIColor whiteColor]
+                                 range:NSMakeRange(nameString.length, message.text.length)];
+        [attributedString addAttribute:NSFontAttributeName
+                                 value:[UIFont systemFontOfSize:16]
+                                 range:NSMakeRange(0, text.length)];
+        [cell setBodyAttributedText:attributedString];
+        
+        // Cells must inherit the table view's transform
+        // This is very important, since the main table view may be inverted
+        cell.transform = self.tableView.transform;
+        
+        return cell;
+    }
+    else {
+        return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    return 36;
+    if ([tableView isEqual:self.tableView]) {
+        return 36;
+    }
+    else {
+        return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    return NO;
+    if ([tableView isEqual:self.tableView]) {
+        return NO;
+    }
+    else {
+        return [super tableView:tableView shouldHighlightRowAtIndexPath:indexPath];
+    }
 }
-
-#pragma mark - Override Methods
 
 - (void)didChangeKeyboardStatus:(SLKKeyboardStatus)status {
     if (status == SLKKeyboardStatusWillShow) {
