@@ -433,7 +433,9 @@
 }
 
 - (void)chatroomInputModeChanged:(STSChat *)chatroom {
-    [self updateTextViewForChatroom:chatroom];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self updateTextViewForChatroom:chatroom];
+    });
 }
 
 - (void)chatroom:(STSChat *)chatroom usersUpdated:(NSArray<STSChatUser *> *)users {
@@ -441,7 +443,9 @@
     __weak ChatViewController * weakSelf = self;
     for (STSChatUser * user in users) {
         if ([user isEqual:currentUser]) {
-            [weakSelf updateTextViewForChatroom:chatroom];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [weakSelf updateTextViewForChatroom:chatroom];
+            });
         }
     }
 }
