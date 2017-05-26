@@ -69,6 +69,10 @@ typedef NS_ENUM(NSUInteger, STSMSGErrorCode) {
      */
     STSMSGErrorCodeMemberIdNotFound,
     /**
+     *  Archive Id cannot be found, please check if the archive id existed.
+     */
+    STSMSGErrorCodeArchiveIdNotFound,
+    /**
      *  Server side error happened, please try again later or contact with service provider.
      */
     STSMSGErrorCodeServer,
@@ -76,10 +80,6 @@ typedef NS_ENUM(NSUInteger, STSMSGErrorCode) {
      *  SDK internal error happened, please try again or report issue.
      */
     STSMSGErrorCodeInternal,
-    /**
-     *  Data channel is not enabled. If you want to use data channel, remember to connect to chatroom with option STSChatroomConnectionWithDataChannel.
-     */
-    STSMSGErrorCodeDataChannelNotEnabled,
     /**
      *  Aggregate data length must be between 1~100 characters.
      */

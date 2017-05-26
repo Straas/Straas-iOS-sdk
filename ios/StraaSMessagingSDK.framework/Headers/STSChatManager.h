@@ -13,6 +13,8 @@
 #import "STSAggregatedData.h"
 #import "STSChatroomConnectionOptions.h"
 #import "STSGetMessagesConfiguration.h"
+#import "STSGetArchivedMessagesConfiguration.h"
+#import "STSArchivedMessagesMeta.h"
 #import "STSGetUsersType.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -309,7 +311,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  The following methods only valid when connect to channel with data channel
+ *  The following methods are about data channel. 
+ *  This kind of messages are used to broadcast data and are not subjected to the input interval and user privilege.
+ *  More information, ref: https://github.com/StraaS/StraaS-web-document/wiki/Messaging-Service-Concept
  */
 @interface STSChatManager(DataChannel)
 
@@ -366,4 +370,39 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  The following methods are about archived messages which is designed to replay history messages.
+ */
+@interface STSChatManager (ArchivedMessage)
+
+/**
+ *  Get archived message meta object by archived id.
+ *
+ *  @param chatroomName The chatroom name you want to get archived messages.
+ *  @param archivedId   The archived id to retrieve archived messages meta.
+ *  @param success      Handler for successful request. It takes an STSArchivedMessagesMeta
+                        argument that contains the specific archived meta.
+ *  @param failure      Error handler.
+ */
+- (void)getArchivedMessageMetaForChatroom:(NSString *)chatroomName
+                               archivedId:(NSString *)archivedId
+                                  success:(void(^)(STSArchivedMessagesMeta * archivedMessageMeta))success
+                                  failure:(void(^)(NSError * error))failure;
+/**
+ *  Get chat room archived messages.
+ *  The maximum number of return messages is 2000. The recommended setting is |endTime-startTime| < 10000 (10 seconds)
+ *
+ *  @param chatroomName  The chatroom name you want to get archived messages.
+ *  @param configuration The STSGetArchivedMessagesConfiguration object that specifies the request rules for getting archived messages.
+ *  @param success       Handler for successful request. It takes an 'NSArray' of 'STSChatMessage'
+                         argument that contains the specific archived messages.
+ *  @param failure       Error handler.
+ */
+- (void)getArchivedMessagesForChatroom:(NSString *)chatroomName
+                         configuration:(STSGetArchivedMessagesConfiguration *)configuration
+                               success:(void(^)(NSArray<STSChatMessage *> * messages))success
+                               failure:(void(^)(NSError * error))failure;
+
+
+@end
 NS_ASSUME_NONNULL_END
