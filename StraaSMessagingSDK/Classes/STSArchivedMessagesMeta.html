@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>STSGetMessagesOrder Enum Reference</title>
+    <title>STSArchivedMessagesMeta Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/objc/Enum/STSGetMessagesOrder" class="dashAnchor"></a>
-    <a title="STSGetMessagesOrder Enum Reference"></a>
+    <a name="//apple_ref/objc/Class/STSArchivedMessagesMeta" class="dashAnchor"></a>
+    <a title="STSArchivedMessagesMeta Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">StraaSMessagingSDK Docs</a> (98% documented)</p>
@@ -23,7 +23,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">StraaSMessagingSDK Reference</a>
         <img id="carat" src="../img/carat.png" />
-        STSGetMessagesOrder Enum Reference
+        STSArchivedMessagesMeta Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -132,14 +132,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>STSGetMessagesOrder</h1>
+            <h1>STSArchivedMessagesMeta</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="k">enum</span> <span class="n">STSGetMessagesOrder</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">STSArchivedMessagesMeta</span> <span class="p">:</span> <span class="nc">LHDataObject</span></code></pre>
 
                 </div>
               </div>
-            <p>Options for how the messages will be sorted.</p>
+            <p>STSArchivedMessagesMeta object defines the archived messsage meta properties.</p>
 
           </section>
           <section class="section task-group-section">
@@ -148,9 +148,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSGetMessagesOrder@STSGetMessagesOrderAscending"></a>
-                    <a name="//apple_ref/objc/Case/STSGetMessagesOrderAscending" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSGetMessagesOrder@STSGetMessagesOrderAscending">STSGetMessagesOrderAscending</a>
+                    <a name="/c:objc(cs)STSArchivedMessagesMeta(py)msgType"></a>
+                    <a name="//apple_ref/objc/Property/msgType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSArchivedMessagesMeta(py)msgType">msgType</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -158,14 +158,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get messages with ascending order.</p>
+                        <p>The message type of the archived message.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSGetMessagesOrderAscending</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">msgType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">msgType</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span></code></pre>
 
                         </div>
                       </div>
@@ -175,9 +180,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSGetMessagesOrder@STSGetMessagesOrderDescending"></a>
-                    <a name="//apple_ref/objc/Case/STSGetMessagesOrderDescending" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSGetMessagesOrder@STSGetMessagesOrderDescending">STSGetMessagesOrderDescending</a>
+                    <a name="/c:objc(cs)STSArchivedMessagesMeta(py)oldestDate"></a>
+                    <a name="//apple_ref/objc/Property/oldestDate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSArchivedMessagesMeta(py)oldestDate">oldestDate</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -185,14 +190,51 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get messages with descending order.</p>
+                        <p>The oldest date of this archived messages, whose unit is unix time in millisecond.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSGetMessagesOrderDescending</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">oldestDate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">oldestDate</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSArchivedMessagesMeta(py)latestDate"></a>
+                    <a name="//apple_ref/objc/Property/latestDate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSArchivedMessagesMeta(py)latestDate">latestDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The latest date of this archived messages, whose unit is unix time in millisecond.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">latestDate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">latestDate</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span></code></pre>
 
                         </div>
                       </div>
