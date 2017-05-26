@@ -96,7 +96,7 @@
                                                         relatedBy:NSLayoutRelationEqual
                                                            toItem:self.chatVC.view.superview
                                                         attribute:NSLayoutAttributeHeight
-                                                       multiplier:0.4
+                                                       multiplier:0.43
                                                          constant:0]];
     [NSLayoutConstraint activateConstraints:constraints];
 }
