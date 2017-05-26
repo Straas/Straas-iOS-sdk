@@ -1,5 +1,5 @@
 //
-//  AdvancedChatViewController.h
+//  ECommerceChatViewController.h
 //  VideoChat
 //
 //  Created by Harry on 25/05/2017.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <StraaSMessagingSDK/StraaSMessagingSDK.h>
 
-@interface AdvancedChatViewController : UIViewController
+@interface ECommerceChatViewController : UIViewController
 
 - (void)connectToChatWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
 

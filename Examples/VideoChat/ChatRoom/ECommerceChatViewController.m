@@ -1,23 +1,23 @@
 //
-//  AdvancedChatViewController.m
+//  ECommerceChatViewController.m
 //  VideoChat
 //
 //  Created by Harry on 25/05/2017.
 //  Copyright © 2017 StraaS.io. All rights reserved.
 //
 
-#import "AdvancedChatViewController.h"
+#import "ECommerceChatViewController.h"
 #import <SlackTextViewController/SLKTextViewController.h>
 #import <StraaSCoreSDK/StraaSCoreSDK.h>
 #import "TransparentChatViewController.h"
 
-@interface AdvancedChatViewController ()
+@interface ECommerceChatViewController ()
 
 @property (nonatomic) TransparentChatViewController *chatVC;
 
 @end
 
-@implementation AdvancedChatViewController
+@implementation ECommerceChatViewController
 
 - (instancetype)init {
     self = [super init];

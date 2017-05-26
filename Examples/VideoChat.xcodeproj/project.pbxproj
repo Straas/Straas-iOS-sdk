@@ -19,9 +19,9 @@
 		40C779E81D7091D0004F61CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C779E61D7091D0004F61CA /* Main.storyboard */; };
 		40C779EA1D7091D0004F61CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C779E91D7091D0004F61CA /* Assets.xcassets */; };
 		40C779ED1D7091D0004F61CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C779EB1D7091D0004F61CA /* LaunchScreen.storyboard */; };
+		4A1F4DC51ED83B8D005D6FD9 /* ECommerceChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F4DC41ED83B8D005D6FD9 /* ECommerceChatViewController.m */; };
 		4A3A2BB51ED7DE6000A22863 /* TransparentMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A2BB41ED7DE6000A22863 /* TransparentMessageTableViewCell.m */; };
 		4A3A2BB81ED7DEE900A22863 /* TransparentChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A2BB71ED7DEE900A22863 /* TransparentChatViewController.m */; };
-		4A3A2BBE1ED7E07D00A22863 /* AdvancedChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A2BBD1ED7E07D00A22863 /* AdvancedChatViewController.m */; };
 		72F47A421DDA1CA000103583 /* StreamingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F47A411DDA1CA000103583 /* StreamingViewController.m */; };
 		9B133DD61DCAF4020082C269 /* UIImage+sticker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B133DD51DCAF4020082C269 /* UIImage+sticker.m */; };
 		9B16870F1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B16870E1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.m */; };
@@ -63,12 +63,12 @@
 		40C779E91D7091D0004F61CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40C779EC1D7091D0004F61CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40C779EE1D7091D0004F61CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A1F4DC31ED83B8D005D6FD9 /* ECommerceChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECommerceChatViewController.h; sourceTree = "<group>"; };
+		4A1F4DC41ED83B8D005D6FD9 /* ECommerceChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECommerceChatViewController.m; sourceTree = "<group>"; };
 		4A3A2BB31ED7DE6000A22863 /* TransparentMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentMessageTableViewCell.h; sourceTree = "<group>"; };
 		4A3A2BB41ED7DE6000A22863 /* TransparentMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentMessageTableViewCell.m; sourceTree = "<group>"; };
 		4A3A2BB61ED7DEE900A22863 /* TransparentChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentChatViewController.h; sourceTree = "<group>"; };
 		4A3A2BB71ED7DEE900A22863 /* TransparentChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentChatViewController.m; sourceTree = "<group>"; };
-		4A3A2BBC1ED7E07D00A22863 /* AdvancedChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedChatViewController.h; sourceTree = "<group>"; };
-		4A3A2BBD1ED7E07D00A22863 /* AdvancedChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedChatViewController.m; sourceTree = "<group>"; };
 		64C2739ECC5559476005727D /* Pods_VideoChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F47A401DDA1CA000103583 /* StreamingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StreamingViewController.h; path = Streaming/StreamingViewController.h; sourceTree = "<group>"; };
 		72F47A411DDA1CA000103583 /* StreamingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StreamingViewController.m; path = Streaming/StreamingViewController.m; sourceTree = "<group>"; };
@@ -131,8 +131,8 @@
 				40A202301D77F93E00457359 /* ChatViewController.m */,
 				40A202311D77F93E00457359 /* MessageTableViewCell.h */,
 				40A202321D77F93E00457359 /* MessageTableViewCell.m */,
-				4A3A2BBC1ED7E07D00A22863 /* AdvancedChatViewController.h */,
-				4A3A2BBD1ED7E07D00A22863 /* AdvancedChatViewController.m */,
+				4A1F4DC31ED83B8D005D6FD9 /* ECommerceChatViewController.h */,
+				4A1F4DC41ED83B8D005D6FD9 /* ECommerceChatViewController.m */,
 				4A3A2BB61ED7DEE900A22863 /* TransparentChatViewController.h */,
 				4A3A2BB71ED7DEE900A22863 /* TransparentChatViewController.m */,
 				4A3A2BB31ED7DE6000A22863 /* TransparentMessageTableViewCell.h */,
@@ -379,6 +379,7 @@
 				9B9A9BB61DC98A650017F8C1 /* StickersInputView.m in Sources */,
 				72F47A421DDA1CA000103583 /* StreamingViewController.m in Sources */,
 				9BBEC54A1D813F1800387012 /* UIAlertController+VideoChatUtility.m in Sources */,
+				4A1F4DC51ED83B8D005D6FD9 /* ECommerceChatViewController.m in Sources */,
 				40C779E21D7091D0004F61CA /* MasterViewController.m in Sources */,
 				9B98A7B61E1E3ABA00E8CE7C /* ChatStickerExampleViewController.m in Sources */,
 				40A202371D77F93E00457359 /* ChatViewController.m in Sources */,
@@ -392,7 +393,6 @@
 				40C779DC1D7091D0004F61CA /* main.m in Sources */,
 				40C779E51D7091D0004F61CA /* DetailViewController.m in Sources */,
 				4A3A2BB51ED7DE6000A22863 /* TransparentMessageTableViewCell.m in Sources */,
-				4A3A2BBE1ED7E07D00A22863 /* AdvancedChatViewController.m in Sources */,
 				40A202391D77F93E00457359 /* MessageTextView.m in Sources */,
 				40A202381D77F93E00457359 /* MessageTableViewCell.m in Sources */,
 				9B551F281E23377600C9D06B /* ChatExampleViewController.m in Sources */,
