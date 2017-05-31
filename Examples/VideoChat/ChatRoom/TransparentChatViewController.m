@@ -90,8 +90,10 @@
         self.tableView.hidden = YES;
     }
     else if (status == SLKKeyboardStatusWillHide) {
-        self.textInputbarHidden = YES;
-        self.tableView.hidden = NO;
+        [UIView performWithoutAnimation:^{
+            self.textInputbarHidden = YES;
+            self.tableView.hidden = NO;
+        }];
     }
 }
 
@@ -100,7 +102,6 @@
 }
 
 - (void)didPressRightButton:(id)sender {
-    self.textInputbarHidden = YES;
     
     [super didPressRightButton:sender];
 }
