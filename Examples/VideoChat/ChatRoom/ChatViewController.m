@@ -283,12 +283,20 @@
     [self.manager disconnectFromChatroom:self.currentChat];
 }
 
+- (BOOL)isTextViewEditable {
+    return self.textView.isEditable;
+}
+
+- (void)setTextViewEditable:(BOOL)textViewEditable {
+    self.textView.editable = textViewEditable;
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.textView.editable = NO;
+    self.textViewEditable = NO;
     // SLKTVC's configuration
     self.bounces = YES;
     self.shakeToClearEnabled = YES;
@@ -531,7 +539,7 @@
             placeholder = @"Conneting to Chatroom...";
             break;
     }
-    self.textView.editable = editable;
+    self.textViewEditable = editable;
     self.textView.placeholder = placeholder;
 }
 

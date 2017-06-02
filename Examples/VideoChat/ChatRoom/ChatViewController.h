@@ -71,6 +71,11 @@
 @property (nonatomic) BOOL shouldAddIndicatorView;
 
 /**
+ A boolean value indicating whether the textView is editable.
+ */
+@property (nonatomic, getter=isTextViewEditable) BOOL textViewEditable;
+
+/**
  An NSTimeInterval value indicates how long to reload tableView.
  Add message and remove message socket event will be cached in memory.
  Those changes will be updated when next refresh time interval comes.

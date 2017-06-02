@@ -17,6 +17,7 @@
 @property (nonatomic) TransparentChatViewController *chatVC;
 @property (nonatomic) NSString * chatroomName;
 @property (nonatomic) STSChatroomConnectionOptions options;
+@property (nonatomic) UIButton * showKeyboardButton;
 @property (nonatomic) UIButton * likeButton;
 @property (nonatomic) NSDictionary<NSString *, UIImage *> * emojis;
 @property (nonatomic) STSChatManager * manager;
@@ -61,9 +62,20 @@
 
     // Add control buttons
     [self addControlButtons];
-
+    
     [self addLikebutton];
+}
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self addObserver:self forKeyPath:@"chatVC.textViewEditable" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew|NSKeyValueObservingOptionInitial context:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self removeObserver:self forKeyPath:@"chatVC.textViewEditable" context:nil];
+    
+    [super viewWillDisappear:animated];
 }
 
 #pragma mark - Private Methods
@@ -112,22 +124,18 @@
 }
 
 - (void)addControlButtons {
-    UIButton *showKeyboardButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    showKeyboardButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [showKeyboardButton setImage:[UIImage imageNamed:@"btn_msg_typing"] forState:UIControlStateNormal];
-    [showKeyboardButton addTarget:self action:@selector(onShowKeyboardButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:showKeyboardButton];
-
+    [self.view addSubview:self.showKeyboardButton];
+    
     // Setup auto layout
     NSMutableArray *constraints = [NSMutableArray array];
     [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-7-[showKeyboardButton(50)]"
                                                                              options:0
                                                                              metrics:nil
-                                                                               views:@{@"showKeyboardButton":showKeyboardButton}]];
+                                                                               views:@{@"showKeyboardButton":self.showKeyboardButton}]];
     [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[chatVC]-10-[showKeyboardButton(50)]-5-|"
                                                                              options:0
                                                                              metrics:nil
-                                                                               views:@{@"showKeyboardButton":showKeyboardButton,
+                                                                               views:@{@"showKeyboardButton":self.showKeyboardButton,
                                                                                        @"chatVC":self.chatVC.view}]];
     [NSLayoutConstraint activateConstraints:constraints];
 }
@@ -145,6 +153,16 @@
 }
 
 #pragma mark - Accessor
+
+- (UIButton *)showKeyboardButton {
+    if (!_showKeyboardButton) {
+        _showKeyboardButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_showKeyboardButton setImage:[UIImage imageNamed:@"btn_msg_typing"] forState:UIControlStateNormal];
+        [_showKeyboardButton addTarget:self action:@selector(onShowKeyboardButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        _showKeyboardButton.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _showKeyboardButton;
+}
 
 - (UIButton *)likeButton {
     if (!_likeButton) {
@@ -253,6 +271,15 @@
 
 - (void)connectToChatWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
     [self.chatVC connectToChatWithJWT:JWT chatroomName:chatroomName connectionOptions:connectionOptions];
+}
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if([keyPath isEqualToString:@"chatVC.textViewEditable"]) {
+        BOOL editable = [change[NSKeyValueChangeNewKey] integerValue];
+        self.showKeyboardButton.enabled = editable;
+    }
 }
 
 @end
