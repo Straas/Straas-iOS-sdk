@@ -301,8 +301,6 @@
     self.bounces = YES;
     self.shakeToClearEnabled = YES;
     self.keyboardPanningEnabled = YES;
-    self.tableView.estimatedRowHeight = 115;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.shouldScrollToBottomAfterKeyboardShows = NO;
     self.inverted = YES;
     if (self.shouldAddIndicatorView) {
@@ -1012,6 +1010,16 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    STSChatMessage * msg = self.messages[indexPath.row];
+    if (msg.type == STSChatMessageTypeText) {
+        return [MessageTableViewCell estimateBodyLabelHeightWithText:msg.text
+                                                          widthToFit:tableView.bounds.size.width];
+    } else {
+        return 115.0;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     STSChatMessage * msg = self.messages[indexPath.row];
     if (msg.type == STSChatMessageTypeText) {
         return [MessageTableViewCell estimateBodyLabelHeightWithText:msg.text

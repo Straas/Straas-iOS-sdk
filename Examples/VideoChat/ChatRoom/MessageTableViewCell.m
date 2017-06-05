@@ -188,11 +188,11 @@ static const CGFloat kMessageTableViewCellTitleHeight = 20;
     NSDictionary * attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:[self defaultFontSize]],
                                   NSParagraphStyleAttributeName: [NSParagraphStyle defaultParagraphStyle]};
     CGRect estimateRect = [text boundingRectWithSize:size
-                                             options:NSStringDrawingUsesLineFragmentOrigin
+                                             options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
                                           attributes:attributes
                                              context:nil];
     
-    return estimateRect.size.height + kMessageTableViewCellMarginRight + kMessageTableViewCellTitleHeight + kMessageTableViewCellMarginLeft + kMessageTableViewCellMarginRight;
+    return ceil(estimateRect.size.height) + kMessageTableViewCellMarginRight + kMessageTableViewCellTitleHeight + kMessageTableViewCellMarginLeft + kMessageTableViewCellMarginRight;
 }
 
 @end
