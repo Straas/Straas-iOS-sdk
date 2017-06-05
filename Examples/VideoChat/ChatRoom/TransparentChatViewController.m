@@ -37,23 +37,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([tableView isEqual:self.tableView]) {
-        STSChatMessage * message = self.messages[indexPath.row];
-        
         TransparentMessageTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:TransparentMessengerCellIdentifier
                                                                                      forIndexPath:indexPath];
-        NSString *nameString = [NSString stringWithFormat:@"%@: ", message.creator.name];
-        NSString *text = [NSString stringWithFormat:@"%@%@", nameString, message.text];
-        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text];
-        [attributedString addAttribute:NSForegroundColorAttributeName
-                                 value:[UIColor orangeColor]
-                                 range:NSMakeRange(0, nameString.length)];
-        [attributedString addAttribute:NSForegroundColorAttributeName
-                                 value:[UIColor whiteColor]
-                                 range:NSMakeRange(nameString.length, message.text.length)];
-        [attributedString addAttribute:NSFontAttributeName
-                                 value:[UIFont systemFontOfSize:16]
-                                 range:NSMakeRange(0, text.length)];
-        [cell setBodyAttributedText:attributedString];
+        
+        STSChatMessage *message = self.messages[indexPath.row];
+        [cell setMessage:message];
         
         // Cells must inherit the table view's transform
         // This is very important, since the main table view may be inverted
@@ -66,9 +54,22 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([tableView isEqual:self.tableView]) {
+        STSChatMessage *message = self.messages[indexPath.row];
+        return [TransparentMessageTableViewCell estimateCellHeightWithMessage:message
+                                                                   widthToFit:tableView.bounds.size.width];
+    }
+    else {
+        return [super tableView:tableView estimatedHeightForRowAtIndexPath:indexPath];
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     if ([tableView isEqual:self.tableView]) {
-        return 36;
+        STSChatMessage *message = self.messages[indexPath.row];
+        return [TransparentMessageTableViewCell estimateCellHeightWithMessage:message
+                                                                   widthToFit:tableView.bounds.size.width];
     }
     else {
         return [super tableView:tableView heightForRowAtIndexPath:indexPath];
