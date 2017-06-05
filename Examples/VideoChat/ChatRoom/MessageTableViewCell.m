@@ -9,6 +9,12 @@
 #import "MessageTableViewCell.h"
 #import <SlackTextViewController/SLKUIConstants.h>
 
+static const CGFloat kMessageTableViewCellAvatarHeight = 40.0;
+static const CGFloat kMessageTableViewCellMarginLeft = 5;
+static const CGFloat kMessageTableViewCellMarginRight = 10;
+static const CGFloat kMessageTableViewCellPadding = 15;
+static const CGFloat kMessageTableViewCellTitleHeight = 20;
+
 @implementation MessageTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -37,9 +43,10 @@
                                     } mutableCopy];
 
     NSDictionary *metrics = @{@"tumbSize": @(kMessageTableViewCellAvatarHeight),
-                              @"padding": @15,
-                              @"right": @10,
-                              @"left": @5
+                              @"padding": @(kMessageTableViewCellPadding),
+                              @"right": @(kMessageTableViewCellMarginRight),
+                              @"left": @(kMessageTableViewCellMarginLeft),
+                              @"titleHeight": @(kMessageTableViewCellTitleHeight),
                               };
 
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[thumbnailView(tumbSize)]-right-[titleLabel(>=0)]-padding-|" options:0 metrics:metrics views:views]];
@@ -50,7 +57,7 @@
     if ([self.reuseIdentifier isEqualToString:MessengerCellIdentifier]) {
         [self.contentView addSubview:self.bodyLabel];
         [views addEntriesFromDictionary:@{@"bodyLabel": self.bodyLabel}];
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-right-[titleLabel(20)]-left-[bodyLabel(>=0@999)]-right-|" options:0 metrics:metrics views:views]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-right-[titleLabel(titleHeight)]-left-[bodyLabel(>=0@999)]-right-|" options:0 metrics:metrics views:views]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[sideLabel(36)]-padding-|" options:0 metrics:metrics views:views]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(12)-[sideLabel(16)]" options:0 metrics:metrics views:views]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-padding-[thumbnailView(tumbSize)]-right-[bodyLabel(>=0)]-padding-|" options:0 metrics:metrics views:views]];
@@ -175,10 +182,17 @@
     return pointSize;
 }
 
-+ (CGFloat)estimateBodyLabelWidth {
-    CGRect bounds = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = bounds.size.width;
-    return screenWidth - 80.0;
++ (CGFloat)estimateBodyLabelHeightWithText:(NSString *)text widthToFit:(CGFloat)width {
+    CGFloat bodyLabelWidth = width - kMessageTableViewCellPadding - kMessageTableViewCellAvatarHeight - kMessageTableViewCellMarginRight - kMessageTableViewCellPadding;
+    CGSize size = CGSizeMake(bodyLabelWidth, CGFLOAT_MAX);
+    NSDictionary * attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:[self defaultFontSize]],
+                                  NSParagraphStyleAttributeName: [NSParagraphStyle defaultParagraphStyle]};
+    CGRect estimateRect = [text boundingRectWithSize:size
+                                             options:NSStringDrawingUsesLineFragmentOrigin
+                                          attributes:attributes
+                                             context:nil];
+    
+    return estimateRect.size.height + kMessageTableViewCellMarginRight + kMessageTableViewCellTitleHeight + kMessageTableViewCellMarginLeft + kMessageTableViewCellMarginRight;
 }
 
 @end
