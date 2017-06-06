@@ -102,6 +102,7 @@
 }
 
 - (void)didPressRightButton:(id)sender {
+    [self dismissKeyboard:NO]; 
     
     [super didPressRightButton:sender];
 }

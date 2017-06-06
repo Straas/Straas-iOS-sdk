@@ -70,12 +70,39 @@
     [super viewWillAppear:animated];
     
     [self addObserver:self forKeyPath:@"chatVC.textViewEditable" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew|NSKeyValueObservingOptionInitial context:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willShowKeyboard:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willHideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [self removeObserver:self forKeyPath:@"chatVC.textViewEditable" context:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [super viewWillDisappear:animated];
+}
+
+#pragma mark - Notifications
+
+- (void)willShowKeyboard:(NSNotification *)notification {
+    NSArray *constraints = self.view.constraints;
+    for (NSLayoutConstraint *constraint in constraints) {
+        if (constraint.firstItem == self.chatVC.view &&
+            constraint.firstAttribute == NSLayoutAttributeHeight) {
+            constraint.constant = CGRectGetHeight(self.chatVC.view.superview.bounds);
+            break;
+        }
+    }
+}
+
+- (void)willHideKeyboard:(NSNotification *)notification {
+    NSArray *constraints = self.view.constraints;
+    for (NSLayoutConstraint *constraint in constraints) {
+        if (constraint.firstItem == self.chatVC.view &&
+            constraint.firstAttribute == NSLayoutAttributeHeight) {
+            constraint.constant = 0;
+            break;
+        }
+    }
 }
 
 #pragma mark - Private Methods
@@ -112,14 +139,15 @@
                                                                              options:0
                                                                              metrics:nil
                                                                                views:@{@"chatVC":self.chatVC.view}]];
-
+    
     [constraints addObject:[NSLayoutConstraint constraintWithItem:self.chatVC.view
                                                         attribute:NSLayoutAttributeHeight
                                                         relatedBy:NSLayoutRelationEqual
                                                            toItem:self.chatVC.view.superview
                                                         attribute:NSLayoutAttributeHeight
-                                                       multiplier:0.43
+                                                       multiplier:0.3
                                                          constant:0]];
+
     [NSLayoutConstraint activateConstraints:constraints];
 }
 
