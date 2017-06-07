@@ -20,6 +20,7 @@
     self.view.backgroundColor = [UIColor clearColor];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.clipsToBounds = YES;
     
     [self.tableView registerClass:[TransparentMessageTableViewCell class]
            forCellReuseIdentifier:TransparentMessengerCellIdentifier];

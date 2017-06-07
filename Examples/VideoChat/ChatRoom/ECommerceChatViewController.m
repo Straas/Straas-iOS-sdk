@@ -17,6 +17,7 @@
 @property (nonatomic) TransparentChatViewController *chatVC;
 @property (nonatomic) NSString * chatroomName;
 @property (nonatomic) STSChatroomConnectionOptions options;
+@property (nonatomic) UIView * toolbarView;
 @property (nonatomic) UIButton * showKeyboardButton;
 @property (nonatomic) UIButton * likeButton;
 @property (nonatomic) NSDictionary<NSString *, UIImage *> * emojis;
@@ -60,10 +61,8 @@
     // Add a transparent chat view to display messages.
     [self addTransparentChatView];
 
-    // Add control buttons
-    [self addControlButtons];
-    
-    [self addLikebutton];
+    // Add toolbar
+    [self addToolbar];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -151,36 +150,53 @@
     [NSLayoutConstraint activateConstraints:constraints];
 }
 
-- (void)addControlButtons {
-    [self.view addSubview:self.showKeyboardButton];
+- (void)addToolbar {
+    [self.view addSubview:self.toolbarView];
+    
+    [self.toolbarView addSubview:self.showKeyboardButton];
+    [self.toolbarView addSubview:self.likeButton];
     
     // Setup auto layout
     NSMutableArray *constraints = [NSMutableArray array];
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[toolbarView]-0-|"
+                                                                             options:0
+                                                                             metrics:nil
+                                                                               views:@{@"toolbarView":self.toolbarView}]];
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[chatVC]-0-[toolbarView(60)]-0-|"
+                                                                             options:0
+                                                                             metrics:nil
+                                                                               views:@{@"chatVC":self.chatVC.view,
+                                                                                       @"toolbarView":self.toolbarView}]];
+    
     [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-7-[showKeyboardButton(50)]"
                                                                              options:0
                                                                              metrics:nil
                                                                                views:@{@"showKeyboardButton":self.showKeyboardButton}]];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[chatVC]-10-[showKeyboardButton(50)]-5-|"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-5-[showKeyboardButton(50)]-5-|"
                                                                              options:0
                                                                              metrics:nil
-                                                                               views:@{@"showKeyboardButton":self.showKeyboardButton,
-                                                                                       @"chatVC":self.chatVC.view}]];
+                                                                               views:@{@"showKeyboardButton":self.showKeyboardButton}]];
+    
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[button(40)]-14-|"
+                                                                             options:0 metrics:nil
+                                                                               views:@{@"button":self.likeButton}]];
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[button(40)]-10-|"
+                                                                             options:0 metrics:nil
+                                                                               views:@{@"button":self.likeButton}]];
+    
     [NSLayoutConstraint activateConstraints:constraints];
 }
 
-- (void)addLikebutton {
-    [self.view addSubview:self.likeButton];
-    NSArray * constrants = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[button(37)]-15-|"
-                                                                   options:0 metrics:nil
-                                                                     views:@{@"button":self.likeButton}];
-    [NSLayoutConstraint activateConstraints:constrants];
-    constrants = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[button(37)]-10-|"
-                                                         options:0 metrics:nil
-                                                           views:@{@"button":self.likeButton}];
-    [NSLayoutConstraint activateConstraints:constrants];
-}
-
 #pragma mark - Accessor
+
+- (UIView *)toolbarView {
+    if (!_toolbarView) {
+        _toolbarView = [UIView new];
+        [_toolbarView setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.2]];
+        _toolbarView.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _toolbarView;
+}
 
 - (UIButton *)showKeyboardButton {
     if (!_showKeyboardButton) {
@@ -254,8 +270,10 @@
     UIImage * image = [self.emojis objectForKey:key];
     for (NSUInteger i = 0; i<count; i++) {
         FloatingImageView * imageView = [[FloatingImageView alloc] initWithImage:image];
-        imageView.center = CGPointMake(self.likeButton.center.x,
-                                       self.likeButton.frame.origin.y + image.size.height/2);
+        CGPoint convertedCenter = [self.view convertPoint:self.likeButton.center fromView:self.likeButton.superview];
+        CGRect convertedFrame = [self.view convertRect:self.likeButton.frame fromView:self.likeButton.superview];
+        imageView.center = CGPointMake(convertedCenter.x,
+                                       convertedFrame.origin.y + image.size.height/2);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.view addSubview:imageView];
             [imageView animateInView:self.view];
