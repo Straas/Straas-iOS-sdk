@@ -18,6 +18,9 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor clearColor];
+    UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapRootView)];
+    [self.view addGestureRecognizer:tapGR];
+    
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.clipsToBounds = YES;
@@ -32,6 +35,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Gesture Recognizer
+
+- (void)didTapRootView {
+    [self dismissKeyboard:NO];
 }
 
 #pragma mark - Override Methods
