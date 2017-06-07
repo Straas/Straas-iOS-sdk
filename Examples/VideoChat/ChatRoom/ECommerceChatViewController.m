@@ -17,6 +17,8 @@
 @property (nonatomic) TransparentChatViewController *chatVC;
 @property (nonatomic) NSString * chatroomName;
 @property (nonatomic) STSChatroomConnectionOptions options;
+@property (nonatomic) UIView * toolbarView;
+@property (nonatomic) UIButton * showKeyboardButton;
 @property (nonatomic) UIButton * likeButton;
 @property (nonatomic) NSDictionary<NSString *, UIImage *> * emojis;
 @property (nonatomic) STSChatManager * manager;
@@ -59,11 +61,47 @@
     // Add a transparent chat view to display messages.
     [self addTransparentChatView];
 
-    // Add control buttons
-    [self addControlButtons];
+    // Add toolbar
+    [self addToolbar];
+}
 
-    [self addLikebutton];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self addObserver:self forKeyPath:@"chatVC.textViewEditable" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew|NSKeyValueObservingOptionInitial context:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willShowKeyboard:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willHideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
+}
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [self removeObserver:self forKeyPath:@"chatVC.textViewEditable" context:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [super viewWillDisappear:animated];
+}
+
+#pragma mark - Notifications
+
+- (void)willShowKeyboard:(NSNotification *)notification {
+    NSArray *constraints = self.view.constraints;
+    for (NSLayoutConstraint *constraint in constraints) {
+        if (constraint.firstItem == self.chatVC.view &&
+            constraint.firstAttribute == NSLayoutAttributeHeight) {
+            constraint.constant = CGRectGetHeight(self.chatVC.view.superview.bounds);
+            break;
+        }
+    }
+}
+
+- (void)willHideKeyboard:(NSNotification *)notification {
+    NSArray *constraints = self.view.constraints;
+    for (NSLayoutConstraint *constraint in constraints) {
+        if (constraint.firstItem == self.chatVC.view &&
+            constraint.firstAttribute == NSLayoutAttributeHeight) {
+            constraint.constant = 0;
+            break;
+        }
+    }
 }
 
 #pragma mark - Private Methods
@@ -100,51 +138,75 @@
                                                                              options:0
                                                                              metrics:nil
                                                                                views:@{@"chatVC":self.chatVC.view}]];
-
+    
     [constraints addObject:[NSLayoutConstraint constraintWithItem:self.chatVC.view
                                                         attribute:NSLayoutAttributeHeight
                                                         relatedBy:NSLayoutRelationEqual
                                                            toItem:self.chatVC.view.superview
                                                         attribute:NSLayoutAttributeHeight
-                                                       multiplier:0.43
+                                                       multiplier:0.3
                                                          constant:0]];
+
     [NSLayoutConstraint activateConstraints:constraints];
 }
 
-- (void)addControlButtons {
-    UIButton *showKeyboardButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    showKeyboardButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [showKeyboardButton setImage:[UIImage imageNamed:@"btn_msg_typing"] forState:UIControlStateNormal];
-    [showKeyboardButton addTarget:self action:@selector(onShowKeyboardButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:showKeyboardButton];
-
+- (void)addToolbar {
+    [self.view addSubview:self.toolbarView];
+    
+    [self.toolbarView addSubview:self.showKeyboardButton];
+    [self.toolbarView addSubview:self.likeButton];
+    
     // Setup auto layout
     NSMutableArray *constraints = [NSMutableArray array];
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[toolbarView]-0-|"
+                                                                             options:0
+                                                                             metrics:nil
+                                                                               views:@{@"toolbarView":self.toolbarView}]];
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[chatVC]-0-[toolbarView(60)]-0-|"
+                                                                             options:0
+                                                                             metrics:nil
+                                                                               views:@{@"chatVC":self.chatVC.view,
+                                                                                       @"toolbarView":self.toolbarView}]];
+    
     [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-7-[showKeyboardButton(50)]"
                                                                              options:0
                                                                              metrics:nil
-                                                                               views:@{@"showKeyboardButton":showKeyboardButton}]];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[chatVC]-10-[showKeyboardButton(50)]-5-|"
+                                                                               views:@{@"showKeyboardButton":self.showKeyboardButton}]];
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-5-[showKeyboardButton(50)]-5-|"
                                                                              options:0
                                                                              metrics:nil
-                                                                               views:@{@"showKeyboardButton":showKeyboardButton,
-                                                                                       @"chatVC":self.chatVC.view}]];
+                                                                               views:@{@"showKeyboardButton":self.showKeyboardButton}]];
+    
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[button(40)]-14-|"
+                                                                             options:0 metrics:nil
+                                                                               views:@{@"button":self.likeButton}]];
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[button(40)]-10-|"
+                                                                             options:0 metrics:nil
+                                                                               views:@{@"button":self.likeButton}]];
+    
     [NSLayoutConstraint activateConstraints:constraints];
 }
 
-- (void)addLikebutton {
-    [self.view addSubview:self.likeButton];
-    NSArray * constrants = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[button(37)]-15-|"
-                                                                   options:0 metrics:nil
-                                                                     views:@{@"button":self.likeButton}];
-    [NSLayoutConstraint activateConstraints:constrants];
-    constrants = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[button(37)]-10-|"
-                                                         options:0 metrics:nil
-                                                           views:@{@"button":self.likeButton}];
-    [NSLayoutConstraint activateConstraints:constrants];
+#pragma mark - Accessor
+
+- (UIView *)toolbarView {
+    if (!_toolbarView) {
+        _toolbarView = [UIView new];
+        [_toolbarView setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.2]];
+        _toolbarView.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _toolbarView;
 }
 
-#pragma mark - Accessor
+- (UIButton *)showKeyboardButton {
+    if (!_showKeyboardButton) {
+        _showKeyboardButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_showKeyboardButton setImage:[UIImage imageNamed:@"btn_msg_typing"] forState:UIControlStateNormal];
+        [_showKeyboardButton addTarget:self action:@selector(onShowKeyboardButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        _showKeyboardButton.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _showKeyboardButton;
+}
 
 - (UIButton *)likeButton {
     if (!_likeButton) {
@@ -208,8 +270,10 @@
     UIImage * image = [self.emojis objectForKey:key];
     for (NSUInteger i = 0; i<count; i++) {
         FloatingImageView * imageView = [[FloatingImageView alloc] initWithImage:image];
-        imageView.center = CGPointMake(self.likeButton.center.x,
-                                       self.likeButton.frame.origin.y + image.size.height/2);
+        CGPoint convertedCenter = [self.view convertPoint:self.likeButton.center fromView:self.likeButton.superview];
+        CGRect convertedFrame = [self.view convertRect:self.likeButton.frame fromView:self.likeButton.superview];
+        imageView.center = CGPointMake(convertedCenter.x,
+                                       convertedFrame.origin.y + image.size.height/2);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.view addSubview:imageView];
             [imageView animateInView:self.view];
@@ -253,6 +317,15 @@
 
 - (void)connectToChatWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
     [self.chatVC connectToChatWithJWT:JWT chatroomName:chatroomName connectionOptions:connectionOptions];
+}
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if([keyPath isEqualToString:@"chatVC.textViewEditable"]) {
+        BOOL editable = [change[NSKeyValueChangeNewKey] integerValue];
+        self.showKeyboardButton.enabled = editable;
+    }
 }
 
 @end

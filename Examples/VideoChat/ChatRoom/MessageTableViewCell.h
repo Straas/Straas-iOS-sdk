@@ -9,12 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "IconLabel.h"
 
-static CGFloat kMessageTableViewCellAvatarHeight = 40.0;
-
-static NSString *MessengerCellIdentifier = @"MessengerCell";
-static NSString *StickerCellIdentifier = @"StickerCell";
-static NSString *AutoCompletionCellIdentifier = @"AutoCompletionCell";
-
+static NSString *const MessengerCellIdentifier = @"MessengerCell";
+static NSString *const StickerCellIdentifier = @"StickerCell";
+static NSString *const AutoCompletionCellIdentifier = @"AutoCompletionCell";
 
 @interface MessageTableViewCell : UITableViewCell
 
@@ -30,5 +27,6 @@ static NSString *AutoCompletionCellIdentifier = @"AutoCompletionCell";
 @property (nonatomic) BOOL usedForMessage;
 
 + (CGFloat)defaultFontSize;
-+ (CGFloat)estimateBodyLabelWidth;
++ (CGFloat)estimateBodyLabelHeightWithText:(NSString *)text widthToFit:(CGFloat)width;
+
 @end

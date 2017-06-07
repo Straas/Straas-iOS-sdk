@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <StraaSMessagingSDK/STSChatMessage.h>
+#import <StraaSMessagingSDK/STSChatUser.h>
 
 @interface TransparentMessageTableViewCell : UITableViewCell
 
-- (void)setBodyAttributedText:(NSAttributedString*)text;
++ (CGFloat)estimateCellHeightWithMessage:(STSChatMessage *)message widthToFit:(CGFloat)width;
+
+- (void)setMessage:(STSChatMessage *)message;
 
 @end

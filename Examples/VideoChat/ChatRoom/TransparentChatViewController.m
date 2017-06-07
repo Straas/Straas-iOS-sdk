@@ -18,8 +18,12 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor clearColor];
+    UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapRootView)];
+    [self.view addGestureRecognizer:tapGR];
+    
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.clipsToBounds = YES;
     
     [self.tableView registerClass:[TransparentMessageTableViewCell class]
            forCellReuseIdentifier:TransparentMessengerCellIdentifier];
@@ -33,27 +37,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Gesture Recognizer
+
+- (void)didTapRootView {
+    [self dismissKeyboard:NO];
+}
+
 #pragma mark - Override Methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([tableView isEqual:self.tableView]) {
-        STSChatMessage * message = self.messages[indexPath.row];
-        
         TransparentMessageTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:TransparentMessengerCellIdentifier
                                                                                      forIndexPath:indexPath];
-        NSString *nameString = [NSString stringWithFormat:@"%@: ", message.creator.name];
-        NSString *text = [NSString stringWithFormat:@"%@%@", nameString, message.text];
-        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text];
-        [attributedString addAttribute:NSForegroundColorAttributeName
-                                 value:[UIColor orangeColor]
-                                 range:NSMakeRange(0, nameString.length)];
-        [attributedString addAttribute:NSForegroundColorAttributeName
-                                 value:[UIColor whiteColor]
-                                 range:NSMakeRange(nameString.length, message.text.length)];
-        [attributedString addAttribute:NSFontAttributeName
-                                 value:[UIFont systemFontOfSize:16]
-                                 range:NSMakeRange(0, text.length)];
-        [cell setBodyAttributedText:attributedString];
+        
+        STSChatMessage *message = self.messages[indexPath.row];
+        [cell setMessage:message];
         
         // Cells must inherit the table view's transform
         // This is very important, since the main table view may be inverted
@@ -66,9 +64,22 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([tableView isEqual:self.tableView]) {
+        STSChatMessage *message = self.messages[indexPath.row];
+        return [TransparentMessageTableViewCell estimateCellHeightWithMessage:message
+                                                                   widthToFit:tableView.bounds.size.width];
+    }
+    else {
+        return [super tableView:tableView estimatedHeightForRowAtIndexPath:indexPath];
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     if ([tableView isEqual:self.tableView]) {
-        return 36;
+        STSChatMessage *message = self.messages[indexPath.row];
+        return [TransparentMessageTableViewCell estimateCellHeightWithMessage:message
+                                                                   widthToFit:tableView.bounds.size.width];
     }
     else {
         return [super tableView:tableView heightForRowAtIndexPath:indexPath];
@@ -90,8 +101,10 @@
         self.tableView.hidden = YES;
     }
     else if (status == SLKKeyboardStatusWillHide) {
-        self.textInputbarHidden = YES;
-        self.tableView.hidden = NO;
+        [UIView performWithoutAnimation:^{
+            self.textInputbarHidden = YES;
+            self.tableView.hidden = NO;
+        }];
     }
 }
 
@@ -100,7 +113,7 @@
 }
 
 - (void)didPressRightButton:(id)sender {
-    self.textInputbarHidden = YES;
+    [self dismissKeyboard:NO]; 
     
     [super didPressRightButton:sender];
 }

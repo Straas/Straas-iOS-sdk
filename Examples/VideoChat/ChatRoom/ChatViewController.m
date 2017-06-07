@@ -283,18 +283,24 @@
     [self.manager disconnectFromChatroom:self.currentChat];
 }
 
+- (BOOL)isTextViewEditable {
+    return self.textView.isEditable;
+}
+
+- (void)setTextViewEditable:(BOOL)textViewEditable {
+    self.textView.editable = textViewEditable;
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.textView.editable = NO;
+    self.textViewEditable = NO;
     // SLKTVC's configuration
     self.bounces = YES;
     self.shakeToClearEnabled = YES;
     self.keyboardPanningEnabled = YES;
-    self.tableView.estimatedRowHeight = 115;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.shouldScrollToBottomAfterKeyboardShows = NO;
     self.inverted = YES;
     if (self.shouldAddIndicatorView) {
@@ -531,7 +537,7 @@
             placeholder = @"Conneting to Chatroom...";
             break;
     }
-    self.textView.editable = editable;
+    self.textViewEditable = editable;
     self.textView.placeholder = placeholder;
 }
 
@@ -1006,22 +1012,21 @@
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     STSChatMessage * msg = self.messages[indexPath.row];
     if (msg.type == STSChatMessageTypeText) {
-        CGFloat cellBodyLabelWidth = [MessageTableViewCell estimateBodyLabelWidth];
-        CGSize size =CGSizeMake(cellBodyLabelWidth, CGFLOAT_MAX);
-        CGFloat estimateLabelHeight = [self estimateTextHeight:msg.text inSize:size];
-        return estimateLabelHeight + 45.0;
+        return [MessageTableViewCell estimateBodyLabelHeightWithText:msg.text
+                                                          widthToFit:tableView.bounds.size.width];
     } else {
         return 115.0;
     }
 }
 
-- (CGFloat)estimateTextHeight:(NSString *)text inSize:(CGSize)size {
-    NSDictionary * attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0],
-                                  NSParagraphStyleAttributeName: [NSParagraphStyle defaultParagraphStyle]};
-    CGRect estimateRect = [text boundingRectWithSize:size
-                                             options:NSStringDrawingUsesLineFragmentOrigin
-                                          attributes:attributes context:nil];
-    return estimateRect.size.height;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    STSChatMessage * msg = self.messages[indexPath.row];
+    if (msg.type == STSChatMessageTypeText) {
+        return [MessageTableViewCell estimateBodyLabelHeightWithText:msg.text
+                                                          widthToFit:tableView.bounds.size.width];
+    } else {
+        return 115.0;
+    }
 }
 
 - (void)scrollViewDidScroll:(UITableView *)scrollView {
