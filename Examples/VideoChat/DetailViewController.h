@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString * const STSPlayerServiceBasicPlayerViewKeyword;
 extern NSString * const STSMessagingServiceKeyword;
 extern NSString * const STSMessagingServiceCustomUIKeyword;
 extern NSString * const STSMessagingServiceECommerceUIKeyword;

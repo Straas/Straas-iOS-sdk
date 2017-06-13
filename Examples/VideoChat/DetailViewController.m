@@ -11,7 +11,9 @@
 #import "ECommerceChatViewController.h"
 #import "ChatStickerExampleViewController.h"
 #import "StreamingViewController.h"
+#import "STSPlayerViewController.h"
 
+NSString * const STSPlayerServiceBasicPlayerViewKeyword = @"StraaS.io PlayerView";
 NSString * const STSMessagingServiceKeyword = @"StraaS.io default chatroom";
 NSString * const STSMessagingServiceCustomUIKeyword = @"StraaS.io customed chatroom";
 NSString * const STSMessagingServiceECommerceUIKeyword = @"StraaS.io ECommerce chatroom";
@@ -69,10 +71,20 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
     if ([self.detailItem isEqualToString:STSStreamingServiceKeyword]) {
         [self addStreamingView];
     }
+    if ([self.detailItem isEqualToString:STSPlayerServiceBasicPlayerViewKeyword]) {
+        [self addBasicPlayerView];
+    }
+}
+
+- (void)addBasicPlayerView {
+    STSPlayerViewController * controller = [STSPlayerViewController viewControllerFromStoryboard];
+    controller.JWT = self.JWT;
+    [self addControllerAndSetAutoLayout:controller];
 }
 
 - (void)addDefaultChatView {
     ChatViewController * controller = [ChatViewController new];
+    self.contentViewController = controller;
     [self addControllerAndSetAutoLayout:controller];
     [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName connectionOptions:self.chatroomConnectionOptions];
 }
@@ -81,6 +93,7 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
     ChatExampleViewController * chatExampleViewController = [ChatExampleViewController new];
     ChatStickerExampleViewController * controller =
     [ChatStickerExampleViewController viewControllerWithChatViewController:chatExampleViewController];
+    self.contentViewController = controller;
     controller.stickerViewShowingHeight = 180;
     [self addControllerAndSetAutoLayout:controller];
     [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName connectionOptions:self.chatroomConnectionOptions];
@@ -88,6 +101,7 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 
 - (void)addECommerceChatView {
     ECommerceChatViewController *controller = [ECommerceChatViewController new];
+    self.contentViewController = controller;
     [self addControllerAndSetAutoLayout:controller];
     [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName connectionOptions:self.chatroomConnectionOptions];
 }
