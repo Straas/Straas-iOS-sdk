@@ -63,7 +63,7 @@
 }
 
 
-- (void)updateLayoutWithKeyboard:(BOOL)keyboard notification:(NSNotification *)notification
+- (void)sts_updateLayoutWithKeyboard:(BOOL)keyboard notification:(NSNotification *)notification
 {
     NSDictionary * info = notification.userInfo;
     CGFloat height = CGRectGetHeight([[info valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue]);
