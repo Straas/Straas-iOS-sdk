@@ -183,14 +183,20 @@
 
 - (IBAction)loadVideo:(id)sender {
     NSString * videoId = self.videoTextfield.text;
-    [self.playerView loadVideoWithId:videoId];
     [self.view endEditing:YES];
+    if (videoId.length == 0) {
+        return;
+    }
+    [self.playerView loadVideoWithId:videoId];
 }
 
 - (IBAction)loadPlaylist:(id)sender {
     NSString * playlistId = self.playlistTextfield.text;
-    [self.playerView loadPlaylistWithId:playlistId];
     [self.view endEditing:YES];
+    if (playlistId.length == 0) {
+        return;
+    }
+    [self.playerView loadPlaylistWithId:playlistId];
 }
 
 - (IBAction)loadLive:(id)sender {
@@ -225,6 +231,9 @@
 
 - (IBAction)latencySwitchDidChangeValue:(UISwitch *)sender {
     NSString * liveId = self.liveTextField.text;
+    if (liveId.length == 0) {
+        return;
+    }
     BOOL lowLatencyFirst = sender.isOn;
     [self.playerView loadLiveWithId:liveId lowLatencyFirst:lowLatencyFirst];
 }
