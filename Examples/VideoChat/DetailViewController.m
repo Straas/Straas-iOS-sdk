@@ -84,7 +84,6 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 
 - (void)addDefaultChatView {
     ChatViewController * controller = [ChatViewController new];
-    self.contentViewController = controller;
     [self addControllerAndSetAutoLayout:controller];
     [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName connectionOptions:self.chatroomConnectionOptions];
 }
@@ -93,7 +92,6 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
     ChatExampleViewController * chatExampleViewController = [ChatExampleViewController new];
     ChatStickerExampleViewController * controller =
     [ChatStickerExampleViewController viewControllerWithChatViewController:chatExampleViewController];
-    self.contentViewController = controller;
     controller.stickerViewShowingHeight = 180;
     [self addControllerAndSetAutoLayout:controller];
     [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName connectionOptions:self.chatroomConnectionOptions];
@@ -101,20 +99,19 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 
 - (void)addECommerceChatView {
     ECommerceChatViewController *controller = [ECommerceChatViewController new];
-    self.contentViewController = controller;
     [self addControllerAndSetAutoLayout:controller];
     [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName connectionOptions:self.chatroomConnectionOptions];
 }
 
 - (void)addStreamingView {
     StreamingViewController * controller = [StreamingViewController new];
-    self.contentViewController = controller;
     controller.JWT = self.JWT;
     [self addControllerAndSetAutoLayout:controller];
 }
 
 - (void)addControllerAndSetAutoLayout:(UIViewController *)controller {
     [self addChildViewController:controller];
+    self.contentViewController = controller;
     [controller didMoveToParentViewController:self];
     [self.view addSubview:controller.view];
     controller.view.clipsToBounds = YES;
