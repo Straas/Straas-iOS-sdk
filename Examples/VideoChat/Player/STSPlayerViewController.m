@@ -111,6 +111,11 @@
 
 #pragma mark - accessor
 
+- (void)setJWT:(NSString *)JWT {
+    self.playerView.JWT = JWT;
+    _JWT = JWT;
+}
+
 - (NSArray<NSLayoutConstraint *> *)constraintsForPortrait {
     if (!self.playerView) {
         return nil;
