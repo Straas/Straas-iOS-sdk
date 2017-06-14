@@ -35,7 +35,11 @@
 
 - (NSArray *)objects {
     if (!_objects) {
-        _objects = @[STSMessagingServiceKeyword, STSMessagingServiceCustomUIKeyword, STSMessagingServiceECommerceUIKeyword, STSStreamingServiceKeyword];
+        _objects = @[STSPlayerServiceBasicPlayerViewKeyword,
+                     STSMessagingServiceKeyword,
+                     STSMessagingServiceCustomUIKeyword,
+                     STSMessagingServiceECommerceUIKeyword,
+                     STSStreamingServiceKeyword];
     }
     return _objects;
 }
@@ -45,7 +49,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
+        id object = self.objects[indexPath.row];
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
         [controller setDetailItem:object];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;

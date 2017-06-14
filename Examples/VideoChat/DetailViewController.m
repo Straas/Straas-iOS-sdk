@@ -11,7 +11,9 @@
 #import "ECommerceChatViewController.h"
 #import "ChatStickerExampleViewController.h"
 #import "StreamingViewController.h"
+#import "STSPlayerViewController.h"
 
+NSString * const STSPlayerServiceBasicPlayerViewKeyword = @"StraaS.io PlayerView";
 NSString * const STSMessagingServiceKeyword = @"StraaS.io default chatroom";
 NSString * const STSMessagingServiceCustomUIKeyword = @"StraaS.io customed chatroom";
 NSString * const STSMessagingServiceECommerceUIKeyword = @"StraaS.io ECommerce chatroom";
@@ -69,6 +71,15 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
     if ([self.detailItem isEqualToString:STSStreamingServiceKeyword]) {
         [self addStreamingView];
     }
+    if ([self.detailItem isEqualToString:STSPlayerServiceBasicPlayerViewKeyword]) {
+        [self addBasicPlayerView];
+    }
+}
+
+- (void)addBasicPlayerView {
+    STSPlayerViewController * controller = [STSPlayerViewController viewControllerFromStoryboard];
+    controller.JWT = self.JWT;
+    [self addControllerAndSetAutoLayout:controller];
 }
 
 - (void)addDefaultChatView {
@@ -94,13 +105,13 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 
 - (void)addStreamingView {
     StreamingViewController * controller = [StreamingViewController new];
-    self.contentViewController = controller;
     controller.JWT = self.JWT;
     [self addControllerAndSetAutoLayout:controller];
 }
 
 - (void)addControllerAndSetAutoLayout:(UIViewController *)controller {
     [self addChildViewController:controller];
+    self.contentViewController = controller;
     [controller didMoveToParentViewController:self];
     [self.view addSubview:controller.view];
     controller.view.clipsToBounds = YES;
