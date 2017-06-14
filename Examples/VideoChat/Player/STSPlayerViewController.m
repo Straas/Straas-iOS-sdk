@@ -41,8 +41,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.videoTextfield.text = @"BCQHB28s";
-    self.playlistTextfield.text = @"54K4rzyz";
     [self sts_registerForKeyboardNotifications];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationController.navigationBar.hidden =
