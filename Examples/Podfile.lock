@@ -39,11 +39,13 @@ PODS:
   - StraaS-iOS-SDK/Streaming (0.10.9):
     - DSGPUImage (= 0.1.8)
     - StraaS-iOS-SDK/Core
+  - UIView+draggable (1.1.0)
 
 DEPENDENCIES:
   - SDWebImage
   - SlackTextViewController
   - StraaS-iOS-SDK (from `../`)
+  - UIView+draggable
 
 EXTERNAL SOURCES:
   StraaS-iOS-SDK:
@@ -58,7 +60,8 @@ SPEC CHECKSUMS:
   SlackTextViewController: fbcdadbb8090673f604484ff5b6eb8d77baed42a
   Socket.IO-Client-Swift: a2faffdbde89c63aebc5d631041530c1068b02b8
   StraaS-iOS-SDK: 295b0940393d717da36483b1c788c1b0043a73c8
+  UIView+draggable: ddfbeb6bdfdeba63d9ccf32dc9be2b66cc589717
 
-PODFILE CHECKSUM: 3ff5afebf607c5d151568cc44354f6d4fcc60d0c
+PODFILE CHECKSUM: d083e90783086210331dbc3c09a9c37f8f1a4875
 
 COCOAPODS: 1.2.1
