@@ -390,7 +390,8 @@ NS_ASSUME_NONNULL_BEGIN
                                   failure:(void(^)(NSError * error))failure;
 /**
  *  Get chat room archived messages.
- *  The maximum number of return messages is 2000. The recommended setting is |endTime-startTime| < 10000 (10 seconds)
+ *  The response time is increasing with the number of messages included in one single request. 
+ *  Normally, our best practice suggests |endTime-startTime| < 10000 (10 sec).
  *
  *  @param chatroomName  The chatroom name you want to get archived messages.
  *  @param configuration The STSGetArchivedMessagesConfiguration object that specifies the request rules for getting archived messages.
