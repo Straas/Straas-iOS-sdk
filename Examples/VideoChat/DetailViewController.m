@@ -12,12 +12,15 @@
 #import "ChatStickerExampleViewController.h"
 #import "StreamingViewController.h"
 #import "STSPlayerViewController.h"
+#import "STSParentDraggableViewController.h"
+#import "DraggableECViewController.h"
 
 NSString * const STSPlayerServiceBasicPlayerViewKeyword = @"StraaS.io PlayerView";
 NSString * const STSMessagingServiceKeyword = @"StraaS.io default chatroom";
 NSString * const STSMessagingServiceCustomUIKeyword = @"StraaS.io customed chatroom";
 NSString * const STSMessagingServiceECommerceUIKeyword = @"StraaS.io ECommerce chatroom";
 NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
+NSString * const STSDraggableECDemoKeyword = @"Draggable EC view Demo";
 
 @interface DetailViewController ()
 @property (nonatomic) UIViewController * contentViewController;
@@ -74,6 +77,9 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
     if ([self.detailItem isEqualToString:STSPlayerServiceBasicPlayerViewKeyword]) {
         [self addBasicPlayerView];
     }
+    if ([self.detailItem isEqualToString:STSDraggableECDemoKeyword]) {
+        [self addDraggablePlayerView];
+    }
 }
 
 - (void)addBasicPlayerView {
@@ -109,6 +115,15 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
     [self addControllerAndSetAutoLayout:controller];
 }
 
+- (void)addDraggablePlayerView {
+    STSParentDraggableViewController * controller = [[STSParentDraggableViewController alloc] init];
+    self.contentViewController = controller;
+    DraggableECViewController *childController = [DraggableECViewController new];
+    [childController connectToChatWithJWT:self.JWT chatroomName:self.chatroomName connectionOptions:self.chatroomConnectionOptions];
+    controller.draggableViewController = childController;
+    [self addControllerAndSetAutoLayout:controller];
+}
+
 - (void)addControllerAndSetAutoLayout:(UIViewController *)controller {
     [self addChildViewController:controller];
     self.contentViewController = controller;
@@ -118,7 +133,7 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
     controller.view.translatesAutoresizingMaskIntoConstraints = NO;
     NSDictionary * views = @{@"controllerView": controller.view};
     NSArray * constraints;
-    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|[controllerView]|"
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[controllerView]|"
                                                           options:0 metrics:nil views:views];
     [NSLayoutConstraint activateConstraints:constraints];
     constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[controllerView]|"

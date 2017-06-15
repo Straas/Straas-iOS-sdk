@@ -12,6 +12,7 @@
 @interface MasterViewController ()
 
 @property (nonatomic) NSArray *objects;
+
 @end
 
 @implementation MasterViewController
@@ -39,14 +40,15 @@
                      STSMessagingServiceKeyword,
                      STSMessagingServiceCustomUIKeyword,
                      STSMessagingServiceECommerceUIKeyword,
-                     STSStreamingServiceKeyword];
+                     STSStreamingServiceKeyword,
+                     STSDraggableECDemoKeyword];
     }
     return _objects;
 }
 
 #pragma mark - Segues
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UITableViewCell *)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         id object = self.objects[indexPath.row];
