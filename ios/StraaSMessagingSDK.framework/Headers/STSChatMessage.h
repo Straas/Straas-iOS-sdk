@@ -7,6 +7,7 @@
 //
 
 #import <StraaSCoreSDK/LHDataObject.h>
+#import "STSChatUser.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,9 +24,6 @@ typedef NS_ENUM(NSInteger, STSChatMesssageType) {
      */
     STSChatMessageTypeSticker,
 };
-
-@class STSChatUser;
-@class STSAggregatedData;
 
 /**
  *  Chat room message model

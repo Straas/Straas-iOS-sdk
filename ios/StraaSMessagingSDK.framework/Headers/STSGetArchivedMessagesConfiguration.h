@@ -37,13 +37,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  The start time of archieved messages which is unix time in millisecond.
  *  Null imply no constraint.
  */
-@property (nonatomic, nullable) NSNumber * start;
+@property (nonatomic) NSNumber * start;
 
 /**
  *  The end time of archieved messages which is unix time in millisecond.
  *  Null imply no constraint.
  */
-@property (nonatomic, nullable) NSNumber * end;
+@property (nonatomic) NSNumber * end;
 
 @end
 
