@@ -9,7 +9,6 @@
 #import "ECommerceChatViewController.h"
 #import <SlackTextViewController/SLKTextViewController.h>
 #import <StraaSCoreSDK/StraaSCoreSDK.h>
-#import "TransparentChatViewController.h"
 #import "FloatingImageView.h"
 
 @interface ECommerceChatViewController ()<DataChannelEventDelegate>
