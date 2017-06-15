@@ -30,6 +30,7 @@
 		9B551F281E23377600C9D06B /* ChatExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B551F271E23377600C9D06B /* ChatExampleViewController.m */; };
 		9B569A3F1EF13E05009F1065 /* STSParentDraggableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B569A3C1EF13E05009F1065 /* STSParentDraggableViewController.m */; };
 		9B569A401EF13E05009F1065 /* UIViewController+STSChildDraggable.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B569A3E1EF13E05009F1065 /* UIViewController+STSChildDraggable.m */; };
+		9B569A431EF19E36009F1065 /* DraggableECViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B569A421EF19E36009F1065 /* DraggableECViewController.m */; };
 		9B988EAA1DCB9C08009F8973 /* ChatStickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B988EA91DCB9C08009F8973 /* ChatStickerViewController.m */; };
 		9B98A7B61E1E3ABA00E8CE7C /* ChatStickerExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B98A7B51E1E3ABA00E8CE7C /* ChatStickerExampleViewController.m */; };
 		9B9A9BB31DC986670017F8C1 /* StickersInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B9A9BB21DC986670017F8C1 /* StickersInputView.xib */; };
@@ -91,6 +92,8 @@
 		9B569A3D1EF13E05009F1065 /* UIViewController+STSChildDraggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+STSChildDraggable.h"; sourceTree = "<group>"; };
 		9B569A3E1EF13E05009F1065 /* UIViewController+STSChildDraggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+STSChildDraggable.m"; sourceTree = "<group>"; };
 		9B569A441EF1A109009F1065 /* STSParentDraggableViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSParentDraggableViewControllerDelegate.h; sourceTree = "<group>"; };
+		9B569A411EF19E36009F1065 /* DraggableECViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggableECViewController.h; sourceTree = "<group>"; };
+		9B569A421EF19E36009F1065 /* DraggableECViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggableECViewController.m; sourceTree = "<group>"; };
 		9B6385A91DCC39FD009342F1 /* StickerInputViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerInputViewDelegate.h; sourceTree = "<group>"; };
 		9B8C940F1DCBAA53002CC4AE /* ChatStickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatStickerDelegate.h; sourceTree = "<group>"; };
 		9B988EA81DCB9C08009F8973 /* ChatStickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatStickerViewController.h; sourceTree = "<group>"; };
@@ -236,6 +239,8 @@
 				9B569A3D1EF13E05009F1065 /* UIViewController+STSChildDraggable.h */,
 				9B569A3E1EF13E05009F1065 /* UIViewController+STSChildDraggable.m */,
 				9B569A441EF1A109009F1065 /* STSParentDraggableViewControllerDelegate.h */,
+				9B569A411EF19E36009F1065 /* DraggableECViewController.h */,
+				9B569A421EF19E36009F1065 /* DraggableECViewController.m */,
 			);
 			path = DraggableView;
 			sourceTree = "<group>";
@@ -442,6 +447,7 @@
 				9B98A7B61E1E3ABA00E8CE7C /* ChatStickerExampleViewController.m in Sources */,
 				40A202371D77F93E00457359 /* ChatViewController.m in Sources */,
 				9BBCBDD51E88B681006D3500 /* IconLabel.m in Sources */,
+				9B569A431EF19E36009F1065 /* DraggableECViewController.m in Sources */,
 				9B4310471DD32504002CD178 /* NSFileManager+Sticker.m in Sources */,
 				9BB9B32F1E7C569C00245AB7 /* NSTimer+SafeTimer.m in Sources */,
 				40A2023A1D77F93E00457359 /* TypingIndicatorView.m in Sources */,
