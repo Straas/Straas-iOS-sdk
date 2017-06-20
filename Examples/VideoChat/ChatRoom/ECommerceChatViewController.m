@@ -234,7 +234,7 @@
 }
 
 - (STSChat *)currentChat {
-    return [self.manager chatForChatroomName:self.chatroomName isPersonalChat:NO];
+    return self.chatVC.currentChat;
 }
 
 - (STSChatManager *)manager {
