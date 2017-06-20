@@ -19,6 +19,7 @@
 @property (nonatomic) UIView * toolbarView;
 @property (nonatomic) UIButton * showKeyboardButton;
 @property (nonatomic) UIButton * likeButton;
+@property (nonatomic) UIView * backgroundView;
 @property (nonatomic) NSDictionary<NSString *, UIImage *> * emojis;
 @property (nonatomic) STSChatManager * manager;
 @property (nonatomic) NSMutableDictionary * cachedUserTapCount;
@@ -103,7 +104,7 @@
     }
 }
 
-#pragma mark - Private Methods
+#pragma mark - Public Methods
 
 - (void)addStreamingCanvas {
     UIImageView *view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"img_chatroom_background"]];
@@ -123,7 +124,10 @@
                                                                              metrics:nil
                                                                                views:@{@"view" : view}]];
     [NSLayoutConstraint activateConstraints:constraints];
+    _backgroundView = view;
 }
+
+#pragma mark - Private Methods
 
 - (void)addTransparentChatView {
     [self addChildViewController:self.chatVC];
