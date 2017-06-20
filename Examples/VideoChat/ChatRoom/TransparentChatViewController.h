@@ -13,7 +13,8 @@
 
 - (void)aggregatedItemsAdded:(NSArray<STSAggregatedItem *> *)aggregatedItems;
 - (void)rawDataAdded:(STSChatMessage *)rawData;
-
+- (void)chatroomDidConnected:(STSChat *)chatroom;
+    
 @end
 
 static NSString *TransparentMessengerCellIdentifier = @"TransparentMessengerCell";

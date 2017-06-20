@@ -19,6 +19,7 @@
 @property (nonatomic) UIView * toolbarView;
 @property (nonatomic) UIButton * showKeyboardButton;
 @property (nonatomic) UIButton * likeButton;
+@property (nonatomic) UILabel * likeCountLabel;
 @property (nonatomic) UIView * backgroundView;
 @property (nonatomic) NSDictionary<NSString *, UIImage *> * emojis;
 @property (nonatomic) STSChatManager * manager;
@@ -158,35 +159,44 @@
     
     [self.toolbarView addSubview:self.showKeyboardButton];
     [self.toolbarView addSubview:self.likeButton];
+    [self.toolbarView addSubview:self.likeCountLabel];
     
     // Setup auto layout
     NSMutableArray *constraints = [NSMutableArray array];
+    NSDictionary * views = @{@"toolbarView":self.toolbarView,
+                             @"chatVC":self.chatVC.view,
+                             @"showKeyboardButton":self.showKeyboardButton,
+                             @"likeButton":self.likeButton,
+                             @"likeCountLabel": self.likeCountLabel};
     [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[toolbarView]-0-|"
                                                                              options:0
                                                                              metrics:nil
-                                                                               views:@{@"toolbarView":self.toolbarView}]];
+                                                                               views:views]];
     [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[chatVC]-0-[toolbarView(60)]-0-|"
                                                                              options:0
                                                                              metrics:nil
-                                                                               views:@{@"chatVC":self.chatVC.view,
-                                                                                       @"toolbarView":self.toolbarView}]];
+                                                                               views:views]];
     
     [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-7-[showKeyboardButton(50)]"
                                                                              options:0
                                                                              metrics:nil
-                                                                               views:@{@"showKeyboardButton":self.showKeyboardButton}]];
+                                                                               views:views]];
     [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-5-[showKeyboardButton(50)]-5-|"
                                                                              options:0
                                                                              metrics:nil
-                                                                               views:@{@"showKeyboardButton":self.showKeyboardButton}]];
-    
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[button(40)]-14-|"
+                                                                               views:views]];
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[likeButton(40)]-10-|"
                                                                              options:0 metrics:nil
-                                                                               views:@{@"button":self.likeButton}]];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[button(40)]-10-|"
+                                                                               views:views]];
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[likeButton(40)]-10-|"
                                                                              options:0 metrics:nil
-                                                                               views:@{@"button":self.likeButton}]];
-    
+                                                                               views:views]];
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[likeCountLabel(35)]-12.5-|"
+                                                                             options:0 metrics:nil
+                                                                               views:views]];
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[likeCountLabel(16)]"
+                                                                             options:0 metrics:nil
+                                                                               views:views]];
     [NSLayoutConstraint activateConstraints:constraints];
 }
 
@@ -219,6 +229,21 @@
         _likeButton.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _likeButton;
+}
+
+- (UILabel *)likeCountLabel {
+    if (!_likeCountLabel) {
+        _likeCountLabel = [UILabel new];
+        _likeCountLabel.font = [UIFont systemFontOfSize:11.0];
+        _likeCountLabel.textColor = [UIColor colorWithRed:39./255. green:172./255. blue:174./255. alpha:1];
+        _likeCountLabel.backgroundColor = [UIColor whiteColor];
+        _likeCountLabel.numberOfLines = 1;
+        _likeCountLabel.textAlignment = NSTextAlignmentCenter;
+        _likeCountLabel.layer.cornerRadius = 8;
+        _likeCountLabel.layer.masksToBounds = YES;
+        _likeCountLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _likeCountLabel;
 }
 
 - (NSDictionary *)emojis {
@@ -280,6 +305,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.view addSubview:imageView];
             [imageView animateInView:self.view];
+            self.likeCountLabel.text = @(self.likeCountLabel.text.integerValue + 1).stringValue;
         });
     }
 }
@@ -295,6 +321,16 @@
 }
 
 #pragma mark - DataChannelEventDelegate
+
+- (void)chatroomDidConnected:(STSChat *)chatroom {
+    NSUInteger likeCount = 0;
+    for (STSAggregatedItem * item in chatroom.totalAggregatedItems) {
+        likeCount += item.count.unsignedIntegerValue;
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.likeCountLabel.text = @(likeCount).stringValue;
+    });
+}
 
 - (void)aggregatedItemsAdded:(NSArray<STSAggregatedItem *> *)aggregatedItems {
     for (STSAggregatedItem * item in aggregatedItems) {

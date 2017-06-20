@@ -120,6 +120,7 @@
 
 - (void)chatroomConnected:(STSChat *)chatroom {
     [super chatroomConnected:chatroom];
+    [self.dataChannelDelegate chatroomDidConnected:chatroom];
     NSLog(@"connected to chatroom: %@", chatroom.chatroomName);
 }
 - (void)chatroomDisconnected:(STSChat *)chatroom {
