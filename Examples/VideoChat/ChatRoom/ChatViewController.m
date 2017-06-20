@@ -762,6 +762,17 @@
     }
 }
 
+- (UIColor *)textColorForRole:(NSString *)userRole {
+    if ([userRole isEqualToString:kSTSUserRoleNormal] ||
+        [userRole isEqualToString:kSTSUserRoleBlocked]) {
+        return [UIColor blackColor];
+    } else if ([userRole isEqualToString:kSTSUserRoleMaster]) {
+        return [UIColor colorWithRed:242.0/255.0 green:154.0/255.0 blue:11.0/255.0 alpha:1];
+    } else {
+        return [UIColor colorWithRed:123.0/255.0 green:75.0/255.0 blue:163.0/255.0 alpha:1];
+    }
+}
+
 - (void)addFakeMessage:(NSString *)fakeMessage type:(STSChatMesssageType)type imageURL:(NSString *)imageURL {
     STSChatUser * currentUser = [self.manager currentUserForChatroom:self.currentChat];
     NSDateFormatter * formatter = [NSDateFormatter new];
@@ -953,15 +964,8 @@
         cell.thumbnailView.image = self.avatarPlaceholderImage;
     }
     NSString * creatorRole = message.creator.role;
-    if ([creatorRole isEqualToString:kSTSUserRoleNormal] ||
-        [creatorRole isEqualToString:kSTSUserRoleBlocked]) {
-        cell.titleLabel.textColor = [UIColor blackColor];
-    } else if ([creatorRole isEqualToString:kSTSUserRoleMaster]) {
-        cell.titleLabel.textColor = [UIColor colorWithRed:242.0/255.0 green:154.0/255.0 blue:11.0/255.0 alpha:1];
-    } else {
-        cell.titleLabel.textColor = [UIColor colorWithRed:123.0/255.0 green:75.0/255.0 blue:163.0/255.0 alpha:1];
-    }
     [cell.titleLabel setIconImage:[self iconImageForRole:creatorRole]];
+    cell.titleLabel.textColor = [self textColorForRole:creatorRole];
 
     cell.titleLabel.text = message.creator.name;
     cell.sideLabel.text = message.shortCreatedDate;
