@@ -21,3 +21,13 @@
 "update_nickname_fail" = "輸入名稱失敗";
 
 "user_join_welcome" = "%@ 來了！";
+
+"cancel" = "取消";
+
+"deleate_message" = "刪除留言";
+
+"operation_failed_message" = "操作失敗，請重試";
+
+"pin_message_to_top" = "留言置頂";
+
+"unping_message" = "取消置頂";

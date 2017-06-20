@@ -22,3 +22,13 @@
 "update_nickname_fail" = "Failed to set nickname.";
 
 "user_join_welcome" = "%@ is coming!";
+
+"cancel" = "Cancel";
+
+"deleate_message" = "Delete Message";
+
+"operation_failed_message" = "Operation failed, please try again.";
+
+"pin_message_to_top" = "Pin to Top";
+
+"unping_message" = "Unpin from Top";
