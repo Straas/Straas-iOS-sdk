@@ -39,11 +39,13 @@ PODS:
   - StraaS-iOS-SDK/Streaming (0.10.11):
     - DSGPUImage (= 0.1.8)
     - StraaS-iOS-SDK/Core
+  - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - SDWebImage
   - SlackTextViewController
   - StraaS-iOS-SDK (from `../`)
+  - TTTAttributedLabel
 
 EXTERNAL SOURCES:
   StraaS-iOS-SDK:
@@ -58,7 +60,8 @@ SPEC CHECKSUMS:
   SlackTextViewController: fbcdadbb8090673f604484ff5b6eb8d77baed42a
   Socket.IO-Client-Swift: a2faffdbde89c63aebc5d631041530c1068b02b8
   StraaS-iOS-SDK: 9c3ab1ac980cbc62d9e9bf5e4b73e94254576bab
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: b7db38a46a789fc4c43fec2f2aa7d7e772bd7131
+PODFILE CHECKSUM: b2d3f737eba7505b3f8175b1ceb7ab6511dfc4d5
 
 COCOAPODS: 1.2.1
