@@ -25,6 +25,7 @@
 @interface ChatViewController ()
 
 @property (nonatomic, strong) NSMutableArray *messages;
+@property (nonatomic, strong, nullable) STSChatMessage * pinnedMessage;
 
 @property (nonatomic, strong) NSArray *searchResult;
 
@@ -95,7 +96,7 @@
 #endif
 }
 
-#pragma mark - Custom View.
+#pragma mark - Custom accessors
 
 - (void)setShouldAddIndicatorView:(BOOL)shouldAddIndicatorView {
     if (_shouldAddIndicatorView == shouldAddIndicatorView) {
@@ -109,6 +110,13 @@
     }
     _shouldAddIndicatorView = shouldAddIndicatorView;
 }
+
+- (void)setPinnedMessage:(STSChatMessage *)pinnedMessage {
+    _pinnedMessage = pinnedMessage;
+    //TODO: update pinnedMessageView
+}
+
+#pragma mark - Custom View.
 
 - (UIActivityIndicatorView *)indicator {
     if (!_indicator) {
@@ -436,6 +444,7 @@
     } failure:^(NSError * _Nonnull error) {
 
     }];
+    [self getPinnedMessage];
 }
 
 - (void)chatroomInputModeChanged:(STSChat *)chatroom {
@@ -792,6 +801,14 @@
     fakeMsg.stickerURL = imageURL ? [NSURL URLWithString:imageURL]: nil;
     [self chatroom:self.currentChat messageAdded:fakeMsg];
 };
+
+- (void)getPinnedMessage {
+    __weak ChatViewController * weakSelf = self;
+    [self.manager getPinnedMessageForChat:self.currentChat success:^(STSChatMessage *message){
+        weakSelf.pinnedMessage = message;
+    } failure:^(NSError * error){
+    }];
+}
 
 #pragma mark - update tableView timer
 
