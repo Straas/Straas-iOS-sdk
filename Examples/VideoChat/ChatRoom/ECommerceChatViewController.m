@@ -20,7 +20,6 @@
 @property (nonatomic) UIButton * showKeyboardButton;
 @property (nonatomic) UIButton * likeButton;
 @property (nonatomic) UILabel * likeCountLabel;
-@property (nonatomic) UIView * backgroundView;
 @property (nonatomic) NSDictionary<NSString *, UIImage *> * emojis;
 @property (nonatomic) STSChatManager * manager;
 @property (nonatomic) NSMutableDictionary * cachedUserTapCount;
@@ -56,8 +55,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // For demo purpose, we use a still image to represent a live streaming video.
-    [self addStreamingCanvas];
+    [self addDefaultBackgroundView];
 
     // Add a transparent chat view to display messages.
     [self addTransparentChatView];
@@ -107,28 +105,35 @@
 
 #pragma mark - Public Methods
 
-- (void)addStreamingCanvas {
-    UIImageView *view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"img_chatroom_background"]];
-    view.translatesAutoresizingMaskIntoConstraints = NO;
-    view.contentMode = UIViewContentModeScaleToFill;
-    view.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:view];
-
-    // Setup atuo layout
+- (void)setBackgroundView:(UIView *)backgroundView {
+    if (_backgroundView) {
+        [_backgroundView removeFromSuperview];
+    }
+    _backgroundView = backgroundView;
+    if (!backgroundView) {
+        return;
+    }
+    [self.view addSubview:backgroundView];
     NSMutableArray *constraints = [NSMutableArray array];
+    backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
     [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[view]-0-|"
-                                                                    options:0
-                                                                    metrics:nil
-                                                                      views:@{@"view" : view}]];
+                                                                             options:0
+                                                                             metrics:nil
+                                                                               views:@{@"view" : backgroundView}]];
     [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[view]-0-|"
                                                                              options:0
                                                                              metrics:nil
-                                                                               views:@{@"view" : view}]];
+                                                                               views:@{@"view" : backgroundView}]];
     [NSLayoutConstraint activateConstraints:constraints];
-    _backgroundView = view;
 }
 
 #pragma mark - Private Methods
+
+- (void)addDefaultBackgroundView {
+    // For demo purpose, we use a image to represent a live streaming video.
+    UIImageView *view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"img_chatroom_background"]];
+    self.backgroundView = view;
+}
 
 - (void)addTransparentChatView {
     [self addChildViewController:self.chatVC];

@@ -19,9 +19,8 @@
 @property (nonatomic, readonly) UIButton * showKeyboardButton;
 @property (nonatomic, readonly) UIButton * likeButton;
 @property (nonatomic, readonly) UILabel * likeCountLabel;
-@property (nonatomic, readonly) UIView * backgroundView;
+@property (nonatomic) UIView * backgroundView;
 
-//Overwrite this method if you have your custom background view. This method will be trigger when viewDidLoad, and SHOULD NOT call directly.
-- (void)addStreamingCanvas;
-
+//May overwrite this method to add customized default backgroundView when subclass initialized.
+- (void)addDefaultBackgroundView;
 @end
