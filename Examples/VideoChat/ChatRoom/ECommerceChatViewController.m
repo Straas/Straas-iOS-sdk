@@ -130,9 +130,15 @@
 #pragma mark - Private Methods
 
 - (void)addDefaultBackgroundView {
-    // For demo purpose, we use a image to represent a live streaming video.
-    UIImageView *view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"img_chatroom_background"]];
-    self.backgroundView = view;
+    if (self.backgroundView) {
+        if (![self.view.subviews containsObject:self.backgroundView]) {
+            [self setBackgroundView:self.backgroundView];
+        }
+    } else {
+        // For demo purpose, we use a image to represent a live streaming video.
+        UIImageView *view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"img_chatroom_background"]];
+        self.backgroundView = view;
+    }
 }
 
 - (void)addTransparentChatView {

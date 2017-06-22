@@ -21,6 +21,4 @@
 @property (nonatomic, readonly) UILabel * likeCountLabel;
 @property (nonatomic) UIView * backgroundView;
 
-//May overwrite this method to add customized default backgroundView when subclass initialized.
-- (void)addDefaultBackgroundView;
 @end
