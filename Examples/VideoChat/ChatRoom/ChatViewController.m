@@ -44,6 +44,8 @@
 @property (nonatomic) CGFloat jumpToLatestButtonBottomConstant;
 @property (nonatomic) NSLayoutConstraint * jumpToLatestButtonBottomConstraint;
 @property (nonatomic) NSMutableArray * allLayoutConstraints;
+@property (nonatomic) STSPinnedMessageView * pinnedMessageView;
+@property (nonatomic) NSLayoutConstraint * pinnedMessageYPositionConstraint;
 
 @property (nonatomic) NSMutableArray * cachedAddedMessages;
 @property (nonatomic) NSMutableArray * cachedRemovedMessageIds;
@@ -89,6 +91,7 @@
     _refreshTableViewTimeInteval = 1.0;
     _autoConnect = YES;
     _shouldAddIndicatorView = YES;
+    _shouldShowPinnedMessage = YES;
     _allLayoutConstraints = [NSMutableArray new];
 #if DEBUG_CUSTOM_TYPING_INDICATOR
     // Register a UIView subclass, conforming to SLKTypingIndicatorProtocol, to use a custom typing indicator view.
@@ -113,7 +116,33 @@
 
 - (void)setPinnedMessage:(STSChatMessage *)pinnedMessage {
     _pinnedMessage = pinnedMessage;
-    //TODO: update pinnedMessageView
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self configurePinnedMessageViewWithMessage:self.pinnedMessage];
+    });
+}
+
+- (void)setShouldShowPinnedMessage:(BOOL)shouldShowPinnedMessage {
+    if (_shouldShowPinnedMessage == shouldShowPinnedMessage) {
+        return;
+    }
+    _shouldShowPinnedMessage = shouldShowPinnedMessage;
+    if (_shouldShowPinnedMessage) {
+        [self addPinnedMessageView];
+    } else {
+        [self.pinnedMessageView removeFromSuperview];
+    }
+    [self forceToUpdateTableSectionHeader];
+}
+
+- (void)setInverted:(BOOL)inverted {
+    [super setInverted:inverted];
+    if (self.tableView) {
+        [self.tableView reloadData];
+    }
+    if (self.pinnedMessageView) {
+        [self updatePinnedMessageYPositionConstraintIfNeeded];
+        [self updatePinnedMessageShadow];
+    }
 }
 
 #pragma mark - Custom View.
@@ -163,6 +192,114 @@
     [layoutConstraints addObject:constraint];
     [self.allLayoutConstraints addObjectsFromArray:layoutConstraints];
     [NSLayoutConstraint activateConstraints:layoutConstraints];
+}
+
+- (STSPinnedMessageView *)pinnedMessageView {
+    if (!_pinnedMessageView) {
+        STSPinnedMessageView * pinnedMessageView = [STSPinnedMessageView new];
+        pinnedMessageView.translatesAutoresizingMaskIntoConstraints = NO;
+        pinnedMessageView.hidden = !(self.pinnedMessage);
+        pinnedMessageView.bodyLabel.delegate = self;
+        _pinnedMessageView = pinnedMessageView;
+    }
+    return _pinnedMessageView;
+}
+
+- (void)addPinnedMessageView {
+    if (!self.isViewLoaded) {
+        return;
+    }
+    if ([[self.view subviews] containsObject:self.pinnedMessageView]) {
+        return;
+    }
+    [self.view insertSubview:self.pinnedMessageView belowSubview:self.textInputbar];
+    NSLayoutConstraint * constraint =
+    [NSLayoutConstraint constraintWithItem:self.pinnedMessageView
+                                 attribute:NSLayoutAttributeWidth
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.view
+                                 attribute:NSLayoutAttributeWidth
+                                multiplier:1
+                                  constant:0];
+    [NSLayoutConstraint activateConstraints:@[constraint]];
+
+    constraint =
+    [NSLayoutConstraint constraintWithItem:self.pinnedMessageView
+                                 attribute:NSLayoutAttributeCenterX
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.view
+                                 attribute:NSLayoutAttributeCenterX
+                                multiplier:1
+                                  constant:0];
+    [NSLayoutConstraint activateConstraints:@[constraint]];
+    [self updatePinnedMessageYPositionConstraintIfNeeded];
+}
+
+- (void)updatePinnedMessageYPositionConstraintIfNeeded {
+    if (!self.pinnedMessageView) {
+        return;
+    }
+    if (self.pinnedMessageYPositionConstraint) {
+        [NSLayoutConstraint deactivateConstraints:@[self.pinnedMessageYPositionConstraint]];
+    }
+    NSLayoutConstraint * constraint =
+    [self pinnedMessageYPositionConstraintWithInverted:self.inverted];
+    if (constraint) {
+        [NSLayoutConstraint activateConstraints:@[constraint]];
+        self.pinnedMessageYPositionConstraint = constraint;
+    }
+}
+
+- (NSLayoutConstraint *)pinnedMessageYPositionConstraintWithInverted:(BOOL)inverted {
+    if (!self.pinnedMessageView
+        || !self.tableView
+        || ![[self.pinnedMessageView superview] isEqual:[self.tableView superview]] ) {
+        return nil;
+    }
+
+    NSLayoutAttribute attribute = self.inverted ? NSLayoutAttributeBottom : NSLayoutAttributeTop;
+    return
+    [NSLayoutConstraint constraintWithItem:self.pinnedMessageView
+                                 attribute:attribute
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.tableView
+                                 attribute:attribute
+                                multiplier:1
+                                  constant:0];
+}
+
+- (void)updatePinnedMessageShadow {
+    if (!self.pinnedMessageView) {
+        return;
+    }
+    if (self.inverted) {
+        self.pinnedMessageView.layer.shadowColor = [UIColor clearColor].CGColor;
+    } else {
+        self.pinnedMessageView.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.pinnedMessageView.layer.shadowOpacity = 0.2;
+        self.pinnedMessageView.layer.shadowRadius = 2;
+        self.pinnedMessageView.layer.shadowOffset = CGSizeMake(0, 1);
+    }
+}
+
+- (void)configurePinnedMessageViewWithMessage:(STSChatMessage *)message {
+    self.pinnedMessageView.hidden = !message;
+    if (message.creator.avatar) {
+        NSURL * URL = [NSURL URLWithString:message.creator.avatar];
+        [self.pinnedMessageView.avatarView sd_setImageWithURL:URL
+                                             placeholderImage:self.avatarPlaceholderImage
+                                                      options:SDWebImageRefreshCached];
+    } else {
+        self.pinnedMessageView.avatarView.image = self.avatarPlaceholderImage;
+    }
+    NSString * creatorRole = message.creator.role;
+    [self.pinnedMessageView.titleLabel setIconImage:[self iconImageForRole:creatorRole]];
+    self.pinnedMessageView.titleLabel.textColor = [self textColorForRole:creatorRole];
+    self.pinnedMessageView.titleLabel.text = message.creator.name;
+    self.pinnedMessageView.bodyLabel.text = message.text;
+    [self.pinnedMessageView setNeedsLayout];
+    [self.pinnedMessageView layoutIfNeeded];
+    [self forceToUpdateTableSectionHeader];
 }
 
 - (UIButton *)jumpToLatestButton {
@@ -314,6 +451,9 @@
     if (self.shouldAddIndicatorView) {
         [self addIndicatorView];
         [self addActivityIndicatorViewConstraints];
+    }
+    if (self.shouldShowPinnedMessage) {
+        [self addPinnedMessageView];
     }
     [self addJumpToLatestButton];
     [self showStickerButtonIfNeeded];
@@ -802,6 +942,11 @@
     [self chatroom:self.currentChat messageAdded:fakeMsg];
 };
 
+- (void)forceToUpdateTableSectionHeader {
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+}
+
 - (void)getPinnedMessage {
     __weak ChatViewController * weakSelf = self;
     [self.manager getPinnedMessageForChat:self.currentChat success:^(STSChatMessage *message){
@@ -1059,6 +1204,19 @@
     }
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView * emptyView = [UIView new];
+    emptyView.backgroundColor = [UIColor clearColor];
+    return emptyView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (!self.pinnedMessage || !self.shouldShowPinnedMessage) {
+        return 0;
+    }
+    return CGRectGetHeight(self.pinnedMessageView.frame);
+}
+
 - (void)scrollViewDidScroll:(UITableView *)scrollView {
     [super scrollViewDidScroll:scrollView];
     if ([self isTableViewReachBottom:scrollView] && self.jumpToLatestButton.alpha != 0) {
@@ -1068,6 +1226,12 @@
 
 - (BOOL)isTableViewReachBottom:(UITableView *)tableView {
     return tableView.contentOffset.y <= 0;
+}
+
+#pragma mark - TTTAttributedLabelDelegate
+
+- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url{
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 #pragma mark - Lifeterm

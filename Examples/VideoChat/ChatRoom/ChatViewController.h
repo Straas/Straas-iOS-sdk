@@ -10,12 +10,13 @@
 #import <StraaSMessagingSDK/StraaSMessagingSDK.h>
 #import "ChatStickerDelegate.h"
 #import "StickerInputViewDelegate.h"
+#import "STSPinnedMessageView.h"
 
 /**
  ChatViewConController is a basic StraaS.io chatroom UI without sticker input.  It is meant to be subclassed.
  If you want to enable sticker input feature, use ChatStickerViewController instead.
  */
-@interface ChatViewController : SLKTextViewController<StickerInputViewDelegate, STSChatEventDelegate>
+@interface ChatViewController : SLKTextViewController<StickerInputViewDelegate, STSChatEventDelegate, TTTAttributedLabelDelegate>
 
 /**
  Current member token.
@@ -48,6 +49,11 @@
 @property (nonatomic, readonly) NSMutableArray *messages;
 
 /**
+ *  A custom view to show the pinned message.
+ */
+@property (nonatomic, readonly) STSPinnedMessageView * pinnedMessageView;
+
+/**
  The delegate would sent message to object which must conform ChatStickerDelegate protocol.
  */
 @property (weak, nonatomic) id<ChatStickerDelegate> delegate;
@@ -74,6 +80,12 @@
  Default is YES, if you want to add your custom loading view set it false.
  */
 @property (nonatomic) BOOL shouldAddIndicatorView;
+
+/**
+ *  A boolean value indicates whether the chatViewController should get and show the pinned message of the current chatroom.
+ *  Default to `YES`.
+ */
+@property (nonatomic) BOOL shouldShowPinnedMessage;
 
 /**
  A boolean value indicating whether the textView is editable.
