@@ -476,6 +476,11 @@
     [self.textInputbar.editorTitle setTextColor:[UIColor darkGrayColor]];
     [self.textInputbar.editorLeftButton setTintColor:[UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0]];
     [self.textInputbar.editorRightButton setTintColor:[UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0]];
+    self.textInputbar.backgroundColor = [UIColor colorWithWhite:249./255. alpha:1.0];
+    self.textInputbar.layer.shadowColor = [UIColor colorWithWhite:111.0/256.0 alpha:1.0].CGColor;
+    self.textInputbar.layer.shadowOpacity = 0.12;
+    self.textInputbar.layer.shadowRadius = 1;
+    self.textInputbar.layer.shadowOffset = CGSizeMake(0, -1);
 
 #if !DEBUG_CUSTOM_TYPING_INDICATOR
     self.typingIndicatorView.canResignByTouch = YES;
