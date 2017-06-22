@@ -651,6 +651,10 @@
 - (void)chatroom:(STSChat *)chatroom aggregatedItemsAdded:(NSArray<STSAggregatedItem *> *)aggregatedItems {}
 - (void)chatroom:(STSChat *)chatroom rawDataAdded:(STSChatMessage *)rawData {}
 
+- (void)chatroom:(STSChat *)chatroom pinnedMessageUpdated:(STSChatMessage *)pinnedMessage {
+    self.pinnedMessage = pinnedMessage;
+}
+
 #pragma mark Event Handler
 
 - (void)updateTextViewForChatroom:(STSChat *)chatroom {
