@@ -113,7 +113,7 @@
     if (!backgroundView) {
         return;
     }
-    [self.view addSubview:backgroundView];
+    [self.view insertSubview:backgroundView atIndex:0];
     NSMutableArray *constraints = [NSMutableArray array];
     backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
     [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[view]-0-|"
@@ -246,6 +246,7 @@
         _likeCountLabel.textAlignment = NSTextAlignmentCenter;
         _likeCountLabel.layer.cornerRadius = 8;
         _likeCountLabel.layer.masksToBounds = YES;
+        _likeCountLabel.text = @"0";
         _likeCountLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _likeCountLabel;
