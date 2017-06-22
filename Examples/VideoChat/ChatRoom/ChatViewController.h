@@ -38,6 +38,11 @@
 @property (nonatomic, readonly) STSChatManager * manager;
 
 /**
+ Current Chat object in ChatViewController.
+ */
+@property (nonatomic, readonly) STSChat * currentChat;
+
+/**
  Current messages
  */
 @property (nonatomic, readonly) NSMutableArray *messages;
