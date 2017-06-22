@@ -996,6 +996,20 @@
     }];
 }
 
+- (void)deleteMessage:(NSString *)messageId {
+    if (![self currentUserCanManageMessages]) {
+        return;
+    }
+    [self.indicator startAnimating];
+    __weak ChatViewController * weakSelf = self;
+    [self.manager removeMessage:messageId chatroom:self.currentChat success:^{
+        [weakSelf.indicator stopAnimating];
+    } failure:^(NSError * error){
+        [weakSelf.indicator stopAnimating];
+        //TODO: Show error message.
+    }];
+}
+
 - (void)didLongPressCell:(STSMessageLongPressGestureRecognizer *)gesture
 {
     if (gesture.state != UIGestureRecognizerStateBegan) {
@@ -1017,6 +1031,11 @@
     }
 
     void (^deleteHandler)(UIAlertAction *) = nil;
+    if (![self isPinnedMessage:message]) {
+        deleteHandler = ^(UIAlertAction *action) {
+            [self deleteMessage:message.messageId];
+        };
+    }
 
     void (^unpinHandler)(UIAlertAction *) = nil;
     if ([self isPinnedMessage:message]) {
