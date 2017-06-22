@@ -49,4 +49,39 @@
     return alertController;
 }
 
++ (UIAlertController *)messageAlertControllerWithTitle:(NSString *)title
+                                               message:(NSString *)message
+                                      pinActionHandler:(void (^)(UIAlertAction *))pinActionHandler
+                                   deleteActionHandler:(void (^)(UIAlertAction *))deleteActionHandler
+                                    unpinActionHandler:(void (^)(UIAlertAction *))unpinActionHandler
+                                   cancelActionHandler:(void (^)(UIAlertAction *))cancelActionHandler
+{
+    UIAlertController * alertController =
+    [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
+    NSString * actionTitle;
+    UIAlertAction * action;
+    if (pinActionHandler) {
+        actionTitle = NSLocalizedString(@"pin_message_to_top", nil);
+        action =
+        [UIAlertAction actionWithTitle:actionTitle style:UIAlertActionStyleDefault handler:pinActionHandler];
+        [alertController addAction:action];
+    }
+    if (deleteActionHandler) {
+        actionTitle = NSLocalizedString(@"deleate_message", nil);
+        action =
+        [UIAlertAction actionWithTitle:actionTitle style:UIAlertActionStyleDefault handler:deleteActionHandler];
+        [alertController addAction:action];
+    }
+    if (unpinActionHandler) {
+        actionTitle = NSLocalizedString(@"unping_message", nil);
+        action =
+        [UIAlertAction actionWithTitle:actionTitle style:UIAlertActionStyleDefault handler:unpinActionHandler];
+        [alertController addAction:action];
+    }
+    actionTitle = NSLocalizedString(@"cancel", nil);
+    [alertController addAction:
+     [UIAlertAction actionWithTitle:actionTitle style:UIAlertActionStyleCancel handler:cancelActionHandler]];
+    return alertController;
+}
+
 @end

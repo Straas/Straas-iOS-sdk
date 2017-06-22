@@ -19,6 +19,7 @@
 #import "UIAlertController+VideoChatUtility.h"
 #import "STSChatUser+VieoChatUtility.h"
 #import "NSTimer+SafeTimer.h"
+#import "STSMessageLongPressGestureRecognizer.h"
 
 #define DEBUG_CUSTOM_TYPING_INDICATOR 0
 
@@ -34,6 +35,7 @@
 @property (nonatomic, readwrite) STSChatroomConnectionOptions connectionOptions;
 @property (nonatomic, readwrite) STSChatManager * manager;
 @property (nonatomic) STSChat * currentChat;
+@property (nonatomic) STSChatUser * currentUser;
 
 @property (nonatomic, getter=hasUpdatedNickname) BOOL updatedNickname;
 @property (nonatomic) NSString * fakeName;
@@ -145,6 +147,10 @@
     }
 }
 
+- (STSChatUser *)currentUser {
+    return [self.manager currentUserForChatroom:self.currentChat];
+}
+
 #pragma mark - Custom View.
 
 - (UIActivityIndicatorView *)indicator {
@@ -200,6 +206,9 @@
         pinnedMessageView.translatesAutoresizingMaskIntoConstraints = NO;
         pinnedMessageView.hidden = !(self.pinnedMessage);
         pinnedMessageView.bodyLabel.delegate = self;
+        [pinnedMessageView.pinButton addTarget:self
+                                        action:@selector(unpinMessage)
+                              forControlEvents:UIControlEventTouchUpInside];
         _pinnedMessageView = pinnedMessageView;
     }
     return _pinnedMessageView;
@@ -959,6 +968,88 @@
     }];
 }
 
+- (void)pinMessage:(NSString *)messageId {
+    if (![self currentUserCanManageMessages]) {
+        return;
+    }
+    [self.indicator startAnimating];
+    __weak ChatViewController * weakSelf = self;
+    [self.manager pinMessage:messageId chatroom:self.currentChat success:^{
+        [weakSelf.indicator stopAnimating];
+    } failure:^(NSError * error) {
+        [weakSelf.indicator stopAnimating];
+        //TODO: Show error message.
+    }];
+}
+
+- (void)unpinMessage {
+    if (![self currentUserCanManageMessages]) {
+        return;
+    }
+    [self.indicator startAnimating];
+    __weak ChatViewController * weakSelf = self;
+    [self.manager unpinMessageFromChatroom:self.currentChat success:^{
+        [weakSelf.indicator stopAnimating];
+    } failure:^(NSError * error) {
+        [weakSelf.indicator stopAnimating];
+        //TODO: Show error message.
+    }];
+}
+
+- (void)didLongPressCell:(STSMessageLongPressGestureRecognizer *)gesture
+{
+    if (gesture.state != UIGestureRecognizerStateBegan) {
+        return;
+    }
+    if (![self currentUserCanManageMessages]) {
+        return;
+    }
+    STSChatMessage * message = gesture.message;
+    if (!message) {
+        return;
+    }
+
+    void (^pinHandler)(UIAlertAction *) = nil;
+    if (message.type == STSChatMessageTypeText && ![self isPinnedMessage:message]) {
+        pinHandler = ^(UIAlertAction *action) {
+            [self pinMessage:message.messageId];
+        };
+    }
+
+    void (^deleteHandler)(UIAlertAction *) = nil;
+
+    void (^unpinHandler)(UIAlertAction *) = nil;
+    if ([self isPinnedMessage:message]) {
+        unpinHandler = ^(UIAlertAction *action) {
+            [self unpinMessage];
+        };
+    }
+    NSString * messageString =
+    (message.type == STSChatMessageTypeText) ? [NSString stringWithFormat:@"\"%@\"", message.text] : nil;
+    UIAlertController * alertController =
+    [UIAlertController messageAlertControllerWithTitle:nil
+                                               message:messageString
+                                      pinActionHandler:pinHandler
+                                   deleteActionHandler:deleteHandler
+                                    unpinActionHandler:unpinHandler
+                                   cancelActionHandler:nil];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (BOOL)isPinnedMessage:(STSChatMessage *)targetMessage {
+    if (!self.pinnedMessage) {
+        return NO;
+    }
+    return [self.pinnedMessage.messageId isEqualToString:targetMessage.messageId];
+}
+
+- (BOOL)currentUserCanManageMessages {
+    return [self.currentUser.role isEqualToString:kSTSUserRoleMaster]
+    || [self.currentUser.role isEqualToString:kSTSUserRoleModerator]
+    || [self.currentUser.role isEqualToString:kSTSUserRoleGlobalManager]
+    || [self.currentUser.role isEqualToString:kSTSUserRoleLocalManager];
+}
+
 #pragma mark - update tableView timer
 
 - (void)startUpdateTableViewTimer {
@@ -1122,6 +1213,21 @@
         cell = (MessageTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:StickerCellIdentifier];
         [cell.stickerImageView sd_setImageWithURL:message.stickerURL placeholderImage:self.stickerPlaceholderImage];
     }
+
+    STSMessageLongPressGestureRecognizer * longPressGR = nil;
+    for (UIGestureRecognizer *  gr in cell.gestureRecognizers) {
+        if ([gr isKindOfClass:[STSMessageLongPressGestureRecognizer class]]) {
+            longPressGR = (STSMessageLongPressGestureRecognizer*)gr;
+            break;
+        }
+    }
+    if (!longPressGR) {
+        longPressGR =
+        [[STSMessageLongPressGestureRecognizer alloc]
+         initWithTarget:self action:@selector(didLongPressCell:)];
+        [cell addGestureRecognizer:longPressGR];
+    }
+    longPressGR.message = message;
 
     if (message.creator.avatar) {
         NSURL * URL = [NSURL URLWithString:message.creator.avatar];
