@@ -1,19 +1,19 @@
 {
   "warnings": [
     {
-      "file": "/Users/lee/Documents/Developer/ios-sdk/StraaSCoreSDK/StraaSCoreSDK.h",
+      "file": "/Users/shihwenwang/Desktop/StraaS/ios-sdk/StraaSCoreSDK/StraaSCoreSDK.h",
       "line": 12,
       "symbol": "StraaSCoreSDKVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/lee/Documents/Developer/ios-sdk/StraaSCoreSDK/StraaSCoreSDK.h",
+      "file": "/Users/shihwenwang/Desktop/StraaS/ios-sdk/StraaSCoreSDK/StraaSCoreSDK.h",
       "line": 15,
       "symbol": "StraaSCoreSDKVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/lee/Documents/Developer/ios-sdk"
+  "source_directory": "/Users/shihwenwang/Desktop/StraaS/ios-sdk"
 }
