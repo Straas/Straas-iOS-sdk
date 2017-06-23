@@ -20,6 +20,7 @@
 #import "STSChatUser+VieoChatUtility.h"
 #import "NSTimer+SafeTimer.h"
 #import "STSMessageLongPressGestureRecognizer.h"
+#import "UIViewController+VideoChatUtility.h"
 
 #define DEBUG_CUSTOM_TYPING_INDICATOR 0
 
@@ -983,7 +984,7 @@
         [weakSelf.indicator stopAnimating];
     } failure:^(NSError * error) {
         [weakSelf.indicator stopAnimating];
-        //TODO: Show error message.
+        [weakSelf showOperationFailedAlert];
     }];
 }
 
@@ -997,7 +998,7 @@
         [weakSelf.indicator stopAnimating];
     } failure:^(NSError * error) {
         [weakSelf.indicator stopAnimating];
-        //TODO: Show error message.
+        [weakSelf showOperationFailedAlert];
     }];
 }
 
@@ -1011,7 +1012,7 @@
         [weakSelf.indicator stopAnimating];
     } failure:^(NSError * error){
         [weakSelf.indicator stopAnimating];
-        //TODO: Show error message.
+        [weakSelf showOperationFailedAlert];
     }];
 }
 
@@ -1072,6 +1073,10 @@
     || [self.currentUser.role isEqualToString:kSTSUserRoleModerator]
     || [self.currentUser.role isEqualToString:kSTSUserRoleGlobalManager]
     || [self.currentUser.role isEqualToString:kSTSUserRoleLocalManager];
+}
+
+- (void)showOperationFailedAlert {
+    [self showMessage:NSLocalizedString(@"operation_failed_message", nil) dismissAfter:1];
 }
 
 #pragma mark - update tableView timer
