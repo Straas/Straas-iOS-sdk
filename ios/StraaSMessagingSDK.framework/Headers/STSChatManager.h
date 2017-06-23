@@ -118,6 +118,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)chatroomMessageFlushed:(STSChat *)chatroom;
 
+/**
+ *  The pinned message of the specific chatroom updated.
+ *
+ *  @param chatroom A STSChat object informing the delegate about the pinned message update.
+ *  @param message  The updated pinned message.
+ */
+- (void)chatroom:(STSChat *)chatroom pinnedMessageUpdated:(STSChatMessage * _Nullable)pinnedMessage;
+
 @optional
 /**
  *  Tells the delegate that an array of aggregated items has been added to data channel.
@@ -271,6 +279,46 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)removeMessage:(NSString *)messageId chatroom:(STSChat *)chatroom
               success:(void(^)())success failure:(void(^)(NSError * error))failure;
+
+/**
+ *  Get the pinned message of a chatroom.
+ *
+ *  @param chatroom The STSChat object you want to get the pinned message.
+ *  @param success  Handler for successful request.
+ *  @param failure  Error handler.
+ */
+- (void)getPinnedMessageForChat:(STSChat *)chatroom
+                        success:(void(^)(STSChatMessage * _Nullable pinnedMessage))success
+                        failure:(void(^)(NSError * error))failure;
+
+/**
+ *  Pins a message to the chatroom.
+ *
+ *  Note:
+ *  1. A chatroom can only have a pinned message at once, it means this method will override the last pinned message.
+ *  2. This method works only when the current user of target chatroom has the privilege.
+ *
+ *  @param messageId    The message Id which you want to pin.
+ *  @param chatroom     The STSChat object you want to pin the message.
+ *  @param success      Handler for successful request.
+ *  @param failure      Error handler.
+ */
+- (void)pinMessage:(NSString *)messageId
+          chatroom:(STSChat *)chatroom
+           success:(void(^)())success
+           failure:(void(^)(NSError * error))failure;
+
+/**
+ *  Unpins a message from the given chatroom.
+ *  Note: This method works only when the current user of target chatroom has the privilege.
+ *
+ *  @param chatroom The STSChat object you want to unpin the message.
+ *  @param success  Handler for successful request.
+ *  @param failure  Error handler.
+ */
+- (void)unpinMessageFromChatroom:(STSChat *)chatroom
+                         success:(void(^)())success
+                         failure:(void(^)(NSError * error))failure;
 
 /**
  *  Returns the chat object.

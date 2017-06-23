@@ -22,7 +22,7 @@
 		</data>
 		<key>Headers/STSChatManager.h</key>
 		<data>
-		iCXkbZwLUuVfR+WxAQ6HZyMHh0U=
+		XeNNZYtuE1FrayJfHzR2gFHjrM8=
 		</data>
 		<key>Headers/STSChatMessage.h</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		wVPFeEbqCYgiKzAIH9wEY3YnHaM=
+		F0j5dlC4OkZA523+/OEYxpU7cQc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -141,11 +141,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			iCXkbZwLUuVfR+WxAQ6HZyMHh0U=
+			XeNNZYtuE1FrayJfHzR2gFHjrM8=
 			</data>
 			<key>hash2</key>
 			<data>
-			vn1wR4odZRwjQwmqeX/FaGK779RskKTacvT9iB7HHHw=
+			fs52zeiYBD5RAtuV/eeZE2M1FszpELMksPQ+Lxnoleg=
 			</data>
 		</dict>
 		<key>Headers/STSChatMessage.h</key>
