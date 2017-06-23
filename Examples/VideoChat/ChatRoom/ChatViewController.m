@@ -1233,6 +1233,7 @@
     MessageTableViewCell *cell;
     if (message.type == STSChatMessageTypeText) {
         cell = (MessageTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:MessengerCellIdentifier];
+        cell.bodyLabel.delegate = self;
     } else {
         cell = (MessageTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:StickerCellIdentifier];
         [cell.stickerImageView sd_setImageWithURL:message.stickerURL placeholderImage:self.stickerPlaceholderImage];

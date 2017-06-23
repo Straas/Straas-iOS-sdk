@@ -124,16 +124,28 @@ static const CGFloat kMessageTableViewCellTitleHeight = 20;
     return _sideLabel;
 }
 
-- (UILabel *)bodyLabel
+- (TTTAttributedLabel *)bodyLabel
 {
     if (!_bodyLabel) {
-        _bodyLabel = [UILabel new];
+        _bodyLabel = [TTTAttributedLabel new];
         _bodyLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _bodyLabel.backgroundColor = [UIColor clearColor];
-        _bodyLabel.userInteractionEnabled = NO;
+        _bodyLabel.userInteractionEnabled = YES;
         _bodyLabel.numberOfLines = 0;
         _bodyLabel.textColor = [UIColor colorWithWhite:0 alpha:0.54];
         _bodyLabel.font = [UIFont systemFontOfSize:[MessageTableViewCell defaultFontSize]];
+
+        _bodyLabel.enabledTextCheckingTypes = NSTextCheckingTypeLink;
+        _bodyLabel.verticalAlignment = TTTAttributedLabelVerticalAlignmentTop;
+        UIColor *lightBlue = [UIColor colorWithRed:80./255. green:154/255. blue:255./255. alpha:1.0];
+        _bodyLabel.linkAttributes =
+        @{ (id)kCTForegroundColorAttributeName: lightBlue,
+           (id)kCTUnderlineStyleAttributeName: [NSNumber numberWithInt:kCTUnderlineStyleSingle]};
+        CGColorRef lightGreyRef = [[UIColor colorWithWhite:204./255. alpha:1.0] CGColor];
+        _bodyLabel.activeLinkAttributes =
+        @{ (id)kCTForegroundColorAttributeName: lightBlue,
+           (id)kTTTBackgroundFillColorAttributeName: (__bridge id)lightGreyRef,
+           (id)kCTUnderlineStyleAttributeName: [NSNumber numberWithInt:kCTUnderlineStyleSingle]};
     }
     return _bodyLabel;
 }
