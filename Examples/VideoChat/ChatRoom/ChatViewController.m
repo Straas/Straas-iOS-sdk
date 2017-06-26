@@ -544,6 +544,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.textViewEditable = NO;
     // SLKTVC's configuration
     self.bounces = YES;
