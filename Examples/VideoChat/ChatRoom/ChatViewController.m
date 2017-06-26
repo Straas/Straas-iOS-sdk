@@ -144,6 +144,7 @@
     }
     _pinnedMessagePosition = pinnedMessagePosition;
     [self updatePinnedMessageYPositionConstraintIfNeeded];
+    [self updatePinnedMessageShadow];
     [self forceToUpdateTableSectionHeaderAndFooter];
     [self updateJumpToLatestButtonYPositionConstraint:(self.jumpToLatestButton.alpha == 1)];
 }
@@ -325,7 +326,7 @@
     if (!self.pinnedMessageView) {
         return;
     }
-    if (self.inverted) {
+    if (![self pinnedMessageOnTheTop]) {
         self.pinnedMessageView.layer.shadowColor = [UIColor clearColor].CGColor;
     } else {
         self.pinnedMessageView.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -466,12 +467,8 @@
 
     NSLayoutAttribute attribute = self.inverted ? NSLayoutAttributeBottom : NSLayoutAttributeTop;
     CGFloat constant = showJumpToLatestButton ? 10 : -40;
-
-    BOOL pinnedMessageOnTheTop =
-    (pinnedMessagePosition == STSPinnedMessagePositionTop) ||
-    (!self.inverted && (pinnedMessagePosition == STSPinnedMessagePositionAlignWithTheLatestMessage));
     BOOL jumpToLatestButtonOnTheTop = !self.inverted;
-    BOOL shouldAdjust = (pinnedMessageOnTheTop == jumpToLatestButtonOnTheTop);
+    BOOL shouldAdjust = ([self pinnedMessageOnTheTop] == jumpToLatestButtonOnTheTop);
     if (isPinnedMessageViewVisible && shouldAdjust) {
         constant += CGRectGetHeight(self.pinnedMessageView.frame);
     }
@@ -1179,6 +1176,11 @@
     && self.pinnedMessageView
     && CGRectGetHeight(self.pinnedMessageView.frame)
     && !self.pinnedMessageView.hidden;
+}
+
+- (BOOL)pinnedMessageOnTheTop {
+    return (self.pinnedMessagePosition == STSPinnedMessagePositionTop) ||
+    (!self.inverted && (self.pinnedMessagePosition == STSPinnedMessagePositionAlignWithTheLatestMessage));
 }
 
 #pragma mark - update tableView timer
