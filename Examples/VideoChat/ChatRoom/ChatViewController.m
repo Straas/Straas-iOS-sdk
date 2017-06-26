@@ -47,8 +47,8 @@
 @property (nonatomic) NSLayoutConstraint * jumpToLatestButtonYPositionConstraint;
 @property (nonatomic) NSMutableArray * allLayoutConstraints;
 @property (nonatomic) STSPinnedMessageView * pinnedMessageView;
+@property (nonatomic) UIView * emptySectionHeaderFooterView;
 @property (nonatomic) NSLayoutConstraint * pinnedMessageYPositionConstraint;
-
 @property (nonatomic) NSMutableArray * cachedAddedMessages;
 @property (nonatomic) NSMutableArray * cachedRemovedMessageIds;
 @property (nonatomic, weak) NSTimer * updateTableViewTimer;
@@ -94,6 +94,7 @@
     _autoConnect = YES;
     _shouldAddIndicatorView = YES;
     _shouldShowPinnedMessage = YES;
+    _pinnedMessagePosition = STSPinnedMessagePositionTop;
     _allLayoutConstraints = [NSMutableArray new];
 #if DEBUG_CUSTOM_TYPING_INDICATOR
     // Register a UIView subclass, conforming to SLKTypingIndicatorProtocol, to use a custom typing indicator view.
@@ -133,7 +134,17 @@
     } else {
         [self.pinnedMessageView removeFromSuperview];
     }
-    [self forceToUpdateTableSectionHeader];
+    [self forceToUpdateTableSectionHeaderAndFooter];
+    [self updateJumpToLatestButtonYPositionConstraint:(self.jumpToLatestButton.alpha == 1)];
+}
+
+- (void)setPinnedMessagePosition:(STSPinnedMessagePosition)pinnedMessagePosition {
+    if (_pinnedMessagePosition == pinnedMessagePosition) {
+        return;
+    }
+    _pinnedMessagePosition = pinnedMessagePosition;
+    [self updatePinnedMessageYPositionConstraintIfNeeded];
+    [self forceToUpdateTableSectionHeaderAndFooter];
     [self updateJumpToLatestButtonYPositionConstraint:(self.jumpToLatestButton.alpha == 1)];
 }
 
@@ -266,7 +277,8 @@
         self.pinnedMessageYPositionConstraint = nil;
     }
     NSLayoutConstraint * constraint =
-    [self pinnedMessageYPositionConstraintWithInverted:self.inverted];
+    [self pinnedMessageYPositionConstraintWithInverted:self.inverted
+                                              position:self.pinnedMessagePosition];
     if (constraint) {
         [NSLayoutConstraint activateConstraints:@[constraint]];
         self.pinnedMessageYPositionConstraint = constraint;
@@ -274,14 +286,30 @@
     }
 }
 
-- (NSLayoutConstraint *)pinnedMessageYPositionConstraintWithInverted:(BOOL)inverted {
+- (NSLayoutConstraint *)pinnedMessageYPositionConstraintWithInverted:(BOOL)inverted
+                                                            position:(STSPinnedMessagePosition)position
+{
     if (!self.pinnedMessageView
         || !self.tableView
         || ![[self.pinnedMessageView superview] isEqual:[self.tableView superview]] ) {
         return nil;
     }
 
-    NSLayoutAttribute attribute = self.inverted ? NSLayoutAttributeBottom : NSLayoutAttributeTop;
+    NSLayoutAttribute attribute;
+    switch (position) {
+        case STSPinnedMessagePositionTop:
+            attribute = NSLayoutAttributeTop;
+            break;
+        case STSPinnedMessagePositionBottom:
+            attribute = NSLayoutAttributeBottom;
+            break;
+        case STSPinnedMessagePositionAlignWithTheLatestMessage:
+            attribute = inverted ? NSLayoutAttributeBottom : NSLayoutAttributeTop;
+            break;
+
+        default:
+            break;
+    }
     return
     [NSLayoutConstraint constraintWithItem:self.pinnedMessageView
                                  attribute:attribute
@@ -323,7 +351,7 @@
     self.pinnedMessageView.bodyLabel.text = message.text;
     [self.pinnedMessageView setNeedsLayout];
     [self.pinnedMessageView layoutIfNeeded];
-    [self forceToUpdateTableSectionHeader];
+    [self forceToUpdateTableSectionHeaderAndFooter];
     [self updateJumpToLatestButtonYPositionConstraint:(self.jumpToLatestButton.alpha == 1)];
 }
 
@@ -415,7 +443,8 @@
     NSLayoutConstraint * constraint =
     [self jumpToLatestButtonYPositionConstraintWithInverted:self.inverted
                                      showJumpToLatestButton:showJumpToLatestButton
-                                     pinnedMessageVisiblity:[self isPinnedMessageViewVisible]];
+                                     pinnedMessageVisiblity:[self isPinnedMessageViewVisible]
+                                      pinnedMessagePosition:self.pinnedMessagePosition];
     if (constraint) {
         [NSLayoutConstraint activateConstraints:@[constraint]];
         self.jumpToLatestButtonYPositionConstraint = constraint;
@@ -426,6 +455,7 @@
 - (NSLayoutConstraint *)jumpToLatestButtonYPositionConstraintWithInverted:(BOOL)inverted
                                                    showJumpToLatestButton:(BOOL)showJumpToLatestButton
                                                    pinnedMessageVisiblity:(BOOL)isPinnedMessageViewVisible
+                                                    pinnedMessagePosition:(STSPinnedMessagePosition)pinnedMessagePosition
 {
     if (!self.jumpToLatestButton
         || !self.tableView
@@ -435,7 +465,13 @@
 
     NSLayoutAttribute attribute = self.inverted ? NSLayoutAttributeBottom : NSLayoutAttributeTop;
     CGFloat constant = showJumpToLatestButton ? 10 : -40;
-    if (isPinnedMessageViewVisible) {
+
+    BOOL pinnedMessageOnTheTop =
+    (pinnedMessagePosition == STSPinnedMessagePositionTop) ||
+    (!self.inverted && (pinnedMessagePosition == STSPinnedMessagePositionAlignWithTheLatestMessage));
+    BOOL jumpToLatestButtonOnTheTop = !self.inverted;
+    BOOL shouldAdjust = (pinnedMessageOnTheTop == jumpToLatestButtonOnTheTop);
+    if (isPinnedMessageViewVisible && shouldAdjust) {
         constant += CGRectGetHeight(self.pinnedMessageView.frame);
     }
     if (inverted) {
@@ -492,6 +528,15 @@
 
 - (void)setTextViewEditable:(BOOL)textViewEditable {
     self.textView.editable = textViewEditable;
+}
+
+- (UIView *)emptySectionHeaderFooterView {
+    if (!_emptySectionHeaderFooterView) {
+        UIView * emptySectionHeaderFooterView = [UIView new];
+        emptySectionHeaderFooterView.backgroundColor = [UIColor clearColor];
+        _emptySectionHeaderFooterView = emptySectionHeaderFooterView;
+    }
+    return _emptySectionHeaderFooterView;
 }
 
 #pragma mark - View lifecycle
@@ -1009,7 +1054,7 @@
     [self chatroom:self.currentChat messageAdded:fakeMsg];
 };
 
-- (void)forceToUpdateTableSectionHeader {
+- (void)forceToUpdateTableSectionHeaderAndFooter {
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
 }
@@ -1400,13 +1445,36 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView * emptyView = [UIView new];
-    emptyView.backgroundColor = [UIColor clearColor];
-    return emptyView;
+    if (![self shouldShowPinnedMessageAtTheSectionHeader]){
+        return nil;
+    }
+    UIView * view = self.emptySectionHeaderFooterView;
+    return view;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if ([self shouldShowPinnedMessageAtTheSectionHeader]){
+        return nil;
+    }
+    UIView * view = self.emptySectionHeaderFooterView;
+    return view;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (!self.pinnedMessage || !self.shouldShowPinnedMessage) {
+        return 0;
+    }
+    if (![self shouldShowPinnedMessageAtTheSectionHeader]) {
+        return 0;
+    }
+    return CGRectGetHeight(self.pinnedMessageView.frame);
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (!self.pinnedMessage || !self.shouldShowPinnedMessage) {
+        return 0;
+    }
+    if ([self shouldShowPinnedMessageAtTheSectionHeader]) {
         return 0;
     }
     return CGRectGetHeight(self.pinnedMessageView.frame);
@@ -1421,6 +1489,18 @@
 
 - (BOOL)isTableViewReachBottom:(UITableView *)tableView {
     return tableView.contentOffset.y <= 0;
+}
+
+- (BOOL)shouldShowPinnedMessageAtTheSectionHeader {
+    switch (self.pinnedMessagePosition) {
+        case STSPinnedMessagePositionTop:
+            return !self.inverted;
+        case STSPinnedMessagePositionBottom:
+            return self.inverted;
+        case STSPinnedMessagePositionAlignWithTheLatestMessage:
+        default:
+            return YES;
+    }
 }
 
 #pragma mark - TTTAttributedLabelDelegate

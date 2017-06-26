@@ -13,6 +13,25 @@
 #import "STSPinnedMessageView.h"
 
 /**
+ *  Constants specify where a pinned message should be shown in a ChatViewController.
+ */
+typedef NS_ENUM(NSUInteger, STSPinnedMessagePosition) {
+    /**
+     *  The pinned message should be on the top of a ChatViewController's view.
+     */
+    STSPinnedMessagePositionTop = 0,
+    /**
+     *  The pinned message should be on the bottom of a ChatViewController's view.
+     */
+    STSPinnedMessagePositionBottom = 1,
+    /**
+     *  The pinned message should align with the latest message.
+     *  If the latest message is on the top of a ChatViewController's view, the pinned message will also show on the top, or vise versa.
+     */
+    STSPinnedMessagePositionAlignWithTheLatestMessage = 2
+};
+
+/**
  ChatViewConController is a basic StraaS.io chatroom UI without sticker input.  It is meant to be subclassed.
  If you want to enable sticker input feature, use ChatStickerViewController instead.
  */
@@ -86,6 +105,11 @@
  *  Default to `YES`.
  */
 @property (nonatomic) BOOL shouldShowPinnedMessage;
+
+/**
+ *  The position to show the pinned message. Defaults to `STSPinnedMessagePositionTop`.
+ */
+@property (nonatomic) STSPinnedMessagePosition pinnedMessagePosition;
 
 /**
  A boolean value indicating whether the textView is editable.
