@@ -241,6 +241,7 @@
                                 multiplier:1
                                   constant:0];
     [NSLayoutConstraint activateConstraints:@[constraint]];
+    [self.allLayoutConstraints addObject:constraint];
 
     constraint =
     [NSLayoutConstraint constraintWithItem:self.pinnedMessageView
@@ -251,6 +252,7 @@
                                 multiplier:1
                                   constant:0];
     [NSLayoutConstraint activateConstraints:@[constraint]];
+    [self.allLayoutConstraints addObject:constraint];
     [self updatePinnedMessageYPositionConstraintIfNeeded];
 }
 
@@ -260,12 +262,15 @@
     }
     if (self.pinnedMessageYPositionConstraint) {
         [NSLayoutConstraint deactivateConstraints:@[self.pinnedMessageYPositionConstraint]];
+        [self.allLayoutConstraints removeObject:self.pinnedMessageYPositionConstraint];
+        self.pinnedMessageYPositionConstraint = nil;
     }
     NSLayoutConstraint * constraint =
     [self pinnedMessageYPositionConstraintWithInverted:self.inverted];
     if (constraint) {
         [NSLayoutConstraint activateConstraints:@[constraint]];
         self.pinnedMessageYPositionConstraint = constraint;
+        [self.allLayoutConstraints addObject:self.pinnedMessageYPositionConstraint];
     }
 }
 
