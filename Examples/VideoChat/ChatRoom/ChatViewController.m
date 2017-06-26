@@ -44,8 +44,7 @@
 //Custom view
 @property (nonatomic) UIActivityIndicatorView * indicator;
 @property (nonatomic) UIButton * jumpToLatestButton;
-@property (nonatomic) CGFloat jumpToLatestButtonBottomConstant;
-@property (nonatomic) NSLayoutConstraint * jumpToLatestButtonBottomConstraint;
+@property (nonatomic) NSLayoutConstraint * jumpToLatestButtonYPositionConstraint;
 @property (nonatomic) NSMutableArray * allLayoutConstraints;
 @property (nonatomic) STSPinnedMessageView * pinnedMessageView;
 @property (nonatomic) NSLayoutConstraint * pinnedMessageYPositionConstraint;
@@ -135,6 +134,7 @@
         [self.pinnedMessageView removeFromSuperview];
     }
     [self forceToUpdateTableSectionHeader];
+    [self updateJumpToLatestButtonYPositionConstraint:(self.jumpToLatestButton.alpha == 1)];
 }
 
 - (void)setInverted:(BOOL)inverted {
@@ -145,6 +145,15 @@
     if (self.pinnedMessageView) {
         [self updatePinnedMessageYPositionConstraintIfNeeded];
         [self updatePinnedMessageShadow];
+    }
+    if (self.jumpToLatestButton) {
+        UIImage * image = [UIImage imageNamed:@"ic_arrow_downward_chatroom"];
+        if (!inverted) {
+            image = [[UIImage alloc] initWithCGImage: image.CGImage
+                                               scale: [UIScreen mainScreen].scale
+                                         orientation: UIImageOrientationDown];
+        }
+        [self.jumpToLatestButton setImage:image forState:UIControlStateNormal];
     }
 }
 
@@ -310,6 +319,7 @@
     [self.pinnedMessageView setNeedsLayout];
     [self.pinnedMessageView layoutIfNeeded];
     [self forceToUpdateTableSectionHeader];
+    [self updateJumpToLatestButtonYPositionConstraint:(self.jumpToLatestButton.alpha == 1)];
 }
 
 - (UIButton *)jumpToLatestButton {
@@ -337,8 +347,7 @@
 }
 
 - (void)dismissJumpToLatestButton {
-    self.jumpToLatestButtonBottomConstant = 40;
-    [self.view setNeedsLayout];
+    [self updateJumpToLatestButtonYPositionConstraint:NO];
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.jumpToLatestButton.alpha = 0;
         [self.view layoutIfNeeded];
@@ -352,8 +361,7 @@
 }
 
 - (void)showJumpToLatestButton {
-    self.jumpToLatestButtonBottomConstant = -10.0;
-    [self.view setNeedsLayout];
+    [self updateJumpToLatestButtonYPositionConstraint:YES];
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.jumpToLatestButton.alpha = 1;
         [self.view layoutIfNeeded];
@@ -361,7 +369,11 @@
 }
 
 - (void)addJumpToLatestButton {
-    [self.view insertSubview:self.jumpToLatestButton belowSubview:self.textInputbar];
+    if ([[self.view subviews] containsObject:self.pinnedMessageView]) {
+        [self.view insertSubview:self.jumpToLatestButton belowSubview:self.pinnedMessageView];
+    } else {
+        [self.view insertSubview:self.jumpToLatestButton belowSubview:self.textInputbar];
+    }
     NSMutableArray * layoutConstraints = [NSMutableArray array];
     [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.jumpToLatestButton
                                                               attribute:NSLayoutAttributeCenterX
@@ -381,26 +393,57 @@
                                                                  toItem:nil
                                                               attribute:NSLayoutAttributeNotAnAttribute
                                                              multiplier:1 constant:120]];
-    self.jumpToLatestButtonBottomConstant = 40.0;
+    [self updateJumpToLatestButtonYPositionConstraint:NO];
     [self.allLayoutConstraints addObjectsFromArray:layoutConstraints];
     [NSLayoutConstraint activateConstraints:layoutConstraints];
 }
 
-- (void)setJumpToLatestButtonBottomConstant:(CGFloat)jumpToLatestButtonBottomConstant {
-    if (_jumpToLatestButtonBottomConstant == jumpToLatestButtonBottomConstant) {
+- (void)updateJumpToLatestButtonYPositionConstraint:(BOOL)showJumpToLatestButton {
+    if (!self.jumpToLatestButton) {
         return;
     }
-    self.jumpToLatestButtonBottomConstraint.active = NO;
-    [self.allLayoutConstraints removeObject:self.jumpToLatestButtonBottomConstraint];
-    self.jumpToLatestButtonBottomConstraint = [NSLayoutConstraint constraintWithItem:self.jumpToLatestButton
-                                                                          attribute:NSLayoutAttributeBottom
-                                                                          relatedBy:NSLayoutRelationEqual
-                                                                             toItem:self.textInputbar
-                                                                          attribute:NSLayoutAttributeTop
-                                                                         multiplier:1 constant:jumpToLatestButtonBottomConstant];
-    self.jumpToLatestButtonBottomConstraint.active = YES;
-    [self.allLayoutConstraints addObject:self.jumpToLatestButtonBottomConstraint];
-    _jumpToLatestButtonBottomConstant = jumpToLatestButtonBottomConstant;
+    if (self.jumpToLatestButtonYPositionConstraint) {
+        [NSLayoutConstraint deactivateConstraints:@[self.jumpToLatestButtonYPositionConstraint]];
+        [self.allLayoutConstraints removeObject:self.jumpToLatestButtonYPositionConstraint];
+        self.jumpToLatestButtonYPositionConstraint = nil;
+    }
+    NSLayoutConstraint * constraint =
+    [self jumpToLatestButtonYPositionConstraintWithInverted:self.inverted
+                                     showJumpToLatestButton:showJumpToLatestButton
+                                     pinnedMessageVisiblity:[self isPinnedMessageViewVisible]];
+    if (constraint) {
+        [NSLayoutConstraint activateConstraints:@[constraint]];
+        self.jumpToLatestButtonYPositionConstraint = constraint;
+        [self.allLayoutConstraints addObject:self.jumpToLatestButtonYPositionConstraint];
+    }
+}
+
+- (NSLayoutConstraint *)jumpToLatestButtonYPositionConstraintWithInverted:(BOOL)inverted
+                                                   showJumpToLatestButton:(BOOL)showJumpToLatestButton
+                                                   pinnedMessageVisiblity:(BOOL)isPinnedMessageViewVisible
+{
+    if (!self.jumpToLatestButton
+        || !self.tableView
+        || ![[self.jumpToLatestButton superview] isEqual:[self.tableView superview]] ) {
+        return nil;
+    }
+
+    NSLayoutAttribute attribute = self.inverted ? NSLayoutAttributeBottom : NSLayoutAttributeTop;
+    CGFloat constant = showJumpToLatestButton ? 10 : -40;
+    if (isPinnedMessageViewVisible) {
+        constant += CGRectGetHeight(self.pinnedMessageView.frame);
+    }
+    if (inverted) {
+        constant = -constant;
+    }
+    return
+    [NSLayoutConstraint constraintWithItem:self.jumpToLatestButton
+                                 attribute:attribute
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.tableView
+                                 attribute:attribute
+                                multiplier:1
+                                  constant:constant];
 }
 
 - (void)disconnectCurrentChatIfNeeded {
@@ -1077,6 +1120,13 @@
 
 - (void)showOperationFailedAlert {
     [self showMessage:NSLocalizedString(@"operation_failed_message", nil) dismissAfter:1];
+}
+
+- (BOOL)isPinnedMessageViewVisible {
+    return self.shouldShowPinnedMessage
+    && self.pinnedMessageView
+    && CGRectGetHeight(self.pinnedMessageView.frame)
+    && !self.pinnedMessageView.hidden;
 }
 
 #pragma mark - update tableView timer
