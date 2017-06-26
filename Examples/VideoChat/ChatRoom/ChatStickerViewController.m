@@ -234,4 +234,8 @@ NSUInteger const defaultStickerViewHeight = 215;
     [self.chatVC chatroom:chatroom rawDataAdded:rawData];
 }
 
+- (void)chatroom:(STSChat *)chatroom pinnedMessageUpdated:(STSChatMessage *)pinnedMessage {
+    [self.chatVC chatroom:chatroom pinnedMessageUpdated:pinnedMessage];
+}
+
 @end

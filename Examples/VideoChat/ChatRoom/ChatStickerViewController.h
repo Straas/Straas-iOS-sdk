@@ -102,6 +102,7 @@
 - (void)chatroomMessageFlushed:(STSChat *)chatroom NS_REQUIRES_SUPER;
 - (void)chatroom:(STSChat *)chatroom aggregatedItemsAdded:(NSArray<STSAggregatedItem *> *)aggregatedItems NS_REQUIRES_SUPER;
 - (void)chatroom:(STSChat *)chatroom rawDataAdded:(STSChatMessage *)rawData NS_REQUIRES_SUPER;
+- (void)chatroom:(STSChat *)chatroom pinnedMessageUpdated:(STSChatMessage *)pinnedMessage NS_REQUIRES_SUPER;
 
 #pragma mark - ChatStickerDelegate
 /**

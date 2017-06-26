@@ -168,6 +168,7 @@
 - (void)chatroom:(STSChat *)chatroom messageAdded:(STSChatMessage *)message NS_REQUIRES_SUPER;
 - (void)chatroom:(STSChat *)chatroom messageRemoved:(NSString *)messageId NS_REQUIRES_SUPER;
 - (void)chatroomMessageFlushed:(STSChat *)chatroom NS_REQUIRES_SUPER;
+- (void)chatroom:(STSChat *)chatroom pinnedMessageUpdated:(STSChatMessage *)pinnedMessage NS_REQUIRES_SUPER;
 #pragma mark - StickerInputViewDelegate
 - (void)didSelectStickerKey:(NSString *)key imageURL:(NSString *)imageURL NS_REQUIRES_SUPER;
 
