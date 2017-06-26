@@ -165,6 +165,7 @@
                                          orientation: UIImageOrientationDown];
         }
         [self.jumpToLatestButton setImage:image forState:UIControlStateNormal];
+        [self updateJumpToLatestButtonYPositionConstraint:(self.jumpToLatestButton.alpha == 1)];
     }
 }
 
