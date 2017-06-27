@@ -18,4 +18,11 @@
                                         message:(NSString *)message
                            confirmActionHandler:(void (^)(UIAlertAction *))confirmActionHandler;
 
++ (UIAlertController *)messageAlertControllerWithTitle:(NSString *)title
+                                               message:(NSString *)message
+                                      pinActionHandler:(void (^)(UIAlertAction *))pinActionHandler
+                                   deleteActionHandler:(void (^)(UIAlertAction *))deleteActionHandler
+                                    unpinActionHandler:(void (^)(UIAlertAction *))pinActionHandler
+                                   cancelActionHandler:(void (^)(UIAlertAction *))cancelActionHandler;
+
 @end

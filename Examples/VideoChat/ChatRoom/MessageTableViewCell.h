@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "IconLabel.h"
+#import <TTTAttributedLabel/TTTAttributedLabel.h>
 
 static NSString *const MessengerCellIdentifier = @"MessengerCell";
 static NSString *const StickerCellIdentifier = @"StickerCell";
@@ -17,7 +18,7 @@ static NSString *const AutoCompletionCellIdentifier = @"AutoCompletionCell";
 
 @property (nonatomic, strong) IconLabel *titleLabel;
 @property (nonatomic, strong) UILabel *sideLabel;
-@property (nonatomic, strong) UILabel *bodyLabel;
+@property (nonatomic, strong) TTTAttributedLabel *bodyLabel;
 @property (nonatomic, strong) UIImageView *thumbnailView;
 @property (nonatomic, strong) UIImageView * stickerImageView;
 @property (nonatomic, strong) UIView *separatorLineView;

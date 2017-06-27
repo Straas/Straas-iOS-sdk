@@ -19,12 +19,15 @@
 #import "UIAlertController+VideoChatUtility.h"
 #import "STSChatUser+VieoChatUtility.h"
 #import "NSTimer+SafeTimer.h"
+#import "STSMessageLongPressGestureRecognizer.h"
+#import "UIViewController+VideoChatUtility.h"
 
 #define DEBUG_CUSTOM_TYPING_INDICATOR 0
 
 @interface ChatViewController ()
 
 @property (nonatomic, strong) NSMutableArray *messages;
+@property (nonatomic, strong, nullable) STSChatMessage * pinnedMessage;
 
 @property (nonatomic, strong) NSArray *searchResult;
 
@@ -33,6 +36,7 @@
 @property (nonatomic, readwrite) STSChatroomConnectionOptions connectionOptions;
 @property (nonatomic, readwrite) STSChatManager * manager;
 @property (nonatomic) STSChat * currentChat;
+@property (nonatomic) STSChatUser * currentUser;
 
 @property (nonatomic, getter=hasUpdatedNickname) BOOL updatedNickname;
 @property (nonatomic) NSString * fakeName;
@@ -40,10 +44,11 @@
 //Custom view
 @property (nonatomic) UIActivityIndicatorView * indicator;
 @property (nonatomic) UIButton * jumpToLatestButton;
-@property (nonatomic) CGFloat jumpToLatestButtonBottomConstant;
-@property (nonatomic) NSLayoutConstraint * jumpToLatestButtonBottomConstraint;
+@property (nonatomic) NSLayoutConstraint * jumpToLatestButtonYPositionConstraint;
 @property (nonatomic) NSMutableArray * allLayoutConstraints;
-
+@property (nonatomic) STSPinnedMessageView * pinnedMessageView;
+@property (nonatomic) UIView * emptySectionHeaderFooterView;
+@property (nonatomic) NSLayoutConstraint * pinnedMessageYPositionConstraint;
 @property (nonatomic) NSMutableArray * cachedAddedMessages;
 @property (nonatomic) NSMutableArray * cachedRemovedMessageIds;
 @property (nonatomic, weak) NSTimer * updateTableViewTimer;
@@ -88,6 +93,8 @@
     _refreshTableViewTimeInteval = 1.0;
     _autoConnect = YES;
     _shouldAddIndicatorView = YES;
+    _shouldShowPinnedMessage = YES;
+    _pinnedMessagePosition = STSPinnedMessagePositionTop;
     _allLayoutConstraints = [NSMutableArray new];
 #if DEBUG_CUSTOM_TYPING_INDICATOR
     // Register a UIView subclass, conforming to SLKTypingIndicatorProtocol, to use a custom typing indicator view.
@@ -95,7 +102,7 @@
 #endif
 }
 
-#pragma mark - Custom View.
+#pragma mark - Custom accessors
 
 - (void)setShouldAddIndicatorView:(BOOL)shouldAddIndicatorView {
     if (_shouldAddIndicatorView == shouldAddIndicatorView) {
@@ -109,6 +116,65 @@
     }
     _shouldAddIndicatorView = shouldAddIndicatorView;
 }
+
+- (void)setPinnedMessage:(STSChatMessage *)pinnedMessage {
+    _pinnedMessage = pinnedMessage;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self configurePinnedMessageViewWithMessage:self.pinnedMessage];
+    });
+}
+
+- (void)setShouldShowPinnedMessage:(BOOL)shouldShowPinnedMessage {
+    if (_shouldShowPinnedMessage == shouldShowPinnedMessage) {
+        return;
+    }
+    _shouldShowPinnedMessage = shouldShowPinnedMessage;
+    if (_shouldShowPinnedMessage) {
+        [self addPinnedMessageView];
+    } else {
+        [self.pinnedMessageView removeFromSuperview];
+    }
+    [self forceToUpdateTableSectionHeaderAndFooter];
+    [self updateJumpToLatestButtonYPositionConstraint:(self.jumpToLatestButton.alpha == 1)];
+}
+
+- (void)setPinnedMessagePosition:(STSPinnedMessagePosition)pinnedMessagePosition {
+    if (_pinnedMessagePosition == pinnedMessagePosition) {
+        return;
+    }
+    _pinnedMessagePosition = pinnedMessagePosition;
+    [self updatePinnedMessageYPositionConstraintIfNeeded];
+    [self updatePinnedMessageShadow];
+    [self forceToUpdateTableSectionHeaderAndFooter];
+    [self updateJumpToLatestButtonYPositionConstraint:(self.jumpToLatestButton.alpha == 1)];
+}
+
+- (void)setInverted:(BOOL)inverted {
+    [super setInverted:inverted];
+    if (self.tableView) {
+        [self.tableView reloadData];
+    }
+    if (self.pinnedMessageView) {
+        [self updatePinnedMessageYPositionConstraintIfNeeded];
+        [self updatePinnedMessageShadow];
+    }
+    if (self.jumpToLatestButton) {
+        UIImage * image = [UIImage imageNamed:@"ic_arrow_downward_chatroom"];
+        if (!inverted) {
+            image = [[UIImage alloc] initWithCGImage: image.CGImage
+                                               scale: [UIScreen mainScreen].scale
+                                         orientation: UIImageOrientationDown];
+        }
+        [self.jumpToLatestButton setImage:image forState:UIControlStateNormal];
+        [self updateJumpToLatestButtonYPositionConstraint:(self.jumpToLatestButton.alpha == 1)];
+    }
+}
+
+- (STSChatUser *)currentUser {
+    return [self.manager currentUserForChatroom:self.currentChat];
+}
+
+#pragma mark - Custom View.
 
 - (UIActivityIndicatorView *)indicator {
     if (!_indicator) {
@@ -157,6 +223,140 @@
     [NSLayoutConstraint activateConstraints:layoutConstraints];
 }
 
+- (STSPinnedMessageView *)pinnedMessageView {
+    if (!_pinnedMessageView) {
+        STSPinnedMessageView * pinnedMessageView = [STSPinnedMessageView new];
+        pinnedMessageView.translatesAutoresizingMaskIntoConstraints = NO;
+        pinnedMessageView.hidden = !(self.pinnedMessage);
+        pinnedMessageView.bodyLabel.delegate = self;
+        [pinnedMessageView.pinButton addTarget:self
+                                        action:@selector(unpinMessage)
+                              forControlEvents:UIControlEventTouchUpInside];
+        _pinnedMessageView = pinnedMessageView;
+    }
+    return _pinnedMessageView;
+}
+
+- (void)addPinnedMessageView {
+    if (!self.isViewLoaded) {
+        return;
+    }
+    if ([[self.view subviews] containsObject:self.pinnedMessageView]) {
+        return;
+    }
+    [self.view insertSubview:self.pinnedMessageView belowSubview:self.textInputbar];
+    NSLayoutConstraint * constraint =
+    [NSLayoutConstraint constraintWithItem:self.pinnedMessageView
+                                 attribute:NSLayoutAttributeWidth
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.view
+                                 attribute:NSLayoutAttributeWidth
+                                multiplier:1
+                                  constant:0];
+    [NSLayoutConstraint activateConstraints:@[constraint]];
+    [self.allLayoutConstraints addObject:constraint];
+
+    constraint =
+    [NSLayoutConstraint constraintWithItem:self.pinnedMessageView
+                                 attribute:NSLayoutAttributeCenterX
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.view
+                                 attribute:NSLayoutAttributeCenterX
+                                multiplier:1
+                                  constant:0];
+    [NSLayoutConstraint activateConstraints:@[constraint]];
+    [self.allLayoutConstraints addObject:constraint];
+    [self updatePinnedMessageYPositionConstraintIfNeeded];
+}
+
+- (void)updatePinnedMessageYPositionConstraintIfNeeded {
+    if (!self.pinnedMessageView) {
+        return;
+    }
+    if (self.pinnedMessageYPositionConstraint) {
+        [NSLayoutConstraint deactivateConstraints:@[self.pinnedMessageYPositionConstraint]];
+        [self.allLayoutConstraints removeObject:self.pinnedMessageYPositionConstraint];
+        self.pinnedMessageYPositionConstraint = nil;
+    }
+    NSLayoutConstraint * constraint =
+    [self pinnedMessageYPositionConstraintWithInverted:self.inverted
+                                              position:self.pinnedMessagePosition];
+    if (constraint) {
+        [NSLayoutConstraint activateConstraints:@[constraint]];
+        self.pinnedMessageYPositionConstraint = constraint;
+        [self.allLayoutConstraints addObject:self.pinnedMessageYPositionConstraint];
+    }
+}
+
+- (NSLayoutConstraint *)pinnedMessageYPositionConstraintWithInverted:(BOOL)inverted
+                                                            position:(STSPinnedMessagePosition)position
+{
+    if (!self.pinnedMessageView
+        || !self.tableView
+        || ![[self.pinnedMessageView superview] isEqual:[self.tableView superview]] ) {
+        return nil;
+    }
+
+    NSLayoutAttribute attribute;
+    switch (position) {
+        case STSPinnedMessagePositionTop:
+            attribute = NSLayoutAttributeTop;
+            break;
+        case STSPinnedMessagePositionBottom:
+            attribute = NSLayoutAttributeBottom;
+            break;
+        case STSPinnedMessagePositionAlignWithTheLatestMessage:
+            attribute = inverted ? NSLayoutAttributeBottom : NSLayoutAttributeTop;
+            break;
+
+        default:
+            break;
+    }
+    return
+    [NSLayoutConstraint constraintWithItem:self.pinnedMessageView
+                                 attribute:attribute
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.tableView
+                                 attribute:attribute
+                                multiplier:1
+                                  constant:0];
+}
+
+- (void)updatePinnedMessageShadow {
+    if (!self.pinnedMessageView) {
+        return;
+    }
+    if (![self pinnedMessageOnTheTop]) {
+        self.pinnedMessageView.layer.shadowColor = [UIColor clearColor].CGColor;
+    } else {
+        self.pinnedMessageView.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.pinnedMessageView.layer.shadowOpacity = 0.2;
+        self.pinnedMessageView.layer.shadowRadius = 2;
+        self.pinnedMessageView.layer.shadowOffset = CGSizeMake(0, 1);
+    }
+}
+
+- (void)configurePinnedMessageViewWithMessage:(STSChatMessage *)message {
+    self.pinnedMessageView.hidden = !message;
+    if (message.creator.avatar) {
+        NSURL * URL = [NSURL URLWithString:message.creator.avatar];
+        [self.pinnedMessageView.avatarView sd_setImageWithURL:URL
+                                             placeholderImage:self.avatarPlaceholderImage
+                                                      options:SDWebImageRefreshCached];
+    } else {
+        self.pinnedMessageView.avatarView.image = self.avatarPlaceholderImage;
+    }
+    NSString * creatorRole = message.creator.role;
+    [self.pinnedMessageView.titleLabel setIconImage:[self iconImageForRole:creatorRole]];
+    self.pinnedMessageView.titleLabel.textColor = [self textColorForRole:creatorRole];
+    self.pinnedMessageView.titleLabel.text = message.creator.name;
+    self.pinnedMessageView.bodyLabel.text = message.text;
+    [self.pinnedMessageView setNeedsLayout];
+    [self.pinnedMessageView layoutIfNeeded];
+    [self forceToUpdateTableSectionHeaderAndFooter];
+    [self updateJumpToLatestButtonYPositionConstraint:(self.jumpToLatestButton.alpha == 1)];
+}
+
 - (UIButton *)jumpToLatestButton {
     if (!_jumpToLatestButton) {
         UIButton * jumpToLatestButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -182,8 +382,7 @@
 }
 
 - (void)dismissJumpToLatestButton {
-    self.jumpToLatestButtonBottomConstant = 40;
-    [self.view setNeedsLayout];
+    [self updateJumpToLatestButtonYPositionConstraint:NO];
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.jumpToLatestButton.alpha = 0;
         [self.view layoutIfNeeded];
@@ -197,8 +396,7 @@
 }
 
 - (void)showJumpToLatestButton {
-    self.jumpToLatestButtonBottomConstant = -10.0;
-    [self.view setNeedsLayout];
+    [self updateJumpToLatestButtonYPositionConstraint:YES];
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.jumpToLatestButton.alpha = 1;
         [self.view layoutIfNeeded];
@@ -206,7 +404,11 @@
 }
 
 - (void)addJumpToLatestButton {
-    [self.view insertSubview:self.jumpToLatestButton belowSubview:self.textInputbar];
+    if ([[self.view subviews] containsObject:self.pinnedMessageView]) {
+        [self.view insertSubview:self.jumpToLatestButton belowSubview:self.pinnedMessageView];
+    } else {
+        [self.view insertSubview:self.jumpToLatestButton belowSubview:self.textInputbar];
+    }
     NSMutableArray * layoutConstraints = [NSMutableArray array];
     [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:self.jumpToLatestButton
                                                               attribute:NSLayoutAttributeCenterX
@@ -226,26 +428,61 @@
                                                                  toItem:nil
                                                               attribute:NSLayoutAttributeNotAnAttribute
                                                              multiplier:1 constant:120]];
-    self.jumpToLatestButtonBottomConstant = 40.0;
+    [self updateJumpToLatestButtonYPositionConstraint:NO];
     [self.allLayoutConstraints addObjectsFromArray:layoutConstraints];
     [NSLayoutConstraint activateConstraints:layoutConstraints];
 }
 
-- (void)setJumpToLatestButtonBottomConstant:(CGFloat)jumpToLatestButtonBottomConstant {
-    if (_jumpToLatestButtonBottomConstant == jumpToLatestButtonBottomConstant) {
+- (void)updateJumpToLatestButtonYPositionConstraint:(BOOL)showJumpToLatestButton {
+    if (!self.jumpToLatestButton) {
         return;
     }
-    self.jumpToLatestButtonBottomConstraint.active = NO;
-    [self.allLayoutConstraints removeObject:self.jumpToLatestButtonBottomConstraint];
-    self.jumpToLatestButtonBottomConstraint = [NSLayoutConstraint constraintWithItem:self.jumpToLatestButton
-                                                                          attribute:NSLayoutAttributeBottom
-                                                                          relatedBy:NSLayoutRelationEqual
-                                                                             toItem:self.textInputbar
-                                                                          attribute:NSLayoutAttributeTop
-                                                                         multiplier:1 constant:jumpToLatestButtonBottomConstant];
-    self.jumpToLatestButtonBottomConstraint.active = YES;
-    [self.allLayoutConstraints addObject:self.jumpToLatestButtonBottomConstraint];
-    _jumpToLatestButtonBottomConstant = jumpToLatestButtonBottomConstant;
+    if (self.jumpToLatestButtonYPositionConstraint) {
+        [NSLayoutConstraint deactivateConstraints:@[self.jumpToLatestButtonYPositionConstraint]];
+        [self.allLayoutConstraints removeObject:self.jumpToLatestButtonYPositionConstraint];
+        self.jumpToLatestButtonYPositionConstraint = nil;
+    }
+    NSLayoutConstraint * constraint =
+    [self jumpToLatestButtonYPositionConstraintWithInverted:self.inverted
+                                     showJumpToLatestButton:showJumpToLatestButton
+                                     pinnedMessageVisiblity:[self isPinnedMessageViewVisible]
+                                      pinnedMessagePosition:self.pinnedMessagePosition];
+    if (constraint) {
+        [NSLayoutConstraint activateConstraints:@[constraint]];
+        self.jumpToLatestButtonYPositionConstraint = constraint;
+        [self.allLayoutConstraints addObject:self.jumpToLatestButtonYPositionConstraint];
+    }
+}
+
+- (NSLayoutConstraint *)jumpToLatestButtonYPositionConstraintWithInverted:(BOOL)inverted
+                                                   showJumpToLatestButton:(BOOL)showJumpToLatestButton
+                                                   pinnedMessageVisiblity:(BOOL)isPinnedMessageViewVisible
+                                                    pinnedMessagePosition:(STSPinnedMessagePosition)pinnedMessagePosition
+{
+    if (!self.jumpToLatestButton
+        || !self.tableView
+        || ![[self.jumpToLatestButton superview] isEqual:[self.tableView superview]] ) {
+        return nil;
+    }
+
+    NSLayoutAttribute attribute = self.inverted ? NSLayoutAttributeBottom : NSLayoutAttributeTop;
+    CGFloat constant = showJumpToLatestButton ? 10 : -40;
+    BOOL jumpToLatestButtonOnTheTop = !self.inverted;
+    BOOL shouldAdjust = ([self pinnedMessageOnTheTop] == jumpToLatestButtonOnTheTop);
+    if (isPinnedMessageViewVisible && shouldAdjust) {
+        constant += CGRectGetHeight(self.pinnedMessageView.frame);
+    }
+    if (inverted) {
+        constant = -constant;
+    }
+    return
+    [NSLayoutConstraint constraintWithItem:self.jumpToLatestButton
+                                 attribute:attribute
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.tableView
+                                 attribute:attribute
+                                multiplier:1
+                                  constant:constant];
 }
 
 - (void)disconnectCurrentChatIfNeeded {
@@ -291,11 +528,21 @@
     self.textView.editable = textViewEditable;
 }
 
+- (UIView *)emptySectionHeaderFooterView {
+    if (!_emptySectionHeaderFooterView) {
+        UIView * emptySectionHeaderFooterView = [UIView new];
+        emptySectionHeaderFooterView.backgroundColor = [UIColor clearColor];
+        _emptySectionHeaderFooterView = emptySectionHeaderFooterView;
+    }
+    return _emptySectionHeaderFooterView;
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.textViewEditable = NO;
     // SLKTVC's configuration
     self.bounces = YES;
@@ -306,6 +553,9 @@
     if (self.shouldAddIndicatorView) {
         [self addIndicatorView];
         [self addActivityIndicatorViewConstraints];
+    }
+    if (self.shouldShowPinnedMessage) {
+        [self addPinnedMessageView];
     }
     [self addJumpToLatestButton];
     [self showStickerButtonIfNeeded];
@@ -319,6 +569,11 @@
     [self.textInputbar.editorTitle setTextColor:[UIColor darkGrayColor]];
     [self.textInputbar.editorLeftButton setTintColor:[UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0]];
     [self.textInputbar.editorRightButton setTintColor:[UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0]];
+    self.textInputbar.backgroundColor = [UIColor colorWithWhite:249./255. alpha:1.0];
+    self.textInputbar.layer.shadowColor = [UIColor colorWithWhite:111.0/256.0 alpha:1.0].CGColor;
+    self.textInputbar.layer.shadowOpacity = 0.12;
+    self.textInputbar.layer.shadowRadius = 1;
+    self.textInputbar.layer.shadowOffset = CGSizeMake(0, -1);
 
 #if !DEBUG_CUSTOM_TYPING_INDICATOR
     self.typingIndicatorView.canResignByTouch = YES;
@@ -436,6 +691,7 @@
     } failure:^(NSError * _Nonnull error) {
 
     }];
+    [self getPinnedMessage];
 }
 
 - (void)chatroomInputModeChanged:(STSChat *)chatroom {
@@ -501,6 +757,10 @@
 - (void)chatroom:(STSChat *)chatroom usersJoined:(NSArray<STSChatUser *> *)users {}
 - (void)chatroom:(STSChat *)chatroom aggregatedItemsAdded:(NSArray<STSAggregatedItem *> *)aggregatedItems {}
 - (void)chatroom:(STSChat *)chatroom rawDataAdded:(STSChatMessage *)rawData {}
+
+- (void)chatroom:(STSChat *)chatroom pinnedMessageUpdated:(STSChatMessage *)pinnedMessage {
+    self.pinnedMessage = pinnedMessage;
+}
 
 #pragma mark Event Handler
 
@@ -751,6 +1011,28 @@
     return !self.hasUpdatedNickname && self.JWT.length == 0;
 }
 
+- (UIImage *)iconImageForRole:(NSString *)userRole {
+    if ([userRole isEqualToString:kSTSUserRoleNormal] ||
+        [userRole isEqualToString:kSTSUserRoleBlocked]) {
+        return nil;
+    } else if ([userRole isEqualToString:kSTSUserRoleMaster]) {
+        return [UIImage imageNamed:@"ic_host_chatroom"];
+    } else {
+        return [UIImage imageNamed:@"ic_moderator_chatroom"];
+    }
+}
+
+- (UIColor *)textColorForRole:(NSString *)userRole {
+    if ([userRole isEqualToString:kSTSUserRoleNormal] ||
+        [userRole isEqualToString:kSTSUserRoleBlocked]) {
+        return [UIColor blackColor];
+    } else if ([userRole isEqualToString:kSTSUserRoleMaster]) {
+        return [UIColor colorWithRed:242.0/255.0 green:154.0/255.0 blue:11.0/255.0 alpha:1];
+    } else {
+        return [UIColor colorWithRed:123.0/255.0 green:75.0/255.0 blue:163.0/255.0 alpha:1];
+    }
+}
+
 - (void)addFakeMessage:(NSString *)fakeMessage type:(STSChatMesssageType)type imageURL:(NSString *)imageURL {
     STSChatUser * currentUser = [self.manager currentUserForChatroom:self.currentChat];
     NSDateFormatter * formatter = [NSDateFormatter new];
@@ -770,6 +1052,136 @@
     fakeMsg.stickerURL = imageURL ? [NSURL URLWithString:imageURL]: nil;
     [self chatroom:self.currentChat messageAdded:fakeMsg];
 };
+
+- (void)forceToUpdateTableSectionHeaderAndFooter {
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+}
+
+- (void)getPinnedMessage {
+    __weak ChatViewController * weakSelf = self;
+    [self.manager getPinnedMessageForChat:self.currentChat success:^(STSChatMessage *message){
+        weakSelf.pinnedMessage = message;
+    } failure:^(NSError * error){
+    }];
+}
+
+- (void)pinMessage:(NSString *)messageId {
+    if (![self currentUserCanManageMessages]) {
+        return;
+    }
+    [self.indicator startAnimating];
+    __weak ChatViewController * weakSelf = self;
+    [self.manager pinMessage:messageId chatroom:self.currentChat success:^{
+        [weakSelf.indicator stopAnimating];
+    } failure:^(NSError * error) {
+        [weakSelf.indicator stopAnimating];
+        [weakSelf showOperationFailedAlert];
+    }];
+}
+
+- (void)unpinMessage {
+    if (![self currentUserCanManageMessages]) {
+        return;
+    }
+    [self.indicator startAnimating];
+    __weak ChatViewController * weakSelf = self;
+    [self.manager unpinMessageFromChatroom:self.currentChat success:^{
+        [weakSelf.indicator stopAnimating];
+    } failure:^(NSError * error) {
+        [weakSelf.indicator stopAnimating];
+        [weakSelf showOperationFailedAlert];
+    }];
+}
+
+- (void)deleteMessage:(NSString *)messageId {
+    if (![self currentUserCanManageMessages]) {
+        return;
+    }
+    [self.indicator startAnimating];
+    __weak ChatViewController * weakSelf = self;
+    [self.manager removeMessage:messageId chatroom:self.currentChat success:^{
+        [weakSelf.indicator stopAnimating];
+    } failure:^(NSError * error){
+        [weakSelf.indicator stopAnimating];
+        [weakSelf showOperationFailedAlert];
+    }];
+}
+
+- (void)didLongPressCell:(STSMessageLongPressGestureRecognizer *)gesture
+{
+    if (gesture.state != UIGestureRecognizerStateBegan) {
+        return;
+    }
+    if (![self currentUserCanManageMessages]) {
+        return;
+    }
+    STSChatMessage * message = gesture.message;
+    if (!message) {
+        return;
+    }
+
+    void (^pinHandler)(UIAlertAction *) = nil;
+    if (message.type == STSChatMessageTypeText && ![self isPinnedMessage:message]) {
+        pinHandler = ^(UIAlertAction *action) {
+            [self pinMessage:message.messageId];
+        };
+    }
+
+    void (^deleteHandler)(UIAlertAction *) = nil;
+    if (![self isPinnedMessage:message]) {
+        deleteHandler = ^(UIAlertAction *action) {
+            [self deleteMessage:message.messageId];
+        };
+    }
+
+    void (^unpinHandler)(UIAlertAction *) = nil;
+    if ([self isPinnedMessage:message]) {
+        unpinHandler = ^(UIAlertAction *action) {
+            [self unpinMessage];
+        };
+    }
+    NSString * messageString =
+    (message.type == STSChatMessageTypeText) ? [NSString stringWithFormat:@"\"%@\"", message.text] : nil;
+    UIAlertController * alertController =
+    [UIAlertController messageAlertControllerWithTitle:nil
+                                               message:messageString
+                                      pinActionHandler:pinHandler
+                                   deleteActionHandler:deleteHandler
+                                    unpinActionHandler:unpinHandler
+                                   cancelActionHandler:nil];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (BOOL)isPinnedMessage:(STSChatMessage *)targetMessage {
+    if (!self.pinnedMessage) {
+        return NO;
+    }
+    return [self.pinnedMessage.messageId isEqualToString:targetMessage.messageId];
+}
+
+- (BOOL)currentUserCanManageMessages {
+    return [self.currentUser.role isEqualToString:kSTSUserRoleMaster]
+    || [self.currentUser.role isEqualToString:kSTSUserRoleModerator]
+    || [self.currentUser.role isEqualToString:kSTSUserRoleGlobalManager]
+    || [self.currentUser.role isEqualToString:kSTSUserRoleLocalManager];
+}
+
+- (void)showOperationFailedAlert {
+    [self showMessage:NSLocalizedString(@"operation_failed_message", nil) dismissAfter:1];
+}
+
+- (BOOL)isPinnedMessageViewVisible {
+    return self.shouldShowPinnedMessage
+    && self.pinnedMessageView
+    && CGRectGetHeight(self.pinnedMessageView.frame)
+    && !self.pinnedMessageView.hidden;
+}
+
+- (BOOL)pinnedMessageOnTheTop {
+    return (self.pinnedMessagePosition == STSPinnedMessagePositionTop) ||
+    (!self.inverted && (self.pinnedMessagePosition == STSPinnedMessagePositionAlignWithTheLatestMessage));
+}
 
 #pragma mark - update tableView timer
 
@@ -930,10 +1342,26 @@
     MessageTableViewCell *cell;
     if (message.type == STSChatMessageTypeText) {
         cell = (MessageTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:MessengerCellIdentifier];
+        cell.bodyLabel.delegate = self;
     } else {
         cell = (MessageTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:StickerCellIdentifier];
         [cell.stickerImageView sd_setImageWithURL:message.stickerURL placeholderImage:self.stickerPlaceholderImage];
     }
+
+    STSMessageLongPressGestureRecognizer * longPressGR = nil;
+    for (UIGestureRecognizer *  gr in cell.gestureRecognizers) {
+        if ([gr isKindOfClass:[STSMessageLongPressGestureRecognizer class]]) {
+            longPressGR = (STSMessageLongPressGestureRecognizer*)gr;
+            break;
+        }
+    }
+    if (!longPressGR) {
+        longPressGR =
+        [[STSMessageLongPressGestureRecognizer alloc]
+         initWithTarget:self action:@selector(didLongPressCell:)];
+        [cell addGestureRecognizer:longPressGR];
+    }
+    longPressGR.message = message;
 
     if (message.creator.avatar) {
         NSURL * URL = [NSURL URLWithString:message.creator.avatar];
@@ -942,17 +1370,8 @@
         cell.thumbnailView.image = self.avatarPlaceholderImage;
     }
     NSString * creatorRole = message.creator.role;
-    if ([creatorRole isEqualToString:kSTSUserRoleNormal] ||
-        [creatorRole isEqualToString:kSTSUserRoleBlocked]) {
-        [cell.titleLabel setIconImage:nil];
-        cell.titleLabel.textColor = [UIColor blackColor];
-    } else if ([creatorRole isEqualToString:kSTSUserRoleMaster]) {
-        [cell.titleLabel setIconImage:[UIImage imageNamed:@"ic_host_chatroom"]];
-        cell.titleLabel.textColor = [UIColor colorWithRed:242.0/255.0 green:154.0/255.0 blue:11.0/255.0 alpha:1];
-    } else {
-        [cell.titleLabel setIconImage:[UIImage imageNamed:@"ic_moderator_chatroom"]];
-        cell.titleLabel.textColor = [UIColor colorWithRed:123.0/255.0 green:75.0/255.0 blue:163.0/255.0 alpha:1];
-    }
+    [cell.titleLabel setIconImage:[self iconImageForRole:creatorRole]];
+    cell.titleLabel.textColor = [self textColorForRole:creatorRole];
 
     cell.titleLabel.text = message.creator.name;
     cell.sideLabel.text = message.shortCreatedDate;
@@ -1029,6 +1448,42 @@
     }
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (![self shouldShowPinnedMessageAtTheSectionHeader]){
+        return nil;
+    }
+    UIView * view = self.emptySectionHeaderFooterView;
+    return view;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if ([self shouldShowPinnedMessageAtTheSectionHeader]){
+        return nil;
+    }
+    UIView * view = self.emptySectionHeaderFooterView;
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (!self.pinnedMessage || !self.shouldShowPinnedMessage) {
+        return 0;
+    }
+    if (![self shouldShowPinnedMessageAtTheSectionHeader]) {
+        return 0;
+    }
+    return CGRectGetHeight(self.pinnedMessageView.frame);
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (!self.pinnedMessage || !self.shouldShowPinnedMessage) {
+        return 0;
+    }
+    if ([self shouldShowPinnedMessageAtTheSectionHeader]) {
+        return 0;
+    }
+    return CGRectGetHeight(self.pinnedMessageView.frame);
+}
+
 - (void)scrollViewDidScroll:(UITableView *)scrollView {
     [super scrollViewDidScroll:scrollView];
     if ([self isTableViewReachBottom:scrollView] && self.jumpToLatestButton.alpha != 0) {
@@ -1038,6 +1493,24 @@
 
 - (BOOL)isTableViewReachBottom:(UITableView *)tableView {
     return tableView.contentOffset.y <= 0;
+}
+
+- (BOOL)shouldShowPinnedMessageAtTheSectionHeader {
+    switch (self.pinnedMessagePosition) {
+        case STSPinnedMessagePositionTop:
+            return !self.inverted;
+        case STSPinnedMessagePositionBottom:
+            return self.inverted;
+        case STSPinnedMessagePositionAlignWithTheLatestMessage:
+        default:
+            return YES;
+    }
+}
+
+#pragma mark - TTTAttributedLabelDelegate
+
+- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url{
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 #pragma mark - Lifeterm

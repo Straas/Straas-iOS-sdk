@@ -22,6 +22,9 @@
 		4A1F4DC51ED83B8D005D6FD9 /* ECommerceChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F4DC41ED83B8D005D6FD9 /* ECommerceChatViewController.m */; };
 		4A3A2BB51ED7DE6000A22863 /* TransparentMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A2BB41ED7DE6000A22863 /* TransparentMessageTableViewCell.m */; };
 		4A3A2BB81ED7DEE900A22863 /* TransparentChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A2BB71ED7DEE900A22863 /* TransparentChatViewController.m */; };
+		728228FD1EFA86850088C7EB /* STSPinnedMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 728228FC1EFA86850088C7EB /* STSPinnedMessageView.m */; };
+		728229031EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 728229021EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.m */; };
+		728229091EFD39700088C7EB /* UIViewController+VideoChatUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 728229081EFD39700088C7EB /* UIViewController+VideoChatUtility.m */; };
 		72F47A421DDA1CA000103583 /* StreamingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F47A411DDA1CA000103583 /* StreamingViewController.m */; };
 		9B133DD61DCAF4020082C269 /* UIImage+sticker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B133DD51DCAF4020082C269 /* UIImage+sticker.m */; };
 		9B16870F1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B16870E1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.m */; };
@@ -73,6 +76,12 @@
 		4A3A2BB61ED7DEE900A22863 /* TransparentChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentChatViewController.h; sourceTree = "<group>"; };
 		4A3A2BB71ED7DEE900A22863 /* TransparentChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentChatViewController.m; sourceTree = "<group>"; };
 		64C2739ECC5559476005727D /* Pods_VideoChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		728228FB1EFA86850088C7EB /* STSPinnedMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSPinnedMessageView.h; sourceTree = "<group>"; };
+		728228FC1EFA86850088C7EB /* STSPinnedMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSPinnedMessageView.m; sourceTree = "<group>"; };
+		728229011EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSMessageLongPressGestureRecognizer.h; sourceTree = "<group>"; };
+		728229021EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSMessageLongPressGestureRecognizer.m; sourceTree = "<group>"; };
+		728229071EFD39700088C7EB /* UIViewController+VideoChatUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VideoChatUtility.h"; sourceTree = "<group>"; };
+		728229081EFD39700088C7EB /* UIViewController+VideoChatUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VideoChatUtility.m"; sourceTree = "<group>"; };
 		72F47A401DDA1CA000103583 /* StreamingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StreamingViewController.h; path = Streaming/StreamingViewController.h; sourceTree = "<group>"; };
 		72F47A411DDA1CA000103583 /* StreamingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StreamingViewController.m; path = Streaming/StreamingViewController.m; sourceTree = "<group>"; };
 		9B133DD41DCAF4020082C269 /* UIImage+sticker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+sticker.h"; sourceTree = "<group>"; };
@@ -155,6 +164,12 @@
 				9BB9B32E1E7C569C00245AB7 /* NSTimer+SafeTimer.m */,
 				9BBCBDD31E88B681006D3500 /* IconLabel.h */,
 				9BBCBDD41E88B681006D3500 /* IconLabel.m */,
+				728228FB1EFA86850088C7EB /* STSPinnedMessageView.h */,
+				728228FC1EFA86850088C7EB /* STSPinnedMessageView.m */,
+				728229011EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.h */,
+				728229021EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.m */,
+				728229071EFD39700088C7EB /* UIViewController+VideoChatUtility.h */,
+				728229081EFD39700088C7EB /* UIViewController+VideoChatUtility.m */,
 			);
 			path = ChatRoom;
 			sourceTree = "<group>";
@@ -409,12 +424,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				728228FD1EFA86850088C7EB /* STSPinnedMessageView.m in Sources */,
 				40C779DF1D7091D0004F61CA /* AppDelegate.m in Sources */,
+				728229091EFD39700088C7EB /* UIViewController+VideoChatUtility.m in Sources */,
 				9B988EAA1DCB9C08009F8973 /* ChatStickerViewController.m in Sources */,
 				9B133DD61DCAF4020082C269 /* UIImage+sticker.m in Sources */,
 				9BDC48BA1DD092A50095BF9B /* STSSegmentedControl.m in Sources */,
 				9B9A9BB61DC98A650017F8C1 /* StickersInputView.m in Sources */,
 				72F47A421DDA1CA000103583 /* StreamingViewController.m in Sources */,
+				728229031EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.m in Sources */,
 				9BBEC54A1D813F1800387012 /* UIAlertController+VideoChatUtility.m in Sources */,
 				4A1F4DC51ED83B8D005D6FD9 /* ECommerceChatViewController.m in Sources */,
 				40C779E21D7091D0004F61CA /* MasterViewController.m in Sources */,

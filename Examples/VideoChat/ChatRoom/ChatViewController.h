@@ -10,12 +10,32 @@
 #import <StraaSMessagingSDK/StraaSMessagingSDK.h>
 #import "ChatStickerDelegate.h"
 #import "StickerInputViewDelegate.h"
+#import "STSPinnedMessageView.h"
+
+/**
+ *  Constants specify where a pinned message should be shown in a ChatViewController.
+ */
+typedef NS_ENUM(NSUInteger, STSPinnedMessagePosition) {
+    /**
+     *  The pinned message should be on the top of a ChatViewController's view.
+     */
+    STSPinnedMessagePositionTop = 0,
+    /**
+     *  The pinned message should be on the bottom of a ChatViewController's view.
+     */
+    STSPinnedMessagePositionBottom = 1,
+    /**
+     *  The pinned message should align with the latest message.
+     *  If the latest message is on the top of a ChatViewController's view, the pinned message will also show on the top, or vise versa.
+     */
+    STSPinnedMessagePositionAlignWithTheLatestMessage = 2
+};
 
 /**
  ChatViewConController is a basic StraaS.io chatroom UI without sticker input.  It is meant to be subclassed.
  If you want to enable sticker input feature, use ChatStickerViewController instead.
  */
-@interface ChatViewController : SLKTextViewController<StickerInputViewDelegate, STSChatEventDelegate>
+@interface ChatViewController : SLKTextViewController<StickerInputViewDelegate, STSChatEventDelegate, TTTAttributedLabelDelegate>
 
 /**
  Current member token.
@@ -48,6 +68,11 @@
 @property (nonatomic, readonly) NSMutableArray *messages;
 
 /**
+ *  A custom view to show the pinned message.
+ */
+@property (nonatomic, readonly) STSPinnedMessageView * pinnedMessageView;
+
+/**
  The delegate would sent message to object which must conform ChatStickerDelegate protocol.
  */
 @property (weak, nonatomic) id<ChatStickerDelegate> delegate;
@@ -74,6 +99,17 @@
  Default is YES, if you want to add your custom loading view set it false.
  */
 @property (nonatomic) BOOL shouldAddIndicatorView;
+
+/**
+ *  A boolean value indicates whether the chatViewController should get and show the pinned message of the current chatroom.
+ *  Default to `YES`.
+ */
+@property (nonatomic) BOOL shouldShowPinnedMessage;
+
+/**
+ *  The position to show the pinned message. Defaults to `STSPinnedMessagePositionTop`.
+ */
+@property (nonatomic) STSPinnedMessagePosition pinnedMessagePosition;
 
 /**
  A boolean value indicating whether the textView is editable.
@@ -156,6 +192,7 @@
 - (void)chatroom:(STSChat *)chatroom messageAdded:(STSChatMessage *)message NS_REQUIRES_SUPER;
 - (void)chatroom:(STSChat *)chatroom messageRemoved:(NSString *)messageId NS_REQUIRES_SUPER;
 - (void)chatroomMessageFlushed:(STSChat *)chatroom NS_REQUIRES_SUPER;
+- (void)chatroom:(STSChat *)chatroom pinnedMessageUpdated:(STSChatMessage *)pinnedMessage NS_REQUIRES_SUPER;
 #pragma mark - StickerInputViewDelegate
 - (void)didSelectStickerKey:(NSString *)key imageURL:(NSString *)imageURL NS_REQUIRES_SUPER;
 
