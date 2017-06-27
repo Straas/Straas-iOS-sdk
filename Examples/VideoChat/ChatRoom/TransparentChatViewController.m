@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.shouldShowPinnedMessage = NO;
     self.view.backgroundColor = [UIColor clearColor];
     UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapRootView)];
     [self.view addGestureRecognizer:tapGR];
