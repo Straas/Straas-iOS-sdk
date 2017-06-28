@@ -11,7 +11,7 @@
 #import <StraaSCoreSDK/StraaSCoreSDK.h>
 #import "FloatingImageView.h"
 
-@interface ECommerceChatViewController ()<DataChannelEventDelegate>
+@interface ECommerceChatViewController ()
 
 @property (nonatomic) TransparentChatViewController *chatVC;
 @property (nonatomic) NSString * chatroomName;
