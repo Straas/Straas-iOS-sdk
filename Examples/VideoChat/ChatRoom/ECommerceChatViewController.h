@@ -10,7 +10,7 @@
 #import <StraaSMessagingSDK/StraaSMessagingSDK.h>
 #import "TransparentChatViewController.h"
 
-@interface ECommerceChatViewController : UIViewController
+@interface ECommerceChatViewController : UIViewController<DataChannelEventDelegate>
 
 - (void)connectToChatWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
 
