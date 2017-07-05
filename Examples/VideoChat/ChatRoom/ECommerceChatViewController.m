@@ -236,7 +236,7 @@
     if (!_likeButton) {
         _likeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_likeButton setImage:[UIImage imageNamed:@"btn_emoji"] forState:UIControlStateNormal];
-        [_likeButton addTarget:self action:@selector(didTapLikeButton:) forControlEvents:UIControlEventTouchUpInside];
+        [_likeButton addTarget:self action:@selector(onLikeButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         _likeButton.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _likeButton;
@@ -291,18 +291,6 @@
 }
 
 #pragma mark - Action
-- (void)didTapLikeButton:(UIButton *)button {
-    NSUInteger randomInt = (NSUInteger)arc4random_uniform(3);
-    NSString * key = [self.emojis.allKeys objectAtIndex:randomInt];
-    [self showFloatingImageViewWithEmojiKey:key count:1];
-    [self addKeyToCached:key];
-    [self.manager sendAggregatedDataWithKey:key chatroom:self.currentChat success:^{
-        NSLog(@"send aggregated date success with key: %@", key);
-    } failure:^(NSError * _Nonnull error) {
-        NSLog(@"send aggregated data with error: %@", error);
-    }];
-}
-
 - (void)showFloatingImageViewWithEmojiKey:(NSString *)key count:(NSInteger)count {
     if (count <= 0) {
         return;
@@ -360,8 +348,20 @@
 
 #pragma mark - Button Click Events
 
-- (void)onShowKeyboardButtonClick:(id)sender {
+- (void)onShowKeyboardButtonClick:(UIButton *)button {
     [self.chatVC presentKeyboard:NO];
+}
+
+- (void)onLikeButtonClick:(UIButton *)button {
+    NSUInteger randomInt = (NSUInteger)arc4random_uniform(3);
+    NSString * key = [self.emojis.allKeys objectAtIndex:randomInt];
+    [self showFloatingImageViewWithEmojiKey:key count:1];
+    [self addKeyToCached:key];
+    [self.manager sendAggregatedDataWithKey:key chatroom:self.currentChat success:^{
+        NSLog(@"send aggregated date success with key: %@", key);
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"send aggregated data with error: %@", error);
+    }];
 }
 
 #pragma mark - Public Methods

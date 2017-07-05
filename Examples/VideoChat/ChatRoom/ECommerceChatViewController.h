@@ -21,4 +21,7 @@
 @property (nonatomic, readonly) UILabel * likeCountLabel;
 @property (nonatomic) UIView * backgroundView;
 
+- (void)onShowKeyboardButtonClick:(UIButton *)button NS_REQUIRES_SUPER;
+- (void)onLikeButtonClick:(UIButton *)button NS_REQUIRES_SUPER;
+
 @end
