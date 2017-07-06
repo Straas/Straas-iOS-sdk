@@ -22,6 +22,7 @@ const NSTimeInterval bloomingTime = 0.5;
 }
 
 - (void)animateInView:(UIView *)view {
+    [view addSubview:self];
     [self prepareForAnimation];
     [self performBloomAnimation];
     [self performSlightRotationAnimationWithDirection:[self getRandomDirection]];

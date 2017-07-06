@@ -315,7 +315,6 @@
         imageView.center = CGPointMake(convertedCenter.x,
                                        convertedFrame.origin.y + image.size.height/2);
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.view addSubview:imageView];
             [imageView animateInView:self.view];
             self.likeCountLabel.text = @(self.likeCountLabel.text.integerValue + 1).stringValue;
         });
