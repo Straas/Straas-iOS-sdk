@@ -20,6 +20,7 @@
 @property (nonatomic) UIButton * showKeyboardButton;
 @property (nonatomic) UIButton * likeButton;
 @property (nonatomic) UILabel * likeCountLabel;
+@property (nonatomic) UIView * floatingDistrictView;
 @property (nonatomic) NSDictionary<NSString *, UIImage *> * emojis;
 @property (nonatomic) STSChatManager * manager;
 @property (nonatomic) NSMutableDictionary * cachedUserTapCount;
@@ -54,14 +55,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     [self addDefaultBackgroundView];
-
-    // Add a transparent chat view to display messages.
     [self addTransparentChatView];
-
-    // Add toolbar
     [self addToolbar];
+    [self addFloatingDistrictView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -149,7 +146,7 @@
     // Setup auto layout
     self.chatVC.view.translatesAutoresizingMaskIntoConstraints = NO;
     NSMutableArray *constraints = [NSMutableArray array];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[chatVC]-0-|"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[chatVC]-70-|"
                                                                              options:0
                                                                              metrics:nil
                                                                                views:@{@"chatVC":self.chatVC.view}]];
@@ -211,6 +208,20 @@
     [NSLayoutConstraint activateConstraints:constraints];
 }
 
+- (void)addFloatingDistrictView {
+    [self.view addSubview:self.floatingDistrictView];
+    NSMutableArray *constraints = [NSMutableArray array];
+    NSDictionary * views = @{@"districtView":self.floatingDistrictView,
+                             @"likeButton": self.likeButton};
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[districtView(370)]-0-[likeButton]"
+                                                                             options:0 metrics:nil
+                                                                               views:views]];
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[districtView(70)]-0-|"
+                                                                             options:0 metrics:nil
+                                                                               views:views]];
+    [NSLayoutConstraint activateConstraints:constraints];
+}
+
 #pragma mark - Accessor
 
 - (UIView *)toolbarView {
@@ -258,6 +269,15 @@
     return _likeCountLabel;
 }
 
+- (UIView *)floatingDistrictView {
+    if (!_floatingDistrictView) {
+        _floatingDistrictView = [UIView new];
+        _floatingDistrictView.translatesAutoresizingMaskIntoConstraints = NO;
+        _floatingDistrictView.backgroundColor = [UIColor clearColor];
+        _floatingDistrictView.userInteractionEnabled = NO;
+    }
+    return _floatingDistrictView;
+}
 - (NSDictionary *)emojis {
     if (!_emojis) {
         _emojis = @{@"heart": [UIImage imageNamed:@"emoji_heart"],
@@ -310,12 +330,12 @@
     UIImage * image = [self.emojis objectForKey:key];
     for (NSUInteger i = 0; i<count; i++) {
         FloatingImageView * imageView = [[FloatingImageView alloc] initWithImage:image];
-        CGPoint convertedCenter = [self.view convertPoint:self.likeButton.center fromView:self.likeButton.superview];
-        CGRect convertedFrame = [self.view convertRect:self.likeButton.frame fromView:self.likeButton.superview];
+        CGPoint convertedCenter = [self.floatingDistrictView convertPoint:self.likeButton.center fromView:self.likeButton.superview];
+        CGRect convertedFrame = [self.floatingDistrictView convertRect:self.likeButton.frame fromView:self.likeButton.superview];
         imageView.center = CGPointMake(convertedCenter.x,
                                        convertedFrame.origin.y + image.size.height/2);
         dispatch_async(dispatch_get_main_queue(), ^{
-            [imageView animateInView:self.view];
+            [imageView animateInView:self.floatingDistrictView];
             self.likeCountLabel.text = @(self.likeCountLabel.text.integerValue + 1).stringValue;
         });
     }

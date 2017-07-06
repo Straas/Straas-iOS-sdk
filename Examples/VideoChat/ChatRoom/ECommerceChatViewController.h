@@ -19,6 +19,7 @@
 @property (nonatomic, readonly) UIButton * showKeyboardButton;
 @property (nonatomic, readonly) UIButton * likeButton;
 @property (nonatomic, readonly) UILabel * likeCountLabel;
+@property (nonatomic, readonly) UIView * floatingDistrictView;
 @property (nonatomic) UIView * backgroundView;
 
 @end
