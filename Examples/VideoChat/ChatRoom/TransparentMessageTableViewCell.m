@@ -119,8 +119,9 @@ static const CGFloat kTransparentCellPaddingBottom = 7;
     NSString *text = [NSString stringWithFormat:@"%@%@", nameString, message.text];
     
     NSMutableAttributedString *displayString = [[NSMutableAttributedString alloc] initWithString:text];
+    
     [displayString addAttribute:NSForegroundColorAttributeName
-                          value:[UIColor orangeColor]
+                          value:[self textColorForRole:message.creator.role]
                           range:NSMakeRange(0, nameString.length)];
     [displayString addAttribute:NSForegroundColorAttributeName
                           value:[UIColor whiteColor]
@@ -133,7 +134,7 @@ static const CGFloat kTransparentCellPaddingBottom = 7;
 }
 #pragma mark - Private Methods
 
-- (UIImage *)iconImageForRole:(NSString *)userRole {
++ (UIImage *)iconImageForRole:(NSString *)userRole {
     if ([userRole isEqualToString:kSTSUserRoleNormal] ||
         [userRole isEqualToString:kSTSUserRoleBlocked]) {
         return nil;
@@ -144,7 +145,7 @@ static const CGFloat kTransparentCellPaddingBottom = 7;
     }
 }
 
-- (UIColor *)textColorForRole:(NSString *)userRole {
++ (UIColor *)textColorForRole:(NSString *)userRole {
     if ([userRole isEqualToString:kSTSUserRoleNormal] ||
         [userRole isEqualToString:kSTSUserRoleBlocked]) {
         return [UIColor colorWithRed:81./255. green:192./255. blue:194./255. alpha:1];
@@ -155,13 +156,13 @@ static const CGFloat kTransparentCellPaddingBottom = 7;
     }
 }
 
+
 #pragma mark - Public Methods
 
 - (void)setMessage:(STSChatMessage *)message {
     [self.bodyLabel setAttributedText:[TransparentMessageTableViewCell getDisplayString:message]];
     NSString * creatorRole = message.creator.role;
     [self.bodyLabel setIconImage:[self iconImageForRole:creatorRole]];
-    self.bodyLabel.textColor = [self textColorForRole:creatorRole];
 }
 
 @end
