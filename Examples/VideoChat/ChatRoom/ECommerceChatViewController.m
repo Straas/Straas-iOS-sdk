@@ -90,6 +90,7 @@ CGFloat const floatingDistrictWidth = 70.0;
             break;
         }
     }
+    self.chatVC.textInputbar.rightButton.hidden = NO;
     self.chatVCRightConstraint.constant = 0;
 }
 
@@ -102,6 +103,7 @@ CGFloat const floatingDistrictWidth = 70.0;
             break;
         }
     }
+    self.chatVC.textInputbar.rightButton.hidden = YES;
     self.chatVCRightConstraint.constant = -floatingDistrictWidth;
 }
 
