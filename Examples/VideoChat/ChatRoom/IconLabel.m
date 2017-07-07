@@ -30,6 +30,21 @@
         return;
     }
     _attachment = attachment;
+    if (self.attributedText) {
+        NSMutableAttributedString * attributedText = [self.attributedText mutableCopy];
+        [attributedText removeAttribute:NSAttachmentAttributeName range:NSMakeRange(0, 1)];
+        if (attachment) {
+            NSMutableAttributedString * tempAttributedText =
+            [[NSAttributedString attributedStringWithAttachment:attachment] mutableCopy];
+            [tempAttributedText appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+            [attributedText insertAttributedString:tempAttributedText atIndex:0];
+        } else {
+            [attributedText.mutableString replaceOccurrencesOfString:@" " withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, 1)];
+        }
+        self.attributedText = attributedText;
+        [self sizeToFit];
+        return;
+    }
     [self setText:self.text];
 }
 
@@ -45,6 +60,10 @@
     [attributedText appendAttributedString:[[NSAttributedString alloc] initWithString:textToAppend]];
     self.attributedText = attributedText;
     [self sizeToFit];
+}
+
+- (void)setAttributedText:(NSAttributedString *)attributedText {
+    [super setAttributedText:attributedText];
 }
 
 @end

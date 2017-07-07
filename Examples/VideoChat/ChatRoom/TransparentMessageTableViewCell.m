@@ -160,9 +160,9 @@ static const CGFloat kTransparentCellPaddingBottom = 7;
 #pragma mark - Public Methods
 
 - (void)setMessage:(STSChatMessage *)message {
-    [self.bodyLabel setAttributedText:[TransparentMessageTableViewCell getDisplayString:message]];
     NSString * creatorRole = message.creator.role;
-    [self.bodyLabel setIconImage:[self iconImageForRole:creatorRole]];
+    [self.bodyLabel setAttributedText:[TransparentMessageTableViewCell getDisplayString:message]];
+    [self.bodyLabel setIconImage:[TransparentMessageTableViewCell iconImageForRole:creatorRole]];
 }
 
 @end
