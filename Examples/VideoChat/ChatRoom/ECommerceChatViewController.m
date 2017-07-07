@@ -11,6 +11,8 @@
 #import <StraaSCoreSDK/StraaSCoreSDK.h>
 #import "FloatingImageView.h"
 
+CGFloat const floatingDistrictWidth = 70.0;
+
 @interface ECommerceChatViewController ()
 
 @property (nonatomic) TransparentChatViewController *chatVC;
@@ -24,6 +26,7 @@
 @property (nonatomic) NSDictionary<NSString *, UIImage *> * emojis;
 @property (nonatomic) STSChatManager * manager;
 @property (nonatomic) NSMutableDictionary * cachedUserTapCount;
+@property (nonatomic) NSLayoutConstraint * chatVCRightConstraint;
 
 @end
 
@@ -87,6 +90,7 @@
             break;
         }
     }
+    self.chatVCRightConstraint.constant = 0;
 }
 
 - (void)willHideKeyboard:(NSNotification *)notification {
@@ -98,6 +102,7 @@
             break;
         }
     }
+    self.chatVCRightConstraint.constant = -floatingDistrictWidth;
 }
 
 #pragma mark - Public Methods
@@ -146,7 +151,7 @@
     // Setup auto layout
     self.chatVC.view.translatesAutoresizingMaskIntoConstraints = NO;
     NSMutableArray *constraints = [NSMutableArray array];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[chatVC]-70-|"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[chatVC(320@750)]"
                                                                              options:0
                                                                              metrics:nil
                                                                                views:@{@"chatVC":self.chatVC.view}]];
@@ -158,7 +163,14 @@
                                                         attribute:NSLayoutAttributeHeight
                                                        multiplier:0.3
                                                          constant:0]];
-
+    self.chatVCRightConstraint =
+    [NSLayoutConstraint constraintWithItem:self.chatVC.view
+                                 attribute:NSLayoutAttributeRight
+                                 relatedBy:NSLayoutRelationEqual
+                                    toItem:self.view
+                                 attribute:NSLayoutAttributeRight
+                                multiplier:1 constant:-floatingDistrictWidth];
+    [constraints addObject:self.chatVCRightConstraint];
     [NSLayoutConstraint activateConstraints:constraints];
 }
 
@@ -216,7 +228,7 @@
     [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[districtView(370)]-0-[likeButton]"
                                                                              options:0 metrics:nil
                                                                                views:views]];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[districtView(70)]-0-|"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:[districtView(%f)]-0-|", floatingDistrictWidth]
                                                                              options:0 metrics:nil
                                                                                views:views]];
     [NSLayoutConstraint activateConstraints:constraints];
