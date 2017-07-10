@@ -62,21 +62,24 @@ CGFloat const floatingDistrictWidth = 70.0;
     [self addTransparentChatView];
     [self addToolbar];
     [self addFloatingDistrictView];
+    [self addObserver:self forKeyPath:@"chatVC.textViewEditable" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew|NSKeyValueObservingOptionInitial context:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self addObserver:self forKeyPath:@"chatVC.textViewEditable" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew|NSKeyValueObservingOptionInitial context:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willShowKeyboard:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willHideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [self removeObserver:self forKeyPath:@"chatVC.textViewEditable" context:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [super viewWillDisappear:animated];
+}
+
+- (void)dealloc {
+    [self removeObserver:self forKeyPath:@"chatVC.textViewEditable" context:nil];
 }
 
 #pragma mark - Notifications
