@@ -331,7 +331,7 @@ CGFloat const floatingDistrictWidth = 70.0;
 - (void)didTapLikeButton:(UIButton *)button {
     NSUInteger randomInt = (NSUInteger)arc4random_uniform(3);
     NSString * key = [self.emojis.allKeys objectAtIndex:randomInt];
-    [self showFloatingImageViewWithEmojiKey:key count:1];
+    [self showFloatingImageViewWithEmojiKey:key count:1 delay:0];
     [self addKeyToCached:key];
     [self.manager sendAggregatedDataWithKey:key chatroom:self.currentChat success:^{
         NSLog(@"send aggregated date success with key: %@", key);
@@ -340,22 +340,31 @@ CGFloat const floatingDistrictWidth = 70.0;
     }];
 }
 
-- (void)showFloatingImageViewWithEmojiKey:(NSString *)key count:(NSInteger)count {
+- (void)showFloatingImageViewWithEmojiKey:(NSString *)key count:(NSInteger)count delay:(NSTimeInterval)delay {
     if (count <= 0) {
         return;
     }
     UIImage * image = [self.emojis objectForKey:key];
     for (NSUInteger i = 0; i<count; i++) {
-        FloatingImageView * imageView = [[FloatingImageView alloc] initWithImage:image];
-        CGPoint convertedCenter = [self.floatingDistrictView convertPoint:self.likeButton.center fromView:self.likeButton.superview];
-        CGRect convertedFrame = [self.floatingDistrictView convertRect:self.likeButton.frame fromView:self.likeButton.superview];
-        imageView.center = CGPointMake(convertedCenter.x,
-                                       convertedFrame.origin.y + image.size.height/2);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [imageView animateInView:self.floatingDistrictView];
-            self.likeCountLabel.text = @(self.likeCountLabel.text.integerValue + 1).stringValue;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                FloatingImageView * imageView = [[FloatingImageView alloc] initWithImage:image];
+                CGPoint convertedCenter = [self.floatingDistrictView convertPoint:self.likeButton.center fromView:self.likeButton.superview];
+                CGRect convertedFrame = [self.floatingDistrictView convertRect:self.likeButton.frame fromView:self.likeButton.superview];
+                imageView.center = CGPointMake(convertedCenter.x,
+                                               convertedFrame.origin.y + image.size.height/2);
+                [imageView animateInView:self.floatingDistrictView];
+                self.likeCountLabel.text = @(self.likeCountLabel.text.integerValue + 1).stringValue;
+            });
         });
     }
+}
+
+- (NSTimeInterval)randomFloatingDelay {
+    //Since aggregated data sent every second.
+    NSTimeInterval delay = arc4random() % 100;
+    delay = delay / 100.0;
+    return delay;
 }
 
 - (void)addKeyToCached:(NSString *)key {
@@ -385,7 +394,7 @@ CGFloat const floatingDistrictWidth = 70.0;
         NSString * key = item.key;
         NSNumber * tapCountNumber = [self.cachedUserTapCount objectForKey:key];
         NSUInteger tapCountUInt = tapCountNumber ? tapCountNumber.unsignedIntegerValue : 0;
-        [self showFloatingImageViewWithEmojiKey:key count:item.count.integerValue - tapCountUInt];
+        [self showFloatingImageViewWithEmojiKey:key count:item.count.integerValue - tapCountUInt delay:self.randomFloatingDelay];
     }
     self.cachedUserTapCount = [NSMutableDictionary dictionary];
 }
