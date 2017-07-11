@@ -30,7 +30,7 @@
         return;
     }
     _attachment = attachment;
-    if (self.attributedText) {
+    if (self.attributedText && self.attributedText.length > 0) {
         NSMutableAttributedString * attributedText = [self.attributedText mutableCopy];
         [attributedText removeAttribute:NSAttachmentAttributeName range:NSMakeRange(0, 1)];
         if (attachment) {
@@ -38,7 +38,7 @@
             [[NSAttributedString attributedStringWithAttachment:attachment] mutableCopy];
             [tempAttributedText appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
             [attributedText insertAttributedString:tempAttributedText atIndex:0];
-        } else {
+        } else if (attributedText.mutableString.length > 0) {
             [attributedText.mutableString replaceOccurrencesOfString:@" " withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, 1)];
         }
         self.attributedText = attributedText;
