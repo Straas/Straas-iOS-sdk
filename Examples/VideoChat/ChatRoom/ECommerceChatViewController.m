@@ -62,7 +62,6 @@ CGFloat const floatingDistrictWidth = 70.0;
     [self addTransparentChatView];
     [self addToolbar];
     [self addFloatingDistrictView];
-    [self addObserver:self forKeyPath:@"chatVC.textViewEditable" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew|NSKeyValueObservingOptionInitial context:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -79,7 +78,9 @@ CGFloat const floatingDistrictWidth = 70.0;
 }
 
 - (void)dealloc {
-    [self removeObserver:self forKeyPath:@"chatVC.textViewEditable" context:nil];
+    if ([self.childViewControllers containsObject:self.chatVC]) {
+        [self removeObserver:self forKeyPath:@"chatVC.textViewEditable" context:nil];
+    }
 }
 
 #pragma mark - Notifications
@@ -149,6 +150,9 @@ CGFloat const floatingDistrictWidth = 70.0;
 }
 
 - (void)addTransparentChatView {
+    if ([self.childViewControllers containsObject:self.chatVC]) {
+        return;
+    }
     [self addChildViewController:self.chatVC];
     [self.view addSubview:self.chatVC.view];
     [self.chatVC didMoveToParentViewController:self];
@@ -177,6 +181,7 @@ CGFloat const floatingDistrictWidth = 70.0;
                                 multiplier:1 constant:-floatingDistrictWidth];
     [constraints addObject:self.chatVCRightConstraint];
     [NSLayoutConstraint activateConstraints:constraints];
+    [self addObserver:self forKeyPath:@"chatVC.textViewEditable" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew|NSKeyValueObservingOptionInitial context:nil];
 }
 
 - (void)addToolbar {
