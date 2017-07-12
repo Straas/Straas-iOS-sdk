@@ -7,6 +7,7 @@
 //
 
 #import "TransparentMessageTableViewCell.h"
+#import "IconLabel.h"
 
 static const CGFloat kTransparentCellPaddingLeft = 24;
 static const CGFloat kTransparentCellPaddingRight = 16;
@@ -15,7 +16,7 @@ static const CGFloat kTransparentCellPaddingBottom = 7;
 
 @interface TransparentMessageTableViewCell()
 
-@property(nonatomic, strong) UILabel *bodyLabel;
+@property(nonatomic, strong) IconLabel *bodyLabel;
 
 @end
 
@@ -42,7 +43,7 @@ static const CGFloat kTransparentCellPaddingBottom = 7;
     [self addSubview:backgroundMaskView];
     
     // Body Label
-    _bodyLabel = [UILabel new];
+    _bodyLabel = [IconLabel new];
     _bodyLabel.translatesAutoresizingMaskIntoConstraints = NO;
     _bodyLabel.backgroundColor = [UIColor clearColor];
     _bodyLabel.textColor = [UIColor whiteColor];
@@ -118,8 +119,9 @@ static const CGFloat kTransparentCellPaddingBottom = 7;
     NSString *text = [NSString stringWithFormat:@"%@%@", nameString, message.text];
     
     NSMutableAttributedString *displayString = [[NSMutableAttributedString alloc] initWithString:text];
+    
     [displayString addAttribute:NSForegroundColorAttributeName
-                          value:[UIColor orangeColor]
+                          value:[self textColorForRole:message.creator.role]
                           range:NSMakeRange(0, nameString.length)];
     [displayString addAttribute:NSForegroundColorAttributeName
                           value:[UIColor whiteColor]
@@ -130,11 +132,37 @@ static const CGFloat kTransparentCellPaddingBottom = 7;
     
     return displayString;
 }
+#pragma mark - Private Methods
+
++ (UIImage *)iconImageForRole:(NSString *)userRole {
+    if ([userRole isEqualToString:kSTSUserRoleNormal] ||
+        [userRole isEqualToString:kSTSUserRoleBlocked]) {
+        return nil;
+    } else if ([userRole isEqualToString:kSTSUserRoleMaster]) {
+        return [UIImage imageNamed:@"ic_host_chatroom"];
+    } else {
+        return [UIImage imageNamed:@"ic_moderator_chatroom"];
+    }
+}
+
++ (UIColor *)textColorForRole:(NSString *)userRole {
+    if ([userRole isEqualToString:kSTSUserRoleNormal] ||
+        [userRole isEqualToString:kSTSUserRoleBlocked]) {
+        return [UIColor colorWithRed:81./255. green:192./255. blue:194./255. alpha:1];
+    } else if ([userRole isEqualToString:kSTSUserRoleMaster]) {
+        return [UIColor colorWithRed:242.0/255.0 green:154.0/255.0 blue:11.0/255.0 alpha:1];
+    } else {
+        return [UIColor colorWithRed:123.0/255.0 green:75.0/255.0 blue:163.0/255.0 alpha:1];
+    }
+}
+
 
 #pragma mark - Public Methods
 
 - (void)setMessage:(STSChatMessage *)message {
+    NSString * creatorRole = message.creator.role;
     [self.bodyLabel setAttributedText:[TransparentMessageTableViewCell getDisplayString:message]];
+    [self.bodyLabel setIconImage:[TransparentMessageTableViewCell iconImageForRole:creatorRole]];
 }
 
 @end

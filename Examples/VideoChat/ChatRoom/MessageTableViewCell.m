@@ -8,6 +8,7 @@
 
 #import "MessageTableViewCell.h"
 #import <SlackTextViewController/SLKUIConstants.h>
+#import <SDWebImage/UIView+WebCache.h>
 
 static const CGFloat kMessageTableViewCellAvatarHeight = 40.0;
 static const CGFloat kMessageTableViewCellMarginLeft = 5;
@@ -90,7 +91,8 @@ static const CGFloat kMessageTableViewCellTitleHeight = 20;
     self.titleLabel.text = @"";
     self.sideLabel.text = @"";
     self.bodyLabel.text = @"";
-
+    [self.thumbnailView sd_cancelCurrentImageLoad];
+    [self.stickerImageView sd_cancelCurrentImageLoad];
 }
 
 #pragma mark - Getters

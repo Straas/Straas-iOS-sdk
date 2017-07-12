@@ -22,6 +22,7 @@ const NSTimeInterval bloomingTime = 0.5;
 }
 
 - (void)animateInView:(UIView *)view {
+    [view addSubview:self];
     [self prepareForAnimation];
     [self performBloomAnimation];
     [self performSlightRotationAnimationWithDirection:[self getRandomDirection]];
@@ -53,7 +54,7 @@ const NSTimeInterval bloomingTime = 0.5;
     CAKeyframeAnimation * keyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
     keyFrameAnimation.path = path.CGPath;
     keyFrameAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    NSTimeInterval durationAdjustment = 4 * (path.bounds.size.height / view.bounds.size.height);
+    NSTimeInterval durationAdjustment =  (path.bounds.size.height / view.bounds.size.height);
     NSTimeInterval duration = floatingTime + durationAdjustment;
     keyFrameAnimation.duration = duration;
     [self.layer addAnimation:keyFrameAnimation forKey:@"positionOnPath"];

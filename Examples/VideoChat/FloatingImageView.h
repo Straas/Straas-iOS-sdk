@@ -12,6 +12,7 @@
 
 @interface FloatingImageView : UIImageView
 
+//This method will automatically add FloatingImageView to view and remove from view when animation finished.
 - (void)animateInView:(UIView *)view;
 
 @end
