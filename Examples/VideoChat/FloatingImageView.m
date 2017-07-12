@@ -73,7 +73,7 @@ const NSTimeInterval bloomingTime = 0.5;
     CGFloat height = self.bounds.size.height;
     
     //random end point.
-    CGFloat endPointX = centerX + (endPointDirection * arc4random_uniform(2 * width));
+    CGFloat endPointX = centerX + (endPointDirection * (NSInteger)arc4random_uniform(2 * width));
     CGFloat endPointY = height/ 8.0 + arc4random_uniform(height/4.0);
     CGPoint endPoint = CGPointMake(endPointX, endPointY);
     
