@@ -42,6 +42,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSString * status;
 
 /**
+ *  The live event created time.
+ */
+@property (nonatomic, readonly) NSString *createdAt;
+
+/**
  *  The start time of the live event.
  */
 @property (nonatomic, readonly) NSString * startTime;
@@ -60,6 +65,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  The large size thumbnail of thumbnail_urls.
  */
 @property (nonatomic, readonly, nullable) NSString * posterUrl;
+
+/**
+ * The concurrent user in the live.
+ */
+@property (nonatomic, readonly, nullable) NSNumber * ccu;
 
 /**
  *  The VODs of the live event.

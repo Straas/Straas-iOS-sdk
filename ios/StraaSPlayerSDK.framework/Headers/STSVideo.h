@@ -102,6 +102,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSNumber * basePlayDuration;
 
 /**
+ *  The video created time.
+ */
+@property (nonatomic, readonly) NSString * createdAt;
+
+/**
  *  The sum of number of times the media (Live or VOD) hit.
  */
 @property (nonatomic, readonly) NSNumber * hitCountSum;

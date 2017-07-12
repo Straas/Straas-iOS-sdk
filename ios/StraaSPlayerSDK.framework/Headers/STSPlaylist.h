@@ -45,6 +45,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) NSString * posterURL;
 
+/**
+ *  The playlist created time.
+ */
+@property (nonatomic, readonly) NSString * createdAt;
+
 @end
 
 NS_ASSUME_NONNULL_END
