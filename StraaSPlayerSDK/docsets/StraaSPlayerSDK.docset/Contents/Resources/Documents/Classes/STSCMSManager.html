@@ -670,9 +670,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSCMSManager(im)getVideoListWithPage:success:failure:"></a>
-                    <a name="//apple_ref/objc/Method/-getVideoListWithPage:success:failure:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSCMSManager(im)getVideoListWithPage:success:failure:">-getVideoListWithPage:success:failure:</a>
+                    <a name="/c:objc(cs)STSCMSManager(im)getVideoListWithPage:sort:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-getVideoListWithPage:sort:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSCMSManager(im)getVideoListWithPage:sort:success:failure:">-getVideoListWithPage:sort:success:failure:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -689,6 +689,7 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span>
 <span class="nf">getVideoListWithPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
+                <span class="nf">sort</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">sort</span>
              <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSVideo.html">STSVideo</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
                                        <span class="n"><a href="../Classes/STSPagination.html">STSPagination</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
              <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
@@ -696,7 +697,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getVideoList</span><span class="p">(</span><span class="n">withPage</span> <span class="nv">page</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="p">((</span><span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getVideoList</span><span class="p">(</span><span class="n">withPage</span> <span class="nv">page</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="p">((</span><span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span></code></pre>
 
                         </div>
                       </div>
@@ -713,6 +714,19 @@
                               <td>
                                 <div>
                                   <p>The page of results to fetch.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Default value is <code>-created_at</code>. Data sorted with {+,-} by which column {created_at,start_time,started_at,ccu_statistic_summary.ccu}. Apply - to sort in descending order. For example, sort=-created_at. When you sort data by a column which belongs to its included resource, the resource is included automatically.</p>
 
                                 </div>
                               </td>
@@ -757,9 +771,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSCMSManager(im)getPlaylistsWithPage:success:failure:"></a>
-                    <a name="//apple_ref/objc/Method/-getPlaylistsWithPage:success:failure:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSCMSManager(im)getPlaylistsWithPage:success:failure:">-getPlaylistsWithPage:success:failure:</a>
+                    <a name="/c:objc(cs)STSCMSManager(im)getPlaylistsWithPage:sort:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-getPlaylistsWithPage:sort:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSCMSManager(im)getPlaylistsWithPage:sort:success:failure:">-getPlaylistsWithPage:sort:success:failure:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -776,6 +790,7 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span>
 <span class="nf">getPlaylistsWithPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
+                <span class="nf">sort</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">sort</span>
              <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSPlaylist.html">STSPlaylist</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
                                        <span class="n"><a href="../Classes/STSPagination.html">STSPagination</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
              <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
@@ -783,7 +798,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getPlaylistsWithPage</span><span class="p">(</span><span class="n">_</span> <span class="nv">page</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="p">((</span><span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getPlaylistsWithPage</span><span class="p">(</span><span class="n">_</span> <span class="nv">page</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="p">((</span><span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span></code></pre>
 
                         </div>
                       </div>
@@ -800,6 +815,19 @@
                               <td>
                                 <div>
                                   <p>The page of results to fetch.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Default value is <code>-created_at</code>. Data sorted with {+,-} by which column {created_at}. Apply - to sort in descending order. For example, sort=-created_at. When you sort data by a column which belongs to its included resource, the resource is included automatically.</p>
 
                                 </div>
                               </td>
@@ -930,9 +958,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSCMSManager(im)getLiveListWithPage:success:failure:"></a>
-                    <a name="//apple_ref/objc/Method/-getLiveListWithPage:success:failure:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSCMSManager(im)getLiveListWithPage:success:failure:">-getLiveListWithPage:success:failure:</a>
+                    <a name="/c:objc(cs)STSCMSManager(im)getLiveListWithPage:sort:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-getLiveListWithPage:sort:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSCMSManager(im)getLiveListWithPage:sort:success:failure:">-getLiveListWithPage:sort:success:failure:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -949,6 +977,7 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span>
 <span class="nf">getLiveListWithPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
+               <span class="nf">sort</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">sort</span>
             <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSLive.html">STSLive</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
                                       <span class="n"><a href="../Classes/STSPagination.html">STSPagination</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
             <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
@@ -956,7 +985,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getLiveList</span><span class="p">(</span><span class="n">withPage</span> <span class="nv">page</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="p">((</span><span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getLiveList</span><span class="p">(</span><span class="n">withPage</span> <span class="nv">page</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">sort</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="p">((</span><span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span><span class="o">!</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="p">((</span><span class="kt">UnsafeMutablePointer</span></code></pre>
 
                         </div>
                       </div>
@@ -973,6 +1002,19 @@
                               <td>
                                 <div>
                                   <p>The page of results to fetch.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sort</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Default value is <code>-start_time</code>. Data sorted with {+,-} by which column {created_at,start_time,started_at,ccu_statistic_summary.ccu}. Apply - to sort in descending order. For example, sort=-created_at. When you sort data by a column which belongs to its included resource, the resource is included automatically.</p>
 
                                 </div>
                               </td>
