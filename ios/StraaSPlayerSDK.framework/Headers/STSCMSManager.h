@@ -47,8 +47,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
 - (NSString * _Nullable)getVideoWithVideoId:(NSString *)videoId
-                                    success:(void (^)(STSVideo *))success
-                                    failure:(void (^)(NSError *))failure;
+                                    success:(void (^)(STSVideo * video))success
+                                    failure:(void (^)(NSError * error))failure;
 
 /**
  *  Request a playlist that matches the request parameter.
@@ -59,8 +59,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
 - (NSString * _Nullable)getPlaylistWithPlaylistId:(NSString *)playlistId
-                                          success:(void(^)(STSPlaylist *))success
-                                          failure:(void(^)(NSError *))failure;
+                                          success:(void(^)(STSPlaylist * playlist))success
+                                          failure:(void(^)(NSError * error))failure;
 
 /**
  *  Request the list of playlist items of the specified playlist.
@@ -71,8 +71,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
 - (NSString * _Nullable)getPlaylistItemsWithPlaylistId:(NSString *)playlistId
-                                               success:(void(^)(NSArray <STSPlaylistItem*> *))success
-                                               failure:(void(^)(NSError *))failure;
+                                               success:(void(^)(NSArray <STSPlaylistItem*> * playlistItems))success
+                                               failure:(void(^)(NSError * error))failure;
 
 /**
  *  Request the list of categories that match the request parameter.
@@ -83,9 +83,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
 - (NSString * _Nullable)getCategoryListWithPage:(NSUInteger)page
-                                        success:(void (^)(NSArray <STSCategory*> *,
-                                                          STSPagination *))success
-                                        failure:(void (^)(NSError *))failure;
+                                        success:(void (^)(NSArray <STSCategory*> * categories,
+                                                          STSPagination * pagination))success
+                                        failure:(void (^)(NSError * error))failure;
 
 /**
  *  Request the list of tags that match the request parameter.
@@ -96,35 +96,39 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
 - (NSString * _Nullable)getTagListWithPage:(NSUInteger)page
-                                   success:(void (^)(NSArray <STSTag*> *,
-                                                     STSPagination *))success
-                                   failure:(void (^)(NSError *))failure;
+                                   success:(void (^)(NSArray <STSTag*> * tags,
+                                                     STSPagination * pagination))success
+                                   failure:(void (^)(NSError * error))failure;
 
 /**
  *  Request the list of videos that match the request parameter.
  *
  *  @param page The page of results to fetch.
+ *  @param sort Default value is `-created_at`. Data sorted with {+,-} by which column {created_at,start_time,started_at,ccu_statistic_summary.ccu}. Apply - to sort in descending order. For example, sort=-created_at. When you sort data by a column which belongs to its included resource, the resource is included automatically.
  *  @param success A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: an array of STSVideo objects, and the pagination object.
  *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
 - (NSString * _Nullable)getVideoListWithPage:(NSUInteger)page
-                                     success:(void (^)(NSArray <STSVideo*> *,
-                                                       STSPagination *))success
-                                     failure:(void (^)(NSError *))failure;
+                                        sort:(NSString *_Nullable)sort
+                                     success:(void (^)(NSArray <STSVideo*> * videos,
+                                                       STSPagination * pagination))success
+                                     failure:(void (^)(NSError * error))failure;
 
 /**
  *  Request the list of playlists that match the request parameter.
  *
  *  @param page The page of results to fetch.
+ *  @param sort Default value is `-created_at`. Data sorted with {+,-} by which column {created_at}. Apply - to sort in descending order. For example, sort=-created_at. When you sort data by a column which belongs to its included resource, the resource is included automatically.
  *  @param success A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: an array of STSPlaylist objects, and the pagination object.
  *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
 - (NSString * _Nullable)getPlaylistsWithPage:(NSUInteger)page
-                                     success:(void(^)(NSArray<STSPlaylist*>*,
-                                                      STSPagination *))success
-                                     failure:(void(^)(NSError *))failure;
+                                        sort:(NSString * _Nullable)sort
+                                     success:(void(^)(NSArray<STSPlaylist*> * playlists,
+                                                      STSPagination * pagination))success
+                                     failure:(void(^)(NSError * error))failure;
 
 
 /**
@@ -136,20 +140,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
 - (NSString * _Nullable)getLiveWithId:(NSString *)liveId
-                              success:(void (^)(STSLive *))success
-                              failure:(void (^)(NSError *))failure;
+                              success:(void (^)(STSLive * live))success
+                              failure:(void (^)(NSError * error))failure;
 
 /**
  *  Request a list of available lives.
  *
  * @param page  The page of results to fetch.
+ # @param sort  Default value is `-start_time`. Data sorted with {+,-} by which column {created_at,start_time,started_at,ccu_statistic_summary.ccu}. Apply - to sort in descending order. For example, sort=-created_at. When you sort data by a column which belongs to its included resource, the resource is included automatically.
  * @param success A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: the live object array, and the pagination object.
  * @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
 - (NSString * _Nullable)getLiveListWithPage:(NSUInteger)page
-                                    success:(void (^)(NSArray <STSLive *> *, STSPagination *))success
-                                    failure:(void (^)(NSError *))failure;
+                                       sort:(NSString * _Nullable)sort
+                                    success:(void (^)(NSArray <STSLive *> * lives,
+                                                      STSPagination * pagination))success
+                                    failure:(void (^)(NSError * error))failure;
 
 /**
  *  Cancel a request by ID.
