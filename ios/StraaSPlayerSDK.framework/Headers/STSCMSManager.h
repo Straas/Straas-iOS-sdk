@@ -146,10 +146,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Request a list of available lives.
  *
- * @param page  The page of results to fetch.
- # @param sort  Default value is `-start_time`. Data sorted with {+,-} by which column {created_at,start_time,started_at,ccu_statistic_summary.ccu}. Apply - to sort in descending order. For example, sort=-created_at. When you sort data by a column which belongs to its included resource, the resource is included automatically.
- * @param success A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: the live object array, and the pagination object.
- * @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ *  @param page The page of results to fetch.
+ *  @param sort Default value is `-start_time`. Data sorted with {+,-} by which column {created_at,start_time,started_at,ccu_statistic_summary.ccu}. Apply - to sort in descending order. For example, sort=-created_at. When you sort data by a column which belongs to its included resource, the resource is included automatically.
+ *  @param success A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: the live object array, and the pagination object.
+ *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  *  @return The ID of the new request. Returns `nil` if the application is unauthorized.
  */
 - (NSString * _Nullable)getLiveListWithPage:(NSUInteger)page
