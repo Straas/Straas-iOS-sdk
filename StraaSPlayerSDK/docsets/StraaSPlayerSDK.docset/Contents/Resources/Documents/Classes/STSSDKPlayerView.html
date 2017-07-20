@@ -1257,6 +1257,89 @@ If the player view are not playing a playlist (e.g., playing a video or alive), 
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(im)currentTime"></a>
+                    <a name="//apple_ref/objc/Method/-currentTime" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(im)currentTime">-currentTime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the current time of current media.</p>
+
+<p>@discussion currentTime means the media playing time. At the beginning of a media, this value would be 0.
+  If you play/seek to 30s from the beginning, this value would be 30. (and so on&hellip;)
+  Get this value from STSPlayerPlaybackEventDelegate <code>playerView:playerView mediaCurrentTimeChanged:</code> is recommended.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="n">currentTime</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">currentTime</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The current time (in seconds) of current media.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerView(im)currentLiveDateTime"></a>
+                    <a name="//apple_ref/objc/Method/-currentLiveDateTime" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(im)currentLiveDateTime">-currentLiveDateTime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the current live date time of current media.</p>
+
+<p>@discussion If a live was started at 2017/7/1, 12:00:00(whiches timestamp is 1498910400), playing its VoD will have 1498910400 currentLiveDateTime at the begining.
+  If you play/seek to 30s from the VoD&rsquo;s beginning, this value would become 1498910430 (1498910400 + 30).
+  Only VoD created from live would have valid value, else would get 0.
+  Get this value from STSPlayerPlaybackEventDelegate <code>playerView:playerView mediaCurrentTimeChanged:</code> is recommended.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="n">currentLiveDateTime</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">currentLiveDateTime</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The current live date time (in unix seconds) of current media. Return 0 if current media is not mapped to any date.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)STSSDKPlayerView(im)ccuOfCurrentlyPlayingLive"></a>
                     <a name="//apple_ref/objc/Method/-ccuOfCurrentlyPlayingLive" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)STSSDKPlayerView(im)ccuOfCurrentlyPlayingLive">-ccuOfCurrentlyPlayingLive</a>
