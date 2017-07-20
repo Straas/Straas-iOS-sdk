@@ -92,6 +92,10 @@ typedef NS_ENUM(NSUInteger, STSMSGErrorCode) {
      *  Raw data must be an object which can be converted to JSON object.
      */
     STSMSGErrorCodeRawDataFormatNotAllowed = 18,
+    /**
+     *  Requests over the rate limit.
+     */
+    STSMSGErrorCodeTooManyRequests = 19,
 };
 
 #endif /* STSMSGErrorCode_h */

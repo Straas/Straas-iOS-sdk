@@ -243,6 +243,29 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)seekToTime:(float)timeInSeconds;
 
 /**
+ *  Gets the current time of current media.
+ *
+ *  @discussion currentTime means the media playing time. At the beginning of a media, this value would be 0.
+ *  If you play/seek to 30s from the beginning, this value would be 30. (and so on...)
+ *  Get this value from STSPlayerPlaybackEventDelegate `playerView:playerView mediaCurrentTimeChanged:` is recommended.
+ *
+ *  @return The current time (in seconds) of current media.
+ */
+- (NSTimeInterval)currentTime;
+
+/**
+ *  Gets the current live date time of current media.
+ *
+ *  @discussion If a live was started at 2017/7/1, 12:00:00(whiches timestamp is 1498910400), playing its VoD will have 1498910400 currentLiveDateTime at the begining.
+ *  If you play/seek to 30s from the VoD's beginning, this value would become 1498910430 (1498910400 + 30).
+ *  Only VoD created from live would have valid value, else would get 0.
+ *  Get this value from STSPlayerPlaybackEventDelegate `playerView:playerView mediaCurrentTimeChanged:` is recommended.
+ *
+ *  @return The current live date time (in unix seconds) of current media. Return 0 if current media is not mapped to any date.
+ */
+- (NSTimeInterval)currentLiveDateTime;
+
+/**
  *  Gets the CCU of the currently playing live.
  *
  *  @return the CCU of the currently plyaing live. Returns nil if there is no live playing.

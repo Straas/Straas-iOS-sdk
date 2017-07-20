@@ -16,6 +16,7 @@
 #import "STSGetArchivedMessagesConfiguration.h"
 #import "STSArchivedMessagesMeta.h"
 #import "STSGetUsersType.h"
+#import "STSChatMetadata.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -125,6 +126,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param message  The updated pinned message.
  */
 - (void)chatroom:(STSChat *)chatroom pinnedMessageUpdated:(STSChatMessage * _Nullable)pinnedMessage;
+
+/**
+ *  The metadata of the specific chatroom updated.
+ *
+ *  @param chatroom        A STSChat object informing the delegate about the metadata updated.
+ *  @param updatedMetadata A dictionary of the updated metadata. The keys of the dictionary are the keys of those updated metadata.
+ */
+- (void)chatroom:(STSChat *)chatroom metadataUpdated:(NSDictionary<NSString *, STSChatMetadata *> *)updatedMetadata;
 
 @optional
 /**
@@ -319,6 +328,49 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)unpinMessageFromChatroom:(STSChat *)chatroom
                          success:(void(^)())success
                          failure:(void(^)(NSError * error))failure;
+
+/**
+ *  Sets metadata key-value pair to a chatroom
+ *
+ *  **Note**
+ *
+ *  * This method works only when the current user of target chatroom has the privilege.
+ *  * Sets a value to an existing key will overwrite the previous one.
+ *
+ *  **Rate limit**
+ *
+ *  1 request per second per chatroom (if `broadcast` is `YES`); 1 request per 30 second per chatroom (if `broadcast` is `NO`).
+ *
+ *  @param value     The value of metadata. It should be an instance of `NSString`, `NSNumber`, `NSNull` or a valid JSON object. Max size is 1k if `broadcast` is `YES`, max size is 4k if `broadcast` is `NO`.
+ *  @param key       The key of metadata. The key name must match the regular expression format `^[A-Za-z0-9][A-Za-z0-9_@#-]{0,29}$`.
+ *  @param chatroom  The `STSChat` object you want to set metadata.
+ *  @param broadcast Indicates whether the change of the metadata should be broadcasted via socket or not.
+ *  @param success   Handler for successful request.
+ *  @param failure   Error handler.
+ */
+- (void)setMetadataValue:(id)value
+                  forKey:(NSString *)key
+                chatroom:(STSChat *)chatroom
+               broadcast:(BOOL)broadcast
+                 success:(void(^)())success
+                 failure:(void(^)(NSError * error))failure;
+
+/**
+ *  Gets metadata key-value pairs of a chatroom.
+ *
+ *  **Rate limit**
+ *
+ *  1 request per second per chatroom. 3000 per days per chatroom.
+ *
+ *  @param keys     The array contains keys to get. Pass `nil` if you want to get the metadata for all keys.
+ *  @param chatroom The STSChat object you want to get metadata.
+ *  @param success  Handler for successful request.
+ *  @param failure  Error handler.
+ */
+- (void)getMetadataForKeys:(NSArray<NSString *> * _Nullable)keys
+                  chatroom:(STSChat *)chatroom
+                   success:(void(^)(NSDictionary<NSString *, STSChatMetadata *> * metadataDict))success
+                   failure:(void(^)(NSError * error))failure;
 
 /**
  *  Returns the chat object.
