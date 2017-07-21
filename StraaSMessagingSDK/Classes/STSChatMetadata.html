@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>STSChatroomConnectionOptions Enum Reference</title>
+    <title>STSChatMetadata Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/objc/Enum/STSChatroomConnectionOptions" class="dashAnchor"></a>
-    <a title="STSChatroomConnectionOptions Enum Reference"></a>
+    <a name="//apple_ref/objc/Class/STSChatMetadata" class="dashAnchor"></a>
+    <a title="STSChatMetadata Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">StraaSMessagingSDK Docs</a> (98% documented)</p>
@@ -23,7 +23,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">StraaSMessagingSDK Reference</a>
         <img id="carat" src="../img/carat.png" />
-        STSChatroomConnectionOptions Enum Reference
+        STSChatMetadata Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -135,14 +135,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>STSChatroomConnectionOptions</h1>
+            <h1>STSChatMetadata</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="k">enum</span> <span class="n">STSChatroomConnectionOptions</span> <span class="o">:</span> <span class="n">NSUInteger</span> <span class="p">{}</span></code></pre>
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">STSChatMetadata</span> <span class="p">:</span> <span class="nc">LHDataObject</span></code></pre>
 
                 </div>
               </div>
-            <p>STSChatroomConnectionOptions Options for connecting to the chatroom you want.</p>
+            <p>Model for chatroom metadata.</p>
 
           </section>
           <section class="section task-group-section">
@@ -151,9 +151,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSChatroomConnectionOptions@STSChatroomConnectionNone"></a>
-                    <a name="//apple_ref/objc/Case/STSChatroomConnectionNone" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSChatroomConnectionOptions@STSChatroomConnectionNone">STSChatroomConnectionNone</a>
+                    <a name="/c:objc(cs)STSChatMetadata(py)key"></a>
+                    <a name="//apple_ref/objc/Property/key" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatMetadata(py)key">key</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -161,14 +161,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Default option, connect to the chatroom based on the chatroomName.</p>
+                        <p>The key of the metadata.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSChatroomConnectionNone</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span></code></pre>
 
                         </div>
                       </div>
@@ -178,9 +183,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSChatroomConnectionOptions@STSChatroomConnectionIsPersonalChat"></a>
-                    <a name="//apple_ref/objc/Case/STSChatroomConnectionIsPersonalChat" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSChatroomConnectionOptions@STSChatroomConnectionIsPersonalChat">STSChatroomConnectionIsPersonalChat</a>
+                    <a name="/c:objc(cs)STSChatMetadata(py)value"></a>
+                    <a name="//apple_ref/objc/Property/value" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatMetadata(py)value">value</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -188,14 +193,29 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Connect to the personal chatroom.</p>
+                        <p>The value of the metadata.</p>
+
+<p>The value types could be:</p>
+
+<ul>
+<li>NSArray</li>
+<li>NSNull</li>
+<li>NSNumber (also includes booleans)</li>
+<li>NSDictionary</li>
+<li>NSString</li>
+</ul>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSChatroomConnectionIsPersonalChat</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">id</span> <span class="n">_Nonnull</span> <span class="n">value</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>

@@ -54,6 +54,9 @@
                 <a href="../Classes/STSChatMessage.html">STSChatMessage</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/STSChatMetadata.html">STSChatMetadata</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/STSChatSticker.html">STSChatSticker</a>
               </li>
               <li class="nav-group-task">
@@ -1399,6 +1402,241 @@
                               <td>
                                 <div>
                                   <p>The STSChat object you want to unpin the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)setMetadataValue:forKey:chatroom:broadcast:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-setMetadataValue:forKey:chatroom:broadcast:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)setMetadataValue:forKey:chatroom:broadcast:success:failure:">-setMetadataValue:forKey:chatroom:broadcast:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets metadata key-value pair to a chatroom</p>
+
+<p><strong>Note</strong></p>
+
+<ul>
+<li>This method works only when the current user of target chatroom has the privilege.</li>
+<li>Sets a value to an existing key will overwrite the previous one.</li>
+<li>The value should be an instance of <code>NSString</code>, <code>NSNumber</code>, <code>NSNull</code> or a valid JSON object. Max size is 1k if <code>broadcast</code> is <code>YES</code>, max size is 4k if <code>broadcast</code> is <code>NO</code>.</li>
+<li>The key name must match the regular expression format <code>^[A-Za-z0-9][A-Za-z0-9_32＠#-]{0,29}$</code>.</li>
+</ul>
+
+<p><strong>Rate limit</strong></p>
+
+<p>1 request per second per chatroom (if <code>broadcast</code> is <code>YES</code>); 1 request per 30 second per chatroom (if <code>broadcast</code> is <code>NO</code>).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setMetadataValue</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span><span class="p">)</span><span class="nv">value</span>
+                  <span class="nf">forKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span>
+                <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+               <span class="nf">broadcast</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">broadcast</span>
+                 <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">success</span>
+                 <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setMetadataValue</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Any</span><span class="p">,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">broadcast</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value of metadata. Refer notes for the format constraint.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key of metadata. Refer notes for the format constraint.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>STSChat</code> object you want to set metadata.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>broadcast</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Indicates whether the change of the metadata should be broadcasted via socket or not.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)getMetadataForKeys:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-getMetadataForKeys:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)getMetadataForKeys:chatroom:success:failure:">-getMetadataForKeys:chatroom:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets metadata key-value pairs of a chatroom.</p>
+
+<p><strong>Rate limit</strong></p>
+
+<p>1 request per second per chatroom. 3000 per days per chatroom.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="nf">getMetadataForKeys</span><span class="p">:(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">keys</span>
+          <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+           <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n"><a href="../Classes/STSChatMetadata.html">STSChatMetadata</a></span> <span class="o">*&gt;</span>
+                                         <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
+           <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getMetadataForKeys</span><span class="p">(</span><span class="n">_</span> <span class="nv">keys</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt">String</span> <span class="p">:</span> <span class="kt"><a href="../Classes/STSChatMetadata.html">STSChatMetadata</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keys</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The array contains keys to get. Pass <code>nil</code> if you want to get the metadata for all keys.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to get metadata.</p>
 
                                 </div>
                               </td>

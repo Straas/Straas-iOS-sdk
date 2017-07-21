@@ -54,6 +54,9 @@
                 <a href="../Classes/STSChatMessage.html">STSChatMessage</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/STSChatMetadata.html">STSChatMetadata</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/STSChatSticker.html">STSChatSticker</a>
               </li>
               <li class="nav-group-task">
@@ -923,6 +926,73 @@ message event. Allow to handle chat room events in real time.</p>
                               <td>
                                 <div>
                                   <p>The updated pinned message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSChatEventDelegate(im)chatroom:metadataUpdated:"></a>
+                    <a name="//apple_ref/objc/Method/-chatroom:metadataUpdated:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSChatEventDelegate(im)chatroom:metadataUpdated:">-chatroom:metadataUpdated:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The metadata of the specific chatroom updated.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+    <span class="nf">metadataUpdated</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">nonnull</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n"><a href="../Classes/STSChatMetadata.html">STSChatMetadata</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">updatedMetadata</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">chatroom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="n">metadataUpdated</span> <span class="nv">updatedMetadata</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt"><a href="../Classes/STSChatMetadata.html">STSChatMetadata</a></span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A STSChat object informing the delegate about the metadata updated.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>updatedMetadata</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A dictionary of the updated metadata. The keys of the dictionary are the keys of those updated metadata.</p>
 
                                 </div>
                               </td>
