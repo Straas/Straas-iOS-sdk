@@ -202,26 +202,26 @@ CGFloat const floatingDistrictWidth = 70.0;
                                                                              options:0
                                                                              metrics:nil
                                                                                views:views]];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[chatVC]-0-[toolbarView(60)]-0-|"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[chatVC]-0-[toolbarView(70)]-0-|"
                                                                              options:0
                                                                              metrics:nil
                                                                                views:views]];
     
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-7-[showKeyboardButton(50)]"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-12-[showKeyboardButton(48)]"
                                                                              options:0
                                                                              metrics:nil
                                                                                views:views]];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-5-[showKeyboardButton(50)]-5-|"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[showKeyboardButton(48)]-12-|"
                                                                              options:0
                                                                              metrics:nil
                                                                                views:views]];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[likeButton(40)]-10-|"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[likeButton(48)]-12-|"
                                                                              options:0 metrics:nil
                                                                                views:views]];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[likeButton(40)]-10-|"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[likeButton(48)]-12-|"
                                                                              options:0 metrics:nil
                                                                                views:views]];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[likeCountLabel(35)]-12.5-|"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[likeCountLabel(40)]-16-|"
                                                                              options:0 metrics:nil
                                                                                views:views]];
     [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[likeCountLabel(16)]"
@@ -258,7 +258,7 @@ CGFloat const floatingDistrictWidth = 70.0;
 - (UIButton *)showKeyboardButton {
     if (!_showKeyboardButton) {
         _showKeyboardButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_showKeyboardButton setImage:[UIImage imageNamed:@"btn_msg_typing"] forState:UIControlStateNormal];
+        [_showKeyboardButton setImage:[UIImage imageNamed:@"btn_msg"] forState:UIControlStateNormal];
         [_showKeyboardButton addTarget:self action:@selector(onShowKeyboardButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         _showKeyboardButton.translatesAutoresizingMaskIntoConstraints = NO;
     }
