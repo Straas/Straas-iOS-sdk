@@ -1458,6 +1458,8 @@
 <ul>
 <li>This method works only when the current user of target chatroom has the privilege.</li>
 <li>Sets a value to an existing key will overwrite the previous one.</li>
+<li>The value should be an instance of <code>NSString</code>, <code>NSNumber</code>, <code>NSNull</code> or a valid JSON object. Max size is 1k if <code>broadcast</code> is <code>YES</code>, max size is 4k if <code>broadcast</code> is <code>NO</code>.</li>
+<li>The key name must match the regular expression format <code>^[A-Za-z0-9][A-Za-z0-9_32＠#-]{0,29}$</code>.</li>
 </ul>
 
 <p><strong>Rate limit</strong></p>
@@ -1495,7 +1497,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The value of metadata. It should be an instance of <code>NSString</code>, <code>NSNumber</code>, <code>NSNull</code> or a valid JSON object. Max size is 1k if <code>broadcast</code> is <code>YES</code>, max size is 4k if <code>broadcast</code> is <code>NO</code>.</p>
+                                  <p>The value of metadata. Refer notes for the format constraint.</p>
 
                                 </div>
                               </td>
@@ -1508,10 +1510,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <pre class="highlight plaintext"><code>   The key of metadata. The key name must match the regular expression format `^[A-Za-z0-9][A-Za-z0-9_
-</code></pre>
-
-<p>-]{0,29}$`.</p>
+                                  <p>The key of metadata. Refer notes for the format constraint.</p>
 
                                 </div>
                               </td>
