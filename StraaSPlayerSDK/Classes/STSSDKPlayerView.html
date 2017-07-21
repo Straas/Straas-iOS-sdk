@@ -1269,7 +1269,7 @@ If the player view are not playing a playlist (e.g., playing a video or alive), 
                       <div class="abstract">
                         <p>Gets the current time of current media.</p>
 
-<p>@discussion currentTime means the media playing time. At the beginning of a media, this value would be 0.
+<p>currentTime means the media playing time. At the beginning of a media, this value would be 0.
   If you play/seek to 30s from the beginning, this value would be 30. (and so on&hellip;)
   Get this value from STSPlayerPlaybackEventDelegate <code>playerView:playerView mediaCurrentTimeChanged:</code> is recommended.</p>
 
@@ -1310,7 +1310,7 @@ If the player view are not playing a playlist (e.g., playing a video or alive), 
                       <div class="abstract">
                         <p>Gets the current live date time of current media.</p>
 
-<p>@discussion If a live was started at 2017/7/1, 12:00:00(whiches timestamp is 1498910400), playing its VoD will have 1498910400 currentLiveDateTime at the begining.
+<p>If a live was started at 2017/7/1, 12:00:00(whose timestamp is 1498910400), playing its VoD will have 1498910400 currentLiveDateTime at the beginning.
   If you play/seek to 30s from the VoD&rsquo;s beginning, this value would become 1498910430 (1498910400 + 30).
   Only VoD created from live would have valid value, else would get 0.
   Get this value from STSPlayerPlaybackEventDelegate <code>playerView:playerView mediaCurrentTimeChanged:</code> is recommended.</p>
@@ -1368,7 +1368,7 @@ If the player view are not playing a playlist (e.g., playing a video or alive), 
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>the CCU of the currently plyaing live. Returns nil if there is no live playing.</p>
+                        <p>the CCU of the currently playing live. Returns nil if there is no live playing.</p>
 
                       </div>
                     </section>
