@@ -391,7 +391,8 @@
 }
 
 - (void)showJumpToLatestButtonIfNeeded {
-    if (![self isTableViewReachBottom:self.tableView] && self.jumpToLatestButton.alpha == 0) {
+    if ((![self isTableViewReachBottom:self.tableView] && self.jumpToLatestButton.alpha == 0) ||
+        self.keyboardStatus == SLKKeyboardStatusDidShow) {
         [self showJumpToLatestButton];
     }
 }
