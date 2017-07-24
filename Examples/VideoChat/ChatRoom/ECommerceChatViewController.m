@@ -156,7 +156,7 @@ CGFloat const floatingDistrictWidth = 70.0;
     [self addChildViewController:self.chatVC];
     [self.view addSubview:self.chatVC.view];
     [self.chatVC didMoveToParentViewController:self];
-    self.chatVC.dataChannelDelegate = self;
+    self.chatVC.eventDelegate = self;
     // Setup auto layout
     self.chatVC.view.translatesAutoresizingMaskIntoConstraints = NO;
     NSMutableArray *constraints = [NSMutableArray array];
@@ -382,32 +382,6 @@ CGFloat const floatingDistrictWidth = 70.0;
     }
 }
 
-#pragma mark - DataChannelEventDelegate
-
-- (void)chatroomDidConnected:(STSChat *)chatroom {
-    NSUInteger likeCount = 0;
-    for (STSAggregatedItem * item in chatroom.totalAggregatedItems) {
-        likeCount += item.count.unsignedIntegerValue;
-    }
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.likeCountLabel.text = @(likeCount).stringValue;
-    });
-}
-
-- (void)aggregatedItemsAdded:(NSArray<STSAggregatedItem *> *)aggregatedItems {
-    for (STSAggregatedItem * item in aggregatedItems) {
-        NSString * key = item.key;
-        NSNumber * tapCountNumber = [self.cachedUserTapCount objectForKey:key];
-        NSUInteger tapCountUInt = tapCountNumber ? tapCountNumber.unsignedIntegerValue : 0;
-        [self showFloatingImageViewWithEmojiKey:key count:item.count.integerValue - tapCountUInt delay:self.randomFloatingDelay];
-    }
-    self.cachedUserTapCount = [NSMutableDictionary dictionary];
-}
-
-- (void)rawDataAdded:(STSChatMessage *)rawData {
-    NSLog(@"rawData add: %@", rawData);
-}
-
 #pragma mark - Button Click Events
 
 - (void)onShowKeyboardButtonClick:(id)sender {
@@ -428,5 +402,69 @@ CGFloat const floatingDistrictWidth = 70.0;
         self.showKeyboardButton.enabled = editable;
     }
 }
+
+#pragma mark - STSChatEventDelegate
+
+- (void)chatroomConnected:(STSChat *)chatroom {
+    [self.chatVC chatroomConnected:chatroom];
+    NSUInteger likeCount = 0;
+    for (STSAggregatedItem * item in chatroom.totalAggregatedItems) {
+        likeCount += item.count.unsignedIntegerValue;
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.likeCountLabel.text = @(likeCount).stringValue;
+    });
+}
+
+- (void)chatroomInputModeChanged:(STSChat *)chatroom {
+    [self.chatVC chatroomInputModeChanged:chatroom];
+}
+
+- (void)chatroom:(STSChat *)chatroom usersUpdated:(NSArray<STSChatUser *> *)users {
+    [self.chatVC chatroom:chatroom usersUpdated:users];
+}
+
+- (void)chatroom:(STSChat *)chatroom messageAdded:(STSChatMessage *)message {
+    [self.chatVC chatroom:chatroom messageAdded:message];
+}
+
+- (void)chatroom:(STSChat *)chatroom messageRemoved:(NSString *)messageId {
+    [self.chatVC chatroom:chatroom messageRemoved:messageId];
+}
+
+- (void)chatroomMessageFlushed:(STSChat *)chatroom {
+    [self.chatVC chatroomMessageFlushed:chatroom];
+}
+
+- (void)chatroomDisconnected:(STSChat *)chatroom {
+    [self.chatVC chatroomDisconnected:chatroom];
+}
+
+- (void)chatroom:(STSChat *)chatroom failToConnect:(NSError *)error {
+    [self.chatVC chatroom:chatroom failToConnect:error];
+}
+
+- (void)chatroom:(STSChat *)chatroom aggregatedItemsAdded:(NSArray<STSAggregatedItem *> *)aggregatedItems {
+    for (STSAggregatedItem * item in aggregatedItems) {
+        NSString * key = item.key;
+        NSNumber * tapCountNumber = [self.cachedUserTapCount objectForKey:key];
+        NSUInteger tapCountUInt = tapCountNumber ? tapCountNumber.unsignedIntegerValue : 0;
+        [self showFloatingImageViewWithEmojiKey:key count:item.count.integerValue - tapCountUInt delay:self.randomFloatingDelay];
+    }
+    self.cachedUserTapCount = [NSMutableDictionary dictionary];
+}
+
+- (void)chatroom:(STSChat *)chatroom rawDataAdded:(STSChatMessage *)rawData {
+    NSLog(@"rawData add: %@", rawData);
+}
+
+- (void)chatroom:(STSChat *)chatroom pinnedMessageUpdated:(STSChatMessage *)pinnedMessage {
+    [self.chatVC chatroom:chatroom pinnedMessageUpdated:pinnedMessage];
+}
+
+- (void)chatroom:(STSChat *)chatroom usersLeft:(NSArray<NSNumber *> *)userLabels {}
+- (void)chatroomUserCount:(STSChat *)chatroom {}
+- (void)chatroom:(STSChat *)chatroom error:(NSError *)error {}
+- (void)chatroom:(STSChat *)chatroom usersJoined:(NSArray<STSChatUser *> *)users {}
 
 @end
