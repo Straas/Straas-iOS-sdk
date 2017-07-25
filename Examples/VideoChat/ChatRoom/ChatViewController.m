@@ -390,6 +390,12 @@
     } completion:nil];
 }
 
+- (void)dismissJumpToLatestButtonIfNeeded {
+    if ([self isTableViewReachBottom:self.tableView] && self.jumpToLatestButton.alpha == 1) {
+        [self dismissJumpToLatestButton];
+    }
+}
+
 - (void)showJumpToLatestButtonIfNeeded {
     if ((![self isTableViewReachBottom:self.tableView] && self.jumpToLatestButton.alpha == 0) ||
         self.keyboardStatus == SLKKeyboardStatusDidShow) {
@@ -827,8 +833,11 @@
             return NSLog(@"Will Show");
         case SLKKeyboardStatusDidShow:
             return NSLog(@"Did Show");
-        case SLKKeyboardStatusWillHide:     return NSLog(@"Will Hide");
-        case SLKKeyboardStatusDidHide:      return NSLog(@"Did Hide");
+        case SLKKeyboardStatusWillHide:
+            return NSLog(@"Will Hide");
+        case SLKKeyboardStatusDidHide:
+            [self dismissJumpToLatestButtonIfNeeded];
+            return NSLog(@"Did Hide");
     }
 }
 

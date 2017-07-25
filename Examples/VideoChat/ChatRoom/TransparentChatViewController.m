@@ -105,6 +105,8 @@
             self.textInputbarHidden = YES;
             self.tableView.hidden = NO;
         }];
+    } else if (status == SLKKeyboardStatusDidHide) {
+        [super didChangeKeyboardStatus:status];
     }
 }
 
