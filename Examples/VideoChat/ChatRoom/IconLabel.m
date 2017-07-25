@@ -25,7 +25,7 @@
         self.attachment = nil;
         return;
     }
-    NSAssert([verticalOffset isKindOfClass:[NSNumber class]], @"verticalOffset should be an instance wtih NSNumber class");
+    NSAssert([verticalOffset isKindOfClass:[NSNumber class]], @"verticalOffset should be an instance with NSNumber class");
     _verticalOffset = verticalOffset;
     NSTextAttachment * attachment = [[NSTextAttachment alloc] init];
     attachment.image = image;
