@@ -110,6 +110,10 @@
     }
 }
 
+- (BOOL)shouldShowJumpToLatestButton {
+    return self.keyboardStatus == SLKKeyboardStatusDidShow || [super shouldShowJumpToLatestButton];
+}
+
 - (BOOL)forceTextInputbarAdjustmentForResponder:(UIResponder *)responder {
     return YES;
 }

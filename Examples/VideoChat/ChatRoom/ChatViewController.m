@@ -401,7 +401,7 @@
 }
 
 - (void)showJumpToLatestButtonIfNeeded {
-    if ([self shouldShowJumpToLatestButton] || self.keyboardStatus == SLKKeyboardStatusDidShow) {
+    if ([self shouldShowJumpToLatestButton]) {
         [self showJumpToLatestButton];
     }
 }
