@@ -111,6 +111,9 @@
             self.tableView.hidden = NO;
         }];
     } else if (status == SLKKeyboardStatusDidHide) {
+        //Force to layout to avoid strange animation. e.g. tableView would glide from the keyboard's position.
+        [self.view setNeedsLayout];
+        [self.view layoutIfNeeded];
         [super didChangeKeyboardStatus:status];
     }
 }
