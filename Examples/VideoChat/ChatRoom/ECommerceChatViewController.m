@@ -249,7 +249,6 @@ CGFloat const floatingDistrictWidth = 70.0;
 - (UIView *)toolbarView {
     if (!_toolbarView) {
         _toolbarView = [UIView new];
-        [_toolbarView setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.2]];
         _toolbarView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _toolbarView;
