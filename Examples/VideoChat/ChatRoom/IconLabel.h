@@ -12,7 +12,7 @@
 
 //This method will set the default verticalOffset which is 0. If you need to custom vertical offset use `setIconImage:verticalOffset` instead.
 - (void)setIconImage:(UIImage *)image;
-- (void)setIconImage:(UIImage *)image verticalOffset:(NSNumber *)verticalOffset;
+- (void)setIconImage:(UIImage *)image verticalOffset:(CGFloat)verticalOffset;
 
 //Note: This method will override the attributedText in IconLabel, it may cause Icon Image disappear.
 //If you want to show IconImage with your custom attributedText, call setIconImage after calling this method.
