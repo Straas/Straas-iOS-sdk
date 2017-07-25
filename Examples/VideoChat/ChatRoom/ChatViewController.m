@@ -382,6 +382,10 @@
     [self dismissKeyboard:YES];
 }
 
+- (BOOL)shouldShowJumpToLatestButton {
+    return (![self isTableViewReachBottom:self.tableView] && self.jumpToLatestButton.alpha == 0);
+}
+
 - (void)dismissJumpToLatestButton {
     [self updateJumpToLatestButtonYPositionConstraint:NO];
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -391,14 +395,13 @@
 }
 
 - (void)dismissJumpToLatestButtonIfNeeded {
-    if ([self isTableViewReachBottom:self.tableView] && self.jumpToLatestButton.alpha == 1) {
+    if (![self shouldShowJumpToLatestButton]) {
         [self dismissJumpToLatestButton];
     }
 }
 
 - (void)showJumpToLatestButtonIfNeeded {
-    if ((![self isTableViewReachBottom:self.tableView] && self.jumpToLatestButton.alpha == 0) ||
-        self.keyboardStatus == SLKKeyboardStatusDidShow) {
+    if ([self shouldShowJumpToLatestButton] || self.keyboardStatus == SLKKeyboardStatusDidShow) {
         [self showJumpToLatestButton];
     }
 }
