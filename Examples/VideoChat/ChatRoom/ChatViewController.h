@@ -181,6 +181,13 @@ typedef NS_ENUM(NSUInteger, STSPinnedMessagePosition) {
  */
 - (void)didTapTableView NS_REQUIRES_SUPER;
 
+/**
+ The condition should show jumpToLatestButton. This method will be asked when `showJumpToLatestButtonIfNeeded` or `showJumpToLatestButtonIfNeeded` be called. You may override it to customize.
+ 
+ @return A boolean indicates whether to show jumpToLatestButton.
+ */
+- (BOOL)shouldShowJumpToLatestButton;
+
 #pragma mark - STSChatEventDelegate
 /**
  The following methods are as same as STSChatEventDelegate.

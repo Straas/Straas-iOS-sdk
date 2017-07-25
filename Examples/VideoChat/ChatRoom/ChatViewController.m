@@ -379,6 +379,11 @@
     NSIndexPath * indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     [self dismissJumpToLatestButton];
+    [self dismissKeyboard:YES];
+}
+
+- (BOOL)shouldShowJumpToLatestButton {
+    return (![self isTableViewReachBottom:self.tableView] && self.jumpToLatestButton.alpha == 0);
 }
 
 - (void)dismissJumpToLatestButton {
@@ -389,8 +394,14 @@
     } completion:nil];
 }
 
+- (void)dismissJumpToLatestButtonIfNeeded {
+    if (![self shouldShowJumpToLatestButton]) {
+        [self dismissJumpToLatestButton];
+    }
+}
+
 - (void)showJumpToLatestButtonIfNeeded {
-    if (![self isTableViewReachBottom:self.tableView] && self.jumpToLatestButton.alpha == 0) {
+    if ([self shouldShowJumpToLatestButton]) {
         [self showJumpToLatestButton];
     }
 }
@@ -825,8 +836,11 @@
             return NSLog(@"Will Show");
         case SLKKeyboardStatusDidShow:
             return NSLog(@"Did Show");
-        case SLKKeyboardStatusWillHide:     return NSLog(@"Will Hide");
-        case SLKKeyboardStatusDidHide:      return NSLog(@"Did Hide");
+        case SLKKeyboardStatusWillHide:
+            return NSLog(@"Will Hide");
+        case SLKKeyboardStatusDidHide:
+            [self dismissJumpToLatestButtonIfNeeded];
+            return NSLog(@"Did Hide");
     }
 }
 

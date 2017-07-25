@@ -105,7 +105,13 @@
             self.textInputbarHidden = YES;
             self.tableView.hidden = NO;
         }];
+    } else if (status == SLKKeyboardStatusDidHide) {
+        [super didChangeKeyboardStatus:status];
     }
+}
+
+- (BOOL)shouldShowJumpToLatestButton {
+    return self.keyboardStatus == SLKKeyboardStatusDidShow || [super shouldShowJumpToLatestButton];
 }
 
 - (BOOL)forceTextInputbarAdjustmentForResponder:(UIResponder *)responder {
@@ -120,7 +126,6 @@
 
 - (void)chatroomConnected:(STSChat *)chatroom {
     [super chatroomConnected:chatroom];
-    [self.dataChannelDelegate chatroomDidConnected:chatroom];
     NSLog(@"connected to chatroom: %@", chatroom.chatroomName);
 }
 - (void)chatroomDisconnected:(STSChat *)chatroom {
@@ -133,14 +138,6 @@
 
 - (void)chatroom:(STSChat *)chatroom error:(NSError *)error {
     NSLog(@"chatroom: %@ with error: %@", chatroom.chatroomName, error);
-}
-
-- (void)chatroom:(STSChat *)chatroom aggregatedItemsAdded:(NSArray<STSAggregatedItem *> *)aggregatedItems {
-    [self.dataChannelDelegate aggregatedItemsAdded:aggregatedItems];
-}
-
-- (void)chatroom:(STSChat *)chatroom rawDataAdded:(STSChatMessage *)rawData {
-    [self.dataChannelDelegate rawDataAdded:rawData];
 }
 
 @end

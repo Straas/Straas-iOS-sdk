@@ -156,7 +156,7 @@ CGFloat const floatingDistrictWidth = 70.0;
     [self addChildViewController:self.chatVC];
     [self.view addSubview:self.chatVC.view];
     [self.chatVC didMoveToParentViewController:self];
-    self.chatVC.dataChannelDelegate = self;
+    self.chatVC.eventDelegate = self;
     // Setup auto layout
     self.chatVC.view.translatesAutoresizingMaskIntoConstraints = NO;
     NSMutableArray *constraints = [NSMutableArray array];
@@ -202,26 +202,26 @@ CGFloat const floatingDistrictWidth = 70.0;
                                                                              options:0
                                                                              metrics:nil
                                                                                views:views]];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[chatVC]-0-[toolbarView(60)]-0-|"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[chatVC]-0-[toolbarView(70)]-0-|"
                                                                              options:0
                                                                              metrics:nil
                                                                                views:views]];
     
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-7-[showKeyboardButton(50)]"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-12-[showKeyboardButton(48)]"
                                                                              options:0
                                                                              metrics:nil
                                                                                views:views]];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-5-[showKeyboardButton(50)]-5-|"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[showKeyboardButton(48)]-12-|"
                                                                              options:0
                                                                              metrics:nil
                                                                                views:views]];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[likeButton(40)]-10-|"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[likeButton(48)]-12-|"
                                                                              options:0 metrics:nil
                                                                                views:views]];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[likeButton(40)]-10-|"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[likeButton(48)]-12-|"
                                                                              options:0 metrics:nil
                                                                                views:views]];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[likeCountLabel(35)]-12.5-|"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[likeCountLabel(40)]-16-|"
                                                                              options:0 metrics:nil
                                                                                views:views]];
     [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[likeCountLabel(16)]"
@@ -258,7 +258,7 @@ CGFloat const floatingDistrictWidth = 70.0;
 - (UIButton *)showKeyboardButton {
     if (!_showKeyboardButton) {
         _showKeyboardButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_showKeyboardButton setImage:[UIImage imageNamed:@"btn_msg_typing"] forState:UIControlStateNormal];
+        [_showKeyboardButton setImage:[UIImage imageNamed:@"btn_msg"] forState:UIControlStateNormal];
         [_showKeyboardButton addTarget:self action:@selector(onShowKeyboardButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         _showKeyboardButton.translatesAutoresizingMaskIntoConstraints = NO;
     }
@@ -382,32 +382,6 @@ CGFloat const floatingDistrictWidth = 70.0;
     }
 }
 
-#pragma mark - DataChannelEventDelegate
-
-- (void)chatroomDidConnected:(STSChat *)chatroom {
-    NSUInteger likeCount = 0;
-    for (STSAggregatedItem * item in chatroom.totalAggregatedItems) {
-        likeCount += item.count.unsignedIntegerValue;
-    }
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.likeCountLabel.text = @(likeCount).stringValue;
-    });
-}
-
-- (void)aggregatedItemsAdded:(NSArray<STSAggregatedItem *> *)aggregatedItems {
-    for (STSAggregatedItem * item in aggregatedItems) {
-        NSString * key = item.key;
-        NSNumber * tapCountNumber = [self.cachedUserTapCount objectForKey:key];
-        NSUInteger tapCountUInt = tapCountNumber ? tapCountNumber.unsignedIntegerValue : 0;
-        [self showFloatingImageViewWithEmojiKey:key count:item.count.integerValue - tapCountUInt delay:self.randomFloatingDelay];
-    }
-    self.cachedUserTapCount = [NSMutableDictionary dictionary];
-}
-
-- (void)rawDataAdded:(STSChatMessage *)rawData {
-    NSLog(@"rawData add: %@", rawData);
-}
-
 #pragma mark - Button Click Events
 
 - (void)onShowKeyboardButtonClick:(id)sender {
@@ -428,5 +402,69 @@ CGFloat const floatingDistrictWidth = 70.0;
         self.showKeyboardButton.enabled = editable;
     }
 }
+
+#pragma mark - STSChatEventDelegate
+
+- (void)chatroomConnected:(STSChat *)chatroom {
+    [self.chatVC chatroomConnected:chatroom];
+    NSUInteger likeCount = 0;
+    for (STSAggregatedItem * item in chatroom.totalAggregatedItems) {
+        likeCount += item.count.unsignedIntegerValue;
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.likeCountLabel.text = @(likeCount).stringValue;
+    });
+}
+
+- (void)chatroomInputModeChanged:(STSChat *)chatroom {
+    [self.chatVC chatroomInputModeChanged:chatroom];
+}
+
+- (void)chatroom:(STSChat *)chatroom usersUpdated:(NSArray<STSChatUser *> *)users {
+    [self.chatVC chatroom:chatroom usersUpdated:users];
+}
+
+- (void)chatroom:(STSChat *)chatroom messageAdded:(STSChatMessage *)message {
+    [self.chatVC chatroom:chatroom messageAdded:message];
+}
+
+- (void)chatroom:(STSChat *)chatroom messageRemoved:(NSString *)messageId {
+    [self.chatVC chatroom:chatroom messageRemoved:messageId];
+}
+
+- (void)chatroomMessageFlushed:(STSChat *)chatroom {
+    [self.chatVC chatroomMessageFlushed:chatroom];
+}
+
+- (void)chatroomDisconnected:(STSChat *)chatroom {
+    [self.chatVC chatroomDisconnected:chatroom];
+}
+
+- (void)chatroom:(STSChat *)chatroom failToConnect:(NSError *)error {
+    [self.chatVC chatroom:chatroom failToConnect:error];
+}
+
+- (void)chatroom:(STSChat *)chatroom aggregatedItemsAdded:(NSArray<STSAggregatedItem *> *)aggregatedItems {
+    for (STSAggregatedItem * item in aggregatedItems) {
+        NSString * key = item.key;
+        NSNumber * tapCountNumber = [self.cachedUserTapCount objectForKey:key];
+        NSUInteger tapCountUInt = tapCountNumber ? tapCountNumber.unsignedIntegerValue : 0;
+        [self showFloatingImageViewWithEmojiKey:key count:item.count.integerValue - tapCountUInt delay:self.randomFloatingDelay];
+    }
+    self.cachedUserTapCount = [NSMutableDictionary dictionary];
+}
+
+- (void)chatroom:(STSChat *)chatroom rawDataAdded:(STSChatMessage *)rawData {
+    NSLog(@"rawData add: %@", rawData);
+}
+
+- (void)chatroom:(STSChat *)chatroom pinnedMessageUpdated:(STSChatMessage *)pinnedMessage {
+    [self.chatVC chatroom:chatroom pinnedMessageUpdated:pinnedMessage];
+}
+
+- (void)chatroom:(STSChat *)chatroom usersLeft:(NSArray<NSNumber *> *)userLabels {}
+- (void)chatroomUserCount:(STSChat *)chatroom {}
+- (void)chatroom:(STSChat *)chatroom error:(NSError *)error {}
+- (void)chatroom:(STSChat *)chatroom usersJoined:(NSArray<STSChatUser *> *)users {}
 
 @end
