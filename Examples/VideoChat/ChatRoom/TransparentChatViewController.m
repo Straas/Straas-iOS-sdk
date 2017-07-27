@@ -30,6 +30,11 @@
     
     [self setTextInputbarHidden:YES];
     [self clearCachedText];
+    
+    //This two lines are used to hide _UIBarBackground's seperate line since textInpubar is subclass of UIToolBar. ref: http://www.jianshu.com/p/23d9bde85f13
+    UIView * backgroundView =  self.textInputbar.subviews.firstObject;
+    backgroundView.subviews.firstObject.hidden = YES;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,6 +111,9 @@
             self.tableView.hidden = NO;
         }];
     } else if (status == SLKKeyboardStatusDidHide) {
+        //Force to layout to avoid strange animation. e.g. tableView would glide from the keyboard's position.
+        [self.view setNeedsLayout];
+        [self.view layoutIfNeeded];
         [super didChangeKeyboardStatus:status];
     }
 }

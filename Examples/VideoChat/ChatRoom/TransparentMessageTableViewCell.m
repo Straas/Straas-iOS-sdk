@@ -9,7 +9,7 @@
 #import "TransparentMessageTableViewCell.h"
 #import "IconLabel.h"
 
-static const CGFloat kTransparentCellPaddingLeft = 24;
+static const CGFloat kTransparentCellPaddingLeft = 20;
 static const CGFloat kTransparentCellPaddingRight = 16;
 static const CGFloat kTransparentCellPaddingTop = 7;
 static const CGFloat kTransparentCellPaddingBottom = 7;
