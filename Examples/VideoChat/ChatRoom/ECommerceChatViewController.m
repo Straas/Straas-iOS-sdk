@@ -207,7 +207,7 @@ CGFloat const kEcommerceChatVCfloatingDistrictWidth = 70.0;
                                                                              metrics:nil
                                                                                views:views]];
     
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-12-[showKeyboardButton(48)]"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[showKeyboardButton(48)]", [TransparentChatViewController cellLeftPadding]]
                                                                              options:0
                                                                              metrics:nil
                                                                                views:views]];
