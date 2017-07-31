@@ -10,6 +10,14 @@
 #import <StraaSMessagingSDK/STSChatMessage.h>
 #import <StraaSMessagingSDK/STSChatUser.h>
 
+extern CGFloat const kTransparentCellLabelPaddingLeft;
+extern CGFloat const kTransparentCellLabelPaddingRight;
+extern CGFloat const kTransparentCellLabelPaddingTop;
+extern CGFloat const kTransparentCellLabelPaddingBottom;
+
+extern CGFloat const kTransparentCellBackgroundMaskHorizontalPadding;
+extern CGFloat const kTransparentCellBackgroundMaskVerticalPadding;
+
 @interface TransparentMessageTableViewCell : UITableViewCell
 
 + (CGFloat)estimateCellHeightWithMessage:(STSChatMessage *)message widthToFit:(CGFloat)width;

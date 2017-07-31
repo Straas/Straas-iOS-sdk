@@ -13,4 +13,6 @@ static NSString *TransparentMessengerCellIdentifier = @"TransparentMessengerCell
 
 @interface TransparentChatViewController : ChatViewController
 
++ (CGFloat)cellLeftPadding;
+
 @end
