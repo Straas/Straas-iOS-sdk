@@ -11,7 +11,7 @@
 #import <StraaSCoreSDK/StraaSCoreSDK.h>
 #import "FloatingImageView.h"
 
-CGFloat const floatingDistrictWidth = 70.0;
+CGFloat const kEcommerceChatVCfloatingDistrictWidth = 70.0;
 
 @interface ECommerceChatViewController ()
 
@@ -108,7 +108,7 @@ CGFloat const floatingDistrictWidth = 70.0;
         }
     }
     self.chatVC.textInputbar.rightButton.hidden = YES;
-    self.chatVCRightConstraint.constant = -floatingDistrictWidth;
+    self.chatVCRightConstraint.constant = -kEcommerceChatVCfloatingDistrictWidth;
 }
 
 #pragma mark - Public Methods
@@ -178,7 +178,7 @@ CGFloat const floatingDistrictWidth = 70.0;
                                  relatedBy:NSLayoutRelationEqual
                                     toItem:self.view
                                  attribute:NSLayoutAttributeRight
-                                multiplier:1 constant:-floatingDistrictWidth];
+                                multiplier:1 constant:-kEcommerceChatVCfloatingDistrictWidth];
     [constraints addObject:self.chatVCRightConstraint];
     [NSLayoutConstraint activateConstraints:constraints];
     [self addObserver:self forKeyPath:@"chatVC.textViewEditable" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew|NSKeyValueObservingOptionInitial context:nil];
@@ -207,7 +207,7 @@ CGFloat const floatingDistrictWidth = 70.0;
                                                                              metrics:nil
                                                                                views:views]];
     
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-12-[showKeyboardButton(48)]"
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[showKeyboardButton(48)]", [TransparentChatViewController cellLeftPadding]]
                                                                              options:0
                                                                              metrics:nil
                                                                                views:views]];
@@ -238,7 +238,7 @@ CGFloat const floatingDistrictWidth = 70.0;
     [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[districtView(370)]-0-[likeButton]"
                                                                              options:0 metrics:nil
                                                                                views:views]];
-    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:[districtView(%f)]-0-|", floatingDistrictWidth]
+    [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:[districtView(%f)]-0-|", kEcommerceChatVCfloatingDistrictWidth]
                                                                              options:0 metrics:nil
                                                                                views:views]];
     [NSLayoutConstraint activateConstraints:constraints];

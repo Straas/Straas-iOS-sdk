@@ -42,6 +42,10 @@
     // Dispose of any resources that can be recreated.
 }
 
++ (CGFloat)cellLeftPadding {
+    return kTransparentCellLabelPaddingLeft - kTransparentCellBackgroundMaskHorizontalPadding;
+}
+
 #pragma mark - Gesture Recognizer
 
 - (void)didTapRootView {

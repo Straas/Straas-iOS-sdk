@@ -9,10 +9,13 @@
 #import "TransparentMessageTableViewCell.h"
 #import "IconLabel.h"
 
-static const CGFloat kTransparentCellPaddingLeft = 20;
-static const CGFloat kTransparentCellPaddingRight = 16;
-static const CGFloat kTransparentCellPaddingTop = 7;
-static const CGFloat kTransparentCellPaddingBottom = 7;
+CGFloat const kTransparentCellLabelPaddingLeft = 20;
+CGFloat const kTransparentCellLabelPaddingRight = 16;
+CGFloat const kTransparentCellLabelPaddingTop = 7;
+CGFloat const kTransparentCellLabelPaddingBottom = 7;
+
+CGFloat const kTransparentCellBackgroundMaskHorizontalPadding = 8;
+CGFloat const kTransparentCellBackgroundMaskVerticalPadding = 5;
 
 @interface TransparentMessageTableViewCell()
 
@@ -54,10 +57,10 @@ static const CGFloat kTransparentCellPaddingBottom = 7;
     [self addSubview:_bodyLabel];
     
     // Setup auto layout
-    NSDictionary *metrics = @{@"left": @(kTransparentCellPaddingLeft),
-                              @"right": @(kTransparentCellPaddingRight),
-                              @"top": @(kTransparentCellPaddingTop),
-                              @"bottom": @(kTransparentCellPaddingBottom)
+    NSDictionary *metrics = @{@"left": @(kTransparentCellLabelPaddingLeft),
+                              @"right": @(kTransparentCellLabelPaddingRight),
+                              @"top": @(kTransparentCellLabelPaddingTop),
+                              @"bottom": @(kTransparentCellLabelPaddingBottom)
                               };
     
     [constraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-left-[bodyLabel]-(>=right)-|"
@@ -89,29 +92,28 @@ static const CGFloat kTransparentCellPaddingBottom = 7;
                                                            toItem:_bodyLabel
                                                         attribute:NSLayoutAttributeWidth
                                                        multiplier:1
-                                                         constant:16]];
+                                                         constant:2 * kTransparentCellBackgroundMaskHorizontalPadding]];
     [constraints addObject:[NSLayoutConstraint constraintWithItem:backgroundMaskView
                                                         attribute:NSLayoutAttributeHeight
                                                         relatedBy:NSLayoutRelationEqual
                                                            toItem:_bodyLabel
                                                         attribute:NSLayoutAttributeHeight
                                                        multiplier:1
-                                                         constant:10]];
+                                                         constant:2 * kTransparentCellBackgroundMaskVerticalPadding]];
     
     [NSLayoutConstraint activateConstraints:constraints];
 }
 
 #pragma mark - Class Methods
-
 + (CGFloat)estimateCellHeightWithMessage:(STSChatMessage *)message widthToFit:(CGFloat)width {
-    CGFloat bodyLabelWidth = width - kTransparentCellPaddingLeft - kTransparentCellPaddingRight;
+    CGFloat bodyLabelWidth = width - kTransparentCellLabelPaddingLeft - kTransparentCellLabelPaddingRight;
     CGSize size = CGSizeMake(bodyLabelWidth, CGFLOAT_MAX);
     NSAttributedString *displayString = [self getDisplayString:message];
     CGRect estimateRect = [displayString boundingRectWithSize:size
                                                       options:NSStringDrawingUsesLineFragmentOrigin
                                                       context:nil];
     
-    return ceil(estimateRect.size.height) + kTransparentCellPaddingTop + kTransparentCellPaddingBottom;
+    return ceil(estimateRect.size.height) + kTransparentCellLabelPaddingTop + kTransparentCellLabelPaddingBottom;
 }
 
 + (NSAttributedString *)getDisplayString:(STSChatMessage *)message {
