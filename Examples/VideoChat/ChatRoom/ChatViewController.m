@@ -24,6 +24,8 @@
 
 #define DEBUG_CUSTOM_TYPING_INDICATOR 0
 
+NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChatViewControllerSendMessageFailureNotification";
+
 @interface ChatViewController ()
 
 @property (nonatomic, strong) NSMutableArray *messages;
@@ -865,7 +867,9 @@
         [self.manager sendMessage:messageText chatroom:self.currentChat success:^{
 
         } failure:^(NSError * _Nonnull error) {
-
+            [[NSNotificationCenter defaultCenter] postNotificationName:STSChatViewControllerSendMessageFailureNotification
+                                                                object:@{@"text": messageText,
+                                                                         @"error": error}];
         }];
     }
     [super didPressRightButton:sender];
