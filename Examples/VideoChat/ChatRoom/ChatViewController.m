@@ -524,7 +524,7 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
                                         options:connectionOptions
                                   eventDelegate:weakSelf.eventDelegate];
         } else {
-            [self.indicator stopAnimating];
+            [weakSelf.eventDelegate chatroom:weakSelf.currentChat failToConnect:error];
         }
     }];
 }
