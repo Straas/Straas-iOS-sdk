@@ -31,6 +31,9 @@ typedef NS_ENUM(NSUInteger, STSPinnedMessagePosition) {
     STSPinnedMessagePositionAlignWithTheLatestMessage = 2
 };
 
+
+extern NSString * const STSChatViewControllerSendMessageFailureNotification;
+
 /**
  ChatViewConController is a basic StraaS.io chatroom UI without sticker input.  It is meant to be subclassed.
  If you want to enable sticker input feature, use ChatStickerViewController instead.
