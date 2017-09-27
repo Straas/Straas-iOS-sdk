@@ -104,6 +104,14 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
 #endif
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    [self.textInputbar bringSubviewToFront:self.textInputbar.textView];
+    [self.textInputbar bringSubviewToFront:self.textInputbar.leftButton];
+    [self.textInputbar bringSubviewToFront:self.textInputbar.rightButton];
+}
+
 #pragma mark - Custom accessors
 
 - (void)setShouldAddIndicatorView:(BOOL)shouldAddIndicatorView {
