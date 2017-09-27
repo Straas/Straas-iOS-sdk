@@ -22,7 +22,7 @@
 		</data>
 		<key>Headers/STSChatManager.h</key>
 		<data>
-		h7N2Ixh9QleKz2ok2vT4F8FnM1g=
+		cjTdvRVUICoNWxcWO3aNjVLdKf4=
 		</data>
 		<key>Headers/STSChatMessage.h</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		oWfIieX/uPjF4Z2YyAVilfaSMGM=
+		LMsDWGVPo+suge96kQv0AVizm1o=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -80,7 +80,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Jx8qecZ/zQ7Y2ewcE98hI79soXE=
+			fbZ/4oe41Gb9yb+N1566Paxs+wg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -89,7 +89,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			IehADBfGodU8JCmkQq/Gchmyi1I=
+			Scjd6Y+seQIAJY/ngHJ8GBN2W1I=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -145,11 +145,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			h7N2Ixh9QleKz2ok2vT4F8FnM1g=
+			cjTdvRVUICoNWxcWO3aNjVLdKf4=
 			</data>
 			<key>hash2</key>
 			<data>
-			vr05T7aJWvU9+ncFyDAMOd82bzJ7AmANFj1V202i8v0=
+			0xuP4Nyu9y+Aqfs4eH4g6y8StKabUjF5LqZ2zUxR4xg=
 			</data>
 		</dict>
 		<key>Headers/STSChatMessage.h</key>
@@ -288,11 +288,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Jx8qecZ/zQ7Y2ewcE98hI79soXE=
+			fbZ/4oe41Gb9yb+N1566Paxs+wg=
 			</data>
 			<key>hash2</key>
 			<data>
-			0ekQY6CO+azaHWK4XdFUhfTiLCtNvt5H172dVeNjQdc=
+			AhfUSH8Zr053/cvboer9w0OLV1OVzIW1FdB+grKxwVQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -301,11 +301,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			IehADBfGodU8JCmkQq/Gchmyi1I=
+			Scjd6Y+seQIAJY/ngHJ8GBN2W1I=
 			</data>
 			<key>hash2</key>
 			<data>
-			8S/nTIbZTf6b24o+MwB5pCtAuY6Y/JFJbLtYIdsOyFQ=
+			aKKk4v0K1zIcpHnDCK0PzSzPwqZvJqLEHWA1QDcZvhw=
 			</data>
 			<key>optional</key>
 			<true/>

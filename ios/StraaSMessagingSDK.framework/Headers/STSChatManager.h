@@ -336,13 +336,15 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  * This method works only when the current user of target chatroom has the privilege.
  *  * Sets a value to an existing key will overwrite the previous one.
+ *  * The value should be an instance of `NSString`, `NSNumber`, `NSNull` or a valid JSON object. Max size is 1k if `broadcast` is `YES`, max size is 4k if `broadcast` is `NO`.
+ *  * The key name must match the regular expression format `^[A-Za-z0-9][A-Za-z0-9_32＠#-]{0,29}$`.
  *
  *  **Rate limit**
  *
  *  1 request per second per chatroom (if `broadcast` is `YES`); 1 request per 30 second per chatroom (if `broadcast` is `NO`).
  *
- *  @param value     The value of metadata. It should be an instance of `NSString`, `NSNumber`, `NSNull` or a valid JSON object. Max size is 1k if `broadcast` is `YES`, max size is 4k if `broadcast` is `NO`.
- *  @param key       The key of metadata. The key name must match the regular expression format `^[A-Za-z0-9][A-Za-z0-9_@#-]{0,29}$`.
+ *  @param value     The value of metadata. Refer notes for the format constraint.
+ *  @param key       The key of metadata. Refer notes for the format constraint.
  *  @param chatroom  The `STSChat` object you want to set metadata.
  *  @param broadcast Indicates whether the change of the metadata should be broadcasted via socket or not.
  *  @param success   Handler for successful request.
