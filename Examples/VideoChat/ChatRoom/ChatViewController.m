@@ -687,10 +687,12 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
         [self.delegate chatStickerDidLoad:chatroom.stickers];
     }
     [self startUpdateTableViewTimer];
-    self.leftButton.userInteractionEnabled = YES;
+    
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.leftButton.userInteractionEnabled = YES;
         [self.indicator stopAnimating];
     });
+    
     __weak ChatViewController * weakSelf = self;
     STSGetMessagesConfiguration * configuration = [STSGetMessagesConfiguration new];
     configuration.perPage = @40;
