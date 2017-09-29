@@ -15,28 +15,28 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - DSGPUImage (0.1.8)
-  - GoogleAds-IMA-iOS-SDK (3.5.2)
+  - GoogleAds-IMA-iOS-SDK (3.6.0)
   - KVOController (1.1.0)
-  - SDWebImage (4.0.0):
-    - SDWebImage/Core (= 4.0.0)
-  - SDWebImage/Core (4.0.0)
+  - SDWebImage (4.1.0):
+    - SDWebImage/Core (= 4.1.0)
+  - SDWebImage/Core (4.1.0)
   - SlackTextViewController (1.9.5)
   - Socket.IO-Client-Swift (8.3.3)
-  - StraaS-iOS-SDK (0.11.0):
-    - StraaS-iOS-SDK/Core (= 0.11.0)
-    - StraaS-iOS-SDK/Messaging (= 0.11.0)
-    - StraaS-iOS-SDK/Player (= 0.11.0)
-    - StraaS-iOS-SDK/Streaming (= 0.11.0)
-  - StraaS-iOS-SDK/Core (0.11.0):
+  - StraaS-iOS-SDK (0.12.0):
+    - StraaS-iOS-SDK/Core (= 0.12.0)
+    - StraaS-iOS-SDK/Messaging (= 0.12.0)
+    - StraaS-iOS-SDK/Player (= 0.12.0)
+    - StraaS-iOS-SDK/Streaming (= 0.12.0)
+  - StraaS-iOS-SDK/Core (0.12.0):
     - AFNetworking (~> 3.0)
     - Socket.IO-Client-Swift (~> 8.3)
-  - StraaS-iOS-SDK/Messaging (0.11.0):
+  - StraaS-iOS-SDK/Messaging (0.12.0):
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Player (0.11.0):
+  - StraaS-iOS-SDK/Player (0.12.0):
     - GoogleAds-IMA-iOS-SDK (~> 3.3)
     - KVOController (~> 1.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Streaming (0.11.0):
+  - StraaS-iOS-SDK/Streaming (0.12.0):
     - DSGPUImage (= 0.1.8)
     - StraaS-iOS-SDK/Core
   - TTTAttributedLabel (2.0.0)
@@ -54,12 +54,12 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   DSGPUImage: d2f8a813558cff1516e78ea4c3a1050d5eb888dd
-  GoogleAds-IMA-iOS-SDK: a0692ecc51d7c8816d5245edfb8a69c553cd84d4
+  GoogleAds-IMA-iOS-SDK: 193ca918ed33278c29c96683f500524bf788d509
   KVOController: 321b5fc59300fcaabd42c0f679baa7a27efbb2fd
-  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
   SlackTextViewController: fbcdadbb8090673f604484ff5b6eb8d77baed42a
   Socket.IO-Client-Swift: a2faffdbde89c63aebc5d631041530c1068b02b8
-  StraaS-iOS-SDK: 5e45a80c8cfef10cd33885a49a74df0760d30b03
+  StraaS-iOS-SDK: 90ca6b35e2f543b98a7ffb2ff143747c967b9312
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
 PODFILE CHECKSUM: b2d3f737eba7505b3f8175b1ceb7ab6511dfc4d5
