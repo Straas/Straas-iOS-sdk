@@ -82,6 +82,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) NSString * projection;
 
+
+/**
+ *  The associated chatroom name.
+ */
+@property (nonatomic, readonly, nullable) NSString * chatroomName;
+
 @end
 
 NS_ASSUME_NONNULL_END

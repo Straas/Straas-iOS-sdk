@@ -6,19 +6,27 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		ZtpcUFAr4hYexTQTVxMaaEaA9Sk=
+		hvTWGXvjEFYtbz6kdaIFCwlPuHs=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
-		0wjw05SnRqNatA7cb+55JL4zg7o=
+		OzrYr04lRTyQjbSv9mxIbcva7og=
 		</data>
 		<key>Headers/STSCategory.h</key>
 		<data>
 		ggP3DZqpS7/qhIqZQaUS25cPcKU=
 		</data>
+		<key>Headers/STSGetLiveListConfiguration.h</key>
+		<data>
+		2pCapqebm8nr8IR89ESYV/Ey0EE=
+		</data>
+		<key>Headers/STSGetVideoListConfiguration.h</key>
+		<data>
+		yiZzV86vYBBoRDcNzCIfMmNRpRY=
+		</data>
 		<key>Headers/STSLive.h</key>
 		<data>
-		9kUMxHQhi2vrxk6P8hXZ5miqYqQ=
+		Zc3fH34KuK/j8U8x/P8dmpHn5ks=
 		</data>
 		<key>Headers/STSLiveBroadcastState.h</key>
 		<data>
@@ -90,11 +98,11 @@
 		</data>
 		<key>Headers/StraaSPlayerSDK.h</key>
 		<data>
-		p+t1hkR407HicN+zs4+Md1KOx9o=
+		lrBVK1LxtLyzKdtcTNpBY1CiKkY=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		9Rn3xSwM370DBZ9yr4peuFV6p1E=
+		INcVqAnPnSSwmNb52KTWReL5nqM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -133,22 +141,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZtpcUFAr4hYexTQTVxMaaEaA9Sk=
+			hvTWGXvjEFYtbz6kdaIFCwlPuHs=
 			</data>
 			<key>hash2</key>
 			<data>
-			110QGTeLA7ThsxMKo/boxtnLrztUOcqwoVI1XZ3Fnfs=
+			vaXQoBr2Z7EUcVlJ4KGpve16/sK2UsLxeEkqevcA6vo=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0wjw05SnRqNatA7cb+55JL4zg7o=
+			OzrYr04lRTyQjbSv9mxIbcva7og=
 			</data>
 			<key>hash2</key>
 			<data>
-			T0F9tL5I0egtMga/GG3qJWCSf2QIsKbNjxcr3qvBBmU=
+			9LcBGltduWE/NbU/KOel8CDgXfeX0L4uShKanRDF9Bw=
 			</data>
 		</dict>
 		<key>Headers/STSCategory.h</key>
@@ -162,15 +170,37 @@
 			xjoFeKUZJg6aFkDv7V6szr7pwiCHKJxpeuo+ca9zDLA=
 			</data>
 		</dict>
+		<key>Headers/STSGetLiveListConfiguration.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2pCapqebm8nr8IR89ESYV/Ey0EE=
+			</data>
+			<key>hash2</key>
+			<data>
+			3Gxk6ynNB9D5k9JOFfqLOVd7vfgl32Cy3iFyOUDRcZw=
+			</data>
+		</dict>
+		<key>Headers/STSGetVideoListConfiguration.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yiZzV86vYBBoRDcNzCIfMmNRpRY=
+			</data>
+			<key>hash2</key>
+			<data>
+			mPA8Tyyw+tOT9lKFaCcPCUU2Ou8ele8+9KbEW3skMJ0=
+			</data>
+		</dict>
 		<key>Headers/STSLive.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9kUMxHQhi2vrxk6P8hXZ5miqYqQ=
+			Zc3fH34KuK/j8U8x/P8dmpHn5ks=
 			</data>
 			<key>hash2</key>
 			<data>
-			p8Ckfv4GKMBBbFWUwHjkKO273/N3Mg0bKLzjpEqcrzg=
+			+tyM9sVAvsDb4ECZVhFD98Lw6fTMI9FdaNTSRDrtBxY=
 			</data>
 		</dict>
 		<key>Headers/STSLiveBroadcastState.h</key>
@@ -364,11 +394,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			p+t1hkR407HicN+zs4+Md1KOx9o=
+			lrBVK1LxtLyzKdtcTNpBY1CiKkY=
 			</data>
 			<key>hash2</key>
 			<data>
-			xCF2pHvR8C0NS0tfwqaN+kDasB33ZQbPkEg2QD+7k+M=
+			u9INHwseh1p6wXCJmsaj7uNjdFQnm6h2L7ANIaBePbg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
