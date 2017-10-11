@@ -14,6 +14,9 @@
 @class STSPlaylist;
 @class STSLive;
 
+#import "STSGetVideoListConfiguration.h"
+#import "STSGetLiveListConfiguration.h"
+
 NS_ASSUME_NONNULL_BEGIN
 /**
  *  STSCMSManager provides convenient method to access CMS member resources.
@@ -116,6 +119,23 @@ NS_ASSUME_NONNULL_BEGIN
                                      failure:(void (^)(NSError * error))failure;
 
 /**
+ * Request the list of videos that match the request parameter.
+ *
+ * @param page The page of results to fetch.
+ * @param sort Default value is `-created_at`. Data sorted with {+,-} by which column {created_at,start_time,started_at,ccu_statistic_summary.ccu}. Apply - to sort in descending order. For example, sort=-created_at. When you sort data by a column which belongs to its included resource, the resource is included automatically.
+ * @param configuration The configuration defines the request rules of how to get a video list.
+ * @param success A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: an array of STSVideo objects, and the pagination object.
+ * @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ * @return The ID of the new request. Returns `nil` if the application is unauthorized.
+ */
+- (NSString * _Nullable)getVideoListWithPage:(NSUInteger)page
+                                        sort:(NSString *_Nullable)sort
+                               configuration:(STSGetVideoListConfiguration * _Nullable)configuration
+                                     success:(void (^)(NSArray <STSVideo*> * videos,
+                                                       STSPagination * pagination))success
+                                     failure:(void (^)(NSError * error))failure;
+
+/**
  *  Request the list of playlists that match the request parameter.
  *
  *  @param page The page of results to fetch.
@@ -154,6 +174,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSString * _Nullable)getLiveListWithPage:(NSUInteger)page
                                        sort:(NSString * _Nullable)sort
+                                    success:(void (^)(NSArray <STSLive *> * lives,
+                                                      STSPagination * pagination))success
+                                    failure:(void (^)(NSError * error))failure;
+
+/**
+ * Request a list of available lives.
+ *
+ * @param page The page of results to fetch.
+ * @param sort Default value is `-start_time`. Data sorted with {+,-} by which column {created_at,start_time,started_at,ccu_statistic_summary.ccu}. Apply - to sort in descending order. For example, sort=-created_at. When you sort data by a column which belongs to its included resource, the resource is included automatically.
+ * @param configuration The configuration defines the request rules of how to get a live list.
+ * @param success A block object to be executed when the task finishes successfully. This block has no return value and takes two arguments: the live object array, and the pagination object.
+ * @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ * @return The ID of the new request. Returns `nil` if the application is unauthorized.
+ */
+- (NSString * _Nullable)getLiveListWithPage:(NSUInteger)page
+                                       sort:(NSString * _Nullable)sort
+                              configuration:(STSGetLiveListConfiguration * _Nullable)configuration
                                     success:(void (^)(NSArray <STSLive *> * lives,
                                                       STSPagination * pagination))success
                                     failure:(void (^)(NSError * error))failure;
