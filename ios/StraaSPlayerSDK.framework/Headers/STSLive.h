@@ -82,11 +82,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) NSString * projection;
 
-
 /**
  *  The associated chatroom name.
  */
 @property (nonatomic, readonly, nullable) NSString * chatroomName;
+
+/**
+ * The image shown in the StraaS web player when the live streaming is off air.
+ */
+@property (nonatomic, readonly, nullable) NSString * coverUrl;
 
 @end
 

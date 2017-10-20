@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		hvTWGXvjEFYtbz6kdaIFCwlPuHs=
+		nphGPfudpxv/OZqwIJ24DMOg2Wk=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/STSLive.h</key>
 		<data>
-		Zc3fH34KuK/j8U8x/P8dmpHn5ks=
+		xASbj3yvkKSBVtcqzii4k4p0KXw=
 		</data>
 		<key>Headers/STSLiveBroadcastState.h</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		INcVqAnPnSSwmNb52KTWReL5nqM=
+		q8kBJaq4CVd+9Ts6znpTmFD5oq0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -141,11 +141,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hvTWGXvjEFYtbz6kdaIFCwlPuHs=
+			nphGPfudpxv/OZqwIJ24DMOg2Wk=
 			</data>
 			<key>hash2</key>
 			<data>
-			vaXQoBr2Z7EUcVlJ4KGpve16/sK2UsLxeEkqevcA6vo=
+			Stj9o6iqx57ipSe7mY+AJu5/FIN3SOgINSSZXLoVukM=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -196,11 +196,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Zc3fH34KuK/j8U8x/P8dmpHn5ks=
+			xASbj3yvkKSBVtcqzii4k4p0KXw=
 			</data>
 			<key>hash2</key>
 			<data>
-			+tyM9sVAvsDb4ECZVhFD98Lw6fTMI9FdaNTSRDrtBxY=
+			7S+RdSoje8ZS2yQPH9YDi/pcOY6DVHVGo9ErcPamV+Q=
 			</data>
 		</dict>
 		<key>Headers/STSLiveBroadcastState.h</key>
