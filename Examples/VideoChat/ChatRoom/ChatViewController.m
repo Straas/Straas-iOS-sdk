@@ -104,6 +104,14 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
 #endif
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    [self.textInputbar bringSubviewToFront:self.textInputbar.textView];
+    [self.textInputbar bringSubviewToFront:self.textInputbar.leftButton];
+    [self.textInputbar bringSubviewToFront:self.textInputbar.rightButton];
+}
+
 #pragma mark - Custom accessors
 
 - (void)setShouldAddIndicatorView:(BOOL)shouldAddIndicatorView {
@@ -687,10 +695,12 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
         [self.delegate chatStickerDidLoad:chatroom.stickers];
     }
     [self startUpdateTableViewTimer];
-    self.leftButton.userInteractionEnabled = YES;
+    
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.leftButton.userInteractionEnabled = YES;
         [self.indicator stopAnimating];
     });
+    
     __weak ChatViewController * weakSelf = self;
     STSGetMessagesConfiguration * configuration = [STSGetMessagesConfiguration new];
     configuration.perPage = @40;
