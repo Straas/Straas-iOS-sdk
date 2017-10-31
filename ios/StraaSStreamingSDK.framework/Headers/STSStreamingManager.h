@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <DSGPUImage/GPUImageFramework.h>
 #import "STSStreamingState.h"
 #import "STSStreamingLiveEventConfig.h"
 #import "STSStreamingPrepareConfig.h"
-#import <DSGPUImage/GPUImageFramework.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 
 - (void)streamingManager:(STSStreamingManager *)streamingManager onError:(NSError *)error liveId:(NSString * _Nullable)liveId;
+
 @end
 
 
