@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/STSStreamingManager.h</key>
 		<data>
-		exbXknZQOmyXcFhCkl4s+Nx+5Q8=
+		8O7dd7/gHTxRkeqW8l0Jl5QUXWU=
 		</data>
 		<key>Headers/STSStreamingPrepareConfig.h</key>
 		<data>
@@ -32,13 +32,17 @@
 		<data>
 		+5se26rBRgqxtInkUW1Q0zTPQXs=
 		</data>
+		<key>Headers/STSStreamingStatsReport.h</key>
+		<data>
+		YBD3kuyegOMORqNYsbH7m1f+7n0=
+		</data>
 		<key>Headers/StraaSStreamingSDK.h</key>
 		<data>
-		DbJBX2EVKBmAHlaSo5GQwJEH8Ng=
+		o9952uuQB/xN2MvvScIRZsDdVlM=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		De7XXvjRtveHMfLl/XjIqtjhGQc=
+		OOsyJkHykoLyMKaNPy7ZgY1Y7wY=
 		</data>
 		<key>Localizable.strings</key>
 		<data>
@@ -88,11 +92,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			exbXknZQOmyXcFhCkl4s+Nx+5Q8=
+			8O7dd7/gHTxRkeqW8l0Jl5QUXWU=
 			</data>
 			<key>hash2</key>
 			<data>
-			pOEmof8dLnZrmXTMb7Ycq6ZFkVKNUZHnU7w3/PeKqJs=
+			DHyK/jBWJc/AQS3G2L9DyJQljUGw0D8ubgVx8WnkhNU=
 			</data>
 		</dict>
 		<key>Headers/STSStreamingPrepareConfig.h</key>
@@ -128,15 +132,26 @@
 			0VyUMQ807xleHxCuNFAP8lbcpfMQkDYIlHOolXcQB+s=
 			</data>
 		</dict>
+		<key>Headers/STSStreamingStatsReport.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YBD3kuyegOMORqNYsbH7m1f+7n0=
+			</data>
+			<key>hash2</key>
+			<data>
+			fAo87VwJIXUbuYYeNvXobTjqzp0DkOhAVOeSGyaIj9M=
+			</data>
+		</dict>
 		<key>Headers/StraaSStreamingSDK.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			DbJBX2EVKBmAHlaSo5GQwJEH8Ng=
+			o9952uuQB/xN2MvvScIRZsDdVlM=
 			</data>
 			<key>hash2</key>
 			<data>
-			whK9jlANjgbOQZUGPS2Dh7za2mhPC2+wu5/b2XynozI=
+			FuU+FksMk39kNe48g5wqxtJlvjNhcZLF6BO4LgXzObg=
 			</data>
 		</dict>
 		<key>Localizable.strings</key>

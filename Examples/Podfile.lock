@@ -17,26 +17,26 @@ PODS:
   - DSGPUImage (0.1.8)
   - GoogleAds-IMA-iOS-SDK (3.6.1)
   - KVOController (1.1.0)
-  - SDWebImage (4.2.0):
-    - SDWebImage/Core (= 4.2.0)
-  - SDWebImage/Core (4.2.0)
-  - SlackTextViewController (1.9.5)
+  - SDWebImage (4.2.2):
+    - SDWebImage/Core (= 4.2.2)
+  - SDWebImage/Core (4.2.2)
+  - SlackTextViewController (1.9.6)
   - Socket.IO-Client-Swift (8.3.3)
-  - StraaS-iOS-SDK (0.12.3):
-    - StraaS-iOS-SDK/Core (= 0.12.3)
-    - StraaS-iOS-SDK/Messaging (= 0.12.3)
-    - StraaS-iOS-SDK/Player (= 0.12.3)
-    - StraaS-iOS-SDK/Streaming (= 0.12.3)
-  - StraaS-iOS-SDK/Core (0.12.3):
+  - StraaS-iOS-SDK (0.12.4):
+    - StraaS-iOS-SDK/Core (= 0.12.4)
+    - StraaS-iOS-SDK/Messaging (= 0.12.4)
+    - StraaS-iOS-SDK/Player (= 0.12.4)
+    - StraaS-iOS-SDK/Streaming (= 0.12.4)
+  - StraaS-iOS-SDK/Core (0.12.4):
     - AFNetworking (~> 3.0)
     - Socket.IO-Client-Swift (~> 8.3)
-  - StraaS-iOS-SDK/Messaging (0.12.3):
+  - StraaS-iOS-SDK/Messaging (0.12.4):
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Player (0.12.3):
+  - StraaS-iOS-SDK/Player (0.12.4):
     - GoogleAds-IMA-iOS-SDK (~> 3.3)
     - KVOController (~> 1.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Streaming (0.12.3):
+  - StraaS-iOS-SDK/Streaming (0.12.4):
     - DSGPUImage (= 0.1.8)
     - StraaS-iOS-SDK/Core
   - TTTAttributedLabel (2.0.0)
@@ -56,10 +56,10 @@ SPEC CHECKSUMS:
   DSGPUImage: d2f8a813558cff1516e78ea4c3a1050d5eb888dd
   GoogleAds-IMA-iOS-SDK: 5825cb7d5f6004618527828936a077e118da556e
   KVOController: 321b5fc59300fcaabd42c0f679baa7a27efbb2fd
-  SDWebImage: b1189fd85365c18434270a11a5cad13a1e848d53
-  SlackTextViewController: fbcdadbb8090673f604484ff5b6eb8d77baed42a
+  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
+  SlackTextViewController: b854e62c1c156336bc4fd409c6ca79b5773e8f9d
   Socket.IO-Client-Swift: a2faffdbde89c63aebc5d631041530c1068b02b8
-  StraaS-iOS-SDK: ecb9ec86b7a2bc3b3467c396ef2d460ed3eaff7d
+  StraaS-iOS-SDK: c4dfa48ab8c0d564d00d38e7d06cc41bfb410bd2
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
 PODFILE CHECKSUM: b2d3f737eba7505b3f8175b1ceb7ab6511dfc4d5
