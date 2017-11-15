@@ -13,6 +13,7 @@
 #import "STSStreamingState.h"
 #import "STSStreamingLiveEventConfig.h"
 #import "STSStreamingPrepareConfig.h"
+#import "STSStreamingStatsReport.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,6 +32,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 
 - (void)streamingManager:(STSStreamingManager *)streamingManager onError:(NSError *)error liveId:(NSString * _Nullable)liveId;
+
+@optional
+/**
+ * Tells the delegate that the streaming statistics report is updated.
+ *
+ * @param streamingManager The streamingManager that sent the message.
+ * @param statsReport The updated streaming statistics report.
+ */
+- (void)streamingManager:(STSStreamingManager *)streamingManager didUpdateStreamingStatsReport:(STSStreamingStatsReport *)statsReport;
 
 @end
 
@@ -185,6 +195,13 @@ __attribute__((deprecated("prepareWithVideoSize:previewView:outputImageOrientati
  *  @param failure  A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  */
 - (void)cleanLiveEvent:(NSString *)liveId success:(void(^)())success failure:(void(^)(NSError * error))failure;
+
+/**
+ *  Get the streaming statistics.
+ *
+ *  @return The streaming statistics, or nil if `state` is not `STSStreamingStateStreaming`.
+ */
+- (STSStreamingStatsReport * _Nullable)getStreamingStatsReport;
 
 @end
 
