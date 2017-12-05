@@ -45,6 +45,7 @@ DEPENDENCIES:
   - SDWebImage
   - SlackTextViewController
   - StraaS-iOS-SDK (from `../`)
+  - StraaS-iOS-SDK/Streaming (from `../`)
   - TTTAttributedLabel
 
 EXTERNAL SOURCES:
@@ -62,6 +63,6 @@ SPEC CHECKSUMS:
   StraaS-iOS-SDK: aae2bf18bd75638e77f99d943dbf9c83aa92f500
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: b2d3f737eba7505b3f8175b1ceb7ab6511dfc4d5
+PODFILE CHECKSUM: cf45f6ee853a9f9f7b05a7c2cb1be9a37a768f76
 
 COCOAPODS: 1.2.1

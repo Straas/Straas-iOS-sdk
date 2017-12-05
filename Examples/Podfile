@@ -17,3 +17,11 @@ target 'VideoChat' do
   pod 'TTTAttributedLabel'
   pod 'StraaS-iOS-SDK', :path=>'../'
 end
+
+target 'BroadcastSetupUI' do
+  pod 'StraaS-iOS-SDK/Streaming', :path=>'../'
+end
+
+target 'Broadcast' do
+  pod 'StraaS-iOS-SDK/Streaming', :path=>'../'
+end
