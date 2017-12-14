@@ -22,21 +22,21 @@ PODS:
   - SDWebImage/Core (4.2.2)
   - SlackTextViewController (1.9.6)
   - Socket.IO-Client-Swift (8.3.3)
-  - StraaS-iOS-SDK (0.12.5):
-    - StraaS-iOS-SDK/Core (= 0.12.5)
-    - StraaS-iOS-SDK/Messaging (= 0.12.5)
-    - StraaS-iOS-SDK/Player (= 0.12.5)
-    - StraaS-iOS-SDK/Streaming (= 0.12.5)
-  - StraaS-iOS-SDK/Core (0.12.5):
+  - StraaS-iOS-SDK (0.12.6):
+    - StraaS-iOS-SDK/Core (= 0.12.6)
+    - StraaS-iOS-SDK/Messaging (= 0.12.6)
+    - StraaS-iOS-SDK/Player (= 0.12.6)
+    - StraaS-iOS-SDK/Streaming (= 0.12.6)
+  - StraaS-iOS-SDK/Core (0.12.6):
     - AFNetworking (~> 3.0)
     - Socket.IO-Client-Swift (~> 8.3)
-  - StraaS-iOS-SDK/Messaging (0.12.5):
+  - StraaS-iOS-SDK/Messaging (0.12.6):
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Player (0.12.5):
+  - StraaS-iOS-SDK/Player (0.12.6):
     - GoogleAds-IMA-iOS-SDK (~> 3.3)
     - KVOController (~> 1.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Streaming (0.12.5):
+  - StraaS-iOS-SDK/Streaming (0.12.6):
     - DSGPUImage (= 0.1.8)
     - StraaS-iOS-SDK/Core
   - TTTAttributedLabel (2.0.0)
@@ -59,7 +59,7 @@ SPEC CHECKSUMS:
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   SlackTextViewController: b854e62c1c156336bc4fd409c6ca79b5773e8f9d
   Socket.IO-Client-Swift: a2faffdbde89c63aebc5d631041530c1068b02b8
-  StraaS-iOS-SDK: 0e444b7ed177f819495c7d6fe805473430c69eb1
+  StraaS-iOS-SDK: 1fff4af4a0ebadf6f69fe70865c5ab8d1eb4b91a
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
 PODFILE CHECKSUM: b2d3f737eba7505b3f8175b1ceb7ab6511dfc4d5
