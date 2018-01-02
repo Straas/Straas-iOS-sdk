@@ -6,15 +6,8 @@
 //  Copyright © 2017 StraaS.io. All rights reserved.
 //
 
-#import <StraaSStreamingSDK/StraaSStreamingSDK.h>
 #import "SampleHandler.h"
-
-@interface SampleHandler() <STSLiveStreamerDelegate>
-
-@property (nonatomic) NSURL * endpointURL;
-@property (nonatomic) STSLiveStreamer * liveStreamer;
-
-@end
+#import "STSRKStreamer.h"
 
 @implementation SampleHandler
 
@@ -22,7 +15,7 @@
     // User has requested to start the broadcast. Setup info from the UI extension can be supplied but optional.
     CGFloat videoWidth = [(NSNumber*)setupInfo[@"videoWidth"] floatValue];
     CGFloat videoHeight = [(NSNumber*)setupInfo[@"videoHeight"] floatValue];
-    self.endpointURL = [NSURL URLWithString:(NSString *)setupInfo[@"endpointURL"]];
+    NSURL * endpointURL = [NSURL URLWithString:(NSString *)setupInfo[@"endpointURL"]];
     
     CGSize videoSize = CGSizeMake(videoWidth, videoHeight);
     STSVideoConfiguration * videoConfig = [STSVideoConfiguration new];
@@ -34,63 +27,60 @@
     audioConfig.numOfChannels = 1;
     audioConfig.replayKitAudioChannels = @[kSTSReplayKitAudioChannelMic, kSTSReplayKitAudioChannelApp];
     
-    self.liveStreamer =
-    [[STSLiveStreamer alloc] initWithVideoConfiguration:videoConfig
-                                     audioConfiguration:audioConfig];
-    self.liveStreamer.delegate = self;
-    [self.liveStreamer startStreamingWithURL:self.endpointURL
-                                     success:^{
-                                         NSLog(@"start streaming successfully : %@", self.endpointURL);
-                                     }
-                                     failure:^(NSError * _Nonnull error) {
-                                         NSLog(@"fail to start streaming, %@", error);
-                                     }];
+    STSRKStreamer * streamer = [STSRKStreamer sharedInstance];
+    streamer.videoConfig = videoConfig;
+    streamer.audioConfig = audioConfig;
+    [streamer startStreamingWithURL:endpointURL retryEnabled:YES success:^{
+        NSLog(@"start streaming successfully : %@", endpointURL);
+    } failure:^(NSError * error) {
+        NSLog(@"fail to start streaming, %@", error);
+        [self finishWithError:error];
+    }];
 }
 
 - (void)broadcastPaused {
     // User has requested to pause the broadcast. Samples will stop being delivered.
-    [self.liveStreamer stopStreamingWithSuccess:^(NSURL * _Nonnull streamingURL) {
-        NSLog(@"stop streaming successfully : %@", streamingURL);
-    }
-                                        failure:^(NSError * _Nonnull error, NSURL * _Nonnull streamingURL) {
-                                            NSLog(@"fail to stop streaming : %@, %@", streamingURL, error);
-                                        }];
+    [[STSRKStreamer sharedInstance] stopStreamingWithSuccess:^(NSURL * streamURL) {
+        NSLog(@"stop streaming successfully : %@", streamURL);
+    } failure:^(NSURL * streamURL, NSError * error) {
+        NSLog(@"fail to stop streaming : %@, %@", streamURL, error);
+        [self finishWithError:error];
+    }];
 }
 
 - (void)broadcastResumed {
     // User has requested to resume the broadcast. Samples delivery will resume.
-    [self.liveStreamer startStreamingWithURL:self.endpointURL
-                                     success:^{
-                                         NSLog(@"start streaming successfully : %@", self.endpointURL);
-                                     }
-                                     failure:^(NSError * _Nonnull error) {
-                                         NSLog(@"fail to start streaming, %@", error);
-                                     }];
+    STSRKStreamer * streamer = [STSRKStreamer sharedInstance];
+    [streamer startStreamingWithURL:streamer.streamURL retryEnabled:YES success:^{
+        NSLog(@"start streaming successfully");
+    } failure:^(NSError * error) {
+        NSLog(@"fail to start streaming, %@", error);
+        [self finishWithError:error];
+    }];
 }
 
 - (void)broadcastFinished {
     // User has requested to finish the broadcast.
-    [self.liveStreamer stopStreamingWithSuccess:^(NSURL * _Nonnull streamingURL){
-        NSLog(@"stop streaming successfully : %@", streamingURL);
-    }
-                                        failure:^(NSError * _Nonnull error, NSURL * _Nonnull streamingURL) {
-                                            NSLog(@"fail to stop streaming : %@, %@", streamingURL, error);
-                                        }];
+    [[STSRKStreamer sharedInstance] stopStreamingWithSuccess:^(NSURL * streamURL) {
+        NSLog(@"stop streaming successfully : %@", streamURL);
+    } failure:^(NSURL * streamURL, NSError * error) {
+        NSLog(@"fail to stop streaming : %@, %@", streamURL, error);
+    }];
 }
 
 - (void)processSampleBuffer:(CMSampleBufferRef)sampleBuffer withType:(RPSampleBufferType)sampleBufferType {
     switch (sampleBufferType) {
         case RPSampleBufferTypeVideo:
             // Handle video sample buffer
-            [self.liveStreamer pushVideoSampleBuffer:sampleBuffer];
+            [[STSRKStreamer sharedInstance] pushVideoSampleBuffer:sampleBuffer];
             break;
         case RPSampleBufferTypeAudioApp:
             // Handle audio sample buffer for app audio
-            [self.liveStreamer pushAudioSampleBuffer:sampleBuffer ofAudioChannel:kSTSReplayKitAudioChannelApp];
+            [[STSRKStreamer sharedInstance] pushAudioSampleBuffer:sampleBuffer ofAudioChannel:kSTSReplayKitAudioChannelApp];
             break;
         case RPSampleBufferTypeAudioMic:
             // Handle audio sample buffer for mic audio
-            [self.liveStreamer pushAudioSampleBuffer:sampleBuffer ofAudioChannel:kSTSReplayKitAudioChannelMic];
+            [[STSRKStreamer sharedInstance] pushAudioSampleBuffer:sampleBuffer ofAudioChannel:kSTSReplayKitAudioChannelMic];
             break;
 
         default:
@@ -98,10 +88,12 @@
     }
 }
 
-#pragma mark - STSLiveStreamerDelegate Methods
+#pragma mark - Private Methods
 
-- (void)liveStreamer:(STSLiveStreamer *)liveStreamer onError:(NSError *)error streamingURL:(nullable NSURL *)streamingURL{
-    NSLog(@"%s, %@, %@", __PRETTY_FUNCTION__, error, streamingURL);
+- (void)finishWithError:(NSError *)error {
+    if ([self respondsToSelector:@selector(finishBroadcastWithError:)]) {
+        [self finishBroadcastWithError:error];
+    }
 }
 
 @end

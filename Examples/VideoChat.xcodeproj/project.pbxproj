@@ -24,6 +24,7 @@
 		4A1F4DC51ED83B8D005D6FD9 /* ECommerceChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F4DC41ED83B8D005D6FD9 /* ECommerceChatViewController.m */; };
 		4A3A2BB51ED7DE6000A22863 /* TransparentMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A2BB41ED7DE6000A22863 /* TransparentMessageTableViewCell.m */; };
 		4A3A2BB81ED7DEE900A22863 /* TransparentChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A2BB71ED7DEE900A22863 /* TransparentChatViewController.m */; };
+		6070AB4D1FFB389800849663 /* STSRKStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070AB4C1FFB389800849663 /* STSRKStreamer.m */; };
 		60CE7E521FD645E80063E87A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CE7E511FD645E80063E87A /* ReplayKit.framework */; };
 		60CE7E561FD645E80063E87A /* SampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CE7E551FD645E80063E87A /* SampleHandler.m */; };
 		60CE7E5D1FD645E80063E87A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CE7E511FD645E80063E87A /* ReplayKit.framework */; };
@@ -118,6 +119,8 @@
 		4A3A2BB41ED7DE6000A22863 /* TransparentMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentMessageTableViewCell.m; sourceTree = "<group>"; };
 		4A3A2BB61ED7DEE900A22863 /* TransparentChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentChatViewController.h; sourceTree = "<group>"; };
 		4A3A2BB71ED7DEE900A22863 /* TransparentChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentChatViewController.m; sourceTree = "<group>"; };
+		6070AB4B1FFB389700849663 /* STSRKStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSRKStreamer.h; sourceTree = "<group>"; };
+		6070AB4C1FFB389800849663 /* STSRKStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSRKStreamer.m; sourceTree = "<group>"; };
 		60CE7E501FD645E80063E87A /* Broadcast.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Broadcast.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		60CE7E511FD645E80063E87A /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		60CE7E541FD645E80063E87A /* SampleHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleHandler.h; sourceTree = "<group>"; };
@@ -313,6 +316,8 @@
 			children = (
 				60CE7E541FD645E80063E87A /* SampleHandler.h */,
 				60CE7E551FD645E80063E87A /* SampleHandler.m */,
+				6070AB4B1FFB389700849663 /* STSRKStreamer.h */,
+				6070AB4C1FFB389800849663 /* STSRKStreamer.m */,
 				60CE7E571FD645E80063E87A /* Info.plist */,
 			);
 			path = Broadcast;
@@ -698,6 +703,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6070AB4D1FFB389800849663 /* STSRKStreamer.m in Sources */,
 				60CE7E561FD645E80063E87A /* SampleHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
