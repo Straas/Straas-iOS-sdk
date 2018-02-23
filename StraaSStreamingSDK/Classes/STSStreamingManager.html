@@ -33,6 +33,15 @@
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Classes/STSAudioConfiguration.html">STSAudioConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSLiveStreamer.html">STSLiveStreamer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSStreamingInfo.html">STSStreamingInfo</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/STSStreamingLiveEventConfig.html">STSStreamingLiveEventConfig</a>
               </li>
               <li class="nav-group-task">
@@ -44,6 +53,9 @@
               <li class="nav-group-task">
                 <a href="../Classes/STSStreamingStatsReport.html">STSStreamingStatsReport</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSVideoConfiguration.html">STSVideoConfiguration</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -52,11 +64,20 @@
               <li class="nav-group-task">
                 <a href="../Constants.html#/c:@STSStreamingErrorDomain">STSStreamingErrorDomain</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kSTSReplayKitAudioChannelApp">kSTSReplayKitAudioChannelApp</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kSTSReplayKitAudioChannelMic">kSTSReplayKitAudioChannelMic</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/STSAudioSampleRate.html">STSAudioSampleRate</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Enums/STSStreamingErrorCode.html">STSStreamingErrorCode</a>
               </li>
@@ -71,6 +92,9 @@
           <li class="nav-group-name">
             <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/STSLiveStreamerDelegate.html">STSLiveStreamerDelegate</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Protocols/STSStreamingManagerDelegate.html">STSStreamingManagerDelegate</a>
               </li>
@@ -259,6 +283,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)STSStreamingManager(py)currentStreamingKey"></a>
+                    <a name="//apple_ref/objc/Property/currentStreamingKey" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSStreamingManager(py)currentStreamingKey">currentStreamingKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The stream key of the current streaming live event.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">currentStreamingKey</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">currentStreamingKey</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)STSStreamingManager(py)filter"></a>
                     <a name="//apple_ref/objc/Property/filter" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)STSStreamingManager(py)filter">filter</a>
@@ -376,12 +432,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">streamingManagerWithJWT</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">JWT</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">streamingManagerWithJWT</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">JWT</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">jwt</span> <span class="kt"><a href="../Classes/STSStreamingManager.html#/c:objc(cs)STSStreamingManager(py)JWT">JWT</a></span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">jwt</span> <span class="kt"><a href="../Classes/STSStreamingManager.html#/c:objc(cs)STSStreamingManager(py)JWT">JWT</a></span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
@@ -407,7 +463,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>A STSStreamingManager object initialized with JWT. If the length of <code><a href="../Classes/STSStreamingManager.html#/c:objc(cs)STSStreamingManager(py)JWT">JWT</a></code> is zero, returns nil.</p>
+                        <p>A STSStreamingManager object initialized with JWT.</p>
 
                       </div>
                     </section>
@@ -635,8 +691,10 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Starts to streaming with the provided parameters. This method will create a 
-  live event owned by current member JWT and start to stream.</p>
+                        <p>Starts to streaming with the provided parameters.</p>
+
+<p>This method will create a live event owned by current member JWT and start to stream.
+  Note that you should only call this method when the length of <code><a href="../Classes/STSStreamingManager.html#/c:objc(cs)STSStreamingManager(py)JWT">JWT</a></code> is larger than zero (which means the member is not a guest). Otherwise, you will get an error.</p>
 
                       </div>
                       <div class="declaration">
@@ -721,6 +779,8 @@
                       <div class="abstract">
                         <p>Starts to stream with given live event id.</p>
 
+<p>Note that you should only call this method when the length of <code><a href="../Classes/STSStreamingManager.html#/c:objc(cs)STSStreamingManager(py)JWT">JWT</a></code> is larger than zero (which means the member is not a guest). Otherwise, you will get an error.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -789,6 +849,87 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)STSStreamingManager(im)startStreamingWithStreamKey:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-startStreamingWithStreamKey:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSStreamingManager(im)startStreamingWithStreamKey:success:failure:">-startStreamingWithStreamKey:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Starts to stream with given stream key.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">startStreamingWithStreamKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">streamKey</span>
+                            <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">success</span>
+                            <span class="nf">failure</span><span class="p">:</span>
+                                <span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">startStreaming</span><span class="p">(</span><span class="n">withStreamKey</span> <span class="nv">streamKey</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>streamKey</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The stream key got from StraaS server.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block object to be executed when the task finishes successfully.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)STSStreamingManager(im)stopStreamingWithSuccess:failure:"></a>
                     <a name="//apple_ref/objc/Method/-stopStreamingWithSuccess:failure:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)STSStreamingManager(im)stopStreamingWithSuccess:failure:">-stopStreamingWithSuccess:failure:</a>
@@ -808,14 +949,14 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">stopStreamingWithSuccess</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">success</span>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">stopStreamingWithSuccess</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">success</span>
                          <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
-                                                   <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+                                                   <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">stopStreaming</span><span class="p">(</span><span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">stopStreaming</span><span class="p">(</span><span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">,</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -831,7 +972,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>A block object to be executed when the task finishes successfully. This block has no return value and takes one argument: the live event id of stopped streaming.</p>
+                                  <p>A block object to be executed when the task finishes successfully. This block has no return value and takes one argument: the live event id of stopped streaming (can be nil if you start current stream by a stream key).</p>
 
                                 </div>
                               </td>
@@ -844,7 +985,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>A block object to be executed when the task finishes unsuccessfully.This block has no return value and takes two arguments: the error object describing the error that occurred, and the live event id related to this error.</p>
+                                  <p>A block object to be executed when the task finishes unsuccessfully.This block has no return value and takes two arguments: the error object describing the error that occurred, and the live event id related to this error (can be nil if you start current stream by a stream key).</p>
 
                                 </div>
                               </td>
@@ -869,6 +1010,8 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Create a live event owned by current member JWT.</p>
+
+<p>Note that you should only call this method when the length of <code><a href="../Classes/STSStreamingManager.html#/c:objc(cs)STSStreamingManager(py)JWT">JWT</a></code> is larger than zero (which means the member is not a guest). Otherwise, you will get an error.</p>
 
                       </div>
                       <div class="declaration">
@@ -950,7 +1093,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the state of a live event to <q>ended</q>.</p>
+                        <p>Sets the status of a live event to <q>ended</q>.
+  This method has been deprecated. Use <code>endLiveEvent:success:failure:</code> instead.</p>
 
                       </div>
                       <div class="declaration">
@@ -965,6 +1109,88 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">func</span> <span class="nf">cleanLiveEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">liveId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>liveId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The id of the live event.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block object to be executed when the task finishes successfully.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSStreamingManager(im)endLiveEvent:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-endLiveEvent:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSStreamingManager(im)endLiveEvent:success:failure:">-endLiveEvent:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the status of a live event to <q>ended</q>.</p>
+
+<p>Note that you are not able to end a live event which is not owned by current member JWT through SDK.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">endLiveEvent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">liveId</span>
+             <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)())</span><span class="nv">success</span>
+             <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">endLiveEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">liveId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1050,6 +1276,89 @@
                         <h4>Return Value</h4>
                         <p>The streaming statistics, or nil if <code><a href="../Classes/STSStreamingManager.html#/c:objc(cs)STSStreamingManager(py)state">state</a></code> is not <code>STSStreamingStateStreaming</code>.</p>
 
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSStreamingManager(im)getStreamingInfoWithLiveId:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-getStreamingInfoWithLiveId:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSStreamingManager(im)getStreamingInfoWithLiveId:success:failure:">-getStreamingInfoWithLiveId:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the streaming information of a live event.</p>
+
+<p>Note that you are not able to get the streaming information of the live event which does not belong to current member JWT through SDK.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="nf">getStreamingInfoWithLiveId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">liveId</span>
+                   <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n"><a href="../Classes/STSStreamingInfo.html">STSStreamingInfo</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">success</span>
+                   <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getStreamingInfo</span><span class="p">(</span><span class="n">withLiveId</span> <span class="nv">liveId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/STSStreamingInfo.html">STSStreamingInfo</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>liveId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The id of the live event.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block object to be executed when the task finishes successfully.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

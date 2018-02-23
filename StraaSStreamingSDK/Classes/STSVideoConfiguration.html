@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>STSStreamingStatsReport Class Reference</title>
+    <title>STSVideoConfiguration Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/STSStreamingStatsReport" class="dashAnchor"></a>
-    <a title="STSStreamingStatsReport Class Reference"></a>
+    <a name="//apple_ref/objc/Class/STSVideoConfiguration" class="dashAnchor"></a>
+    <a title="STSVideoConfiguration Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">StraaSStreamingSDK Docs</a> (100% documented)</p>
@@ -23,7 +23,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">StraaSStreamingSDK Reference</a>
         <img id="carat" src="../img/carat.png" />
-        STSStreamingStatsReport Class Reference
+        STSVideoConfiguration Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -105,14 +105,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>STSStreamingStatsReport</h1>
+            <h1>STSVideoConfiguration</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">STSStreamingStatsReport</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">STSVideoConfiguration</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
 
                 </div>
               </div>
-            <p>A STSStreamingStatsReport object provides streaming related information.</p>
+            <p>A STSVideoConfiguration object defines the video configuration of a STSLiveStreamer object.</p>
 
           </section>
           <section class="section task-group-section">
@@ -121,9 +121,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSStreamingStatsReport(py)currentBitrate"></a>
-                    <a name="//apple_ref/objc/Property/currentBitrate" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSStreamingStatsReport(py)currentBitrate">currentBitrate</a>
+                    <a name="/c:objc(cs)STSVideoConfiguration(py)videoSize"></a>
+                    <a name="//apple_ref/objc/Property/videoSize" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSVideoConfiguration(py)videoSize">videoSize</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -131,19 +131,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The bitrate in bits per second.</p>
+                        <p>The output video resolution. Defaults to CGSizeZero. The width and height should both be even and the maximum resolution is 1080p.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">currentBitrate</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">CGSize</span> <span class="n">videoSize</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">currentBitrate</span><span class="p">:</span> <span class="kt">UInt</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">videoSize</span><span class="p">:</span> <span class="kt">CGSize</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -153,9 +153,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSStreamingStatsReport(py)currentFPS"></a>
-                    <a name="//apple_ref/objc/Property/currentFPS" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSStreamingStatsReport(py)currentFPS">currentFPS</a>
+                    <a name="/c:objc(cs)STSVideoConfiguration(py)frameRate"></a>
+                    <a name="//apple_ref/objc/Property/frameRate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSVideoConfiguration(py)frameRate">frameRate</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -163,19 +163,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The video frame rate in frames per second.</p>
+                        <p>The output frame rate. Defaults to 30. The value must be between 1 and 60.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">currentFPS</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">frameRate</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">currentFPS</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">frameRate</span><span class="p">:</span> <span class="kt">UInt</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
