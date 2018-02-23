@@ -14,6 +14,7 @@
 #import "STSStreamingLiveEventConfig.h"
 #import "STSStreamingPrepareConfig.h"
 #import "STSStreamingStatsReport.h"
+#import "STSStreamingInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -76,6 +77,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, nullable) NSString * currentStreamingLiveId;
 
 /**
+ *  The stream key of the current streaming live event.
+ */
+@property (nonatomic, readonly, nullable) NSString * currentStreamingKey;
+
+/**
  *  The filter for the output video.
  */
 @property (nonatomic, nullable) GPUImageFilter * filter;
@@ -103,9 +109,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  otherwise you will get a nil object.
  *
  *  @param JWT The member token got from StraaS server.
- *  @return A STSStreamingManager object initialized with JWT. If the length of `JWT` is zero, returns nil.
+ *  @return A STSStreamingManager object initialized with JWT.
  */
-+ (instancetype)streamingManagerWithJWT:(NSString *)JWT;
++ (instancetype)streamingManagerWithJWT:(NSString * _Nullable)JWT;
 
 /**
  *  Initializes the camera, codec and microphone, you will be able to preview the live stream after prepare success.
@@ -143,8 +149,10 @@ NS_ASSUME_NONNULL_BEGIN
 __attribute__((deprecated("prepareWithVideoSize:previewView:outputImageOrientation:success:success:failure: has been deprecated please use prepareWithPreviewView:configuration:success:failure: instead.")));;
 
 /**
- *  Starts to streaming with the provided parameters. This method will create a 
- *  live event owned by current member JWT and start to stream.
+ *  Starts to streaming with the provided parameters.
+ *
+ *  This method will create a live event owned by current member JWT and start to stream.
+ *  Note that you should only call this method when the length of `JWT` is larger than zero (which means the member is not a guest). Otherwise, you will get an error.
  *
  *  @param configuration The configuration of the live event.
  *  @param success       A block object to be executed when the task finishes successfully. This block has no return value and takes one arguments: the current streaming live event id.
@@ -157,6 +165,8 @@ __attribute__((deprecated("prepareWithVideoSize:previewView:outputImageOrientati
 /**
  *  Starts to stream with given live event id.
  *
+ *  Note that you should only call this method when the length of `JWT` is larger than zero (which means the member is not a guest). Otherwise, you will get an error.
+ *
  *  @param liveId  The id of the live event.
  *  @param success A block object to be executed when the task finishes successfully.
  *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
@@ -166,18 +176,30 @@ __attribute__((deprecated("prepareWithVideoSize:previewView:outputImageOrientati
                          failure:(void(^)(NSError * error))failure;
 
 /**
+ *  Starts to stream with given stream key.
+ *
+ *  @param streamKey The stream key got from StraaS server.
+ *  @param success A block object to be executed when the task finishes successfully.
+ *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ */
+- (void)startStreamingWithStreamKey:(NSString *)streamKey
+                            success:(void(^)())success
+                            failure:(void(^)(NSError * error))failure;
+/**
  *  Stops the current live streaming.
  *
  *  This method can only be called when `state` is `STSStreamingStateConnecting` or `STSStreamingStateStreaming`.
  *
- *  @param success A block object to be executed when the task finishes successfully. This block has no return value and takes one argument: the live event id of stopped streaming.
- *  @param failure A block object to be executed when the task finishes unsuccessfully.This block has no return value and takes two arguments: the error object describing the error that occurred, and the live event id related to this error.
+ *  @param success A block object to be executed when the task finishes successfully. This block has no return value and takes one argument: the live event id of stopped streaming (can be nil if you start current stream by a stream key).
+ *  @param failure A block object to be executed when the task finishes unsuccessfully.This block has no return value and takes two arguments: the error object describing the error that occurred, and the live event id related to this error (can be nil if you start current stream by a stream key).
  */
-- (void)stopStreamingWithSuccess:(void(^)(NSString * liveId))success
-                         failure:(void(^)(NSError * error, NSString * liveId))failure;
+- (void)stopStreamingWithSuccess:(void(^)(NSString * _Nullable liveId))success
+                         failure:(void(^)(NSError * error, NSString * _Nullable liveId))failure;
 
 /**
  *  Create a live event owned by current member JWT.
+ *
+ *  Note that you should only call this method when the length of `JWT` is larger than zero (which means the member is not a guest). Otherwise, you will get an error.
  *
  *  @param configuration The configuration of the live event.
  *  @param success       A block object to be executed when the task finishes successfully.
@@ -188,13 +210,25 @@ __attribute__((deprecated("prepareWithVideoSize:previewView:outputImageOrientati
                             failure:(void(^)(NSError * error, NSString * _Nullable liveId))failure;
 
 /**
- *  Sets the state of a live event to "ended".
+ *  Sets the status of a live event to "ended".
+ *  This method has been deprecated. Use `endLiveEvent:success:failure:` instead.
  *
  *  @param liveId The id of the live event.
  *  @param success A block object to be executed when the task finishes successfully.
  *  @param failure  A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  */
-- (void)cleanLiveEvent:(NSString *)liveId success:(void(^)())success failure:(void(^)(NSError * error))failure;
+- (void)cleanLiveEvent:(NSString *)liveId success:(void(^)())success failure:(void(^)(NSError * error))failure; __attribute__((deprecated("`cleanLiveEvent:success:failure:` has been deprecated. Use `endLiveEvent:success:failure:` instead.")));
+
+/**
+ *  Sets the status of a live event to "ended".
+ *
+ *  Note that you are not able to end a live event which is not owned by current member JWT through SDK.
+ *
+ *  @param liveId The id of the live event.
+ *  @param success A block object to be executed when the task finishes successfully.
+ *  @param failure  A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ */
+- (void)endLiveEvent:(NSString *)liveId success:(void(^)())success failure:(void(^)(NSError * error))failure;
 
 /**
  *  Get the streaming statistics.
@@ -202,6 +236,19 @@ __attribute__((deprecated("prepareWithVideoSize:previewView:outputImageOrientati
  *  @return The streaming statistics, or nil if `state` is not `STSStreamingStateStreaming`.
  */
 - (STSStreamingStatsReport * _Nullable)getStreamingStatsReport;
+
+/**
+ * Gets the streaming information of a live event.
+ *
+ * Note that you are not able to get the streaming information of the live event which does not belong to current member JWT through SDK.
+ *
+ * @param liveId The id of the live event.
+ * @param success A block object to be executed when the task finishes successfully.
+ * @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ */
+- (void)getStreamingInfoWithLiveId:(NSString *)liveId
+                           success:(void(^)(STSStreamingInfo * streamingInfo))success
+                           failure:(void(^)(NSError * error))failure;
 
 @end
 
