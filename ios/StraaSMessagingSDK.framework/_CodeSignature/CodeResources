@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/STSArchivedMessagesMeta.h</key>
 		<data>
-		WD5WGKbJoxPftpLyTIy8q6AbSdI=
+		n0/5JsoHQz3QVXbo6pTlOZI+9C0=
 		</data>
 		<key>Headers/STSChat.h</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/STSChatMetadata.h</key>
 		<data>
-		ImCEvDWbN9wbsfGJb/HfH2B0RLY=
+		S97bPaetPy3tXz2g9Icg8b4Xer8=
 		</data>
 		<key>Headers/STSChatSticker.h</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		k4pnGRsWJo13HH9LAdyf+HH2UG8=
+		bD103GqHfsusq0wsdO98Wj6cO0c=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -123,11 +123,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			WD5WGKbJoxPftpLyTIy8q6AbSdI=
+			n0/5JsoHQz3QVXbo6pTlOZI+9C0=
 			</data>
 			<key>hash2</key>
 			<data>
-			Sigsmd7vF/CkRMSh7kBmuLwQs/pVXRtShSpKAR7qCTA=
+			Pg67KWnWqPzSFYazwIce8U57FhJ1lOm6+5ZRKd6tFWQ=
 			</data>
 		</dict>
 		<key>Headers/STSChat.h</key>
@@ -167,11 +167,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ImCEvDWbN9wbsfGJb/HfH2B0RLY=
+			S97bPaetPy3tXz2g9Icg8b4Xer8=
 			</data>
 			<key>hash2</key>
 			<data>
-			3vP7QOyBGRfKRaOBxJO44zzYSkC0bAwOfISMRAFnWY8=
+			AtAqnfgGlTy/CZLbKI+i2cKx7BIFw6GQj4IEZetDAkk=
 			</data>
 		</dict>
 		<key>Headers/STSChatSticker.h</key>

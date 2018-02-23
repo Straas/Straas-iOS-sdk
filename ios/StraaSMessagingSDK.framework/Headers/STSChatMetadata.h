@@ -6,7 +6,7 @@
 //  Copyright © 2017年 StraaS.io. All rights reserved.
 //
 
-#import <StraaSCoreSDK/StraaSCoreSDK.h>
+#import <StraaSCoreSDK/LHDataObject.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
