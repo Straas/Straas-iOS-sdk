@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		384736B6B699F13F67D6A464 /* Pods_Broadcast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455ED681ED2EF38DADA93D78 /* Pods_Broadcast.framework */; };
 		40A202371D77F93E00457359 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A202301D77F93E00457359 /* ChatViewController.m */; };
 		40A202381D77F93E00457359 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A202321D77F93E00457359 /* MessageTableViewCell.m */; };
 		40A202391D77F93E00457359 /* MessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A202341D77F93E00457359 /* MessageTextView.m */; };
@@ -19,9 +20,19 @@
 		40C779E81D7091D0004F61CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C779E61D7091D0004F61CA /* Main.storyboard */; };
 		40C779EA1D7091D0004F61CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C779E91D7091D0004F61CA /* Assets.xcassets */; };
 		40C779ED1D7091D0004F61CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C779EB1D7091D0004F61CA /* LaunchScreen.storyboard */; };
+		442E5240CB337FD6B23E8654 /* Pods_BroadcastSetupUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 740C43348B3B3AB02BF5A58C /* Pods_BroadcastSetupUI.framework */; };
 		4A1F4DC51ED83B8D005D6FD9 /* ECommerceChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F4DC41ED83B8D005D6FD9 /* ECommerceChatViewController.m */; };
 		4A3A2BB51ED7DE6000A22863 /* TransparentMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A2BB41ED7DE6000A22863 /* TransparentMessageTableViewCell.m */; };
 		4A3A2BB81ED7DEE900A22863 /* TransparentChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A2BB71ED7DEE900A22863 /* TransparentChatViewController.m */; };
+		6070AB4D1FFB389800849663 /* STSRKStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070AB4C1FFB389800849663 /* STSRKStreamer.m */; };
+		60CE7E521FD645E80063E87A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CE7E511FD645E80063E87A /* ReplayKit.framework */; };
+		60CE7E561FD645E80063E87A /* SampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CE7E551FD645E80063E87A /* SampleHandler.m */; };
+		60CE7E5D1FD645E80063E87A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CE7E511FD645E80063E87A /* ReplayKit.framework */; };
+		60CE7E5F1FD645E80063E87A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CE7E5E1FD645E80063E87A /* UIKit.framework */; };
+		60CE7E631FD645E80063E87A /* BroadcastSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CE7E621FD645E80063E87A /* BroadcastSetupViewController.m */; };
+		60CE7E671FD645E80063E87A /* BroadcastSetupUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 60CE7E5C1FD645E80063E87A /* BroadcastSetupUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		60CE7E6A1FD645E80063E87A /* Broadcast.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 60CE7E501FD645E80063E87A /* Broadcast.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		60CE7E731FD64FE60063E87A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60CE7E721FD64FE60063E87A /* MainInterface.storyboard */; };
 		728228FD1EFA86850088C7EB /* STSPinnedMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 728228FC1EFA86850088C7EB /* STSPinnedMessageView.m */; };
 		728229031EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 728229021EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.m */; };
 		728229091EFD39700088C7EB /* UIViewController+VideoChatUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 728229081EFD39700088C7EB /* UIViewController+VideoChatUtility.m */; };
@@ -46,6 +57,38 @@
 		FADDAF509351485C7AE9DE21 /* Pods_VideoChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C2739ECC5559476005727D /* Pods_VideoChat.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		60CE7E651FD645E80063E87A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40C779CF1D7091D0004F61CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 60CE7E5B1FD645E80063E87A;
+			remoteInfo = BroadcastSetupUI;
+		};
+		60CE7E681FD645E80063E87A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40C779CF1D7091D0004F61CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 60CE7E4F1FD645E80063E87A;
+			remoteInfo = Broadcast;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		60CE7E711FD645E80063E87A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				60CE7E6A1FD645E80063E87A /* Broadcast.appex in Embed App Extensions */,
+				60CE7E671FD645E80063E87A /* BroadcastSetupUI.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		40A2022F1D77F93E00457359 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		40A202301D77F93E00457359 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
@@ -69,13 +112,28 @@
 		40C779E91D7091D0004F61CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40C779EC1D7091D0004F61CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40C779EE1D7091D0004F61CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		455ED681ED2EF38DADA93D78 /* Pods_Broadcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Broadcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1F4DC31ED83B8D005D6FD9 /* ECommerceChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECommerceChatViewController.h; sourceTree = "<group>"; };
 		4A1F4DC41ED83B8D005D6FD9 /* ECommerceChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECommerceChatViewController.m; sourceTree = "<group>"; };
 		4A3A2BB31ED7DE6000A22863 /* TransparentMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentMessageTableViewCell.h; sourceTree = "<group>"; };
 		4A3A2BB41ED7DE6000A22863 /* TransparentMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentMessageTableViewCell.m; sourceTree = "<group>"; };
 		4A3A2BB61ED7DEE900A22863 /* TransparentChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentChatViewController.h; sourceTree = "<group>"; };
 		4A3A2BB71ED7DEE900A22863 /* TransparentChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentChatViewController.m; sourceTree = "<group>"; };
+		6070AB4B1FFB389700849663 /* STSRKStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSRKStreamer.h; sourceTree = "<group>"; };
+		6070AB4C1FFB389800849663 /* STSRKStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSRKStreamer.m; sourceTree = "<group>"; };
+		60CE7E501FD645E80063E87A /* Broadcast.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Broadcast.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		60CE7E511FD645E80063E87A /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		60CE7E541FD645E80063E87A /* SampleHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleHandler.h; sourceTree = "<group>"; };
+		60CE7E551FD645E80063E87A /* SampleHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleHandler.m; sourceTree = "<group>"; };
+		60CE7E571FD645E80063E87A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60CE7E5C1FD645E80063E87A /* BroadcastSetupUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BroadcastSetupUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		60CE7E5E1FD645E80063E87A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		60CE7E611FD645E80063E87A /* BroadcastSetupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BroadcastSetupViewController.h; sourceTree = "<group>"; };
+		60CE7E621FD645E80063E87A /* BroadcastSetupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BroadcastSetupViewController.m; sourceTree = "<group>"; };
+		60CE7E641FD645E80063E87A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60CE7E721FD64FE60063E87A /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		64C2739ECC5559476005727D /* Pods_VideoChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		707FD419AA8B9766440ECD8A /* Pods-Broadcast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Broadcast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Broadcast/Pods-Broadcast.debug.xcconfig"; sourceTree = "<group>"; };
 		728228FB1EFA86850088C7EB /* STSPinnedMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSPinnedMessageView.h; sourceTree = "<group>"; };
 		728228FC1EFA86850088C7EB /* STSPinnedMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSPinnedMessageView.m; sourceTree = "<group>"; };
 		728229011EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSMessageLongPressGestureRecognizer.h; sourceTree = "<group>"; };
@@ -84,6 +142,7 @@
 		728229081EFD39700088C7EB /* UIViewController+VideoChatUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VideoChatUtility.m"; sourceTree = "<group>"; };
 		72F47A401DDA1CA000103583 /* StreamingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StreamingViewController.h; path = Streaming/StreamingViewController.h; sourceTree = "<group>"; };
 		72F47A411DDA1CA000103583 /* StreamingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StreamingViewController.m; path = Streaming/StreamingViewController.m; sourceTree = "<group>"; };
+		740C43348B3B3AB02BF5A58C /* Pods_BroadcastSetupUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BroadcastSetupUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B133DD41DCAF4020082C269 /* UIImage+sticker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+sticker.h"; sourceTree = "<group>"; };
 		9B133DD51DCAF4020082C269 /* UIImage+sticker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+sticker.m"; sourceTree = "<group>"; };
 		9B16870D1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "STSChatUser+VieoChatUtility.h"; sourceTree = "<group>"; };
@@ -118,6 +177,9 @@
 		9BF197191EEEA213003AE88E /* STSPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSPlayerViewController.m; sourceTree = "<group>"; };
 		9BF1971B1EEEA6AF003AE88E /* UIViewController+STSKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+STSKeyboard.h"; sourceTree = "<group>"; };
 		9BF1971C1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+STSKeyboard.m"; sourceTree = "<group>"; };
+		A2249AC55CB11E4E6A7A3A60 /* Pods-BroadcastSetupUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastSetupUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BroadcastSetupUI/Pods-BroadcastSetupUI.debug.xcconfig"; sourceTree = "<group>"; };
+		D654B09AC7660EBD2EF69A77 /* Pods-BroadcastSetupUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastSetupUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-BroadcastSetupUI/Pods-BroadcastSetupUI.release.xcconfig"; sourceTree = "<group>"; };
+		DEFB68FCA4AF20E0E29C2573 /* Pods-Broadcast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Broadcast.release.xcconfig"; path = "Pods/Target Support Files/Pods-Broadcast/Pods-Broadcast.release.xcconfig"; sourceTree = "<group>"; };
 		EC14F7612121694672BF11EF /* Pods-VideoChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoChat/Pods-VideoChat.release.xcconfig"; sourceTree = "<group>"; };
 		F926D33A69130242491380A6 /* Pods-VideoChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoChat/Pods-VideoChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +190,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADDAF509351485C7AE9DE21 /* Pods_VideoChat.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60CE7E4D1FD645E80063E87A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60CE7E521FD645E80063E87A /* ReplayKit.framework in Frameworks */,
+				384736B6B699F13F67D6A464 /* Pods_Broadcast.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60CE7E591FD645E80063E87A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60CE7E5D1FD645E80063E87A /* ReplayKit.framework in Frameworks */,
+				60CE7E5F1FD645E80063E87A /* UIKit.framework in Frameworks */,
+				442E5240CB337FD6B23E8654 /* Pods_BroadcastSetupUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				40C779D91D7091D0004F61CA /* Examples */,
+				60CE7E531FD645E80063E87A /* Broadcast */,
+				60CE7E601FD645E80063E87A /* BroadcastSetupUI */,
 				40C779D81D7091D0004F61CA /* Products */,
 				A97E121124F4149BF9610B16 /* Pods */,
 				D28A08C5EF5AE8A8A86EB5C4 /* Frameworks */,
@@ -188,6 +271,8 @@
 			isa = PBXGroup;
 			children = (
 				40C779D71D7091D0004F61CA /* VideoChat.app */,
+				60CE7E501FD645E80063E87A /* Broadcast.appex */,
+				60CE7E5C1FD645E80063E87A /* BroadcastSetupUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -224,6 +309,29 @@
 				40C779DB1D7091D0004F61CA /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		60CE7E531FD645E80063E87A /* Broadcast */ = {
+			isa = PBXGroup;
+			children = (
+				60CE7E541FD645E80063E87A /* SampleHandler.h */,
+				60CE7E551FD645E80063E87A /* SampleHandler.m */,
+				6070AB4B1FFB389700849663 /* STSRKStreamer.h */,
+				6070AB4C1FFB389800849663 /* STSRKStreamer.m */,
+				60CE7E571FD645E80063E87A /* Info.plist */,
+			);
+			path = Broadcast;
+			sourceTree = "<group>";
+		};
+		60CE7E601FD645E80063E87A /* BroadcastSetupUI */ = {
+			isa = PBXGroup;
+			children = (
+				60CE7E721FD64FE60063E87A /* MainInterface.storyboard */,
+				60CE7E611FD645E80063E87A /* BroadcastSetupViewController.h */,
+				60CE7E621FD645E80063E87A /* BroadcastSetupViewController.m */,
+				60CE7E641FD645E80063E87A /* Info.plist */,
+			);
+			path = BroadcastSetupUI;
 			sourceTree = "<group>";
 		};
 		72E0939F1DD080B70045E587 /* Streaming */ = {
@@ -282,6 +390,10 @@
 			children = (
 				F926D33A69130242491380A6 /* Pods-VideoChat.debug.xcconfig */,
 				EC14F7612121694672BF11EF /* Pods-VideoChat.release.xcconfig */,
+				A2249AC55CB11E4E6A7A3A60 /* Pods-BroadcastSetupUI.debug.xcconfig */,
+				D654B09AC7660EBD2EF69A77 /* Pods-BroadcastSetupUI.release.xcconfig */,
+				707FD419AA8B9766440ECD8A /* Pods-Broadcast.debug.xcconfig */,
+				DEFB68FCA4AF20E0E29C2573 /* Pods-Broadcast.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -290,6 +402,10 @@
 			isa = PBXGroup;
 			children = (
 				64C2739ECC5559476005727D /* Pods_VideoChat.framework */,
+				60CE7E511FD645E80063E87A /* ReplayKit.framework */,
+				60CE7E5E1FD645E80063E87A /* UIKit.framework */,
+				740C43348B3B3AB02BF5A58C /* Pods_BroadcastSetupUI.framework */,
+				455ED681ED2EF38DADA93D78 /* Pods_Broadcast.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -307,15 +423,56 @@
 				40C779D51D7091D0004F61CA /* Resources */,
 				BD2228DD8E56EE5D40E8F00C /* [CP] Embed Pods Frameworks */,
 				40254B0CD113DC5156F5EF90 /* [CP] Copy Pods Resources */,
+				60CE7E711FD645E80063E87A /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				60CE7E661FD645E80063E87A /* PBXTargetDependency */,
+				60CE7E691FD645E80063E87A /* PBXTargetDependency */,
 			);
 			name = VideoChat;
 			productName = Example;
 			productReference = 40C779D71D7091D0004F61CA /* VideoChat.app */;
 			productType = "com.apple.product-type.application";
+		};
+		60CE7E4F1FD645E80063E87A /* Broadcast */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60CE7E701FD645E80063E87A /* Build configuration list for PBXNativeTarget "Broadcast" */;
+			buildPhases = (
+				F2DC6FFF7192402231CA8977 /* [CP] Check Pods Manifest.lock */,
+				60CE7E4C1FD645E80063E87A /* Sources */,
+				60CE7E4D1FD645E80063E87A /* Frameworks */,
+				60CE7E4E1FD645E80063E87A /* Resources */,
+				47CB543C78B6CABBFDBD4099 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Broadcast;
+			productName = Broadcast;
+			productReference = 60CE7E501FD645E80063E87A /* Broadcast.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		60CE7E5B1FD645E80063E87A /* BroadcastSetupUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60CE7E6F1FD645E80063E87A /* Build configuration list for PBXNativeTarget "BroadcastSetupUI" */;
+			buildPhases = (
+				A297754D30A041FD18A39C86 /* [CP] Check Pods Manifest.lock */,
+				60CE7E581FD645E80063E87A /* Sources */,
+				60CE7E591FD645E80063E87A /* Frameworks */,
+				60CE7E5A1FD645E80063E87A /* Resources */,
+				0D14B25BBA655E85C5B9C194 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BroadcastSetupUI;
+			productName = BroadcastSetupUI;
+			productReference = 60CE7E5C1FD645E80063E87A /* BroadcastSetupUI.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -334,6 +491,14 @@
 							};
 						};
 					};
+					60CE7E4F1FD645E80063E87A = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					60CE7E5B1FD645E80063E87A = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 40C779D21D7091D0004F61CA /* Build configuration list for PBXProject "VideoChat" */;
@@ -351,6 +516,8 @@
 			projectRoot = "";
 			targets = (
 				40C779D61D7091D0004F61CA /* VideoChat */,
+				60CE7E4F1FD645E80063E87A /* Broadcast */,
+				60CE7E5B1FD645E80063E87A /* BroadcastSetupUI */,
 			);
 		};
 /* End PBXProject section */
@@ -369,9 +536,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		60CE7E4E1FD645E80063E87A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60CE7E5A1FD645E80063E87A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60CE7E731FD64FE60063E87A /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0D14B25BBA655E85C5B9C194 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BroadcastSetupUI/Pods-BroadcastSetupUI-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		40254B0CD113DC5156F5EF90 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,7 +584,37 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VideoChat/Pods-VideoChat-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		47CB543C78B6CABBFDBD4099 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Broadcast/Pods-Broadcast-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4EC5C0177EF5A9239F156B15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A297754D30A041FD18A39C86 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -415,6 +642,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VideoChat/Pods-VideoChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2DC6FFF7192402231CA8977 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -457,7 +699,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		60CE7E4C1FD645E80063E87A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6070AB4D1FFB389800849663 /* STSRKStreamer.m in Sources */,
+				60CE7E561FD645E80063E87A /* SampleHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60CE7E581FD645E80063E87A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60CE7E631FD645E80063E87A /* BroadcastSetupViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		60CE7E661FD645E80063E87A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 60CE7E5B1FD645E80063E87A /* BroadcastSetupUI */;
+			targetProxy = 60CE7E651FD645E80063E87A /* PBXContainerItemProxy */;
+		};
+		60CE7E691FD645E80063E87A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 60CE7E4F1FD645E80063E87A /* Broadcast */;
+			targetProxy = 60CE7E681FD645E80063E87A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		40C779E61D7091D0004F61CA /* Main.storyboard */ = {
@@ -577,6 +849,7 @@
 			baseConfigurationReference = F926D33A69130242491380A6 /* Pods-VideoChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/VideoChat/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.straas.VideoChat;
@@ -589,10 +862,127 @@
 			baseConfigurationReference = EC14F7612121694672BF11EF /* Pods-VideoChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/VideoChat/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.straas.VideoChat;
 				PRODUCT_NAME = VideoChat;
+			};
+			name = Release;
+		};
+		60CE7E6B1FD645E80063E87A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 707FD419AA8B9766440ECD8A /* Pods-Broadcast.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Broadcast/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.straas.VideoChat.Broadcast;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		60CE7E6C1FD645E80063E87A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEFB68FCA4AF20E0E29C2573 /* Pods-Broadcast.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Broadcast/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.straas.VideoChat.Broadcast;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		60CE7E6D1FD645E80063E87A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2249AC55CB11E4E6A7A3A60 /* Pods-BroadcastSetupUI.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = BroadcastSetupUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.straas.VideoChat.BroadcastSetupUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		60CE7E6E1FD645E80063E87A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D654B09AC7660EBD2EF69A77 /* Pods-BroadcastSetupUI.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = BroadcastSetupUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.straas.VideoChat.BroadcastSetupUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -613,6 +1003,24 @@
 			buildConfigurations = (
 				40C779F21D7091D0004F61CA /* Debug */,
 				40C779F31D7091D0004F61CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60CE7E6F1FD645E80063E87A /* Build configuration list for PBXNativeTarget "BroadcastSetupUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60CE7E6D1FD645E80063E87A /* Debug */,
+				60CE7E6E1FD645E80063E87A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60CE7E701FD645E80063E87A /* Build configuration list for PBXNativeTarget "Broadcast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60CE7E6B1FD645E80063E87A /* Debug */,
+				60CE7E6C1FD645E80063E87A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
