@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |co|
     co.vendored_frameworks = "ios/StraaSCoreSDK.framework"
     co.dependency "AFNetworking", "~>3.0"
-    co.dependency "Socket.IO-Client-Swift", "~> 8.3"
+    co.dependency "Socket.IO-Client-Swift", "12.0.0"
   end
   s.subspec 'Streaming' do |streaming|
     streaming.vendored_frameworks = "ios/StraaSStreamingSDK.framework"
