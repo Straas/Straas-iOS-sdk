@@ -36,4 +36,10 @@ Pod::Spec.new do |s|
     player.dependency "GoogleAds-IMA-iOS-SDK", "~> 3.3"
     player.dependency "KVOController", "~>1.1.0"
   end
+  s.subspec 'Circall' do |circall|
+    circall.vendored_frameworks = "ios/StraaSCircallSDK.framework"
+    circall.dependency "StraaS-iOS-SDK/Core"
+    circall.dependency "Socket.IO-Client-Swift", "12.0.0"
+    circall.dependency "AFNetworking", "~>3.0"
+  end
 end
