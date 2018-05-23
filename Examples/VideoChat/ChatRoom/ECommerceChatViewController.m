@@ -17,7 +17,6 @@ CGFloat const kEcommerceChatVCfloatingDistrictWidth = 70.0;
 
 @property (nonatomic) TransparentChatViewController *chatVC;
 @property (nonatomic) NSString * chatroomName;
-@property (nonatomic) STSChatroomConnectionOptions options;
 @property (nonatomic) UIView * toolbarView;
 @property (nonatomic) UIButton * showKeyboardButton;
 @property (nonatomic) UIButton * likeButton;
@@ -327,10 +326,6 @@ CGFloat const kEcommerceChatVCfloatingDistrictWidth = 70.0;
     return self.chatVC.chatroomName;
 }
 
-- (STSChatroomConnectionOptions)options {
-    return self.chatVC.connectionOptions;
-}
-
 #pragma mark - Action
 - (void)didTapLikeButton:(UIButton *)button {
     NSUInteger randomInt = (NSUInteger)arc4random_uniform(3);
@@ -389,8 +384,8 @@ CGFloat const kEcommerceChatVCfloatingDistrictWidth = 70.0;
 
 #pragma mark - Public Methods
 
-- (void)connectToChatWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
-    [self.chatVC connectToChatWithJWT:JWT chatroomName:chatroomName connectionOptions:connectionOptions];
+- (void)connectToChatWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName {
+    [self.chatVC connectToChatWithJWT:JWT chatroomName:chatroomName];
 }
 
 #pragma mark - KVO

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "ChatViewController.h"
-#import <StraaSMessagingSDK/STSChatroomConnectionOptions.h>
 
 /**
  ChatStickerViewController is a StraaS.io chatroom UI with sticker input. It is meant to be subclassed.
@@ -31,11 +30,6 @@
  Current chatroom name.
  */
 @property (nonatomic, readonly) NSString * chatroomName;
-
-/**
- Current connection options.
- */
-@property (nonatomic, readonly) STSChatroomConnectionOptions connectionOptions;
 
 /**
  StraaS Chat manager.
@@ -76,8 +70,7 @@
  @param connectionOptions The connection options to connect to the chat you want.
  */
 - (void)connectToChatWithJWT:(NSString *)JWT
-                chatroomName:(NSString *)chatroomName
-           connectionOptions:(STSChatroomConnectionOptions)connectionOptions NS_REQUIRES_SUPER;
+                chatroomName:(NSString *)chatroomName NS_REQUIRES_SUPER;
 /**
  Disconnect current chatroom.
  */

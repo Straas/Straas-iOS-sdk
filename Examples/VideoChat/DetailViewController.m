@@ -38,10 +38,6 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
     return <#PUT_YOUR_CHATROOMNAME_HERE#>;
 }
 
-- (STSChatroomConnectionOptions)chatroomConnectionOptions {
-    return <#PUT_YOUR_CONNECTIONOPTIONS_HERE#>;
-}
-
 #pragma mark - Managing the detail item
 
 - (void)setDetailItem:(id)newDetailItem {
@@ -85,7 +81,7 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 - (void)addDefaultChatView {
     ChatViewController * controller = [ChatViewController new];
     [self addControllerAndSetAutoLayout:controller];
-    [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName connectionOptions:self.chatroomConnectionOptions];
+    [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName];
 }
 
 - (void)addCustomChatView {
@@ -94,13 +90,13 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
     [ChatStickerExampleViewController viewControllerWithChatViewController:chatExampleViewController];
     controller.stickerViewShowingHeight = 180;
     [self addControllerAndSetAutoLayout:controller];
-    [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName connectionOptions:self.chatroomConnectionOptions];
+    [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName];
 }
 
 - (void)addECommerceChatView {
     ECommerceChatViewController *controller = [ECommerceChatViewController new];
     [self addControllerAndSetAutoLayout:controller];
-    [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName connectionOptions:self.chatroomConnectionOptions];
+    [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName];
 }
 
 - (void)addStreamingView {
