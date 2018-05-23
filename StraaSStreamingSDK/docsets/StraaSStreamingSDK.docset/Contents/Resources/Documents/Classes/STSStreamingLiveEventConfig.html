@@ -82,6 +82,9 @@
                 <a href="../Enums/STSStreamingErrorCode.html">STSStreamingErrorCode</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/STSStreamingProfile.html">STSStreamingProfile</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/STSStreamingResolution.html">STSStreamingResolution</a>
               </li>
               <li class="nav-group-task">
@@ -363,7 +366,10 @@ Defaults to <code>NO</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The max resolution of the live event. Defaults to <code>STSStreamingResolution1080p</code>.</p>
+                        <p>The max resolution of the live event. Defaults to <code>STSStreamingResolution720p</code>.
+  This property is deprecated. Use <code><a href="../Classes/STSStreamingLiveEventConfig.html#/c:objc(cs)STSStreamingLiveEventConfig(py)profile">profile</a></code> instead.</p>
+
+<p>Note: This property only works if <code><a href="../Classes/STSStreamingLiveEventConfig.html#/c:objc(cs)STSStreamingLiveEventConfig(py)profile">profile</a></code> is equal to <code>STSStreamingProfileNone</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -376,6 +382,112 @@ Defaults to <code>NO</code>.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="k">var</span> <span class="nv">maxResolution</span><span class="p">:</span> <span class="kt"><a href="../Enums/STSStreamingResolution.html">STSStreamingResolution</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSStreamingLiveEventConfig(py)profile"></a>
+                    <a name="//apple_ref/objc/Property/profile" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSStreamingLiveEventConfig(py)profile">profile</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The profile of the live event. Defaults to <code>STSStreamingProfileNone</code>.</p>
+
+<p>Note that <code>STSStreamingProfile1080pAndSource</code> can only be used when your account is enabled highest resolution 1080p authority.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/STSStreamingProfile.html">STSStreamingProfile</a></span> <span class="n">profile</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">profile</span><span class="p">:</span> <span class="kt"><a href="../Enums/STSStreamingProfile.html">STSStreamingProfile</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSStreamingLiveEventConfig(py)vodMerge"></a>
+                    <a name="//apple_ref/objc/Property/vodMerge" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSStreamingLiveEventConfig(py)vodMerge">vodMerge</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A boolean value indicates whether to merge all VoDs of the live event together. Defaults to <code>NO</code>.</p>
+
+<p>Note:
+  * If this property is set to <code>YES</code>, only one VoD will be generated, and no temporary VoD will be shown until the live event ends.
+  * This configuration can&rsquo;t be changed after the live event is created.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">vodMerge</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">vodMerge</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSStreamingLiveEventConfig(py)dvrEnabled"></a>
+                    <a name="//apple_ref/objc/Property/dvrEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSStreamingLiveEventConfig(py)dvrEnabled">dvrEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A boolean value indicates whether to enable live DVR feature for a live event. Default value: <code>NO</code>.</p>
+
+<p>Note:
+  * This configuration can&rsquo;t be changed after the live event is created.
+  * This property can be set to <code>YES</code> only when your account is enabled live-DVR authority.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">dvrEnabled</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">dvrEnabled</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
