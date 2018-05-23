@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/STSStreamingLiveEventConfig.h</key>
 		<data>
-		3DdQKUVWTKFyMjHf3gPEPSgMqHo=
+		YXk+uAubfHeE0AezX+JR/CfKcac=
 		</data>
 		<key>Headers/STSStreamingManager.h</key>
 		<data>
@@ -36,9 +36,13 @@
 		<data>
 		SU2kbQ7mNCGqP4ULBY2IWTecnkE=
 		</data>
+		<key>Headers/STSStreamingProfile.h</key>
+		<data>
+		7hW8Zq+yvKQ+4hcDd6z+NRqvxAw=
+		</data>
 		<key>Headers/STSStreamingResolution.h</key>
 		<data>
-		3r+vAPMd488O+mS5kAkyiNUssec=
+		jwJJVV8VjbZIZ31KbFY42mdLEBY=
 		</data>
 		<key>Headers/STSStreamingState.h</key>
 		<data>
@@ -54,11 +58,11 @@
 		</data>
 		<key>Headers/StraaSStreamingSDK.h</key>
 		<data>
-		ToziT7cw33Z8hQiMvuvFWB4txcw=
+		+LydpgOrZHk8CepfOaXX6cIfFl4=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		l7sqjbjAn/fR5wcmoEu1HuPh0hU=
+		Tv4t8L+NOCqg+Ni9g8zWAZVJldQ=
 		</data>
 		<key>Localizable.strings</key>
 		<data>
@@ -130,11 +134,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3DdQKUVWTKFyMjHf3gPEPSgMqHo=
+			YXk+uAubfHeE0AezX+JR/CfKcac=
 			</data>
 			<key>hash2</key>
 			<data>
-			DnhqPVfbF5G7V6z8vxJCWstvDfT7iOoOyaF6qkmg4DQ=
+			huD1fKV6PEMrOXPxTTKWU/0aaUagUglY4zZKEmC4xoc=
 			</data>
 		</dict>
 		<key>Headers/STSStreamingManager.h</key>
@@ -159,15 +163,26 @@
 			Bj8o3tMONv7XZTbFRwq8LELpKONnn7KQ5rDCnperobM=
 			</data>
 		</dict>
+		<key>Headers/STSStreamingProfile.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			7hW8Zq+yvKQ+4hcDd6z+NRqvxAw=
+			</data>
+			<key>hash2</key>
+			<data>
+			folMfs+CpWi7syLYW6D8pfCl8qekZWGFW2yp+ghhfYA=
+			</data>
+		</dict>
 		<key>Headers/STSStreamingResolution.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3r+vAPMd488O+mS5kAkyiNUssec=
+			jwJJVV8VjbZIZ31KbFY42mdLEBY=
 			</data>
 			<key>hash2</key>
 			<data>
-			rpWCoIIfUsqkdqJjUmHS5HKwC9XTfKEW2rjrmcj+39M=
+			EKoQsCbF/MP1oh5+6zsPjAEoFPjzY5+e3QgFDRk98qs=
 			</data>
 		</dict>
 		<key>Headers/STSStreamingState.h</key>
@@ -207,11 +222,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ToziT7cw33Z8hQiMvuvFWB4txcw=
+			+LydpgOrZHk8CepfOaXX6cIfFl4=
 			</data>
 			<key>hash2</key>
 			<data>
-			kWVp/OM7hvWzAEdWKmrVMOKlw05TLExmLhinIIupMvg=
+			Qc4yI7Ykg6cgfr5w08707mjXf8YbWdj8vhhKG9kGcgg=
 			</data>
 		</dict>
 		<key>Localizable.strings</key>

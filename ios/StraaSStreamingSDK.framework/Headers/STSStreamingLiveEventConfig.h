@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "STSStreamingResolution.h"
+#import "STSStreamingProfile.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -60,9 +61,37 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL vodAvailable;
 
 /**
- *  The max resolution of the live event. Defaults to `STSStreamingResolution1080p`.
+ *  The max resolution of the live event. Defaults to `STSStreamingResolution720p`.
+ *  This property is deprecated. Use `profile` instead.
+ *
+ *  Note: This property only works if `profile` is equal to `STSStreamingProfileNone`.
  */
-@property (nonatomic) STSStreamingResolution maxResolution;
+@property (nonatomic) STSStreamingResolution maxResolution __attribute__((deprecated("`maxResolution` has been deprecated. Use `profile` instead.")));
+
+/**
+ *  The profile of the live event. Defaults to `STSStreamingProfileNone`.
+ *
+ *  Note that `STSStreamingProfile1080pAndSource` can only be used when your account is enabled highest resolution 1080p authority.
+ */
+@property (nonatomic) STSStreamingProfile profile;
+
+/**
+ *  A boolean value indicates whether to merge all VoDs of the live event together. Defaults to `NO`.
+ *
+ *  Note:
+ *  * If this property is set to `YES`, only one VoD will be generated, and no temporary VoD will be shown until the live event ends.
+ *  * This configuration can't be changed after the live event is created.
+ */
+@property (nonatomic) BOOL vodMerge;
+
+/**
+ *  A boolean value indicates whether to enable live DVR feature for a live event. Default value: `NO`.
+ *
+ *  Note:
+ *  * This configuration can't be changed after the live event is created.
+ *  * This property can be set to `YES` only when your account is enabled live-DVR authority.
+ */
+@property (nonatomic) BOOL dvrEnabled;
 
 /// :nodoc:
 + (instancetype)new __attribute__((unavailable("new not available, call `liveEventConfigWithTitle:synopsis:listed:` instead.")));

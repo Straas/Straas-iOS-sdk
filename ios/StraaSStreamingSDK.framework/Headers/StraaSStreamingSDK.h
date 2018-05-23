@@ -27,3 +27,4 @@ FOUNDATION_EXPORT const unsigned char StraaSStreamingSDKVersionString[];
 #import <StraaSStreamingSDK/STSAudioConfiguration.h>
 #import <StraaSStreamingSDK/STSLiveStreamer.h>
 #import <StraaSStreamingSDK/STSStreamingInfo.h>
+#import <StraaSStreamingSDK/STSStreamingProfile.h>
