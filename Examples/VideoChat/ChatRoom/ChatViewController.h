@@ -51,11 +51,6 @@ extern NSString * const STSChatViewControllerSendMessageFailureNotification;
 @property (nonatomic, readonly) NSString * chatroomName;
 
 /**
- Current connection options.
- */
-@property (nonatomic, readonly) STSChatroomConnectionOptions connectionOptions;
-
-/**
  StraaS Chat manager.
  */
 @property (nonatomic, readonly) STSChatManager * manager;
@@ -164,8 +159,7 @@ extern NSString * const STSChatViewControllerSendMessageFailureNotification;
  @param connectionOptions The connection options to connect to the chat you want.
  */
 - (void)connectToChatWithJWT:(NSString *)JWT
-                chatroomName:(NSString *)chatroomName
-           connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
+                chatroomName:(NSString *)chatroomName;
 
 /**
  Disconnect current chatroom.

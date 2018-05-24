@@ -35,7 +35,6 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
 
 @property (nonatomic, readwrite) NSString * JWT;
 @property (nonatomic, readwrite) NSString * chatroomName;
-@property (nonatomic, readwrite) STSChatroomConnectionOptions connectionOptions;
 @property (nonatomic, readwrite) STSChatManager * manager;
 @property (nonatomic) STSChat * currentChat;
 @property (nonatomic) STSChatUser * currentUser;
@@ -512,14 +511,13 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
     }
 }
 
-- (void)connectToChatWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
-    if (![JWT isEqualToString:self.JWT] || ![chatroomName isEqualToString:self.chatroomName] || connectionOptions != self.connectionOptions) {
+- (void)connectToChatWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName {
+    if (![JWT isEqualToString:self.JWT] || ![chatroomName isEqualToString:self.chatroomName]) {
         [self disconnectCurrentChatIfNeeded];
     }
     [self.indicator startAnimating];
     self.JWT = JWT;
     self.chatroomName = chatroomName;
-    self.connectionOptions = connectionOptions;
     __weak ChatViewController * weakSelf = self;
     [STSApplication configureApplication:^(BOOL success, NSError *error) {
         if (weakSelf.configurationFinishHandler) {
@@ -529,7 +527,6 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
         if (success) {
             [weakSelf.manager connectToChatroom:chatroomName
                                             JWT:JWT
-                                        options:connectionOptions
                                   eventDelegate:weakSelf.eventDelegate];
         } else {
             [weakSelf.eventDelegate chatroom:weakSelf.currentChat failToConnect:error];
@@ -637,11 +634,7 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
 }
 
 - (STSChat *)currentChat {
-    return [self.manager chatForChatroomName:self.chatroomName isPersonalChat:self.isPersonalChat];
-}
-
-- (BOOL)isPersonalChat {
-    return self.connectionOptions & STSChatroomConnectionIsPersonalChat;
+    return [self.manager chatForChatroomName:self.chatroomName];
 }
 
 - (id<STSChatEventDelegate>)eventDelegate {

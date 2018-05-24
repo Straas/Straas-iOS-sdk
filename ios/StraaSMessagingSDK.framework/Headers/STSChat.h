@@ -75,11 +75,6 @@ typedef NS_ENUM(NSUInteger, STSChatInputMode) {
 @property (nonatomic, readonly) NSArray <STSChatSticker *> * stickers;
 
 /**
- *  A boolean value indicates whether the chat object is personal or not.
- */
-@property (nonatomic, readonly) BOOL isPersonalChat;
-
-/**
  *  Using new to create a STSChat instance is unavailable.
  */
 + (instancetype)new NS_UNAVAILABLE;

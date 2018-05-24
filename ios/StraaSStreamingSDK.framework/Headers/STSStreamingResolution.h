@@ -21,7 +21,12 @@ typedef NS_ENUM(NSUInteger, STSStreamingResolution) {
     /**
      *  720p resolution.(1280 x 720)
      */
-    STSStreamingResolution720p
+    STSStreamingResolution720p,
+
+    /**
+     *  360p resolution.(640 x 360)
+     */
+    STSStreamingResolution360p
 };
 
 #endif /* STSStreamingResolution_h */

@@ -11,7 +11,6 @@
 #import "STSChatUser.h"
 #import "STSChatMessage.h"
 #import "STSAggregatedData.h"
-#import "STSChatroomConnectionOptions.h"
 #import "STSGetMessagesConfiguration.h"
 #import "STSGetArchivedMessagesConfiguration.h"
 #import "STSArchivedMessagesMeta.h"
@@ -166,10 +165,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param JWT          User identity information. For StraaS.io CMS member, a member JWT should be
                         used here. Use an empty string to represent guest. Don't pass nil or this
                         method return early.
- *  @param options      Options for connecting to the chatroom you want.
  *  @param eventDelegate Chat event delegate. Chat manager not retain this delegate.
  */
-- (void)connectToChatroom:(NSString *)chatroomName JWT:(NSString *)JWT options:(STSChatroomConnectionOptions)options
+- (void)connectToChatroom:(NSString *)chatroomName JWT:(NSString *)JWT
             eventDelegate:(nullable id<STSChatEventDelegate>)eventDelegate;
 
 /**
@@ -378,11 +376,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns the chat object.
  *
  *  @param chatroomName Identifier of chat room.
- *  @param isPersonalChat A boolean value indicates whether the chat object is personal or not.
  *
  *  @return A `STSChat` instance if the chat room is connected, or nil.
  */
-- (nullable STSChat *)chatForChatroomName:(NSString *)chatroomName isPersonalChat:(BOOL)isPersonalChat;
+- (nullable STSChat *)chatForChatroomName:(NSString *)chatroomName;
 
 /**
  *  Returns the current chat user object.

@@ -14,7 +14,7 @@ extern CGFloat const kEcommerceChatVCfloatingDistrictWidth;
 
 @interface ECommerceChatViewController : UIViewController<STSChatEventDelegate>
 
-- (void)connectToChatWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions;
+- (void)connectToChatWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName;
 
 @property (nonatomic, readonly) TransparentChatViewController *chatVC;
 @property (nonatomic, readonly) UIView * toolbarView;

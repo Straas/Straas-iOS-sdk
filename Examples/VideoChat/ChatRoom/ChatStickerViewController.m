@@ -23,12 +23,10 @@ NSUInteger const defaultStickerViewHeight = 215;
 @implementation ChatStickerViewController
 
 + (instancetype)chatStickerViewControllerWithJWT:(NSString *)JWT
-                                    chatroomName:(NSString *)chatroomName
-                               connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
+                                    chatroomName:(NSString *)chatroomName {
     ChatStickerViewController * viewController =
     [[ChatStickerViewController alloc] initWithJWT:JWT
-                                      chatroomName:chatroomName
-                                 connectionOptions:connectionOptions];
+                                      chatroomName:chatroomName];
     return viewController;
 }
 
@@ -39,8 +37,7 @@ NSUInteger const defaultStickerViewHeight = 215;
 }
 
 - (instancetype)initWithJWT:(NSString *)JWT
-               chatroomName:(NSString *)chatroomName
-          connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
+               chatroomName:(NSString *)chatroomName {
     if (self = [super init]) {
         ChatViewController * chatVC = [ChatViewController new];
         self.chatVC = chatVC;
@@ -111,10 +108,6 @@ NSUInteger const defaultStickerViewHeight = 215;
     return self.chatVC.chatroomName;
 }
 
-- (STSChatroomConnectionOptions)connectionOptions {
-    return self.chatVC.connectionOptions;
-}
-
 - (STSChatManager *)manager {
     return self.chatVC.manager;
 }
@@ -126,8 +119,8 @@ NSUInteger const defaultStickerViewHeight = 215;
 
 #pragma mark - Public methods
 
-- (void)connectToChatWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName connectionOptions:(STSChatroomConnectionOptions)connectionOptions {
-    [self.chatVC connectToChatWithJWT:JWT chatroomName:chatroomName connectionOptions:connectionOptions];
+- (void)connectToChatWithJWT:(NSString *)JWT chatroomName:(NSString *)chatroomName {
+    [self.chatVC connectToChatWithJWT:JWT chatroomName:chatroomName];
 }
 
 - (void)disconnect {
