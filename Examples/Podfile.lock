@@ -17,19 +17,26 @@ PODS:
   - DSGPUImage (0.1.8)
   - GoogleAds-IMA-iOS-SDK (3.6.1)
   - KVOController (1.1.0)
-  - SDWebImage (4.3.3):
-    - SDWebImage/Core (= 4.3.3)
-  - SDWebImage/Core (4.3.3)
+  - SDWebImage (4.4.1):
+    - SDWebImage/Core (= 4.4.1)
+  - SDWebImage/Core (4.4.1)
   - SlackTextViewController (1.9.6)
-  - Socket.IO-Client-Swift (8.3.3)
+  - Socket.IO-Client-Swift (12.0.0):
+    - StarscreamSocketIO (~> 8.0.7)
+  - StarscreamSocketIO (8.0.7)
   - StraaS-iOS-SDK (0.14.1):
+    - StraaS-iOS-SDK/Circall (= 0.14.1)
     - StraaS-iOS-SDK/Core (= 0.14.1)
     - StraaS-iOS-SDK/Messaging (= 0.14.1)
     - StraaS-iOS-SDK/Player (= 0.14.1)
     - StraaS-iOS-SDK/Streaming (= 0.14.1)
+  - StraaS-iOS-SDK/Circall (0.14.1):
+    - AFNetworking (~> 3.0)
+    - Socket.IO-Client-Swift (= 12.0.0)
+    - StraaS-iOS-SDK/Core
   - StraaS-iOS-SDK/Core (0.14.1):
     - AFNetworking (~> 3.0)
-    - Socket.IO-Client-Swift (~> 8.3)
+    - Socket.IO-Client-Swift (= 12.0.0)
   - StraaS-iOS-SDK/Messaging (0.14.1):
     - StraaS-iOS-SDK/Core
   - StraaS-iOS-SDK/Player (0.14.1):
@@ -57,10 +64,11 @@ SPEC CHECKSUMS:
   DSGPUImage: d2f8a813558cff1516e78ea4c3a1050d5eb888dd
   GoogleAds-IMA-iOS-SDK: 5825cb7d5f6004618527828936a077e118da556e
   KVOController: 321b5fc59300fcaabd42c0f679baa7a27efbb2fd
-  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
+  SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
   SlackTextViewController: b854e62c1c156336bc4fd409c6ca79b5773e8f9d
-  Socket.IO-Client-Swift: a2faffdbde89c63aebc5d631041530c1068b02b8
-  StraaS-iOS-SDK: 011c3e0742de52411d60aeb58d6e8664a4f42f16
+  Socket.IO-Client-Swift: 5b0154b42b3892bfb4c44fa138cbeb8afec4f6ef
+  StarscreamSocketIO: 00b54e4208481ca5cef089545353aaf126bae16d
+  StraaS-iOS-SDK: dcd6a275480f18ffea927906fd43a6f3d1b0048e
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
 PODFILE CHECKSUM: cf45f6ee853a9f9f7b05a7c2cb1be9a37a768f76
