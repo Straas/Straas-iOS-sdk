@@ -16,6 +16,9 @@ target 'VideoChat' do
   pod 'SDWebImage'
   pod 'TTTAttributedLabel'
   pod 'StraaS-iOS-SDK', :path=>'../'
+  pod 'NYTPhotoViewer', '~> 1.2'
+  pod 'MBProgressHUD'
+  pod 'MZTimerLabel', '~> 0.5.4'
 end
 
 target 'BroadcastSetupUI' do
