@@ -12,6 +12,7 @@
 #import "ChatStickerExampleViewController.h"
 #import "StreamingViewController.h"
 #import "STSPlayerViewController.h"
+#import "STSCircallMainViewController.h"
 
 NSString * const STSPlayerServiceBasicPlayerViewKeyword = @"StraaS.io PlayerView";
 NSString * const STSMessagingServiceKeyword = @"StraaS.io default chatroom";
@@ -72,7 +73,7 @@ NSString * const STSCircallServiceKeyword = @"StraaS.io circall";
         [self addBasicPlayerView];
     }
     if ([self.detailItem isEqualToString:STSCircallServiceKeyword]) {
-//        [self addBasicPlayerView];
+        [self addCircallView];
     }
 }
 
@@ -106,6 +107,11 @@ NSString * const STSCircallServiceKeyword = @"StraaS.io circall";
 - (void)addStreamingView {
     StreamingViewController * controller = [StreamingViewController new];
     controller.JWT = self.JWT;
+    [self addControllerAndSetAutoLayout:controller];
+}
+
+- (void)addCircallView {
+    STSCircallMainViewController * controller = [STSCircallMainViewController viewControllerFromStoryboard];
     [self addControllerAndSetAutoLayout:controller];
 }
 
