@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		KHv41lAIkj3KUXqU01sAqCS2q1A=
+		6uEVU3ynEwi3fG+BahSQwBvL6Fc=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/STSLive.h</key>
 		<data>
-		xASbj3yvkKSBVtcqzii4k4p0KXw=
+		Z/xJFX5bkg4kwl6WuldwNaBpuH0=
 		</data>
 		<key>Headers/STSLiveBroadcastState.h</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Headers/STSPlayerPlaybackEventDelegate.h</key>
 		<data>
-		k0Ngch9YNZx8cR6+3Z8EwBh7xaE=
+		wV+uBMVKT83pMVFYhsuqV9HAdYU=
 		</data>
 		<key>Headers/STSPlayerPlaylistEventDelegate.h</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>Headers/STSSDKPlayerView.h</key>
 		<data>
-		UzeMNrWVAYwkxpQoY+WatbPnUzc=
+		awRETBqFdr+pN+L1VkTdyMgFDMI=
 		</data>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		IDohCSqWR1ZioMWYIbcdWXaAxNA=
+		ntDQgyeNCgFhuVfimeF0ASmeAWE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -141,11 +141,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KHv41lAIkj3KUXqU01sAqCS2q1A=
+			6uEVU3ynEwi3fG+BahSQwBvL6Fc=
 			</data>
 			<key>hash2</key>
 			<data>
-			j9ThfRYQqUfEloHZ9fCCfKIXkEwrUHtFJsB2PXD5WBA=
+			9unJ5EvsgFiPkSFkhjHa0OO3f8RsRPPQBkQArRyWTX4=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -196,11 +196,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xASbj3yvkKSBVtcqzii4k4p0KXw=
+			Z/xJFX5bkg4kwl6WuldwNaBpuH0=
 			</data>
 			<key>hash2</key>
 			<data>
-			7S+RdSoje8ZS2yQPH9YDi/pcOY6DVHVGo9ErcPamV+Q=
+			AGlK9w93G27+/mJo1Zmcs13M7FYiz4rmMxZR16o04HE=
 			</data>
 		</dict>
 		<key>Headers/STSLiveBroadcastState.h</key>
@@ -262,11 +262,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			k0Ngch9YNZx8cR6+3Z8EwBh7xaE=
+			wV+uBMVKT83pMVFYhsuqV9HAdYU=
 			</data>
 			<key>hash2</key>
 			<data>
-			y3rBmVakowkY8YD2biOzcNRRr7H4UyQ08jrljYPLbH4=
+			+sMhwnrwVLkp5WpGVSYLtM1NZfLaAy+oP1g7cn1HgRg=
 			</data>
 		</dict>
 		<key>Headers/STSPlayerPlaylistEventDelegate.h</key>
@@ -328,11 +328,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UzeMNrWVAYwkxpQoY+WatbPnUzc=
+			awRETBqFdr+pN+L1VkTdyMgFDMI=
 			</data>
 			<key>hash2</key>
 			<data>
-			vkn4i3zcWiASo1CQLTMdr7ikoQ0q8c+HfJJPnIPE2nM=
+			aSNn9SjT3LYCbI3/cckdn9bfIuQqeM24PXCDMj6Jpgg=
 			</data>
 		</dict>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>

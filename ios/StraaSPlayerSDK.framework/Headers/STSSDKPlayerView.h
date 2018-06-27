@@ -242,6 +242,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)seekToTime:(float)timeInSeconds;
 
+///**
+// *  Sets the current playback time to the live edge and plays automatically.
+// *
+// *  This method won't work under the following conditions: (1) If the current playing media is not a live. (2) If `isInLowLatencyMode` is YES. (3) If `audioSessionIsInterrupted` is YES.
+// */
+//- (void)playAtLiveEdge;
+
+/**
+ *  Sets the current playback time to the live edge and plays automatically.
+ *
+ *  This method won't work under the following conditions: (1) If the current playing media is not a live. (2) If `isInLowLatencyMode` is YES. (3) If `audioSessionIsInterrupted` is YES.
+ */
+- (void)playAtLiveEdge;
+
 /**
  *  Gets the current time of current media.
  *
