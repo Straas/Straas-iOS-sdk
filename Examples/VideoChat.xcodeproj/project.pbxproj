@@ -55,6 +55,10 @@
 		9BF1971A1EEEA213003AE88E /* STSPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF197191EEEA213003AE88E /* STSPlayerViewController.m */; };
 		9BF1971D1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF1971C1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m */; };
 		FADDAF509351485C7AE9DE21 /* Pods_VideoChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C2739ECC5559476005727D /* Pods_VideoChat.framework */; };
+		FFB6689120E395C0004CE075 /* STSCircallSingleVideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */; };
+		FFB6689220E395C0004CE075 /* STSCircallMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6688F20E395C0004CE075 /* STSCircallMainViewController.m */; };
+		FFB6689520E3961F004CE075 /* STSQRCodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6689420E3961F004CE075 /* STSQRCodeScannerViewController.m */; };
+		FFB6689820E3ADC0004CE075 /* STSScreenshotPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6689720E3ADC0004CE075 /* STSScreenshotPhoto.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -182,6 +186,14 @@
 		DEFB68FCA4AF20E0E29C2573 /* Pods-Broadcast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Broadcast.release.xcconfig"; path = "Pods/Target Support Files/Pods-Broadcast/Pods-Broadcast.release.xcconfig"; sourceTree = "<group>"; };
 		EC14F7612121694672BF11EF /* Pods-VideoChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoChat/Pods-VideoChat.release.xcconfig"; sourceTree = "<group>"; };
 		F926D33A69130242491380A6 /* Pods-VideoChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoChat/Pods-VideoChat.debug.xcconfig"; sourceTree = "<group>"; };
+		FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallSingleVideoCallViewController.m; sourceTree = "<group>"; };
+		FFB6688E20E395BF004CE075 /* STSCircallMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallMainViewController.h; sourceTree = "<group>"; };
+		FFB6688F20E395C0004CE075 /* STSCircallMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallMainViewController.m; sourceTree = "<group>"; };
+		FFB6689020E395C0004CE075 /* STSCircallSingleVideoCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallSingleVideoCallViewController.h; sourceTree = "<group>"; };
+		FFB6689320E3961F004CE075 /* STSQRCodeScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSQRCodeScannerViewController.h; sourceTree = "<group>"; };
+		FFB6689420E3961F004CE075 /* STSQRCodeScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSQRCodeScannerViewController.m; sourceTree = "<group>"; };
+		FFB6689620E3ADC0004CE075 /* STSScreenshotPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSScreenshotPhoto.h; sourceTree = "<group>"; };
+		FFB6689720E3ADC0004CE075 /* STSScreenshotPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSScreenshotPhoto.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +295,7 @@
 				72E0939F1DD080B70045E587 /* Streaming */,
 				40A2022E1D77F93E00457359 /* ChatRoom */,
 				9BF197171EEEA213003AE88E /* Player */,
+				FFB6688C20E39505004CE075 /* Circall */,
 				40C779DD1D7091D0004F61CA /* AppDelegate.h */,
 				40C779DE1D7091D0004F61CA /* AppDelegate.m */,
 				40C779E01D7091D0004F61CA /* MasterViewController.h */,
@@ -408,6 +421,21 @@
 				455ED681ED2EF38DADA93D78 /* Pods_Broadcast.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFB6688C20E39505004CE075 /* Circall */ = {
+			isa = PBXGroup;
+			children = (
+				FFB6688E20E395BF004CE075 /* STSCircallMainViewController.h */,
+				FFB6688F20E395C0004CE075 /* STSCircallMainViewController.m */,
+				FFB6689020E395C0004CE075 /* STSCircallSingleVideoCallViewController.h */,
+				FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */,
+				FFB6689320E3961F004CE075 /* STSQRCodeScannerViewController.h */,
+				FFB6689420E3961F004CE075 /* STSQRCodeScannerViewController.m */,
+				FFB6689620E3ADC0004CE075 /* STSScreenshotPhoto.h */,
+				FFB6689720E3ADC0004CE075 /* STSScreenshotPhoto.m */,
+			);
+			path = Circall;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -672,6 +700,7 @@
 				9B988EAA1DCB9C08009F8973 /* ChatStickerViewController.m in Sources */,
 				9B133DD61DCAF4020082C269 /* UIImage+sticker.m in Sources */,
 				9BDC48BA1DD092A50095BF9B /* STSSegmentedControl.m in Sources */,
+				FFB6689520E3961F004CE075 /* STSQRCodeScannerViewController.m in Sources */,
 				9B9A9BB61DC98A650017F8C1 /* StickersInputView.m in Sources */,
 				72F47A421DDA1CA000103583 /* StreamingViewController.m in Sources */,
 				728229031EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.m in Sources */,
@@ -679,9 +708,11 @@
 				4A1F4DC51ED83B8D005D6FD9 /* ECommerceChatViewController.m in Sources */,
 				40C779E21D7091D0004F61CA /* MasterViewController.m in Sources */,
 				9B98A7B61E1E3ABA00E8CE7C /* ChatStickerExampleViewController.m in Sources */,
+				FFB6689120E395C0004CE075 /* STSCircallSingleVideoCallViewController.m in Sources */,
 				40A202371D77F93E00457359 /* ChatViewController.m in Sources */,
 				9BBCBDD51E88B681006D3500 /* IconLabel.m in Sources */,
 				9B4310471DD32504002CD178 /* NSFileManager+Sticker.m in Sources */,
+				FFB6689220E395C0004CE075 /* STSCircallMainViewController.m in Sources */,
 				9BB9B32F1E7C569C00245AB7 /* NSTimer+SafeTimer.m in Sources */,
 				40A2023A1D77F93E00457359 /* TypingIndicatorView.m in Sources */,
 				40A202451D7804B400457359 /* STSChatMessage+VideoChatUtility.m in Sources */,
@@ -692,6 +723,7 @@
 				4A3A2BB51ED7DE6000A22863 /* TransparentMessageTableViewCell.m in Sources */,
 				40A202391D77F93E00457359 /* MessageTextView.m in Sources */,
 				9BF1971A1EEEA213003AE88E /* STSPlayerViewController.m in Sources */,
+				FFB6689820E3ADC0004CE075 /* STSScreenshotPhoto.m in Sources */,
 				9BF1971D1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m in Sources */,
 				40A202381D77F93E00457359 /* MessageTableViewCell.m in Sources */,
 				9BEAD38A1ED735CF004B9DAB /* FloatingImageView.m in Sources */,
@@ -946,6 +978,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = BroadcastSetupUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -975,6 +1008,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = BroadcastSetupUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
