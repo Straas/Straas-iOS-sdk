@@ -7,8 +7,8 @@
 //
 
 #import "STSCircallSingleVideoCallViewController.h"
-#import "STSCircallPlayerView.h"
-#import "STSCircallManager.h"
+#import <StraaSCircallSDK/STSCircallPlayerView.h>
+#import <StraaSCircallSDK/STSCircallManager.h>
 #import <NYTPhotoViewer/NYTPhotoViewer.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "STSScreenshotPhoto.h"
