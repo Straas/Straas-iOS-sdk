@@ -18,7 +18,7 @@
 		</data>
 		<key>Frameworks/WebRTC.framework/WebRTC</key>
 		<data>
-		eS8W2IVXlAmm06HD7yMG7s6qoUU=
+		MHqxywYibBss0JJM+sfUKf7rkUY=
 		</data>
 		<key>Frameworks/WebRTC.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -112,11 +112,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			eS8W2IVXlAmm06HD7yMG7s6qoUU=
+			MHqxywYibBss0JJM+sfUKf7rkUY=
 			</data>
 			<key>hash2</key>
 			<data>
-			QZpc+pg68ExFkKg6sgKlTLEAkLq21LmyMo4IwEDZNfo=
+			ZYhzaOCc22aSMYquMAQqusHD3SyKIugVYVBtOBMRUms=
 			</data>
 		</dict>
 		<key>Frameworks/WebRTC.framework/_CodeSignature/CodeResources</key>
