@@ -92,6 +92,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly, nullable) NSString * coverUrl;
 
+/**
+ * A boolean value indicates whether the DVR playback is enabled.
+ */
+@property (nonatomic, readonly) BOOL isDvrEnabled;
+
 @end
 
 NS_ASSUME_NONNULL_END

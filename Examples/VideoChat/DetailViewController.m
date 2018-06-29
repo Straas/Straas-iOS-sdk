@@ -12,12 +12,14 @@
 #import "ChatStickerExampleViewController.h"
 #import "StreamingViewController.h"
 #import "STSPlayerViewController.h"
+#import "STSCircallMainViewController.h"
 
 NSString * const STSPlayerServiceBasicPlayerViewKeyword = @"StraaS.io PlayerView";
 NSString * const STSMessagingServiceKeyword = @"StraaS.io default chatroom";
 NSString * const STSMessagingServiceCustomUIKeyword = @"StraaS.io customed chatroom";
 NSString * const STSMessagingServiceECommerceUIKeyword = @"StraaS.io ECommerce chatroom";
 NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
+NSString * const STSCircallServiceKeyword = @"StraaS.io circall";
 
 @interface DetailViewController ()
 @property (nonatomic) UIViewController * contentViewController;
@@ -70,6 +72,9 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
     if ([self.detailItem isEqualToString:STSPlayerServiceBasicPlayerViewKeyword]) {
         [self addBasicPlayerView];
     }
+    if ([self.detailItem isEqualToString:STSCircallServiceKeyword]) {
+        [self addCircallView];
+    }
 }
 
 - (void)addBasicPlayerView {
@@ -102,6 +107,11 @@ NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 - (void)addStreamingView {
     StreamingViewController * controller = [StreamingViewController new];
     controller.JWT = self.JWT;
+    [self addControllerAndSetAutoLayout:controller];
+}
+
+- (void)addCircallView {
+    STSCircallMainViewController * controller = [STSCircallMainViewController viewControllerFromStoryboard];
     [self addControllerAndSetAutoLayout:controller];
 }
 
