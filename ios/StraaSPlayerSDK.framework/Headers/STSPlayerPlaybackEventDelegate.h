@@ -80,6 +80,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)playerView:(STSSDKPlayerView *)playerView loadedTimeRangesChanged:(NSArray<NSValue *> *)loadedTimeRanges;
 
 /**
+ *  Called when the seekable time ranges of the current media changed.
+ *
+ * @param playerView The player view that sent the message.
+ * @param seekableTimeRanges An array contains NSValue objects containing a CMTimeRange value indicating the time ranges for which the player can seek. The time ranges returned may be discontinuous.
+ */
+- (void)playerView:(STSSDKPlayerView *)playerView seekableTimeRangesChanged:(NSArray<NSValue *> *)seekableTimeRanges;
+
+/**
  *  Called when the audio session interruption starts or ends.
  *
  *  This method may be called when a phone call arrives, a Clock or Calendar alarm sounds, or another app activates its audio session. The playback will be paused when the audio session interruption starts. Some of the player view methods will not work when the audio session is interrupted, see the description of each method for details.

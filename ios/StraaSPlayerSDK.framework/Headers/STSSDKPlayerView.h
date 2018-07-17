@@ -143,6 +143,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) BOOL isInLowLatencyMode;
 
 /**
+ *  A boolean value indicates whether the playback is in live DVR mode.
+ */
+@property (nonatomic, readonly) BOOL isInDvrMode;
+
+/**
  *  A boolean value indicates whether the audio session is interrupted. Some of the player view methods will not work when this property is `YES`, see the description of each method for details.
  */
 @property (nonatomic, readonly) BOOL audioSessionIsInterrupted;
@@ -179,6 +184,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param playlistId The id of the playlist you want to load.
  */
 - (void)loadPlaylistWithId:(NSString *)playlistId;
+
+
+/**
+ *  Loads and starts playing the specified video from the given playlist.
+ *
+ *  This method won't work if `audioSessionIsInterrupted` is `YES`.
+ *
+ *  @param playlistId The id of the playlist you want to load.
+ *  @param videoId The id of the video you want to play in the beginning.
+ */
+- (void)loadPlaylistWithId:(NSString *)playlistId playlistVideoId:(NSString *)videoId;
+
 
 /**
  *  Loads and starts playing a specific live without lowLatencyFirst.
@@ -241,6 +258,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param timeInSeconds The time to which to seek.
  */
 - (void)seekToTime:(float)timeInSeconds;
+
+/**
+ *  Sets the current playback time to the live edge and plays automatically.
+ *
+ *  This method won't work under the following conditions: (1) If the current playing media is not a live. (2) If `isInLowLatencyMode` is YES. (3) If `audioSessionIsInterrupted` is YES.
+ */
+- (void)playAtLiveEdge;
 
 /**
  *  Gets the current time of current media.

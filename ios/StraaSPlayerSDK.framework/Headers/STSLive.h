@@ -72,6 +72,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, nullable) NSNumber * ccu;
 
 /**
+ *  The hit count of the live.
+ */
+@property (nonatomic, readonly, nullable) NSNumber * hitCountSum;
+
+/**
+ *  The play count of the live.
+ */
+@property (nonatomic, readonly, nullable) NSNumber * playCountSum;
+
+/**
  *  The VODs of the live event.
  */
 @property (nonatomic, readonly, nullable) NSArray <STSVideo *> * videos;
