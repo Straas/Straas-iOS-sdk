@@ -219,9 +219,12 @@
     if ([liveId length] == 0) {
         return;
     }
-    self.liveEventListener = [[STSLiveEventListener alloc] initWithLiveId:liveId
-                                                                 delegate:self];
-    [self.liveEventListener start];
+    self.liveEventListener = [[STSLiveEventListener alloc] initWithWithJWT:self.JWT delegate:self];
+    [self.liveEventListener startWithLiveId:liveId success:^{
+        NSLog(@"Did start listening to the live: %@", liveId);
+    } failure:^(NSError * error){
+        NSLog(@"Failed to listen to the live: %@", liveId);
+    }];
     [self.listenLiveButton setTitle:@"Stop" forState:UIControlStateNormal];
 }
 
