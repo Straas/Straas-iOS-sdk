@@ -59,6 +59,26 @@ typedef NS_ENUM(NSInteger, STSPlayerErrorCode) {
      *  Unprocessable entity. May occurred due to unacceptable input value.
      */
     STSPlayerErrorCodeUnprocessableEntity = 10,
+    /**
+     *  Operation denied. May occur due to calling the method in a wrong state.
+     */
+    STSPlayerErrorCodeOperationDenied = 11,
+    /**
+     *  Invalid live id. The live id should not be nil or empty string.
+     */
+    STSPlayerErrorCodeInvalidLiveId = 12,
+    /**
+     *  Failed to connect to the socket server(for listening live event) or disconnected from the socket server due to unexpected error after a connection was established successfully.
+     */
+    STSPlayerErrorCodeSocketConnection = 13,
+    /**
+     *  Requests over the rate limit.
+     */
+    STSPlayerErrorCodeTooManyRequest = 14,
+    /**
+     *  The operation was cancelled before it was completed.
+     */
+    STSPlayerErrorCodeCancelled = 15,
 };
 
 #endif /* STSPlayerErrorCode_h */

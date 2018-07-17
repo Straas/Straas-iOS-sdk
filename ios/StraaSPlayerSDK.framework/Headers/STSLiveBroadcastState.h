@@ -37,6 +37,12 @@ typedef NS_ENUM(NSInteger, STSLiveBroadcastState) {
      *  The live event has ended.
      */
     STSLiveBroadcastStateEventEnded = 4,
+
+    /**
+     *  Means the live event state is still available for playback within amount of time temporarily
+     *  when this event is not broadcasting for live dvr enabled live event.
+     */
+    STSLiveBroadcastStateDvrPlaybackAvailable = 5,
 };
 
 #endif /* STSLiveEventStatus_h */

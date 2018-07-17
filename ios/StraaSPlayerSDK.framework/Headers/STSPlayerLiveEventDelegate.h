@@ -83,6 +83,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)playerViewFailToLoadLowLatencyStream:(STSSDKPlayerView *)playerView liveId:(NSString *)liveId;
 
 /**
+ *  Called when the live stream playback mode changed.
+ *
+ *  This method will only be called when the player view is playing a live.
+ *
+ *  @param playerView  The player view that sent the message.
+ *  @param liveId      The StraaS live id of the live event that its playback mode changed.
+ *  @param isInDvrMode A boolean value indicates whether the live stream is in live DVR mod
+ */
+- (void)playerView:(STSSDKPlayerView *)playerView liveId:(NSString *)liveId playbackModeChanged:(BOOL)isInDvrMode;
+
+/**
  *  Called when the stream of a live event starts.
  *  This method has been deprecated. Use `playerView:live:broadcastStateChanged:` instead.
  *

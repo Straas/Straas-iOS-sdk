@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "STSLiveBroadcastState.h"
+#import "STSLiveEventListenerState.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -30,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Called when the broadcast state of the live changed.
  *
  *  @param liveEventListener The STSLiveEventListener instance that sent the message.
- *  @param broadcastState    The broadcast stae of the live.
+ *  @param broadcastState    The broadcast state of the live.
  */
 - (void)liveEventListener:(STSLiveEventListener *)liveEventListener
     broadcastStateChanged:(STSLiveBroadcastState)broadcastState;
@@ -61,6 +62,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)liveEventListener:(STSLiveEventListener *)liveEventListener broadcastStartTimeChanged:(NSNumber * _Nullable)broadcastStartTimeInMS;
 
+/**
+ *  Called when the state of the STSLiveEventListener changed.
+ *
+ *  @param liveEventListener The STSLiveEventListener instance that sent the message.
+ *  @param state             The state of the STSLiveEventListener.
+ */
+- (void)liveEventListener:(STSLiveEventListener *)liveEventListener stateChanged:(STSLiveEventListenerState)state;
+
 @end
 
 
@@ -75,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, nullable) NSNumber * ccu;
 
 /**
- *  The CCU of the current live.
+ *  The hit count of the current live.
  */
 @property (nonatomic, readonly, nullable) NSNumber * hitCount;
 
@@ -85,34 +94,55 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, nullable) NSNumber * broadcastStartTimeInMS;
 
 /**
- *  The id of the live.
+ *  The id of the current live.
  */
-@property (nonatomic, readonly) NSString * liveId;
+@property (nonatomic, readonly, nullable) NSString * liveId;
 
 /**
  *  A boolean value indicates whether the STSLiveEventListener object is listening to the live event or not.
+ *  This property is deprecated. Use `state` instead.
  */
-@property (nonatomic, readonly) BOOL isListening;
+@property (nonatomic, readonly) BOOL isListening DEPRECATED_ATTRIBUTE __attribute__((deprecated("Use `state` instead.")));
+
+/**
+ *  The state of the STSLiveEventListener.
+ */
+@property (nonatomic, readonly) STSLiveEventListenerState state;
+
+/**
+ *  The broadcast state of the live.
+ */
+@property (nonatomic, readonly) STSLiveBroadcastState broadcastState;
 
 /// :nodoc:
-+ (instancetype)new __attribute__((unavailable("`new` not available, call `initWithLiveId:delegate:` instead.")));
++ (instancetype)new __attribute__((unavailable("`new` not available, call `initWithJWT:delegate:` instead.")));
 /// :nodoc:
-- (instancetype)init __attribute__((unavailable("`init` not available, call `initWithLiveId:delegate:` instead.")));
+- (instancetype)init __attribute__((unavailable("`init` not available, call `initWithJWT:delegate:` instead.")));
 
 /**
  *  Creates a STSLiveEventListener with the given parameters.
  *
- *  @param liveId   The id of the live.
+ *  This method can only be called after you configured application successfully
+ *  (by calling `configureApplication:` method in `STSApplication` class),
+ *  otherwise you will get a nil object.
+ *
+ *  @param JWT The member token got from StraaS server. Set this parameter to `nil` if the member is a guest.
  *  @param delegate The delegate of the STSLiveEventListener object.
  *  @return A newly STSLiveEventListener object.
  */
-- (instancetype)initWithLiveId:(NSString *)liveId
-                      delegate:(id<STSLiveEventListenerDelegate>)delegate;
+- (instancetype)initWithWithJWT:(NSString * _Nullable)JWT
+                       delegate:(id<STSLiveEventListenerDelegate>)delegate;
 
 /**
- *  Start to listen to the event of the live.
+ *  Starts to listen to the live event with given live id.
+ *
+ *  @param liveId  The id of the live you want to listent its event.
+ *  @param success A block object to be executed when the task finishes successfully.
+ *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  */
-- (void)start;
+- (void)startWithLiveId:(NSString *)liveId
+                success:(void(^ _Nullable)())success
+                failure:(void(^ _Nullable)(NSError *))failure;
 
 /**
  *  Stop to listen to the change of the live.

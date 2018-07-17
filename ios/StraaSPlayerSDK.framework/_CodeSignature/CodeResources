@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		QDgtZf4XETRJz7aBhkpXGfXoQMo=
+		jzy/Kqw4vjG4mXOjeynJxbnoLas=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -26,15 +26,19 @@
 		</data>
 		<key>Headers/STSLive.h</key>
 		<data>
-		Z/xJFX5bkg4kwl6WuldwNaBpuH0=
+		kMIUYxpiLVuonNQFqIiA/QrifOI=
 		</data>
 		<key>Headers/STSLiveBroadcastState.h</key>
 		<data>
-		XOU1IjgQ03t2blXjJ83CE47hedw=
+		BfMzcYHPpK82Sh5nzHoPJmTTqp4=
 		</data>
 		<key>Headers/STSLiveEventListener.h</key>
 		<data>
-		oVlN6fXcCyaz2j180gKBfvZvRH8=
+		eNtoMwrYSWmDgrSG7arp1OIIIn8=
+		</data>
+		<key>Headers/STSLiveEventListenerState.h</key>
+		<data>
+		xEC/c4QmkxoMLp0sqrhHLs0B3mc=
 		</data>
 		<key>Headers/STSPagination.h</key>
 		<data>
@@ -42,15 +46,15 @@
 		</data>
 		<key>Headers/STSPlayerErrorCode.h</key>
 		<data>
-		WlZelms3YOUfgc0ScSs9OeGRqZQ=
+		VLckwUnUJ9eEYBkwFjn0DVIOU/E=
 		</data>
 		<key>Headers/STSPlayerLiveEventDelegate.h</key>
 		<data>
-		ZFwFpcrbcNtgegk8XhPhKyJEk94=
+		vYoqTFTJ4aiXHKlFR/Vgdup8JLw=
 		</data>
 		<key>Headers/STSPlayerPlaybackEventDelegate.h</key>
 		<data>
-		k0Ngch9YNZx8cR6+3Z8EwBh7xaE=
+		bC9499rrPUW3CHT9QmEO/ENKp54=
 		</data>
 		<key>Headers/STSPlayerPlaylistEventDelegate.h</key>
 		<data>
@@ -74,7 +78,7 @@
 		</data>
 		<key>Headers/STSSDKPlayerView.h</key>
 		<data>
-		UzeMNrWVAYwkxpQoY+WatbPnUzc=
+		jXMbU3mhnfUiG9ScAcmuFqFnvSE=
 		</data>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
 		<data>
@@ -98,11 +102,11 @@
 		</data>
 		<key>Headers/StraaSPlayerSDK.h</key>
 		<data>
-		lrBVK1LxtLyzKdtcTNpBY1CiKkY=
+		pd2wcBAtU3nBhxLXC8xR4hcxaHQ=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ntDQgyeNCgFhuVfimeF0ASmeAWE=
+		pY81RymdiVKkwTYPASw15ieXICM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -120,7 +124,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JYKDM/cj41jbwpVxs3DVlBe5Pmk=
+			RUwR/WCUE965oedg/BU0r/tTX1s=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -129,7 +133,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ej3qvlCOm+N+umLu/touE/vbBSA=
+			kR2TzY/ydFJX/UyTtltaJ+q9L5I=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -141,11 +145,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QDgtZf4XETRJz7aBhkpXGfXoQMo=
+			jzy/Kqw4vjG4mXOjeynJxbnoLas=
 			</data>
 			<key>hash2</key>
 			<data>
-			mKqOAw+EwCwU85UNB2cha6YTxnCL8Dhky+nsxUdovZE=
+			wuJPYv+oKM4qQTGpWiUkejsm0zzD4cQGYejfokg1O5o=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -196,33 +200,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Z/xJFX5bkg4kwl6WuldwNaBpuH0=
+			kMIUYxpiLVuonNQFqIiA/QrifOI=
 			</data>
 			<key>hash2</key>
 			<data>
-			AGlK9w93G27+/mJo1Zmcs13M7FYiz4rmMxZR16o04HE=
+			EHaqytoP9Am/Fw1ZpqCvU5OCpezZatqpPzu91CnDHa4=
 			</data>
 		</dict>
 		<key>Headers/STSLiveBroadcastState.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XOU1IjgQ03t2blXjJ83CE47hedw=
+			BfMzcYHPpK82Sh5nzHoPJmTTqp4=
 			</data>
 			<key>hash2</key>
 			<data>
-			/qtNRKcAI0SaZUdkFVBi2jPSeV6302ge8Yj1IcGs96Q=
+			6mia3Nltp2zZBDJszKRbcieFEDZe9eepiNEFlgOF6jw=
 			</data>
 		</dict>
 		<key>Headers/STSLiveEventListener.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			oVlN6fXcCyaz2j180gKBfvZvRH8=
+			eNtoMwrYSWmDgrSG7arp1OIIIn8=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZTD4YIEwTtTOQLLWkbi99hewD1o4GEg+pRAIW5mHMVM=
+			PFIloTh6UXoM2fFl0cvrNUD3X9bh/nHePk85gQ78ZCc=
+			</data>
+		</dict>
+		<key>Headers/STSLiveEventListenerState.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xEC/c4QmkxoMLp0sqrhHLs0B3mc=
+			</data>
+			<key>hash2</key>
+			<data>
+			jf6GaDW6I8d1IWVKSTh1mdmg8YWcHs0DU9iWrzEVErY=
 			</data>
 		</dict>
 		<key>Headers/STSPagination.h</key>
@@ -240,33 +255,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			WlZelms3YOUfgc0ScSs9OeGRqZQ=
+			VLckwUnUJ9eEYBkwFjn0DVIOU/E=
 			</data>
 			<key>hash2</key>
 			<data>
-			7XuNS2Nk43HIl+yFhnVhrxcU7wuZrZit20qQH+cDx+M=
+			xCfR7m26uRJa9mmA6sHh7363GJuQ0l75oYZdgyEA56g=
 			</data>
 		</dict>
 		<key>Headers/STSPlayerLiveEventDelegate.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ZFwFpcrbcNtgegk8XhPhKyJEk94=
+			vYoqTFTJ4aiXHKlFR/Vgdup8JLw=
 			</data>
 			<key>hash2</key>
 			<data>
-			nZPpixh+fCBj61jsTtuOMYPFH4FoMCqYJ0Knfo2IVwg=
+			1T0loaO9e9PXdK6mAC2u4zZ94r2dXxmSOwahjoGtdR0=
 			</data>
 		</dict>
 		<key>Headers/STSPlayerPlaybackEventDelegate.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			k0Ngch9YNZx8cR6+3Z8EwBh7xaE=
+			bC9499rrPUW3CHT9QmEO/ENKp54=
 			</data>
 			<key>hash2</key>
 			<data>
-			y3rBmVakowkY8YD2biOzcNRRr7H4UyQ08jrljYPLbH4=
+			BdvFeB7oRpp0aDmtG7LEzMhqKqiubceOpot0YVQhj9Q=
 			</data>
 		</dict>
 		<key>Headers/STSPlayerPlaylistEventDelegate.h</key>
@@ -328,11 +343,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UzeMNrWVAYwkxpQoY+WatbPnUzc=
+			jXMbU3mhnfUiG9ScAcmuFqFnvSE=
 			</data>
 			<key>hash2</key>
 			<data>
-			vkn4i3zcWiASo1CQLTMdr7ikoQ0q8c+HfJJPnIPE2nM=
+			PNEKZGOLF44f9ZK5IEvvwlHrGQuXmOzrVxuiDXmwlUU=
 			</data>
 		</dict>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
@@ -394,11 +409,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lrBVK1LxtLyzKdtcTNpBY1CiKkY=
+			pd2wcBAtU3nBhxLXC8xR4hcxaHQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			u9INHwseh1p6wXCJmsaj7uNjdFQnm6h2L7ANIaBePbg=
+			HSgpRJ9UqmxocU6j88N4mIn6X3IbZA4YvVwJjiEyCgw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -438,11 +453,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JYKDM/cj41jbwpVxs3DVlBe5Pmk=
+			RUwR/WCUE965oedg/BU0r/tTX1s=
 			</data>
 			<key>hash2</key>
 			<data>
-			XauE5DXUUCydoDC+CYt6sWTMz9FnfwG2uA+WRWK7rVc=
+			tF0k9r0wgioLR82F0/mL5sBb4Uo5///PQ/frIIHSHWY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -451,11 +466,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ej3qvlCOm+N+umLu/touE/vbBSA=
+			kR2TzY/ydFJX/UyTtltaJ+q9L5I=
 			</data>
 			<key>hash2</key>
 			<data>
-			RVQ41UlmA0tzaihFwfFVp2DfaNTj6Ep46kLOydtpJKk=
+			lH9Nc5fyO4SU1Xq8sU/aiX/9uY3tqV9PFr9NisVZVsw=
 			</data>
 			<key>optional</key>
 			<true/>

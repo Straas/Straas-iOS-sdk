@@ -37,3 +37,4 @@ FOUNDATION_EXPORT const unsigned char StraaSSDKVersionString[];
 #import <StraaSPlayerSDK/STSLiveBroadcastState.h>
 #import <StraaSPlayerSDK/STSGetVideoListConfiguration.h>
 #import <StraaSPlayerSDK/STSGetLiveListConfiguration.h>
+#import <StraaSPlayerSDK/STSLiveEventListenerState.h>
