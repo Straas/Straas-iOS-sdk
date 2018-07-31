@@ -158,6 +158,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL muted;
 
 /**
+ *  A float value indicates the playback speed. For VOD, the range will be in (0.0, 2.0], which is smaller or equal to 2.0, and greater than 0.0. Setting any valute out of range will be ignored. For Live, the value is not settable and is always 1.0.
+ */
+@property (nonatomic) float playbackSpeed;
+
+/**
  *  The member token got from StraaS server. Set this property to nil if the current user is a guest.
  *
  *  If you update this property when the player is playing, the new value will work the next time you load a media (live, VOD, or playlist).
