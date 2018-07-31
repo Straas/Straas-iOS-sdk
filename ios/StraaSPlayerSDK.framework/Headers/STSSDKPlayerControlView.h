@@ -69,6 +69,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) UIButton * muteSwitchButton;
 
 /**
+ *  The playback speed button.
+ */
+@property (nonatomic, readonly) UIButton * playbackSpeedButton;
+
+/**
  *  The view that shows the playback time and duration.
  */
 @property (nonatomic, readonly) STSSDKStreamingTimelineView * playbackTimelineView;
@@ -143,6 +148,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  A boolean value indicates whether the player control view is able to display the muteSwitchButton.
  */
 @property (nonatomic) BOOL canShowMuteSwitchButton;
+
+/**
+ *  A boolean value indicates whether the player control view is able to display the playbackSpeedButton.
+ *  This property works only when the player is playing video/playlist. The playbackSpeedButton is always hidden when
+ *  player is playing live.
+ */
+@property (nonatomic) BOOL canShowPlaybackSpeedButton;
 
 @end
 

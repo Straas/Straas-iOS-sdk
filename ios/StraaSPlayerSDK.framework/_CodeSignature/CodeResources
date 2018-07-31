@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		jzy/Kqw4vjG4mXOjeynJxbnoLas=
+		P4VMG3F0IKpbZLpuUckCfZl1j94=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -74,11 +74,11 @@
 		</data>
 		<key>Headers/STSSDKPlayerControlView.h</key>
 		<data>
-		T77zqtYuiyLhRu4mp2QnTUY+OEM=
+		fVLu6jWGlwRkBOAQRnWYhQSkD+E=
 		</data>
 		<key>Headers/STSSDKPlayerView.h</key>
 		<data>
-		jXMbU3mhnfUiG9ScAcmuFqFnvSE=
+		d+sjbsKKyVtSnesTmD7qQGoSUzc=
 		</data>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
 		<data>
@@ -106,7 +106,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		pY81RymdiVKkwTYPASw15ieXICM=
+		bBxBERSbTplheqZo+OrygB1fJZc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -124,7 +124,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			RUwR/WCUE965oedg/BU0r/tTX1s=
+			kIJHqPuxwTOMkgxH472KTr2d2RU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -133,7 +133,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kR2TzY/ydFJX/UyTtltaJ+q9L5I=
+			36g+tdaqBNYatJFwd1ATdFXcGXk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -145,11 +145,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jzy/Kqw4vjG4mXOjeynJxbnoLas=
+			P4VMG3F0IKpbZLpuUckCfZl1j94=
 			</data>
 			<key>hash2</key>
 			<data>
-			wuJPYv+oKM4qQTGpWiUkejsm0zzD4cQGYejfokg1O5o=
+			DmC6rpwr+4zFpSYhOefgQUq2DRQslIp02qqihEdymzM=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -332,22 +332,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			T77zqtYuiyLhRu4mp2QnTUY+OEM=
+			fVLu6jWGlwRkBOAQRnWYhQSkD+E=
 			</data>
 			<key>hash2</key>
 			<data>
-			O1/8JZhZSdofYDGxwldtGQHLcCS+RZvGHJZLHtX/LZw=
+			Gh9jTWsdYmvBawP/0T3tvIIEK10KkN/XdzLZuuX52j4=
 			</data>
 		</dict>
 		<key>Headers/STSSDKPlayerView.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jXMbU3mhnfUiG9ScAcmuFqFnvSE=
+			d+sjbsKKyVtSnesTmD7qQGoSUzc=
 			</data>
 			<key>hash2</key>
 			<data>
-			PNEKZGOLF44f9ZK5IEvvwlHrGQuXmOzrVxuiDXmwlUU=
+			qGJiqxLfOTANuuF9Zh4wAU3TqssEiyMOuaunElliQl0=
 			</data>
 		</dict>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
@@ -453,11 +453,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			RUwR/WCUE965oedg/BU0r/tTX1s=
+			kIJHqPuxwTOMkgxH472KTr2d2RU=
 			</data>
 			<key>hash2</key>
 			<data>
-			tF0k9r0wgioLR82F0/mL5sBb4Uo5///PQ/frIIHSHWY=
+			W1sJmTuopybsx9FTLCuAAF/4bplEmkvK3wUth45D7Uk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -466,11 +466,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kR2TzY/ydFJX/UyTtltaJ+q9L5I=
+			36g+tdaqBNYatJFwd1ATdFXcGXk=
 			</data>
 			<key>hash2</key>
 			<data>
-			lH9Nc5fyO4SU1Xq8sU/aiX/9uY3tqV9PFr9NisVZVsw=
+			rAcRFURGjHa620Vybg0d2aNXZ51lcp4crXiwj07jftw=
 			</data>
 			<key>optional</key>
 			<true/>
