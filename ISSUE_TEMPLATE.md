@@ -14,6 +14,8 @@ Please feel free to fill in the following info so we can help faster!
   * iOS SDK version: _____
   * Use StraaS UI or not: _____
   * CocoaPods Version: ____
+  * Xcode Version: ____
+  
   
 ### Step 3: Describe the problem:
 
