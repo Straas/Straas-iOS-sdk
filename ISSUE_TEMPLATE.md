@@ -6,7 +6,7 @@ Please feel free to fill in the following info so we can help faster!
 
   * For issues or feature requests related to the code **in this repository** file a GitHub issue.
   * For general technical questions, post a question on [StackOverflow](http://stackoverflow.com/) tagged appropriately.
-  * Contact our tech support for detailed service and assistance.
+  * Contact our tech support for further service and assistance.
 
 ### Step 2: Describe your environment
 
