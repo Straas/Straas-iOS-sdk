@@ -14,8 +14,8 @@ Please feel free to fill in the following info so we can help faster!
   * iOS version: _____
   * iOS SDK version: _____
   * Use StraaS UI or not: _____
-  * CocoaPods Version: ____
-  * Xcode Version: ____
+  * Cocoapods version: ____
+  * Xcode version: ____
   
   
 ### Step 3: Describe the problem:
@@ -28,7 +28,7 @@ Please feel free to fill in the following info so we can help faster!
   
 #### Observed Results:
 
-  * What happened?  This could be a description, log output, etc.
+  * What happened?  This could be a description, log output, error message, etc.
   
 #### Expected Results:
 
