@@ -420,9 +420,27 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
     [manager subscribeStream:stream success:^(STSCircallStream * _Nonnull stream) {
         weakSelf.viewControllerState = STSCircallSingleVideoCallViewControllerStateTwoWayVideo;
         weakSelf.fullScreenVideoView.stream = stream;
+
+        [self getRecordingStatusWithStream:stream];
     } failure:^(STSCircallStream * _Nonnull stream, NSError * _Nonnull error) {
         weakSelf.viewControllerState = STSCircallSingleVideoCallViewControllerStateConnected;
         weakSelf.fullScreenVideoView.stream = stream;
+    }];
+}
+
+- (void)getRecordingStatusWithStream:(STSCircallStream *)stream {
+    __weak STSCircallSingleVideoCallViewController * weakSelf = self;
+    [self.circallManager getRecordingStreamMetadataArrayWithSuccess:^(NSArray<STSCircallRecordingStreamMetadata *> * _Nonnull recordingStreamMetaDataArray) {
+        for (STSCircallRecordingStreamMetadata *recordingStreamMetaData in recordingStreamMetaDataArray) {
+            if ([recordingStreamMetaData.streamId isEqualToString:stream.streamId]) {
+                weakSelf.recordingId = recordingStreamMetaData.recordingId;
+                weakSelf.recordingState = recordingStreamMetaData.recordingId.length > 0 ? STSCircallSingleVideoCallViewControllerRecordingStateRecording : STSCircallSingleVideoCallViewControllerRecordingStateIdle;
+            }
+        }
+    } failure:^(NSError * _Nonnull error) {
+        NSString *errorMessage = [NSString stringWithFormat:@"getRecordingStatusWithStream failed with %@",error];
+        NSAssert(false, errorMessage);
+        weakSelf.recordingState = STSCircallSingleVideoCallViewControllerRecordingStateIdle;
     }];
 }
 
