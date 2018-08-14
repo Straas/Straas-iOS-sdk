@@ -12,6 +12,7 @@
 #import "STSCircallStream.h"
 #import "STSCircallPlayerView.h"
 #import "STSCircallPublishConfig.h"
+#import "STSCircallRecordingStreamMetadata.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -159,11 +160,11 @@ NS_ASSUME_NONNULL_BEGIN
  * This method only works if the `state` is `STSCircallStateConnected`.
  *
  * @param stream The target stream.
- * @param success A block object to be executed when the task finishes successfully. This block has no return value and takes no parameters.
+ * @param success A block object to be executed when the task finishes successfully. This block has no return value and takes a parameter `recordingId`.
  * @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  */
 - (void)startRecordingStream:(STSCircallStream *)stream
-                     success:(void(^ _Nullable)(void))success
+                     success:(void(^ _Nullable)(NSString *recordingId))success
                      failure:(void(^ _Nullable)(NSError * error))failure;
 
 /**
@@ -171,12 +172,24 @@ NS_ASSUME_NONNULL_BEGIN
  * This method only works if the `state` is `STSCircallStateConnected`.
  *
  * @param stream The target stream.
+ * @param recordingId The recording ID got from API `startRecordingStream:success:failure:` or `getRecordingStatusWithStream:success:failure:`.
  * @param success A block object to be executed when the task finishes successfully. This block has no return value and takes no parameters.
  * @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  */
 - (void)stopRecordingStream:(STSCircallStream *)stream
+                recordingId:(NSString *)recordingId
                     success:(void(^ _Nullable)(void))success
                     failure:(void(^ _Nullable)(NSError * error))failure;
+
+/**
+ * Get recording staus of the target stream.
+ * This method only works if the `state` is `STSCircallStateConnected`.
+ *
+ * @param success A block object to be executed when the task finishes successfully. This block has return value of an array of `STSCircallRecordingStreamMetadata`.
+ * @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ */
+- (void)getRecordingStreamMetadataArrayWithSuccess:(void(^ _Nullable)(NSArray <STSCircallRecordingStreamMetadata *> * recordingStreamMetaDataArray))success
+                                           failure:(void(^ _Nullable)(NSError * error))failure;
 
 @end
 

@@ -107,6 +107,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL remoteControlEnabled;
 
 /**
+ *  A boolean value indicates whether the player should show caption.
+ *  Defaults to `NO`. It will be change to `YES` after the caption exists and the caption is successfully downloaded.
+ */
+@property (nonatomic) BOOL captionEnabled;
+
+/**
  *  The scaling mode to use when displaying the video. The default value of this property is STSVideoScalingModeAspectFit. This property only works when current video is not 360-degree.
  */
 @property (nonatomic) STSVideoScalingMode videoScalingMode;

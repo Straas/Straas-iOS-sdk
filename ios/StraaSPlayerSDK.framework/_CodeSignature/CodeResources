@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		P4VMG3F0IKpbZLpuUckCfZl1j94=
+		fnc7KaCGgixQw7oGAC/4O4tuxog=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -74,11 +74,11 @@
 		</data>
 		<key>Headers/STSSDKPlayerControlView.h</key>
 		<data>
-		fVLu6jWGlwRkBOAQRnWYhQSkD+E=
+		1x8A9Slkq8zSecnkyhMB1Brjb9Y=
 		</data>
 		<key>Headers/STSSDKPlayerView.h</key>
 		<data>
-		d+sjbsKKyVtSnesTmD7qQGoSUzc=
+		rhShNRAnfcr2QHc1fuvJ+9HbNzE=
 		</data>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
 		<data>
@@ -106,7 +106,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		bBxBERSbTplheqZo+OrygB1fJZc=
+		K2TDHygVhfX0y7JwhVbQbkVFzZA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -145,11 +145,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			P4VMG3F0IKpbZLpuUckCfZl1j94=
+			fnc7KaCGgixQw7oGAC/4O4tuxog=
 			</data>
 			<key>hash2</key>
 			<data>
-			DmC6rpwr+4zFpSYhOefgQUq2DRQslIp02qqihEdymzM=
+			HyRVnIi8cw/wPpQg5d5qn396MvmCB+mnabr2KHmVFhw=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -332,22 +332,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fVLu6jWGlwRkBOAQRnWYhQSkD+E=
+			1x8A9Slkq8zSecnkyhMB1Brjb9Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			Gh9jTWsdYmvBawP/0T3tvIIEK10KkN/XdzLZuuX52j4=
+			rIJqaSrwK0CpFa76pMk1ju2vPkdSsk+D0VZmiJC/y/g=
 			</data>
 		</dict>
 		<key>Headers/STSSDKPlayerView.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			d+sjbsKKyVtSnesTmD7qQGoSUzc=
+			rhShNRAnfcr2QHc1fuvJ+9HbNzE=
 			</data>
 			<key>hash2</key>
 			<data>
-			qGJiqxLfOTANuuF9Zh4wAU3TqssEiyMOuaunElliQl0=
+			ct9s73TR2XjBi4fYpUwrZ0tHIy0SqDSORqlUT1qbxSU=
 			</data>
 		</dict>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
