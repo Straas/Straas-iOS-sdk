@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  An instance of STSSDKPlayerControlView is a means for displaying playback controls
- *   (e.g. play button, pause button) and infos (e.g. title label, subtitle label).
+ *   (e.g. play button, pause button) and info (e.g. title label, text track(subtitle) label).
  */
 @interface STSSDKPlayerControlView : UIView
 
@@ -67,6 +67,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  The mute switch button.
  */
 @property (nonatomic, readonly) UIButton * muteSwitchButton;
+
+/**
+ *  The text track switch button.
+ */
+@property (nonatomic, readonly) UIButton * textTrackSwitchButton;
 
 /**
  *  The playback speed button.
@@ -148,6 +153,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  A boolean value indicates whether the player control view is able to display the muteSwitchButton.
  */
 @property (nonatomic) BOOL canShowMuteSwitchButton;
+
+/**
+ *  A boolean value indicates whether the player control view is able to display the textTrackSwitchButton.
+ */
+@property (nonatomic) BOOL canShowTextTrackSwitchButton;
 
 /**
  *  A boolean value indicates whether the player control view is able to display the playbackSpeedButton.

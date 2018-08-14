@@ -18,7 +18,7 @@
 		</data>
 		<key>Frameworks/WebRTC.framework/WebRTC</key>
 		<data>
-		e8PIzYcUyvJSG/OAB/vKEq7x+SE=
+		WkwPQWxdedjUBHCjKstnR6i7hqY=
 		</data>
 		<key>Frameworks/WebRTC.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Headers/STSCircallManager.h</key>
 		<data>
-		aME+yzLawuRXFkyydBTrJ/bm7oU=
+		B/Ai2gBMajahZItCSfvbUUe5tKo=
 		</data>
 		<key>Headers/STSCircallPlayerView.h</key>
 		<data>
@@ -43,6 +43,10 @@
 		<key>Headers/STSCircallPublishConfig.h</key>
 		<data>
 		lP1eOjLKhrgIxc0w5WFey9SyeFI=
+		</data>
+		<key>Headers/STSCircallRecordingStreamMetadata.h</key>
+		<data>
+		OBUmB7B8LJnAS9cBSefUbRHoDvI=
 		</data>
 		<key>Headers/STSCircallScalingMode.h</key>
 		<data>
@@ -66,7 +70,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		qvoCA2J8tmhCMfcM7ue1hxCjHo0=
+		jEcGuuXqcvvgoeEHIJGNHBsYGWg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -112,11 +116,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			e8PIzYcUyvJSG/OAB/vKEq7x+SE=
+			WkwPQWxdedjUBHCjKstnR6i7hqY=
 			</data>
 			<key>hash2</key>
 			<data>
-			g9jv2hc8uhxZiSEAivch+3t2sEvhWJvpMvPXdCQp7yQ=
+			206BXPVpdKqgC3RWYgMmCjy6YrqPkIria+pZlDoGLLM=
 			</data>
 		</dict>
 		<key>Frameworks/WebRTC.framework/_CodeSignature/CodeResources</key>
@@ -156,11 +160,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			aME+yzLawuRXFkyydBTrJ/bm7oU=
+			B/Ai2gBMajahZItCSfvbUUe5tKo=
 			</data>
 			<key>hash2</key>
 			<data>
-			6UzOmOohthhSNWqeXiyVKtVTJQltylbhUsH48QLqPWk=
+			gpwH9v8i8GTkksLhkaMkc516L7BCOMZjRWgfCbsBaSQ=
 			</data>
 		</dict>
 		<key>Headers/STSCircallPlayerView.h</key>
@@ -183,6 +187,17 @@
 			<key>hash2</key>
 			<data>
 			274VVMsGPpDH9HFSzVWInQ7eY2Zim+0G4d8hT2Vt8WE=
+			</data>
+		</dict>
+		<key>Headers/STSCircallRecordingStreamMetadata.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			OBUmB7B8LJnAS9cBSefUbRHoDvI=
+			</data>
+			<key>hash2</key>
+			<data>
+			lxKxms9jvL6nwbBmhOdH63frUX4+LkyH8XlveML0ZTY=
 			</data>
 		</dict>
 		<key>Headers/STSCircallScalingMode.h</key>
