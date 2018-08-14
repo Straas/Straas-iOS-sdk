@@ -132,7 +132,7 @@
                 </div>
               </div>
             <p>An instance of STSSDKPlayerControlView is a means for displaying playback controls
- (e.g. play button, pause button) and infos (e.g. title label, subtitle label).</p>
+ (e.g. play button, pause button) and info (e.g. title label, text track(subtitle) label).</p>
 
           </section>
           <section class="section task-group-section">
@@ -403,6 +403,33 @@ User can press this button to show a quality selection menu.</p>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">muteSwitchButton</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)textTrackSwitchButton"></a>
+                    <a name="//apple_ref/objc/Property/textTrackSwitchButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)textTrackSwitchButton">textTrackSwitchButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The text track switch button.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">UIButton</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">textTrackSwitchButton</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -803,6 +830,33 @@ This property works only when the player is playing a 360 video/live.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)STSSDKPlayerControlView(py)canShowTextTrackSwitchButton"></a>
+                    <a name="//apple_ref/objc/Property/canShowTextTrackSwitchButton" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)canShowTextTrackSwitchButton">canShowTextTrackSwitchButton</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A boolean value indicates whether the player control view is able to display the textTrackSwitchButton.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">canShowTextTrackSwitchButton</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)STSSDKPlayerControlView(py)canShowPlaybackSpeedButton"></a>
                     <a name="//apple_ref/objc/Property/canShowPlaybackSpeedButton" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)STSSDKPlayerControlView(py)canShowPlaybackSpeedButton">canShowPlaybackSpeedButton</a>
@@ -834,7 +888,7 @@ player is playing live.</p>
           </section>
         </section>
         <section id="footer">
-          <p>2018 © COPYRIGHT STRAAS.IO</p>
+          <p>&copy; 2018 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2018-08-14)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
