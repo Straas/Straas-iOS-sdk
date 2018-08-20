@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "StraaS-iOS-SDK"
-  s.version      = "0.18.0"
+  s.version      = "0.18.1"
   s.summary      = "StraaS.io iOS SDK"
 
   s.description  = "StraaS.io - Streaming as a Service, Your Best OTT Solution."
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
 
   s.source       = { :git => "https://github.com/StraaS/StraaS-iOS-sdk.git",
-                     :tag => "0.18.0" }
+                     :tag => "0.18.1" }
 
   s.subspec 'Messaging' do |msg|
     msg.vendored_frameworks = "ios/StraaSMessagingSDK.framework"
@@ -41,5 +41,6 @@ Pod::Spec.new do |s|
     circall.dependency "StraaS-iOS-SDK/Core"
     circall.dependency "Socket.IO-Client-Swift", "12.0.0"
     circall.dependency "AFNetworking", "~>3.0"
+    circall.dependency "PodRTC", "56.17541.0.0"
   end
 end
