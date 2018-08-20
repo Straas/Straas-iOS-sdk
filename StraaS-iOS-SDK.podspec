@@ -41,5 +41,6 @@ Pod::Spec.new do |s|
     circall.dependency "StraaS-iOS-SDK/Core"
     circall.dependency "Socket.IO-Client-Swift", "12.0.0"
     circall.dependency "AFNetworking", "~>3.0"
+    circall.dependency "PodRTC", "56.17541.0.0"
   end
 end
