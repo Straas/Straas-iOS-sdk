@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |co|
     co.vendored_frameworks = "ios/StraaSCoreSDK.framework"
     co.dependency "AFNetworking", "~>3.0"
-    co.dependency "Socket.IO-Client-Swift", "12.0.0"
+    co.dependency "Socket.IO-Client-Swift", "~> 12.0.0"
   end
   s.subspec 'Streaming' do |streaming|
     streaming.vendored_frameworks = "ios/StraaSStreamingSDK.framework"
@@ -39,7 +39,12 @@ Pod::Spec.new do |s|
   s.subspec 'Circall' do |circall|
     circall.vendored_frameworks = "ios/StraaSCircallSDK.framework"
     circall.dependency "StraaS-iOS-SDK/Core"
-    circall.dependency "Socket.IO-Client-Swift", "12.0.0"
-    circall.dependency "AFNetworking", "~>3.0"
+    circall.dependency "Socket.IO-Client-Swift", "~> 12.0.0"
+    circall.dependency "PodRTC", "65.8.0.0"
+    circall.pod_target_xcconfig = {
+      'ENABLE_BITCODE' => 'NO',
+      'SWIFT_VERSION' => '4.0',
+      'VALID_ARCHS' => 'x86_64 arm64'
+    }
   end
 end
