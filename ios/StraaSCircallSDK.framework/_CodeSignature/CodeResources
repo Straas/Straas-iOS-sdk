@@ -4,26 +4,6 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Frameworks/WebRTC.framework/Info.plist</key>
-		<data>
-		l3U4tP24siQOP7jX1zWFU6PCG6o=
-		</data>
-		<key>Frameworks/WebRTC.framework/LICENSE.html</key>
-		<data>
-		LgYbdDx6Ydbs7Jjlo/GnaUVm3Nc=
-		</data>
-		<key>Frameworks/WebRTC.framework/LICENSE.md</key>
-		<data>
-		haSUSzG+W5rZ9ec+M4LQd0ouRD4=
-		</data>
-		<key>Frameworks/WebRTC.framework/WebRTC</key>
-		<data>
-		WkwPQWxdedjUBHCjKstnR6i7hqY=
-		</data>
-		<key>Frameworks/WebRTC.framework/_CodeSignature/CodeResources</key>
-		<data>
-		sJRIlfkRRHYlpd+eLDlHKmRzEos=
-		</data>
 		<key>Headers/STSCircallConstants.h</key>
 		<data>
 		ZwLwDg9TXRzIvu9yUywHCZyHfFM=
@@ -70,7 +50,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		jEcGuuXqcvvgoeEHIJGNHBsYGWg=
+		nefDLNzkz5b2tziIgKnsyaHVkzA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -79,61 +59,6 @@
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Frameworks/WebRTC.framework/Info.plist</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			l3U4tP24siQOP7jX1zWFU6PCG6o=
-			</data>
-			<key>hash2</key>
-			<data>
-			Q9wd9uZI7svTBm46g4qWxfObAwaJVOHhrdV8sEor1mM=
-			</data>
-		</dict>
-		<key>Frameworks/WebRTC.framework/LICENSE.html</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			LgYbdDx6Ydbs7Jjlo/GnaUVm3Nc=
-			</data>
-			<key>hash2</key>
-			<data>
-			TgmvWRJ6s3JZTFmEIwqKz7gpCAwkFauRkjUk3jafvPM=
-			</data>
-		</dict>
-		<key>Frameworks/WebRTC.framework/LICENSE.md</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			haSUSzG+W5rZ9ec+M4LQd0ouRD4=
-			</data>
-			<key>hash2</key>
-			<data>
-			6ule9Wt5dMeZA8gS9B8iZ1b9FRFf2AQIM+vWNb19MdE=
-			</data>
-		</dict>
-		<key>Frameworks/WebRTC.framework/WebRTC</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			WkwPQWxdedjUBHCjKstnR6i7hqY=
-			</data>
-			<key>hash2</key>
-			<data>
-			206BXPVpdKqgC3RWYgMmCjy6YrqPkIria+pZlDoGLLM=
-			</data>
-		</dict>
-		<key>Frameworks/WebRTC.framework/_CodeSignature/CodeResources</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			sJRIlfkRRHYlpd+eLDlHKmRzEos=
-			</data>
-			<key>hash2</key>
-			<data>
-			16g2Zho+Ll9q+RwfqCuedNjIfeimaMa2YyEGNf5OzE8=
-			</data>
-		</dict>
 		<key>Headers/STSCircallConstants.h</key>
 		<dict>
 			<key>hash</key>
