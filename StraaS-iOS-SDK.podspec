@@ -36,6 +36,10 @@ Pod::Spec.new do |s|
     player.dependency "GoogleAds-IMA-iOS-SDK", "~> 3.3"
     player.dependency "KVOController", "~>1.1.0"
   end
+  s.subspec 'PlayerLowLatencyExtension' do |playerLowLatencyExtension|
+    playerLowLatencyExtension.vendored_frameworks = "ios/StraaSPlayerLowLatencyExtensionSDK.framework"
+    playerLowLatencyExtension.dependency "StraaS-iOS-SDK/Player"
+  end
   s.subspec 'Circall' do |circall|
     circall.vendored_frameworks = "ios/StraaSCircallSDK.framework"
     circall.dependency "StraaS-iOS-SDK/Core"
