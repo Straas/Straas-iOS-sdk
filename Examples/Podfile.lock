@@ -27,6 +27,7 @@ PODS:
     - FLAnimatedImage (~> 1.0.12)
     - NYTPhotoViewer/Core
   - NYTPhotoViewer/Core (1.2.0)
+  - PodRTC (65.8.0.0)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
@@ -34,26 +35,26 @@ PODS:
   - Socket.IO-Client-Swift (12.0.0):
     - StarscreamSocketIO (~> 8.0.7)
   - StarscreamSocketIO (8.0.7)
-  - StraaS-iOS-SDK (0.18.1):
-    - StraaS-iOS-SDK/Circall (= 0.18.1)
-    - StraaS-iOS-SDK/Core (= 0.18.1)
-    - StraaS-iOS-SDK/Messaging (= 0.18.1)
-    - StraaS-iOS-SDK/Player (= 0.18.1)
-    - StraaS-iOS-SDK/Streaming (= 0.18.1)
-  - StraaS-iOS-SDK/Circall (0.18.1):
-    - AFNetworking (~> 3.0)
-    - Socket.IO-Client-Swift (= 12.0.0)
+  - StraaS-iOS-SDK (0.19.0):
+    - StraaS-iOS-SDK/Circall (= 0.19.0)
+    - StraaS-iOS-SDK/Core (= 0.19.0)
+    - StraaS-iOS-SDK/Messaging (= 0.19.0)
+    - StraaS-iOS-SDK/Player (= 0.19.0)
+    - StraaS-iOS-SDK/Streaming (= 0.19.0)
+  - StraaS-iOS-SDK/Circall (0.19.0):
+    - PodRTC (= 65.8.0.0)
+    - Socket.IO-Client-Swift (~> 12.0.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Core (0.18.1):
+  - StraaS-iOS-SDK/Core (0.19.0):
     - AFNetworking (~> 3.0)
-    - Socket.IO-Client-Swift (= 12.0.0)
-  - StraaS-iOS-SDK/Messaging (0.18.1):
+    - Socket.IO-Client-Swift (~> 12.0.0)
+  - StraaS-iOS-SDK/Messaging (0.19.0):
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Player (0.18.1):
+  - StraaS-iOS-SDK/Player (0.19.0):
     - GoogleAds-IMA-iOS-SDK (~> 3.3)
     - KVOController (~> 1.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Streaming (0.18.1):
+  - StraaS-iOS-SDK/Streaming (0.19.0):
     - DSGPUImage (= 0.1.8)
     - StraaS-iOS-SDK/Core
   - TTTAttributedLabel (2.0.0)
@@ -81,11 +82,12 @@ SPEC CHECKSUMS:
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
   NYTPhotoViewer: 323217e4590a1586eb3c9674b3fefb0fb8b57896
+  PodRTC: 561a2e8f05224f7ca3090dd27f507478337b12f4
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SlackTextViewController: b854e62c1c156336bc4fd409c6ca79b5773e8f9d
   Socket.IO-Client-Swift: 5b0154b42b3892bfb4c44fa138cbeb8afec4f6ef
   StarscreamSocketIO: 00b54e4208481ca5cef089545353aaf126bae16d
-  StraaS-iOS-SDK: 06e66f33451418b854cf392c7f1c36f3fbe3b041
+  StraaS-iOS-SDK: 9727ee86bec27c59d993c696733b11b6920649d2
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
 PODFILE CHECKSUM: 682af6d14ce650b5a2faeda2e36c641aa189fca7
