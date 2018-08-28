@@ -11,6 +11,7 @@
 #import "STSPlayerPlaybackEventDelegate.h"
 #import "STSPlayerPlaylistEventDelegate.h"
 #import "STSVideoScalingMode.h"
+#import "STSPlayerPlayback.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @class STSSDKPlayerView;
@@ -174,6 +175,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  If you update this property when the player is playing, the new value will work the next time you load a media (live, VOD, or playlist).
  */
 @property (nonatomic, nullable) NSString * JWT;
+
+/**
+ *  The low latency player, import it from player extension.
+ */
+@property (nonatomic) id<STSPlayerPlayback> lowLatencyPlayer;
 
 /**
  *  Loads and starts playing a specific video.

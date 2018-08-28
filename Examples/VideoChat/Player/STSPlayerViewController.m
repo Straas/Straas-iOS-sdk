@@ -8,6 +8,7 @@
 
 #import "STSPlayerViewController.h"
 #import <StraaSPlayerSDK/StraaSPlayerSDK.h>
+#import <StraaSPlayerLowLatencyExtensionSDK/STSLowLatencyPlayer.h>
 #import <StraaSCoreSDK/StraaSCoreSDK.h>
 #import "UIViewController+STSKeyboard.h"
 
@@ -206,6 +207,7 @@
         return;
     }
     BOOL lowLatencyFirst = self.lowLatencySwitch.isOn;
+    [self setupLowLatencyPlayerIfNecessary:lowLatencyFirst];
     [self.playerView loadLiveWithId:liveId lowLatencyFirst:lowLatencyFirst];
 }
 
@@ -238,7 +240,15 @@
         return;
     }
     BOOL lowLatencyFirst = sender.isOn;
+    [self setupLowLatencyPlayerIfNecessary:lowLatencyFirst];
     [self.playerView loadLiveWithId:liveId lowLatencyFirst:lowLatencyFirst];
+}
+
+- (void)setupLowLatencyPlayerIfNecessary:(BOOL)lowLatencyFirst {
+    if (lowLatencyFirst && !self.playerView.lowLatencyPlayer) {
+        STSLowLatencyPlayer * lowLatencyPlayer = [STSLowLatencyPlayer new];
+        self.playerView.lowLatencyPlayer = (id<STSPlayerPlayback>)lowLatencyPlayer;
+    }
 }
 
 - (IBAction)enableBackgroundPlaying:(UISwitch *)sender {
