@@ -13,6 +13,7 @@
 #import "STSCircallPlayerView.h"
 #import "STSCircallPublishConfig.h"
 #import "STSCircallRecordingStreamMetadata.h"
+#import "STSCircallPublishWithUrlConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -62,11 +63,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, readonly) STSCircallState state;
 
 /**
- * The stream published by self. It's nil if the local stream is not prepared.
- */
-@property(nonatomic, readonly, nullable) STSCircallStream * localStream;
-
-/**
  * A new array containing the remote streams, or an empty array if no remote streams have been added.
  */
 @property(nonatomic, readonly) NSArray<STSCircallStream *> * remoteStreams;
@@ -87,17 +83,26 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, weak, nullable) id<STSCircallManagerDelegate> delegate;
 
 /**
- * Prepares the local stream. This method only works when the CirCall manager's `state` is `STSCircallStateIdle` or `STSCircallStatePrepared`.
+ * Prepares the local stream for the device camera. This method only works when the CirCall manager's `state` is `STSCircallStateIdle` or `STSCircallStatePrepared`.
  *
  * @param previewView The view to preview the local stream.
  * @param streamConfig The configuration of the local stream.
  * @param success A block object to be executed when the preparation is finished successfully. This block has no return value and takes one argument: the prepared local stream.
  * @param failure A block object to be executed when the preparation is finished unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  */
-- (void)prepareWithPreviewView:(nullable STSCircallPlayerView *)previewView
-                  streamConfig:(nullable STSCircallStreamConfig *)streamConfig
-                       success:(void(^ _Nullable)(STSCircallStream * stream))success
-                       failure:(void(^ _Nullable)(NSError * error))failure;
+- (void)prepareForCameraCaptureWithPreviewView:(nullable STSCircallPlayerView *)previewView
+                                 streamConfig:(nullable STSCircallStreamConfig *)streamConfig
+                                      success:(void(^ _Nullable)(STSCircallStream * stream))success
+                                      failure:(void(^ _Nullable)(NSError * error))failure;
+
+/**
+ * Prepares the local stream with the rtsp url. This method only works when the CirCall manager's `state` is `STSCircallStateIdle` or `STSCircallStatePrepared`.
+ *
+ * @param success A block object to be executed when the preparation is finished successfully. This block has no return value and takes no argument.
+ * @param failure A block object to be executed when the preparation is finished unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ */
+- (void)prepareForUrlWithSuccess:(void(^ _Nullable)(void))success
+                         failure:(void(^ _Nullable)(NSError * error))failure;
 
 /**
  * Connects to a room with a CirCall token. This method only works when the CirCall manager's `state` is `STSCircallStateIdle` or `STSCircallStatePrepared`.
@@ -126,7 +131,17 @@ NS_ASSUME_NONNULL_BEGIN
  * @param success A block object to be executed when the task finishes successfully. This block has no return value and takes no parameters.
  * @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  */
-- (void)publishWithConfig:(STSCircallPublishConfig *)config success:(void(^ _Nullable)(void))success failure:(void(^ _Nullable)(NSError * error))failure;
+- (void)publishWithCameraCaptureWithConfig:(STSCircallPublishConfig *)config success:(void(^ _Nullable)(void))success failure:(void(^ _Nullable)(NSError * error))failure;
+
+/**
+ * Publishes the stream from the url(RTSP) to the room, so other people can subscribe this stream in a room they joined.
+ * This method only works if the `state` is `STSCircallStateConnected` and the url in config is not nil.
+ *
+ * @param config The configs for publishing the stream from url(RTSP).
+ * @param success A block object to be executed when the task finishes successfully. This block has no return value and takes one argument: the stream object that has been created.
+ * @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+ */
+- (void)publishWithUrlConfig:(STSCircallPublishWithUrlConfig *)config success:(void(^ _Nullable)(STSCircallStream * stream))success failure:(void(^ _Nullable)(NSError * error))failure;
 
 /**
  * Unpublishes the local stream.
