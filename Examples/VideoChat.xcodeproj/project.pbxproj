@@ -433,9 +433,9 @@
 			isa = PBXGroup;
 			children = (
 				FF9C5C122152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.h */,
-				FF9C5C132152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.m */,
-				FF9C5C142152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.h */,
 				FF9C5C152152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.m */,
+				FF9C5C142152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.h */,
+				FF9C5C132152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.m */,
 			);
 			path = IPCamBroadcasting;
 			sourceTree = "<group>";
