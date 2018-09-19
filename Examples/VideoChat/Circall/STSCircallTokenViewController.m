@@ -15,7 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *backgroundView;
 @property (weak, nonatomic) IBOutlet UIButton *connectRoomButton;
-@property (weak, nonatomic) IBOutlet UITextField *streamKeyTextField;
+@property (weak, nonatomic) IBOutlet UITextField *circallTokenTextField;
 @property (weak, nonatomic) IBOutlet UILabel *errorMessageLabel;
 
 @end
@@ -32,15 +32,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.streamKeyTextField.delegate = self;
+    self.circallTokenTextField.delegate = self;
     
     [self makeBackgroundColorGradient];
     
     self.connectRoomButton.layer.cornerRadius = 5.0;
     
-    self.streamKeyTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.circallTokenTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     UIColor *color = [UIColor colorWithRed:120./255. green:193./255. blue:196./255. alpha:1];
-    self.streamKeyTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"請貼上串流碼" attributes:@{NSForegroundColorAttributeName: color}];
+    self.circallTokenTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"請貼上串流碼" attributes:@{NSForegroundColorAttributeName: color}];
 }
 
 #pragma mark - Accessors
@@ -50,7 +50,7 @@
 - (IBAction)connectRoomButtonDidPressed:(id)sender {
     self.errorMessageLabel.hidden = YES;
 
-    if (![[self class] isCircallTokenValid:self.streamKeyTextField.text]) {
+    if (![[self class] isCircallTokenValid:self.circallTokenTextField.text]) {
         self.errorMessageLabel.text = @"串流碼錯誤";
         self.errorMessageLabel.hidden = NO;
         return;
@@ -59,7 +59,7 @@
     [self requestCameraAndMicrophonePermissionsWithSuccessHandler:^{
         STSCircallSingleVideoCallViewController *vc = [STSCircallSingleVideoCallViewController viewControllerFromStoryboard];
         dispatch_async(dispatch_get_main_queue(), ^{
-            vc.circallToken = self.streamKeyTextField.text;
+            vc.circallToken = self.circallTokenTextField.text;
             [self.navigationController pushViewController:vc animated:YES];
         });
     }];
@@ -188,7 +188,7 @@
 #pragma mark - STSQRCodeScannerViewControllerDelegate
 
 - (void)scanner:(STSQRCodeScannerViewController *)scanner didGetQRCode:(NSString *)qrCode {
-    self.streamKeyTextField.text = qrCode;
+    self.circallTokenTextField.text = qrCode;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
