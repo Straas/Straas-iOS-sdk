@@ -11,11 +11,6 @@
 #import "STSQRCodeScannerViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
-NSString * const kUserDefaultsKeyCircallTokenForSingleVideoCall = @"kUserDefaultsKeyCircallTokenForSingleVideoCall";
-NSString * const kUserDefaultsKeyCircallTokenForViewer = @"kUserDefaultsKeyCircallTokenForViewer";
-NSString * const kUserDefaultsKeyCircallTokenForHost = @"kUserDefaultsKeyCircallTokenForHost";
-NSString * const kUserDefaultsKeyRTSPUrl = @"kUserDefaultsKeyRTSPUrl";
-
 @interface STSCircallTokenViewController () <UITextFieldDelegate, STSQRCodeScannerViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *backgroundView;
@@ -50,30 +45,18 @@ NSString * const kUserDefaultsKeyRTSPUrl = @"kUserDefaultsKeyRTSPUrl";
     self.urlTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     self.urlTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"請貼上 RTSP URL" attributes:@{NSForegroundColorAttributeName: color}];
 
-    NSString *cachedCircallToken;
     switch (self.type) {
         case STSCircallTokenViewControllerTypeIPCamBroadcastingHost:
             [self.connectRoomButton setTitle:@"進入" forState:UIControlStateNormal];
-            cachedCircallToken = [[NSUserDefaults standardUserDefaults]
-                                  stringForKey:kUserDefaultsKeyCircallTokenForHost];
             break;
         case STSCircallTokenViewControllerTypeIPCamBroadcastingViewer:
             [self.connectRoomButton setTitle:@"進入" forState:UIControlStateNormal];
-            cachedCircallToken = [[NSUserDefaults standardUserDefaults]
-                                  stringForKey:kUserDefaultsKeyCircallTokenForViewer];
             self.urlView.hidden = YES;
             break;
         case STSCircallTokenViewControllerTypeSingleVideoCall:
-            cachedCircallToken = [[NSUserDefaults standardUserDefaults]
-                                  stringForKey:kUserDefaultsKeyCircallTokenForSingleVideoCall];
             self.urlView.hidden = YES;
             break;
     }
-
-    self.circallTokenTextField.text = cachedCircallToken;
-    NSString *cachedUrl = [[NSUserDefaults standardUserDefaults]
-                           stringForKey:kUserDefaultsKeyRTSPUrl];
-    self.urlTextField.text = cachedUrl;
 }
 
 #pragma mark - Accessors
@@ -100,7 +83,6 @@ NSString * const kUserDefaultsKeyRTSPUrl = @"kUserDefaultsKeyRTSPUrl";
         case STSCircallTokenViewControllerTypeSingleVideoCall:
         default:
         {
-            [[NSUserDefaults standardUserDefaults] setObject:self.circallTokenTextField.text forKey:kUserDefaultsKeyCircallTokenForSingleVideoCall];
             [self requestCameraAndMicrophonePermissionsWithSuccessHandler:^{
                 STSCircallSingleVideoCallViewController *vc = [STSCircallSingleVideoCallViewController viewControllerFromStoryboard];
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -112,7 +94,6 @@ NSString * const kUserDefaultsKeyRTSPUrl = @"kUserDefaultsKeyRTSPUrl";
             break;
         case STSCircallTokenViewControllerTypeIPCamBroadcastingViewer:
         {
-            [[NSUserDefaults standardUserDefaults] setObject:self.circallTokenTextField.text forKey:kUserDefaultsKeyCircallTokenForViewer];
             STSCircallIPCamBroadcastingViewerViewController *vc = [STSCircallIPCamBroadcastingViewerViewController viewControllerFromStoryboard];
             vc.circallToken = self.circallTokenTextField.text;
             [self.navigationController pushViewController:vc animated:YES];
@@ -120,11 +101,9 @@ NSString * const kUserDefaultsKeyRTSPUrl = @"kUserDefaultsKeyRTSPUrl";
             break;
         case STSCircallTokenViewControllerTypeIPCamBroadcastingHost:
         {
-            [[NSUserDefaults standardUserDefaults] setObject:self.circallTokenTextField.text forKey:kUserDefaultsKeyCircallTokenForHost];
             STSCircallIPCamBroadcastingHostViewController *vc = [STSCircallIPCamBroadcastingHostViewController viewControllerFromStoryboard];
             vc.circallToken = self.circallTokenTextField.text;
             vc.url = url;
-            [[NSUserDefaults standardUserDefaults] setObject:self.urlTextField.text forKey:kUserDefaultsKeyRTSPUrl];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
