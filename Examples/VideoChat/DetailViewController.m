@@ -115,8 +115,16 @@ NSString * const STSCircallServiceIPCamBroadcastingViewerViewKeyword = @"StraaS.
 }
 
 - (void)addCircallTokenView {
-    STSCircallTokenViewController * controller = [STSCircallTokenViewController viewControllerFromStoryboard];
-    [self addControllerAndSetAutoLayout:controller];
+    STSCircallTokenViewController * circallTokenViewController = [STSCircallTokenViewController viewControllerFromStoryboard];
+    if ([self.detailItem isEqualToString:STSCircallServiceSingleVideoCallKeyword]) {
+        circallTokenViewController.type = STSCircallTokenViewControllerTypeSingleVideoCall;
+    } else if ([self.detailItem isEqualToString:STSCircallServiceIPCamBroadcastingHostViewKeyword]) {
+        circallTokenViewController.type = STSCircallTokenViewControllerTypeIPCamBroadcastingHost;
+    } else if ([self.detailItem isEqualToString:STSCircallServiceIPCamBroadcastingViewerViewKeyword]) {
+        circallTokenViewController.type = STSCircallTokenViewControllerTypeIPCamBroadcastingViewer;
+    }
+
+    [self addControllerAndSetAutoLayout:circallTokenViewController];
 }
 
 - (void)addControllerAndSetAutoLayout:(UIViewController *)controller {
