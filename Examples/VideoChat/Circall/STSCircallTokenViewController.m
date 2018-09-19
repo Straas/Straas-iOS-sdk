@@ -59,7 +59,7 @@
     [self requestCameraAndMicrophonePermissionsWithSuccessHandler:^{
         STSCircallSingleVideoCallViewController *vc = [STSCircallSingleVideoCallViewController viewControllerFromStoryboard];
         dispatch_async(dispatch_get_main_queue(), ^{
-            vc.streamKey = self.streamKeyTextField.text;
+            vc.circallToken = self.streamKeyTextField.text;
             [self.navigationController pushViewController:vc animated:YES];
         });
     }];
