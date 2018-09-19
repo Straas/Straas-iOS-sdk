@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>STSCircallScalingMode Enum Reference</title>
+    <title>STSCircallPublishWithUrlConfig Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/objc/Enum/STSCircallScalingMode" class="dashAnchor"></a>
-    <a title="STSCircallScalingMode Enum Reference"></a>
+    <a name="//apple_ref/objc/Class/STSCircallPublishWithUrlConfig" class="dashAnchor"></a>
+    <a title="STSCircallPublishWithUrlConfig Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">StraaSCircallSDK Docs</a> (92% documented)</p>
@@ -23,7 +23,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">StraaSCircallSDK Reference</a>
         <img id="carat" src="../img/carat.png" />
-        STSCircallScalingMode Enum Reference
+        STSCircallPublishWithUrlConfig Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -90,14 +90,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>STSCircallScalingMode</h1>
+            <h1>STSCircallPublishWithUrlConfig</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="k">enum</span> <span class="n">STSCircallScalingMode</span> <span class="p">{}</span></code></pre>
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">STSCircallPublishWithUrlConfig</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
 
                 </div>
               </div>
-            <p>Constants specify how the video is displayed within a STSCircallPlayerView.</p>
+            <p>Configs for publishing the stream from url(RTSP).</p>
 
           </section>
           <section class="section task-group-section">
@@ -106,9 +106,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@STSCircallScalingMode@STSCircallScalingModeAspectFit"></a>
-                    <a name="//apple_ref/objc/Case/STSCircallScalingModeAspectFit" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSCircallScalingMode@STSCircallScalingModeAspectFit">STSCircallScalingModeAspectFit</a>
+                    <a name="/c:objc(cs)STSCircallPublishWithUrlConfig(py)url"></a>
+                    <a name="//apple_ref/objc/Property/url" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSCircallPublishWithUrlConfig(py)url">url</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -116,68 +116,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies that the player should preserve the video’s aspect ratio and fit the video within the STSCircallPlayerView&rsquo;s bounds.</p>
+                        <p>url The RTSP url.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSCircallScalingModeAspectFit</span></code></pre>
+                          <pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSURL</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">url</span><span class="p">;</span></code></pre>
 
                         </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@STSCircallScalingMode@STSCircallScalingModeAspectFill"></a>
-                    <a name="//apple_ref/objc/Case/STSCircallScalingModeAspectFill" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSCircallScalingMode@STSCircallScalingModeAspectFill">STSCircallScalingModeAspectFill</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Specifies that the player should preserve the video’s aspect ratio and fill the STSCircallPlayerView&rsquo;s bounds.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
                         <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSCircallScalingModeAspectFill</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@STSCircallScalingMode@STSCircallScalingModeFill"></a>
-                    <a name="//apple_ref/objc/Case/STSCircallScalingModeFill" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@STSCircallScalingMode@STSCircallScalingModeFill">STSCircallScalingModeFill</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Specifies that the video should be stretched to fill the STSCircallPlayerView&rsquo;s bounds.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="n">STSCircallScalingModeFill</span></code></pre>
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
