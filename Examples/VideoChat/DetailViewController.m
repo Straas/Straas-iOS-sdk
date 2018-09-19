@@ -12,7 +12,7 @@
 #import "ChatStickerExampleViewController.h"
 #import "StreamingViewController.h"
 #import "STSPlayerViewController.h"
-#import "STSCircallMainViewController.h"
+#import "STSCircallTokenViewController.h"
 
 NSString * const STSPlayerServiceBasicPlayerViewKeyword = @"StraaS.io PlayerView";
 NSString * const STSMessagingServiceKeyword = @"StraaS.io default chatroom";
@@ -115,7 +115,7 @@ NSString * const STSCircallServiceIPCamBroadcastingViewerViewKeyword = @"StraaS.
 }
 
 - (void)addCircallTokenView {
-    STSCircallMainViewController * controller = [STSCircallMainViewController viewControllerFromStoryboard];
+    STSCircallTokenViewController * controller = [STSCircallTokenViewController viewControllerFromStoryboard];
     [self addControllerAndSetAutoLayout:controller];
 }
 

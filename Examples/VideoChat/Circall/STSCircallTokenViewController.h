@@ -1,5 +1,5 @@
 //
-//  STSCircallMainViewController.h
+//  STSCircallTokenViewController.h
 //  StraaSDemoApp
 //
 //  Created by Allen and Kim on 2018/5/2.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface STSCircallMainViewController : UIViewController
+@interface STSCircallTokenViewController : UIViewController
 
 + (instancetype)viewControllerFromStoryboard;
 

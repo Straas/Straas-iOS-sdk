@@ -1,17 +1,17 @@
 //
-//  STSCircallMainViewController.m
+//  STSCircallTokenViewControllerㄩ.m
 //  StraaSDemoApp
 //
 //  Created by Allen and Kim on 2018/5/2.
 //  Copyright © 2018 StraaS.io. All rights reserved.
 //
 
-#import "STSCircallMainViewController.h"
+#import "STSCircallTokenViewController.h"
 #import "STSCircallSingleVideoCallViewController.h"
 #import "STSQRCodeScannerViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface STSCircallMainViewController () <UITextFieldDelegate, STSQRCodeScannerViewControllerDelegate>
+@interface STSCircallTokenViewController () <UITextFieldDelegate, STSQRCodeScannerViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *backgroundView;
 @property (weak, nonatomic) IBOutlet UIButton *connectRoomButton;
@@ -20,12 +20,12 @@
 
 @end
 
-@implementation STSCircallMainViewController
+@implementation STSCircallTokenViewController
 
 + (instancetype)viewControllerFromStoryboard {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    STSCircallMainViewController * vc =
-    [storyboard instantiateViewControllerWithIdentifier:@"STSCircallMainViewController"];
+    STSCircallTokenViewController * vc =
+    [storyboard instantiateViewControllerWithIdentifier:@"STSCircallTokenViewController"];
     return vc;
 }
 
@@ -91,7 +91,7 @@
     self.errorMessageLabel.text = @"";
     self.errorMessageLabel.hidden = YES;
     
-    __weak STSCircallMainViewController * weakSelf = self;
+    __weak STSCircallTokenViewController * weakSelf = self;
     
     void (^requestAccessFailureHandler)(NSString *errorMessage) = ^(NSString *errorMessage) {
         dispatch_async(dispatch_get_main_queue(), ^{

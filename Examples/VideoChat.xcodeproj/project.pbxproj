@@ -56,7 +56,7 @@
 		9BF1971D1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF1971C1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m */; };
 		FADDAF509351485C7AE9DE21 /* Pods_VideoChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C2739ECC5559476005727D /* Pods_VideoChat.framework */; };
 		FFB6689120E395C0004CE075 /* STSCircallSingleVideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */; };
-		FFB6689220E395C0004CE075 /* STSCircallMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6688F20E395C0004CE075 /* STSCircallMainViewController.m */; };
+		FFB6689220E395C0004CE075 /* STSCircallTokenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6688F20E395C0004CE075 /* STSCircallTokenViewController.m */; };
 		FFB6689520E3961F004CE075 /* STSQRCodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6689420E3961F004CE075 /* STSQRCodeScannerViewController.m */; };
 		FFB6689820E3ADC0004CE075 /* STSScreenshotPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6689720E3ADC0004CE075 /* STSScreenshotPhoto.m */; };
 /* End PBXBuildFile section */
@@ -187,8 +187,8 @@
 		EC14F7612121694672BF11EF /* Pods-VideoChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoChat/Pods-VideoChat.release.xcconfig"; sourceTree = "<group>"; };
 		F926D33A69130242491380A6 /* Pods-VideoChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoChat/Pods-VideoChat.debug.xcconfig"; sourceTree = "<group>"; };
 		FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallSingleVideoCallViewController.m; sourceTree = "<group>"; };
-		FFB6688E20E395BF004CE075 /* STSCircallMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallMainViewController.h; sourceTree = "<group>"; };
-		FFB6688F20E395C0004CE075 /* STSCircallMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallMainViewController.m; sourceTree = "<group>"; };
+		FFB6688E20E395BF004CE075 /* STSCircallTokenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallTokenViewController.h; sourceTree = "<group>"; };
+		FFB6688F20E395C0004CE075 /* STSCircallTokenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallTokenViewController.m; sourceTree = "<group>"; };
 		FFB6689020E395C0004CE075 /* STSCircallSingleVideoCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallSingleVideoCallViewController.h; sourceTree = "<group>"; };
 		FFB6689320E3961F004CE075 /* STSQRCodeScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSQRCodeScannerViewController.h; sourceTree = "<group>"; };
 		FFB6689420E3961F004CE075 /* STSQRCodeScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSQRCodeScannerViewController.m; sourceTree = "<group>"; };
@@ -426,8 +426,8 @@
 		FFB6688C20E39505004CE075 /* Circall */ = {
 			isa = PBXGroup;
 			children = (
-				FFB6688E20E395BF004CE075 /* STSCircallMainViewController.h */,
-				FFB6688F20E395C0004CE075 /* STSCircallMainViewController.m */,
+				FFB6688E20E395BF004CE075 /* STSCircallTokenViewController.h */,
+				FFB6688F20E395C0004CE075 /* STSCircallTokenViewController.m */,
 				FFB6689020E395C0004CE075 /* STSCircallSingleVideoCallViewController.h */,
 				FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */,
 				FFB6689320E3961F004CE075 /* STSQRCodeScannerViewController.h */,
@@ -712,7 +712,7 @@
 				40A202371D77F93E00457359 /* ChatViewController.m in Sources */,
 				9BBCBDD51E88B681006D3500 /* IconLabel.m in Sources */,
 				9B4310471DD32504002CD178 /* NSFileManager+Sticker.m in Sources */,
-				FFB6689220E395C0004CE075 /* STSCircallMainViewController.m in Sources */,
+				FFB6689220E395C0004CE075 /* STSCircallTokenViewController.m in Sources */,
 				9BB9B32F1E7C569C00245AB7 /* NSTimer+SafeTimer.m in Sources */,
 				40A2023A1D77F93E00457359 /* TypingIndicatorView.m in Sources */,
 				40A202451D7804B400457359 /* STSChatMessage+VideoChatUtility.m in Sources */,
