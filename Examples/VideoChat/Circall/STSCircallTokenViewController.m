@@ -51,10 +51,10 @@
 
     self.circallTokenTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     UIColor *color = [UIColor colorWithRed:120./255. green:193./255. blue:196./255. alpha:1];
-    self.circallTokenTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"請貼上串流碼" attributes:@{NSForegroundColorAttributeName: color}];
+    self.circallTokenTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"請貼上或掃描 Circall token" attributes:@{NSForegroundColorAttributeName: color}];
 
     self.urlTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.urlTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"請貼上 RTSP URL" attributes:@{NSForegroundColorAttributeName: color}];
+    self.urlTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"請貼上或掃描 RTSP URL" attributes:@{NSForegroundColorAttributeName: color}];
 
     switch (self.type) {
         case STSCircallTokenViewControllerTypeIPCamBroadcastingHost:
