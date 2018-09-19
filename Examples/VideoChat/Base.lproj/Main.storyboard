@@ -508,6 +508,9 @@
                                             <constraint firstAttribute="width" constant="44" id="ZDJ-mK-rcj"/>
                                             <constraint firstAttribute="height" constant="44" id="l2C-Cs-RAB"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="connectRoomButtonDidPressed:" destination="UOV-ve-pcd" eventType="touchUpInside" id="e51-P6-C3i"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BkV-e6-A7D" userLabel="Line">
                                         <rect key="frame" x="0.0" y="30.5" width="322" height="1.5"/>
@@ -584,7 +587,11 @@
                         <outlet property="backgroundView" destination="DN4-81-WYt" id="3yx-5k-alC"/>
                         <outlet property="connectRoomButton" destination="zIU-cS-RBu" id="wiq-xP-JuY"/>
                         <outlet property="errorMessageLabel" destination="nDv-r3-9id" id="Tb8-5S-RiV"/>
+                        <outlet property="scanQRCodeButton" destination="vPS-pO-OCt" id="sdP-QP-wh3"/>
+                        <outlet property="scanUrlButton" destination="GAp-fJ-ZjR" id="Ime-kw-EzZ"/>
                         <outlet property="streamKeyTextField" destination="o1R-fd-N63" id="8RM-3a-rDO"/>
+                        <outlet property="urlTextField" destination="H4W-aR-mYg" id="r15-Xn-SQT"/>
+                        <outlet property="urlView" destination="f7x-pE-OLT" id="erZ-G1-Cl1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnC-LA-3Ek" userLabel="First Responder" sceneMemberID="firstResponder"/>

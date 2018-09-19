@@ -10,6 +10,8 @@
 #import "STSCircallSingleVideoCallViewController.h"
 #import "STSQRCodeScannerViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "STSCircallIPCamBroadcastingViewerViewController.h"
+#import "STSCircallIPCamBroadcastingHostViewController.h"
 
 @interface STSCircallTokenViewController () <UITextFieldDelegate, STSQRCodeScannerViewControllerDelegate>
 
@@ -17,6 +19,15 @@
 @property (weak, nonatomic) IBOutlet UIButton *connectRoomButton;
 @property (weak, nonatomic) IBOutlet UITextField *circallTokenTextField;
 @property (weak, nonatomic) IBOutlet UILabel *errorMessageLabel;
+
+@property (weak, nonatomic) IBOutlet UIView *urlView;
+@property (weak, nonatomic) IBOutlet UITextField *urlTextField;
+
+@property (weak, nonatomic) IBOutlet UIButton *scanQRCodeButton;
+@property (weak, nonatomic) IBOutlet UIButton *scanUrlButton;
+@property (weak, nonatomic) UIButton *scanQRCodeButtonSender;
+
+
 @end
 
 @implementation STSCircallTokenViewController
