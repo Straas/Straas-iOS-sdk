@@ -323,7 +323,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C5H-bb-q6n">
-                                                <rect key="frame" x="134" y="269.5" width="52" height="30"/>
+                                                <rect key="frame" x="134" y="269" width="52" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="byz-M8-Uvn"/>
                                                     <constraint firstAttribute="height" constant="30" id="tV3-gr-fu3"/>
@@ -585,11 +585,11 @@
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="DN4-81-WYt" id="3yx-5k-alC"/>
+                        <outlet property="circallTokenTextField" destination="o1R-fd-N63" id="F05-c5-Zme"/>
                         <outlet property="connectRoomButton" destination="zIU-cS-RBu" id="wiq-xP-JuY"/>
                         <outlet property="errorMessageLabel" destination="nDv-r3-9id" id="Tb8-5S-RiV"/>
                         <outlet property="scanQRCodeButton" destination="vPS-pO-OCt" id="sdP-QP-wh3"/>
                         <outlet property="scanUrlButton" destination="GAp-fJ-ZjR" id="Ime-kw-EzZ"/>
-                        <outlet property="streamKeyTextField" destination="o1R-fd-N63" id="8RM-3a-rDO"/>
                         <outlet property="urlTextField" destination="H4W-aR-mYg" id="r15-Xn-SQT"/>
                         <outlet property="urlView" destination="f7x-pE-OLT" id="erZ-G1-Cl1"/>
                     </connections>
