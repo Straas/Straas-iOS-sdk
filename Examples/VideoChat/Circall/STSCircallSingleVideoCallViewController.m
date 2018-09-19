@@ -112,12 +112,12 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
             STSCircallPublishConfig * config = [STSCircallPublishConfig new];
             config.maxVideoBitrate = @(600000);
             config.maxAudioBitrate = @(64000);
-            [weakSelf.circallManager publishWithConfig:config success:^{
+            [weakSelf.circallManager publishWithCameraCaptureWithConfig:config success:^{
                 NSLog(@"publishWithConfig success");
             } failure:^(NSError * _Nonnull error) {
                 NSLog(@"publishWithConfig failure");
             }];
-            
+
             [self.hud hideAnimated:YES];
         } failure:^(NSError * _Nonnull error) {
             weakSelf.viewControllerState = STSCircallSingleVideoCallViewControllerStateIdle;
@@ -125,8 +125,8 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
             [self.hud hideAnimated:YES];
         }];
     };
-    
-    [self.circallManager prepareWithPreviewView:self.pictureInPictureVideoView streamConfig:streamConfig success:prepareWithPreviewViewSuccessHandler failure:^(NSError * _Nonnull error) {
+
+    [self.circallManager prepareForCameraCaptureWithPreviewView:self.pictureInPictureVideoView streamConfig:streamConfig success:prepareWithPreviewViewSuccessHandler failure:^(NSError * _Nonnull error) {
         weakSelf.viewControllerState = STSCircallSingleVideoCallViewControllerStateIdle;
         [weakSelf showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"prepared failed with error: %@",error]];
         [self.hud hideAnimated:YES];
