@@ -482,7 +482,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7x-pE-OLT" userLabel="UrlView">
-                                <rect key="frame" x="26.5" y="334" width="322" height="32"/>
+                                <rect key="frame" x="26.5" y="350" width="322" height="32"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="請貼上或掃描 RTSP URL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H4W-aR-mYg">
                                         <rect key="frame" x="0.0" y="9.5" width="290" height="13.5"/>
@@ -564,13 +564,13 @@
                             <constraint firstItem="DN4-81-WYt" firstAttribute="leading" secondItem="iaM-he-mhP" secondAttribute="leading" id="LSZ-gW-tpD"/>
                             <constraint firstItem="o1R-fd-N63" firstAttribute="leading" secondItem="zIU-cS-RBu" secondAttribute="leading" id="Ou0-tT-5KW"/>
                             <constraint firstItem="zIU-cS-RBu" firstAttribute="leading" secondItem="iaM-he-mhP" secondAttribute="leading" constant="26.5" id="Tob-R5-D8Z"/>
+                            <constraint firstItem="f7x-pE-OLT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="d41-Us-SIa" secondAttribute="bottom" constant="-35" id="VCd-FE-Ztu"/>
                             <constraint firstAttribute="trailing" secondItem="DN4-81-WYt" secondAttribute="trailing" id="b06-OA-c4G"/>
                             <constraint firstItem="AI2-7a-W4G" firstAttribute="top" secondItem="DN4-81-WYt" secondAttribute="bottom" id="c40-9P-9hq"/>
                             <constraint firstItem="Nhm-UJ-WoG" firstAttribute="trailing" secondItem="zIU-cS-RBu" secondAttribute="trailing" id="fo0-RC-CGR"/>
                             <constraint firstItem="vPS-pO-OCt" firstAttribute="centerX" secondItem="eKf-BE-wwc" secondAttribute="centerX" id="h1u-VR-xUp"/>
                             <constraint firstItem="f7x-pE-OLT" firstAttribute="leading" secondItem="iaM-he-mhP" secondAttribute="leading" constant="26.5" id="jqF-cp-hWA"/>
                             <constraint firstAttribute="trailing" secondItem="f7x-pE-OLT" secondAttribute="trailing" constant="26.5" id="kCZ-4Y-TTP"/>
-                            <constraint firstItem="vPS-pO-OCt" firstAttribute="top" secondItem="f7x-pE-OLT" secondAttribute="bottom" constant="20" id="kKf-Gv-xZr"/>
                             <constraint firstItem="vPS-pO-OCt" firstAttribute="leading" secondItem="o1R-fd-N63" secondAttribute="trailing" id="lZm-OE-ng7"/>
                             <constraint firstItem="vPS-pO-OCt" firstAttribute="centerY" secondItem="eKf-BE-wwc" secondAttribute="centerY" id="mKZ-PL-Opx"/>
                             <constraint firstItem="nDv-r3-9id" firstAttribute="top" secondItem="zIU-cS-RBu" secondAttribute="bottom" constant="24" id="nfT-Nk-7yP"/>
@@ -580,6 +580,7 @@
                             <constraint firstItem="d41-Us-SIa" firstAttribute="centerX" secondItem="iaM-he-mhP" secondAttribute="centerX" id="uFY-GV-u7W"/>
                             <constraint firstItem="eKf-BE-wwc" firstAttribute="trailing" secondItem="zIU-cS-RBu" secondAttribute="trailing" id="v4T-jZ-jRx"/>
                             <constraint firstItem="zIU-cS-RBu" firstAttribute="top" secondItem="o1R-fd-N63" secondAttribute="bottom" constant="23.5" id="vY3-Ab-2HW"/>
+                            <constraint firstItem="o1R-fd-N63" firstAttribute="top" secondItem="f7x-pE-OLT" secondAttribute="bottom" constant="20" id="wVO-4n-8Ly"/>
                             <constraint firstItem="nDv-r3-9id" firstAttribute="trailing" secondItem="zIU-cS-RBu" secondAttribute="trailing" id="ymx-sQ-Y8s"/>
                         </constraints>
                     </view>
