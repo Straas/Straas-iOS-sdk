@@ -50,10 +50,10 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
 @property (assign, nonatomic) BOOL videoEnabled;
 @property (assign, nonatomic) BOOL audioEnabled;
 @property (assign, nonatomic) STSCircallSingleVideoCallViewControllerRecordingState recordingState;
-@property (strong, nonatomic) NSString *recordingId;
 
 @property (assign, nonatomic) STSCircallSingleVideoCallViewControllerState viewControllerState;
 @property (strong, nonatomic) NSTimer *recordingRedDotTimer;
+@property (strong, nonatomic) NSString *recordingId;
 
 @end
 
