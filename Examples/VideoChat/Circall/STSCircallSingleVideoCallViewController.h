@@ -10,7 +10,7 @@
 
 @interface STSCircallSingleVideoCallViewController : UIViewController
 
-@property (strong, nonatomic) NSString *streamKey;
+@property (strong, nonatomic) NSString *circallToken;
 
 + (instancetype)viewControllerFromStoryboard;
 

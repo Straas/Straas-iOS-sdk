@@ -22,5 +22,6 @@ FOUNDATION_EXPORT const unsigned char StraaSCircallSDKVersionString[];
 #import <StraaSCircallSDK/STSCircallStream.h>
 #import <StraaSCircallSDK/STSCircallStreamConfig.h>
 #import <StraaSCircallSDK/STSCircallPublishConfig.h>
+#import <StraaSCircallSDK/STSCircallPublishWithUrlConfig.h>
 #import <StraaSCircallSDK/STSCircallPlayerView.h>
 #import <StraaSCircallSDK/STSCircallScalingMode.h>
