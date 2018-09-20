@@ -68,56 +68,56 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     // UI settings
     self.recordingRedDot.layer.cornerRadius = 5.0;
-    
+
     [self.switchCameraCaputurePositionButton setImage:[UIImage imageNamed:@"camera-switch"] forState:UIControlStateNormal];
     [self.switchCameraCaputurePositionButton setImage:[UIImage imageNamed:@"camera-switch-focus"] forState:UIControlStateHighlighted];
-    
+
     [self.takeScreenshotButton setImage:[UIImage imageNamed:@"capture-img"] forState:UIControlStateNormal];
     [self.takeScreenshotButton setImage:[UIImage imageNamed:@"capture-img-focus"] forState:UIControlStateHighlighted];
-    
+
     self.recordingRedDot.hidden = YES;
     self.recordingDurationLabel.hidden = YES;
-    
+
     // properties settings
     self.circallManager = [[STSCircallManager alloc] init];
     self.circallManager.delegate = self;
-    
+
     STSCircallStreamConfig * streamConfig = [STSCircallStreamConfig new];
     streamConfig.minVideoSize = CGSizeMake(640, 360);
     self.pictureInPictureVideoView.scalingMode = STSCircallScalingModeAspectFill;
     self.pictureInPictureVideoView.isMirrored = YES;
     self.fullScreenVideoView.scalingMode = STSCircallScalingModeAspectFill;
-    
-    if (self.streamKey == nil) {
+
+    if (self.circallToken == nil) {
         [self showAlertWithTitle:@"Error" message:@"Circall token is nil"];
         return;
     }
-    
+
     self.viewControllerState = STSCircallSingleVideoCallViewControllerStateIdle;
     self.recordingState = STSCircallSingleVideoCallViewControllerRecordingStateIdle;
-    
+
     // actions
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.mode = MBProgressHUDModeIndeterminate;
-    
+
     __weak STSCircallSingleVideoCallViewController * weakSelf = self;
     void (^prepareWithPreviewViewSuccessHandler)(STSCircallStream * _Nonnull stream) = ^(STSCircallStream * _Nonnull stream) {
         weakSelf.viewControllerState = STSCircallSingleVideoCallViewControllerStateConnecting;
-        [weakSelf.circallManager connectWithCircallToken:self.streamKey success:^{
+        [weakSelf.circallManager connectWithCircallToken:self.circallToken success:^{
             weakSelf.viewControllerState = STSCircallSingleVideoCallViewControllerStateConnected;
-            
+
             STSCircallPublishConfig * config = [STSCircallPublishConfig new];
             config.maxVideoBitrate = @(600000);
             config.maxAudioBitrate = @(64000);
-            [weakSelf.circallManager publishWithConfig:config success:^{
+            [weakSelf.circallManager publishWithCameraCaptureWithConfig:config success:^{
                 NSLog(@"publishWithConfig success");
             } failure:^(NSError * _Nonnull error) {
                 NSLog(@"publishWithConfig failure");
             }];
-            
+
             [self.hud hideAnimated:YES];
         } failure:^(NSError * _Nonnull error) {
             weakSelf.viewControllerState = STSCircallSingleVideoCallViewControllerStateIdle;
@@ -125,8 +125,8 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
             [self.hud hideAnimated:YES];
         }];
     };
-    
-    [self.circallManager prepareWithPreviewView:self.pictureInPictureVideoView streamConfig:streamConfig success:prepareWithPreviewViewSuccessHandler failure:^(NSError * _Nonnull error) {
+
+    [self.circallManager prepareForCameraCaptureWithPreviewView:self.pictureInPictureVideoView streamConfig:streamConfig success:prepareWithPreviewViewSuccessHandler failure:^(NSError * _Nonnull error) {
         weakSelf.viewControllerState = STSCircallSingleVideoCallViewControllerStateIdle;
         [weakSelf showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"prepared failed with error: %@",error]];
         [self.hud hideAnimated:YES];
@@ -237,9 +237,9 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
         [self.navigationController popViewControllerAnimated:YES];
         return;
     }
-    
+
     __block MBProgressHUD * hud = nil;
-    
+
     __weak STSCircallSingleVideoCallViewController *weakSelf = self;
     void (^disconnectAndPopViewController)() = ^() {
         [weakSelf.circallManager disconnectWithSuccess:^{
@@ -253,7 +253,7 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
             [weakSelf.navigationController popViewControllerAnimated:YES];
         }];
     };
-    
+
     void (^stopRecordingIfNeededAndThenDisconnectAndPopViewController)() = ^() {
         if ((weakSelf.recordingState == STSCircallSingleVideoCallViewControllerRecordingStateRecording || weakSelf.recordingState == STSCircallSingleVideoCallViewControllerRecordingStateStarting) && self.fullScreenVideoView.stream != nil) {
             [weakSelf.circallManager stopRecordingStream:weakSelf.fullScreenVideoView.stream recordingId:weakSelf.recordingId success:^{
@@ -267,7 +267,7 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
             disconnectAndPopViewController();
         }
     };
-    
+
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"離開面談室"
                                                                               message:@"你確定要離開面談室嗎？"
                                                                        preferredStyle:UIAlertControllerStyleAlert];
@@ -291,11 +291,11 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
     if (self.pictureInPictureVideoView.stream == nil) {
         return;
     }
-    
+
     if (!self.videoEnabled) {
         return;
     }
-    
+
     MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.defaultFaceImageView animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.backgroundView.backgroundColor = [UIColor blackColor];
@@ -305,7 +305,7 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
     UIImage *image = self.defaultFaceImageView.image;
     self.defaultFaceImageView.image = nil;
     self.pictureInPictureVideoView.hidden = YES;
-    
+
     switch (self.pictureInPictureVideoView.stream.captureDevicePosition) {
         case AVCaptureDevicePositionFront:
             self.pictureInPictureVideoView.stream.captureDevicePosition = AVCaptureDevicePositionBack;
@@ -318,7 +318,7 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
             self.pictureInPictureVideoView.isMirrored = YES;
             break;
     }
-    
+
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.defaultFaceImageView.image = image;
         self.pictureInPictureVideoView.hidden = NO;
@@ -330,9 +330,9 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
     if (self.pictureInPictureVideoView.stream == nil) {
         return;
     }
-    
+
     self.videoEnabled = !self.videoEnabled;
-    
+
     if (self.videoEnabled) {
         [self.switchCameraCaptureOnButton setImage:[UIImage imageNamed:@"camera-on"] forState:UIControlStateNormal];
         self.pictureInPictureVideoView.hidden = NO;
@@ -346,9 +346,9 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
     if (self.pictureInPictureVideoView.stream == nil) {
         return;
     }
-    
+
     self.audioEnabled = !self.audioEnabled;
-    
+
     if (self.audioEnabled) {
         [self.switchMicrophoneOnButton setImage:[UIImage imageNamed:@"voice-on"] forState:UIControlStateNormal];
     } else {
@@ -361,14 +361,14 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
         [self showAlertWithTitle:@"無法錄影" message:@"需等候雙方皆進入面談室後，才可開始進行錄影"];
         return;
     }
-    
+
     __weak STSCircallSingleVideoCallViewController * weakSelf = self;
     switch (self.recordingState) {
         case STSCircallSingleVideoCallViewControllerRecordingStateIdle: {
             // start recording
             self.recordingState = STSCircallSingleVideoCallViewControllerRecordingStateStarting;
 
-            [self.circallManager startRecordingStream:self.fullScreenVideoView.stream success:^(NSString * _Nonnull recordingId) {
+            [self.circallManager startRecordingStream:self.fullScreenVideoView.stream success:^(NSString *recordingId){
                 weakSelf.recordingId = recordingId;
                 weakSelf.recordingState = STSCircallSingleVideoCallViewControllerRecordingStateRecording;
             } failure:^(NSError * _Nonnull error) {
@@ -400,13 +400,13 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
     if (self.fullScreenVideoView.stream == nil) {
         [self showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"remote stream is not added."]];
     }
-    
-    UIImage * image = [self.fullScreenVideoView getVideoFrame];
+
+    UIImage *image = [self.fullScreenVideoView getVideoFrame];
     if (!image) {
         [self showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"Failed to create screenshot"]];
         return;
     }
-    
+
     STSScreenshotPhoto *photo = [[STSScreenshotPhoto alloc] initWithImage:image];
     NYTPhotosViewController *vc = [[NYTPhotosViewController alloc] initWithPhotos:@[photo]];
     [self presentViewController:vc animated:YES completion:nil];
@@ -459,7 +459,7 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
     self.recordingState = STSCircallSingleVideoCallViewControllerRecordingStateIdle;
     self.viewControllerState = STSCircallSingleVideoCallViewControllerStateIdle;
     self.fullScreenVideoView.stream = nil;
-    
+
     [self.hud hideAnimated:YES];
     NSString * errorMessage = [NSString stringWithFormat:@"ERROR: %@, %ld, %@", error.domain, error.code, error.localizedDescription];
     [self showAlertWithTitle:@"Error" message:errorMessage];
