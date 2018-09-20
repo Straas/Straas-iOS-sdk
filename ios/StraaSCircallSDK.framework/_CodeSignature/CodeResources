@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/STSCircallManager.h</key>
 		<data>
-		B/Ai2gBMajahZItCSfvbUUe5tKo=
+		4NnTSiomIQBN1Gl8N6vdPa/UXcM=
 		</data>
 		<key>Headers/STSCircallPlayerView.h</key>
 		<data>
@@ -23,6 +23,10 @@
 		<key>Headers/STSCircallPublishConfig.h</key>
 		<data>
 		lP1eOjLKhrgIxc0w5WFey9SyeFI=
+		</data>
+		<key>Headers/STSCircallPublishWithUrlConfig.h</key>
+		<data>
+		Y5q4h2AYKJVJb1tWowL0ycc6zJ0=
 		</data>
 		<key>Headers/STSCircallRecordingStreamMetadata.h</key>
 		<data>
@@ -46,11 +50,11 @@
 		</data>
 		<key>Headers/StraaSCircallSDK.h</key>
 		<data>
-		LjaULXaRaCddRybY/wTZmxj3iUo=
+		AtL8xFGfce+/1k9soY+lJpFNrjw=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Yz+d7ApgNGwSHsFCzxXBBedzyTg=
+		BnN9YeKFGtxXv2RBZbhjsI4rKHw=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -85,11 +89,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			B/Ai2gBMajahZItCSfvbUUe5tKo=
+			4NnTSiomIQBN1Gl8N6vdPa/UXcM=
 			</data>
 			<key>hash2</key>
 			<data>
-			gpwH9v8i8GTkksLhkaMkc516L7BCOMZjRWgfCbsBaSQ=
+			uNSuciao0c5rF2mGFLY4ukh5ZHpUxQlb6k4HI6YP5rY=
 			</data>
 		</dict>
 		<key>Headers/STSCircallPlayerView.h</key>
@@ -112,6 +116,17 @@
 			<key>hash2</key>
 			<data>
 			274VVMsGPpDH9HFSzVWInQ7eY2Zim+0G4d8hT2Vt8WE=
+			</data>
+		</dict>
+		<key>Headers/STSCircallPublishWithUrlConfig.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Y5q4h2AYKJVJb1tWowL0ycc6zJ0=
+			</data>
+			<key>hash2</key>
+			<data>
+			wF4PRou8kExAS6mD96bYHK4/sylpIi+pk2druGYPm94=
 			</data>
 		</dict>
 		<key>Headers/STSCircallRecordingStreamMetadata.h</key>
@@ -173,11 +188,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LjaULXaRaCddRybY/wTZmxj3iUo=
+			AtL8xFGfce+/1k9soY+lJpFNrjw=
 			</data>
 			<key>hash2</key>
 			<data>
-			C06PhO/haq/UEcqG3Z/S7Y5JTMkNLayggDzDJvVfDpc=
+			8rLAuW2Ph58t6X5mfkz/WIZ1CzUAIyQGKYtFJ/FM260=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

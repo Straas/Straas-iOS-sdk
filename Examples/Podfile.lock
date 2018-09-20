@@ -35,29 +35,29 @@ PODS:
   - Socket.IO-Client-Swift (12.0.0):
     - StarscreamSocketIO (~> 8.0.7)
   - StarscreamSocketIO (8.0.7)
-  - StraaS-iOS-SDK (0.19.0):
-    - StraaS-iOS-SDK/Circall (= 0.19.0)
-    - StraaS-iOS-SDK/Core (= 0.19.0)
-    - StraaS-iOS-SDK/Messaging (= 0.19.0)
-    - StraaS-iOS-SDK/Player (= 0.19.0)
-    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.19.0)
-    - StraaS-iOS-SDK/Streaming (= 0.19.0)
-  - StraaS-iOS-SDK/Circall (0.19.0):
+  - StraaS-iOS-SDK (0.20.0):
+    - StraaS-iOS-SDK/Circall (= 0.20.0)
+    - StraaS-iOS-SDK/Core (= 0.20.0)
+    - StraaS-iOS-SDK/Messaging (= 0.20.0)
+    - StraaS-iOS-SDK/Player (= 0.20.0)
+    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.20.0)
+    - StraaS-iOS-SDK/Streaming (= 0.20.0)
+  - StraaS-iOS-SDK/Circall (0.20.0):
     - PodRTC (= 65.8.0.0)
     - Socket.IO-Client-Swift (~> 12.0.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Core (0.19.0):
+  - StraaS-iOS-SDK/Core (0.20.0):
     - AFNetworking (~> 3.0)
     - Socket.IO-Client-Swift (~> 12.0.0)
-  - StraaS-iOS-SDK/Messaging (0.19.0):
+  - StraaS-iOS-SDK/Messaging (0.20.0):
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Player (0.19.0):
+  - StraaS-iOS-SDK/Player (0.20.0):
     - GoogleAds-IMA-iOS-SDK (~> 3.3)
     - KVOController (~> 1.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.19.0):
+  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.20.0):
     - StraaS-iOS-SDK/Player
-  - StraaS-iOS-SDK/Streaming (0.19.0):
+  - StraaS-iOS-SDK/Streaming (0.20.0):
     - DSGPUImage (= 0.1.8)
     - StraaS-iOS-SDK/Core
   - TTTAttributedLabel (2.0.0)
@@ -90,7 +90,7 @@ SPEC CHECKSUMS:
   SlackTextViewController: b854e62c1c156336bc4fd409c6ca79b5773e8f9d
   Socket.IO-Client-Swift: 5b0154b42b3892bfb4c44fa138cbeb8afec4f6ef
   StarscreamSocketIO: 00b54e4208481ca5cef089545353aaf126bae16d
-  StraaS-iOS-SDK: ad1646f4d9737ea5950ade38890930580a99e0f9
+  StraaS-iOS-SDK: 83151cb7356948ba71ca5cefd6c17cdcc94713f5
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
 PODFILE CHECKSUM: 682af6d14ce650b5a2faeda2e36c641aa189fca7

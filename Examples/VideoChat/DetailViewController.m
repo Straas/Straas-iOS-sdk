@@ -12,14 +12,16 @@
 #import "ChatStickerExampleViewController.h"
 #import "StreamingViewController.h"
 #import "STSPlayerViewController.h"
-#import "STSCircallMainViewController.h"
+#import "STSCircallTokenViewController.h"
 
 NSString * const STSPlayerServiceBasicPlayerViewKeyword = @"StraaS.io PlayerView";
 NSString * const STSMessagingServiceKeyword = @"StraaS.io default chatroom";
 NSString * const STSMessagingServiceCustomUIKeyword = @"StraaS.io customed chatroom";
 NSString * const STSMessagingServiceECommerceUIKeyword = @"StraaS.io ECommerce chatroom";
 NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
-NSString * const STSCircallServiceKeyword = @"StraaS.io circall";
+NSString * const STSCircallServiceSingleVideoCallKeyword = @"StraaS.io Circall singleVideoCall";
+NSString * const STSCircallServiceIPCamBroadcastingHostViewKeyword = @"StraaS.io Circall IPCam host view";
+NSString * const STSCircallServiceIPCamBroadcastingViewerViewKeyword = @"StraaS.io Circall IPCam viewer view";
 
 @interface DetailViewController ()
 @property (nonatomic) UIViewController * contentViewController;
@@ -72,8 +74,10 @@ NSString * const STSCircallServiceKeyword = @"StraaS.io circall";
     if ([self.detailItem isEqualToString:STSPlayerServiceBasicPlayerViewKeyword]) {
         [self addBasicPlayerView];
     }
-    if ([self.detailItem isEqualToString:STSCircallServiceKeyword]) {
-        [self addCircallView];
+    if ([self.detailItem isEqualToString:STSCircallServiceSingleVideoCallKeyword] ||
+        [self.detailItem isEqualToString:STSCircallServiceIPCamBroadcastingHostViewKeyword] ||
+        [self.detailItem isEqualToString:STSCircallServiceIPCamBroadcastingViewerViewKeyword]) {
+        [self addCircallTokenView];
     }
 }
 
@@ -110,9 +114,17 @@ NSString * const STSCircallServiceKeyword = @"StraaS.io circall";
     [self addControllerAndSetAutoLayout:controller];
 }
 
-- (void)addCircallView {
-    STSCircallMainViewController * controller = [STSCircallMainViewController viewControllerFromStoryboard];
-    [self addControllerAndSetAutoLayout:controller];
+- (void)addCircallTokenView {
+    STSCircallTokenViewController * circallTokenViewController = [STSCircallTokenViewController viewControllerFromStoryboard];
+    if ([self.detailItem isEqualToString:STSCircallServiceSingleVideoCallKeyword]) {
+        circallTokenViewController.type = STSCircallTokenViewControllerTypeSingleVideoCall;
+    } else if ([self.detailItem isEqualToString:STSCircallServiceIPCamBroadcastingHostViewKeyword]) {
+        circallTokenViewController.type = STSCircallTokenViewControllerTypeIPCamBroadcastingHost;
+    } else if ([self.detailItem isEqualToString:STSCircallServiceIPCamBroadcastingViewerViewKeyword]) {
+        circallTokenViewController.type = STSCircallTokenViewControllerTypeIPCamBroadcastingViewer;
+    }
+
+    [self addControllerAndSetAutoLayout:circallTokenViewController];
 }
 
 - (void)addControllerAndSetAutoLayout:(UIViewController *)controller {
