@@ -252,6 +252,7 @@
 }
 
 - (IBAction)enableBackgroundPlaying:(UISwitch *)sender {
+    self.playerView.remoteControlEnabled = sender.on;
     self.playerView.allowsPlayingInBackground = sender.on;
 }
 
