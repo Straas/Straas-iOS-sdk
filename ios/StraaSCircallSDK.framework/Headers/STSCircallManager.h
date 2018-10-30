@@ -85,15 +85,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Prepares the local stream for the device camera. This method only works when the CirCall manager's `state` is `STSCircallStateIdle` or `STSCircallStatePrepared`.
  *
- * @param previewView The view to preview the local stream.
  * @param streamConfig The configuration of the local stream.
  * @param success A block object to be executed when the preparation is finished successfully. This block has no return value and takes one argument: the prepared local stream.
  * @param failure A block object to be executed when the preparation is finished unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  */
-- (void)prepareForCameraCaptureWithPreviewView:(nullable STSCircallPlayerView *)previewView
-                                 streamConfig:(nullable STSCircallStreamConfig *)streamConfig
-                                      success:(void(^ _Nullable)(STSCircallStream * stream))success
-                                      failure:(void(^ _Nullable)(NSError * error))failure;
+- (void)prepareForCameraCaptureWithStreamConfig:(nullable STSCircallStreamConfig *)streamConfig
+                                        success:(void (^ _Nullable)(STSCircallStream * stream))success
+                                        failure:(void (^ _Nullable)(NSError * error))failure;
 
 /**
  * Prepares the local stream with the rtsp url. This method only works when the CirCall manager's `state` is `STSCircallStateIdle` or `STSCircallStatePrepared`.
@@ -125,13 +123,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Publishes the local stream to the room, so other people can subscribe this stream in a room they joined.
- * This method only works if the `state` is `STSCircallStateConnected` and `localStream` is not nil.
+ * This method only works if the `state` is `STSCircallStateConnected`.
  *
  * @param config The configs for publishing the local stream.
- * @param success A block object to be executed when the task finishes successfully. This block has no return value and takes no parameters.
+ * @param success A block object to be executed when the task finishes successfully. This block has no return value and takes one argument: the published local stream.
  * @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  */
-- (void)publishWithCameraCaptureWithConfig:(STSCircallPublishConfig *)config success:(void(^ _Nullable)(void))success failure:(void(^ _Nullable)(NSError * error))failure;
+- (void)publishWithCameraCaptureWithConfig:(STSCircallPublishConfig *)config success:(void(^ _Nullable)(STSCircallStream *stream))success failure:(void(^ _Nullable)(NSError * error))failure;
 
 /**
  * Publishes the stream from the url(RTSP) to the room, so other people can subscribe this stream in a room they joined.
@@ -168,7 +166,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param success A block object to be executed when the task finishes successfully.
  * @param failure A block object to be executed when the task finishes unsuccessfully.
  */
-- (void)unsubscribeStream:(STSCircallStream *)stream success:(void(^ _Nullable)(STSCircallStream *stream))success failure:(void(^ _Nullable)(STSCircallStream *stream, NSError * error))failure;
+- (void)unsubscribeStream:(STSCircallStream *)stream success:(void(^ _Nullable)(void))success failure:(void(^ _Nullable)(NSError * error))failure;
 
 /**
  * Start recording of the target stream. Streams are recorded on the server side.

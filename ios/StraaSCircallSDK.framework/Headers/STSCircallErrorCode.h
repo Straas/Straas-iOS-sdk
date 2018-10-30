@@ -62,6 +62,11 @@ typedef NS_ENUM(NSUInteger, STSCircallErrorCode) {
      *  The token is unauthorized. Plrease refresh your token.
      */
     STSCircallErrorUnauthorized = 9,
+
+    /**
+     *  The connection to the room disconnected unexpectedly.
+     */
+    STSCircallErrorCodeRoomDisconnectedUnexpectedly = 10,
 };
 
 #endif /* STSCircallErrorCode_h */
