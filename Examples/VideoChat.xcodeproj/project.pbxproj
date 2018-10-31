@@ -60,7 +60,6 @@
 		FFB6689120E395C0004CE075 /* STSCircallSingleVideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */; };
 		FFB6689220E395C0004CE075 /* STSCircallTokenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6688F20E395C0004CE075 /* STSCircallTokenViewController.m */; };
 		FFB6689520E3961F004CE075 /* STSQRCodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6689420E3961F004CE075 /* STSQRCodeScannerViewController.m */; };
-		FFB6689820E3ADC0004CE075 /* STSScreenshotPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6689720E3ADC0004CE075 /* STSScreenshotPhoto.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,8 +197,6 @@
 		FFB6689020E395C0004CE075 /* STSCircallSingleVideoCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallSingleVideoCallViewController.h; sourceTree = "<group>"; };
 		FFB6689320E3961F004CE075 /* STSQRCodeScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSQRCodeScannerViewController.h; sourceTree = "<group>"; };
 		FFB6689420E3961F004CE075 /* STSQRCodeScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSQRCodeScannerViewController.m; sourceTree = "<group>"; };
-		FFB6689620E3ADC0004CE075 /* STSScreenshotPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSScreenshotPhoto.h; sourceTree = "<group>"; };
-		FFB6689720E3ADC0004CE075 /* STSScreenshotPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSScreenshotPhoto.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -449,8 +446,6 @@
 				FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */,
 				FFB6689320E3961F004CE075 /* STSQRCodeScannerViewController.h */,
 				FFB6689420E3961F004CE075 /* STSQRCodeScannerViewController.m */,
-				FFB6689620E3ADC0004CE075 /* STSScreenshotPhoto.h */,
-				FFB6689720E3ADC0004CE075 /* STSScreenshotPhoto.m */,
 				FF9C5C112152262A00BFED13 /* IPCamBroadcasting */,
 			);
 			path = Circall;
@@ -742,7 +737,6 @@
 				4A3A2BB51ED7DE6000A22863 /* TransparentMessageTableViewCell.m in Sources */,
 				40A202391D77F93E00457359 /* MessageTextView.m in Sources */,
 				9BF1971A1EEEA213003AE88E /* STSPlayerViewController.m in Sources */,
-				FFB6689820E3ADC0004CE075 /* STSScreenshotPhoto.m in Sources */,
 				9BF1971D1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m in Sources */,
 				40A202381D77F93E00457359 /* MessageTableViewCell.m in Sources */,
 				9BEAD38A1ED735CF004B9DAB /* FloatingImageView.m in Sources */,

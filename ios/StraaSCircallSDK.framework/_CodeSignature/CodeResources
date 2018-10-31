@@ -10,11 +10,11 @@
 		</data>
 		<key>Headers/STSCircallErrorCode.h</key>
 		<data>
-		Dt5oXC39DrwfSuZxDk1wa9bAt78=
+		dv34LtqF3bJ2g7u87s111dMXb7E=
 		</data>
 		<key>Headers/STSCircallManager.h</key>
 		<data>
-		4NnTSiomIQBN1Gl8N6vdPa/UXcM=
+		Z1qjBIN3/8MOpcmk0hTGeogmNhI=
 		</data>
 		<key>Headers/STSCircallPlayerView.h</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		BnN9YeKFGtxXv2RBZbhjsI4rKHw=
+		Xqrmw2kyZ0J/Fu1M8KD3Xbi9mqY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -78,22 +78,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Dt5oXC39DrwfSuZxDk1wa9bAt78=
+			dv34LtqF3bJ2g7u87s111dMXb7E=
 			</data>
 			<key>hash2</key>
 			<data>
-			Q5+aIdg35iw5+M2/qAgQ5qAlAOAC0gAJg08zvMA1KwE=
+			xBDdNUim7J+F+N6CEvNzhbNZlWk1IHTXBv2T+cBC/aI=
 			</data>
 		</dict>
 		<key>Headers/STSCircallManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4NnTSiomIQBN1Gl8N6vdPa/UXcM=
+			Z1qjBIN3/8MOpcmk0hTGeogmNhI=
 			</data>
 			<key>hash2</key>
 			<data>
-			uNSuciao0c5rF2mGFLY4ukh5ZHpUxQlb6k4HI6YP5rY=
+			w39e+FBFl8vc0wjPGfY9MD5MBFWTtxlYJhlkXzpN65c=
 			</data>
 		</dict>
 		<key>Headers/STSCircallPlayerView.h</key>

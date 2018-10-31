@@ -9,9 +9,7 @@
 #import "STSCircallSingleVideoCallViewController.h"
 #import <StraaSCircallSDK/STSCircallPlayerView.h>
 #import <StraaSCircallSDK/STSCircallManager.h>
-#import <NYTPhotoViewer/NYTPhotoViewer.h>
 #import <MBProgressHUD/MBProgressHUD.h>
-#import "STSScreenshotPhoto.h"
 #import <MZTimerLabel/MZTimerLabel.h>
 
 typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerState){
@@ -50,10 +48,10 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
 @property (assign, nonatomic) BOOL videoEnabled;
 @property (assign, nonatomic) BOOL audioEnabled;
 @property (assign, nonatomic) STSCircallSingleVideoCallViewControllerRecordingState recordingState;
+@property (strong, nonatomic) NSString *recordingId;
 
 @property (assign, nonatomic) STSCircallSingleVideoCallViewControllerState viewControllerState;
 @property (strong, nonatomic) NSTimer *recordingRedDotTimer;
-@property (strong, nonatomic) NSString *recordingId;
 
 @end
 
@@ -105,6 +103,7 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
 
     __weak STSCircallSingleVideoCallViewController * weakSelf = self;
     void (^prepareWithPreviewViewSuccessHandler)(STSCircallStream * _Nonnull stream) = ^(STSCircallStream * _Nonnull stream) {
+        weakSelf.pictureInPictureVideoView.stream = stream;
         weakSelf.viewControllerState = STSCircallSingleVideoCallViewControllerStateConnecting;
         [weakSelf.circallManager connectWithCircallToken:self.circallToken success:^{
             weakSelf.viewControllerState = STSCircallSingleVideoCallViewControllerStateConnected;
@@ -112,8 +111,8 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
             STSCircallPublishConfig * config = [STSCircallPublishConfig new];
             config.maxVideoBitrate = @(600000);
             config.maxAudioBitrate = @(64000);
-            [weakSelf.circallManager publishWithCameraCaptureWithConfig:config success:^{
-                NSLog(@"publishWithConfig success");
+            [weakSelf.circallManager publishWithCameraCaptureWithConfig:config success:^(STSCircallStream * _Nonnull stream) {
+                NSLog(@"publishWithConfig success with stream id: %@", stream.streamId);
             } failure:^(NSError * _Nonnull error) {
                 NSLog(@"publishWithConfig failure");
             }];
@@ -126,7 +125,7 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
         }];
     };
 
-    [self.circallManager prepareForCameraCaptureWithPreviewView:self.pictureInPictureVideoView streamConfig:streamConfig success:prepareWithPreviewViewSuccessHandler failure:^(NSError * _Nonnull error) {
+    [self.circallManager prepareForCameraCaptureWithStreamConfig:streamConfig success:prepareWithPreviewViewSuccessHandler failure:^(NSError * _Nonnull error) {
         weakSelf.viewControllerState = STSCircallSingleVideoCallViewControllerStateIdle;
         [weakSelf showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"prepared failed with error: %@",error]];
         [self.hud hideAnimated:YES];
@@ -176,12 +175,20 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
 }
 
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message {
+    [self showAlertWithTitle:title message:message exitOnCompletion:NO];
+}
+
+- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message exitOnCompletion:(BOOL) exitOnCompletion {
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle:title
                                                                               message:message
                                                                        preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:
-     [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+     [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault
+                            handler: exitOnCompletion ? ^(UIAlertAction *action) {
+                                [self leaveOngoingVideoCall];
+                            } : nil]];
     [self presentViewController:alertController animated:YES completion:nil];
+
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -232,6 +239,10 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
 #pragma mark - IBAction
 
 - (IBAction)closeButtonDidPressed:(id)sender {
+    [self leaveOngoingVideoCall];
+}
+
+- (void) leaveOngoingVideoCall {
     // show alert
     if (self.viewControllerState == STSCircallSingleVideoCallViewControllerStateIdle) {
         [self.navigationController popViewControllerAnimated:YES];
@@ -241,31 +252,48 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
     __block MBProgressHUD * hud = nil;
 
     __weak STSCircallSingleVideoCallViewController *weakSelf = self;
-    void (^disconnectAndPopViewController)() = ^() {
+    void (^disconnectAndPopViewController)(void) = ^() {
         [weakSelf.circallManager disconnectWithSuccess:^{
             weakSelf.circallManager = nil;
             [hud hideAnimated:YES];
             [weakSelf.navigationController popViewControllerAnimated:YES];
         } failure:^(NSError * _Nonnull error) {
-            NSLog(@"failed to disconnect error:%@",error);
+            NSString *errorMessage = [NSString stringWithFormat:@"error in disconnectWithSuccess: %@",error];
+            NSAssert(false, errorMessage);
             weakSelf.circallManager = nil;
             [hud hideAnimated:YES];
             [weakSelf.navigationController popViewControllerAnimated:YES];
         }];
     };
 
-    void (^stopRecordingIfNeededAndThenDisconnectAndPopViewController)() = ^() {
+    void (^stopRecordingIfNeededAndThenDisconnectAndPopViewController)(void) = ^() {
         if ((weakSelf.recordingState == STSCircallSingleVideoCallViewControllerRecordingStateRecording || weakSelf.recordingState == STSCircallSingleVideoCallViewControllerRecordingStateStarting) && self.fullScreenVideoView.stream != nil) {
             [weakSelf.circallManager stopRecordingStream:weakSelf.fullScreenVideoView.stream recordingId:weakSelf.recordingId success:^{
                 weakSelf.recordingId = nil;
                 weakSelf.recordingState = STSCircallSingleVideoCallViewControllerRecordingStateIdle;
                 disconnectAndPopViewController();
             } failure:^(NSError * _Nonnull error) {
+                NSString *errorMessage = [NSString stringWithFormat:@"error in stopRecordingStream: %@",error];
+                NSAssert(false, errorMessage);
                 disconnectAndPopViewController();
             }];
         } else {
             disconnectAndPopViewController();
         }
+    };
+
+    void (^unpublish)() = ^() {
+        if (!weakSelf.circallManager.isLocalStreamPublished) {
+            stopRecordingIfNeededAndThenDisconnectAndPopViewController();
+            return;
+        }
+        [weakSelf.circallManager unpublishWithSuccess:^{
+            stopRecordingIfNeededAndThenDisconnectAndPopViewController();
+        } failure:^(NSError * _Nonnull error) {
+            NSString *errorMessage = [NSString stringWithFormat:@"error in unpublishWithSuccess: %@",error];
+            NSAssert(false, errorMessage);
+            stopRecordingIfNeededAndThenDisconnectAndPopViewController();
+        }];
     };
 
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"離開面談室"
@@ -276,10 +304,16 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
         hud.mode = MBProgressHUDModeIndeterminate;
         // We would unpublish here before disconnect here. Without unpublish, there will be red bar on the screen top showing it's "publishing" when user press home button.
         // So far we don't do unpublish within disconnect, to leave more flexibility for the user
-        [weakSelf.circallManager unpublishWithSuccess:^{
-            stopRecordingIfNeededAndThenDisconnectAndPopViewController();
+        if (!self.fullScreenVideoView.stream.streamId) {
+            unpublish();
+            return;
+        }
+        [weakSelf.circallManager unsubscribeStream:self.fullScreenVideoView.stream success:^{
+            unpublish();
         } failure:^(NSError * _Nonnull error) {
-            stopRecordingIfNeededAndThenDisconnectAndPopViewController();
+            NSString *errorMessage = [NSString stringWithFormat:@"error in unsubscribeStream: %@",error];
+            NSAssert(false, errorMessage);
+            unpublish();
         }];
     }];
     [alertController addAction:exitAlertAction];
@@ -381,7 +415,7 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
             // stop recording
             self.recordingState = STSCircallSingleVideoCallViewControllerRecordingStateIdle;
 
-            [self.circallManager stopRecordingStream:self.fullScreenVideoView.stream recordingId:self.recordingId success:^{
+            [self.circallManager stopRecordingStream:self.fullScreenVideoView.stream recordingId:weakSelf.recordingId success:^{
                 weakSelf.recordingId = nil;
                 weakSelf.recordingState = STSCircallSingleVideoCallViewControllerRecordingStateIdle;
             } failure:^(NSError * _Nonnull error) {
@@ -398,18 +432,28 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
 
 - (IBAction)takeScreenshotButtonDidPressed:(id)sender {
     if (self.fullScreenVideoView.stream == nil) {
-        [self showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"remote stream is not added."]];
+        [self showAlertWithTitle:@"需等候 remote stream 加入, 才可開始截圖" message:nil];
     }
 
     UIImage *image = [self.fullScreenVideoView getVideoFrame];
     if (!image) {
-        [self showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"Failed to create screenshot"]];
+        [self showAlertWithTitle:@"截圖失敗" message:nil];
         return;
     }
 
-    STSScreenshotPhoto *photo = [[STSScreenshotPhoto alloc] initWithImage:image];
-    NYTPhotosViewController *vc = [[NYTPhotosViewController alloc] initWithPhotos:@[photo]];
-    [self presentViewController:vc animated:YES completion:nil];
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void) image:(UIImage*)image didFinishSavingWithError:(NSError *)error contextInfo:(NSDictionary*)info {
+    if (error) {
+        NSString *errorMessage = @"截圖失敗";
+        if (error.code == -3310) {
+            errorMessage = @"無法儲存截圖，請先允許 StraaS 存取相片。";
+        }
+        [self showAlertWithTitle:errorMessage message:nil];
+        return;
+    }
+    [self showAlertWithTitle:@"截圖成功，儲存至相簿" message:nil];
 }
 
 #pragma mark - STSCircallManagerDelegate Methods
@@ -462,7 +506,7 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
 
     [self.hud hideAnimated:YES];
     NSString * errorMessage = [NSString stringWithFormat:@"ERROR: %@, %ld, %@", error.domain, error.code, error.localizedDescription];
-    [self showAlertWithTitle:@"Error" message:errorMessage];
+    [self showAlertWithTitle:@"Error" message:errorMessage exitOnCompletion:YES];
 }
 
 @end

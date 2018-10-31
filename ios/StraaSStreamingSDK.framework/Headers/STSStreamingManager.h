@@ -217,7 +217,7 @@ __attribute__((deprecated("prepareWithVideoSize:previewView:outputImageOrientati
  *  @param success A block object to be executed when the task finishes successfully.
  *  @param failure  A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  */
-- (void)cleanLiveEvent:(NSString *)liveId success:(void(^)())success failure:(void(^)(NSError * error))failure; __attribute__((deprecated("`cleanLiveEvent:success:failure:` has been deprecated. Use `endLiveEvent:success:failure:` instead.")));
+- (void)cleanLiveEvent:(NSString *)liveId success:(void(^)())success failure:(void(^)(NSError * error))failure __attribute__((deprecated("`cleanLiveEvent:success:failure:` has been deprecated. Use `endLiveEvent:success:failure:` instead.")));
 
 /**
  *  Sets the status of a live event to "ended".
