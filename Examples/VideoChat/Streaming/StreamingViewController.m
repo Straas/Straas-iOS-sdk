@@ -532,6 +532,14 @@ NSUInteger const kSTSStreaingViewRetryInterval = 2;
     return attributedString;
 }
 
+- (BOOL)shouldAutorotate {
+    if (self.streamingManager.state == STSStreamingStateConnecting || self.streamingManager.state == STSStreamingStateStreaming ||
+        self.streamingManager.state == STSStreamingStateDisconnecting) {
+        return NO;
+    }
+    return YES;
+}
+
 #pragma mark - button actions
 
 - (void)startButtonPressed:(UIButton *)sender {

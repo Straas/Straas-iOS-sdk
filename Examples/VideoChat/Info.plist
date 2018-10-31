@@ -56,6 +56,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>「StraaS」想要將截圖存入您的相簿</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>「StraaS」想要將截圖存入您的相簿</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

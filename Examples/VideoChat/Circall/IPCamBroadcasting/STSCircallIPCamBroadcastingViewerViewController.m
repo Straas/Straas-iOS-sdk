@@ -10,8 +10,6 @@
 #import <StraaSCircallSDK/STSCircallPlayerView.h>
 #import <StraaSCircallSDK/STSCircallManager.h>
 #import <MBProgressHUD/MBProgressHUD.h>
-#import <NYTPhotoViewer/NYTPhotoViewer.h>
-#import "STSScreenshotPhoto.h"
 
 typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingViewerViewControllerState){
     STSCircallIPCamBroadcastingViewerViewControllerStateIdle,
@@ -60,7 +58,7 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingViewerViewControllerState
 
     __weak STSCircallIPCamBroadcastingViewerViewController * weakSelf = self;
 
-    void (^connect)() = ^() {
+    void (^connect)(void) = ^() {
         [weakSelf.circallManager connectWithCircallToken:self.circallToken success:^{
             weakSelf.viewControllerState = STSCircallIPCamBroadcastingViewerViewControllerStateConnected;
 
@@ -95,17 +93,29 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingViewerViewControllerState
 }
 
 - (void)showAlertWithTitle:(NSString *)title message:(NSString *)message {
+    [self showAlertWithTitle:title message:message exitOnCompletion:NO];
+}
+
+- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message exitOnCompletion:(BOOL) exitOnCompletion {
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle:title
                                                                               message:message
                                                                        preferredStyle:UIAlertControllerStyleAlert];
     [alertController addAction:
-     [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+     [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault
+                            handler: exitOnCompletion ? ^(UIAlertAction *action) {
+                                [self leaveOngoingVideoCall];
+                            } : nil]];
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark - IBAction
 
 - (IBAction)closeButtonDidPressed:(id)sender {
+    [self leaveOngoingVideoCall];
+}
+
+- (void) leaveOngoingVideoCall {
+    // show alert
     if (self.viewControllerState == STSCircallIPCamBroadcastingViewerViewControllerStateIdle) {
         [self.navigationController popViewControllerAnimated:YES];
         return;
@@ -114,16 +124,31 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingViewerViewControllerState
     __block MBProgressHUD * hud = nil;
 
     __weak STSCircallIPCamBroadcastingViewerViewController *weakSelf = self;
-    void (^disconnectAndPopViewController)() = ^() {
+    void (^disconnectAndPopViewController)(void) = ^() {
         [weakSelf.circallManager disconnectWithSuccess:^{
             weakSelf.circallManager = nil;
             [hud hideAnimated:YES];
             [weakSelf.navigationController popViewControllerAnimated:YES];
         } failure:^(NSError * _Nonnull error) {
-            NSLog(@"failed to disconnect error:%@",error);
+            NSString *errorMessage = [NSString stringWithFormat:@"error in disconnectWithSuccess: %@",error];
+            NSAssert(false, errorMessage);
             weakSelf.circallManager = nil;
             [hud hideAnimated:YES];
             [weakSelf.navigationController popViewControllerAnimated:YES];
+        }];
+    };
+
+    void (^unsubscribe)() = ^() {
+        if (!self.viewerView.stream) {
+            disconnectAndPopViewController();
+            return;
+        }
+        [weakSelf.circallManager unsubscribeStream:weakSelf.viewerView.stream success:^{
+            disconnectAndPopViewController();
+        } failure:^(NSError * _Nonnull error) {
+            NSString *errorMessage = [NSString stringWithFormat:@"error in unsubscribeStream: %@",error];
+            NSAssert(false, errorMessage);
+            disconnectAndPopViewController();
         }];
     };
 
@@ -133,7 +158,7 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingViewerViewControllerState
     UIAlertAction *exitAlertAction = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *alertAction) {
         hud = [MBProgressHUD showHUDAddedTo:weakSelf.view animated:YES];
         hud.mode = MBProgressHUDModeIndeterminate;
-        disconnectAndPopViewController();
+        unsubscribe();
     }];
     [alertController addAction:exitAlertAction];
     [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
@@ -142,18 +167,28 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingViewerViewControllerState
 
 - (IBAction)takeScreenshotButtonDidPressed:(id)sender {
     if (self.viewerView.stream == nil) {
-        [self showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"remote stream is not added."]];
+        [self showAlertWithTitle:@"需等候 remote stream 加入, 才可開始截圖" message:nil];
     }
 
     UIImage *image = [self.viewerView getVideoFrame];
     if (!image) {
-        [self showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"Failed to create screenshot"]];
+        [self showAlertWithTitle:@"截圖失敗" message:nil];
         return;
     }
 
-    STSScreenshotPhoto *photo = [[STSScreenshotPhoto alloc] initWithImage:image];
-    NYTPhotosViewController *vc = [[NYTPhotosViewController alloc] initWithPhotos:@[photo]];
-    [self presentViewController:vc animated:YES completion:nil];
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void) image:(UIImage*)image didFinishSavingWithError:(NSError *)error contextInfo:(NSDictionary*)info {
+    if (error) {
+        NSString *errorMessage = @"截圖失敗";
+        if (error.code == -3310) {
+            errorMessage = @"無法儲存截圖，請先允許 StraaS 存取相片。";
+        }
+        [self showAlertWithTitle:errorMessage message:nil];
+        return;
+    }
+    [self showAlertWithTitle:@"截圖成功，儲存至相簿" message:nil];
 }
 
 #pragma mark - STSCircallManagerDelegate Methods
@@ -166,7 +201,7 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingViewerViewControllerState
         weakSelf.viewerView.stream = stream;
     } failure:^(STSCircallStream * _Nonnull stream, NSError * _Nonnull error) {
         weakSelf.viewControllerState = STSCircallIPCamBroadcastingViewerViewControllerStateConnected;
-        weakSelf.viewerView.stream = stream;
+        weakSelf.viewerView.stream = nil;
         [self showAlertWithTitle:@"Failed" message:[NSString stringWithFormat:@"Failed didAddStream"]];
     }];
 }
@@ -186,7 +221,7 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingViewerViewControllerState
 
     [self.hud hideAnimated:YES];
     NSString * errorMessage = [NSString stringWithFormat:@"ERROR: %@, %ld, %@", error.domain, error.code, error.localizedDescription];
-    [self showAlertWithTitle:@"Error" message:errorMessage];
+    [self showAlertWithTitle:@"Error" message:errorMessage exitOnCompletion:YES];
 }
 
 @end

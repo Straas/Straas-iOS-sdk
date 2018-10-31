@@ -13,6 +13,11 @@
 #import "STSCircallIPCamBroadcastingViewerViewController.h"
 #import "STSCircallIPCamBroadcastingHostViewController.h"
 
+NSString * const kUserDefaultsKeyCircallTokenForSingleVideoCall = @"kUserDefaultsKeyCircallTokenForSingleVideoCall";
+NSString * const kUserDefaultsKeyCircallTokenForViewer = @"kUserDefaultsKeyCircallTokenForViewer";
+NSString * const kUserDefaultsKeyCircallTokenForHost = @"kUserDefaultsKeyCircallTokenForHost";
+NSString * const kUserDefaultsKeyRtspUrl = @"kUserDefaultsKeyRtspUrl";
+
 @interface STSCircallTokenViewController () <UITextFieldDelegate, STSQRCodeScannerViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *backgroundView;
@@ -27,6 +32,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *scanUrlButton;
 @property (weak, nonatomic) UIButton *scanQRCodeButtonSender;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintOfVerticalSpaceBetweenTokenViewAndConnectRoomButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintOfVerticalSpaceBetweenTokenViewAndRtspUrlView;
 
 @end
 
@@ -56,18 +63,36 @@
     self.urlTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     self.urlTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"請貼上或掃描 RTSP URL" attributes:@{NSForegroundColorAttributeName: color}];
 
+    NSString *cachedCircallToken;
     switch (self.type) {
         case STSCircallTokenViewControllerTypeIPCamBroadcastingHost:
             [self.connectRoomButton setTitle:@"進入" forState:UIControlStateNormal];
+            cachedCircallToken = [[NSUserDefaults standardUserDefaults]
+                                  stringForKey:kUserDefaultsKeyCircallTokenForHost];
+            self.constraintOfVerticalSpaceBetweenTokenViewAndConnectRoomButton.priority = UILayoutPriorityFittingSizeLevel;
+            self.constraintOfVerticalSpaceBetweenTokenViewAndRtspUrlView.priority = UILayoutPriorityRequired;
             break;
         case STSCircallTokenViewControllerTypeIPCamBroadcastingViewer:
             [self.connectRoomButton setTitle:@"進入" forState:UIControlStateNormal];
+            cachedCircallToken = [[NSUserDefaults standardUserDefaults]
+                                  stringForKey:kUserDefaultsKeyCircallTokenForViewer];
             self.urlView.hidden = YES;
+            self.constraintOfVerticalSpaceBetweenTokenViewAndConnectRoomButton.priority = UILayoutPriorityRequired;
+            self.constraintOfVerticalSpaceBetweenTokenViewAndRtspUrlView.priority = UILayoutPriorityFittingSizeLevel;
             break;
         case STSCircallTokenViewControllerTypeSingleVideoCall:
+            cachedCircallToken = [[NSUserDefaults standardUserDefaults]
+                                  stringForKey:kUserDefaultsKeyCircallTokenForSingleVideoCall];
             self.urlView.hidden = YES;
+            self.constraintOfVerticalSpaceBetweenTokenViewAndConnectRoomButton.priority = UILayoutPriorityRequired;
+            self.constraintOfVerticalSpaceBetweenTokenViewAndRtspUrlView.priority = UILayoutPriorityFittingSizeLevel;
             break;
     }
+
+    self.circallTokenTextField.text = cachedCircallToken;
+    NSString *cachedUrl = [[NSUserDefaults standardUserDefaults]
+                           stringForKey:kUserDefaultsKeyRtspUrl];
+    self.urlTextField.text = cachedUrl;
 }
 
 #pragma mark - Accessors
@@ -77,15 +102,13 @@
 - (IBAction)connectRoomButtonDidPressed:(id)sender {
     self.errorMessageLabel.hidden = YES;
 
-    if (![[self class] isCircallTokenValid:self.circallTokenTextField.text]) {
-        self.errorMessageLabel.text = @"Circall token 錯誤";
+    if (self.circallTokenTextField.text == nil || self.circallTokenTextField.text.length == 0) {
+        self.errorMessageLabel.text = @"請貼上 Circall token";
         self.errorMessageLabel.hidden = NO;
         return;
     }
-
-    NSURL *url = [NSURL URLWithString:self.urlTextField.text];
-    if (!url) {
-        self.errorMessageLabel.text = @"RTSP URL 錯誤";
+    if (![[self class] isCircallTokenValid:self.circallTokenTextField.text]) {
+        self.errorMessageLabel.text = @"Circall token 錯誤";
         self.errorMessageLabel.hidden = NO;
         return;
     }
@@ -94,6 +117,7 @@
         case STSCircallTokenViewControllerTypeSingleVideoCall:
         default:
         {
+            [[NSUserDefaults standardUserDefaults] setObject:self.circallTokenTextField.text forKey:kUserDefaultsKeyCircallTokenForSingleVideoCall];
             [self requestCameraAndMicrophonePermissionsWithSuccessHandler:^{
                 STSCircallSingleVideoCallViewController *vc = [STSCircallSingleVideoCallViewController viewControllerFromStoryboard];
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -105,6 +129,7 @@
             break;
         case STSCircallTokenViewControllerTypeIPCamBroadcastingViewer:
         {
+            [[NSUserDefaults standardUserDefaults] setObject:self.circallTokenTextField.text forKey:kUserDefaultsKeyCircallTokenForViewer];
             STSCircallIPCamBroadcastingViewerViewController *vc = [STSCircallIPCamBroadcastingViewerViewController viewControllerFromStoryboard];
             vc.circallToken = self.circallTokenTextField.text;
             [self.navigationController pushViewController:vc animated:YES];
@@ -112,9 +137,17 @@
             break;
         case STSCircallTokenViewControllerTypeIPCamBroadcastingHost:
         {
+            NSURL *url = [NSURL URLWithString:self.urlTextField.text];
+            if (!url || url.absoluteString.length == 0) {
+                self.errorMessageLabel.text = @"請貼上 RTSP URL";
+                self.errorMessageLabel.hidden = NO;
+                return;
+            }
+            [[NSUserDefaults standardUserDefaults] setObject:self.circallTokenTextField.text forKey:kUserDefaultsKeyCircallTokenForHost];
             STSCircallIPCamBroadcastingHostViewController *vc = [STSCircallIPCamBroadcastingHostViewController viewControllerFromStoryboard];
             vc.circallToken = self.circallTokenTextField.text;
             vc.url = url;
+            [[NSUserDefaults standardUserDefaults] setObject:self.urlTextField.text forKey:kUserDefaultsKeyRtspUrl];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
@@ -144,7 +177,7 @@
     [self.backgroundView.layer addSublayer:gradient];
 }
 
-- (void)requestCameraAndMicrophonePermissionsWithSuccessHandler:(void (^)())successHandler {
+- (void)requestCameraAndMicrophonePermissionsWithSuccessHandler:(void (^)(void))successHandler {
     self.errorMessageLabel.text = @"";
     self.errorMessageLabel.hidden = YES;
 
@@ -226,7 +259,7 @@
 
 + (BOOL)isCircallTokenValid:(NSString *)circallToken {
     if (circallToken == nil || circallToken.length == 0) {
-        return false;
+        return NO;
     }
 
     NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:circallToken options:0];
