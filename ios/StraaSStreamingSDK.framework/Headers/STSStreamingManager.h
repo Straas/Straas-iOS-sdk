@@ -144,7 +144,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)prepareWithVideoSize:(CGSize)videoSize
                  previewView:(UIView *)previewView
       outputImageOrientation:(UIInterfaceOrientation)outputImageOrientation
-                     success:(void(^)())success
+                     success:(void(^)(void))success
                      failure:(void(^)(NSError * error))failure
 __attribute__((deprecated("prepareWithVideoSize:previewView:outputImageOrientation:success:success:failure: has been deprecated please use prepareWithPreviewView:configuration:success:failure: instead.")));;
 
@@ -172,7 +172,7 @@ __attribute__((deprecated("prepareWithVideoSize:previewView:outputImageOrientati
  *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  */
 - (void)startStreamingWithliveId:(NSString *)liveId
-                         success:(void(^)())success
+                         success:(void(^)(void))success
                          failure:(void(^)(NSError * error))failure;
 
 /**
@@ -183,7 +183,7 @@ __attribute__((deprecated("prepareWithVideoSize:previewView:outputImageOrientati
  *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  */
 - (void)startStreamingWithStreamKey:(NSString *)streamKey
-                            success:(void(^)())success
+                            success:(void(^)(void))success
                             failure:(void(^)(NSError * error))failure;
 /**
  *  Stops the current live streaming.
@@ -217,7 +217,7 @@ __attribute__((deprecated("prepareWithVideoSize:previewView:outputImageOrientati
  *  @param success A block object to be executed when the task finishes successfully.
  *  @param failure  A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  */
-- (void)cleanLiveEvent:(NSString *)liveId success:(void(^)())success failure:(void(^)(NSError * error))failure __attribute__((deprecated("`cleanLiveEvent:success:failure:` has been deprecated. Use `endLiveEvent:success:failure:` instead.")));
+- (void)cleanLiveEvent:(NSString *)liveId success:(void(^)(void))success failure:(void(^)(NSError * error))failure __attribute__((deprecated("`cleanLiveEvent:success:failure:` has been deprecated. Use `endLiveEvent:success:failure:` instead.")));
 
 /**
  *  Sets the status of a live event to "ended".
@@ -228,7 +228,7 @@ __attribute__((deprecated("prepareWithVideoSize:previewView:outputImageOrientati
  *  @param success A block object to be executed when the task finishes successfully.
  *  @param failure  A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  */
-- (void)endLiveEvent:(NSString *)liveId success:(void(^)())success failure:(void(^)(NSError * error))failure;
+- (void)endLiveEvent:(NSString *)liveId success:(void(^)(void))success failure:(void(^)(NSError * error))failure;
 
 /**
  *  Get the streaming statistics.

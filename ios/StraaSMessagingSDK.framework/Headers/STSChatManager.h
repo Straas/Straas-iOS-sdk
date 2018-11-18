@@ -215,7 +215,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param failure      Error handler.
  */
 - (void)updateGuestNickname:(NSString *)nickname chatroom:(STSChat *)chatroom
-                    success:(void(^)())success failure:(void(^)(NSError * error))failure;
+                    success:(void(^)(void))success failure:(void(^)(NSError * error))failure;
 
 /**
  *  Update role for given user.
@@ -227,7 +227,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param failure      Error handler.
  */
 - (void)updateUserRole:(NSString *)role targetUser:(STSChatUser *)targetUser chatroom:(STSChat *)chatroom
-               success:(void(^)())success failure:(void(^)(NSError * error))failure;
+               success:(void(^)(void))success failure:(void(^)(NSError * error))failure;
 
 /**
  *  Update role for given memberId.
@@ -239,7 +239,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param failure      Error handler.
  */
 - (void)updateUserRole:(NSString *)role memberId:(NSString *)memberId chatroom:(STSChat *)chatroom
-               success:(void(^)())success failure:(void(^)(NSError * error))failure;
+               success:(void(^)(void))success failure:(void(^)(NSError * error))failure;
 
 /**
  *  Block users by current user. Only succeed when current user has the privilege.
@@ -250,7 +250,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param failure      Error handler.
  */
 - (void)blockUsers:(NSArray <STSChatUser *>*)users chatroom:(STSChat *)chatroom
-           success:(void(^)())success failure:(void(^)(NSError * error))failure;
+           success:(void(^)(void))success failure:(void(^)(NSError * error))failure;
 
 /**
  *  Revive users by current user. Only succeed when current user has the privilege.
@@ -261,7 +261,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param failure      Error handler.
  */
 - (void)reviveUsers:(NSArray <STSChatUser *>*)users chatroom:(STSChat *)chatroom
-            success:(void(^)())success failure:(void(^)(NSError * error))failure;
+            success:(void(^)(void))success failure:(void(^)(NSError * error))failure;
 
 /**
  *  Send message to chatroom. 
@@ -273,7 +273,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param failure      Error handler.
  */
 - (void)sendMessage:(NSString *)message chatroom:(STSChat *)chatroom
-            success:(void(^)())success failure:(void(^)(NSError * error))failure;
+            success:(void(^)(void))success failure:(void(^)(NSError * error))failure;
 
 /**
  *  Remove chat message.
@@ -285,7 +285,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param failure      Error handler.
  */
 - (void)removeMessage:(NSString *)messageId chatroom:(STSChat *)chatroom
-              success:(void(^)())success failure:(void(^)(NSError * error))failure;
+              success:(void(^)(void))success failure:(void(^)(NSError * error))failure;
 
 /**
  *  Get the pinned message of a chatroom.
@@ -312,7 +312,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)pinMessage:(NSString *)messageId
           chatroom:(STSChat *)chatroom
-           success:(void(^)())success
+           success:(void(^)(void))success
            failure:(void(^)(NSError * error))failure;
 
 /**
@@ -324,7 +324,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param failure  Error handler.
  */
 - (void)unpinMessageFromChatroom:(STSChat *)chatroom
-                         success:(void(^)())success
+                         success:(void(^)(void))success
                          failure:(void(^)(NSError * error))failure;
 
 /**
@@ -352,7 +352,7 @@ NS_ASSUME_NONNULL_BEGIN
                   forKey:(NSString *)key
                 chatroom:(STSChat *)chatroom
                broadcast:(BOOL)broadcast
-                 success:(void(^)())success
+                 success:(void(^)(void))success
                  failure:(void(^)(NSError * error))failure;
 
 /**
@@ -425,7 +425,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param failure      Error handler.
  */
 - (void)sendAggregatedDataWithKey:(NSString *)key chatroom:(STSChat *)chatroom
-                          success:(void(^)())success failure:(void(^)(NSError * error))failure;
+                          success:(void(^)(void))success failure:(void(^)(NSError * error))failure;
 
 /**
  *  Send raw data to data channel. Raw data should be a valid JSON object only.
@@ -437,7 +437,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param failure      Error handler.
  */
 - (void)sendRawData:(id)rawData chatroom:(STSChat *)chatroom
-            success:(void(^)())success failure:(void(^)(NSError * error))failure;
+            success:(void(^)(void))success failure:(void(^)(NSError * error))failure;
 
 /**
  *  Get chat room aggregated data.
