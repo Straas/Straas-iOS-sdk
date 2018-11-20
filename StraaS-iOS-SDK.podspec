@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "StraaS-iOS-SDK"
-  s.version      = "0.21.1"
+  s.version      = "0.22.0"
   s.summary      = "StraaS.io iOS SDK"
 
   s.description  = "StraaS.io - Streaming as a Service, Your Best OTT Solution."
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
 
   s.source       = { :git => "https://github.com/StraaS/StraaS-iOS-sdk.git",
-                     :tag => "0.21.1" }
+                     :tag => "0.22.0" }
 
   s.subspec 'Messaging' do |msg|
     msg.vendored_frameworks = "ios/StraaSMessagingSDK.framework"
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |co|
     co.vendored_frameworks = "ios/StraaSCoreSDK.framework"
     co.dependency "AFNetworking", "~>3.0"
-    co.dependency "Socket.IO-Client-Swift", "~> 12.0.0"
+    co.dependency "Socket.IO-Client-Swift", "~> 12.1.0"
   end
   s.subspec 'Streaming' do |streaming|
     streaming.vendored_frameworks = "ios/StraaSStreamingSDK.framework"
@@ -43,7 +43,7 @@ Pod::Spec.new do |s|
   s.subspec 'Circall' do |circall|
     circall.vendored_frameworks = "ios/StraaSCircallSDK.framework"
     circall.dependency "StraaS-iOS-SDK/Core"
-    circall.dependency "Socket.IO-Client-Swift", "~> 12.0.0"
+    circall.dependency "Socket.IO-Client-Swift", "~> 12.1.0"
     circall.dependency "PodRTC", "65.8.0.0"
     circall.pod_target_xcconfig = {
       'ENABLE_BITCODE' => 'NO',

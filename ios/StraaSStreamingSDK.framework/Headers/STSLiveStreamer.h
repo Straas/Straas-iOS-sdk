@@ -72,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param failure   A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  */
 - (void)startStreamingWithURL:(NSURL *)url
-                      success:(void(^)())success
+                      success:(void(^)(void))success
                       failure:(void(^)(NSError * error))failure;
 
 /**

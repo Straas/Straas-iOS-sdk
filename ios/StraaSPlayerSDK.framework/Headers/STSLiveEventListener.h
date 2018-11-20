@@ -58,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The time may change when the stream starts or stops.
  *
  *  @param liveEventListener  The STSLiveEventListener instance that sent the message.
- *  @param broadcastStartTime The broadcast start time in millisecond. `nil` if the live stream is stopped.
+ *  @param broadcastStartTimeInMS The broadcast start time in millisecond. `nil` if the live stream is stopped.
  */
 - (void)liveEventListener:(STSLiveEventListener *)liveEventListener broadcastStartTimeChanged:(NSNumber * _Nullable)broadcastStartTimeInMS;
 
@@ -141,7 +141,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
  */
 - (void)startWithLiveId:(NSString *)liveId
-                success:(void(^ _Nullable)())success
+                success:(void(^ _Nullable)(void))success
                 failure:(void(^ _Nullable)(NSError *))failure;
 
 /**
