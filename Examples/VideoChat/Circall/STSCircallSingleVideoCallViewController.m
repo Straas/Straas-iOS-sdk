@@ -36,7 +36,6 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
 @property (weak, nonatomic) IBOutlet UIButton *recordingButton;
 @property (weak, nonatomic) IBOutlet UIButton *takeScreenshotButton;
 
-@property (weak, nonatomic) IBOutlet MZTimerLabel *recordingDurationLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *recordingRedDot;
 @property (weak, nonatomic) IBOutlet UIImageView *defaultFaceImageView;
 
@@ -77,7 +76,6 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
     [self.takeScreenshotButton setImage:[UIImage imageNamed:@"capture-img-focus"] forState:UIControlStateHighlighted];
 
     self.recordingRedDot.hidden = YES;
-    self.recordingDurationLabel.hidden = YES;
 
     // properties settings
     self.circallManager = [[STSCircallManager alloc] init];
@@ -207,15 +205,11 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
 - (void)updateUIWithRecordingState:(STSCircallSingleVideoCallViewControllerRecordingState)recordingState {
     if (recordingState == STSCircallSingleVideoCallViewControllerRecordingStateRecording) {
         [self.recordingButton setImage:[UIImage imageNamed:@"capture-video-on"] forState:UIControlStateNormal];
-        [self.recordingDurationLabel setHidden:NO];
         [self.recordingRedDot setHidden:NO];
-        [self.recordingDurationLabel start];
         [self startAnimatingRecordingRedDot];
     } else {
         [self.recordingButton setImage:[UIImage imageNamed:@"capture-video-off"] forState:UIControlStateNormal];
-        [self.recordingDurationLabel setHidden:YES];
         [self.recordingRedDot setHidden:YES];
-        [self.recordingDurationLabel reset];
         [self stopAnimatingRecordingRedDot];
     }
 }
@@ -282,7 +276,7 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
         }
     };
 
-    void (^unpublish)() = ^() {
+    void (^unpublish)(void) = ^() {
         if (!weakSelf.circallManager.isLocalStreamPublished) {
             stopRecordingIfNeededAndThenDisconnectAndPopViewController();
             return;
