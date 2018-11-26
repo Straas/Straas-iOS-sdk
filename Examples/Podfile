@@ -17,7 +17,6 @@ target 'VideoChat' do
   pod 'TTTAttributedLabel'
   pod 'StraaS-iOS-SDK', :path=>'../'
   pod 'MBProgressHUD'
-  pod 'MZTimerLabel', '~> 0.5.4'
   pod 'IQKeyboardManager'
 end
 

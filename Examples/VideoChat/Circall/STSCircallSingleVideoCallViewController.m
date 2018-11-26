@@ -10,7 +10,6 @@
 #import <StraaSCircallSDK/STSCircallPlayerView.h>
 #import <StraaSCircallSDK/STSCircallManager.h>
 #import <MBProgressHUD/MBProgressHUD.h>
-#import <MZTimerLabel/MZTimerLabel.h>
 
 typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerState){
     STSCircallSingleVideoCallViewControllerStateIdle,
