@@ -28,29 +28,29 @@ PODS:
   - Socket.IO-Client-Swift (12.1.3):
     - Starscream (~> 2.1.1)
   - Starscream (2.1.1)
-  - StraaS-iOS-SDK (0.22.0):
-    - StraaS-iOS-SDK/Circall (= 0.22.0)
-    - StraaS-iOS-SDK/Core (= 0.22.0)
-    - StraaS-iOS-SDK/Messaging (= 0.22.0)
-    - StraaS-iOS-SDK/Player (= 0.22.0)
-    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.22.0)
-    - StraaS-iOS-SDK/Streaming (= 0.22.0)
-  - StraaS-iOS-SDK/Circall (0.22.0):
+  - StraaS-iOS-SDK (0.23.0):
+    - StraaS-iOS-SDK/Circall (= 0.23.0)
+    - StraaS-iOS-SDK/Core (= 0.23.0)
+    - StraaS-iOS-SDK/Messaging (= 0.23.0)
+    - StraaS-iOS-SDK/Player (= 0.23.0)
+    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.23.0)
+    - StraaS-iOS-SDK/Streaming (= 0.23.0)
+  - StraaS-iOS-SDK/Circall (0.23.0):
     - PodRTC (= 65.8.0.0)
     - Socket.IO-Client-Swift (~> 12.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Core (0.22.0):
+  - StraaS-iOS-SDK/Core (0.23.0):
     - AFNetworking (~> 3.0)
     - Socket.IO-Client-Swift (~> 12.1.0)
-  - StraaS-iOS-SDK/Messaging (0.22.0):
+  - StraaS-iOS-SDK/Messaging (0.23.0):
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Player (0.22.0):
+  - StraaS-iOS-SDK/Player (0.23.0):
     - GoogleAds-IMA-iOS-SDK (~> 3.3)
     - KVOController (~> 1.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.22.0):
+  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.23.0):
     - StraaS-iOS-SDK/Player
-  - StraaS-iOS-SDK/Streaming (0.22.0):
+  - StraaS-iOS-SDK/Streaming (0.23.0):
     - DSGPUImage (= 0.1.8)
     - StraaS-iOS-SDK/Core
   - TTTAttributedLabel (2.0.0)
@@ -82,7 +82,7 @@ SPEC CHECKSUMS:
   SlackTextViewController: b854e62c1c156336bc4fd409c6ca79b5773e8f9d
   Socket.IO-Client-Swift: 2d3838d0e7bc105626872081fb6a23141145e8f8
   Starscream: 142bd8ef24592d985daee9fa48c936070b85b15f
-  StraaS-iOS-SDK: f49fcc6fc50b7fc8e8f26c14ccda076597c5e182
+  StraaS-iOS-SDK: a0e0bca713713a4507125a59a2d2cecad02d15fa
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
 PODFILE CHECKSUM: a6ec465cfd92185e2374e8d0c7cac9de7d548c9f
