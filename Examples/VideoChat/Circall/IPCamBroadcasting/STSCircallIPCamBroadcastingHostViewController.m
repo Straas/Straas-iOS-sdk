@@ -166,7 +166,7 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingHostViewControllerState){
         }];
     };
 
-    void (^unpublish)() = ^() {
+    void (^unpublish)(void) = ^() {
         if (!weakSelf.circallManager.isLocalStreamPublished) {
             disconnectCircall();
             return;
@@ -236,14 +236,7 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingHostViewControllerState){
 
 - (void)circallManager:(STSCircallManager *)manager didAddStream:(STSCircallStream *)stream {
     NSLog(@"%s", __PRETTY_FUNCTION__);
-    __weak STSCircallIPCamBroadcastingHostViewController *weakSelf = self;
-    [manager subscribeStream:stream success:^(STSCircallStream * _Nonnull stream) {
-        weakSelf.viewControllerState = STSCircallIPCamBroadcastingHostViewControllerStateSubscribed;
-        weakSelf.hostView.stream = stream;
-    } failure:^(STSCircallStream * _Nonnull stream, NSError * _Nonnull error) {
-        weakSelf.viewControllerState = STSCircallIPCamBroadcastingHostViewControllerStateConnected;
-        weakSelf.hostView.stream = nil;
-    }];
+    // don't need to subscribe for new streams for host
 }
 
 - (void)circallManager:(STSCircallManager *)manager didRemoveStream:(STSCircallStream *)stream {
