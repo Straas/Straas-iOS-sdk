@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -751,18 +751,8 @@
                                     <constraint firstAttribute="width" constant="130" id="gr6-aa-mil"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8m5-WO-9ps" userLabel="Recording Duration" customClass="MZTimerLabel">
-                                <rect key="frame" x="155" y="40" width="104" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="104" id="2Li-Hr-tIk"/>
-                                    <constraint firstAttribute="height" constant="18" id="ffw-eH-8vK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SPn-OG-8Dl" userLabel="Recording Red Dot">
-                                <rect key="frame" x="135" y="44" width="10" height="10"/>
+                                <rect key="frame" x="202" y="44" width="10" height="10"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="Ey3-aj-jbI"/>
@@ -776,6 +766,7 @@
                             <constraint firstAttribute="trailing" secondItem="2sS-QZ-k4t" secondAttribute="trailing" id="5NK-St-ZGm"/>
                             <constraint firstItem="2sS-QZ-k4t" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8bG-6o-UQX" secondAttribute="bottom" constant="120" id="5VT-H3-hQn"/>
                             <constraint firstItem="aOk-p1-tM2" firstAttribute="top" secondItem="3za-tu-K5T" secondAttribute="bottom" constant="15" id="5cJ-2J-m5r"/>
+                            <constraint firstItem="SPn-OG-8Dl" firstAttribute="centerX" secondItem="7i3-BC-gWG" secondAttribute="centerX" id="6Qa-LA-NZ3"/>
                             <constraint firstItem="xs7-e3-1iH" firstAttribute="top" secondItem="iD0-aF-JO8" secondAttribute="top" id="74f-Cg-Y00"/>
                             <constraint firstItem="xs7-e3-1iH" firstAttribute="bottom" secondItem="aOk-p1-tM2" secondAttribute="top" id="9Qd-5L-I6I"/>
                             <constraint firstItem="b8J-Vx-TKZ" firstAttribute="leading" secondItem="7i3-BC-gWG" secondAttribute="leading" constant="10" id="A7v-fx-dWe"/>
@@ -784,17 +775,14 @@
                             <constraint firstItem="ylI-fF-R1A" firstAttribute="height" secondItem="b8J-Vx-TKZ" secondAttribute="height" id="IfY-hP-i9K"/>
                             <constraint firstItem="2sS-QZ-k4t" firstAttribute="leading" secondItem="7i3-BC-gWG" secondAttribute="leading" id="Ine-A2-bXM"/>
                             <constraint firstItem="5Lt-gZ-1tr" firstAttribute="centerY" secondItem="7i3-BC-gWG" secondAttribute="topMargin" constant="22.5" id="Lq7-st-n43"/>
-                            <constraint firstItem="8m5-WO-9ps" firstAttribute="top" secondItem="McJ-E9-WEb" secondAttribute="bottom" constant="20" id="NaX-Sm-Dfq"/>
                             <constraint firstAttribute="trailing" secondItem="5Lt-gZ-1tr" secondAttribute="centerX" constant="22.5" id="OIB-V2-v51"/>
                             <constraint firstItem="iD0-aF-JO8" firstAttribute="top" secondItem="7i3-BC-gWG" secondAttribute="top" id="PI9-3f-bOy"/>
                             <constraint firstItem="ylI-fF-R1A" firstAttribute="centerX" secondItem="b8J-Vx-TKZ" secondAttribute="centerX" id="ULW-48-DL5"/>
                             <constraint firstAttribute="trailing" secondItem="iD0-aF-JO8" secondAttribute="trailing" id="XTj-T1-zze"/>
                             <constraint firstItem="iD0-aF-JO8" firstAttribute="leading" secondItem="7i3-BC-gWG" secondAttribute="leading" id="gg2-0P-hwk"/>
-                            <constraint firstItem="SPn-OG-8Dl" firstAttribute="centerY" secondItem="8m5-WO-9ps" secondAttribute="centerY" id="h5Z-BW-ljD"/>
-                            <constraint firstItem="8m5-WO-9ps" firstAttribute="leading" secondItem="SPn-OG-8Dl" secondAttribute="trailing" constant="10" id="hAD-QX-feu"/>
-                            <constraint firstItem="8m5-WO-9ps" firstAttribute="centerX" secondItem="7i3-BC-gWG" secondAttribute="centerX" id="i8I-7J-jUT"/>
                             <constraint firstItem="b8J-Vx-TKZ" firstAttribute="bottom" secondItem="iD0-aF-JO8" secondAttribute="bottom" constant="-65" id="lc0-Gj-LQD"/>
                             <constraint firstAttribute="trailing" secondItem="3za-tu-K5T" secondAttribute="trailing" constant="20" id="lch-ZX-nAx"/>
+                            <constraint firstItem="SPn-OG-8Dl" firstAttribute="top" secondItem="McJ-E9-WEb" secondAttribute="bottom" constant="24" id="mqo-j8-1Fa"/>
                             <constraint firstItem="xs7-e3-1iH" firstAttribute="leading" secondItem="2sS-QZ-k4t" secondAttribute="leading" id="s9v-ka-aYX"/>
                             <constraint firstItem="xs7-e3-1iH" firstAttribute="trailing" secondItem="2sS-QZ-k4t" secondAttribute="trailing" id="tvR-2I-Ued"/>
                             <constraint firstItem="iD0-aF-JO8" firstAttribute="bottom" secondItem="aOk-p1-tM2" secondAttribute="top" id="veN-Qt-X2D"/>
@@ -806,7 +794,6 @@
                         <outlet property="fullScreenVideoView" destination="iD0-aF-JO8" id="X9C-9A-XuC"/>
                         <outlet property="pictureInPictureVideoView" destination="b8J-Vx-TKZ" id="sjx-HO-rM6"/>
                         <outlet property="recordingButton" destination="3za-tu-K5T" id="ZyP-sT-LAG"/>
-                        <outlet property="recordingDurationLabel" destination="8m5-WO-9ps" id="kzp-iS-aX9"/>
                         <outlet property="recordingRedDot" destination="SPn-OG-8Dl" id="OZX-yG-X95"/>
                         <outlet property="switchCameraCaptureOnButton" destination="QkW-bn-N8j" id="S5F-zG-B8A"/>
                         <outlet property="switchCameraCaputurePositionButton" destination="3Cp-9D-nw4" id="fkq-B5-Hey"/>
@@ -1031,15 +1018,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera-on" width="45" height="45"/>
-        <image name="camera-switch" width="45" height="45"/>
-        <image name="capture-img" width="45" height="45"/>
+        <image name="camera-on" width="45.333332061767578" height="45.333332061767578"/>
+        <image name="camera-switch" width="45.333332061767578" height="45.333332061767578"/>
+        <image name="capture-img" width="45.333332061767578" height="45.333332061767578"/>
         <image name="capture-video-off" width="55" height="55"/>
         <image name="close" width="25" height="25"/>
         <image name="face" width="92" height="92"/>
         <image name="logo" width="200" height="200"/>
         <image name="scan" width="20" height="20"/>
-        <image name="voice-on" width="45" height="45"/>
+        <image name="voice-on" width="45.333332061767578" height="45.333332061767578"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6S0-TO-JiA"/>
