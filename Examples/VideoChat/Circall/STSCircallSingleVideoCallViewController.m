@@ -385,7 +385,7 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
 
 - (IBAction)recordingButtonDidPressed:(id)sender {
     if (self.viewControllerState != STSCircallSingleVideoCallViewControllerStateTwoWayVideo) {
-        [self showAlertWithTitle:@"無法錄影" message:@"需等候雙方皆進入面談室後，才可開始進行錄影"];
+        [self showAlertWithTitle:@"無法錄影" message:@"需等候 remote stream 加入, 才可開始進行錄影"];
         return;
     }
 
