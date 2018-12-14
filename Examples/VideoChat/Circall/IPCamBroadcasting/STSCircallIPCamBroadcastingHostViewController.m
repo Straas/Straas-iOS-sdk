@@ -20,14 +20,26 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingHostViewControllerState){
     STSCircallIPCamBroadcastingHostViewControllerStateSubscribed
 };
 
+typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingHostViewControllerRecordingState){
+    STSCircallIPCamBroadcastingHostViewControllerRecordingStateIdle,
+    STSCircallIPCamBroadcastingHostViewControllerRecordingStateStarting,
+    STSCircallIPCamBroadcastingHostViewControllerRecordingStateRecording
+};
+
 @interface STSCircallIPCamBroadcastingHostViewController () <STSCircallManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet STSCircallPlayerView *hostView;
+@property (weak, nonatomic) IBOutlet UIImageView *recordingRedDot;
+@property (weak, nonatomic) IBOutlet UIButton *recordingButton;
 
 @property (strong, nonatomic) STSCircallManager *circallManager;
 @property (assign, nonatomic) STSCircallIPCamBroadcastingHostViewControllerState viewControllerState;
+@property (assign, nonatomic) STSCircallIPCamBroadcastingHostViewControllerRecordingState recordingState;
 
 @property (strong, nonatomic) MBProgressHUD *hud;
+@property (strong, nonatomic) NSTimer *recordingRedDotTimer;
+
+@property (strong, nonatomic) NSString *recordingId;
 
 @end
 
@@ -43,6 +55,9 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingHostViewControllerState){
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.recordingRedDot.layer.cornerRadius = 5.0;
+    self.recordingRedDot.hidden = YES;
+
     // properties settings
     self.circallManager = [[STSCircallManager alloc] init];
     self.circallManager.delegate = self;
@@ -52,7 +67,19 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingHostViewControllerState){
         return;
     }
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectUntilSubscribe) name:UIApplicationWillEnterForegroundNotification object:nil];
+
     self.viewControllerState = STSCircallIPCamBroadcastingHostViewControllerStateIdle;
+
+    [self connectUntilSubscribe];
+}
+
+- (void)connectUntilSubscribe {
+
+    if ([self.presentedViewController isKindOfClass:[UIAlertController class]]) {
+        UIAlertController *alerController = (UIAlertController *)self.presentedViewController;
+        [alerController dismissViewControllerAnimated:NO completion:nil];
+    }
 
     // actions
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -103,6 +130,16 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingHostViewControllerState){
     }];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self addObserver:self forKeyPath:@"recordingState" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:nil];
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self removeObserver:self forKeyPath:@"recordingState"];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
@@ -131,6 +168,88 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingHostViewControllerState){
                                 [self leaveOngoingVideoCall];
                             } : nil]];
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:NSStringFromSelector(@selector(recordingState))]) {
+        STSCircallIPCamBroadcastingHostViewControllerRecordingState recordingState = [change[@"new"] integerValue];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self updateUIWithRecordingState:recordingState];
+        });
+    }
+}
+
+- (void)updateUIWithRecordingState:(STSCircallIPCamBroadcastingHostViewControllerRecordingState)recordingState {
+    if (recordingState == STSCircallIPCamBroadcastingHostViewControllerRecordingStateRecording) {
+        [self.recordingButton setImage:[UIImage imageNamed:@"capture-video-on"] forState:UIControlStateNormal];
+        [self.recordingRedDot setHidden:NO];
+        [self startAnimatingRecordingRedDot];
+    } else {
+        [self.recordingButton setImage:[UIImage imageNamed:@"capture-video-off"] forState:UIControlStateNormal];
+        [self.recordingRedDot setHidden:YES];
+        [self stopAnimatingRecordingRedDot];
+    }
+}
+
+- (IBAction)recordingButtonDidPressed:(id)sender {
+    if (self.viewControllerState != STSCircallIPCamBroadcastingHostViewControllerStatePublished &&
+        self.viewControllerState != STSCircallIPCamBroadcastingHostViewControllerStateSubscribed) {
+        [self showAlertWithTitle:@"無法錄影" message:@"需等候 remote stream 加入, 才可開始進行錄影"];
+        return;
+    }
+
+    __weak STSCircallIPCamBroadcastingHostViewController * weakSelf = self;
+    switch (self.recordingState) {
+        case STSCircallIPCamBroadcastingHostViewControllerRecordingStateIdle: {
+            // start recording
+            self.recordingState = STSCircallIPCamBroadcastingHostViewControllerRecordingStateStarting;
+
+            [self.circallManager startRecordingStream:self.hostView.stream success:^(NSString *recordingId){
+                weakSelf.recordingId = recordingId;
+                weakSelf.recordingState = STSCircallIPCamBroadcastingHostViewControllerRecordingStateRecording;
+            } failure:^(NSError * _Nonnull error) {
+                weakSelf.recordingState = STSCircallIPCamBroadcastingHostViewControllerRecordingStateIdle;
+                [weakSelf showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"start record failed with error:%@",error]];
+            }];
+            break;
+        }
+        case STSCircallIPCamBroadcastingHostViewControllerRecordingStateRecording: {
+            // stop recording
+            self.recordingState = STSCircallIPCamBroadcastingHostViewControllerRecordingStateIdle;
+
+            [self.circallManager stopRecordingStream:self.hostView.stream recordingId:weakSelf.recordingId success:^{
+                weakSelf.recordingId = nil;
+                weakSelf.recordingState = STSCircallIPCamBroadcastingHostViewControllerRecordingStateIdle;
+            } failure:^(NSError * _Nonnull error) {
+                weakSelf.recordingState = STSCircallIPCamBroadcastingHostViewControllerRecordingStateRecording;
+                [weakSelf showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"stop record failed with error:%@",error]];
+            }];
+            break;
+        }
+        case STSCircallIPCamBroadcastingHostViewControllerRecordingStateStarting:
+        default:
+            break;
+    }
+}
+
+- (void)startAnimatingRecordingRedDot {
+    __weak STSCircallIPCamBroadcastingHostViewController * weakSelf = self;
+    self.recordingRedDotTimer = [NSTimer scheduledTimerWithTimeInterval:0.4 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        if (weakSelf.recordingRedDot.isHidden) {
+            weakSelf.recordingRedDot.hidden = NO;
+        } else {
+            weakSelf.recordingRedDot.hidden = YES;
+        }
+    }];
+}
+
+- (void)stopAnimatingRecordingRedDot {
+    [self.recordingRedDotTimer invalidate];
+    self.recordingRedDotTimer = nil;
 }
 
 #pragma mark - IBAction

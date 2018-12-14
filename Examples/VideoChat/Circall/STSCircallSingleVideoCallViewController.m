@@ -492,7 +492,6 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
 
 - (void)circallManager:(STSCircallManager *)manager onError:(NSError *)error {
     NSLog(@"%s - %@", __PRETTY_FUNCTION__, error);
-    // TODO: would need to have detailed error information for error handling in the future
     self.recordingState = STSCircallSingleVideoCallViewControllerRecordingStateIdle;
     self.viewControllerState = STSCircallSingleVideoCallViewControllerStateIdle;
     self.fullScreenVideoView.stream = nil;
