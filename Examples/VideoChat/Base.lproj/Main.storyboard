@@ -990,20 +990,56 @@
                                     <constraint firstItem="e0v-oS-50M" firstAttribute="centerY" secondItem="tKB-WX-73f" secondAttribute="centerY" id="T1r-ng-obF"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4r8-S9-TDP" userLabel="Close Button">
+                                <rect key="frame" x="369" y="20" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="Gf1-Av-PnO"/>
+                                    <constraint firstAttribute="height" constant="45" id="Lib-Jk-UNN"/>
+                                </constraints>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="closeButtonDidPressed:" destination="7O6-cb-GWb" eventType="touchUpInside" id="IIp-x4-BM8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOE-FJ-TK2" userLabel="Recording Button">
+                                <rect key="frame" x="339" y="666" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="MD0-CN-7U3"/>
+                                    <constraint firstAttribute="height" constant="55" id="hVX-GL-D23"/>
+                                </constraints>
+                                <state key="normal" image="capture-video-off"/>
+                                <connections>
+                                    <action selector="recordingButtonDidPressed:" destination="7O6-cb-GWb" eventType="touchUpInside" id="qBM-jp-VKr"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ncs-pa-Lr1" userLabel="Recording Red Dot">
+                                <rect key="frame" x="202" y="44" width="10" height="10"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="duO-dq-UWn"/>
+                                    <constraint firstAttribute="width" constant="10" id="x33-md-YBw"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4uw-uD-hF7" firstAttribute="top" secondItem="K6g-W8-FVX" secondAttribute="top" id="0lI-er-zac"/>
                             <constraint firstItem="jX0-Ot-XGe" firstAttribute="top" secondItem="4uw-uD-hF7" secondAttribute="bottom" id="6rj-8I-H8H"/>
                             <constraint firstItem="kma-Dz-2CB" firstAttribute="top" secondItem="vsn-Jm-oPh" secondAttribute="bottom" id="DrB-rb-Eks"/>
+                            <constraint firstItem="4r8-S9-TDP" firstAttribute="top" secondItem="vsn-Jm-oPh" secondAttribute="bottom" id="Enu-G3-FUY"/>
                             <constraint firstAttribute="trailing" secondItem="ATY-an-tEJ" secondAttribute="trailing" id="Epq-XX-4SL"/>
                             <constraint firstAttribute="trailing" secondItem="4uw-uD-hF7" secondAttribute="trailing" id="Hai-ua-8Ea"/>
                             <constraint firstItem="jX0-Ot-XGe" firstAttribute="top" secondItem="ATY-an-tEJ" secondAttribute="bottom" id="Nex-al-gvr"/>
                             <constraint firstAttribute="bottom" secondItem="tKB-WX-73f" secondAttribute="bottom" id="OME-5b-Ddo"/>
                             <constraint firstItem="ATY-an-tEJ" firstAttribute="top" secondItem="K6g-W8-FVX" secondAttribute="top" id="S2p-Gs-Kty"/>
                             <constraint firstItem="ATY-an-tEJ" firstAttribute="leading" secondItem="K6g-W8-FVX" secondAttribute="leading" id="TSG-Ez-yZO"/>
+                            <constraint firstAttribute="trailing" secondItem="XOE-FJ-TK2" secondAttribute="trailing" constant="20" id="Uth-NK-xwf"/>
+                            <constraint firstAttribute="trailing" secondItem="4r8-S9-TDP" secondAttribute="trailing" id="Xyw-bY-Vig"/>
+                            <constraint firstItem="jX0-Ot-XGe" firstAttribute="top" secondItem="XOE-FJ-TK2" secondAttribute="bottom" constant="15" id="c5B-Ad-bEp"/>
+                            <constraint firstItem="Ncs-pa-Lr1" firstAttribute="centerX" secondItem="K6g-W8-FVX" secondAttribute="centerX" id="cmH-4p-edk"/>
                             <constraint firstAttribute="trailing" secondItem="tKB-WX-73f" secondAttribute="trailing" id="jLO-ye-Kif"/>
                             <constraint firstItem="4uw-uD-hF7" firstAttribute="leading" secondItem="K6g-W8-FVX" secondAttribute="leading" id="qem-SM-aQj"/>
+                            <constraint firstItem="Ncs-pa-Lr1" firstAttribute="top" secondItem="vsn-Jm-oPh" secondAttribute="bottom" constant="24" id="qpC-kA-ObL"/>
                             <constraint firstAttribute="trailing" secondItem="kma-Dz-2CB" secondAttribute="trailing" id="rQV-jq-Ku7"/>
                             <constraint firstItem="tKB-WX-73f" firstAttribute="leading" secondItem="K6g-W8-FVX" secondAttribute="leading" id="szR-11-rsr"/>
                         </constraints>
