@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -320,7 +323,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C5H-bb-q6n">
-                                                <rect key="frame" x="134" y="269" width="52" height="30"/>
+                                                <rect key="frame" x="134" y="269.66666666666669" width="52" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="byz-M8-Uvn"/>
                                                     <constraint firstAttribute="height" constant="30" id="tV3-gr-fu3"/>
@@ -1009,6 +1012,7 @@
                                 </constraints>
                                 <state key="normal" image="capture-video-off"/>
                                 <connections>
+                                    <action selector="recordingButtonDidPressed:" destination="yoy-cv-O4b" eventType="touchUpInside" id="JuW-OC-YSH"/>
                                     <action selector="recordingButtonDidPressed:" destination="7O6-cb-GWb" eventType="touchUpInside" id="qBM-jp-VKr"/>
                                 </connections>
                             </button>
@@ -1046,6 +1050,8 @@
                     </view>
                     <connections>
                         <outlet property="hostView" destination="ATY-an-tEJ" id="hDg-Yk-YEb"/>
+                        <outlet property="recordingButton" destination="XOE-FJ-TK2" id="Aey-tO-3TS"/>
+                        <outlet property="recordingRedDot" destination="Ncs-pa-Lr1" id="GWk-4R-nMx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8G-G0-uwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1054,15 +1060,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera-on" width="45.333332061767578" height="45.333332061767578"/>
-        <image name="camera-switch" width="45.333332061767578" height="45.333332061767578"/>
-        <image name="capture-img" width="45.333332061767578" height="45.333332061767578"/>
+        <image name="camera-on" width="45" height="45"/>
+        <image name="camera-switch" width="45" height="45"/>
+        <image name="capture-img" width="45" height="45"/>
         <image name="capture-video-off" width="55" height="55"/>
         <image name="close" width="25" height="25"/>
         <image name="face" width="92" height="92"/>
         <image name="logo" width="200" height="200"/>
         <image name="scan" width="20" height="20"/>
-        <image name="voice-on" width="45.333332061767578" height="45.333332061767578"/>
+        <image name="voice-on" width="45" height="45"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6S0-TO-JiA"/>
