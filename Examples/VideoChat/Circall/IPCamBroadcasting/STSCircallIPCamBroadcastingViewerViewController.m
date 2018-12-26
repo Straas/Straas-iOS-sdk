@@ -50,7 +50,18 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingViewerViewControllerState
         return;
     }
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectUntilSubscribe) name:UIApplicationWillEnterForegroundNotification object:nil];
+
     self.viewControllerState = STSCircallIPCamBroadcastingViewerViewControllerStateIdle;
+
+    [self connectUntilSubscribe];
+}
+
+- (void)connectUntilSubscribe {
+    if ([self.presentedViewController isKindOfClass:[UIAlertController class]]) {
+        UIAlertController *alerController = (UIAlertController *)self.presentedViewController;
+        [alerController dismissViewControllerAnimated:NO completion:nil];
+    }
 
     // actions
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -138,7 +149,7 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingViewerViewControllerState
         }];
     };
 
-    void (^unsubscribe)() = ^() {
+    void (^unsubscribe)(void) = ^() {
         if (!self.viewerView.stream) {
             disconnectAndPopViewController();
             return;
