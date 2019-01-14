@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		p+ot5Voa5Mdd9ZMI8KQ5V0XDlu8=
+		BLhBbhDRh7TFvohMYW2bZs5O/Nw=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -114,7 +114,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		349Qx2VUYt7oheBRbtIrwxoC7cs=
+		fdXQERXWylcAce4Eh/aJhqvQtiI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -153,11 +153,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			p+ot5Voa5Mdd9ZMI8KQ5V0XDlu8=
+			BLhBbhDRh7TFvohMYW2bZs5O/Nw=
 			</data>
 			<key>hash2</key>
 			<data>
-			N70MU6gqIifPc4lGy9BLNMMaE+9vOQohdz6bAtBD3Xs=
+			Rv+4KLuNPw7BwzOJOiPCHYVT9spkv6iumNJ5Uz79zAA=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -508,7 +508,7 @@
 	</dict>
 	<key>rules</key>
 	<dict>
-		<key>^.*</key>
+		<key>^</key>
 		<true/>
 		<key>^.*\.lproj/</key>
 		<dict>
@@ -539,12 +539,24 @@
 			<key>weight</key>
 			<real>11</real>
 		</dict>
+		<key>^</key>
+		<dict>
+			<key>weight</key>
+			<real>20</real>
+		</dict>
 		<key>^(.*/)?\.DS_Store$</key>
 		<dict>
 			<key>omit</key>
 			<true/>
 			<key>weight</key>
 			<real>2000</real>
+		</dict>
+		<key>^(Frameworks|SharedFrameworks|PlugIns|Plug-ins|XPCServices|Helpers|MacOS|Library/(Automator|Spotlight|LoginItems))/</key>
+		<dict>
+			<key>nested</key>
+			<true/>
+			<key>weight</key>
+			<real>10</real>
 		</dict>
 		<key>^.*</key>
 		<true/>
@@ -580,6 +592,13 @@
 			<true/>
 			<key>weight</key>
 			<real>20</real>
+		</dict>
+		<key>^[^/]+$</key>
+		<dict>
+			<key>nested</key>
+			<true/>
+			<key>weight</key>
+			<real>10</real>
 		</dict>
 		<key>^embedded\.provisionprofile$</key>
 		<dict>
