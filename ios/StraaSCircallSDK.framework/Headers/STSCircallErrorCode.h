@@ -64,24 +64,19 @@ typedef NS_ENUM(NSUInteger, STSCircallErrorCode) {
     STSCircallErrorUnauthorized = 9,
 
     /**
-     *  The connection to the room disconnected unexpectedly.
-     */
-    STSCircallErrorCodeRoomDisconnectedUnexpectedly = 10,
-
-    /**
      *  The room/recording does not exist.
      */
-    STSCircallErrorNotFound = 11,
+    STSCircallErrorNotFound = 10,
 
     /**
      *  The recording is ongoing already.
      */
-    STSCircallErrorRecordingConflict = 12,
+    STSCircallErrorRecordingConflict = 11,
 
     /**
      *  The requests are too many.
      */
-    STSCircallTooManyRequestsError = 13
+    STSCircallTooManyRequestsError = 12
 };
 
 #endif /* STSCircallErrorCode_h */

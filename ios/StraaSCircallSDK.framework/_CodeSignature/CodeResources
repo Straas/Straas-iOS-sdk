@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/STSCircallErrorCode.h</key>
 		<data>
-		LbSGm4Bnwc/MShOedge3mGijNLA=
+		NChqpOroYTCtPoqz1rcjunli7oY=
 		</data>
 		<key>Headers/STSCircallManager.h</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		w4ZaTom5CDtSMxAGPq4/7NjLL9M=
+		K8mwCxPxzPMk08v9z3tPZhCEEK4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -78,11 +78,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LbSGm4Bnwc/MShOedge3mGijNLA=
+			NChqpOroYTCtPoqz1rcjunli7oY=
 			</data>
 			<key>hash2</key>
 			<data>
-			GpP0BUQqeEB2cuF7CSLd8Q72MrjjmL1Uk9IQSnwUyqo=
+			Cn6ttNVg+PQ0X1HcOq8UINAX1865om6ApevT9tsflPw=
 			</data>
 		</dict>
 		<key>Headers/STSCircallManager.h</key>
@@ -209,7 +209,7 @@
 	</dict>
 	<key>rules</key>
 	<dict>
-		<key>^.*</key>
+		<key>^</key>
 		<true/>
 		<key>^.*\.lproj/</key>
 		<dict>
@@ -240,12 +240,24 @@
 			<key>weight</key>
 			<real>11</real>
 		</dict>
+		<key>^</key>
+		<dict>
+			<key>weight</key>
+			<real>20</real>
+		</dict>
 		<key>^(.*/)?\.DS_Store$</key>
 		<dict>
 			<key>omit</key>
 			<true/>
 			<key>weight</key>
 			<real>2000</real>
+		</dict>
+		<key>^(Frameworks|SharedFrameworks|PlugIns|Plug-ins|XPCServices|Helpers|MacOS|Library/(Automator|Spotlight|LoginItems))/</key>
+		<dict>
+			<key>nested</key>
+			<true/>
+			<key>weight</key>
+			<real>10</real>
 		</dict>
 		<key>^.*</key>
 		<true/>
@@ -281,6 +293,13 @@
 			<true/>
 			<key>weight</key>
 			<real>20</real>
+		</dict>
+		<key>^[^/]+$</key>
+		<dict>
+			<key>nested</key>
+			<true/>
+			<key>weight</key>
+			<real>10</real>
 		</dict>
 		<key>^embedded\.provisionprofile$</key>
 		<dict>
