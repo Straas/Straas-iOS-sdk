@@ -70,8 +70,15 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingHostViewControllerRecordi
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectUntilSubscribe) name:UIApplicationWillEnterForegroundNotification object:nil];
 
     self.viewControllerState = STSCircallIPCamBroadcastingHostViewControllerStateIdle;
+    self.recordingState = STSCircallIPCamBroadcastingHostViewControllerRecordingStateIdle;
 
     [self connectUntilSubscribe];
+
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
+}
+
+- (void)dealloc {
+    [UIApplication sharedApplication].idleTimerDisabled = NO;
 }
 
 - (void)connectUntilSubscribe {
@@ -114,6 +121,7 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingHostViewControllerRecordi
     void (^connect)(void) = ^() {
         [weakSelf.circallManager connectWithCircallToken:self.circallToken success:^{
             weakSelf.viewControllerState = STSCircallIPCamBroadcastingHostViewControllerStateConnected;
+            weakSelf.recordingState = STSCircallIPCamBroadcastingHostViewControllerRecordingStateIdle;
             publishRTSPUrl();
         } failure:^(NSError * _Nonnull error) {
             weakSelf.viewControllerState = STSCircallIPCamBroadcastingHostViewControllerStateIdle;
@@ -265,13 +273,11 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingHostViewControllerRecordi
         return;
     }
 
-    __block MBProgressHUD * hud = nil;
-
     __weak STSCircallIPCamBroadcastingHostViewController *weakSelf = self;
     void (^popViewController)(void) = ^() {
         weakSelf.circallManager = nil;
         weakSelf.hostView.stream = nil;
-        [hud hideAnimated:YES];
+        [weakSelf.hud hideAnimated:YES];
         [weakSelf.navigationController popViewControllerAnimated:YES];
     };
 
@@ -300,23 +306,39 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingHostViewControllerRecordi
         }];
     };
 
+    void (^stopRecording)(void) = ^() {
+        if ((weakSelf.recordingState == STSCircallIPCamBroadcastingHostViewControllerRecordingStateRecording || weakSelf.recordingState == STSCircallIPCamBroadcastingHostViewControllerRecordingStateStarting) && self.hostView.stream != nil) {
+            [weakSelf.circallManager stopRecordingStream:weakSelf.hostView.stream recordingId:weakSelf.recordingId success:^{
+                weakSelf.recordingId = nil;
+                weakSelf.recordingState = STSCircallIPCamBroadcastingHostViewControllerRecordingStateIdle;
+                unpublish();
+            } failure:^(NSError * _Nonnull error) {
+                NSString *errorMessage = [NSString stringWithFormat:@"error in stopRecordingStream: %@",error];
+                NSAssert(false, errorMessage);
+                unpublish();
+            }];
+        } else {
+            unpublish();
+        }
+    };
+
     UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"離開"
                                                                               message:@"你確定要離開嗎？"
                                                                        preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *exitAlertAction = [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *alertAction) {
-        hud = [MBProgressHUD showHUDAddedTo:weakSelf.view animated:YES];
-        hud.mode = MBProgressHUDModeIndeterminate;
+        weakSelf.hud = [MBProgressHUD showHUDAddedTo:weakSelf.view animated:YES];
+        weakSelf.hud.mode = MBProgressHUDModeIndeterminate;
 
         if (!self.hostView.stream) {
-            unpublish();
+            disconnectCircall();
             return;
         }
         [weakSelf.circallManager unsubscribeStream:self.hostView.stream success:^{
-            unpublish();
+            stopRecording();
         } failure:^(NSError * _Nonnull error) {
             NSString *errorMessage = [NSString stringWithFormat:@"error in unsubscribeStream: %@",error];
             NSAssert(false, errorMessage);
-            unpublish();
+            stopRecording();
         }];
 
     }];
@@ -362,12 +384,14 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingHostViewControllerRecordi
     NSLog(@"%s", __PRETTY_FUNCTION__);
     self.viewControllerState = STSCircallIPCamBroadcastingHostViewControllerStateConnected;
     if ([self.hostView.stream.streamId isEqualToString:stream.streamId]) {
+        self.recordingState = STSCircallIPCamBroadcastingHostViewControllerRecordingStateIdle;
         self.hostView.stream = nil;
     }
 }
 
 - (void)circallManager:(STSCircallManager *)manager onError:(NSError *)error {
     NSLog(@"%s - %@", __PRETTY_FUNCTION__, error);
+    self.recordingState = STSCircallIPCamBroadcastingHostViewControllerRecordingStateIdle;
     self.viewControllerState = STSCircallIPCamBroadcastingHostViewControllerStateIdle;
     self.hostView.stream = nil;
 
