@@ -125,7 +125,8 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingHostViewControllerRecordi
             publishRTSPUrl();
         } failure:^(NSError * _Nonnull error) {
             weakSelf.viewControllerState = STSCircallIPCamBroadcastingHostViewControllerStateIdle;
-            [weakSelf showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"connect room failed with error: %@",error]];
+            NSString * errorMessage = [NSString stringWithFormat:@"ERROR: %@, %ld, %@", error.domain, error.code, error.localizedDescription];
+            [weakSelf showAlertWithTitle:@"Error" message:errorMessage exitOnCompletion:YES];
             [weakSelf.hud hideAnimated:YES];
         }];
     };
@@ -266,7 +267,7 @@ typedef NS_ENUM(NSUInteger, STSCircallIPCamBroadcastingHostViewControllerRecordi
     [self leaveOngoingVideoCall];
 }
 
-- (void) leaveOngoingVideoCall {
+- (void)leaveOngoingVideoCall {
     // show alert
     if (self.viewControllerState == STSCircallIPCamBroadcastingHostViewControllerStateIdle) {
         [self.navigationController popViewControllerAnimated:YES];
