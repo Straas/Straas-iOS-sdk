@@ -7,6 +7,7 @@
 //
 
 #import <StraaSCoreSDK/LHDataObject.h>
+#import "STSPlaylistItem.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -38,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The number of videos that the playlist contains.
  */
-@property (nonatomic, readonly) NSInteger * videosCount;
+@property (nonatomic, readonly) NSInteger videosCount;
 
 /**
  *  The large size thumbnail of thumbnail_urls.
@@ -49,6 +50,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  The playlist created time.
  */
 @property (nonatomic, readonly) NSString * createdAt;
+
+/**
+ *  The array of playlistItems.
+ */
+@property (nonatomic, readonly, nullable) NSArray <STSPlaylistItem *> * playlistItems;
 
 @end
 

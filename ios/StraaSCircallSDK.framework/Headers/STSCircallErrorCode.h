@@ -61,22 +61,27 @@ typedef NS_ENUM(NSUInteger, STSCircallErrorCode) {
     /**
      *  The token is unauthorized. Plrease refresh your token.
      */
-    STSCircallErrorUnauthorized = 9,
+    STSCircallErrorCodeUnauthorized = 9,
 
     /**
      *  The room/recording does not exist.
      */
-    STSCircallErrorNotFound = 10,
+    STSCircallErrorCodeNotFound = 10,
 
     /**
      *  The recording is ongoing already.
      */
-    STSCircallErrorRecordingConflict = 11,
+    STSCircallErrorCodeRecordingConflict = 11,
 
     /**
      *  The requests are too many.
      */
-    STSCircallTooManyRequestsError = 12
+    STSCircallErrorCodeTooManyRequests = 12,
+
+    /**
+     *  The Circall token is invalid.
+     */
+    STSCircallErrorCodeInvalidToken = 13
 };
 
 #endif /* STSCircallErrorCode_h */
