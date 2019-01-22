@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/STSCircallErrorCode.h</key>
 		<data>
-		NChqpOroYTCtPoqz1rcjunli7oY=
+		pUAJ7AfnjMdxQULzsOFHrvB5df4=
 		</data>
 		<key>Headers/STSCircallManager.h</key>
 		<data>
@@ -54,12 +54,34 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		K8mwCxPxzPMk08v9z3tPZhCEEK4=
+		WTYkl5/lnvup6kBsqGX7G8mS9CM=
+		</data>
+		<key>Localizable.strings</key>
+		<data>
+		WvCROCz5qDVawr67N1+MLRedNzA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		pZ03ZS9BNrnKFP/WbO0R1WM0Cj4=
 		</data>
+		<key>en.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			kIJHqPuxwTOMkgxH472KTr2d2RU=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>zh-Hant.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			36g+tdaqBNYatJFwd1ATdFXcGXk=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -78,11 +100,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			NChqpOroYTCtPoqz1rcjunli7oY=
+			pUAJ7AfnjMdxQULzsOFHrvB5df4=
 			</data>
 			<key>hash2</key>
 			<data>
-			Cn6ttNVg+PQ0X1HcOq8UINAX1865om6ApevT9tsflPw=
+			ZZc4SB7pnnA/P7/M/XdVCzXpm6zTvK3ugRdKij1FjJg=
 			</data>
 		</dict>
 		<key>Headers/STSCircallManager.h</key>
@@ -195,6 +217,17 @@
 			8rLAuW2Ph58t6X5mfkz/WIZ1CzUAIyQGKYtFJ/FM260=
 			</data>
 		</dict>
+		<key>Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			WvCROCz5qDVawr67N1+MLRedNzA=
+			</data>
+			<key>hash2</key>
+			<data>
+			OTeJ0yQPNlu4VfpSjhOYxpsRbvm0r+0KZX6+D7seT6k=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
@@ -205,6 +238,32 @@
 			<data>
 			/wrzCUDjPCBYdSumX3edmFCr9gHoMVNWZCBL/flVJek=
 			</data>
+		</dict>
+		<key>en.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			kIJHqPuxwTOMkgxH472KTr2d2RU=
+			</data>
+			<key>hash2</key>
+			<data>
+			W1sJmTuopybsx9FTLCuAAF/4bplEmkvK3wUth45D7Uk=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>zh-Hant.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			36g+tdaqBNYatJFwd1ATdFXcGXk=
+			</data>
+			<key>hash2</key>
+			<data>
+			rAcRFURGjHa620Vybg0d2aNXZ51lcp4crXiwj07jftw=
+			</data>
+			<key>optional</key>
+			<true/>
 		</dict>
 	</dict>
 	<key>rules</key>

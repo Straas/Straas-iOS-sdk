@@ -117,7 +117,8 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
             [self.hud hideAnimated:YES];
         } failure:^(NSError * _Nonnull error) {
             weakSelf.viewControllerState = STSCircallSingleVideoCallViewControllerStateIdle;
-            [weakSelf showAlertWithTitle:@"Error" message:[NSString stringWithFormat:@"connect room failed with error: %@",error]];
+            NSString * errorMessage = [NSString stringWithFormat:@"ERROR: %@, %ld, %@", error.domain, error.code, error.localizedDescription];
+            [weakSelf showAlertWithTitle:@"Error" message:errorMessage exitOnCompletion:YES];
             [self.hud hideAnimated:YES];
         }];
     };
@@ -235,7 +236,7 @@ typedef NS_ENUM(NSUInteger, STSCircallSingleVideoCallViewControllerRecordingStat
     [self leaveOngoingVideoCall];
 }
 
-- (void) leaveOngoingVideoCall {
+- (void)leaveOngoingVideoCall {
     // show alert
     if (self.viewControllerState == STSCircallSingleVideoCallViewControllerStateIdle) {
         [self.navigationController popViewControllerAnimated:YES];
