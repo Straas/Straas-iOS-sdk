@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		ZUcd5DVP1FZJpMSBffsU8iY4sgk=
+		9LJlFIZcQtasxIlTd2gjG+5OAr4=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -114,7 +114,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		GJ6Ym1+wdZmX0C/r7nWn12chhxU=
+		Msj3GtDaSefKaIvfim9PBiqafp0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -153,11 +153,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZUcd5DVP1FZJpMSBffsU8iY4sgk=
+			9LJlFIZcQtasxIlTd2gjG+5OAr4=
 			</data>
 			<key>hash2</key>
 			<data>
-			oU7eg7KlkKuqNIgzFGpME/4+tWif/lqZoC0Znbnum5I=
+			BvzDHMXbw45/p9IBl8aEmYe/2z7ojY2I7JUAqDsnUU4=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>

@@ -84,12 +84,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The filter for the output video.
  */
-@property (nonatomic, nullable) GPUImageFilter * filter;
+@property (nonatomic, nullable) GPUImageFilter * filter  __attribute__((deprecated("`filter` has been deprecated. Use `filterGroup` instead.")));
 
 /**
  *  A boolean value indicates whether the default beauty filter is enabled. Defaults to YES.
  */
-@property (nonatomic) BOOL enableDefaultBeautyFilter;
+@property (nonatomic) BOOL enableDefaultBeautyFilter __attribute__((deprecated("`enableDefaultBeautyFilter` has been deprecated. Use `filterGroup` instead.")));
+
+/**
+ *  The filter group for the output video.
+ */
+@property (nonatomic, nullable) GPUImageFilterGroup *filterGroup;
 
 /**
  *  A boolean value indicates whether the video stream of the front camera will be flipped horizontally from the preview. Defaults to `YES`.
