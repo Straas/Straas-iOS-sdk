@@ -11,6 +11,7 @@
 #import "ECommerceChatViewController.h"
 #import "ChatStickerExampleViewController.h"
 #import "StreamingViewController.h"
+#import "StreamingFiltersViewController.h"
 #import "STSPlayerViewController.h"
 #import "STSCircallTokenViewController.h"
 
@@ -19,6 +20,7 @@ NSString * const STSMessagingServiceKeyword = @"StraaS.io default chatroom";
 NSString * const STSMessagingServiceCustomUIKeyword = @"StraaS.io customed chatroom";
 NSString * const STSMessagingServiceECommerceUIKeyword = @"StraaS.io ECommerce chatroom";
 NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
+NSString * const STSStreamingFiltersServiceKeyword = @"StraaS.io streaming filters";
 NSString * const STSCircallServiceSingleVideoCallKeyword = @"StraaS.io Circall singleVideoCall";
 NSString * const STSCircallServiceIPCamBroadcastingHostViewKeyword = @"StraaS.io Circall IPCam host view";
 NSString * const STSCircallServiceIPCamBroadcastingViewerViewKeyword = @"StraaS.io Circall IPCam viewer view";
@@ -71,6 +73,9 @@ NSString * const STSCircallServiceIPCamBroadcastingViewerViewKeyword = @"StraaS.
     if ([self.detailItem isEqualToString:STSStreamingServiceKeyword]) {
         [self addStreamingView];
     }
+    if ([self.detailItem isEqualToString:STSStreamingFiltersServiceKeyword]) {
+        [self addStreamingFiltersView];
+    }
     if ([self.detailItem isEqualToString:STSPlayerServiceBasicPlayerViewKeyword]) {
         [self addBasicPlayerView];
     }
@@ -111,6 +116,11 @@ NSString * const STSCircallServiceIPCamBroadcastingViewerViewKeyword = @"StraaS.
 - (void)addStreamingView {
     StreamingViewController * controller = [StreamingViewController new];
     controller.JWT = self.JWT;
+    [self addControllerAndSetAutoLayout:controller];
+}
+
+- (void)addStreamingFiltersView {
+    StreamingFiltersViewController * controller = [StreamingFiltersViewController viewControllerFromStoryboard];
     [self addControllerAndSetAutoLayout:controller];
 }
 
