@@ -11,6 +11,7 @@
 #import "ECommerceChatViewController.h"
 #import "ChatStickerExampleViewController.h"
 #import "StreamingViewController.h"
+#import "StreamingFiltersViewController.h"
 #import "STSPlayerViewController.h"
 #import "STSCircallTokenViewController.h"
 
@@ -119,9 +120,8 @@ NSString * const STSCircallServiceIPCamBroadcastingViewerViewKeyword = @"StraaS.
 }
 
 - (void)addStreamingFiltersView {
-//    StreamingViewController * controller = [StreamingViewController new];
-//    controller.JWT = self.JWT;
-//    [self addControllerAndSetAutoLayout:controller];
+    StreamingFiltersViewController * controller = [StreamingFiltersViewController viewControllerFromStoryboard];
+    [self addControllerAndSetAutoLayout:controller];
 }
 
 - (void)addCircallTokenView {

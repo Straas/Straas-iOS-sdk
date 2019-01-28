@@ -1055,7 +1055,7 @@
         <!--Streaming Filters View Controller-->
         <scene sceneID="Vku-sp-0NJ">
             <objects>
-                <viewController storyboardIdentifier="STSStreamingFiltersViewController" id="OLD-C6-GRC" customClass="StreamingFiltersViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StreamingFiltersViewController" id="OLD-C6-GRC" customClass="StreamingFiltersViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FyK-27-CK9"/>
                         <viewControllerLayoutGuide type="bottom" id="haz-d5-wvN"/>
