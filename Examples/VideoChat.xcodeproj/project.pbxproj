@@ -60,6 +60,7 @@
 		FFB6689120E395C0004CE075 /* STSCircallSingleVideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */; };
 		FFB6689220E395C0004CE075 /* STSCircallTokenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6688F20E395C0004CE075 /* STSCircallTokenViewController.m */; };
 		FFB6689520E3961F004CE075 /* STSQRCodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6689420E3961F004CE075 /* STSQRCodeScannerViewController.m */; };
+		FFC4073F21FE8ADE001DB97C /* StreamingFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC4073E21FE8ADE001DB97C /* StreamingFiltersViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +198,8 @@
 		FFB6689020E395C0004CE075 /* STSCircallSingleVideoCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallSingleVideoCallViewController.h; sourceTree = "<group>"; };
 		FFB6689320E3961F004CE075 /* STSQRCodeScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSQRCodeScannerViewController.h; sourceTree = "<group>"; };
 		FFB6689420E3961F004CE075 /* STSQRCodeScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSQRCodeScannerViewController.m; sourceTree = "<group>"; };
+		FFC4073D21FE8ADE001DB97C /* StreamingFiltersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StreamingFiltersViewController.h; sourceTree = "<group>"; };
+		FFC4073E21FE8ADE001DB97C /* StreamingFiltersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StreamingFiltersViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,6 +358,8 @@
 			children = (
 				72F47A401DDA1CA000103583 /* StreamingViewController.h */,
 				72F47A411DDA1CA000103583 /* StreamingViewController.m */,
+				FFC4073D21FE8ADE001DB97C /* StreamingFiltersViewController.h */,
+				FFC4073E21FE8ADE001DB97C /* StreamingFiltersViewController.m */,
 			);
 			name = Streaming;
 			sourceTree = "<group>";
@@ -717,6 +722,7 @@
 				9B9A9BB61DC98A650017F8C1 /* StickersInputView.m in Sources */,
 				72F47A421DDA1CA000103583 /* StreamingViewController.m in Sources */,
 				728229031EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.m in Sources */,
+				FFC4073F21FE8ADE001DB97C /* StreamingFiltersViewController.m in Sources */,
 				9BBEC54A1D813F1800387012 /* UIAlertController+VideoChatUtility.m in Sources */,
 				4A1F4DC51ED83B8D005D6FD9 /* ECommerceChatViewController.m in Sources */,
 				40C779E21D7091D0004F61CA /* MasterViewController.m in Sources */,
