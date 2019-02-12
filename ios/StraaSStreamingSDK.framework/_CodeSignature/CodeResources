@@ -12,6 +12,10 @@
 		<data>
 		XmFhhGQYebnyTf6mKw1+/gSoYlk=
 		</data>
+		<key>Headers/STSSkinBeautifyFilter.h</key>
+		<data>
+		phjhVumiuSa3jrfoLYSj/mCnD0Q=
+		</data>
 		<key>Headers/STSStreamingConstants.h</key>
 		<data>
 		agBOQJ3on+Gj4w+hAithXzGBxgY=
@@ -30,7 +34,7 @@
 		</data>
 		<key>Headers/STSStreamingManager.h</key>
 		<data>
-		cT9tysZfHfWBEiNA5Mwa37aNCgY=
+		u6xvYtFUCGyrGX5BTCT8Te+LIfc=
 		</data>
 		<key>Headers/STSStreamingPrepareConfig.h</key>
 		<data>
@@ -58,11 +62,11 @@
 		</data>
 		<key>Headers/StraaSStreamingSDK.h</key>
 		<data>
-		+LydpgOrZHk8CepfOaXX6cIfFl4=
+		8eflsjN+6kqEoe25OtMrpufXMOo=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		GTtahtjyXZUUl+r+nffTBOASD0I=
+		ZCbN5Q1DSVvGtGKsbjCQNKUcii0=
 		</data>
 		<key>Localizable.strings</key>
 		<data>
@@ -95,6 +99,17 @@
 			<key>hash2</key>
 			<data>
 			qBcR7w/hbFOgalfgdIcQcldLMAjUG6F+C7FQc6g7A0Y=
+			</data>
+		</dict>
+		<key>Headers/STSSkinBeautifyFilter.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			phjhVumiuSa3jrfoLYSj/mCnD0Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			RalehUE87+8RiqbX8KSe+6zj0B5ly5e6JvvO+y9/M7E=
 			</data>
 		</dict>
 		<key>Headers/STSStreamingConstants.h</key>
@@ -145,11 +160,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cT9tysZfHfWBEiNA5Mwa37aNCgY=
+			u6xvYtFUCGyrGX5BTCT8Te+LIfc=
 			</data>
 			<key>hash2</key>
 			<data>
-			AO4ge/3D7Jq7aHji2/Kii3n1JS/MmENgOg/JIwHWmag=
+			Uf6fz9e1uFq7he48OC4bzqKh+2gXB5P58BGjxZVwG2o=
 			</data>
 		</dict>
 		<key>Headers/STSStreamingPrepareConfig.h</key>
@@ -222,11 +237,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+LydpgOrZHk8CepfOaXX6cIfFl4=
+			8eflsjN+6kqEoe25OtMrpufXMOo=
 			</data>
 			<key>hash2</key>
 			<data>
-			Qc4yI7Ykg6cgfr5w08707mjXf8YbWdj8vhhKG9kGcgg=
+			+Y9WWjcZ1J1qumLfwjYiqUOTBTWf37b7A/iyLupg5RQ=
 			</data>
 		</dict>
 		<key>Localizable.strings</key>

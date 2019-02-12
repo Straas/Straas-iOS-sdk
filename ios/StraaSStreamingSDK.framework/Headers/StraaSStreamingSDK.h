@@ -28,3 +28,4 @@ FOUNDATION_EXPORT const unsigned char StraaSStreamingSDKVersionString[];
 #import <StraaSStreamingSDK/STSLiveStreamer.h>
 #import <StraaSStreamingSDK/STSStreamingInfo.h>
 #import <StraaSStreamingSDK/STSStreamingProfile.h>
+#import <StraaSStreamingSDK/STSSkinBeautifyFilter.h>

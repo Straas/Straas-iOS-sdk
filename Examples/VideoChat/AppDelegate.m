@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "DetailViewController.h"
 #import "StreamingViewController.h"
+#import "StreamingFiltersViewController.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -61,6 +62,9 @@
         UIViewController * contentViewController = detailViewController.contentViewController;
         if ([contentViewController isKindOfClass:[StreamingViewController class]]) {
             return ((StreamingViewController *)contentViewController).supportedInterfaceOrientations;
+        }
+        if ([contentViewController isKindOfClass:[StreamingFiltersViewController class]]) {
+            return ((StreamingFiltersViewController *)contentViewController).supportedInterfaceOrientations;
         }
     }
     return UIInterfaceOrientationMaskAll;
