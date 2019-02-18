@@ -10,6 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * GPUImageFilter for beaufity skin.
+ */
 @interface STSSkinBeautifyFilter : GPUImageFilter
 
 /**
