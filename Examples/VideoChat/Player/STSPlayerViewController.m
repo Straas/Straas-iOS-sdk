@@ -90,6 +90,22 @@
     [self videoScalingMode:self.videoScalingModeSegementedControl.selectedSegmentIndex];
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     [self updateLayoutConstraints:UIInterfaceOrientationIsLandscape(orientation)];
+
+//    // You can uncomment the below part to see the demo of using `mappingForDisplayingAvailableQualityNames`
+//    self.playerView.mappingForDisplayingAvailableQualityNames = ^NSArray<NSString *> *(NSArray<NSString *> * _Nonnull qualityNames) {
+//        NSMutableArray *newQualityNames = [[NSMutableArray alloc] init];
+//        for (NSString *qualityName in qualityNames) {
+//            if ([qualityName isEqualToString:@"auto"]) {
+//                [newQualityNames addObject:NSLocalizedString(@"Auto", @"Auto")];
+//            } else if ([qualityName isEqualToString:@"240p"]) {
+//                [newQualityNames addObject:NSLocalizedString(@"Normal Quality", @"Normal Quality")];
+//            } else if ([qualityName isEqualToString:@"360p"]) {
+//                [newQualityNames addObject:NSLocalizedString(@"High Quality", @"High Quality")];
+//            }
+//        }
+//
+//        return [newQualityNames copy];
+//    };
 }
 
 - (STSVideoScalingMode)videoScalingMode:(NSInteger)index {
