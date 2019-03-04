@@ -15,6 +15,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NSArray <NSString *>* (^QualityNamesMappingType)(NSArray <NSString *>* rawQualityNames);
+
 @protocol STSPlayerPlayback <NSObject>
 
 @property (nonatomic, readonly) STSSDKPlaybackStatus playbackStatus;
@@ -39,8 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)seekToTime:(Float64)timeInSeconds shouldPlayAfterSeeking:(BOOL)play;
 - (NSTimeInterval)currentTime;
 - (NSTimeInterval)currentLiveDateTime;
-
-- (UIViewController *)qualitySelectionViewController;
+- (UIViewController *)qualitySelectionViewControllerWithQualityNamesMapping:(QualityNamesMappingType)mapping;
 - (NSArray<NSString *> *)availableRawQualityNames;
 - (NSString *)currentRawQualityName;
 - (BOOL)setMediaQuality:(NSString *)qualityName;
