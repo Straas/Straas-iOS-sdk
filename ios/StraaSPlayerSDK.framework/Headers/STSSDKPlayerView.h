@@ -183,7 +183,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The function for mapping the raw `availableQualityNames` to customize the available quality names. The customized available quality names will be displayed on the alert view controller for selecting the video quality.
- *  The raw `availableQualityNames`always includes `auto`, and may inlcude `source` and other quliaty strings ended with `p`, for example: `360p`, `480p`, `1080p`, etc.
+ *  The raw `availableQualityNames` always includes `auto`, and may include `source` and other quality strings ended with `p`, for example: `360p`, `480p`, `1080p`, etc.
  *  If this is nil, then the available quality names shown on the alert controller will be the same as the property `availableQualityNames`.
  */
 @property (nonatomic, copy) QualityNamesMappingType mappingForDisplayingAvailableQualityNames;
