@@ -82,16 +82,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, nullable) NSString * currentStreamingKey;
 
 /**
- *  The filter for the output video.
- */
-@property (nonatomic, nullable) GPUImageFilter * filter  __attribute__((deprecated("`filter` has been deprecated. Use `filterGroup` instead.")));
-
-/**
- *  A boolean value indicates whether the default beauty filter is enabled. Defaults to YES.
- */
-@property (nonatomic) BOOL enableDefaultBeautyFilter __attribute__((deprecated("`enableDefaultBeautyFilter` has been deprecated. Use `filterGroup` instead.")));
-
-/**
  *  The filter group for the output video.
  */
 @property (nonatomic, nullable) GPUImageFilterGroup *filterGroup;
