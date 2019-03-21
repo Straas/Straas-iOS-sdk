@@ -191,18 +191,22 @@ NSString * const kUserDefaultsKeyRtspUrl = @"kUserDefaultsKeyRtspUrl";
     };
 
     void (^audioAccessHandler)(BOOL) = ^(BOOL granted) {
-        if (!granted) {
-            requestAccessFailureHandler(@"麥克風授權失敗，請至設定頁重新開啟。");
-            return;
-        }
-        successHandler();
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!granted) {
+                requestAccessFailureHandler(@"麥克風授權失敗，請至設定頁重新開啟。");
+                return;
+            }
+            successHandler();
+        });
     };
     void (^videoAccessHandler)(BOOL) = ^(BOOL granted) {
-        if (!granted) {
-            requestAccessFailureHandler(@"攝影機授權失敗，請至設定頁重新開啟。");
-            return;
-        }
-        [weakSelf requestAccessForAudioWithCompletionHandler:audioAccessHandler];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!granted) {
+                requestAccessFailureHandler(@"攝影機授權失敗，請至設定頁重新開啟。");
+                return;
+            }
+            [weakSelf requestAccessForAudioWithCompletionHandler:audioAccessHandler];
+        });
     };
 
     switch (self.type) {
