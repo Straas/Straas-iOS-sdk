@@ -84,6 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Prepares the local stream for the device camera. This method only works when the CirCall manager's `state` is `STSCircallStateIdle` or `STSCircallStatePrepared`.
+ *  The success and failure completion handler will always be dispatched to the main queue.
  *
  * @param streamConfig The configuration of the local stream.
  * @param success A block object to be executed when the preparation is finished successfully. This block has no return value and takes one argument: the prepared local stream.
