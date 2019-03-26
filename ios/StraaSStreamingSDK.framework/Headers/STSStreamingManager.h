@@ -111,6 +111,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Initializes the camera, codec and microphone, you will be able to preview the live stream after prepare success.
  *  This method should only be called when the STSStreamingManager's state is STSStreamingStateIdle or STSStreamingStatePrepared.
+ *  The success and failure completion handler will always be dispatched to the main queue.
  *
  *  @param previewView   The view to preview the output video.
  *  @param configuration The configuration of the output video.
@@ -127,6 +128,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Initializes the camera, codec and microphone, you will be able to preview the live stream after prepare success.
  *  This method should only be called when the STSStreamingManager's state is STSStreamingStateIdle or STSStreamingStatePrepared.
+ *  The success and failure completion handler will always be dispatched to the main queue.
  *
  *  @param videoSize              The output video size. The width and height should both be the multiple of two.
                                   If the width/height is not an even number.
