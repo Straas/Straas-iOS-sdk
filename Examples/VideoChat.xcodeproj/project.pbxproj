@@ -56,6 +56,8 @@
 		9BF1971D1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF1971C1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m */; };
 		FADDAF509351485C7AE9DE21 /* Pods_VideoChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C2739ECC5559476005727D /* Pods_VideoChat.framework */; };
 		FF68F91F22818C9200ABBC46 /* STSStreamingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F91D22818C9100ABBC46 /* STSStreamingViewController.m */; };
+		FF68F92222818FC800ABBC46 /* STSQRCodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F92122818FC700ABBC46 /* STSQRCodeScannerViewController.m */; };
+		FF68F92522818FF600ABBC46 /* UIViewController+Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F92422818FF500ABBC46 /* UIViewController+Keyboard.m */; };
 		FF9C5C162152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9C5C132152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.m */; };
 		FF9C5C172152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9C5C152152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.m */; };
 		FFB6689120E395C0004CE075 /* STSCircallSingleVideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */; };
@@ -191,6 +193,10 @@
 		F926D33A69130242491380A6 /* Pods-VideoChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoChat/Pods-VideoChat.debug.xcconfig"; sourceTree = "<group>"; };
 		FF68F91D22818C9100ABBC46 /* STSStreamingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSStreamingViewController.m; sourceTree = "<group>"; };
 		FF68F91E22818C9200ABBC46 /* STSStreamingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSStreamingViewController.h; sourceTree = "<group>"; };
+		FF68F92022818FC700ABBC46 /* STSQRCodeScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSQRCodeScannerViewController.h; sourceTree = "<group>"; };
+		FF68F92122818FC700ABBC46 /* STSQRCodeScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSQRCodeScannerViewController.m; sourceTree = "<group>"; };
+		FF68F92322818FF500ABBC46 /* UIViewController+Keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Keyboard.h"; sourceTree = "<group>"; };
+		FF68F92422818FF500ABBC46 /* UIViewController+Keyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Keyboard.m"; sourceTree = "<group>"; };
 		FF9C5C122152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallIPCamBroadcastingHostViewController.h; sourceTree = "<group>"; };
 		FF9C5C132152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallIPCamBroadcastingViewerViewController.m; sourceTree = "<group>"; };
 		FF9C5C142152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallIPCamBroadcastingViewerViewController.h; sourceTree = "<group>"; };
@@ -359,6 +365,10 @@
 		72E0939F1DD080B70045E587 /* Streaming */ = {
 			isa = PBXGroup;
 			children = (
+				FF68F92022818FC700ABBC46 /* STSQRCodeScannerViewController.h */,
+				FF68F92122818FC700ABBC46 /* STSQRCodeScannerViewController.m */,
+				FF68F92322818FF500ABBC46 /* UIViewController+Keyboard.h */,
+				FF68F92422818FF500ABBC46 /* UIViewController+Keyboard.m */,
 				72F47A401DDA1CA000103583 /* StreamingViewController.h */,
 				72F47A411DDA1CA000103583 /* StreamingViewController.m */,
 				FF68F91E22818C9200ABBC46 /* STSStreamingViewController.h */,
@@ -727,6 +737,7 @@
 				9B9A9BB61DC98A650017F8C1 /* StickersInputView.m in Sources */,
 				72F47A421DDA1CA000103583 /* StreamingViewController.m in Sources */,
 				728229031EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.m in Sources */,
+				FF68F92222818FC800ABBC46 /* STSQRCodeScannerViewController.m in Sources */,
 				FFC4073F21FE8ADE001DB97C /* StreamingFiltersViewController.m in Sources */,
 				9BBEC54A1D813F1800387012 /* UIAlertController+VideoChatUtility.m in Sources */,
 				4A1F4DC51ED83B8D005D6FD9 /* ECommerceChatViewController.m in Sources */,
@@ -736,6 +747,7 @@
 				40A202371D77F93E00457359 /* ChatViewController.m in Sources */,
 				FF68F91F22818C9200ABBC46 /* STSStreamingViewController.m in Sources */,
 				9BBCBDD51E88B681006D3500 /* IconLabel.m in Sources */,
+				FF68F92522818FF600ABBC46 /* UIViewController+Keyboard.m in Sources */,
 				9B4310471DD32504002CD178 /* NSFileManager+Sticker.m in Sources */,
 				FFB6689220E395C0004CE075 /* STSCircallTokenViewController.m in Sources */,
 				9BB9B32F1E7C569C00245AB7 /* NSTimer+SafeTimer.m in Sources */,
