@@ -200,6 +200,7 @@
 		FF68F92422818FF500ABBC46 /* UIViewController+Keyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Keyboard.m"; sourceTree = "<group>"; };
 		FF68F9262281904400ABBC46 /* NSLayoutConstraint+STSUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+STSUtility.h"; sourceTree = "<group>"; };
 		FF68F9272281904400ABBC46 /* NSLayoutConstraint+STSUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+STSUtility.m"; sourceTree = "<group>"; };
+		FF68F929228190C700ABBC46 /* STSConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSConstant.h; sourceTree = "<group>"; };
 		FF9C5C122152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallIPCamBroadcastingHostViewController.h; sourceTree = "<group>"; };
 		FF9C5C132152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallIPCamBroadcastingViewerViewController.m; sourceTree = "<group>"; };
 		FF9C5C142152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallIPCamBroadcastingViewerViewController.h; sourceTree = "<group>"; };
@@ -374,6 +375,7 @@
 				FF68F92422818FF500ABBC46 /* UIViewController+Keyboard.m */,
 				FF68F9262281904400ABBC46 /* NSLayoutConstraint+STSUtility.h */,
 				FF68F9272281904400ABBC46 /* NSLayoutConstraint+STSUtility.m */,
+				FF68F929228190C700ABBC46 /* STSConstant.h */,
 				72F47A401DDA1CA000103583 /* StreamingViewController.h */,
 				72F47A411DDA1CA000103583 /* StreamingViewController.m */,
 				FF68F91E22818C9200ABBC46 /* STSStreamingViewController.h */,

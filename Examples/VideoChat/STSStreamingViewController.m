@@ -327,16 +327,7 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
 }
 
 - (NSString *)memberJWT {
-#warning It is a placeholder, should be replaced with a member JWT.
-#ifdef DEBUG
-    return kStraaSStagingMemberJWT;
-#elif defined RCAuthTest
-    return kStraaSRcAuthTestMemberJWT;
-#elif defined RC
-    return kStraaSRcMemberJWT;
-#else
     return kStraaSProdMemberJWT;
-#endif
 }
 
 - (void)onErrorWithTitle:(NSString *)errorTitle message:(NSString *)errorMessage {
