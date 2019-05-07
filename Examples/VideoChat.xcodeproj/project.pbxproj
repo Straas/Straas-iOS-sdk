@@ -249,6 +249,10 @@
 		40A2022E1D77F93E00457359 /* ChatRoom */ = {
 			isa = PBXGroup;
 			children = (
+				9B98A7B41E1E3ABA00E8CE7C /* ChatStickerExampleViewController.h */,
+				9B98A7B51E1E3ABA00E8CE7C /* ChatStickerExampleViewController.m */,
+				9B551F261E23377600C9D06B /* ChatExampleViewController.h */,
+				9B551F271E23377600C9D06B /* ChatExampleViewController.m */,
 				9B9A9BB11DC986120017F8C1 /* Stickers */,
 				9BEAD38B1ED735E5004B9DAB /* CustomView */,
 				9B4E12FB1DE8027B00380A92 /* Assets.xcassets */,
@@ -311,24 +315,11 @@
 		40C779D91D7091D0004F61CA /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				FF154BEF228195B300D542FA /* Shared */,
 				72E0939F1DD080B70045E587 /* Streaming */,
 				40A2022E1D77F93E00457359 /* ChatRoom */,
 				9BF197171EEEA213003AE88E /* Player */,
 				FFB6688C20E39505004CE075 /* Circall */,
-				40C779DD1D7091D0004F61CA /* AppDelegate.h */,
-				40C779DE1D7091D0004F61CA /* AppDelegate.m */,
-				40C779E01D7091D0004F61CA /* MasterViewController.h */,
-				40C779E11D7091D0004F61CA /* MasterViewController.m */,
-				40C779E31D7091D0004F61CA /* DetailViewController.h */,
-				40C779E41D7091D0004F61CA /* DetailViewController.m */,
-				9B98A7B41E1E3ABA00E8CE7C /* ChatStickerExampleViewController.h */,
-				9B98A7B51E1E3ABA00E8CE7C /* ChatStickerExampleViewController.m */,
-				9B551F261E23377600C9D06B /* ChatExampleViewController.h */,
-				9B551F271E23377600C9D06B /* ChatExampleViewController.m */,
-				40C779E61D7091D0004F61CA /* Main.storyboard */,
-				40C779E91D7091D0004F61CA /* Assets.xcassets */,
-				40C779EB1D7091D0004F61CA /* LaunchScreen.storyboard */,
-				40C779EE1D7091D0004F61CA /* Info.plist */,
 				40C779DA1D7091D0004F61CA /* Supporting Files */,
 			);
 			name = Examples;
@@ -369,13 +360,6 @@
 		72E0939F1DD080B70045E587 /* Streaming */ = {
 			isa = PBXGroup;
 			children = (
-				FF68F92322818FF500ABBC46 /* UIViewController+Keyboard.h */,
-				FF68F92422818FF500ABBC46 /* UIViewController+Keyboard.m */,
-				FF68F9262281904400ABBC46 /* NSLayoutConstraint+STSUtility.h */,
-				FF68F9272281904400ABBC46 /* NSLayoutConstraint+STSUtility.m */,
-				FF68F929228190C700ABBC46 /* STSConstant.h */,
-				FF68F92A2281920300ABBC46 /* UIColor+STSColor.h */,
-				FF68F92B2281920300ABBC46 /* UIColor+STSColor.m */,
 				72F47A401DDA1CA000103583 /* StreamingViewController.h */,
 				72F47A411DDA1CA000103583 /* StreamingViewController.m */,
 				FF68F91E22818C9200ABBC46 /* STSStreamingViewController.h */,
@@ -453,6 +437,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FF154BEF228195B300D542FA /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				40C779DD1D7091D0004F61CA /* AppDelegate.h */,
+				40C779DE1D7091D0004F61CA /* AppDelegate.m */,
+				40C779E01D7091D0004F61CA /* MasterViewController.h */,
+				40C779E11D7091D0004F61CA /* MasterViewController.m */,
+				40C779E31D7091D0004F61CA /* DetailViewController.h */,
+				40C779E41D7091D0004F61CA /* DetailViewController.m */,
+				FFB6689320E3961F004CE075 /* STSQRCodeScannerViewController.h */,
+				FFB6689420E3961F004CE075 /* STSQRCodeScannerViewController.m */,
+				FF68F92322818FF500ABBC46 /* UIViewController+Keyboard.h */,
+				FF68F92422818FF500ABBC46 /* UIViewController+Keyboard.m */,
+				FF68F9262281904400ABBC46 /* NSLayoutConstraint+STSUtility.h */,
+				FF68F9272281904400ABBC46 /* NSLayoutConstraint+STSUtility.m */,
+				FF68F929228190C700ABBC46 /* STSConstant.h */,
+				FF68F92A2281920300ABBC46 /* UIColor+STSColor.h */,
+				FF68F92B2281920300ABBC46 /* UIColor+STSColor.m */,
+				40C779E61D7091D0004F61CA /* Main.storyboard */,
+				40C779E91D7091D0004F61CA /* Assets.xcassets */,
+				40C779EB1D7091D0004F61CA /* LaunchScreen.storyboard */,
+				40C779EE1D7091D0004F61CA /* Info.plist */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		FF9C5C112152262A00BFED13 /* IPCamBroadcasting */ = {
 			isa = PBXGroup;
 			children = (
@@ -471,8 +481,6 @@
 				FFB6688F20E395C0004CE075 /* STSCircallTokenViewController.m */,
 				FFB6689020E395C0004CE075 /* STSCircallSingleVideoCallViewController.h */,
 				FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */,
-				FFB6689320E3961F004CE075 /* STSQRCodeScannerViewController.h */,
-				FFB6689420E3961F004CE075 /* STSQRCodeScannerViewController.m */,
 				FF9C5C112152262A00BFED13 /* IPCamBroadcasting */,
 			);
 			path = Circall;
