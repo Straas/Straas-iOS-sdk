@@ -3,7 +3,7 @@
 //  LiveHouse
 //
 //  Created by Luke Jang on 12/9/14.
-//  Copyright (c) 2014 LIVEhouse.in. All rights reserved.
+//  Copyright © 2019年 StraaS.io. All rights reserved.
 //
 
 #import "UIViewController+Keyboard.h"

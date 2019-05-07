@@ -3,7 +3,7 @@
 //  StraaS
 //
 //  Created by Lee on 6/23/16.
-//
+//  Copyright © 2019年 StraaS.io. All rights reserved.
 //
 
 #import "UIColor+STSColor.h"

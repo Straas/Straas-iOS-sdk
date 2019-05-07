@@ -3,7 +3,7 @@
 //  LiveHouse
 //
 //  Created by Luke Jang on 12/8/15.
-//  Copyright © 2015 LIVEhouse.in. All rights reserved.
+//  Copyright © 2019年 StraaS.io. All rights reserved.
 //
 
 #import "NSLayoutConstraint+STSUtility.h"

@@ -3,7 +3,7 @@
 //  StraaS
 //
 //  Created by Chuang Jason on 2018/11/9.
-//  Copyright © 2018 StraaS.io. All rights reserved.
+//  Copyright © 2019年 StraaS.io. All rights reserved.
 //
 
 #ifndef STSConstant_h
