@@ -315,6 +315,7 @@
 		40C779D91D7091D0004F61CA /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				40C779EE1D7091D0004F61CA /* Info.plist */,
 				FF154BEF228195B300D542FA /* Shared */,
 				72E0939F1DD080B70045E587 /* Streaming */,
 				40A2022E1D77F93E00457359 /* ChatRoom */,
@@ -458,7 +459,6 @@
 				40C779E61D7091D0004F61CA /* Main.storyboard */,
 				40C779E91D7091D0004F61CA /* Assets.xcassets */,
 				40C779EB1D7091D0004F61CA /* LaunchScreen.storyboard */,
-				40C779EE1D7091D0004F61CA /* Info.plist */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
