@@ -36,7 +36,6 @@
 		728228FD1EFA86850088C7EB /* STSPinnedMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 728228FC1EFA86850088C7EB /* STSPinnedMessageView.m */; };
 		728229031EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 728229021EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.m */; };
 		728229091EFD39700088C7EB /* UIViewController+VideoChatUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 728229081EFD39700088C7EB /* UIViewController+VideoChatUtility.m */; };
-		72F47A421DDA1CA000103583 /* StreamingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F47A411DDA1CA000103583 /* StreamingViewController.m */; };
 		9B133DD61DCAF4020082C269 /* UIImage+sticker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B133DD51DCAF4020082C269 /* UIImage+sticker.m */; };
 		9B16870F1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B16870E1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.m */; };
 		9B4310471DD32504002CD178 /* NSFileManager+Sticker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4310461DD32504002CD178 /* NSFileManager+Sticker.m */; };
@@ -150,8 +149,6 @@
 		728229021EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSMessageLongPressGestureRecognizer.m; sourceTree = "<group>"; };
 		728229071EFD39700088C7EB /* UIViewController+VideoChatUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VideoChatUtility.h"; sourceTree = "<group>"; };
 		728229081EFD39700088C7EB /* UIViewController+VideoChatUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VideoChatUtility.m"; sourceTree = "<group>"; };
-		72F47A401DDA1CA000103583 /* StreamingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StreamingViewController.h; path = Streaming/StreamingViewController.h; sourceTree = "<group>"; };
-		72F47A411DDA1CA000103583 /* StreamingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StreamingViewController.m; path = Streaming/StreamingViewController.m; sourceTree = "<group>"; };
 		740C43348B3B3AB02BF5A58C /* Pods_BroadcastSetupUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BroadcastSetupUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B133DD41DCAF4020082C269 /* UIImage+sticker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+sticker.h"; sourceTree = "<group>"; };
 		9B133DD51DCAF4020082C269 /* UIImage+sticker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+sticker.m"; sourceTree = "<group>"; };
@@ -361,8 +358,6 @@
 		72E0939F1DD080B70045E587 /* Streaming */ = {
 			isa = PBXGroup;
 			children = (
-				72F47A401DDA1CA000103583 /* StreamingViewController.h */,
-				72F47A411DDA1CA000103583 /* StreamingViewController.m */,
 				FF68F91E22818C9200ABBC46 /* STSStreamingViewController.h */,
 				FF68F91D22818C9100ABBC46 /* STSStreamingViewController.m */,
 				FFC4073D21FE8ADE001DB97C /* StreamingFiltersViewController.h */,
@@ -751,7 +746,6 @@
 				9BDC48BA1DD092A50095BF9B /* STSSegmentedControl.m in Sources */,
 				FFB6689520E3961F004CE075 /* STSQRCodeScannerViewController.m in Sources */,
 				9B9A9BB61DC98A650017F8C1 /* StickersInputView.m in Sources */,
-				72F47A421DDA1CA000103583 /* StreamingViewController.m in Sources */,
 				728229031EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.m in Sources */,
 				FFC4073F21FE8ADE001DB97C /* StreamingFiltersViewController.m in Sources */,
 				9BBEC54A1D813F1800387012 /* UIAlertController+VideoChatUtility.m in Sources */,

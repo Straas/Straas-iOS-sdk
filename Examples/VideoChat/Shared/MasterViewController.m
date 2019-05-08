@@ -39,7 +39,6 @@
                      STSMessagingServiceKeyword,
                      STSMessagingServiceCustomUIKeyword,
                      STSMessagingServiceECommerceUIKeyword,
-                     STSStreamingServiceKeyword,
                      STSStreamingServiceKeyword2,
                      STSStreamingFiltersServiceKeyword,
                      STSCircallServiceSingleVideoCallKeyword,

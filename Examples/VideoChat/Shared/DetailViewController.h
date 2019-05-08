@@ -12,7 +12,6 @@ extern NSString * const STSPlayerServiceBasicPlayerViewKeyword;
 extern NSString * const STSMessagingServiceKeyword;
 extern NSString * const STSMessagingServiceCustomUIKeyword;
 extern NSString * const STSMessagingServiceECommerceUIKeyword;
-extern NSString * const STSStreamingServiceKeyword;
 extern NSString * const STSStreamingServiceKeyword2;
 extern NSString * const STSStreamingFiltersServiceKeyword;
 extern NSString * const STSCircallServiceSingleVideoCallKeyword;

@@ -8,8 +8,8 @@
 
 #import "AppDelegate.h"
 #import "DetailViewController.h"
-#import "StreamingViewController.h"
 #import "StreamingFiltersViewController.h"
+#import "STSStreamingViewController.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -60,8 +60,8 @@
     if ([topViewController isKindOfClass:[DetailViewController class]]) {
         DetailViewController * detailViewController = (DetailViewController *)topViewController;
         UIViewController * contentViewController = detailViewController.contentViewController;
-        if ([contentViewController isKindOfClass:[StreamingViewController class]]) {
-            return ((StreamingViewController *)contentViewController).supportedInterfaceOrientations;
+        if ([contentViewController isKindOfClass:[STSStreamingViewController class]]) {
+            return ((STSStreamingViewController *)contentViewController).supportedInterfaceOrientations;
         }
         if ([contentViewController isKindOfClass:[StreamingFiltersViewController class]]) {
             return ((StreamingFiltersViewController *)contentViewController).supportedInterfaceOrientations;
