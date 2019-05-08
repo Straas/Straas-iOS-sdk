@@ -19,7 +19,7 @@ NSString * const STSPlayerServiceBasicPlayerViewKeyword = @"StraaS.io PlayerView
 NSString * const STSMessagingServiceKeyword = @"StraaS.io default chatroom";
 NSString * const STSMessagingServiceCustomUIKeyword = @"StraaS.io customed chatroom";
 NSString * const STSMessagingServiceECommerceUIKeyword = @"StraaS.io ECommerce chatroom";
-NSString * const STSStreamingServiceKeyword2 = @"StraaS.io streaming2";
+NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 NSString * const STSStreamingFiltersServiceKeyword = @"StraaS.io streaming filters";
 NSString * const STSCircallServiceSingleVideoCallKeyword = @"StraaS.io Circall singleVideoCall";
 NSString * const STSCircallServiceIPCamBroadcastingHostViewKeyword = @"StraaS.io Circall IPCam host view";
@@ -70,8 +70,8 @@ NSString * const STSCircallServiceIPCamBroadcastingViewerViewKeyword = @"StraaS.
     if ([self.detailItem isEqualToString:STSMessagingServiceECommerceUIKeyword]) {
         [self addECommerceChatView];
     }
-    if ([self.detailItem isEqualToString:STSStreamingServiceKeyword2]) {
-        [self addStreamingView2];
+    if ([self.detailItem isEqualToString:STSStreamingServiceKeyword]) {
+        [self addStreamingView];
     }
     if ([self.detailItem isEqualToString:STSStreamingFiltersServiceKeyword]) {
         [self addStreamingFiltersView];
@@ -113,9 +113,8 @@ NSString * const STSCircallServiceIPCamBroadcastingViewerViewKeyword = @"StraaS.
     [controller connectToChatWithJWT:self.JWT chatroomName:self.chatroomName];
 }
 
-- (void)addStreamingView2 {
+- (void)addStreamingView {
     STSStreamingViewController * controller = [STSStreamingViewController viewControllerFromStoryboard];
-//    controller.JWT = self.JWT;
     [self addControllerAndSetAutoLayout:controller];
 }
 
