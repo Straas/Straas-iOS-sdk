@@ -18,4 +18,8 @@
     return [self colorWithWhite:153./255. alpha:1.0];
 }
 
++ (UIColor *)STSBlueButtonColor {
+    return [UIColor colorWithRed:0.0 green:100./255. blue:255./255. alpha:1];
+}
+
 @end

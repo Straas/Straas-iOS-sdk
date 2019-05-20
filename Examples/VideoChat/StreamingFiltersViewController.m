@@ -9,6 +9,7 @@
 #import "StreamingFiltersViewController.h"
 #import <StraaSStreamingSDK/StraaSStreamingSDK.h>
 #import <StraaSCoreSDK/StraaSCoreSDK.h>
+#import "UIColor+STSColor.h"
 
 @interface StreamingFiltersViewController() <STSStreamingManagerDelegate>
 
@@ -144,7 +145,7 @@
     if (_isSkinBeautifyFilterOn) {
         self.brightnessSlider.enabled = YES;
         self.smoothnessSlider.enabled = YES;
-        [self.skinBeautifyButton setTitleColor:[UIColor colorWithRed:0.0 green:100./255. blue:255./255. alpha:1] forState:UIControlStateNormal];
+        [self.skinBeautifyButton setTitleColor:[UIColor STSBlueButtonColor] forState:UIControlStateNormal];
 
         self.streamingManager.filterGroup = self.skinBeautifyFilterGroup;
     } else {
