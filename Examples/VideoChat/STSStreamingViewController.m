@@ -39,6 +39,7 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
 @property (nonatomic, weak) IBOutlet UIButton * startButton;
 @property (nonatomic, weak) IBOutlet UIButton * cameraButton;
 @property (nonatomic, weak) IBOutlet UIButton * flipOutputButton;
+@property (weak, nonatomic) IBOutlet UIButton * audioButton;
 @property (nonatomic, weak) IBOutlet UILabel * statusLabel;
 @property (nonatomic, weak) IBOutlet UILabel * bitrateLabel;
 @property (nonatomic, weak) IBOutlet UILabel * fpsLabel;
@@ -154,7 +155,7 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
 
 - (void)updateMirrorButton {
     if (self.streamingManager.flipFrontCameraOutputHorizontally) {
-        [self.flipOutputButton setTitleColor:[UIColor colorWithRed:0.0 green:100./255. blue:255./255. alpha:1] forState:UIControlStateNormal];
+        [self.flipOutputButton setTitleColor:[UIColor STSBlueButtonColor] forState:UIControlStateNormal];
     } else {
         [self.flipOutputButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
@@ -171,6 +172,15 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
     STSQRCodeScannerViewController * vc = [STSQRCodeScannerViewController new];
     vc.delegate = self;
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)audioButtonPressed:(id)sender {
+    self.streamingManager.audioEnabled = !self.streamingManager.audioEnabled;
+    if (!self.streamingManager.audioEnabled) {
+        [self.audioButton setTitleColor:[UIColor colorWithRed:0.0 green:100./255. blue:255./255. alpha:1] forState:UIControlStateNormal];
+    } else {
+        [self.audioButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark - private methods

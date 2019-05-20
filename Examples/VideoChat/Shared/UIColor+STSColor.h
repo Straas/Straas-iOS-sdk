@@ -12,4 +12,6 @@
 + (UIColor *)STSBarTintColor;
 + (UIColor *)LHGrey;
 
++ (UIColor *)STSBlueButtonColor;
+
 @end
