@@ -87,6 +87,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable) GPUImageFilterGroup *filterGroup;
 
 /**
+ * The enabled status of audio. If the audio is not enabled, it means there is no sound
+ * in the audio stream.
+ *
+ * This method should only be called when the enum state of `STSStreamingState` is greater than `STSStreamingStatePreparing`.
+ */
+@property (nonatomic, assign) BOOL audioEnabled;
+
+/**
  *  A boolean value indicates whether the video stream of the front camera will be flipped horizontally from the preview. Defaults to `YES`.
  */
 @property (nonatomic) BOOL flipFrontCameraOutputHorizontally;

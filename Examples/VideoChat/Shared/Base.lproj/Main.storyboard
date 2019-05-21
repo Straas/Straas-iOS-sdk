@@ -1241,7 +1241,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gac-on-Sjd">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="158"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="206"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ht1-v7-roP">
                                         <rect key="frame" x="10" y="30" width="82.666666666666671" height="40"/>
@@ -1286,7 +1286,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input the live event title." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OhG-6d-AcL">
-                                        <rect key="frame" x="10" y="118" width="394" height="30"/>
+                                        <rect key="frame" x="10" y="166" width="394" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -1295,7 +1295,7 @@
                                         </connections>
                                     </textField>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NF3-BJ-eiM">
-                                        <rect key="frame" x="10" y="118" width="394" height="30"/>
+                                        <rect key="frame" x="10" y="166" width="394" height="30"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Scan or paste your stream key." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ua-Xs-gzK">
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
@@ -1346,7 +1346,7 @@
                                         </connections>
                                     </button>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZdS-Lr-Ygr">
-                                        <rect key="frame" x="10" y="80" width="394" height="29"/>
+                                        <rect key="frame" x="10" y="128" width="394" height="29"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <segments>
                                             <segment title="By live event"/>
@@ -1357,6 +1357,20 @@
                                             <action selector="streamWayControlValueChanged:" destination="W1W-Ha-Kq9" eventType="valueChanged" id="6CY-oN-SXA"/>
                                         </connections>
                                     </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wz9-rK-Otf">
+                                        <rect key="frame" x="10" y="78" width="82.666666666666671" height="40"/>
+                                        <color key="backgroundColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="WhB-YQ-8ua"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="MUTE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="audioButtonPressed:" destination="W1W-Ha-Kq9" eventType="touchUpInside" id="rCF-iP-qQ0"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1365,16 +1379,18 @@
                                     <constraint firstItem="OhG-6d-AcL" firstAttribute="leading" secondItem="Gac-on-Sjd" secondAttribute="leading" constant="10" id="GIR-az-rSZ"/>
                                     <constraint firstAttribute="bottom" secondItem="NF3-BJ-eiM" secondAttribute="bottom" constant="10" id="LYZ-BL-sB2"/>
                                     <constraint firstAttribute="trailing" secondItem="ZdS-Lr-Ygr" secondAttribute="trailing" constant="10" id="Okt-hG-SqO"/>
-                                    <constraint firstItem="ZdS-Lr-Ygr" firstAttribute="top" secondItem="ht1-v7-roP" secondAttribute="bottom" constant="10" id="P1T-OS-SjJ"/>
                                     <constraint firstAttribute="trailing" secondItem="OhG-6d-AcL" secondAttribute="trailing" constant="10" id="PuF-cJ-Km9"/>
                                     <constraint firstItem="xmX-L1-t6O" firstAttribute="width" secondItem="Gac-on-Sjd" secondAttribute="width" multiplier="0.2" id="Ueo-ER-y5a"/>
+                                    <constraint firstItem="wz9-rK-Otf" firstAttribute="top" secondItem="ht1-v7-roP" secondAttribute="bottom" constant="8" id="WXA-Ky-SPx"/>
                                     <constraint firstItem="OhG-6d-AcL" firstAttribute="top" secondItem="ZdS-Lr-Ygr" secondAttribute="bottom" constant="10" id="YkM-gt-0X1"/>
                                     <constraint firstItem="NF3-BJ-eiM" firstAttribute="top" secondItem="ZdS-Lr-Ygr" secondAttribute="bottom" constant="10" id="Zxw-ln-laF"/>
                                     <constraint firstItem="sgT-OC-flM" firstAttribute="leading" secondItem="xmX-L1-t6O" secondAttribute="trailing" constant="10" id="a5e-ty-qcW"/>
+                                    <constraint firstItem="wz9-rK-Otf" firstAttribute="trailing" secondItem="ht1-v7-roP" secondAttribute="trailing" id="bBF-UC-eXu"/>
                                     <constraint firstItem="NF3-BJ-eiM" firstAttribute="top" secondItem="ZdS-Lr-Ygr" secondAttribute="bottom" constant="10" id="cqB-Ue-B6Q"/>
                                     <constraint firstItem="ZdS-Lr-Ygr" firstAttribute="leading" secondItem="Gac-on-Sjd" secondAttribute="leading" constant="10" id="dwZ-HL-9wH"/>
                                     <constraint firstItem="xmX-L1-t6O" firstAttribute="leading" secondItem="ht1-v7-roP" secondAttribute="trailing" constant="10" id="efh-tV-nXN"/>
                                     <constraint firstItem="ht1-v7-roP" firstAttribute="width" secondItem="Gac-on-Sjd" secondAttribute="width" multiplier="0.2" id="faD-SU-0V1"/>
+                                    <constraint firstItem="wz9-rK-Otf" firstAttribute="leading" secondItem="ht1-v7-roP" secondAttribute="leading" id="gnc-SE-259"/>
                                     <constraint firstItem="xmX-L1-t6O" firstAttribute="centerY" secondItem="ht1-v7-roP" secondAttribute="centerY" id="hHJ-xD-bXS"/>
                                     <constraint firstItem="mR2-Zy-BPb" firstAttribute="centerY" secondItem="ht1-v7-roP" secondAttribute="centerY" id="kcQ-Qb-Z3u"/>
                                     <constraint firstItem="mR2-Zy-BPb" firstAttribute="leading" secondItem="sgT-OC-flM" secondAttribute="trailing" constant="10" id="nD6-DJ-uq3"/>
@@ -1382,6 +1398,7 @@
                                     <constraint firstItem="NF3-BJ-eiM" firstAttribute="leading" secondItem="Gac-on-Sjd" secondAttribute="leading" constant="10" id="x3p-E9-OLL"/>
                                     <constraint firstItem="ht1-v7-roP" firstAttribute="leading" secondItem="Gac-on-Sjd" secondAttribute="leading" constant="10" id="y0R-5o-CMe"/>
                                     <constraint firstAttribute="trailing" secondItem="NF3-BJ-eiM" secondAttribute="trailing" constant="10" id="z7a-25-cFD"/>
+                                    <constraint firstItem="ZdS-Lr-Ygr" firstAttribute="top" secondItem="wz9-rK-Otf" secondAttribute="bottom" constant="10" id="zAI-SU-jeh"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1398,6 +1415,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="audioButton" destination="wz9-rK-Otf" id="Xxu-w6-mjn"/>
                         <outlet property="bitrateLabel" destination="yXm-TJ-BeN" id="EQV-zH-ZH2"/>
                         <outlet property="cameraButton" destination="xmX-L1-t6O" id="2Jk-uL-TJT"/>
                         <outlet property="flipOutputButton" destination="mR2-Zy-BPb" id="G5Z-0I-SVL"/>
