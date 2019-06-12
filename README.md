@@ -1,6 +1,7 @@
 ![](https://event.livehouse.in/straas.io/admintool/images/logo.png)
 
-**StraaS.io - Streaming as a Service, Your Best OTT Solution**
+**StraaS.io - Streaming as a Service, Your Best OTT Solution**   
+https://straas.io/
 
 World-class streaming and advertisement technology to drive profit and provide best multi-screen,
 multi-device user experiences.
