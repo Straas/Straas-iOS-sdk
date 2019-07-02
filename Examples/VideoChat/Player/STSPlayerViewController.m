@@ -371,9 +371,6 @@ broadcastStartTimeChanged:(NSString *)liveId
     NSLog(@"live broadcast time changed: liveId=%@, time=%@", liveId, broadcastStartTimeInMS);
 }
 
-- (void)playerViewFailToLoadLowLatencyStream:(STSSDKPlayerView *)playerView liveId:(NSString *)liveId {
-    NSLog(@"%s, live id: %@", __PRETTY_FUNCTION__, liveId);
-}
 #pragma mark - STSLiveEventListenerDelegate
 
 - (void)liveEventListener:(STSLiveEventListener *)liveEventListener onError:(NSError *)error {
