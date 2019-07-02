@@ -222,9 +222,9 @@
     if ([liveId length] == 0) {
         return;
     }
-    BOOL lowLatencyFirst = self.lowLatencySwitch.isOn;
-    [self setupLowLatencyPlayerIfNecessary:lowLatencyFirst];
-    [self.playerView loadLiveWithId:liveId lowLatencyFirst:lowLatencyFirst];
+    BOOL isLowLatency = self.lowLatencySwitch.isOn;
+    [self setupLowLatencyPlayerIfNecessary:isLowLatency];
+    [self.playerView loadLiveWithId:liveId lowLatency:isLowLatency];
 }
 
 - (IBAction)listenLive:(id)sender {
@@ -255,13 +255,13 @@
     if (liveId.length == 0) {
         return;
     }
-    BOOL lowLatencyFirst = sender.isOn;
-    [self setupLowLatencyPlayerIfNecessary:lowLatencyFirst];
-    [self.playerView loadLiveWithId:liveId lowLatencyFirst:lowLatencyFirst];
+    BOOL isLowLatency = sender.isOn;
+    [self setupLowLatencyPlayerIfNecessary:isLowLatency];
+    [self.playerView loadLiveWithId:liveId lowLatency:isLowLatency];
 }
 
-- (void)setupLowLatencyPlayerIfNecessary:(BOOL)lowLatencyFirst {
-    if (lowLatencyFirst && !self.playerView.lowLatencyPlayer) {
+- (void)setupLowLatencyPlayerIfNecessary:(BOOL)islowLatency {
+    if (islowLatency && !self.playerView.lowLatencyPlayer) {
         STSLowLatencyPlayer * lowLatencyPlayer = [STSLowLatencyPlayer new];
         self.playerView.lowLatencyPlayer = (id<STSPlayerPlayback>)lowLatencyPlayer;
     }
