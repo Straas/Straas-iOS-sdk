@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSString * accountId;
 
 /**
- * The app token.
+ * The app token. If the app is authorized, then the token is not nil.
  */
 @property (nonatomic, readonly) NSString * token;
 
