@@ -1168,7 +1168,7 @@ If this is nil, then the available quality names shown on the alert controller w
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Loads and starts playing a specific live without lowLatencyFirst.</p>
+                        <p>Loads and starts playing a specific live without lowLatency.</p>
 
 <p>This method won&rsquo;t work if <code><a href="../Classes/STSSDKPlayerView.html#/c:objc(cs)STSSDKPlayerView(py)audioSessionIsInterrupted">audioSessionIsInterrupted</a></code> is <code>YES</code>.</p>
 
@@ -1212,9 +1212,9 @@ If this is nil, then the available quality names shown on the alert controller w
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)STSSDKPlayerView(im)loadLiveWithId:lowLatencyFirst:"></a>
-                    <a name="//apple_ref/objc/Method/-loadLiveWithId:lowLatencyFirst:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(im)loadLiveWithId:lowLatencyFirst:">-loadLiveWithId:lowLatencyFirst:</a>
+                    <a name="/c:objc(cs)STSSDKPlayerView(im)loadLiveWithId:lowLatency:"></a>
+                    <a name="//apple_ref/objc/Method/-loadLiveWithId:lowLatency:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSSDKPlayerView(im)loadLiveWithId:lowLatency:">-loadLiveWithId:lowLatency:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1222,7 +1222,7 @@ If this is nil, then the available quality names shown on the alert controller w
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Loads and starts playing a specific live with lowLatencyFirst or not.</p>
+                        <p>Loads and starts playing a specific live with lowLatency or not.</p>
 
 <p>This method won&rsquo;t work if <code><a href="../Classes/STSSDKPlayerView.html#/c:objc(cs)STSSDKPlayerView(py)audioSessionIsInterrupted">audioSessionIsInterrupted</a></code> is <code>YES</code>.</p>
 
@@ -1231,13 +1231,12 @@ If this is nil, then the available quality names shown on the alert controller w
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">loadLiveWithId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">liveId</span>
-       <span class="nf">lowLatencyFirst</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">lowLatencyFirst</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">loadLiveWithId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">liveId</span> <span class="nf">lowLatency</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">isLowLatency</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">loadLive</span><span class="p">(</span><span class="n">withId</span> <span class="nv">liveId</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="nv">lowLatencyFirst</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">loadLive</span><span class="p">(</span><span class="n">withId</span> <span class="nv">liveId</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="n">lowLatency</span> <span class="nv">isLowLatency</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1261,14 +1260,13 @@ If this is nil, then the available quality names shown on the alert controller w
                             <tr>
                               <td>
                                 <code>
-                                <em>lowLatencyFirst</em>
+                                <em>isLowLatency</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
                                   <p>A boolean value indicates whether to play low latency live stream.
-                        Set lowLatencyFirst to YES can significantly reduce the live latency between broadcaster and viewers but no adaptive playback.
-                        If the player fails to load the low latency stream, it will turn to play the adaptive stream instead. <code>playerViewFailToLoadLowLatencyStream:liveId</code> in STSPlayerLiveEventDelegate will be triggered too.
+                        Set lowLatency to YES can significantly reduce the live latency between broadcaster and viewers but no adaptive playback.
                         Currently, 360 low latency playback is not supported yet.
                         When this flag is true and effective, <code>availableQualityNames</code>, <code>currentQualityName</code> and <code>setMediaQuality</code> will be nil.</p>
 
@@ -1733,7 +1731,7 @@ If this is nil, then the available quality names shown on the alert controller w
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Get the raw quality names of the current playing media (Live or VOD).
-  Return nil when playing a live and lowLatencyFirst is true and effective.</p>
+  Return nil when playing a live and lowLatency is true and effective.</p>
 
                       </div>
                       <div class="declaration">
@@ -1771,7 +1769,7 @@ If this is nil, then the available quality names shown on the alert controller w
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Get the current selected quality name of the playing media (Live or VOD).
-  Return nil when playing a live and lowLatencyFirst is true and effective.</p>
+  Return nil when playing a live and lowLatency is true and effective.</p>
 
                       </div>
                       <div class="declaration">
@@ -1810,7 +1808,7 @@ If this is nil, then the available quality names shown on the alert controller w
                       <div class="abstract">
                         <p>Switch player to the given media quality.
   Note: Load a new media will reset the media quality to <q>auto</q>.
-  Return NO when playing a live and lowLatencyFirst is true and effective.</p>
+  Return NO when playing a live and lowLatency is true and effective.</p>
 
                       </div>
                       <div class="declaration">
@@ -1859,7 +1857,7 @@ If this is nil, then the available quality names shown on the alert controller w
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2019-06-03)</p>
+          <p>&copy; 2019 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2019-07-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
