@@ -264,9 +264,6 @@
 
 - (IBAction)latencySwitchDidChangeValue:(UISwitch *)sender {
     NSString * liveId = self.liveTextField.text;
-    if (liveId.length == 0) {
-        return;
-    }
     BOOL isLowLatency = sender.isOn;
     [self setupLowLatencyPlayerIfNecessary:isLowLatency];
     [self.playerView loadLiveWithId:liveId lowLatency:isLowLatency];
