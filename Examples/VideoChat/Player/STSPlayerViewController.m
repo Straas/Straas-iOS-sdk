@@ -49,6 +49,7 @@
     self.title = @"StraaS SDK Player";
     self.view.backgroundColor = [UIColor whiteColor];
     [self setupPlayerView];
+    __weak STSPlayerViewController *weakSelf = self;
     [STSApplication configureApplication:^(BOOL success, NSError *error) {
         if (success) {
             self.videoButton.enabled = YES;
@@ -56,11 +57,22 @@
             self.liveButton.enabled = YES;
             self.listenLiveButton.enabled = YES;
         } else {
-            NSLog(@"configure application error: \n %@", error);
+            NSString * errorMsg =
+            [NSString stringWithFormat: @"Configure application failed with error: %@", error];
+            [weakSelf showAlertWithTitle:@"Error" message:errorMsg];
+            NSLog(@"\n CONFIGURE APPLICATION ERROR: \n %@ \n", error);
         }
     }];
 }
 
+- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message {
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:title
+                                                                              message:message
+                                                                       preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:
+     [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 - (void)sts_updateLayoutWithKeyboard:(BOOL)keyboard notification:(NSNotification *)notification
 {
