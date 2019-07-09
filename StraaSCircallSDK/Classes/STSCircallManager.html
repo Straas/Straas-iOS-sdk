@@ -286,13 +286,13 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="nf">prepareForCameraCaptureWithStreamConfig</span><span class="p">:</span>
-    <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/STSCircallStreamConfig.html">STSCircallStreamConfig</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">streamConfig</span>
-                                <span class="nf">success</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
-                                            <span class="n"><a href="../Classes/STSCircallStream.html">STSCircallStream</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
-                                <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span>
-                                            <span class="n">failure</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">prepareForCameraCaptureWithStreamConfig</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/STSCircallStreamConfig.html">STSCircallStreamConfig</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">streamConfig</span>
+                                        <span class="nf">success</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                                                    <span class="n"><a href="../Classes/STSCircallStream.html">STSCircallStream</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span>
+                                                    <span class="n">success</span>
+                                        <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                                                    <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -586,11 +586,11 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="nf">publishWithCameraCaptureWithConfig</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSCircallPublishConfig.html">STSCircallPublishConfig</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">config</span>
-                           <span class="nf">success</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
-                                       <span class="n"><a href="../Classes/STSCircallStream.html">STSCircallStream</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
-                           <span class="n">failure</span><span class="o">:</span>
-                               <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+    <span class="nf">publishWithCameraCaptureWithConfig</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSCircallPublishConfig.html">STSCircallPublishConfig</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">config</span>
+                               <span class="nf">success</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                                           <span class="n"><a href="../Classes/STSCircallStream.html">STSCircallStream</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
+                               <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span>
+                                           <span class="n">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1146,12 +1146,12 @@ This method only works if the <code><a href="../Classes/STSCircallManager.html#/
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="nf">getRecordingStreamMetadataArrayWithSuccess</span><span class="p">:</span>
-    <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n">STSCircallRecordingStreamMetadata</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span>
-        <span class="n">success</span>
-                                   <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
-                                               <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getRecordingStreamMetadataArrayWithSuccess</span><span class="p">:</span>
+            <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">STSCircallRecordingStreamMetadata</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
+                                           <span class="n">failure</span><span class="o">:</span>
+                                               <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                                                   <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1201,7 +1201,7 @@ This method only works if the <code><a href="../Classes/STSCircallManager.html#/
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2019-07-05)</p>
+          <p>&copy; 2019 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2019-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
