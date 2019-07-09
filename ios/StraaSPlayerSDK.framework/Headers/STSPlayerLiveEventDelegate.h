@@ -75,14 +75,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)playerView:(STSSDKPlayerView *)playerView broadcastStartTimeChanged:(NSString *)liveId value:(NSNumber * _Nullable)broadcastStartTimeInMS;
 
 /**
- *  Called when a live with lowLatencyFirst stream fail to load.
- *
- *  @param playerView The player view that sent the message.
- *  @param liveId     The StraaS live id of the live event that is waiting for stream.
- */
-- (void)playerViewFailToLoadLowLatencyStream:(STSSDKPlayerView *)playerView liveId:(NSString *)liveId;
-
-/**
  *  Called when the live stream playback mode changed.
  *
  *  This method will only be called when the player view is playing a live.

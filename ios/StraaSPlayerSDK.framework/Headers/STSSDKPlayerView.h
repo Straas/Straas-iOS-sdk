@@ -222,7 +222,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Loads and starts playing a specific live without lowLatencyFirst.
+ *  Loads and starts playing a specific live without lowLatency.
  *
  *  This method won't work if `audioSessionIsInterrupted` is `YES`.
  *
@@ -231,18 +231,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)loadLiveWithId:(NSString *)liveId;
 
 /**
- *  Loads and starts playing a specific live with lowLatencyFirst or not.
+ *  Loads and starts playing a specific live with lowLatency or not.
  *
  *  This method won't work if `audioSessionIsInterrupted` is `YES`.
  *
  *  @param liveId           The ID of the live you want to load.
- *  @param lowLatencyFirst  A boolean value indicates whether to play low latency live stream.
- *                          Set lowLatencyFirst to YES can significantly reduce the live latency between broadcaster and viewers but no adaptive playback.
- *                          If the player fails to load the low latency stream, it will turn to play the adaptive stream instead. `playerViewFailToLoadLowLatencyStream:liveId` in STSPlayerLiveEventDelegate will be triggered too.
+ *  @param isLowLatency  A boolean value indicates whether to play low latency live stream.
+ *                          Set lowLatency to YES can significantly reduce the live latency between broadcaster and viewers but no adaptive playback.
  *                          Currently, 360 low latency playback is not supported yet.
  *                          When this flag is true and effective, `availableQualityNames`, `currentQualityName` and `setMediaQuality` will be nil.
  */
-- (void)loadLiveWithId:(NSString *)liveId lowLatencyFirst:(BOOL)lowLatencyFirst;
+- (void)loadLiveWithId:(NSString *)liveId lowLatency:(BOOL)isLowLatency;
 
 /**
  *  Play a playlist item at the given index.
@@ -336,7 +335,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Get the raw quality names of the current playing media (Live or VOD).
- *  Return nil when playing a live and lowLatencyFirst is true and effective.
+ *  Return nil when playing a live and lowLatency is true and effective.
  *
  *  @return The name of the available qualities.
  */
@@ -344,7 +343,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Get the current selected quality name of the playing media (Live or VOD).
- *  Return nil when playing a live and lowLatencyFirst is true and effective.
+ *  Return nil when playing a live and lowLatency is true and effective.
  *
  *  @return The name of the current selected quality.
  */
@@ -353,7 +352,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Switch player to the given media quality.
  *  Note: Load a new media will reset the media quality to "auto".
- *  Return NO when playing a live and lowLatencyFirst is true and effective.
+ *  Return NO when playing a live and lowLatency is true and effective.
  *
  *  @param qualityName The name of the media quality you want switch to.
  *  @return YES if the media quality did change to the target quality; otherwise, NO.

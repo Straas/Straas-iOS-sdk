@@ -54,7 +54,7 @@
 		</data>
 		<key>Headers/STSPlayerLiveEventDelegate.h</key>
 		<data>
-		vYoqTFTJ4aiXHKlFR/Vgdup8JLw=
+		GCYmBWzNdB5KWUwbkAGft1HqMxA=
 		</data>
 		<key>Headers/STSPlayerPlayback.h</key>
 		<data>
@@ -86,7 +86,7 @@
 		</data>
 		<key>Headers/STSSDKPlayerView.h</key>
 		<data>
-		uAe/8jZUBRMO3UDavffZIfUNAWI=
+		UToeu1ZLBdSyMubPj3o+BYK7xBY=
 		</data>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
 		<data>
@@ -114,7 +114,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		W8Jv6se8DNItse+uDGQfCVgPl4I=
+		c3nMW3qvIVC4Y5ozOLsAIWs+NAY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -132,7 +132,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kIJHqPuxwTOMkgxH472KTr2d2RU=
+			VnJI5fbvQzz/GSV+D0Xy8pya7Z8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -141,7 +141,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			36g+tdaqBNYatJFwd1ATdFXcGXk=
+			s+vMmmcIpEYeKLVDGlUwSPeF7X0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -285,11 +285,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vYoqTFTJ4aiXHKlFR/Vgdup8JLw=
+			GCYmBWzNdB5KWUwbkAGft1HqMxA=
 			</data>
 			<key>hash2</key>
 			<data>
-			1T0loaO9e9PXdK6mAC2u4zZ94r2dXxmSOwahjoGtdR0=
+			iSvs0LcoNv4WCRzQUKFbK0vY/LX8cPWwP07Ca7GCZmg=
 			</data>
 		</dict>
 		<key>Headers/STSPlayerPlayback.h</key>
@@ -373,11 +373,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uAe/8jZUBRMO3UDavffZIfUNAWI=
+			UToeu1ZLBdSyMubPj3o+BYK7xBY=
 			</data>
 			<key>hash2</key>
 			<data>
-			3WMGjm2pawHDdqMmezAi8RaAzu0vWi13eGQin8nONro=
+			mUzzuDZCJm928CnvObvIml0xBnggjsaIrJl+1PrmT2Y=
 			</data>
 		</dict>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
@@ -483,11 +483,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kIJHqPuxwTOMkgxH472KTr2d2RU=
+			VnJI5fbvQzz/GSV+D0Xy8pya7Z8=
 			</data>
 			<key>hash2</key>
 			<data>
-			W1sJmTuopybsx9FTLCuAAF/4bplEmkvK3wUth45D7Uk=
+			GvISDquEijoq29BQsyLSy/nmEsT5qJthM338gfmPhQs=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -496,11 +496,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			36g+tdaqBNYatJFwd1ATdFXcGXk=
+			s+vMmmcIpEYeKLVDGlUwSPeF7X0=
 			</data>
 			<key>hash2</key>
 			<data>
-			rAcRFURGjHa620Vybg0d2aNXZ51lcp4crXiwj07jftw=
+			lkpUr+/9eyTXrA07emdqgQIXthD7equT5vPX1KuNxGc=
 			</data>
 			<key>optional</key>
 			<true/>

@@ -49,6 +49,7 @@
     self.title = @"StraaS SDK Player";
     self.view.backgroundColor = [UIColor whiteColor];
     [self setupPlayerView];
+    __weak STSPlayerViewController *weakSelf = self;
     [STSApplication configureApplication:^(BOOL success, NSError *error) {
         if (success) {
             self.videoButton.enabled = YES;
@@ -56,11 +57,22 @@
             self.liveButton.enabled = YES;
             self.listenLiveButton.enabled = YES;
         } else {
-            NSLog(@"configure application error: \n %@", error);
+            NSString * errorMsg =
+            [NSString stringWithFormat: @"Configure application failed with error: %@", error];
+            [weakSelf showAlertWithTitle:@"Error" message:errorMsg];
+            NSLog(@"\n CONFIGURE APPLICATION ERROR: \n %@ \n", error);
         }
     }];
 }
 
+- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message {
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:title
+                                                                              message:message
+                                                                       preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:
+     [UIAlertAction actionWithTitle:@"確定" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 - (void)sts_updateLayoutWithKeyboard:(BOOL)keyboard notification:(NSNotification *)notification
 {
@@ -222,9 +234,9 @@
     if ([liveId length] == 0) {
         return;
     }
-    BOOL lowLatencyFirst = self.lowLatencySwitch.isOn;
-    [self setupLowLatencyPlayerIfNecessary:lowLatencyFirst];
-    [self.playerView loadLiveWithId:liveId lowLatencyFirst:lowLatencyFirst];
+    BOOL isLowLatency = self.lowLatencySwitch.isOn;
+    [self setupLowLatencyPlayerIfNecessary:isLowLatency];
+    [self.playerView loadLiveWithId:liveId lowLatency:isLowLatency];
 }
 
 - (IBAction)listenLive:(id)sender {
@@ -252,16 +264,13 @@
 
 - (IBAction)latencySwitchDidChangeValue:(UISwitch *)sender {
     NSString * liveId = self.liveTextField.text;
-    if (liveId.length == 0) {
-        return;
-    }
-    BOOL lowLatencyFirst = sender.isOn;
-    [self setupLowLatencyPlayerIfNecessary:lowLatencyFirst];
-    [self.playerView loadLiveWithId:liveId lowLatencyFirst:lowLatencyFirst];
+    BOOL isLowLatency = sender.isOn;
+    [self setupLowLatencyPlayerIfNecessary:isLowLatency];
+    [self.playerView loadLiveWithId:liveId lowLatency:isLowLatency];
 }
 
-- (void)setupLowLatencyPlayerIfNecessary:(BOOL)lowLatencyFirst {
-    if (lowLatencyFirst && !self.playerView.lowLatencyPlayer) {
+- (void)setupLowLatencyPlayerIfNecessary:(BOOL)islowLatency {
+    if (islowLatency && !self.playerView.lowLatencyPlayer) {
         STSLowLatencyPlayer * lowLatencyPlayer = [STSLowLatencyPlayer new];
         self.playerView.lowLatencyPlayer = (id<STSPlayerPlayback>)lowLatencyPlayer;
     }
@@ -371,9 +380,6 @@ broadcastStartTimeChanged:(NSString *)liveId
     NSLog(@"live broadcast time changed: liveId=%@, time=%@", liveId, broadcastStartTimeInMS);
 }
 
-- (void)playerViewFailToLoadLowLatencyStream:(STSSDKPlayerView *)playerView liveId:(NSString *)liveId {
-    NSLog(@"%s, live id: %@", __PRETTY_FUNCTION__, liveId);
-}
 #pragma mark - STSLiveEventListenerDelegate
 
 - (void)liveEventListener:(STSLiveEventListener *)liveEventListener onError:(NSError *)error {
