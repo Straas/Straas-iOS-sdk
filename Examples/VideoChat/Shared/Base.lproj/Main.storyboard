@@ -329,6 +329,61 @@
                                                     <action selector="enableBackgroundPlaying:" destination="hxU-Tr-vBS" eventType="touchUpInside" id="mEM-MK-9io"/>
                                                 </connections>
                                             </switch>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t46-N4-dXQ" userLabel="DebugView2">
+                                                <rect key="frame" x="227" y="266.33333333333331" width="83" height="35"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lat:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zgU-p5-xM8">
+                                                        <rect key="frame" x="0.0" y="-1" width="25" height="18"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="25" id="mtj-1U-TBi"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lon:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nV6-DX-kQb">
+                                                        <rect key="frame" x="0.0" y="17.000000000000057" width="25" height="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNb-hM-WIQ" userLabel="latitudeLabel">
+                                                        <rect key="frame" x="25" y="-1" width="58" height="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfm-oo-8yd" userLabel="longitudeLabel">
+                                                        <rect key="frame" x="25" y="17.000000000000057" width="58" height="18"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="18" id="50J-T7-q3I"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="Jfm-oo-8yd" secondAttribute="bottom" id="97x-OM-ZrJ"/>
+                                                    <constraint firstItem="Jfm-oo-8yd" firstAttribute="height" secondItem="nV6-DX-kQb" secondAttribute="height" id="AeI-NC-WKB"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Jfm-oo-8yd" secondAttribute="trailing" id="IB5-Cx-B6F"/>
+                                                    <constraint firstItem="zgU-p5-xM8" firstAttribute="leading" secondItem="t46-N4-dXQ" secondAttribute="leading" id="IqG-2T-fgd"/>
+                                                    <constraint firstItem="Jfm-oo-8yd" firstAttribute="leading" secondItem="rNb-hM-WIQ" secondAttribute="leading" id="KzX-Sp-Sec"/>
+                                                    <constraint firstAttribute="height" constant="35" id="QtR-Yu-EI6"/>
+                                                    <constraint firstItem="Jfm-oo-8yd" firstAttribute="trailing" secondItem="rNb-hM-WIQ" secondAttribute="trailing" id="S2U-Y4-Cii"/>
+                                                    <constraint firstAttribute="width" constant="83" id="Wx6-in-AaC"/>
+                                                    <constraint firstItem="Jfm-oo-8yd" firstAttribute="top" secondItem="rNb-hM-WIQ" secondAttribute="bottom" id="be0-I2-YAW"/>
+                                                    <constraint firstItem="rNb-hM-WIQ" firstAttribute="leading" secondItem="zgU-p5-xM8" secondAttribute="trailing" id="g0H-OY-fvB"/>
+                                                    <constraint firstItem="rNb-hM-WIQ" firstAttribute="height" secondItem="zgU-p5-xM8" secondAttribute="height" id="mEm-TR-YBI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="rNb-hM-WIQ" secondAttribute="trailing" id="oFC-XI-nBQ"/>
+                                                    <constraint firstItem="nV6-DX-kQb" firstAttribute="top" secondItem="zgU-p5-xM8" secondAttribute="bottom" id="raa-DC-mPL"/>
+                                                    <constraint firstItem="zgU-p5-xM8" firstAttribute="height" secondItem="nV6-DX-kQb" secondAttribute="height" id="rgs-8R-xw4"/>
+                                                    <constraint firstItem="Jfm-oo-8yd" firstAttribute="leading" secondItem="nV6-DX-kQb" secondAttribute="trailing" id="waj-Op-yn7"/>
+                                                    <constraint firstItem="nV6-DX-kQb" firstAttribute="leading" secondItem="t46-N4-dXQ" secondAttribute="leading" id="xjG-ac-CzJ"/>
+                                                    <constraint firstItem="Jfm-oo-8yd" firstAttribute="baseline" secondItem="nV6-DX-kQb" secondAttribute="baseline" id="yFJ-7c-bXf"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -361,6 +416,7 @@
                                             <constraint firstItem="C5H-bb-q6n" firstAttribute="leading" secondItem="NwR-Rk-k8J" secondAttribute="trailing" constant="15" id="aYp-jD-wI8"/>
                                             <constraint firstItem="tbg-2r-W6m" firstAttribute="leading" secondItem="vSc-Id-c7P" secondAttribute="leading" id="bfv-SR-H5a"/>
                                             <constraint firstItem="M9U-Ee-Jsn" firstAttribute="leading" secondItem="tbg-2r-W6m" secondAttribute="trailing" constant="15" id="gh3-AY-n6s"/>
+                                            <constraint firstItem="t46-N4-dXQ" firstAttribute="centerY" secondItem="NwR-Rk-k8J" secondAttribute="centerY" id="i41-KD-55j"/>
                                             <constraint firstItem="g5s-Uc-ySO" firstAttribute="leading" secondItem="L38-bG-Ijn" secondAttribute="leading" id="mAY-Lt-cMI"/>
                                             <constraint firstItem="M9U-Ee-Jsn" firstAttribute="top" secondItem="IjW-FD-1gR" secondAttribute="bottom" constant="15" id="mVi-V2-RBM"/>
                                             <constraint firstItem="kwz-qI-s7c" firstAttribute="leading" secondItem="ZjG-ca-dzl" secondAttribute="trailing" constant="15" id="qm3-zV-Sbj"/>
@@ -373,6 +429,7 @@
                                             <constraint firstItem="1tr-El-brK" firstAttribute="leading" secondItem="hxZ-EB-qK7" secondAttribute="leading" constant="10" id="xcK-t6-JiU"/>
                                             <constraint firstItem="Dmp-Ql-VWc" firstAttribute="leading" secondItem="L38-bG-Ijn" secondAttribute="leading" id="yEd-fs-2gu"/>
                                             <constraint firstItem="y8l-en-P1L" firstAttribute="leading" secondItem="hxZ-EB-qK7" secondAttribute="leading" constant="15" id="z6i-cT-CqS"/>
+                                            <constraint firstItem="t46-N4-dXQ" firstAttribute="trailing" secondItem="1tr-El-brK" secondAttribute="trailing" id="zzj-P1-cUD"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -398,9 +455,11 @@
                     <connections>
                         <outlet property="backgroundPlayingButton" destination="C5H-bb-q6n" id="7Dl-yM-VGC"/>
                         <outlet property="containerView" destination="ZLZ-ZF-kgJ" id="wC5-Rw-7jW"/>
+                        <outlet property="latitudeLabel" destination="rNb-hM-WIQ" id="Lkk-8d-VTL"/>
                         <outlet property="listenLiveButton" destination="D2E-aZ-MlM" id="IpM-as-FkH"/>
                         <outlet property="liveButton" destination="M9U-Ee-Jsn" id="GGk-on-hY9"/>
                         <outlet property="liveTextField" destination="tbg-2r-W6m" id="p2G-cy-eVA"/>
+                        <outlet property="longitudeLabel" destination="Jfm-oo-8yd" id="0NM-1n-HT8"/>
                         <outlet property="lowLatencySwitch" destination="Xif-zG-yXZ" id="Vql-pX-spX"/>
                         <outlet property="playerView" destination="6Uf-YB-omr" id="ULH-zw-RZQ"/>
                         <outlet property="playlistButton" destination="IjW-FD-1gR" id="oyP-we-ZlX"/>
