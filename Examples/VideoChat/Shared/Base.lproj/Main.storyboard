@@ -329,7 +329,7 @@
                                                     <action selector="enableBackgroundPlaying:" destination="hxU-Tr-vBS" eventType="touchUpInside" id="mEM-MK-9io"/>
                                                 </connections>
                                             </switch>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t46-N4-dXQ" userLabel="DebugView2">
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t46-N4-dXQ" userLabel="DebugView2">
                                                 <rect key="frame" x="227" y="266.33333333333331" width="83" height="35"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lat:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zgU-p5-xM8">
