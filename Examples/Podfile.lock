@@ -27,29 +27,29 @@ PODS:
   - Socket.IO-Client-Swift (12.1.3):
     - Starscream (~> 2.1.1)
   - Starscream (2.1.1)
-  - StraaS-iOS-SDK (0.40.0):
-    - StraaS-iOS-SDK/Circall (= 0.40.0)
-    - StraaS-iOS-SDK/Core (= 0.40.0)
-    - StraaS-iOS-SDK/Messaging (= 0.40.0)
-    - StraaS-iOS-SDK/Player (= 0.40.0)
-    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.40.0)
-    - StraaS-iOS-SDK/Streaming (= 0.40.0)
-  - StraaS-iOS-SDK/Circall (0.40.0):
+  - StraaS-iOS-SDK (0.41.0):
+    - StraaS-iOS-SDK/Circall (= 0.41.0)
+    - StraaS-iOS-SDK/Core (= 0.41.0)
+    - StraaS-iOS-SDK/Messaging (= 0.41.0)
+    - StraaS-iOS-SDK/Player (= 0.41.0)
+    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.41.0)
+    - StraaS-iOS-SDK/Streaming (= 0.41.0)
+  - StraaS-iOS-SDK/Circall (0.41.0):
     - PodRTC (= 65.8.0.0)
     - Socket.IO-Client-Swift (~> 12.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Core (0.40.0):
+  - StraaS-iOS-SDK/Core (0.41.0):
     - AFNetworking (~> 3.0)
     - Socket.IO-Client-Swift (~> 12.1.0)
-  - StraaS-iOS-SDK/Messaging (0.40.0):
+  - StraaS-iOS-SDK/Messaging (0.41.0):
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Player (0.40.0):
+  - StraaS-iOS-SDK/Player (0.41.0):
     - GoogleAds-IMA-iOS-SDK (~> 3.3)
     - KVOController (~> 1.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.40.0):
+  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.41.0):
     - StraaS-iOS-SDK/Player
-  - StraaS-iOS-SDK/Streaming (0.40.0):
+  - StraaS-iOS-SDK/Streaming (0.41.0):
     - DSGPUImage (= 0.1.8)
     - StraaS-iOS-SDK/Core
   - TTTAttributedLabel (2.0.0)
@@ -65,7 +65,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   StraaS-iOS-SDK:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -79,9 +79,9 @@ SPEC CHECKSUMS:
   SlackTextViewController: b854e62c1c156336bc4fd409c6ca79b5773e8f9d
   Socket.IO-Client-Swift: 2d3838d0e7bc105626872081fb6a23141145e8f8
   Starscream: 142bd8ef24592d985daee9fa48c936070b85b15f
-  StraaS-iOS-SDK: 4a8a5c1b270db53026460654feefa6a9874c360f
+  StraaS-iOS-SDK: ae39e217e38e6b6aded63ef60cfe8fc6e3320073
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
 PODFILE CHECKSUM: eda123ecc5d784380dacfefe60715fd937a272af
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.2.1
