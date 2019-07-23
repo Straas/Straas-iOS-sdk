@@ -11,8 +11,10 @@
 #import <StraaSPlayerLowLatencyExtensionSDK/STSLowLatencyPlayer.h>
 #import <StraaSCoreSDK/StraaSCoreSDK.h>
 #import "UIViewController+STSKeyboard.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface STSPlayerViewController ()<STSSDKPlayerViewDelegate, STSPlayerPlaybackEventDelegate, STSPlayerPlaylistEventDelegate, UITextFieldDelegate, STSPlayerLiveEventDelegate, STSLiveEventListenerDelegate>
+
+@interface STSPlayerViewController ()<STSSDKPlayerViewDelegate, STSPlayerPlaybackEventDelegate, STSPlayerPlaylistEventDelegate, UITextFieldDelegate, STSPlayerLiveEventDelegate, STSLiveEventListenerDelegate, CLLocationManagerDelegate>
 @property (nonatomic, nonnull) IBOutlet STSSDKPlayerView * playerView;
 @property (nonatomic, nonnull) NSArray<NSLayoutConstraint *> *constraintsForLandscape;
 @property (weak, nonatomic) IBOutlet UITextField *videoTextfield;
@@ -29,6 +31,9 @@
 @property (nonatomic) IBOutlet UISegmentedControl * videoScalingModeSegementedControl;
 @property (weak, nonatomic) IBOutlet UISwitch *lowLatencySwitch;
 @property (nonatomic, nullable) STSLiveEventListener * liveEventListener;
+@property (weak, nonatomic) IBOutlet UILabel *latitudeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *longitudeLabel;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 @end
 
 @implementation STSPlayerViewController
@@ -103,7 +108,7 @@
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     [self updateLayoutConstraints:UIInterfaceOrientationIsLandscape(orientation)];
 
-//    // You can uncomment the below part to see the demo of using `mappingForDisplayingAvailableQualityNames`
+//    // You can uncomment the below part to see the demo of using [mappingForDisplayingAvailableQualityNames](https://straas.github.io/StraaS-iOS-sdk/StraaSPlayerSDK/Classes/STSSDKPlayerView.html#/c:objc(cs)STSSDKPlayerView(py)mappingForDisplayingAvailableQualityNames)
 //    self.playerView.mappingForDisplayingAvailableQualityNames = ^NSArray<NSString *> *(NSArray<NSString *> * _Nonnull qualityNames) {
 //        NSMutableArray *newQualityNames = [[NSMutableArray alloc] init];
 //        for (NSString *qualityName in qualityNames) {
@@ -118,6 +123,11 @@
 //
 //        return [newQualityNames copy];
 //    };
+
+//    // You can uncomment the below part to see the demo of using [location](https://straas.github.io/StraaS-iOS-sdk/StraaSPlayerSDK/Classes/STSSDKPlayerView.html#/c:objc(cs)STSSDKPlayerView(py)location)
+//    self.locationManager = [[CLLocationManager alloc] init];
+//    self.locationManager.delegate = self;
+//    [self.locationManager requestAlwaysAuthorization];
 }
 
 - (STSVideoScalingMode)videoScalingMode:(NSInteger)index {
@@ -397,6 +407,49 @@ broadcastStartTimeChanged:(NSString *)liveId
 
 - (void)liveEventListener:(STSLiveEventListener *)liveEventListener hitCountUpdated:(NSNumber *)hitCount {
     NSLog(@"%s, hit count: %@", __PRETTY_FUNCTION__, hitCount);
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    self.playerView.location = locations.lastObject;
+    self.latitudeLabel.text = [NSString stringWithFormat:@"%.8f",self.playerView.location.coordinate.latitude];
+    self.longitudeLabel.text = [NSString stringWithFormat:@"%.8f",self.playerView.location.coordinate.longitude];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+#if TARGET_IPHONE
+    NSString *errorMesssage = [NSString stringWithFormat:@"locationManager:didFailWithError: %@",error];
+    NSAssert(false, errorMesssage);
+#endif
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    switch (status) {
+        case kCLAuthorizationStatusAuthorizedAlways:
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+            [self.locationManager startUpdatingLocation];
+            break;
+        default:
+            [self resetLocationAndUpdateUI];
+            break;
+    }
+}
+
+- (void)locationManagerDidPauseLocationUpdates:(CLLocationManager *)manager {
+    [self resetLocationAndUpdateUI];
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+didFinishDeferredUpdatesWithError:(nullable NSError *)error {
+    [self resetLocationAndUpdateUI];
+}
+
+- (void)resetLocationAndUpdateUI {
+    self.latitudeLabel.text = @"0";
+    self.longitudeLabel.text = @"0";
+
+    self.playerView.location = nil;
 }
 
 @end

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		ASbq08Nguf80+lyjFGeBpSzzOeU=
+		dAwYDXQaFlU68/gXMgGfpxCZplI=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -86,7 +86,7 @@
 		</data>
 		<key>Headers/STSSDKPlayerView.h</key>
 		<data>
-		UToeu1ZLBdSyMubPj3o+BYK7xBY=
+		FH8j4BpA0rD/2IzCY0z2DxP5n5U=
 		</data>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
 		<data>
@@ -114,7 +114,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		C2nyKRJ/Rs+Z83hnbJVJD3vSgHc=
+		fXCLLEjohTM7cwLQV6sAlyR+DAs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -153,11 +153,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ASbq08Nguf80+lyjFGeBpSzzOeU=
+			dAwYDXQaFlU68/gXMgGfpxCZplI=
 			</data>
 			<key>hash2</key>
 			<data>
-			UIQcmlRW4Njqar5NqNvPAOGfyElzgnTnc6yqbY0JENY=
+			HT0wEoy+s6LRqWtKhP6C5MDqYdiEqlZD54vYgDuN4lE=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -373,11 +373,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UToeu1ZLBdSyMubPj3o+BYK7xBY=
+			FH8j4BpA0rD/2IzCY0z2DxP5n5U=
 			</data>
 			<key>hash2</key>
 			<data>
-			mUzzuDZCJm928CnvObvIml0xBnggjsaIrJl+1PrmT2Y=
+			9i3rroJHyNrCisKJlYS1LUPHQHCOW4TebNVqI4KgCW4=
 			</data>
 		</dict>
 		<key>Headers/STSSDKStreamingTimelineView.h</key>
@@ -508,7 +508,7 @@
 	</dict>
 	<key>rules</key>
 	<dict>
-		<key>^.*</key>
+		<key>^</key>
 		<true/>
 		<key>^.*\.lproj/</key>
 		<dict>
@@ -539,12 +539,24 @@
 			<key>weight</key>
 			<real>11</real>
 		</dict>
+		<key>^</key>
+		<dict>
+			<key>weight</key>
+			<real>20</real>
+		</dict>
 		<key>^(.*/)?\.DS_Store$</key>
 		<dict>
 			<key>omit</key>
 			<true/>
 			<key>weight</key>
 			<real>2000</real>
+		</dict>
+		<key>^(Frameworks|SharedFrameworks|PlugIns|Plug-ins|XPCServices|Helpers|MacOS|Library/(Automator|Spotlight|LoginItems))/</key>
+		<dict>
+			<key>nested</key>
+			<true/>
+			<key>weight</key>
+			<real>10</real>
 		</dict>
 		<key>^.*</key>
 		<true/>
@@ -580,6 +592,13 @@
 			<true/>
 			<key>weight</key>
 			<real>20</real>
+		</dict>
+		<key>^[^/]+$</key>
+		<dict>
+			<key>nested</key>
+			<true/>
+			<key>weight</key>
+			<real>10</real>
 		</dict>
 		<key>^embedded\.provisionprofile$</key>
 		<dict>

@@ -12,6 +12,7 @@
 #import "STSPlayerPlaylistEventDelegate.h"
 #import "STSVideoScalingMode.h"
 #import "STSPlayerPlayback.h"
+#import <CoreLocation/CoreLocation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 @class STSSDKPlayerView;
@@ -187,6 +188,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  If this is nil, then the available quality names shown on the alert controller will be the same as the property `availableQualityNames`.
  */
 @property (nonatomic, copy) QualityNamesMappingType mappingForDisplayingAvailableQualityNames;
+
+/**
+ *  The geolocation data will be logged when a video/live is playing.
+ *  The logged data could be downloaded later via CMS API.
+ *  Only latitude and longitude in CLLocation will be logged for now. These two values will be rounded down to eighth decimal place.
+ */
+@property (nonatomic, strong, nullable) CLLocation *location;
 
 /**
  *  Loads and starts playing a specific video.
