@@ -27,29 +27,29 @@ PODS:
   - Socket.IO-Client-Swift (12.1.3):
     - Starscream (~> 2.1.1)
   - Starscream (2.1.1)
-  - StraaS-iOS-SDK (0.42.0):
-    - StraaS-iOS-SDK/Circall (= 0.42.0)
-    - StraaS-iOS-SDK/Core (= 0.42.0)
-    - StraaS-iOS-SDK/Messaging (= 0.42.0)
-    - StraaS-iOS-SDK/Player (= 0.42.0)
-    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.42.0)
-    - StraaS-iOS-SDK/Streaming (= 0.42.0)
-  - StraaS-iOS-SDK/Circall (0.42.0):
+  - StraaS-iOS-SDK (0.43.0):
+    - StraaS-iOS-SDK/Circall (= 0.43.0)
+    - StraaS-iOS-SDK/Core (= 0.43.0)
+    - StraaS-iOS-SDK/Messaging (= 0.43.0)
+    - StraaS-iOS-SDK/Player (= 0.43.0)
+    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.43.0)
+    - StraaS-iOS-SDK/Streaming (= 0.43.0)
+  - StraaS-iOS-SDK/Circall (0.43.0):
     - PodRTC (= 65.8.0.0)
     - Socket.IO-Client-Swift (~> 12.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Core (0.42.0):
+  - StraaS-iOS-SDK/Core (0.43.0):
     - AFNetworking (~> 3.0)
     - Socket.IO-Client-Swift (~> 12.1.0)
-  - StraaS-iOS-SDK/Messaging (0.42.0):
+  - StraaS-iOS-SDK/Messaging (0.43.0):
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Player (0.42.0):
+  - StraaS-iOS-SDK/Player (0.43.0):
     - GoogleAds-IMA-iOS-SDK (~> 3.3)
     - KVOController (~> 1.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.42.0):
+  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.43.0):
     - StraaS-iOS-SDK/Player
-  - StraaS-iOS-SDK/Streaming (0.42.0):
+  - StraaS-iOS-SDK/Streaming (0.43.0):
     - DSGPUImage (= 0.1.8)
     - StraaS-iOS-SDK/Core
   - TTTAttributedLabel (2.0.0)
@@ -94,7 +94,7 @@ SPEC CHECKSUMS:
   SlackTextViewController: b854e62c1c156336bc4fd409c6ca79b5773e8f9d
   Socket.IO-Client-Swift: 2d3838d0e7bc105626872081fb6a23141145e8f8
   Starscream: 142bd8ef24592d985daee9fa48c936070b85b15f
-  StraaS-iOS-SDK: 981f3a67f1372b2b6971a0cacff7a2370a5874c7
+  StraaS-iOS-SDK: 784d1ee6c8b6c731b43a389a026cfb9658623344
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
 PODFILE CHECKSUM: eda123ecc5d784380dacfefe60715fd937a272af
