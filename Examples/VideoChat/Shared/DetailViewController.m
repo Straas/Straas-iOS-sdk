@@ -37,11 +37,11 @@ NSString * const STSCircallServiceIPCamBroadcastingViewerViewKeyword = @"StraaS.
 }
 
 - (NSString *)JWT {
-    return <#PUT_YOUR_MEMEBER_JWT_HERE#>;
+    return @"";
 }
 
 - (NSString *)chatroomName {
-    return <#PUT_YOUR_CHATROOMNAME_HERE#>;
+    return @"";
 }
 
 #pragma mark - Managing the detail item

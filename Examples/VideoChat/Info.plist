@@ -29,7 +29,7 @@
 	<key>NSMicrophoneUsageDescription</key>
 	<string></string>
 	<key>STSSDKClientID</key>
-	<string>$(STRAAS_CMS_CLIENT_IDENTIFIER)</string>
+	<string>f143a62e7ece0590</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>

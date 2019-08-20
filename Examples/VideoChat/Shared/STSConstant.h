@@ -10,7 +10,7 @@
 #define STSConstant_h
 
 #warning It is a placeholder, should be replaced with a member JWT.
-static NSString * const kStraaSProdMemberJWT =  <#PUT_YOUR_MEMEBER_JWT_HERE#>;
+static NSString * const kStraaSProdMemberJWT =  @"";
 
 
 #endif /* STSConstant_h */
