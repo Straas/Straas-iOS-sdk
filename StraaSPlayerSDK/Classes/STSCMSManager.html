@@ -264,9 +264,9 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span>
-<span class="nf">getVideoWithVideoId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">videoId</span>
-            <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n"><a href="../Classes/STSVideo.html">STSVideo</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">success</span>
-            <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+    <span class="nf">getVideoWithVideoId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">videoId</span>
+                <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n"><a href="../Classes/STSVideo.html">STSVideo</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">success</span>
+                <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -350,9 +350,9 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span>
-<span class="nf">getPlaylistWithPlaylistId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">playlistId</span>
-                  <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n"><a href="../Classes/STSPlaylist.html">STSPlaylist</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">success</span>
-                  <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+    <span class="nf">getPlaylistWithPlaylistId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">playlistId</span>
+                      <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n"><a href="../Classes/STSPlaylist.html">STSPlaylist</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">success</span>
+                      <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -436,10 +436,11 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span>
-<span class="nf">getPlaylistItemsWithPlaylistId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">playlistId</span>
-                       <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span>
+    <span class="nf">getPlaylistItemsWithPlaylistId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">playlistId</span>
+                           <span class="nf">success</span><span class="p">:</span>
+                               <span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span>
                                    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSPlaylistItem.html">STSPlaylistItem</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
-                       <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+                           <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -523,10 +524,10 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span>
-<span class="nf">getCategoryListWithPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
-                <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSCategory.html">STSCategory</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
-                                          <span class="n"><a href="../Classes/STSPagination.html">STSPagination</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
-                <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+    <span class="nf">getCategoryListWithPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
+                    <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSCategory.html">STSCategory</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
+                                              <span class="n"><a href="../Classes/STSPagination.html">STSPagination</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
+                    <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -610,10 +611,10 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span>
-<span class="nf">getTagListWithPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
-           <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSTag.html">STSTag</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
-                                     <span class="n"><a href="../Classes/STSPagination.html">STSPagination</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
-           <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+    <span class="nf">getTagListWithPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
+               <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSTag.html">STSTag</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
+                                         <span class="n"><a href="../Classes/STSPagination.html">STSPagination</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
+               <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -697,11 +698,11 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span>
-<span class="nf">getVideoListWithPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
-                <span class="nf">sort</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">sort</span>
-             <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSVideo.html">STSVideo</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
-                                       <span class="n"><a href="../Classes/STSPagination.html">STSPagination</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
-             <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+    <span class="nf">getVideoListWithPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
+                    <span class="nf">sort</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">sort</span>
+                 <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSVideo.html">STSVideo</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
+                                           <span class="n"><a href="../Classes/STSPagination.html">STSPagination</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
+                 <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -798,12 +799,12 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span>
-<span class="nf">getVideoListWithPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
-                <span class="nf">sort</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">sort</span>
-       <span class="nf">configuration</span><span class="p">:(</span><span class="n"><a href="../Classes/STSGetVideoListConfiguration.html">STSGetVideoListConfiguration</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">configuration</span>
-             <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSVideo.html">STSVideo</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
-                                       <span class="n"><a href="../Classes/STSPagination.html">STSPagination</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
-             <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+    <span class="nf">getVideoListWithPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
+                    <span class="nf">sort</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">sort</span>
+           <span class="nf">configuration</span><span class="p">:(</span><span class="n"><a href="../Classes/STSGetVideoListConfiguration.html">STSGetVideoListConfiguration</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">configuration</span>
+                 <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSVideo.html">STSVideo</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
+                                           <span class="n"><a href="../Classes/STSPagination.html">STSPagination</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
+                 <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -913,11 +914,11 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span>
-<span class="nf">getPlaylistsWithPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
-                <span class="nf">sort</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">sort</span>
-             <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSPlaylist.html">STSPlaylist</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
-                                       <span class="n"><a href="../Classes/STSPagination.html">STSPagination</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
-             <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+    <span class="nf">getPlaylistsWithPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
+                    <span class="nf">sort</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">sort</span>
+                 <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSPlaylist.html">STSPlaylist</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
+                                           <span class="n"><a href="../Classes/STSPagination.html">STSPagination</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
+                 <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1014,9 +1015,9 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span>
-<span class="nf">getLiveWithId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">liveId</span>
-      <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n"><a href="../Classes/STSLive.html">STSLive</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">success</span>
-      <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+    <span class="nf">getLiveWithId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">liveId</span>
+          <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n"><a href="../Classes/STSLive.html">STSLive</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">success</span>
+          <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1100,11 +1101,11 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span>
-<span class="nf">getLiveListWithPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
-               <span class="nf">sort</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">sort</span>
-            <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSLive.html">STSLive</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
-                                      <span class="n"><a href="../Classes/STSPagination.html">STSPagination</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
-            <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+    <span class="nf">getLiveListWithPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
+                   <span class="nf">sort</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">sort</span>
+                <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSLive.html">STSLive</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
+                                          <span class="n"><a href="../Classes/STSPagination.html">STSPagination</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
+                <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1201,12 +1202,12 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span>
-<span class="nf">getLiveListWithPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
-               <span class="nf">sort</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">sort</span>
-      <span class="nf">configuration</span><span class="p">:(</span><span class="n"><a href="../Classes/STSGetLiveListConfiguration.html">STSGetLiveListConfiguration</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">configuration</span>
-            <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSLive.html">STSLive</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
-                                      <span class="n"><a href="../Classes/STSPagination.html">STSPagination</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
-            <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+    <span class="nf">getLiveListWithPage</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">page</span>
+                   <span class="nf">sort</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">sort</span>
+          <span class="nf">configuration</span><span class="p">:(</span><span class="n"><a href="../Classes/STSGetLiveListConfiguration.html">STSGetLiveListConfiguration</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">configuration</span>
+                <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSLive.html">STSLive</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">,</span>
+                                          <span class="n"><a href="../Classes/STSPagination.html">STSPagination</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
+                <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1352,7 +1353,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2019-08-14)</p>
+          <p>&copy; 2019 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2019-08-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
