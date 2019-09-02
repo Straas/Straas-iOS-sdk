@@ -49,7 +49,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self sts_registerForKeyboardNotifications];
+    [self registerForKeyboardNotifications];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationController.navigationBar.hidden =
     UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]);

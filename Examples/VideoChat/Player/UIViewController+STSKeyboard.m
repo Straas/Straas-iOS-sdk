@@ -10,7 +10,7 @@
 
 @implementation UIViewController (STSKeyboard)
 
-- (void)sts_registerForKeyboardNotifications
+- (void)registerForKeyboardNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sts_keyboardWillBeShown:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sts_keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
