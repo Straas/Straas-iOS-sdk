@@ -34,6 +34,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *latitudeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *longitudeLabel;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (weak, nonatomic) IBOutlet UILabel *ccuLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hitCountLabel;
 @end
 
 @implementation STSPlayerViewController
