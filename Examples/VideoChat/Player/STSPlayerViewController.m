@@ -49,6 +49,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self resetCCUAndHitCountLabelText];
     [self registerForKeyboardNotifications];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationController.navigationBar.hidden =
@@ -56,7 +57,6 @@
     self.title = @"StraaS SDK Player";
     self.view.backgroundColor = [UIColor whiteColor];
     [self setupPlayerView];
-    __weak STSPlayerViewController *weakSelf = self;
     [STSApplication configureApplication:^(BOOL success, NSError *error) {
         if (success) {
             self.videoButton.enabled = YES;
@@ -64,9 +64,7 @@
             self.liveButton.enabled = YES;
             self.listenLiveButton.enabled = YES;
         } else {
-            NSString * errorMsg =
-            [NSString stringWithFormat: @"Configure application failed with error: %@", error];
-            [weakSelf showAlertWithTitle:@"Error" message:errorMsg];
+            self.title = [self.title stringByAppendingString:@" (failed configure app)"];
             NSLog(@"\n CONFIGURE APPLICATION ERROR: \n %@ \n", error);
         }
     }];
@@ -94,6 +92,11 @@
 
 - (void)dealloc {
     [self sts_unregisterForKeyboardNotifications];
+}
+
+- (void)resetCCUAndHitCountLabelText {
+    self.ccuLabel.text = @"0";
+    self.hitCountLabel.text = @"0";
 }
 
 #pragma mark -
