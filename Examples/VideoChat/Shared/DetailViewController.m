@@ -37,11 +37,11 @@ NSString * const STSCircallServiceIPCamBroadcastingViewerViewKeyword = @"StraaS.
 }
 
 - (NSString *)JWT {
-    return @"";
+    return @"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoidHJpYWwuc3RyYWFzLmlvLXRlc3QiLCJtZW1iZXJfaWQiOiJpb3Nfc2RrIiwidXNlcl9pZCI6IjNkYmQyYTliNjVlYjVkMWU4NDRiNzQyYWEzYzhkNWM0IiwicmV4cCI6MTU3NTQzMjY3NywiZXhwIjoxNTY2ODc5MDc3fQ.REdg9V8yw3GqpGpHs5gJfTjFS_-feAUbzuq1krJa55s";
 }
 
 - (NSString *)chatroomName {
-    return @"";
+    return @"ios_sdk";
 }
 
 #pragma mark - Managing the detail item
