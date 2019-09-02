@@ -91,7 +91,7 @@
 }
 
 - (void)dealloc {
-    [self sts_unregisterForKeyboardNotifications];
+    [self unregisterForKeyboardNotifications];
 }
 
 - (void)resetCCUAndHitCountLabelText {

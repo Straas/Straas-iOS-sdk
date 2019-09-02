@@ -16,7 +16,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sts_keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
 }
 
-- (void)sts_unregisterForKeyboardNotifications {
+- (void)unregisterForKeyboardNotifications {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
 }

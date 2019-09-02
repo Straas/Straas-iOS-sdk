@@ -11,7 +11,7 @@
 @interface UIViewController (STSKeyboard)
 
 - (void)registerForKeyboardNotifications;
-- (void)sts_unregisterForKeyboardNotifications;
+- (void)unregisterForKeyboardNotifications;
 - (void)sts_keyboardWillBeShown:(NSNotification*)notification;
 - (void)sts_keyboardWillBeHidden:(NSNotification*)notification;
 - (void)updateLayoutWithKeyboard:(BOOL)keyboard notification:(NSNotification *)notification;
