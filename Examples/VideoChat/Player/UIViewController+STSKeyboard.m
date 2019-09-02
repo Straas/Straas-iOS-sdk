@@ -23,15 +23,15 @@
 
 - (void)sts_keyboardWillBeShown:(NSNotification*)notification
 {
-    [self sts_updateLayoutWithKeyboard:YES notification:notification];
+    [self updateLayoutWithKeyboard:YES notification:notification];
 }
 
 - (void)sts_keyboardWillBeHidden:(NSNotification*)notification
 {
-    [self sts_updateLayoutWithKeyboard:NO notification:notification];
+    [self updateLayoutWithKeyboard:NO notification:notification];
 }
 
-- (void)sts_updateLayoutWithKeyboard:(BOOL)keyboard notification:(NSNotification *)notification
+- (void)updateLayoutWithKeyboard:(BOOL)keyboard notification:(NSNotification *)notification
 {
     NSAssert(NO, @"Please override this method");
 }

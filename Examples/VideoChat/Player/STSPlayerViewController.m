@@ -79,7 +79,7 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
-- (void)sts_updateLayoutWithKeyboard:(BOOL)keyboard notification:(NSNotification *)notification
+- (void)updateLayoutWithKeyboard:(BOOL)keyboard notification:(NSNotification *)notification
 {
     NSDictionary * info = notification.userInfo;
     CGFloat height = CGRectGetHeight([[info valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue]);
