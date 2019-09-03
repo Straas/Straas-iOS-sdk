@@ -86,17 +86,17 @@
     self.scrollViewBottomConstraint.constant = keyboard ? height - 20 : 0;
 }
 
+- (void)resetCCUAndHitCountLabelText {
+    self.ccuLabel.text = @"0";
+    self.hitCountLabel.text = @"0";
+}
+
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
 }
 
 - (void)dealloc {
     [self unregisterForKeyboardNotifications];
-}
-
-- (void)resetCCUAndHitCountLabelText {
-    self.ccuLabel.text = @"0";
-    self.hitCountLabel.text = @"0";
 }
 
 #pragma mark -
@@ -226,24 +226,27 @@
 }
 
 - (IBAction)loadVideo:(id)sender {
+    [self resetCCUAndHitCountLabelText];
     NSString * videoId = self.videoTextfield.text;
-    [self.view endEditing:YES];
     if (videoId.length == 0) {
         return;
     }
+    [self.view endEditing:YES];
     [self.playerView loadVideoWithId:videoId];
 }
 
 - (IBAction)loadPlaylist:(id)sender {
+    [self resetCCUAndHitCountLabelText];
     NSString * playlistId = self.playlistTextfield.text;
-    [self.view endEditing:YES];
     if (playlistId.length == 0) {
         return;
     }
+    [self.view endEditing:YES];
     [self.playerView loadPlaylistWithId:playlistId];
 }
 
 - (IBAction)loadLive:(id)sender {
+    [self resetCCUAndHitCountLabelText];
     NSString * liveId = self.liveTextField.text;
     [self.view endEditing:YES];
     if ([liveId length] == 0) {
@@ -264,11 +267,9 @@
     if ([liveId length] == 0) {
         return;
     }
-    self.liveEventListener = [[STSLiveEventListener alloc] initWithWithJWT:self.JWT delegate:self];
-    [self.liveEventListener startWithLiveId:liveId success:^{
-        NSLog(@"Did start listening to the live: %@", liveId);
-    } failure:^(NSError * error){
-        NSLog(@"Failed to listen to the live: %@", liveId);
+    self.liveEventListener = [[STSLiveEventListener alloc] initWithWithJWT:nil delegate:self];
+    [self.liveEventListener startWithLiveId:liveId success:nil failure:^(NSError * error){
+        NSLog(@"Failed to start listening live %@. Error: %@", liveId, error);
     }];
     [self.listenLiveButton setTitle:@"Stop" forState:UIControlStateNormal];
 }
@@ -284,9 +285,9 @@
     [self.playerView loadLiveWithId:liveId lowLatency:isLowLatency];
 }
 
-- (void)setupLowLatencyPlayerIfNecessary:(BOOL)islowLatency {
-    if (islowLatency && !self.playerView.lowLatencyPlayer) {
-        STSLowLatencyPlayer * lowLatencyPlayer = [STSLowLatencyPlayer new];
+- (void)setupLowLatencyPlayerIfNecessary:(BOOL)isLowLatency {
+    if (isLowLatency && !self.playerView.lowLatencyPlayer) {
+        STSLowLatencyPlayer * lowLatencyPlayer = [[STSLowLatencyPlayer alloc] init];
         self.playerView.lowLatencyPlayer = (id<STSPlayerPlayback>)lowLatencyPlayer;
     }
 }
@@ -321,7 +322,12 @@
 }
 
 - (void)playerView:(STSSDKPlayerView *)playerView error:(NSError * _Nonnull)error{
-    NSLog(@"%s with Error %@", __PRETTY_FUNCTION__, error);
+    NSLog(@"%s, error %@", __PRETTY_FUNCTION__, error);
+    if (playerView.playlist) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [playerView playNextItem];
+        });
+    }
 }
 
 - (void)playerView:(STSSDKPlayerView *)playerView mediaDurationChanged:(Float64)duration {
@@ -331,7 +337,7 @@
 
 - (void)playerView:(STSSDKPlayerView *)playerView mediaCurrentTimeChanged:(Float64)currentTime {
     //DO NOTHING
-    //NSLog(@"media current time changed to %lf", currentTime);
+    //NSLog(@"media current time changed to %lf, %lf", currentTime, playerView.currentLiveDateTime);
 }
 
 - (void)playerView:(STSSDKPlayerView *)playerView loadedTimeRangesChanged:(NSArray *)loadedTimeRanges {
@@ -383,10 +389,12 @@
 
 - (void)playerView:(STSSDKPlayerView *)playerView liveCCUChanged:(NSString *)liveId value:(NSNumber *)ccu {
     NSLog(@"live CCU updated: liveId=%@, ccu=%@", liveId, ccu);
+    self.ccuLabel.text = [NSString stringWithFormat:@"%li",(long)ccu.integerValue];
 }
 
 - (void)playerView:(STSSDKPlayerView *)playerView liveHitCountChanged:(NSString *)liveId value:(NSNumber *)hitCount {
     NSLog(@"live hitCount updated: liveId=%@, hitCount=%@", liveId, hitCount);
+    self.hitCountLabel.text = [NSString stringWithFormat:@"%li",(long)hitCount.integerValue];
 }
 
 - (void)playerView:(STSSDKPlayerView *)playerView
@@ -412,6 +420,10 @@ broadcastStartTimeChanged:(NSString *)liveId
 
 - (void)liveEventListener:(STSLiveEventListener *)liveEventListener hitCountUpdated:(NSNumber *)hitCount {
     NSLog(@"%s, hit count: %@", __PRETTY_FUNCTION__, hitCount);
+}
+
+- (void)liveEventListener:(STSLiveEventListener *)liveEventListener stateChanged:(STSLiveEventListenerState)state {
+    NSLog(@"%s, state: %ld", __PRETTY_FUNCTION__, (long)state);
 }
 
 #pragma mark - CLLocationManagerDelegate
