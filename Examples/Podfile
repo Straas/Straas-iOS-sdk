@@ -18,10 +18,12 @@ target 'VideoChat' do
   pod 'StraaS-iOS-SDK', :path=>'../'
   pod 'MBProgressHUD'
   pod 'IQKeyboardManager'
+  pod 'Socket.IO-Client-Swift', '~> 15.1.0'
 end
 
 target 'BroadcastSetupUI' do
   pod 'StraaS-iOS-SDK/Streaming', :path=>'../'
+
 end
 
 target 'Broadcast' do
