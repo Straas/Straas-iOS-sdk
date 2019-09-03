@@ -267,7 +267,7 @@
     if ([liveId length] == 0) {
         return;
     }
-    self.liveEventListener = [[STSLiveEventListener alloc] initWithWithJWT:nil delegate:self];
+    self.liveEventListener = [[STSLiveEventListener alloc] initWithWithJWT:self.JWT delegate:self];
     [self.liveEventListener startWithLiveId:liveId success:nil failure:^(NSError * error){
         NSLog(@"Failed to start listening live %@. Error: %@", liveId, error);
     }];
