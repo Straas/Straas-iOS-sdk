@@ -10,28 +10,28 @@
 
 @implementation UIViewController (STSKeyboard)
 
-- (void)sts_registerForKeyboardNotifications
+- (void)registerForKeyboardNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sts_keyboardWillBeShown:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sts_keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
 }
 
-- (void)sts_unregisterForKeyboardNotifications {
+- (void)unregisterForKeyboardNotifications {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
 }
 
 - (void)sts_keyboardWillBeShown:(NSNotification*)notification
 {
-    [self sts_updateLayoutWithKeyboard:YES notification:notification];
+    [self updateLayoutWithKeyboard:YES notification:notification];
 }
 
 - (void)sts_keyboardWillBeHidden:(NSNotification*)notification
 {
-    [self sts_updateLayoutWithKeyboard:NO notification:notification];
+    [self updateLayoutWithKeyboard:NO notification:notification];
 }
 
-- (void)sts_updateLayoutWithKeyboard:(BOOL)keyboard notification:(NSNotification *)notification
+- (void)updateLayoutWithKeyboard:(BOOL)keyboard notification:(NSNotification *)notification
 {
     NSAssert(NO, @"Please override this method");
 }
