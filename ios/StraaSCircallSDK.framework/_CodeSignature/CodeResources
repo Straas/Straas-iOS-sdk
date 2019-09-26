@@ -48,21 +48,49 @@
 		<data>
 		BrZ+ImSqTOENF92D6wHKXKMwLng=
 		</data>
+		<key>Headers/StraaSCircallSDK-Swift.h</key>
+		<data>
+		C6UvYYTcDJWjqLUIMLpuDKdt5Eg=
+		</data>
 		<key>Headers/StraaSCircallSDK.h</key>
 		<data>
 		AtL8xFGfce+/1k9soY+lJpFNrjw=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		o1/H0WoCk+lb6mobvI01xsvwhqk=
+		U3ha5YqW6g3qpJRFjgoxvk5V/Fg=
 		</data>
 		<key>Localizable.strings</key>
 		<data>
 		WvCROCz5qDVawr67N1+MLRedNzA=
 		</data>
+		<key>Modules/StraaSCircallSDK.swiftmodule/arm.swiftdoc</key>
+		<data>
+		syyENMyvi22rgTCosUuxqvukY9c=
+		</data>
+		<key>Modules/StraaSCircallSDK.swiftmodule/arm.swiftmodule</key>
+		<data>
+		pw9In7FNX6rLD/c9c8pwb4V//20=
+		</data>
+		<key>Modules/StraaSCircallSDK.swiftmodule/arm64.swiftdoc</key>
+		<data>
+		vXtbjUjMbfZgrP4X9ALHIxy/9SY=
+		</data>
+		<key>Modules/StraaSCircallSDK.swiftmodule/arm64.swiftmodule</key>
+		<data>
+		cm+QnnVg0hmj4gMr4odeYpz5c2U=
+		</data>
+		<key>Modules/StraaSCircallSDK.swiftmodule/armv7.swiftdoc</key>
+		<data>
+		syyENMyvi22rgTCosUuxqvukY9c=
+		</data>
+		<key>Modules/StraaSCircallSDK.swiftmodule/armv7.swiftmodule</key>
+		<data>
+		pw9In7FNX6rLD/c9c8pwb4V//20=
+		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		pZ03ZS9BNrnKFP/WbO0R1WM0Cj4=
+		6cMy45H8Lo9u/E6m4MXQOpgBV2Q=
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
@@ -206,6 +234,17 @@
 			oHSk7yu8FG7itSlYL+Lu/pIe7ImUqLDiEY2QoZz9py0=
 			</data>
 		</dict>
+		<key>Headers/StraaSCircallSDK-Swift.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			C6UvYYTcDJWjqLUIMLpuDKdt5Eg=
+			</data>
+			<key>hash2</key>
+			<data>
+			Pmm4gFwHJ01jf2MHnvhM5jS6GkiIzx+x3JRnSbFVhjQ=
+			</data>
+		</dict>
 		<key>Headers/StraaSCircallSDK.h</key>
 		<dict>
 			<key>hash</key>
@@ -228,15 +267,81 @@
 			OTeJ0yQPNlu4VfpSjhOYxpsRbvm0r+0KZX6+D7seT6k=
 			</data>
 		</dict>
+		<key>Modules/StraaSCircallSDK.swiftmodule/arm.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			syyENMyvi22rgTCosUuxqvukY9c=
+			</data>
+			<key>hash2</key>
+			<data>
+			KVjT/1jsBTW9LjDyDmBt/mxaLx2bhiPQ0CPwFkm1Eko=
+			</data>
+		</dict>
+		<key>Modules/StraaSCircallSDK.swiftmodule/arm.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			pw9In7FNX6rLD/c9c8pwb4V//20=
+			</data>
+			<key>hash2</key>
+			<data>
+			/57N+WEwlIEmyjbdoAtIsUaIfYKpUelpKSKIHxTJ2hk=
+			</data>
+		</dict>
+		<key>Modules/StraaSCircallSDK.swiftmodule/arm64.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vXtbjUjMbfZgrP4X9ALHIxy/9SY=
+			</data>
+			<key>hash2</key>
+			<data>
+			nH6NxNdAFmtFqruCjbEJOrmFU/LIvl5UPQilf5mhATE=
+			</data>
+		</dict>
+		<key>Modules/StraaSCircallSDK.swiftmodule/arm64.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			cm+QnnVg0hmj4gMr4odeYpz5c2U=
+			</data>
+			<key>hash2</key>
+			<data>
+			CV/y4cGLx+vGoq7hvAbiU0nOoKOZfXnydJdThf8p5e8=
+			</data>
+		</dict>
+		<key>Modules/StraaSCircallSDK.swiftmodule/armv7.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			syyENMyvi22rgTCosUuxqvukY9c=
+			</data>
+			<key>hash2</key>
+			<data>
+			KVjT/1jsBTW9LjDyDmBt/mxaLx2bhiPQ0CPwFkm1Eko=
+			</data>
+		</dict>
+		<key>Modules/StraaSCircallSDK.swiftmodule/armv7.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			pw9In7FNX6rLD/c9c8pwb4V//20=
+			</data>
+			<key>hash2</key>
+			<data>
+			/57N+WEwlIEmyjbdoAtIsUaIfYKpUelpKSKIHxTJ2hk=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pZ03ZS9BNrnKFP/WbO0R1WM0Cj4=
+			6cMy45H8Lo9u/E6m4MXQOpgBV2Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			/wrzCUDjPCBYdSumX3edmFCr9gHoMVNWZCBL/flVJek=
+			oJe29kh6ylJ8lmRmKiyKxIuqoYl4jVCPTVK662WEkQ0=
 			</data>
 		</dict>
 		<key>en.lproj/Localizable.strings</key>

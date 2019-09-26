@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "StraaS-iOS-SDK"
-  s.version      = "0.45.0"
+  s.version      = "0.46.0"
   s.summary      = "StraaS.io iOS SDK"
 
   s.description  = "StraaS.io - Streaming as a Service, Your Best OTT Solution."
@@ -14,17 +14,18 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
 
   s.source       = { :git => "https://github.com/StraaS/StraaS-iOS-sdk.git",
-                     :tag => "0.45.0" }
+                     :tag => "0.46.0" }
+  s.static_framework = true
 
   s.subspec 'Messaging' do |msg|
     msg.vendored_frameworks = "ios/StraaSMessagingSDK.framework"
     msg.dependency "StraaS-iOS-SDK/Core"
-    msg.dependency "Socket.IO-Client-Swift", '~> 15.1.0'
+    msg.dependency "Socket.IO-Client-Swift", "~> 15.1.0"
   end
   s.subspec 'Core' do |co|
     co.vendored_frameworks = "ios/StraaSCoreSDK.framework"
-    co.dependency "AFNetworking", "~>3.0"
-    co.dependency "Socket.IO-Client-Swift", '~> 15.1.0'
+    co.dependency "AFNetworking", "~> 3.2.1"
+    co.dependency "Socket.IO-Client-Swift", "~> 15.1.0"
   end
   s.subspec 'Streaming' do |streaming|
     streaming.vendored_frameworks = "ios/StraaSStreamingSDK.framework"
@@ -34,9 +35,10 @@ Pod::Spec.new do |s|
   s.subspec 'Player' do |player|
     player.vendored_frameworks = "ios/StraaSPlayerSDK.framework"
     player.dependency "StraaS-iOS-SDK/Core"
-    player.dependency "GoogleAds-IMA-iOS-SDK", "~> 3.3"
-    player.dependency "KVOController", "~>1.1.0"
-    player.dependency "Socket.IO-Client-Swift", '~> 15.1.0'
+    player.dependency "Socket.IO-Client-Swift", "~> 15.1.0"
+    player.dependency "GoogleAds-IMA-iOS-SDK", "~> 3.6.0"
+    player.dependency "KVOController", "~> 1.2.0"
+    player.dependency "AFNetworking", "~> 3.2.1"
   end
   s.subspec 'PlayerLowLatencyExtension' do |playerLowLatencyExtension|
     playerLowLatencyExtension.vendored_frameworks = "ios/StraaSPlayerLowLatencyExtensionSDK.framework"
@@ -45,8 +47,9 @@ Pod::Spec.new do |s|
   s.subspec 'Circall' do |circall|
     circall.vendored_frameworks = "ios/StraaSCircallSDK.framework"
     circall.dependency "StraaS-iOS-SDK/Core"
-    circall.dependency "Socket.IO-Client-Swift", '~> 15.1.0'
+    circall.dependency "Socket.IO-Client-Swift", "~> 15.1.0"
     circall.dependency "PodRTC", "65.8.0.0"
+    circall.dependency "AFNetworking", "~> 3.2.1"
     circall.pod_target_xcconfig = {
       'ENABLE_BITCODE' => 'NO',
       'SWIFT_VERSION' => '4.0',
