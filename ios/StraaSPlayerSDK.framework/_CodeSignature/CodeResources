@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		U2jWcn5jfM5evIB6Y72S26YaR0w=
+		29pxLUThQzXgLCoBDmO/cELxK5I=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -108,17 +108,45 @@
 		<data>
 		xC8pNm5r86rZJX09nAhbVdjyIWs=
 		</data>
+		<key>Headers/StraaSPlayerSDK-Swift.h</key>
+		<data>
+		cnIlqpE2TQjhJgSyX5DVs2jWqdM=
+		</data>
 		<key>Headers/StraaSPlayerSDK.h</key>
 		<data>
 		pd2wcBAtU3nBhxLXC8xR4hcxaHQ=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		qyMBSkhRv6XEcQz5NyR0nU2wDTM=
+		C7PPsO8hgZRMXkzC+xFDUwSyvz8=
+		</data>
+		<key>Modules/StraaSPlayerSDK.swiftmodule/arm.swiftdoc</key>
+		<data>
+		rcg+Z0m+uXAGr1/gVsie5YfBAw4=
+		</data>
+		<key>Modules/StraaSPlayerSDK.swiftmodule/arm.swiftmodule</key>
+		<data>
+		95eKeGLpU80Pq0f85wo1Y59AH88=
+		</data>
+		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64.swiftdoc</key>
+		<data>
+		vNu+bVJgXAfEF15WTHDj35ZD5ns=
+		</data>
+		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64.swiftmodule</key>
+		<data>
+		wNB6EM1h5AGDMvS40iSeeKKkmIc=
+		</data>
+		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7.swiftdoc</key>
+		<data>
+		rcg+Z0m+uXAGr1/gVsie5YfBAw4=
+		</data>
+		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7.swiftmodule</key>
+		<data>
+		95eKeGLpU80Pq0f85wo1Y59AH88=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		va3T8yXSvNDzLYea5W790ZME3ao=
+		Vxi44xUJ14LYy0gki9JO/xP3Uks=
 		</data>
 		<key>Shader.fsh</key>
 		<data>
@@ -153,11 +181,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			U2jWcn5jfM5evIB6Y72S26YaR0w=
+			29pxLUThQzXgLCoBDmO/cELxK5I=
 			</data>
 			<key>hash2</key>
 			<data>
-			R9zgz4xjY62FyLMGlpxpE1d9lYrckIMx64ANHduql6c=
+			dHMNcOrZGAvkzXYhri/6OzxFhD64K8yam8mMZSUVKAQ=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -435,6 +463,17 @@
 			lxKDCOU8At4bqrLdwvJC0tRixeQhX1t3Ez9cBeSCcTs=
 			</data>
 		</dict>
+		<key>Headers/StraaSPlayerSDK-Swift.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			cnIlqpE2TQjhJgSyX5DVs2jWqdM=
+			</data>
+			<key>hash2</key>
+			<data>
+			2DihctvcKjqj2KD9y0Hc9KCu1D36iEAvh9EX8Equ9Vs=
+			</data>
+		</dict>
 		<key>Headers/StraaSPlayerSDK.h</key>
 		<dict>
 			<key>hash</key>
@@ -446,15 +485,81 @@
 			HSgpRJ9UqmxocU6j88N4mIn6X3IbZA4YvVwJjiEyCgw=
 			</data>
 		</dict>
+		<key>Modules/StraaSPlayerSDK.swiftmodule/arm.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rcg+Z0m+uXAGr1/gVsie5YfBAw4=
+			</data>
+			<key>hash2</key>
+			<data>
+			9UQca3/qZ2UO9J7vcQwqdFb3RnTQaZQg382EJNrxTUA=
+			</data>
+		</dict>
+		<key>Modules/StraaSPlayerSDK.swiftmodule/arm.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			95eKeGLpU80Pq0f85wo1Y59AH88=
+			</data>
+			<key>hash2</key>
+			<data>
+			W82yu6sZR8AcTho9bgwj+nc7Pp3gDqAjKNg4TrqxfrY=
+			</data>
+		</dict>
+		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vNu+bVJgXAfEF15WTHDj35ZD5ns=
+			</data>
+			<key>hash2</key>
+			<data>
+			eE9NPtPARyg6g48+h8XDXUWZuiknzQiYkwPZWXwXUzw=
+			</data>
+		</dict>
+		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			wNB6EM1h5AGDMvS40iSeeKKkmIc=
+			</data>
+			<key>hash2</key>
+			<data>
+			kiIPgWlbdVZyZHMWGgqzWEZH2f16Sk1PiwDQ62oxvUU=
+			</data>
+		</dict>
+		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			rcg+Z0m+uXAGr1/gVsie5YfBAw4=
+			</data>
+			<key>hash2</key>
+			<data>
+			9UQca3/qZ2UO9J7vcQwqdFb3RnTQaZQg382EJNrxTUA=
+			</data>
+		</dict>
+		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			95eKeGLpU80Pq0f85wo1Y59AH88=
+			</data>
+			<key>hash2</key>
+			<data>
+			W82yu6sZR8AcTho9bgwj+nc7Pp3gDqAjKNg4TrqxfrY=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			va3T8yXSvNDzLYea5W790ZME3ao=
+			Vxi44xUJ14LYy0gki9JO/xP3Uks=
 			</data>
 			<key>hash2</key>
 			<data>
-			MKfQSBopDA30zPSGyl0CHmrshzFPzrKep/MkTbEt6v8=
+			9Zr1/9AU7ezUMKYZiQP1PggrKAgFnnodG3urD7qy6tk=
 			</data>
 		</dict>
 		<key>Shader.fsh</key>

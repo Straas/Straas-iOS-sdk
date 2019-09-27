@@ -4,3 +4,8 @@ framework module StraaSStreamingSDK {
   export *
   module * { export * }
 }
+
+module StraaSStreamingSDK.Swift {
+    header "StraaSStreamingSDK-Swift.h"
+    requires objc
+}

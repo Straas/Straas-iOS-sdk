@@ -60,21 +60,69 @@
 		<data>
 		S48xo1xpFcgnxbp6WvZIcDHbvhw=
 		</data>
+		<key>Headers/StraaSStreamingSDK-Swift.h</key>
+		<data>
+		4vJnA61Tq9ML2MQb09zNqm4pQgc=
+		</data>
 		<key>Headers/StraaSStreamingSDK.h</key>
 		<data>
 		8eflsjN+6kqEoe25OtMrpufXMOo=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		fjdTxQPwmFcqBew0bZq3mODZNgw=
+		2DD/NUZvcbau0T+sBEGcC61z90A=
 		</data>
 		<key>Localizable.strings</key>
 		<data>
 		BndvYNk5POcd0YCvl0dpxiPA4vM=
 		</data>
+		<key>Modules/StraaSStreamingSDK.swiftmodule/arm.swiftdoc</key>
+		<data>
+		15MdsZyurT8DiRitW43cuk7QbWw=
+		</data>
+		<key>Modules/StraaSStreamingSDK.swiftmodule/arm.swiftmodule</key>
+		<data>
+		Ft2DaTgwEeEpCSRp8WOJPlcDN0g=
+		</data>
+		<key>Modules/StraaSStreamingSDK.swiftmodule/arm64.swiftdoc</key>
+		<data>
+		IYfjwV4QFM/ZEC8rONhCLhLW8mI=
+		</data>
+		<key>Modules/StraaSStreamingSDK.swiftmodule/arm64.swiftmodule</key>
+		<data>
+		uNRroxd7kQvGvCpbX2h+Cx4gwhU=
+		</data>
+		<key>Modules/StraaSStreamingSDK.swiftmodule/armv7.swiftdoc</key>
+		<data>
+		15MdsZyurT8DiRitW43cuk7QbWw=
+		</data>
+		<key>Modules/StraaSStreamingSDK.swiftmodule/armv7.swiftmodule</key>
+		<data>
+		Ft2DaTgwEeEpCSRp8WOJPlcDN0g=
+		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		tlr99eyFw2L+TGUeMpgxPAE6JGU=
+		hTwQ9Ohd6zLR0/yVQhZogwmw2kI=
+		</data>
+		<key>lookup.png</key>
+		<data>
+		EoppCtxZM9DGLNIGHFt7x6OsFAs=
+		</data>
+		<key>lookup_amatorka.png</key>
+		<data>
+		mAcqBuLpWR799fyJqOjknbbplNQ=
+		</data>
+		<key>lookup_miss_etikate.png</key>
+		<data>
+		VfLbYCVn44NmjjjQsceBvhzaPPE=
+		</data>
+		<key>lookup_soft_elegance_1.png</key>
+		<data>
+		zcQOnYyazBz9eD1lyYI88t0YuGY=
+		</data>
+		<key>lookup_soft_elegance_2.png</key>
+		<data>
+		V/TUsjkRY4r4phrGYLPaW+FXFl0=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -233,6 +281,17 @@
 			7bmWeGtEbodC0bSAWptHxvJpIWE13n05oRPY1mPXMJ8=
 			</data>
 		</dict>
+		<key>Headers/StraaSStreamingSDK-Swift.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			4vJnA61Tq9ML2MQb09zNqm4pQgc=
+			</data>
+			<key>hash2</key>
+			<data>
+			Uho98+JEQOMkZouLs7xillc+ajuGyrHxtPeiFYY+z6U=
+			</data>
+		</dict>
 		<key>Headers/StraaSStreamingSDK.h</key>
 		<dict>
 			<key>hash</key>
@@ -255,15 +314,136 @@
 			mPK2rrIf+0nX3sXneCHOQHSuDMiWNEoTOLrJ/RyKy+w=
 			</data>
 		</dict>
+		<key>Modules/StraaSStreamingSDK.swiftmodule/arm.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			15MdsZyurT8DiRitW43cuk7QbWw=
+			</data>
+			<key>hash2</key>
+			<data>
+			qW8Pfyxm1V/fhNesmB0/i3RN+oQj4Xkc9UQJoITgtFU=
+			</data>
+		</dict>
+		<key>Modules/StraaSStreamingSDK.swiftmodule/arm.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Ft2DaTgwEeEpCSRp8WOJPlcDN0g=
+			</data>
+			<key>hash2</key>
+			<data>
+			Bz2whEvN7vSk2FkCZV3BHRvc5Ll4jLKIbMogvbRxlKI=
+			</data>
+		</dict>
+		<key>Modules/StraaSStreamingSDK.swiftmodule/arm64.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			IYfjwV4QFM/ZEC8rONhCLhLW8mI=
+			</data>
+			<key>hash2</key>
+			<data>
+			xCgO0X848Qa7wUbHGFyqI0XYT+S2wutARK3/0XWgzjg=
+			</data>
+		</dict>
+		<key>Modules/StraaSStreamingSDK.swiftmodule/arm64.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			uNRroxd7kQvGvCpbX2h+Cx4gwhU=
+			</data>
+			<key>hash2</key>
+			<data>
+			Iiv0qxkxBjH9U3soNVAlGMlTAD1kMn3oAuTX9r1pVrg=
+			</data>
+		</dict>
+		<key>Modules/StraaSStreamingSDK.swiftmodule/armv7.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			15MdsZyurT8DiRitW43cuk7QbWw=
+			</data>
+			<key>hash2</key>
+			<data>
+			qW8Pfyxm1V/fhNesmB0/i3RN+oQj4Xkc9UQJoITgtFU=
+			</data>
+		</dict>
+		<key>Modules/StraaSStreamingSDK.swiftmodule/armv7.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Ft2DaTgwEeEpCSRp8WOJPlcDN0g=
+			</data>
+			<key>hash2</key>
+			<data>
+			Bz2whEvN7vSk2FkCZV3BHRvc5Ll4jLKIbMogvbRxlKI=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tlr99eyFw2L+TGUeMpgxPAE6JGU=
+			hTwQ9Ohd6zLR0/yVQhZogwmw2kI=
 			</data>
 			<key>hash2</key>
 			<data>
-			7UUK+NmakDeLOp6j4kKI0zu8d2V2GETY3O9lhHTHRFM=
+			bDukGWUi4TYHwX1gqGacuUi+9/qvyQVrNwjirbAOhJY=
+			</data>
+		</dict>
+		<key>lookup.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			EoppCtxZM9DGLNIGHFt7x6OsFAs=
+			</data>
+			<key>hash2</key>
+			<data>
+			x+AFB5gbwGwt3thkxiL7raro4YnLZAVcCGBvLODMR3E=
+			</data>
+		</dict>
+		<key>lookup_amatorka.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mAcqBuLpWR799fyJqOjknbbplNQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			gRkbcsY4wdPMofUq4LichDNBI7dkzumlAc3DHD0HB8w=
+			</data>
+		</dict>
+		<key>lookup_miss_etikate.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			VfLbYCVn44NmjjjQsceBvhzaPPE=
+			</data>
+			<key>hash2</key>
+			<data>
+			/FKAkOitambPX8TYtK4qXOHIcRcz7VLn/bckdWElzM4=
+			</data>
+		</dict>
+		<key>lookup_soft_elegance_1.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zcQOnYyazBz9eD1lyYI88t0YuGY=
+			</data>
+			<key>hash2</key>
+			<data>
+			HgVWdR5XI0AyoDbFWw4yHnWNANuDIfH5hd7knWJVgt4=
+			</data>
+		</dict>
+		<key>lookup_soft_elegance_2.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			V/TUsjkRY4r4phrGYLPaW+FXFl0=
+			</data>
+			<key>hash2</key>
+			<data>
+			K1IDwsqDYyuZ2DH5lb4BZfvPf7X9lmEt3wTQf+I0Bc4=
 			</data>
 		</dict>
 	</dict>

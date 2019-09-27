@@ -4,3 +4,8 @@ framework module StraaSCircallSDK {
   export *
   module * { export * }
 }
+
+module StraaSCircallSDK.Swift {
+    header "StraaSCircallSDK-Swift.h"
+    requires objc
+}

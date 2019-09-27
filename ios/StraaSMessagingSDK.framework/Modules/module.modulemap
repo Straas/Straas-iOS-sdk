@@ -4,3 +4,8 @@ framework module StraaSMessagingSDK {
   export *
   module * { export * }
 }
+
+module StraaSMessagingSDK.Swift {
+    header "StraaSMessagingSDK-Swift.h"
+    requires objc
+}
