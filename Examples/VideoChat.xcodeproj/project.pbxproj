@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		384736B6B699F13F67D6A464 /* Pods_Broadcast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455ED681ED2EF38DADA93D78 /* Pods_Broadcast.framework */; };
 		40A202371D77F93E00457359 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A202301D77F93E00457359 /* ChatViewController.m */; };
 		40A202381D77F93E00457359 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A202321D77F93E00457359 /* MessageTableViewCell.m */; };
 		40A202391D77F93E00457359 /* MessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A202341D77F93E00457359 /* MessageTextView.m */; };
@@ -20,7 +19,6 @@
 		40C779E81D7091D0004F61CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C779E61D7091D0004F61CA /* Main.storyboard */; };
 		40C779EA1D7091D0004F61CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C779E91D7091D0004F61CA /* Assets.xcassets */; };
 		40C779ED1D7091D0004F61CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40C779EB1D7091D0004F61CA /* LaunchScreen.storyboard */; };
-		442E5240CB337FD6B23E8654 /* Pods_BroadcastSetupUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 740C43348B3B3AB02BF5A58C /* Pods_BroadcastSetupUI.framework */; };
 		4A1F4DC51ED83B8D005D6FD9 /* ECommerceChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F4DC41ED83B8D005D6FD9 /* ECommerceChatViewController.m */; };
 		4A3A2BB51ED7DE6000A22863 /* TransparentMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A2BB41ED7DE6000A22863 /* TransparentMessageTableViewCell.m */; };
 		4A3A2BB81ED7DEE900A22863 /* TransparentChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A2BB71ED7DEE900A22863 /* TransparentChatViewController.m */; };
@@ -53,13 +51,20 @@
 		9BEAD38A1ED735CF004B9DAB /* FloatingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEAD3891ED735CF004B9DAB /* FloatingImageView.m */; };
 		9BF1971A1EEEA213003AE88E /* STSPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF197191EEEA213003AE88E /* STSPlayerViewController.m */; };
 		9BF1971D1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF1971C1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m */; };
-		FADDAF509351485C7AE9DE21 /* Pods_VideoChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C2739ECC5559476005727D /* Pods_VideoChat.framework */; };
+		9FB83E17B9513ACBEDB52154 /* libPods-Broadcast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25E4F7EC3145DBE1DFBE90EF /* libPods-Broadcast.a */; };
+		C9165AD56D4B8DA864A3F32E /* libPods-VideoChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9AF20D62F3BC91E3D994497 /* libPods-VideoChat.a */; };
+		CC650962D912B2B844636862 /* libPods-BroadcastSetupUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA6B90A6005628777E50E7D /* libPods-BroadcastSetupUI.a */; };
 		FF68F91F22818C9200ABBC46 /* STSStreamingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F91D22818C9100ABBC46 /* STSStreamingViewController.m */; };
 		FF68F92522818FF600ABBC46 /* UIViewController+Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F92422818FF500ABBC46 /* UIViewController+Keyboard.m */; };
 		FF68F9282281904500ABBC46 /* NSLayoutConstraint+STSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F9272281904400ABBC46 /* NSLayoutConstraint+STSUtility.m */; };
 		FF68F92C2281920300ABBC46 /* UIColor+STSColor.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F92B2281920300ABBC46 /* UIColor+STSColor.m */; };
 		FF9C5C162152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9C5C132152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.m */; };
 		FF9C5C172152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9C5C152152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.m */; };
+		FFB667F72328E2BF00480E1E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB667F62328E2BF00480E1E /* File.swift */; };
+		FFB667F82328E31500480E1E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB667F62328E2BF00480E1E /* File.swift */; };
+		FFB667F92328E31600480E1E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB667F62328E2BF00480E1E /* File.swift */; };
+		FFB667FD2328E33B00480E1E /* File3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB667FC2328E33B00480E1E /* File3.swift */; };
+		FFB667FF2328E34700480E1E /* File2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB667FE2328E34700480E1E /* File2.swift */; };
 		FFB6689120E395C0004CE075 /* STSCircallSingleVideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */; };
 		FFB6689220E395C0004CE075 /* STSCircallTokenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6688F20E395C0004CE075 /* STSCircallTokenViewController.m */; };
 		FFB6689520E3961F004CE075 /* STSQRCodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6689420E3961F004CE075 /* STSQRCodeScannerViewController.m */; };
@@ -99,6 +104,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		25E4F7EC3145DBE1DFBE90EF /* libPods-Broadcast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Broadcast.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A2022F1D77F93E00457359 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		40A202301D77F93E00457359 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		40A202311D77F93E00457359 /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
@@ -121,7 +127,6 @@
 		40C779E91D7091D0004F61CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40C779EC1D7091D0004F61CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40C779EE1D7091D0004F61CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		455ED681ED2EF38DADA93D78 /* Pods_Broadcast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Broadcast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1F4DC31ED83B8D005D6FD9 /* ECommerceChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECommerceChatViewController.h; sourceTree = "<group>"; };
 		4A1F4DC41ED83B8D005D6FD9 /* ECommerceChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECommerceChatViewController.m; sourceTree = "<group>"; };
 		4A3A2BB31ED7DE6000A22863 /* TransparentMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentMessageTableViewCell.h; sourceTree = "<group>"; };
@@ -141,7 +146,6 @@
 		60CE7E621FD645E80063E87A /* BroadcastSetupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BroadcastSetupViewController.m; sourceTree = "<group>"; };
 		60CE7E641FD645E80063E87A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60CE7E721FD64FE60063E87A /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
-		64C2739ECC5559476005727D /* Pods_VideoChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		707FD419AA8B9766440ECD8A /* Pods-Broadcast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Broadcast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Broadcast/Pods-Broadcast.debug.xcconfig"; sourceTree = "<group>"; };
 		728228FB1EFA86850088C7EB /* STSPinnedMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSPinnedMessageView.h; sourceTree = "<group>"; };
 		728228FC1EFA86850088C7EB /* STSPinnedMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSPinnedMessageView.m; sourceTree = "<group>"; };
@@ -149,7 +153,6 @@
 		728229021EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSMessageLongPressGestureRecognizer.m; sourceTree = "<group>"; };
 		728229071EFD39700088C7EB /* UIViewController+VideoChatUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VideoChatUtility.h"; sourceTree = "<group>"; };
 		728229081EFD39700088C7EB /* UIViewController+VideoChatUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VideoChatUtility.m"; sourceTree = "<group>"; };
-		740C43348B3B3AB02BF5A58C /* Pods_BroadcastSetupUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BroadcastSetupUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B133DD41DCAF4020082C269 /* UIImage+sticker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+sticker.h"; sourceTree = "<group>"; };
 		9B133DD51DCAF4020082C269 /* UIImage+sticker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+sticker.m"; sourceTree = "<group>"; };
 		9B16870D1DD5C930004BFA4F /* STSChatUser+VieoChatUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "STSChatUser+VieoChatUtility.h"; sourceTree = "<group>"; };
@@ -184,7 +187,9 @@
 		9BF197191EEEA213003AE88E /* STSPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSPlayerViewController.m; sourceTree = "<group>"; };
 		9BF1971B1EEEA6AF003AE88E /* UIViewController+STSKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+STSKeyboard.h"; sourceTree = "<group>"; };
 		9BF1971C1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+STSKeyboard.m"; sourceTree = "<group>"; };
+		9DA6B90A6005628777E50E7D /* libPods-BroadcastSetupUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BroadcastSetupUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2249AC55CB11E4E6A7A3A60 /* Pods-BroadcastSetupUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastSetupUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BroadcastSetupUI/Pods-BroadcastSetupUI.debug.xcconfig"; sourceTree = "<group>"; };
+		A9AF20D62F3BC91E3D994497 /* libPods-VideoChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VideoChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D654B09AC7660EBD2EF69A77 /* Pods-BroadcastSetupUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastSetupUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-BroadcastSetupUI/Pods-BroadcastSetupUI.release.xcconfig"; sourceTree = "<group>"; };
 		DEFB68FCA4AF20E0E29C2573 /* Pods-Broadcast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Broadcast.release.xcconfig"; path = "Pods/Target Support Files/Pods-Broadcast/Pods-Broadcast.release.xcconfig"; sourceTree = "<group>"; };
 		EC14F7612121694672BF11EF /* Pods-VideoChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoChat/Pods-VideoChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +207,10 @@
 		FF9C5C132152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallIPCamBroadcastingViewerViewController.m; sourceTree = "<group>"; };
 		FF9C5C142152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallIPCamBroadcastingViewerViewController.h; sourceTree = "<group>"; };
 		FF9C5C152152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallIPCamBroadcastingHostViewController.m; sourceTree = "<group>"; };
+		FFB667F52328E2BF00480E1E /* VideoChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoChat-Bridging-Header.h"; sourceTree = "<group>"; };
+		FFB667F62328E2BF00480E1E /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		FFB667FC2328E33B00480E1E /* File3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File3.swift; sourceTree = "<group>"; };
+		FFB667FE2328E34700480E1E /* File2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File2.swift; sourceTree = "<group>"; };
 		FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallSingleVideoCallViewController.m; sourceTree = "<group>"; };
 		FFB6688E20E395BF004CE075 /* STSCircallTokenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallTokenViewController.h; sourceTree = "<group>"; };
 		FFB6688F20E395C0004CE075 /* STSCircallTokenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallTokenViewController.m; sourceTree = "<group>"; };
@@ -217,7 +226,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADDAF509351485C7AE9DE21 /* Pods_VideoChat.framework in Frameworks */,
+				C9165AD56D4B8DA864A3F32E /* libPods-VideoChat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,7 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60CE7E521FD645E80063E87A /* ReplayKit.framework in Frameworks */,
-				384736B6B699F13F67D6A464 /* Pods_Broadcast.framework in Frameworks */,
+				9FB83E17B9513ACBEDB52154 /* libPods-Broadcast.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +245,7 @@
 			files = (
 				60CE7E5D1FD645E80063E87A /* ReplayKit.framework in Frameworks */,
 				60CE7E5F1FD645E80063E87A /* UIKit.framework in Frameworks */,
-				442E5240CB337FD6B23E8654 /* Pods_BroadcastSetupUI.framework in Frameworks */,
+				CC650962D912B2B844636862 /* libPods-BroadcastSetupUI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +346,7 @@
 			children = (
 				60CE7E541FD645E80063E87A /* SampleHandler.h */,
 				60CE7E551FD645E80063E87A /* SampleHandler.m */,
+				FFB667FE2328E34700480E1E /* File2.swift */,
 				6070AB4B1FFB389700849663 /* STSRKStreamer.h */,
 				6070AB4C1FFB389800849663 /* STSRKStreamer.m */,
 				60CE7E571FD645E80063E87A /* Info.plist */,
@@ -348,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				60CE7E721FD64FE60063E87A /* MainInterface.storyboard */,
+				FFB667FC2328E33B00480E1E /* File3.swift */,
 				60CE7E611FD645E80063E87A /* BroadcastSetupViewController.h */,
 				60CE7E621FD645E80063E87A /* BroadcastSetupViewController.m */,
 				60CE7E641FD645E80063E87A /* Info.plist */,
@@ -424,11 +435,11 @@
 		D28A08C5EF5AE8A8A86EB5C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				64C2739ECC5559476005727D /* Pods_VideoChat.framework */,
 				60CE7E511FD645E80063E87A /* ReplayKit.framework */,
 				60CE7E5E1FD645E80063E87A /* UIKit.framework */,
-				740C43348B3B3AB02BF5A58C /* Pods_BroadcastSetupUI.framework */,
-				455ED681ED2EF38DADA93D78 /* Pods_Broadcast.framework */,
+				25E4F7EC3145DBE1DFBE90EF /* libPods-Broadcast.a */,
+				9DA6B90A6005628777E50E7D /* libPods-BroadcastSetupUI.a */,
+				A9AF20D62F3BC91E3D994497 /* libPods-VideoChat.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -436,6 +447,7 @@
 		FF154BEF228195B300D542FA /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				FFB667F62328E2BF00480E1E /* File.swift */,
 				40C779DD1D7091D0004F61CA /* AppDelegate.h */,
 				40C779DE1D7091D0004F61CA /* AppDelegate.m */,
 				40C779E01D7091D0004F61CA /* MasterViewController.h */,
@@ -454,6 +466,7 @@
 				40C779E61D7091D0004F61CA /* Main.storyboard */,
 				40C779E91D7091D0004F61CA /* Assets.xcassets */,
 				40C779EB1D7091D0004F61CA /* LaunchScreen.storyboard */,
+				FFB667F52328E2BF00480E1E /* VideoChat-Bridging-Header.h */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -494,6 +507,7 @@
 				40C779D51D7091D0004F61CA /* Resources */,
 				BD2228DD8E56EE5D40E8F00C /* [CP] Embed Pods Frameworks */,
 				60CE7E711FD645E80063E87A /* Embed App Extensions */,
+				A5970D4F147864D60253F0E3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -514,6 +528,7 @@
 				60CE7E4C1FD645E80063E87A /* Sources */,
 				60CE7E4D1FD645E80063E87A /* Frameworks */,
 				60CE7E4E1FD645E80063E87A /* Resources */,
+				241C8DDBF093AD9046CEEF87 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -532,6 +547,7 @@
 				60CE7E581FD645E80063E87A /* Sources */,
 				60CE7E591FD645E80063E87A /* Frameworks */,
 				60CE7E5A1FD645E80063E87A /* Resources */,
+				5518B3BC7201A293A0F74D0F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -553,6 +569,7 @@
 				TargetAttributes = {
 					40C779D61D7091D0004F61CA = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = D8D778CP68;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -561,10 +578,12 @@
 					};
 					60CE7E4F1FD645E80063E87A = {
 						CreatedOnToolsVersion = 9.1;
+						DevelopmentTeam = D8D778CP68;
 						ProvisioningStyle = Automatic;
 					};
 					60CE7E5B1FD645E80063E87A = {
 						CreatedOnToolsVersion = 9.1;
+						DevelopmentTeam = D8D778CP68;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -623,6 +642,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		241C8DDBF093AD9046CEEF87 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Broadcast/Pods-Broadcast-resources.sh",
+				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup.png",
+				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_amatorka.png",
+				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_miss_etikate.png",
+				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_soft_elegance_1.png",
+				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_soft_elegance_2.png",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Broadcast/Pods-Broadcast-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4EC5C0177EF5A9239F156B15 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -639,6 +684,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5518B3BC7201A293A0F74D0F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BroadcastSetupUI/Pods-BroadcastSetupUI-resources.sh",
+				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup.png",
+				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_amatorka.png",
+				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_miss_etikate.png",
+				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_soft_elegance_1.png",
+				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_soft_elegance_2.png",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BroadcastSetupUI/Pods-BroadcastSetupUI-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A297754D30A041FD18A39C86 /* [CP] Check Pods Manifest.lock */ = {
@@ -659,6 +730,34 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A5970D4F147864D60253F0E3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VideoChat/Pods-VideoChat-resources.sh",
+				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup.png",
+				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_amatorka.png",
+				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_miss_etikate.png",
+				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_soft_elegance_1.png",
+				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_soft_elegance_2.png",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VideoChat/Pods-VideoChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BD2228DD8E56EE5D40E8F00C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -666,45 +765,25 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-VideoChat/Pods-VideoChat-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/DSGPUImage/DSGPUImage.framework",
 				"${PODS_ROOT}/GoogleAds-IMA-iOS-SDK/GoogleInteractiveMediaAds/GoogleInteractiveMediaAds.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
-				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${PODS_ROOT}/PodRTC/WebRTC.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SlackTextViewController/SlackTextViewController.framework",
-				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
-				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${PODS_ROOT}/../../ios/StraaSCircallSDK.framework",
 				"${PODS_ROOT}/../../ios/StraaSCoreSDK.framework",
 				"${PODS_ROOT}/../../ios/StraaSMessagingSDK.framework",
 				"${PODS_ROOT}/../../ios/StraaSPlayerSDK.framework",
 				"${PODS_ROOT}/../../ios/StraaSPlayerLowLatencyExtensionSDK.framework",
 				"${PODS_ROOT}/../../ios/StraaSStreamingSDK.framework",
-				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DSGPUImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleInteractiveMediaAds.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVOController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlackTextViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSCircallSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSCoreSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSMessagingSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSPlayerSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSPlayerLowLatencyExtensionSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSStreamingSDK.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -741,6 +820,7 @@
 				728229091EFD39700088C7EB /* UIViewController+VideoChatUtility.m in Sources */,
 				9B988EAA1DCB9C08009F8973 /* ChatStickerViewController.m in Sources */,
 				FF68F92C2281920300ABBC46 /* UIColor+STSColor.m in Sources */,
+				FFB667F72328E2BF00480E1E /* File.swift in Sources */,
 				9B133DD61DCAF4020082C269 /* UIImage+sticker.m in Sources */,
 				9BDC48BA1DD092A50095BF9B /* STSSegmentedControl.m in Sources */,
 				FFB6689520E3961F004CE075 /* STSQRCodeScannerViewController.m in Sources */,
@@ -782,7 +862,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB667FF2328E34700480E1E /* File2.swift in Sources */,
 				6070AB4D1FFB389800849663 /* STSRKStreamer.m in Sources */,
+				FFB667F82328E31500480E1E /* File.swift in Sources */,
 				60CE7E561FD645E80063E87A /* SampleHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -792,6 +874,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				60CE7E631FD645E80063E87A /* BroadcastSetupViewController.m in Sources */,
+				FFB667FD2328E33B00480E1E /* File3.swift in Sources */,
+				FFB667F92328E31600480E1E /* File.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -927,13 +1011,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F926D33A69130242491380A6 /* Pods-VideoChat.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = D8D778CP68;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/VideoChat/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.straas.VideoChat;
 				PRODUCT_NAME = VideoChat;
+				SWIFT_OBJC_BRIDGING_HEADER = "VideoChat/Shared/VideoChat-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -942,14 +1031,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC14F7612121694672BF11EF /* Pods-VideoChat.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = D8D778CP68;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/VideoChat/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.straas.VideoChat;
 				PRODUCT_NAME = VideoChat;
+				SWIFT_OBJC_BRIDGING_HEADER = "VideoChat/Shared/VideoChat-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -972,6 +1065,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D8D778CP68;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Broadcast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1002,6 +1096,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D8D778CP68;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Broadcast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1032,7 +1127,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = D8D778CP68;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = BroadcastSetupUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1063,7 +1158,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = D8D778CP68;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = BroadcastSetupUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
