@@ -871,8 +871,7 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
 
         } failure:^(NSError * _Nonnull error) {
             if (error.code == STSMSGErrorCodeUnprocessableEntity) {
-                NSString *blockedMessage = [NSString stringWithFormat:@"blocked: %@",messageText];
-                [self addFakeMessage:blockedMessage type:STSChatMessageTypeText imageURL:nil];
+                [self addFakeMessage:messageText type:STSChatMessageTypeText imageURL:nil];
             }
 
             [[NSNotificationCenter defaultCenter] postNotificationName:STSChatViewControllerSendMessageFailureNotification
