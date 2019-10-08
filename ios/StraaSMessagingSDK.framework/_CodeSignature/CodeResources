@@ -58,11 +58,11 @@
 		</data>
 		<key>Headers/STSMSGErrorCode.h</key>
 		<data>
-		DVh6dYw2CyrOXabcXpebWwAJzXM=
+		asNYSOdWwPh7pwqket+6HGeNjsA=
 		</data>
 		<key>Headers/StraaSMessagingSDK-Swift.h</key>
 		<data>
-		1yuzuElE9Oqo2QUu5XqwH3Yui70=
+		qSVCdMGIeJajsfwO415/QaAUkHo=
 		</data>
 		<key>Headers/StraaSMessagingSDK.h</key>
 		<data>
@@ -70,31 +70,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		iRg91iJ627j7jMCXeVcoQYTQtt8=
+		qCMbxAvVzd9qeQWwe9fbZXPMB/A=
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm.swiftdoc</key>
 		<data>
-		YDYqwPisefezxnr2j2H+p8qYnBA=
+		MwNKPMORb6NPDh3rmvCkJQcQ8cg=
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm.swiftmodule</key>
 		<data>
-		1ujbqgikRHmOc4VVgT7Kq60PWAU=
+		XltzCDNUIDMujID3lElt0l7mcVw=
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		ocxiQVb2fJ1bSudgur4+BYyuJes=
+		BGq+HgW59hEuqQHfC4baMfsWDsY=
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		C9RbyxUKil1Z/n9UYj18VQWSJJo=
-		</data>
-		<key>Modules/StraaSMessagingSDK.swiftmodule/armv7.swiftdoc</key>
-		<data>
-		YDYqwPisefezxnr2j2H+p8qYnBA=
-		</data>
-		<key>Modules/StraaSMessagingSDK.swiftmodule/armv7.swiftmodule</key>
-		<data>
-		1ujbqgikRHmOc4VVgT7Kq60PWAU=
+		5yq0fiO+1BeC0pNdNkFrqkhws1Y=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -104,7 +96,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fbZ/4oe41Gb9yb+N1566Paxs+wg=
+			0dKqNIFOpgg4VNoCDuJUpDCjKcc=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -113,7 +105,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Scjd6Y+seQIAJY/ngHJ8GBN2W1I=
+			9gNKXUheTTPtg6x61sajO34gbsc=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -268,22 +260,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DVh6dYw2CyrOXabcXpebWwAJzXM=
+			asNYSOdWwPh7pwqket+6HGeNjsA=
 			</data>
 			<key>hash2</key>
 			<data>
-			YA28wfZmH/iOPHW5QbF3fTzKFMo62liRwMddnn7oD08=
+			NH5Lll/LbeybumnndKK0TkYtj4+w9CWWau338O1Y2UE=
 			</data>
 		</dict>
 		<key>Headers/StraaSMessagingSDK-Swift.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1yuzuElE9Oqo2QUu5XqwH3Yui70=
+			qSVCdMGIeJajsfwO415/QaAUkHo=
 			</data>
 			<key>hash2</key>
 			<data>
-			0JRSR/7USGoZKvXa5aRanaR0de5rx3axIDUSrIKDW6Y=
+			TYMPp0rI0Qdhn6BlZ5i5XUn5rmXQ+Ob6SoePEEPzj8A=
 			</data>
 		</dict>
 		<key>Headers/StraaSMessagingSDK.h</key>
@@ -301,66 +293,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YDYqwPisefezxnr2j2H+p8qYnBA=
+			MwNKPMORb6NPDh3rmvCkJQcQ8cg=
 			</data>
 			<key>hash2</key>
 			<data>
-			hwu7AEVHOJvk6O+gaoNhenk6ab1FRSRWunbOBBXfjjo=
+			XauyVVjwdWluB1T73gA3YP1nOGaSYKn8ml/EYFc2fxk=
 			</data>
 		</dict>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1ujbqgikRHmOc4VVgT7Kq60PWAU=
+			XltzCDNUIDMujID3lElt0l7mcVw=
 			</data>
 			<key>hash2</key>
 			<data>
-			T9+ucDOH0giyhFrF92i7ZfCV6Eo9depPvDA7+CwCd9U=
+			uvHuTbI7hjyw7o1h0pKUCOckhvp9KKPCJo1GBksCpb8=
 			</data>
 		</dict>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ocxiQVb2fJ1bSudgur4+BYyuJes=
+			BGq+HgW59hEuqQHfC4baMfsWDsY=
 			</data>
 			<key>hash2</key>
 			<data>
-			TU8pqIRjp/6TmlzJkKKS/kDlEtDpun2txKljgw2ymQE=
+			2a6hwhBe58+BX7gvcm0Q2PTr9q5nK3sVtu8g11O8Ha4=
 			</data>
 		</dict>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			C9RbyxUKil1Z/n9UYj18VQWSJJo=
+			5yq0fiO+1BeC0pNdNkFrqkhws1Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			QWiAQ7lM50LLOBSQmo87kX5ihV++Q0TNkUXdozGGsPc=
-			</data>
-		</dict>
-		<key>Modules/StraaSMessagingSDK.swiftmodule/armv7.swiftdoc</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YDYqwPisefezxnr2j2H+p8qYnBA=
-			</data>
-			<key>hash2</key>
-			<data>
-			hwu7AEVHOJvk6O+gaoNhenk6ab1FRSRWunbOBBXfjjo=
-			</data>
-		</dict>
-		<key>Modules/StraaSMessagingSDK.swiftmodule/armv7.swiftmodule</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			1ujbqgikRHmOc4VVgT7Kq60PWAU=
-			</data>
-			<key>hash2</key>
-			<data>
-			T9+ucDOH0giyhFrF92i7ZfCV6Eo9depPvDA7+CwCd9U=
+			kpMO7Uc4t0eHXFbr1Qy5/C+qRCMO5RM6upLhfOs/mzE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -378,11 +348,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fbZ/4oe41Gb9yb+N1566Paxs+wg=
+			0dKqNIFOpgg4VNoCDuJUpDCjKcc=
 			</data>
 			<key>hash2</key>
 			<data>
-			AhfUSH8Zr053/cvboer9w0OLV1OVzIW1FdB+grKxwVQ=
+			v/rG7WRH9J4HAGA4qsX9/Z6Cx0Op0YdIp/SMXm4NHc4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -391,11 +361,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Scjd6Y+seQIAJY/ngHJ8GBN2W1I=
+			9gNKXUheTTPtg6x61sajO34gbsc=
 			</data>
 			<key>hash2</key>
 			<data>
-			aKKk4v0K1zIcpHnDCK0PzSzPwqZvJqLEHWA1QDcZvhw=
+			ZHfMJNaS0FJDAw91LI+JTK9vg7vwhBdf4jrQKRQDIAo=
 			</data>
 			<key>optional</key>
 			<true/>

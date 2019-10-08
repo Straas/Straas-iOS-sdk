@@ -96,6 +96,11 @@ typedef NS_ENUM(NSUInteger, STSMSGErrorCode) {
      *  Requests over the rate limit.
      */
     STSMSGErrorCodeTooManyRequests = 19,
+    /**
+     * The message you sent contains banned word(s), please see <a href="https://github.com/StraaS/StraaS-web-document/wiki/Messaging-Service-Concept">document</a>
+     * for more information.
+     */
+    STSMSGErrorCodeUnprocessableEntity = 20,
 };
 
 #endif /* STSMSGErrorCode_h */
