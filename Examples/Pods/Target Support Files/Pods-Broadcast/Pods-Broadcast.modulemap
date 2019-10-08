@@ -1,0 +1,6 @@
+module Pods_Broadcast {
+  umbrella header "Pods-Broadcast-umbrella.h"
+
+  export *
+  module * { export * }
+}

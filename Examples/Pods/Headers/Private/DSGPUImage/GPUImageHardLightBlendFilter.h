@@ -1,0 +1,1 @@
+../../../DSGPUImage/framework/Source/GPUImageHardLightBlendFilter.h
