@@ -1,0 +1,1 @@
+../../../DSGPUImage/framework/Source/GPUImageRGBClosingFilter.h

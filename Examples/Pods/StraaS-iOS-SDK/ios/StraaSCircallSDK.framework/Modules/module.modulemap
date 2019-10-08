@@ -1,0 +1,11 @@
+framework module StraaSCircallSDK {
+  umbrella header "StraaSCircallSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module StraaSCircallSDK.Swift {
+    header "StraaSCircallSDK-Swift.h"
+    requires objc
+}

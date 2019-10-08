@@ -1,0 +1,6 @@
+module Pods_VideoChat {
+  umbrella header "Pods-VideoChat-umbrella.h"
+
+  export *
+  module * { export * }
+}

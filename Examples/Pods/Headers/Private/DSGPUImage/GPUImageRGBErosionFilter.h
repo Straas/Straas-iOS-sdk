@@ -1,0 +1,1 @@
+../../../DSGPUImage/framework/Source/GPUImageRGBErosionFilter.h

@@ -1,0 +1,6 @@
+module Pods_BroadcastSetupUI {
+  umbrella header "Pods-BroadcastSetupUI-umbrella.h"
+
+  export *
+  module * { export * }
+}
