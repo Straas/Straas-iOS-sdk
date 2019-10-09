@@ -22,15 +22,6 @@
 		4A1F4DC51ED83B8D005D6FD9 /* ECommerceChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F4DC41ED83B8D005D6FD9 /* ECommerceChatViewController.m */; };
 		4A3A2BB51ED7DE6000A22863 /* TransparentMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A2BB41ED7DE6000A22863 /* TransparentMessageTableViewCell.m */; };
 		4A3A2BB81ED7DEE900A22863 /* TransparentChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A2BB71ED7DEE900A22863 /* TransparentChatViewController.m */; };
-		6070AB4D1FFB389800849663 /* STSRKStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6070AB4C1FFB389800849663 /* STSRKStreamer.m */; };
-		60CE7E521FD645E80063E87A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CE7E511FD645E80063E87A /* ReplayKit.framework */; };
-		60CE7E561FD645E80063E87A /* SampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CE7E551FD645E80063E87A /* SampleHandler.m */; };
-		60CE7E5D1FD645E80063E87A /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CE7E511FD645E80063E87A /* ReplayKit.framework */; };
-		60CE7E5F1FD645E80063E87A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60CE7E5E1FD645E80063E87A /* UIKit.framework */; };
-		60CE7E631FD645E80063E87A /* BroadcastSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CE7E621FD645E80063E87A /* BroadcastSetupViewController.m */; };
-		60CE7E671FD645E80063E87A /* BroadcastSetupUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 60CE7E5C1FD645E80063E87A /* BroadcastSetupUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		60CE7E6A1FD645E80063E87A /* Broadcast.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 60CE7E501FD645E80063E87A /* Broadcast.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		60CE7E731FD64FE60063E87A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60CE7E721FD64FE60063E87A /* MainInterface.storyboard */; };
 		728228FD1EFA86850088C7EB /* STSPinnedMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 728228FC1EFA86850088C7EB /* STSPinnedMessageView.m */; };
 		728229031EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 728229021EFD11410088C7EB /* STSMessageLongPressGestureRecognizer.m */; };
 		728229091EFD39700088C7EB /* UIViewController+VideoChatUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 728229081EFD39700088C7EB /* UIViewController+VideoChatUtility.m */; };
@@ -51,9 +42,7 @@
 		9BEAD38A1ED735CF004B9DAB /* FloatingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEAD3891ED735CF004B9DAB /* FloatingImageView.m */; };
 		9BF1971A1EEEA213003AE88E /* STSPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF197191EEEA213003AE88E /* STSPlayerViewController.m */; };
 		9BF1971D1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF1971C1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m */; };
-		9FB83E17B9513ACBEDB52154 /* libPods-Broadcast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25E4F7EC3145DBE1DFBE90EF /* libPods-Broadcast.a */; };
 		C9165AD56D4B8DA864A3F32E /* libPods-VideoChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9AF20D62F3BC91E3D994497 /* libPods-VideoChat.a */; };
-		CC650962D912B2B844636862 /* libPods-BroadcastSetupUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA6B90A6005628777E50E7D /* libPods-BroadcastSetupUI.a */; };
 		FF68F91F22818C9200ABBC46 /* STSStreamingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F91D22818C9100ABBC46 /* STSStreamingViewController.m */; };
 		FF68F92522818FF600ABBC46 /* UIViewController+Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F92422818FF500ABBC46 /* UIViewController+Keyboard.m */; };
 		FF68F9282281904500ABBC46 /* NSLayoutConstraint+STSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F9272281904400ABBC46 /* NSLayoutConstraint+STSUtility.m */; };
@@ -61,32 +50,11 @@
 		FF9C5C162152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9C5C132152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.m */; };
 		FF9C5C172152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9C5C152152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.m */; };
 		FFB667F72328E2BF00480E1E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB667F62328E2BF00480E1E /* File.swift */; };
-		FFB667F82328E31500480E1E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB667F62328E2BF00480E1E /* File.swift */; };
-		FFB667F92328E31600480E1E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB667F62328E2BF00480E1E /* File.swift */; };
-		FFB667FD2328E33B00480E1E /* File3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB667FC2328E33B00480E1E /* File3.swift */; };
-		FFB667FF2328E34700480E1E /* File2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB667FE2328E34700480E1E /* File2.swift */; };
 		FFB6689120E395C0004CE075 /* STSCircallSingleVideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */; };
 		FFB6689220E395C0004CE075 /* STSCircallTokenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6688F20E395C0004CE075 /* STSCircallTokenViewController.m */; };
 		FFB6689520E3961F004CE075 /* STSQRCodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6689420E3961F004CE075 /* STSQRCodeScannerViewController.m */; };
 		FFC4073F21FE8ADE001DB97C /* StreamingFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC4073E21FE8ADE001DB97C /* StreamingFiltersViewController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		60CE7E651FD645E80063E87A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 40C779CF1D7091D0004F61CA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 60CE7E5B1FD645E80063E87A;
-			remoteInfo = BroadcastSetupUI;
-		};
-		60CE7E681FD645E80063E87A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 40C779CF1D7091D0004F61CA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 60CE7E4F1FD645E80063E87A;
-			remoteInfo = Broadcast;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		60CE7E711FD645E80063E87A /* Embed App Extensions */ = {
@@ -95,8 +63,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				60CE7E6A1FD645E80063E87A /* Broadcast.appex in Embed App Extensions */,
-				60CE7E671FD645E80063E87A /* BroadcastSetupUI.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,12 +101,10 @@
 		4A3A2BB71ED7DEE900A22863 /* TransparentChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentChatViewController.m; sourceTree = "<group>"; };
 		6070AB4B1FFB389700849663 /* STSRKStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSRKStreamer.h; sourceTree = "<group>"; };
 		6070AB4C1FFB389800849663 /* STSRKStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSRKStreamer.m; sourceTree = "<group>"; };
-		60CE7E501FD645E80063E87A /* Broadcast.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Broadcast.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		60CE7E511FD645E80063E87A /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		60CE7E541FD645E80063E87A /* SampleHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleHandler.h; sourceTree = "<group>"; };
 		60CE7E551FD645E80063E87A /* SampleHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleHandler.m; sourceTree = "<group>"; };
 		60CE7E571FD645E80063E87A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		60CE7E5C1FD645E80063E87A /* BroadcastSetupUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BroadcastSetupUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		60CE7E5E1FD645E80063E87A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		60CE7E611FD645E80063E87A /* BroadcastSetupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BroadcastSetupViewController.h; sourceTree = "<group>"; };
 		60CE7E621FD645E80063E87A /* BroadcastSetupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BroadcastSetupViewController.m; sourceTree = "<group>"; };
@@ -230,25 +194,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		60CE7E4D1FD645E80063E87A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				60CE7E521FD645E80063E87A /* ReplayKit.framework in Frameworks */,
-				9FB83E17B9513ACBEDB52154 /* libPods-Broadcast.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		60CE7E591FD645E80063E87A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				60CE7E5D1FD645E80063E87A /* ReplayKit.framework in Frameworks */,
-				60CE7E5F1FD645E80063E87A /* UIKit.framework in Frameworks */,
-				CC650962D912B2B844636862 /* libPods-BroadcastSetupUI.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -312,8 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				40C779D71D7091D0004F61CA /* VideoChat.app */,
-				60CE7E501FD645E80063E87A /* Broadcast.appex */,
-				60CE7E5C1FD645E80063E87A /* BroadcastSetupUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -512,51 +455,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				60CE7E661FD645E80063E87A /* PBXTargetDependency */,
-				60CE7E691FD645E80063E87A /* PBXTargetDependency */,
 			);
 			name = VideoChat;
 			productName = Example;
 			productReference = 40C779D71D7091D0004F61CA /* VideoChat.app */;
 			productType = "com.apple.product-type.application";
-		};
-		60CE7E4F1FD645E80063E87A /* Broadcast */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 60CE7E701FD645E80063E87A /* Build configuration list for PBXNativeTarget "Broadcast" */;
-			buildPhases = (
-				F2DC6FFF7192402231CA8977 /* [CP] Check Pods Manifest.lock */,
-				60CE7E4C1FD645E80063E87A /* Sources */,
-				60CE7E4D1FD645E80063E87A /* Frameworks */,
-				60CE7E4E1FD645E80063E87A /* Resources */,
-				241C8DDBF093AD9046CEEF87 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Broadcast;
-			productName = Broadcast;
-			productReference = 60CE7E501FD645E80063E87A /* Broadcast.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		60CE7E5B1FD645E80063E87A /* BroadcastSetupUI */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 60CE7E6F1FD645E80063E87A /* Build configuration list for PBXNativeTarget "BroadcastSetupUI" */;
-			buildPhases = (
-				A297754D30A041FD18A39C86 /* [CP] Check Pods Manifest.lock */,
-				60CE7E581FD645E80063E87A /* Sources */,
-				60CE7E591FD645E80063E87A /* Frameworks */,
-				60CE7E5A1FD645E80063E87A /* Resources */,
-				5518B3BC7201A293A0F74D0F /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = BroadcastSetupUI;
-			productName = BroadcastSetupUI;
-			productReference = 60CE7E5C1FD645E80063E87A /* BroadcastSetupUI.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -576,16 +479,6 @@
 							};
 						};
 					};
-					60CE7E4F1FD645E80063E87A = {
-						CreatedOnToolsVersion = 9.1;
-						DevelopmentTeam = D8D778CP68;
-						ProvisioningStyle = Automatic;
-					};
-					60CE7E5B1FD645E80063E87A = {
-						CreatedOnToolsVersion = 9.1;
-						DevelopmentTeam = D8D778CP68;
-						ProvisioningStyle = Automatic;
-					};
 				};
 			};
 			buildConfigurationList = 40C779D21D7091D0004F61CA /* Build configuration list for PBXProject "VideoChat" */;
@@ -604,8 +497,6 @@
 			projectRoot = "";
 			targets = (
 				40C779D61D7091D0004F61CA /* VideoChat */,
-				60CE7E4F1FD645E80063E87A /* Broadcast */,
-				60CE7E5B1FD645E80063E87A /* BroadcastSetupUI */,
 			);
 		};
 /* End PBXProject section */
@@ -624,50 +515,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		60CE7E4E1FD645E80063E87A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		60CE7E5A1FD645E80063E87A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				60CE7E731FD64FE60063E87A /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		241C8DDBF093AD9046CEEF87 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Broadcast/Pods-Broadcast-resources.sh",
-				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup.png",
-				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_amatorka.png",
-				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_miss_etikate.png",
-				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_soft_elegance_1.png",
-				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_soft_elegance_2.png",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Broadcast/Pods-Broadcast-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4EC5C0177EF5A9239F156B15 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -680,50 +530,6 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-VideoChat-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5518B3BC7201A293A0F74D0F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BroadcastSetupUI/Pods-BroadcastSetupUI-resources.sh",
-				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup.png",
-				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_amatorka.png",
-				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_miss_etikate.png",
-				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_soft_elegance_1.png",
-				"${PODS_ROOT}/DSGPUImage/framework/Resources/lookup_soft_elegance_2.png",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BroadcastSetupUI/Pods-BroadcastSetupUI-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A297754D30A041FD18A39C86 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BroadcastSetupUI-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -790,24 +596,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VideoChat/Pods-VideoChat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F2DC6FFF7192402231CA8977 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Broadcast-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -858,41 +646,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		60CE7E4C1FD645E80063E87A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FFB667FF2328E34700480E1E /* File2.swift in Sources */,
-				6070AB4D1FFB389800849663 /* STSRKStreamer.m in Sources */,
-				FFB667F82328E31500480E1E /* File.swift in Sources */,
-				60CE7E561FD645E80063E87A /* SampleHandler.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		60CE7E581FD645E80063E87A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				60CE7E631FD645E80063E87A /* BroadcastSetupViewController.m in Sources */,
-				FFB667FD2328E33B00480E1E /* File3.swift in Sources */,
-				FFB667F92328E31600480E1E /* File.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		60CE7E661FD645E80063E87A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 60CE7E5B1FD645E80063E87A /* BroadcastSetupUI */;
-			targetProxy = 60CE7E651FD645E80063E87A /* PBXContainerItemProxy */;
-		};
-		60CE7E691FD645E80063E87A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 60CE7E4F1FD645E80063E87A /* Broadcast */;
-			targetProxy = 60CE7E681FD645E80063E87A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		40C779E61D7091D0004F61CA /* Main.storyboard */ = {
@@ -1047,130 +801,6 @@
 			};
 			name = Release;
 		};
-		60CE7E6B1FD645E80063E87A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 707FD419AA8B9766440ECD8A /* Pods-Broadcast.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D8D778CP68;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Broadcast/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.straas.VideoChat.Broadcast;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		60CE7E6C1FD645E80063E87A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DEFB68FCA4AF20E0E29C2573 /* Pods-Broadcast.release.xcconfig */;
-			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D8D778CP68;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Broadcast/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.straas.VideoChat.Broadcast;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		60CE7E6D1FD645E80063E87A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2249AC55CB11E4E6A7A3A60 /* Pods-BroadcastSetupUI.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D8D778CP68;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = BroadcastSetupUI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.straas.VideoChat.BroadcastSetupUI;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		60CE7E6E1FD645E80063E87A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D654B09AC7660EBD2EF69A77 /* Pods-BroadcastSetupUI.release.xcconfig */;
-			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D8D778CP68;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = BroadcastSetupUI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.straas.VideoChat.BroadcastSetupUI;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1188,24 +818,6 @@
 			buildConfigurations = (
 				40C779F21D7091D0004F61CA /* Debug */,
 				40C779F31D7091D0004F61CA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		60CE7E6F1FD645E80063E87A /* Build configuration list for PBXNativeTarget "BroadcastSetupUI" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				60CE7E6D1FD645E80063E87A /* Debug */,
-				60CE7E6E1FD645E80063E87A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		60CE7E701FD645E80063E87A /* Build configuration list for PBXNativeTarget "Broadcast" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				60CE7E6B1FD645E80063E87A /* Debug */,
-				60CE7E6C1FD645E80063E87A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
