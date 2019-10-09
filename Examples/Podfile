@@ -19,4 +19,5 @@ target 'VideoChat' do
   pod 'MBProgressHUD'
   pod 'IQKeyboardManager'
   pod 'Socket.IO-Client-Swift', '~> 15.1.0'
+  pod 'IJKMediaFramework', '~> 0.1.2'
 end
