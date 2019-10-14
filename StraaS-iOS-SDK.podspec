@@ -52,7 +52,6 @@ Pod::Spec.new do |s|
     circall.dependency "AFNetworking", "~> 3.2.1"
     circall.pod_target_xcconfig = {
       'ENABLE_BITCODE' => 'NO',
-      'SWIFT_VERSION' => '4.0',
       'VALID_ARCHS' => 'x86_64 arm64'
     }
   end
