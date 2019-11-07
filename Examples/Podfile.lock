@@ -15,7 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - GoogleAds-IMA-iOS-SDK (3.6.1)
-  - GPUImage (0.1.7)
+  - GPUImage-StraaS (0.1.9)
   - IJKMediaFramework (0.1.2)
   - IQKeyboardManager (6.2.0)
   - KVOController (1.2.0)
@@ -55,7 +55,7 @@ PODS:
   - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.48.0):
     - StraaS-iOS-SDK/Player
   - StraaS-iOS-SDK/Streaming (0.48.0):
-    - GPUImage (~> 0.1.7)
+    - GPUImage-StraaS (~> 0.1.9)
     - StraaS-iOS-SDK/Core
   - TTTAttributedLabel (2.0.0)
 
@@ -73,7 +73,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - GoogleAds-IMA-iOS-SDK
-    - GPUImage
+    - GPUImage-StraaS
     - IJKMediaFramework
     - IQKeyboardManager
     - KVOController
@@ -92,7 +92,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   GoogleAds-IMA-iOS-SDK: 5825cb7d5f6004618527828936a077e118da556e
-  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
+  GPUImage-StraaS: 556bf2b69f83593257683b2bd2a243cd9e02f088
   IJKMediaFramework: a1df7357a01a11e65568b8d6cd16ca270be01034
   IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
@@ -102,7 +102,7 @@ SPEC CHECKSUMS:
   SlackTextViewController: b854e62c1c156336bc4fd409c6ca79b5773e8f9d
   Socket.IO-Client-Swift: 7cb44c0ffb86e158cee32d0642d30ec5fdcf8f61
   Starscream: 08172b481e145289c4930cb567230fb55897cfa4
-  StraaS-iOS-SDK: 3d1240bc24d6933321164622fe72b02cf4f94f50
+  StraaS-iOS-SDK: 31557fe6f67595265741618f107c1d7d489abe0b
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
 PODFILE CHECKSUM: aef891c3b2c3aa0e0d7f89046b76a150dcfa6e6d
