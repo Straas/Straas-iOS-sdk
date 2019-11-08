@@ -2,6 +2,7 @@
 platform :ios, '8.0'
 
 use_modular_headers!
+use_frameworks!
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|
