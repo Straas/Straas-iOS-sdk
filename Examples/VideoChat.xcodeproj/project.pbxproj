@@ -39,10 +39,10 @@
 		9BBCBDEA1E88B7D9006D3500 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9BBCBDEC1E88B7D9006D3500 /* Localizable.strings */; };
 		9BBEC54A1D813F1800387012 /* UIAlertController+VideoChatUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBEC5491D813F1800387012 /* UIAlertController+VideoChatUtility.m */; };
 		9BDC48BA1DD092A50095BF9B /* STSSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BDC48B91DD092A50095BF9B /* STSSegmentedControl.m */; };
+		9BE319F71B6BF26C69B47B76 /* Pods_VideoChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD5EC06581639628339961D2 /* Pods_VideoChat.framework */; };
 		9BEAD38A1ED735CF004B9DAB /* FloatingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEAD3891ED735CF004B9DAB /* FloatingImageView.m */; };
 		9BF1971A1EEEA213003AE88E /* STSPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF197191EEEA213003AE88E /* STSPlayerViewController.m */; };
 		9BF1971D1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF1971C1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m */; };
-		C9165AD56D4B8DA864A3F32E /* libPods-VideoChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9AF20D62F3BC91E3D994497 /* libPods-VideoChat.a */; };
 		FF68F91F22818C9200ABBC46 /* STSStreamingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F91D22818C9100ABBC46 /* STSStreamingViewController.m */; };
 		FF68F92522818FF600ABBC46 /* UIViewController+Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F92422818FF500ABBC46 /* UIViewController+Keyboard.m */; };
 		FF68F9282281904500ABBC46 /* NSLayoutConstraint+STSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F9272281904400ABBC46 /* NSLayoutConstraint+STSUtility.m */; };
@@ -153,7 +153,7 @@
 		9BF1971C1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+STSKeyboard.m"; sourceTree = "<group>"; };
 		9DA6B90A6005628777E50E7D /* libPods-BroadcastSetupUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BroadcastSetupUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2249AC55CB11E4E6A7A3A60 /* Pods-BroadcastSetupUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastSetupUI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BroadcastSetupUI/Pods-BroadcastSetupUI.debug.xcconfig"; sourceTree = "<group>"; };
-		A9AF20D62F3BC91E3D994497 /* libPods-VideoChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VideoChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD5EC06581639628339961D2 /* Pods_VideoChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D654B09AC7660EBD2EF69A77 /* Pods-BroadcastSetupUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BroadcastSetupUI.release.xcconfig"; path = "Pods/Target Support Files/Pods-BroadcastSetupUI/Pods-BroadcastSetupUI.release.xcconfig"; sourceTree = "<group>"; };
 		DEFB68FCA4AF20E0E29C2573 /* Pods-Broadcast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Broadcast.release.xcconfig"; path = "Pods/Target Support Files/Pods-Broadcast/Pods-Broadcast.release.xcconfig"; sourceTree = "<group>"; };
 		EC14F7612121694672BF11EF /* Pods-VideoChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoChat/Pods-VideoChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -190,7 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9165AD56D4B8DA864A3F32E /* libPods-VideoChat.a in Frameworks */,
+				9BE319F71B6BF26C69B47B76 /* Pods_VideoChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +382,7 @@
 				60CE7E5E1FD645E80063E87A /* UIKit.framework */,
 				25E4F7EC3145DBE1DFBE90EF /* libPods-Broadcast.a */,
 				9DA6B90A6005628777E50E7D /* libPods-BroadcastSetupUI.a */,
-				A9AF20D62F3BC91E3D994497 /* libPods-VideoChat.a */,
+				AD5EC06581639628339961D2 /* Pods_VideoChat.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -543,12 +543,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-VideoChat/Pods-VideoChat-resources.sh",
-				"${PODS_ROOT}/GPUImage-StraaS/framework/Resources/lookup.png",
-				"${PODS_ROOT}/GPUImage-StraaS/framework/Resources/lookup_amatorka.png",
-				"${PODS_ROOT}/GPUImage-StraaS/framework/Resources/lookup_miss_etikate.png",
-				"${PODS_ROOT}/GPUImage-StraaS/framework/Resources/lookup_soft_elegance_1.png",
-				"${PODS_ROOT}/GPUImage-StraaS/framework/Resources/lookup_soft_elegance_2.png",
-				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/StraaS-iOS-SDK/StraaSPlayerSDK.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/StraaS-iOS-SDK/StraaSPlayerLowLatencyExtensionSDK.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/StraaS-iOS-SDK/StraaSStreamingSDK.bundle",
@@ -557,12 +551,6 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StraaSPlayerSDK.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StraaSPlayerLowLatencyExtensionSDK.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StraaSStreamingSDK.bundle",
@@ -581,25 +569,45 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-VideoChat/Pods-VideoChat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/GPUImage-StraaS/GPUImage.framework",
 				"${PODS_ROOT}/GoogleAds-IMA-iOS-SDK/GoogleInteractiveMediaAds/GoogleInteractiveMediaAds.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${PODS_ROOT}/PodRTC/WebRTC.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SlackTextViewController/SlackTextViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${PODS_ROOT}/../../ios/StraaSCircallSDK.framework",
 				"${PODS_ROOT}/../../ios/StraaSCoreSDK.framework",
 				"${PODS_ROOT}/../../ios/StraaSMessagingSDK.framework",
 				"${PODS_ROOT}/../../ios/StraaSPlayerSDK.framework",
 				"${PODS_ROOT}/../../ios/StraaSPlayerLowLatencyExtensionSDK.framework",
 				"${PODS_ROOT}/../../ios/StraaSStreamingSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleInteractiveMediaAds.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVOController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlackTextViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSCircallSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSCoreSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSMessagingSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSPlayerSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSPlayerLowLatencyExtensionSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSStreamingSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
