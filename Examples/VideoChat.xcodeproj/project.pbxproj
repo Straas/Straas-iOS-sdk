@@ -580,12 +580,6 @@
 				"${BUILT_PRODUCTS_DIR}/SlackTextViewController/SlackTextViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
-				"${PODS_ROOT}/../../ios/StraaSCircallSDK.framework",
-				"${PODS_ROOT}/../../ios/StraaSCoreSDK.framework",
-				"${PODS_ROOT}/../../ios/StraaSMessagingSDK.framework",
-				"${PODS_ROOT}/../../ios/StraaSPlayerSDK.framework",
-				"${PODS_ROOT}/../../ios/StraaSPlayerLowLatencyExtensionSDK.framework",
-				"${PODS_ROOT}/../../ios/StraaSStreamingSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -601,12 +595,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlackTextViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSCircallSDK.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSCoreSDK.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSMessagingSDK.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSPlayerSDK.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSPlayerLowLatencyExtensionSDK.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StraaSStreamingSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
