@@ -99,17 +99,8 @@
 		4A3A2BB41ED7DE6000A22863 /* TransparentMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentMessageTableViewCell.m; sourceTree = "<group>"; };
 		4A3A2BB61ED7DEE900A22863 /* TransparentChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransparentChatViewController.h; sourceTree = "<group>"; };
 		4A3A2BB71ED7DEE900A22863 /* TransparentChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransparentChatViewController.m; sourceTree = "<group>"; };
-		6070AB4B1FFB389700849663 /* STSRKStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSRKStreamer.h; sourceTree = "<group>"; };
-		6070AB4C1FFB389800849663 /* STSRKStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSRKStreamer.m; sourceTree = "<group>"; };
 		60CE7E511FD645E80063E87A /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
-		60CE7E541FD645E80063E87A /* SampleHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleHandler.h; sourceTree = "<group>"; };
-		60CE7E551FD645E80063E87A /* SampleHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleHandler.m; sourceTree = "<group>"; };
-		60CE7E571FD645E80063E87A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60CE7E5E1FD645E80063E87A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		60CE7E611FD645E80063E87A /* BroadcastSetupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BroadcastSetupViewController.h; sourceTree = "<group>"; };
-		60CE7E621FD645E80063E87A /* BroadcastSetupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BroadcastSetupViewController.m; sourceTree = "<group>"; };
-		60CE7E641FD645E80063E87A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		60CE7E721FD64FE60063E87A /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		707FD419AA8B9766440ECD8A /* Pods-Broadcast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Broadcast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Broadcast/Pods-Broadcast.debug.xcconfig"; sourceTree = "<group>"; };
 		728228FB1EFA86850088C7EB /* STSPinnedMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSPinnedMessageView.h; sourceTree = "<group>"; };
 		728228FC1EFA86850088C7EB /* STSPinnedMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSPinnedMessageView.m; sourceTree = "<group>"; };
@@ -173,8 +164,6 @@
 		FF9C5C152152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallIPCamBroadcastingHostViewController.m; sourceTree = "<group>"; };
 		FFB667F52328E2BF00480E1E /* VideoChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		FFB667F62328E2BF00480E1E /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		FFB667FC2328E33B00480E1E /* File3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File3.swift; sourceTree = "<group>"; };
-		FFB667FE2328E34700480E1E /* File2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File2.swift; sourceTree = "<group>"; };
 		FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallSingleVideoCallViewController.m; sourceTree = "<group>"; };
 		FFB6688E20E395BF004CE075 /* STSCircallTokenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallTokenViewController.h; sourceTree = "<group>"; };
 		FFB6688F20E395C0004CE075 /* STSCircallTokenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallTokenViewController.m; sourceTree = "<group>"; };
@@ -245,8 +234,6 @@
 			isa = PBXGroup;
 			children = (
 				40C779D91D7091D0004F61CA /* Examples */,
-				60CE7E531FD645E80063E87A /* Broadcast */,
-				60CE7E601FD645E80063E87A /* BroadcastSetupUI */,
 				40C779D81D7091D0004F61CA /* Products */,
 				A97E121124F4149BF9610B16 /* Pods */,
 				D28A08C5EF5AE8A8A86EB5C4 /* Frameworks */,
@@ -282,31 +269,6 @@
 				40C779DB1D7091D0004F61CA /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		60CE7E531FD645E80063E87A /* Broadcast */ = {
-			isa = PBXGroup;
-			children = (
-				60CE7E541FD645E80063E87A /* SampleHandler.h */,
-				60CE7E551FD645E80063E87A /* SampleHandler.m */,
-				FFB667FE2328E34700480E1E /* File2.swift */,
-				6070AB4B1FFB389700849663 /* STSRKStreamer.h */,
-				6070AB4C1FFB389800849663 /* STSRKStreamer.m */,
-				60CE7E571FD645E80063E87A /* Info.plist */,
-			);
-			path = Broadcast;
-			sourceTree = "<group>";
-		};
-		60CE7E601FD645E80063E87A /* BroadcastSetupUI */ = {
-			isa = PBXGroup;
-			children = (
-				60CE7E721FD64FE60063E87A /* MainInterface.storyboard */,
-				FFB667FC2328E33B00480E1E /* File3.swift */,
-				60CE7E611FD645E80063E87A /* BroadcastSetupViewController.h */,
-				60CE7E621FD645E80063E87A /* BroadcastSetupViewController.m */,
-				60CE7E641FD645E80063E87A /* Info.plist */,
-			);
-			path = BroadcastSetupUI;
 			sourceTree = "<group>";
 		};
 		72E0939F1DD080B70045E587 /* Streaming */ = {
