@@ -6,7 +6,7 @@
 //  Copyright © 2019 StraaS.io. All rights reserved.
 //
 
-#import <DSGPUImage/GPUImageFramework.h>
+#import <GPUImage/GPUImageFramework.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
