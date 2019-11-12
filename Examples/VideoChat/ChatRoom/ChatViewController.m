@@ -1071,7 +1071,8 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
     NSDictionary * fakeJson = @{@"text":fakeMessage,
                                 @"createdDate": strDate,
                                 @"creator": @{@"name":fakeName,
-                                              @"avatar":avatar}};
+                                              @"avatar":avatar,
+                                              @"role":currentUser.role}};
     STSChatMessage * fakeMsg = [[STSChatMessage alloc] initWithJSON:fakeJson];
     fakeMsg.type = type;
     fakeMsg.stickerURL = imageURL ? [NSURL URLWithString:imageURL]: nil;
