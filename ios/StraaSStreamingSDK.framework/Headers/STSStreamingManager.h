@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-#import <DSGPUImage/GPUImageFramework.h>
+#import <GPUImage/GPUImageFramework.h>
 #import "STSStreamingState.h"
 #import "STSStreamingLiveEventConfig.h"
 #import "STSStreamingPrepareConfig.h"

@@ -58,7 +58,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		1/kckxKUhqGs4rPZeoGnQX3pF+A=
+		D35tIdAA87D+2Ml272GEgkt/iuw=
 		</data>
 		<key>Localizable.strings</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Modules/StraaSCircallSDK.swiftmodule/arm.swiftmodule</key>
 		<data>
-		pw9In7FNX6rLD/c9c8pwb4V//20=
+		IroHi9IxebxOCcSwwZAgsfJ693I=
 		</data>
 		<key>Modules/StraaSCircallSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -78,7 +78,7 @@
 		</data>
 		<key>Modules/StraaSCircallSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		cm+QnnVg0hmj4gMr4odeYpz5c2U=
+		cXSl5T3v05DtEhzmN468F6IqWlU=
 		</data>
 		<key>Modules/StraaSCircallSDK.swiftmodule/armv7.swiftdoc</key>
 		<data>
@@ -86,7 +86,7 @@
 		</data>
 		<key>Modules/StraaSCircallSDK.swiftmodule/armv7.swiftmodule</key>
 		<data>
-		pw9In7FNX6rLD/c9c8pwb4V//20=
+		IroHi9IxebxOCcSwwZAgsfJ693I=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -282,11 +282,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pw9In7FNX6rLD/c9c8pwb4V//20=
+			IroHi9IxebxOCcSwwZAgsfJ693I=
 			</data>
 			<key>hash2</key>
 			<data>
-			/57N+WEwlIEmyjbdoAtIsUaIfYKpUelpKSKIHxTJ2hk=
+			gkztLU/KaZeK+5P0bLELU/qey320e//F+rSrwx7xRro=
 			</data>
 		</dict>
 		<key>Modules/StraaSCircallSDK.swiftmodule/arm64.swiftdoc</key>
@@ -304,11 +304,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cm+QnnVg0hmj4gMr4odeYpz5c2U=
+			cXSl5T3v05DtEhzmN468F6IqWlU=
 			</data>
 			<key>hash2</key>
 			<data>
-			CV/y4cGLx+vGoq7hvAbiU0nOoKOZfXnydJdThf8p5e8=
+			AaWYud/wtUgUUgNqCa0VOXKNpaLS6JcwRvjTkXoP2cc=
 			</data>
 		</dict>
 		<key>Modules/StraaSCircallSDK.swiftmodule/armv7.swiftdoc</key>
@@ -326,11 +326,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pw9In7FNX6rLD/c9c8pwb4V//20=
+			IroHi9IxebxOCcSwwZAgsfJ693I=
 			</data>
 			<key>hash2</key>
 			<data>
-			/57N+WEwlIEmyjbdoAtIsUaIfYKpUelpKSKIHxTJ2hk=
+			gkztLU/KaZeK+5P0bLELU/qey320e//F+rSrwx7xRro=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -11,7 +11,7 @@
 #import "NSLayoutConstraint+STSUtility.h"
 #import <StraaSStreamingSDK/StraaSStreamingSDK.h>
 #import <StraaSCoreSDK/StraaSCoreSDK.h>
-#import <DSGPUImage/GPUImageFramework.h>
+#import <GPUImage/GPUImageFramework.h>
 #import "STSQRCodeScannerViewController.h"
 #import "STSConstant.h"
 #import "UIColor+STSColor.h"

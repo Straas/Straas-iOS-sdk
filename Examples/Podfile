@@ -2,6 +2,7 @@
 platform :ios, '8.0'
 
 use_modular_headers!
+use_frameworks!
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|
@@ -19,13 +20,5 @@ target 'VideoChat' do
   pod 'MBProgressHUD'
   pod 'IQKeyboardManager'
   pod 'Socket.IO-Client-Swift', '~> 15.1.0'
-end
-
-target 'BroadcastSetupUI' do
-  pod 'StraaS-iOS-SDK/Streaming', :path=>'../'
-
-end
-
-target 'Broadcast' do
-  pod 'StraaS-iOS-SDK/Streaming', :path=>'../'
+  pod 'IJKMediaFramework', '~> 0.1.2'
 end
