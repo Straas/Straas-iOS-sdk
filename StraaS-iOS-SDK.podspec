@@ -18,10 +18,8 @@ Pod::Spec.new do |s|
   s.static_framework = true
   s.resource_bundles = {
     'StraaSPlayerSDK' => ['ios/StraaSPlayerSDK.framework/Assets.car', 'ios/StraaSPlayerSDK.framework/*.lproj'],
-    'StraaSPlayerLowLatencyExtensionSDK' => ['ios/StraaSPlayerLowLatencyExtensionSDK.framework/Assets.car', 'StraaSPlayerLowLatencyExtensionSDK.framework/*.lproj'],
-    'StraaSStreamingSDK' => ['ios/StraaSStreamingSDK.framework/Assets.car', 'ios/StraaSStreamingSDK.framework/*.lproj'],
-    'StraaSMessagingSDK' => ['ios/StraaSMessagingSDK.framework/Assets.car', 'ios/StraaSMessagingSDK.framework/*.lproj'],
-    'StraaSCircallSDK' => ['ios/StraaSCircallSDK.framework/Assets.car', 'ios/StraaSCircallSDK.framework/*.lproj']
+    'StraaSMessagingSDK' => ['ios/StraaSMessagingSDK.framework/*.lproj'],
+    'StraaSCircallSDK' => ['ios/StraaSCircallSDK.framework/*.lproj']
   }
 
   s.subspec 'Messaging' do |msg|
