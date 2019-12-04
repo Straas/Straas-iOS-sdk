@@ -506,16 +506,12 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-VideoChat/Pods-VideoChat-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/StraaS-iOS-SDK/StraaSPlayerSDK.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/StraaS-iOS-SDK/StraaSPlayerLowLatencyExtensionSDK.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/StraaS-iOS-SDK/StraaSStreamingSDK.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/StraaS-iOS-SDK/StraaSMessagingSDK.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/StraaS-iOS-SDK/StraaSCircallSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StraaSPlayerSDK.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StraaSPlayerLowLatencyExtensionSDK.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StraaSStreamingSDK.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StraaSMessagingSDK.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StraaSCircallSDK.bundle",
 			);
