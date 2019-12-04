@@ -14,6 +14,7 @@
 #import "StreamingFiltersViewController.h"
 #import "STSPlayerViewController.h"
 #import "STSCircallTokenViewController.h"
+#import "STSConstant.h"
 
 NSString * const STSPlayerServiceBasicPlayerViewKeyword = @"StraaS.io PlayerView";
 NSString * const STSMessagingServiceKeyword = @"StraaS.io default chatroom";
@@ -37,7 +38,7 @@ NSString * const STSCircallServiceIPCamBroadcastingViewerViewKeyword = @"StraaS.
 }
 
 - (NSString *)JWT {
-    return @"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoidHJpYWwuc3RyYWFzLmlvLXRlc3QiLCJtZW1iZXJfaWQiOiJpb3Nfc2RrIiwidXNlcl9pZCI6IjNkYmQyYTliNjVlYjVkMWU4NDRiNzQyYWEzYzhkNWM0IiwicmV4cCI6MTU3NTQzMjY3NywiZXhwIjoxNTY2ODc5MDc3fQ.REdg9V8yw3GqpGpHs5gJfTjFS_-feAUbzuq1krJa55s";
+    return kStraaSProdMemberJWT;
 }
 
 - (NSString *)chatroomName {
