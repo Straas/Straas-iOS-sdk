@@ -1,1 +1,0 @@
-../../../DSGPUImage/framework/Source/GPUImageDirectionalSobelEdgeDetectionFilter.h

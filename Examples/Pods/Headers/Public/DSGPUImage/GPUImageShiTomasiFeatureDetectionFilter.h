@@ -1,1 +1,0 @@
-../../../DSGPUImage/framework/Source/GPUImageShiTomasiFeatureDetectionFilter.h
