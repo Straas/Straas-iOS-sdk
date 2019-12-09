@@ -435,6 +435,7 @@
 					40C779D61D7091D0004F61CA = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = D8D778CP68;
+						LastSwiftMigration = 1120;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -767,7 +768,7 @@
 				PRODUCT_NAME = VideoChat;
 				SWIFT_OBJC_BRIDGING_HEADER = "VideoChat/Shared/VideoChat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -787,7 +788,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.straas.VideoChat;
 				PRODUCT_NAME = VideoChat;
 				SWIFT_OBJC_BRIDGING_HEADER = "VideoChat/Shared/VideoChat-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
