@@ -410,10 +410,9 @@
 			};
 			buildConfigurationList = 40C779D21D7091D0004F61CA /* Build configuration list for PBXProject "VideoChat" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 				"zh-Hant",
