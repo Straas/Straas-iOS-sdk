@@ -10,7 +10,7 @@
 
 @implementation NSTimer (SafeTimer)
 + (NSTimer*)safeScheduledTimerWithTimeInterval:(NSTimeInterval)interval
-                                         block:(void(^)())block
+                                         block:(void(^)(void))block
                                        repeats:(BOOL)repeats {
     return [self scheduledTimerWithTimeInterval:interval
                                          target:self
@@ -20,7 +20,7 @@
 }
 
 + (void)safeBlockInvoke:(NSTimer *)timer {
-    void (^block)() = timer.userInfo;
+    void (^block)(void) = timer.userInfo;
     if (block) {
         block();
     }
