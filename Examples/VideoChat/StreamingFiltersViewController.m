@@ -174,4 +174,9 @@
     [self updateSkinBeautifyFilter];
 }
 
+- (void)streamingManager:(STSStreamingManager *)streamingManager onError:(NSError *)error liveId:(NSString * _Nullable)liveId {
+    NSLog(@"streamingManager onError: %@", error);
+    NSAssert(false, error.localizedDescription);
+}
+
 @end
