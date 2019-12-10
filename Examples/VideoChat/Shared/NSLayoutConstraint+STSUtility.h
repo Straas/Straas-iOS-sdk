@@ -14,9 +14,9 @@
                                        horizaontalVisualFormat:(nonnull NSString *)horizontalVisualFormat
                                           verticalVisualFormat:(nonnull NSString *)verticalVisualFormat;
 
-+ (NSArray<NSLayoutConstraint *> *)constraintsForViews:(NSDictionary *)views
-                               horizaontalVisualFormat:(NSString *)horizontalVisualFormat
-                                  verticalVisualFormat:(NSString *)verticalVisualFormat
++ (nonnull NSArray<NSLayoutConstraint *> *)constraintsForViews:(nonnull NSDictionary *)views
+                               horizaontalVisualFormat:(nonnull NSString *)horizontalVisualFormat
+                                  verticalVisualFormat:(nonnull NSString *)verticalVisualFormat
                                     horizaontalOptions:(NSLayoutFormatOptions)horizaontalOptions
                                        verticalOptions:(NSLayoutFormatOptions)verticalOptions
                                                metrics:(nullable NSDictionary<NSString *,id> *)metrics;
