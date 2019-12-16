@@ -1066,8 +1066,14 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
     NSString *strDate = [[formatter stringFromDate:[NSDate date]] stringByAppendingString:@".666Z"];
     strDate = [strDate stringByReplacingCharactersInRange:NSMakeRange(10, 1) withString:@"T"];
     NSString * avatar = currentUser.avatar ? : @"";
-    NSString * fakeName = (self.JWT.length == 0) ? self.fakeName : currentUser.name;
-    fakeName = fakeName ? fakeName : @"";
+    NSString * fakeName;
+    if ([currentUser.role isEqualToString:kSTSUserRoleBlocked]) {
+        fakeName = (self.JWT.length == 0) ? self.fakeName : currentUser.name;
+        fakeName = fakeName ? fakeName : @"";
+    } else {
+        fakeName = currentUser.name;
+    }
+
     NSDictionary * fakeJson = @{@"text":fakeMessage,
                                 @"createdDate": strDate,
                                 @"creator": @{@"name":fakeName,
