@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>STSLiveStreamerDelegate Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Protocol/STSLiveStreamerDelegate" class="dashAnchor"></a>
+    <a title="STSLiveStreamerDelegate Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">StraaSStreamingSDK Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/StraaS/StraaS-iOS-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fstraas%2Egithub%2Eio%2FStraaS%2DiOS%2Dsdk%2Fdocsets%2FStraaSStreamingSDK%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">StraaSStreamingSDK Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        STSLiveStreamerDelegate Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/STSAudioConfiguration.html">STSAudioConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSLiveStreamer.html">STSLiveStreamer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSSkinBeautifyFilter.html">STSSkinBeautifyFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSStreamingInfo.html">STSStreamingInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSStreamingLiveEventConfig.html">STSStreamingLiveEventConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSStreamingManager.html">STSStreamingManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSStreamingPrepareConfig.html">STSStreamingPrepareConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSVideoConfiguration.html">STSVideoConfiguration</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@STSStreamingErrorDomain">STSStreamingErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kSTSReplayKitAudioChannelApp">kSTSReplayKitAudioChannelApp</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kSTSReplayKitAudioChannelMic">kSTSReplayKitAudioChannelMic</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/STSAudioSampleRate.html">STSAudioSampleRate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSStreamingErrorCode.html">STSStreamingErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSStreamingProfile.html">STSStreamingProfile</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSStreamingResolution.html">STSStreamingResolution</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSStreamingState.html">STSStreamingState</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/STSLiveStreamerDelegate.html">STSLiveStreamerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STSStreamingManagerDelegate.html">STSStreamingManagerDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>STSLiveStreamerDelegate</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@protocol</span> <span class="nc">STSLiveStreamerDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                </div>
+              </div>
+            <p>Implements the STSLiveStreamerDelegate protocol to respond to streaming event.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSLiveStreamerDelegate(im)liveStreamer:onError:streamingURL:"></a>
+                    <a name="//apple_ref/objc/Method/-liveStreamer:onError:streamingURL:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSLiveStreamerDelegate(im)liveStreamer:onError:streamingURL:">-liveStreamer:onError:streamingURL:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when an error occurs when the liveStreamer connects to a server or streams.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">liveStreamer</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSLiveStreamer.html">STSLiveStreamer</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">liveStreamer</span>
+             <span class="nf">onError</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span>
+        <span class="nf">streamingURL</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">streamingURL</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">liveStreamer</span><span class="p">(</span><span class="n">_</span> <span class="nv">liveStreamer</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSLiveStreamer.html">STSLiveStreamer</a></span><span class="p">,</span> <span class="n">onError</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="nv">streamingURL</span><span class="p">:</span> <span class="kt">URL</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>liveStreamer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The liveStreamer that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>error</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The error object containing the error information.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>streamingURL</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The streaming URL related to this error.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2019-12-17)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
