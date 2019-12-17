@@ -50,7 +50,7 @@
 		</data>
 		<key>Headers/StraaSCircallSDK-Swift.h</key>
 		<data>
-		C6UvYYTcDJWjqLUIMLpuDKdt5Eg=
+		XaktuDx3vLpdbdpoMreKR8ATzJw=
 		</data>
 		<key>Headers/StraaSCircallSDK.h</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		D35tIdAA87D+2Ml272GEgkt/iuw=
+		y9fTZ0pmaprGflpbIS9Dex5XfzI=
 		</data>
 		<key>Localizable.strings</key>
 		<data>
@@ -66,27 +66,43 @@
 		</data>
 		<key>Modules/StraaSCircallSDK.swiftmodule/arm.swiftdoc</key>
 		<data>
-		syyENMyvi22rgTCosUuxqvukY9c=
+		bL1pvjda1sHmwuhz3E3/5q7QZQg=
 		</data>
 		<key>Modules/StraaSCircallSDK.swiftmodule/arm.swiftmodule</key>
 		<data>
-		IroHi9IxebxOCcSwwZAgsfJ693I=
+		c37mqgLCdGt/bZr6JeaDYO0G+CI=
+		</data>
+		<key>Modules/StraaSCircallSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<data>
+		VQjtSjeTiMJqYbH7g7UtJoBJmaE=
+		</data>
+		<key>Modules/StraaSCircallSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
+		<data>
+		+0HgWx3BX5jyprjrVdKKzkxjBr4=
 		</data>
 		<key>Modules/StraaSCircallSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		vXtbjUjMbfZgrP4X9ALHIxy/9SY=
+		VQjtSjeTiMJqYbH7g7UtJoBJmaE=
 		</data>
 		<key>Modules/StraaSCircallSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		cXSl5T3v05DtEhzmN468F6IqWlU=
+		+0HgWx3BX5jyprjrVdKKzkxjBr4=
+		</data>
+		<key>Modules/StraaSCircallSDK.swiftmodule/armv7-apple-ios.swiftdoc</key>
+		<data>
+		bL1pvjda1sHmwuhz3E3/5q7QZQg=
+		</data>
+		<key>Modules/StraaSCircallSDK.swiftmodule/armv7-apple-ios.swiftmodule</key>
+		<data>
+		c37mqgLCdGt/bZr6JeaDYO0G+CI=
 		</data>
 		<key>Modules/StraaSCircallSDK.swiftmodule/armv7.swiftdoc</key>
 		<data>
-		syyENMyvi22rgTCosUuxqvukY9c=
+		bL1pvjda1sHmwuhz3E3/5q7QZQg=
 		</data>
 		<key>Modules/StraaSCircallSDK.swiftmodule/armv7.swiftmodule</key>
 		<data>
-		IroHi9IxebxOCcSwwZAgsfJ693I=
+		c37mqgLCdGt/bZr6JeaDYO0G+CI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -238,11 +254,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			C6UvYYTcDJWjqLUIMLpuDKdt5Eg=
+			XaktuDx3vLpdbdpoMreKR8ATzJw=
 			</data>
 			<key>hash2</key>
 			<data>
-			Pmm4gFwHJ01jf2MHnvhM5jS6GkiIzx+x3JRnSbFVhjQ=
+			ZDShlC/Q8LZi60EnQUlLoCsHFQbMTX9guzLyyxoHp+g=
 			</data>
 		</dict>
 		<key>Headers/StraaSCircallSDK.h</key>
@@ -271,66 +287,110 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			syyENMyvi22rgTCosUuxqvukY9c=
+			bL1pvjda1sHmwuhz3E3/5q7QZQg=
 			</data>
 			<key>hash2</key>
 			<data>
-			KVjT/1jsBTW9LjDyDmBt/mxaLx2bhiPQ0CPwFkm1Eko=
+			XgceO1kAqYm+PfQzHCKH9xion+nPf0y5McuNyGfW+6s=
 			</data>
 		</dict>
 		<key>Modules/StraaSCircallSDK.swiftmodule/arm.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			IroHi9IxebxOCcSwwZAgsfJ693I=
+			c37mqgLCdGt/bZr6JeaDYO0G+CI=
 			</data>
 			<key>hash2</key>
 			<data>
-			gkztLU/KaZeK+5P0bLELU/qey320e//F+rSrwx7xRro=
+			LblcxyT4LTy+RfIeJ6fioGkDwkQ0QjakVY1LMZHaeH0=
+			</data>
+		</dict>
+		<key>Modules/StraaSCircallSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			VQjtSjeTiMJqYbH7g7UtJoBJmaE=
+			</data>
+			<key>hash2</key>
+			<data>
+			WeCV2B78XdB1NWKlQ3CBnNCirrW6WnuD4FG/G+K8a0U=
+			</data>
+		</dict>
+		<key>Modules/StraaSCircallSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+0HgWx3BX5jyprjrVdKKzkxjBr4=
+			</data>
+			<key>hash2</key>
+			<data>
+			+c0dO/hnahqaXniMeSSA7coHHBFm38zFHGXn6OTeerM=
 			</data>
 		</dict>
 		<key>Modules/StraaSCircallSDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vXtbjUjMbfZgrP4X9ALHIxy/9SY=
+			VQjtSjeTiMJqYbH7g7UtJoBJmaE=
 			</data>
 			<key>hash2</key>
 			<data>
-			nH6NxNdAFmtFqruCjbEJOrmFU/LIvl5UPQilf5mhATE=
+			WeCV2B78XdB1NWKlQ3CBnNCirrW6WnuD4FG/G+K8a0U=
 			</data>
 		</dict>
 		<key>Modules/StraaSCircallSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cXSl5T3v05DtEhzmN468F6IqWlU=
+			+0HgWx3BX5jyprjrVdKKzkxjBr4=
 			</data>
 			<key>hash2</key>
 			<data>
-			AaWYud/wtUgUUgNqCa0VOXKNpaLS6JcwRvjTkXoP2cc=
+			+c0dO/hnahqaXniMeSSA7coHHBFm38zFHGXn6OTeerM=
+			</data>
+		</dict>
+		<key>Modules/StraaSCircallSDK.swiftmodule/armv7-apple-ios.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			bL1pvjda1sHmwuhz3E3/5q7QZQg=
+			</data>
+			<key>hash2</key>
+			<data>
+			XgceO1kAqYm+PfQzHCKH9xion+nPf0y5McuNyGfW+6s=
+			</data>
+		</dict>
+		<key>Modules/StraaSCircallSDK.swiftmodule/armv7-apple-ios.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			c37mqgLCdGt/bZr6JeaDYO0G+CI=
+			</data>
+			<key>hash2</key>
+			<data>
+			LblcxyT4LTy+RfIeJ6fioGkDwkQ0QjakVY1LMZHaeH0=
 			</data>
 		</dict>
 		<key>Modules/StraaSCircallSDK.swiftmodule/armv7.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			syyENMyvi22rgTCosUuxqvukY9c=
+			bL1pvjda1sHmwuhz3E3/5q7QZQg=
 			</data>
 			<key>hash2</key>
 			<data>
-			KVjT/1jsBTW9LjDyDmBt/mxaLx2bhiPQ0CPwFkm1Eko=
+			XgceO1kAqYm+PfQzHCKH9xion+nPf0y5McuNyGfW+6s=
 			</data>
 		</dict>
 		<key>Modules/StraaSCircallSDK.swiftmodule/armv7.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			IroHi9IxebxOCcSwwZAgsfJ693I=
+			c37mqgLCdGt/bZr6JeaDYO0G+CI=
 			</data>
 			<key>hash2</key>
 			<data>
-			gkztLU/KaZeK+5P0bLELU/qey320e//F+rSrwx7xRro=
+			LblcxyT4LTy+RfIeJ6fioGkDwkQ0QjakVY1LMZHaeH0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

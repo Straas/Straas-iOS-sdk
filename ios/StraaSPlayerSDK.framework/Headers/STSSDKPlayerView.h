@@ -226,7 +226,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param playlistId The id of the playlist you want to load.
  *  @param videoId The id of the video you want to play in the beginning.
  */
-- (void)loadPlaylistWithId:(NSString *)playlistId playlistVideoId:(NSString *)videoId;
+- (void)loadPlaylistWithId:(NSString *)playlistId playlistVideoId:(nullable NSString *)videoId;
 
 
 /**
