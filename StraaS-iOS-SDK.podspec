@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.static_framework = true
   s.resource_bundles = {
     'StraaSPlayerSDK' => ['ios/StraaSPlayerSDK.framework/Assets.car', 'ios/StraaSPlayerSDK.framework/*.lproj'],
-    'StraaSMessagingSDK' => ['ios/StraaSMessagingSDK.framework/*.lproj'],
+    'StraaSMessagingSDK' => ['ios/StraaSMessagingSDK.framework/*.lproj']
   }
 
   s.subspec 'Messaging' do |msg|
