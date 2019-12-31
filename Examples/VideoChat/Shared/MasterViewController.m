@@ -40,10 +40,7 @@
                      STSMessagingServiceCustomUIKeyword,
                      STSMessagingServiceECommerceUIKeyword,
                      STSStreamingServiceKeyword,
-                     STSStreamingFiltersServiceKeyword,
-                     STSCircallServiceSingleVideoCallKeyword,
-                     STSCircallServiceIPCamBroadcastingHostViewKeyword,
-                     STSCircallServiceIPCamBroadcastingViewerViewKeyword];
+                     STSStreamingFiltersServiceKeyword];
     }
     return _objects;
 }
