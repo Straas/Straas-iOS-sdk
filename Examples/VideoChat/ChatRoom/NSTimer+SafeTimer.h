@@ -10,6 +10,6 @@
 
 @interface NSTimer (SafeTimer)
 + (NSTimer*)safeScheduledTimerWithTimeInterval:(NSTimeInterval)interval
-                                         block:(void(^)())block
+                                         block:(void(^)(void))block
                                        repeats:(BOOL)repeats;
 @end
