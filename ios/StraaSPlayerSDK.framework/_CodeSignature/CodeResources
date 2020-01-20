@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		0kGK3yspSC2lJeUNhuqCpB5cB+M=
+		kBxS8xi4j0HT39zJ/VOJdzzKGNM=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -118,7 +118,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		gLwEe0pyL2a1ajcyOUZU89h0Vf4=
+		zgmO5MQMHadHJewhXwsjlglfhs0=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm.swiftdoc</key>
 		<data>
@@ -126,7 +126,7 @@
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm.swiftmodule</key>
 		<data>
-		J19XdSSWB7yZrmzrp93nrCdRG00=
+		2OBJb3NHpY0R+cVExGfAKfB31TM=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -134,7 +134,7 @@
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		1g9APb9eX+bYl7CSY7nCIn8ECPc=
+		3+5QDrbIdsgQr/dMfenobiPOflM=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -142,7 +142,7 @@
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		1g9APb9eX+bYl7CSY7nCIn8ECPc=
+		3+5QDrbIdsgQr/dMfenobiPOflM=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7-apple-ios.swiftdoc</key>
 		<data>
@@ -150,7 +150,7 @@
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7-apple-ios.swiftmodule</key>
 		<data>
-		J19XdSSWB7yZrmzrp93nrCdRG00=
+		2OBJb3NHpY0R+cVExGfAKfB31TM=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7.swiftdoc</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7.swiftmodule</key>
 		<data>
-		J19XdSSWB7yZrmzrp93nrCdRG00=
+		2OBJb3NHpY0R+cVExGfAKfB31TM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -193,11 +193,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			0kGK3yspSC2lJeUNhuqCpB5cB+M=
+			kBxS8xi4j0HT39zJ/VOJdzzKGNM=
 			</data>
 			<key>hash2</key>
 			<data>
-			eI0iM6DlSUmLhgxKli/nooCz4yhZodsDzPxIR9zv/+A=
+			R/IUh2HhLFdDOrAtkGi5OpZbT4npvyPdClTTjC+c/kU=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -512,11 +512,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			J19XdSSWB7yZrmzrp93nrCdRG00=
+			2OBJb3NHpY0R+cVExGfAKfB31TM=
 			</data>
 			<key>hash2</key>
 			<data>
-			udKDCE/oXN2zAON492D4+n0pcIYT2jOkIa+liFodSJg=
+			jvK/Hy3eFxs9QGXQRgRUB/tSKjbddTzdD8zDHxLf0GU=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -534,11 +534,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1g9APb9eX+bYl7CSY7nCIn8ECPc=
+			3+5QDrbIdsgQr/dMfenobiPOflM=
 			</data>
 			<key>hash2</key>
 			<data>
-			5fkwfMRiUi4IANl76tUyLJMsRTQQ8EeErs5lhN6Qhys=
+			t+yDbv0FhmlfGLQv7dMrlYtbQL9dYSBO7aHqEvYA5YQ=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64.swiftdoc</key>
@@ -556,11 +556,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1g9APb9eX+bYl7CSY7nCIn8ECPc=
+			3+5QDrbIdsgQr/dMfenobiPOflM=
 			</data>
 			<key>hash2</key>
 			<data>
-			5fkwfMRiUi4IANl76tUyLJMsRTQQ8EeErs5lhN6Qhys=
+			t+yDbv0FhmlfGLQv7dMrlYtbQL9dYSBO7aHqEvYA5YQ=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7-apple-ios.swiftdoc</key>
@@ -578,11 +578,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			J19XdSSWB7yZrmzrp93nrCdRG00=
+			2OBJb3NHpY0R+cVExGfAKfB31TM=
 			</data>
 			<key>hash2</key>
 			<data>
-			udKDCE/oXN2zAON492D4+n0pcIYT2jOkIa+liFodSJg=
+			jvK/Hy3eFxs9QGXQRgRUB/tSKjbddTzdD8zDHxLf0GU=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7.swiftdoc</key>
@@ -600,11 +600,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			J19XdSSWB7yZrmzrp93nrCdRG00=
+			2OBJb3NHpY0R+cVExGfAKfB31TM=
 			</data>
 			<key>hash2</key>
 			<data>
-			udKDCE/oXN2zAON492D4+n0pcIYT2jOkIa+liFodSJg=
+			jvK/Hy3eFxs9QGXQRgRUB/tSKjbddTzdD8zDHxLf0GU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
