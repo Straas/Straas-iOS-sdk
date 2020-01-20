@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.description  = "StraaS.io - Streaming as a Service, Your Best OTT Solution."
 
   s.homepage     = "https://github.com/StraaS/StraaS-iOS-sdk"
-  s.license      = { :type => "Copyright", :text => "Copyright (c) 2018 StraaS.io. All rights reserved." }
+  s.license      = { :type => "Copyright", :text => "Copyright (c) 2020 StraaS.io. All rights reserved." }
   s.author       = "StraaS.io"
 
   s.platform     = :ios, "8.0"
