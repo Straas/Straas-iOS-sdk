@@ -1,0 +1,2507 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>STSChatManager Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/STSChatManager" class="dashAnchor"></a>
+    <a title="STSChatManager Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">StraaSMessagingSDK Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/StraaS/StraaS-iOS-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fstraas%2Egithub%2Eio%2FStraaS%2DiOS%2Dsdk%2Fdocsets%2FStraaSMessagingSDK%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">StraaSMessagingSDK Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        STSChatManager Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/STSAggregatedData.html">STSAggregatedData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSAggregatedItem.html">STSAggregatedItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSArchivedMessagesMeta.html">STSArchivedMessagesMeta</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSChat.html">STSChat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSChatManager.html">STSChatManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSChatMessage.html">STSChatMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSChatMetadata.html">STSChatMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSChatSticker.html">STSChatSticker</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSChatUser.html">STSChatUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSGetArchivedMessagesConfiguration.html">STSGetArchivedMessagesConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSGetMessagesConfiguration.html">STSGetMessagesConfiguration</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kSTSUserRoleBlocked">kSTSUserRoleBlocked</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kSTSUserRoleGlobalManager">kSTSUserRoleGlobalManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kSTSUserRoleLocalManager">kSTSUserRoleLocalManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kSTSUserRoleMaster">kSTSUserRoleMaster</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kSTSUserRoleModerator">kSTSUserRoleModerator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kSTSUserRoleNormal">kSTSUserRoleNormal</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/STSChatInputMode.html">STSChatInputMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSChatMesssageType.html">STSChatMesssageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSGetMessagesOrder.html">STSGetMessagesOrder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSGetUsersType.html">STSGetUsersType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSMSGErrorCode.html">STSMSGErrorCode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/STSChatEventDelegate.html">STSChatEventDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>STSChatManager</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">STSChatManager</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>StraaS.io chat room manager, support multi-connection management.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)connectToChatroom:JWT:eventDelegate:"></a>
+                    <a name="//apple_ref/objc/Method/-connectToChatroom:JWT:eventDelegate:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)connectToChatroom:JWT:eventDelegate:">-connectToChatroom:JWT:eventDelegate:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Connect to chat room with user JWT.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">connectToChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroomName</span>
+                      <span class="nf">JWT</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">JWT</span>
+            <span class="nf">eventDelegate</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/STSChatEventDelegate.html">STSChatEventDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">eventDelegate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">connect</span><span class="p">(</span><span class="n">toChatroom</span> <span class="nv">chatroomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">jwt</span> <span class="kt">JWT</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">eventDelegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/STSChatEventDelegate.html">STSChatEventDelegate</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroomName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of chat room. Don&rsquo;t pass nil or this method return early.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>JWT</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>User identity information. For StraaS.io CMS member, a member JWT should be
+              used here. Use an empty string to represent guest. Don&rsquo;t pass nil or this
+              method return early.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>eventDelegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Chat event delegate. Chat manager not retain this delegate.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)disconnectFromChatroom:"></a>
+                    <a name="//apple_ref/objc/Method/-disconnectFromChatroom:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)disconnectFromChatroom:">-disconnectFromChatroom:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Disconnect from a connected chat room.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">disconnectFromChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">disconnect</span><span class="p">(</span><span class="n">fromChatroom</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to disconnect.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)getUsersForChatroom:userType:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-getUsersForChatroom:userType:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)getUsersForChatroom:userType:success:failure:">-getUsersForChatroom:userType:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get chat room active users, maximum 200 users.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getUsersForChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+                   <span class="nf">userType</span><span class="p">:(</span><span class="n"><a href="../Enums/STSGetUsersType.html">STSGetUsersType</a></span><span class="p">)</span><span class="nv">userType</span>
+                    <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSChatUser.html">STSChatUser</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span>
+                                <span class="n">success</span>
+                    <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getUsersForChatroom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">userType</span><span class="p">:</span> <span class="kt"><a href="../Enums/STSGetUsersType.html">STSGetUsersType</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to get users.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The type of users you want to get.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request. It takes an <code>NSArray</code> of <code>STSChatUser</code>
+                  argument that contains chat room active users.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)getMessagesForChatroom:configuration:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-getMessagesForChatroom:configuration:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)getMessagesForChatroom:configuration:success:failure:">-getMessagesForChatroom:configuration:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get chat room messages.
+  Note: If there are over 5000 ccu in the chatroom, this method will return an empty array.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getMessagesForChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+                 <span class="nf">configuration</span><span class="p">:</span>
+                     <span class="p">(</span><span class="n"><a href="../Classes/STSGetMessagesConfiguration.html">STSGetMessagesConfiguration</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">configuration</span>
+                       <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span>
+                                   <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSChatMessage.html">STSChatMessage</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
+                       <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getMessagesForChatroom</span><span class="p">(</span><span class="n">_</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSGetMessagesConfiguration.html">STSGetMessagesConfiguration</a></span><span class="p">?,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/STSChatMessage.html">STSChatMessage</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to get messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A STSGetMessagesConfiguration object that specifies the request rules for getting messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request. It takes an <code>NSArray</code> of <code>STSChatMessage</code>
+                  argument that contains chat room messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)updateGuestNickname:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-updateGuestNickname:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)updateGuestNickname:chatroom:success:failure:">-updateGuestNickname:chatroom:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Update nickname for guest user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updateGuestNickname</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">nickname</span>
+                   <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+                    <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="nv">success</span>
+                    <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateGuestNickname</span><span class="p">(</span><span class="n">_</span> <span class="nv">nickname</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>nickname</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>New nickname. Should be between 1~20 characters.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to update nickname.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)updateUserRole:targetUser:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-updateUserRole:targetUser:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)updateUserRole:targetUser:chatroom:success:failure:">-updateUserRole:targetUser:chatroom:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Update role for given user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updateUserRole</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">role</span>
+            <span class="nf">targetUser</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChatUser.html">STSChatUser</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">targetUser</span>
+              <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+               <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="nv">success</span>
+               <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateUserRole</span><span class="p">(</span><span class="n">_</span> <span class="nv">role</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">targetUser</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>role</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The role want to be updated for target user. Role can be either kSTSUserRoleNormal or kSTSUserRoleModerator only.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>targetUser</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The users needs to be updated.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to update user role.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)updateUserRole:memberId:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-updateUserRole:memberId:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)updateUserRole:memberId:chatroom:success:failure:">-updateUserRole:memberId:chatroom:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Update role for given memberId.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updateUserRole</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">role</span>
+              <span class="nf">memberId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">memberId</span>
+              <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+               <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="nv">success</span>
+               <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateUserRole</span><span class="p">(</span><span class="n">_</span> <span class="nv">role</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">memberId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>role</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The role want to be updated for target user. Role can be either kSTSUserRoleNormal or kSTSUserRoleModerator only.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>memberId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The CMS member id.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to update user role.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)blockUsers:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-blockUsers:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)blockUsers:chatroom:success:failure:">-blockUsers:chatroom:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Block users by current user. Only succeed when current user has the privilege.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">blockUsers</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSChatUser.html">STSChatUser</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">users</span>
+          <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+           <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="nv">success</span>
+           <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">blockUsers</span><span class="p">(</span><span class="n">_</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">],</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>users</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The users in chat going to be blocked</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to block users.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)reviveUsers:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-reviveUsers:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)reviveUsers:chatroom:success:failure:">-reviveUsers:chatroom:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Revive users by current user. Only succeed when current user has the privilege.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">reviveUsers</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSChatUser.html">STSChatUser</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">users</span>
+           <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+            <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="nv">success</span>
+            <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">reviveUsers</span><span class="p">(</span><span class="n">_</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">],</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>users</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The users in chat going to be revived.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to revive users.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)sendMessage:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-sendMessage:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)sendMessage:chatroom:success:failure:">-sendMessage:chatroom:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send message to chatroom. 
+  Note: Call this method more than once a second is not allowed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendMessage</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">message</span>
+           <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+            <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="nv">success</span>
+            <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">sendMessage</span><span class="p">(</span><span class="n">_</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>message</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Message text. Should be between 1~300 characters.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to send message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)removeMessage:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-removeMessage:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)removeMessage:chatroom:success:failure:">-removeMessage:chatroom:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove chat message.
+  Note: This method works only when the current user of target chatroom has the privilege.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeMessage</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">messageId</span>
+             <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+              <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="nv">success</span>
+              <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">removeMessage</span><span class="p">(</span><span class="n">_</span> <span class="nv">messageId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>messageId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The message Id which you want to remove.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to remove message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)getPinnedMessageForChat:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-getPinnedMessageForChat:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)getPinnedMessageForChat:success:failure:">-getPinnedMessageForChat:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the pinned message of a chatroom.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getPinnedMessageForChat</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+                        <span class="nf">success</span><span class="p">:</span>
+                            <span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n"><a href="../Classes/STSChatMessage.html">STSChatMessage</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">success</span>
+                        <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getPinnedMessage</span><span class="p">(</span><span class="k">for</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/STSChatMessage.html">STSChatMessage</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to get the pinned message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)pinMessage:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-pinMessage:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)pinMessage:chatroom:success:failure:">-pinMessage:chatroom:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Pins a message to the chatroom.</p>
+
+<p>Note:
+  1. A chatroom can only have a pinned message at once, it means this method will override the last pinned message.
+  2. This method works only when the current user of target chatroom has the privilege.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">pinMessage</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">messageId</span>
+          <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+           <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="nv">success</span>
+           <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">pinMessage</span><span class="p">(</span><span class="n">_</span> <span class="nv">messageId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>messageId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The message Id which you want to pin.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to pin the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)unpinMessageFromChatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-unpinMessageFromChatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)unpinMessageFromChatroom:success:failure:">-unpinMessageFromChatroom:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unpins a message from the given chatroom.
+  Note: This method works only when the current user of target chatroom has the privilege.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">unpinMessageFromChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+                         <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="nv">success</span>
+                         <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">unpinMessage</span><span class="p">(</span><span class="n">fromChatroom</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to unpin the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)setMetadataValue:forKey:chatroom:broadcast:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-setMetadataValue:forKey:chatroom:broadcast:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)setMetadataValue:forKey:chatroom:broadcast:success:failure:">-setMetadataValue:forKey:chatroom:broadcast:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets metadata key-value pair to a chatroom</p>
+
+<p><strong>Note</strong></p>
+
+<ul>
+<li>This method works only when the current user of target chatroom has the privilege.</li>
+<li>Sets a value to an existing key will overwrite the previous one.</li>
+<li>The value should be an instance of <code>NSString</code>, <code>NSNumber</code>, <code>NSNull</code> or a valid JSON object. Max size is 1k if <code>broadcast</code> is <code>YES</code>, max size is 4k if <code>broadcast</code> is <code>NO</code>.</li>
+<li>The key name must match the regular expression format <code>^[A-Za-z0-9][A-Za-z0-9_32＠#-]{0,29}$</code>.</li>
+</ul>
+
+<p><strong>Rate limit</strong></p>
+
+<p>1 request per second per chatroom (if <code>broadcast</code> is <code>YES</code>); 1 request per 30 second per chatroom (if <code>broadcast</code> is <code>NO</code>).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setMetadataValue</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span><span class="p">)</span><span class="nv">value</span>
+                  <span class="nf">forKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span>
+                <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+               <span class="nf">broadcast</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">broadcast</span>
+                 <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="nv">success</span>
+                 <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setMetadataValue</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Any</span><span class="p">,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">broadcast</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value of metadata. Refer notes for the format constraint.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key of metadata. Refer notes for the format constraint.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>STSChat</code> object you want to set metadata.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>broadcast</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Indicates whether the change of the metadata should be broadcasted via socket or not.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)getMetadataForKeys:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-getMetadataForKeys:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)getMetadataForKeys:chatroom:success:failure:">-getMetadataForKeys:chatroom:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets metadata key-value pairs of a chatroom.</p>
+
+<p><strong>Rate limit</strong></p>
+
+<p>1 request per second per chatroom. 3000 per days per chatroom.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getMetadataForKeys</span><span class="p">:(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">keys</span>
+                  <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+                   <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span>
+                               <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n"><a href="../Classes/STSChatMetadata.html">STSChatMetadata</a></span> <span class="o">*&gt;</span>
+                                   <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
+                   <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getMetadataForKeys</span><span class="p">(</span><span class="n">_</span> <span class="nv">keys</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt">String</span> <span class="p">:</span> <span class="kt"><a href="../Classes/STSChatMetadata.html">STSChatMetadata</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>keys</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The array contains keys to get. Pass <code>nil</code> if you want to get the metadata for all keys.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to get metadata.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)chatForChatroomName:"></a>
+                    <a name="//apple_ref/objc/Method/-chatForChatroomName:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)chatForChatroomName:">-chatForChatroomName:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the chat object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">chatForChatroomName</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroomName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">chat</span><span class="p">(</span><span class="n">forChatroomName</span> <span class="nv">chatroomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroomName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Identifier of chat room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code><a href="../Classes/STSChat.html">STSChat</a></code> instance if the chat room is connected, or nil.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)currentUserForChatroom:"></a>
+                    <a name="//apple_ref/objc/Method/-currentUserForChatroom:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)currentUserForChatroom:">-currentUserForChatroom:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the current chat user object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="n"><a href="../Classes/STSChatUser.html">STSChatUser</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">currentUserForChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">currentUser</span><span class="p">(</span><span class="n">forChatroom</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/STSChatUser.html">STSChatUser</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to get current user.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code><a href="../Classes/STSChatUser.html">STSChatUser</a></code> instance if the chat room is connected, or nil.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)cooldownForChatroom:"></a>
+                    <a name="//apple_ref/objc/Method/-cooldownForChatroom:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)cooldownForChatroom:">-cooldownForChatroom:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the cooldown to send next message for chat room.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="nf">cooldownForChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">cooldown</span><span class="p">(</span><span class="n">forChatroom</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">TimeInterval</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to get the cooldown time.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The cooldown in seconds.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)setEventDelegate:forChatroom:"></a>
+                    <a name="//apple_ref/objc/Method/-setEventDelegate:forChatroom:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)setEventDelegate:forChatroom:">-setEventDelegate:forChatroom:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Update the chat room event delegate.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setEventDelegate</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/STSChatEventDelegate.html">STSChatEventDelegate</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">delegate</span>
+             <span class="nf">forChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setEventDelegate</span><span class="p">(</span><span class="n">_</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/STSChatEventDelegate.html">STSChatEventDelegate</a></span><span class="p">?,</span> <span class="n">forChatroom</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>delegate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Chat room event delegate.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to set with the event delegate.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/DataChannel"></a>
+                <a name="//apple_ref/objc/Section/DataChannel" class="dashAnchor"></a>
+                <a href="#/DataChannel">
+                  <h3 class="section-name">DataChannel</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)sendAggregatedDataWithKey:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-sendAggregatedDataWithKey:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)sendAggregatedDataWithKey:chatroom:success:failure:">-sendAggregatedDataWithKey:chatroom:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send a key to the data channel which will be aggregated to STSAggregatedItem in <code>chatroom:aggregatedItemsAdded:</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendAggregatedDataWithKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span>
+                         <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+                          <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="nv">success</span>
+                          <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">sendAggregatedData</span><span class="p">(</span><span class="n">withKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Aggregated item string key. Should be between 1~100 characters.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to send message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)sendRawData:chatroom:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-sendRawData:chatroom:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)sendRawData:chatroom:success:failure:">-sendRawData:chatroom:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send raw data to data channel. Raw data should be a valid JSON object only.
+  ref: <a href="https://developer.apple.com/reference/foundation/jsonserialization/1418461-isvalidjsonobject">https://developer.apple.com/reference/foundation/jsonserialization/1418461-isvalidjsonobject</a></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendRawData</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">id</span><span class="p">)</span><span class="nv">rawData</span>
+           <span class="nf">chatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+            <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="nv">success</span>
+            <span class="nf">failure</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="nv">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">sendRawData</span><span class="p">(</span><span class="n">_</span> <span class="nv">rawData</span><span class="p">:</span> <span class="kt">Any</span><span class="p">,</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rawData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The jsonObject raw data.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to send message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)getAggregatedDataForChatroom:configuration:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-getAggregatedDataForChatroom:configuration:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)getAggregatedDataForChatroom:configuration:success:failure:">-getAggregatedDataForChatroom:configuration:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get chat room aggregated data.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">getAggregatedDataForChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+                   <span class="nf">configuration</span><span class="p">:</span>
+                       <span class="p">(</span><span class="n"><a href="../Classes/STSGetMessagesConfiguration.html">STSGetMessagesConfiguration</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">configuration</span>
+                         <span class="nf">success</span><span class="p">:</span>
+                             <span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span>
+                                 <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSAggregatedData.html">STSAggregatedData</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
+                         <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getAggregatedData</span><span class="p">(</span><span class="n">forChatroom</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSGetMessagesConfiguration.html">STSGetMessagesConfiguration</a></span><span class="p">?,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/STSAggregatedData.html">STSAggregatedData</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to get aggregated data.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A STSGetMessagesConfiguration object that specifies the request rules for getting messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request. It takes an <code>NSArray</code> of <code>STSChatMessage</code> 
+                  argument that contains chat room messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)getRawDataForChatroom:configuration:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-getRawDataForChatroom:configuration:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)getRawDataForChatroom:configuration:success:failure:">-getRawDataForChatroom:configuration:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get chat room raw data.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getRawDataForChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSChat.html">STSChat</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroom</span>
+                <span class="nf">configuration</span><span class="p">:</span>
+                    <span class="p">(</span><span class="n"><a href="../Classes/STSGetMessagesConfiguration.html">STSGetMessagesConfiguration</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="nv">configuration</span>
+                      <span class="nf">success</span><span class="p">:(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span>
+                                  <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSChatMessage.html">STSChatMessage</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
+                      <span class="n">failure</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getRawData</span><span class="p">(</span><span class="n">forChatroom</span> <span class="nv">chatroom</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSChat.html">STSChat</a></span><span class="p">,</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSGetMessagesConfiguration.html">STSGetMessagesConfiguration</a></span><span class="p">?,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/STSChatMessage.html">STSChatMessage</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroom</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSChat object you want to get raw data.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A STSGetMessagesConfiguration object that specifies the request rules for getting messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request. It takes an <code>NSArray</code> of <code>STSChatMessage</code>
+                  argument that contains chat room messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/ArchivedMessage"></a>
+                <a name="//apple_ref/objc/Section/ArchivedMessage" class="dashAnchor"></a>
+                <a href="#/ArchivedMessage">
+                  <h3 class="section-name">ArchivedMessage</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)getArchivedMessageMetaForChatroom:archivedId:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-getArchivedMessageMetaForChatroom:archivedId:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)getArchivedMessageMetaForChatroom:archivedId:success:failure:">-getArchivedMessageMetaForChatroom:archivedId:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get archived message meta object by archived id.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">getArchivedMessageMetaForChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroomName</span>
+                           <span class="nf">archivedId</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">archivedId</span>
+                              <span class="nf">success</span><span class="p">:</span>
+                                  <span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span>
+                                      <span class="n"><a href="../Classes/STSArchivedMessagesMeta.html">STSArchivedMessagesMeta</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">success</span>
+                              <span class="n">failure</span><span class="o">:</span>
+                                  <span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getArchivedMessageMeta</span><span class="p">(</span><span class="n">forChatroom</span> <span class="nv">chatroomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">archivedId</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/STSArchivedMessagesMeta.html">STSArchivedMessagesMeta</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroomName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The chatroom name you want to get archived messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>archivedId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The archived id to retrieve archived messages meta.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request. It takes an STSArchivedMessagesMeta
+                  argument that contains the specific archived meta.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)STSChatManager(im)getArchivedMessagesForChatroom:configuration:success:failure:"></a>
+                    <a name="//apple_ref/objc/Method/-getArchivedMessagesForChatroom:configuration:success:failure:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)STSChatManager(im)getArchivedMessagesForChatroom:configuration:success:failure:">-getArchivedMessagesForChatroom:configuration:success:failure:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get chat room archived messages.
+  The response time is increasing with the number of messages included in one single request. 
+  Normally, our best practice suggests |endTime-startTime| &lt; 10000 (10 sec).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getArchivedMessagesForChatroom</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">chatroomName</span>
+                         <span class="nf">configuration</span><span class="p">:</span>
+                             <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSGetArchivedMessagesConfiguration.html">STSGetArchivedMessagesConfiguration</a></span> <span class="o">*</span><span class="p">)</span>
+                                 <span class="n">configuration</span>
+                               <span class="n">success</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span>
+                                           <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/STSChatMessage.html">STSChatMessage</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span>
+                                           <span class="n">success</span>
+                               <span class="n">failure</span><span class="o">:</span>
+                                   <span class="p">(</span><span class="n">nonnull</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">))</span><span class="n">failure</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getArchivedMessages</span><span class="p">(</span><span class="n">forChatroom</span> <span class="nv">chatroomName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSGetArchivedMessagesConfiguration.html">STSGetArchivedMessagesConfiguration</a></span><span class="p">,</span> <span class="nv">success</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/STSChatMessage.html">STSChatMessage</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">failure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>chatroomName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The chatroom name you want to get archived messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The STSGetArchivedMessagesConfiguration object that specifies the request rules for getting archived messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Handler for successful request. It takes an &lsquo;NSArray&rsquo; of &lsquo;STSChatMessage&rsquo;
+                  argument that contains the specific archived messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Error handler.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2019-10-22)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

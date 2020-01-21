@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>STSPlayerPlaybackEventDelegate Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Protocol/STSPlayerPlaybackEventDelegate" class="dashAnchor"></a>
+    <a title="STSPlayerPlaybackEventDelegate Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">StraaSPlayerSDK Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/StraaS/StraaS-iOS-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fstraas%2Egithub%2Eio%2FStraaS%2DiOS%2Dsdk%2Fdocsets%2FStraaSPlayerSDK%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">StraaSPlayerSDK Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        STSPlayerPlaybackEventDelegate Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/STSCMSManager.html">STSCMSManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSCategory.html">STSCategory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSGetLiveListConfiguration.html">STSGetLiveListConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSGetVideoListConfiguration.html">STSGetVideoListConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSLive.html">STSLive</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSLiveEventListener.html">STSLiveEventListener</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSPagination.html">STSPagination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSPlaylist.html">STSPlaylist</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSPlaylistItem.html">STSPlaylistItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSSDKPlayerControlView.html">STSSDKPlayerControlView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSSDKStreamingTimelineView.html">STSSDKStreamingTimelineView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSTag.html">STSTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSVideo.html">STSVideo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/STSVideoMetadata.html">STSVideoMetadata</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/STSLiveBroadcastState.html">STSLiveBroadcastState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSLiveEventListenerState.html">STSLiveEventListenerState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSPlayerErrorCode.html">STSPlayerErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSSDKPlaybackStatus.html">STSSDKPlaybackStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/STSVideoScalingMode.html">STSVideoScalingMode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/STSLiveEventListenerDelegate.html">STSLiveEventListenerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STSPlayerLiveEventDelegate.html">STSPlayerLiveEventDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STSPlayerPlaybackEventDelegate.html">STSPlayerPlaybackEventDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STSPlayerPlaylistEventDelegate.html">STSPlayerPlaylistEventDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/STSSDKPlayerViewDelegate.html">STSSDKPlayerViewDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>STSPlayerPlaybackEventDelegate</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="k">@protocol</span> <span class="nc">STSPlayerPlaybackEventDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                </div>
+              </div>
+            <p>Implements the STSPlayerPlaybackEventDelegate protocol to respond to playback events.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerViewStartPlaying:"></a>
+                    <a name="//apple_ref/objc/Method/-playerViewStartPlaying:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerViewStartPlaying:">-playerViewStartPlaying:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sent when playback starts.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">playerViewStartPlaying</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">playerView</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">playerViewStartPlaying</span><span class="p">(</span><span class="n">_</span> <span class="nv">playerView</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playerView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player view that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:onBuffering:"></a>
+                    <a name="//apple_ref/objc/Method/-playerView:onBuffering:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:onBuffering:">-playerView:onBuffering:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sent when buffering starts or stops.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">playerView</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">playerView</span>
+       <span class="nf">onBuffering</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">buffering</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">playerView</span><span class="p">(</span><span class="n">_</span> <span class="nv">playerView</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span><span class="o">!</span><span class="p">,</span> <span class="n">onBuffering</span> <span class="nv">buffering</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playerView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player view that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>buffering</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>YES when the player is buffering, No if not.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerViewDidPlayToEnd:"></a>
+                    <a name="//apple_ref/objc/Method/-playerViewDidPlayToEnd:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerViewDidPlayToEnd:">-playerViewDidPlayToEnd:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sent when the playback did end.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">playerViewDidPlayToEnd</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">playerView</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">playerViewDidPlay</span><span class="p">(</span><span class="n">toEnd</span> <span class="nv">playerView</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playerView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player view that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerViewPaused:"></a>
+                    <a name="//apple_ref/objc/Method/-playerViewPaused:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerViewPaused:">-playerViewPaused:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sent when playback is paused.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">playerViewPaused</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">playerView</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">playerViewPaused</span><span class="p">(</span><span class="n">_</span> <span class="nv">playerView</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playerView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player view that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:error:"></a>
+                    <a name="//apple_ref/objc/Method/-playerView:error:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:error:">-playerView:error:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when an error occurs.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">playerView</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">playerView</span>
+             <span class="nf">error</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">playerView</span><span class="p">(</span><span class="n">_</span> <span class="nv">playerView</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playerView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player view that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:mediaDurationChanged:"></a>
+                    <a name="//apple_ref/objc/Method/-playerView:mediaDurationChanged:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:mediaDurationChanged:">-playerView:mediaDurationChanged:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when the duration of the current media changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">playerView</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">playerView</span>
+    <span class="nf">mediaDurationChanged</span><span class="p">:(</span><span class="n">Float64</span><span class="p">)</span><span class="nv">duration</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">playerView</span><span class="p">(</span><span class="n">_</span> <span class="nv">playerView</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span><span class="o">!</span><span class="p">,</span> <span class="n">mediaDurationChanged</span> <span class="nv">duration</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playerView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player view that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>duration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new duration (in seconds) of the current media.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:mediaCurrentTimeChanged:"></a>
+                    <a name="//apple_ref/objc/Method/-playerView:mediaCurrentTimeChanged:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:mediaCurrentTimeChanged:">-playerView:mediaCurrentTimeChanged:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when the current time of the current media changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">playerView</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">playerView</span>
+    <span class="nf">mediaCurrentTimeChanged</span><span class="p">:(</span><span class="n">Float64</span><span class="p">)</span><span class="nv">currentTime</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">playerView</span><span class="p">(</span><span class="n">_</span> <span class="nv">playerView</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span><span class="o">!</span><span class="p">,</span> <span class="n">mediaCurrentTimeChanged</span> <span class="nv">currentTime</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playerView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player view that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>currentTime</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The curent time (in seconds) of the media.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:loadedTimeRangesChanged:"></a>
+                    <a name="//apple_ref/objc/Method/-playerView:loadedTimeRangesChanged:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:loadedTimeRangesChanged:">-playerView:loadedTimeRangesChanged:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when the loaded time range of the current media changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">playerView</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">playerView</span>
+    <span class="nf">loadedTimeRangesChanged</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSValue</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">loadedTimeRanges</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">playerView</span><span class="p">(</span><span class="n">_</span> <span class="nv">playerView</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span><span class="o">!</span><span class="p">,</span> <span class="n">loadedTimeRangesChanged</span> <span class="nv">loadedTimeRanges</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playerView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player view that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>loadedTimeRanges</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An array contains NSValue objects containing a CMTimeRange value indicating the time ranges for which the player has media data readily available. The time ranges returned may be discontinuous.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:seekableTimeRangesChanged:"></a>
+                    <a name="//apple_ref/objc/Method/-playerView:seekableTimeRangesChanged:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:seekableTimeRangesChanged:">-playerView:seekableTimeRangesChanged:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when the seekable time ranges of the current media changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">playerView</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">playerView</span>
+    <span class="nf">seekableTimeRangesChanged</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSValue</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">seekableTimeRanges</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">playerView</span><span class="p">(</span><span class="n">_</span> <span class="nv">playerView</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span><span class="o">!</span><span class="p">,</span> <span class="n">seekableTimeRangesChanged</span> <span class="nv">seekableTimeRanges</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playerView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player view that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>seekableTimeRanges</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An array contains NSValue objects containing a CMTimeRange value indicating the time ranges for which the player can seek. The time ranges returned may be discontinuous.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:onAudioSessionInterrupt:"></a>
+                    <a name="//apple_ref/objc/Method/-playerView:onAudioSessionInterrupt:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)STSPlayerPlaybackEventDelegate(im)playerView:onAudioSessionInterrupt:">-playerView:onAudioSessionInterrupt:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when the audio session interruption starts or ends.</p>
+
+<p>This method may be called when a phone call arrives, a Clock or Calendar alarm sounds, or another app activates its audio session. The playback will be paused when the audio session interruption starts. Some of the player view methods will not work when the audio session is interrupted, see the description of each method for details.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">playerView</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">playerView</span>
+    <span class="nf">onAudioSessionInterrupt</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">isInterrupted</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">playerView</span><span class="p">(</span><span class="n">_</span> <span class="nv">playerView</span><span class="p">:</span> <span class="kt"><a href="../Classes/STSSDKPlayerView.html">STSSDKPlayerView</a></span><span class="o">!</span><span class="p">,</span> <span class="n">onAudioSessionInterrupt</span> <span class="nv">isInterrupted</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>playerView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The player view that sent the message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isInterrupted</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>YES</code> if the audio session interruption starts, <code>NO</code> if the interruption ends.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://straas.io" target="_blank" rel="external">StraaS.io</a>. All rights reserved. (Last updated: 2019-10-22)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
