@@ -72,7 +72,7 @@ typedef NS_ENUM(NSInteger, STSPlayerErrorCode) {
      */
     STSPlayerErrorCodeSocketConnection = 13,
     /**
-     *  Requests over the rate limit.
+     *  Too many requests for the server, please try again later.
      */
     STSPlayerErrorCodeTooManyRequest = 14,
     /**
