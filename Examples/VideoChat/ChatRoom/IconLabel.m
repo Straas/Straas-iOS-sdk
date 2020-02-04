@@ -3,7 +3,7 @@
 //  StraaS
 //
 //  Created by shihwen.wang on 2017/2/16.
-//  Copyright © 2017年 StraaS.io. All rights reserved.
+//  Copyright © 2020年 StraaS.io. All rights reserved.
 //
 
 #import "IconLabel.h"
