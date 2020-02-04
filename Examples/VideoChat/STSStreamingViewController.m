@@ -3,7 +3,7 @@
 //  StraaS
 //
 //  Created by shihwen.wang on 2016/10/28.
-//  Copyright © 2019年 StraaS.io. All rights reserved.
+//  Copyright © 2020年 StraaS.io. All rights reserved.
 //
 
 #import "STSStreamingViewController.h"

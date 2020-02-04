@@ -3,7 +3,7 @@
 //  VideoChat
 //
 //  Created by Lee on 05/01/2017.
-//  Copyright © 2017 StraaS.io. All rights reserved.
+//  Copyright © 2020 StraaS.io. All rights reserved.
 //
 
 #import "ChatStickerExampleViewController.h"

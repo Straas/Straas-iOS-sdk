@@ -3,7 +3,7 @@
 //  VideoChat
 //
 //  Created by Lee on 07/11/2016.
-//  Copyright © 2016 StraaS.io. All rights reserved.
+//  Copyright © 2020 StraaS.io. All rights reserved.
 //
 
 #import "STSSegmentedControl.h"
