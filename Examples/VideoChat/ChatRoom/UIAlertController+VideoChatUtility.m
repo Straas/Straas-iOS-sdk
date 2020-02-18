@@ -3,7 +3,7 @@
 //  VideoChat
 //
 //  Created by Lee on 9/8/16.
-//  Copyright © 2016 StraaS.io. All rights reserved.
+//  Copyright © 2020 StraaS.io. All rights reserved.
 //
 
 #import "UIAlertController+VideoChatUtility.h"

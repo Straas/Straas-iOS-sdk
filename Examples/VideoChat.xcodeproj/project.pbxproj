@@ -47,11 +47,7 @@
 		FF68F92522818FF600ABBC46 /* UIViewController+Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F92422818FF500ABBC46 /* UIViewController+Keyboard.m */; };
 		FF68F9282281904500ABBC46 /* NSLayoutConstraint+STSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F9272281904400ABBC46 /* NSLayoutConstraint+STSUtility.m */; };
 		FF68F92C2281920300ABBC46 /* UIColor+STSColor.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F92B2281920300ABBC46 /* UIColor+STSColor.m */; };
-		FF9C5C162152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9C5C132152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.m */; };
-		FF9C5C172152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9C5C152152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.m */; };
 		FFB667F72328E2BF00480E1E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB667F62328E2BF00480E1E /* File.swift */; };
-		FFB6689120E395C0004CE075 /* STSCircallSingleVideoCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */; };
-		FFB6689220E395C0004CE075 /* STSCircallTokenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6688F20E395C0004CE075 /* STSCircallTokenViewController.m */; };
 		FFB6689520E3961F004CE075 /* STSQRCodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6689420E3961F004CE075 /* STSQRCodeScannerViewController.m */; };
 		FFC4073F21FE8ADE001DB97C /* StreamingFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC4073E21FE8ADE001DB97C /* StreamingFiltersViewController.m */; };
 /* End PBXBuildFile section */
@@ -158,16 +154,8 @@
 		FF68F929228190C700ABBC46 /* STSConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSConstant.h; sourceTree = "<group>"; };
 		FF68F92A2281920300ABBC46 /* UIColor+STSColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+STSColor.h"; sourceTree = "<group>"; };
 		FF68F92B2281920300ABBC46 /* UIColor+STSColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+STSColor.m"; sourceTree = "<group>"; };
-		FF9C5C122152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallIPCamBroadcastingHostViewController.h; sourceTree = "<group>"; };
-		FF9C5C132152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallIPCamBroadcastingViewerViewController.m; sourceTree = "<group>"; };
-		FF9C5C142152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallIPCamBroadcastingViewerViewController.h; sourceTree = "<group>"; };
-		FF9C5C152152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallIPCamBroadcastingHostViewController.m; sourceTree = "<group>"; };
 		FFB667F52328E2BF00480E1E /* VideoChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		FFB667F62328E2BF00480E1E /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallSingleVideoCallViewController.m; sourceTree = "<group>"; };
-		FFB6688E20E395BF004CE075 /* STSCircallTokenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallTokenViewController.h; sourceTree = "<group>"; };
-		FFB6688F20E395C0004CE075 /* STSCircallTokenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSCircallTokenViewController.m; sourceTree = "<group>"; };
-		FFB6689020E395C0004CE075 /* STSCircallSingleVideoCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSCircallSingleVideoCallViewController.h; sourceTree = "<group>"; };
 		FFB6689320E3961F004CE075 /* STSQRCodeScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSQRCodeScannerViewController.h; sourceTree = "<group>"; };
 		FFB6689420E3961F004CE075 /* STSQRCodeScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSQRCodeScannerViewController.m; sourceTree = "<group>"; };
 		FFC4073D21FE8ADE001DB97C /* StreamingFiltersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StreamingFiltersViewController.h; sourceTree = "<group>"; };
@@ -256,7 +244,6 @@
 				72E0939F1DD080B70045E587 /* Streaming */,
 				40A2022E1D77F93E00457359 /* ChatRoom */,
 				9BF197171EEEA213003AE88E /* Player */,
-				FFB6688C20E39505004CE075 /* Circall */,
 				40C779DA1D7091D0004F61CA /* Supporting Files */,
 			);
 			name = Examples;
@@ -376,29 +363,6 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		FF9C5C112152262A00BFED13 /* IPCamBroadcasting */ = {
-			isa = PBXGroup;
-			children = (
-				FF9C5C122152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.h */,
-				FF9C5C152152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.m */,
-				FF9C5C142152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.h */,
-				FF9C5C132152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.m */,
-			);
-			path = IPCamBroadcasting;
-			sourceTree = "<group>";
-		};
-		FFB6688C20E39505004CE075 /* Circall */ = {
-			isa = PBXGroup;
-			children = (
-				FFB6688E20E395BF004CE075 /* STSCircallTokenViewController.h */,
-				FFB6688F20E395C0004CE075 /* STSCircallTokenViewController.m */,
-				FFB6689020E395C0004CE075 /* STSCircallSingleVideoCallViewController.h */,
-				FFB6688D20E395BF004CE075 /* STSCircallSingleVideoCallViewController.m */,
-				FF9C5C112152262A00BFED13 /* IPCamBroadcasting */,
-			);
-			path = Circall;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -446,10 +410,9 @@
 			};
 			buildConfigurationList = 40C779D21D7091D0004F61CA /* Build configuration list for PBXProject "VideoChat" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 				"zh-Hant",
@@ -508,13 +471,11 @@
 				"${PODS_ROOT}/Target Support Files/Pods-VideoChat/Pods-VideoChat-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/StraaS-iOS-SDK/StraaSPlayerSDK.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/StraaS-iOS-SDK/StraaSMessagingSDK.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/StraaS-iOS-SDK/StraaSCircallSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StraaSPlayerSDK.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StraaSMessagingSDK.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/StraaSCircallSDK.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -534,7 +495,6 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/KVOController/KVOController.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${PODS_ROOT}/PodRTC/WebRTC.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SlackTextViewController/SlackTextViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
@@ -549,7 +509,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVOController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebRTC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlackTextViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
@@ -585,15 +544,12 @@
 				40C779E21D7091D0004F61CA /* MasterViewController.m in Sources */,
 				FF68F9282281904500ABBC46 /* NSLayoutConstraint+STSUtility.m in Sources */,
 				9B98A7B61E1E3ABA00E8CE7C /* ChatStickerExampleViewController.m in Sources */,
-				FFB6689120E395C0004CE075 /* STSCircallSingleVideoCallViewController.m in Sources */,
 				40A202371D77F93E00457359 /* ChatViewController.m in Sources */,
 				FF68F91F22818C9200ABBC46 /* STSStreamingViewController.m in Sources */,
 				9BBCBDD51E88B681006D3500 /* IconLabel.m in Sources */,
 				FF68F92522818FF600ABBC46 /* UIViewController+Keyboard.m in Sources */,
 				9B4310471DD32504002CD178 /* NSFileManager+Sticker.m in Sources */,
-				FFB6689220E395C0004CE075 /* STSCircallTokenViewController.m in Sources */,
 				9BB9B32F1E7C569C00245AB7 /* NSTimer+SafeTimer.m in Sources */,
-				FF9C5C162152262A00BFED13 /* STSCircallIPCamBroadcastingViewerViewController.m in Sources */,
 				40A2023A1D77F93E00457359 /* TypingIndicatorView.m in Sources */,
 				40A202451D7804B400457359 /* STSChatMessage+VideoChatUtility.m in Sources */,
 				4A3A2BB81ED7DEE900A22863 /* TransparentChatViewController.m in Sources */,
@@ -606,7 +562,6 @@
 				9BF1971D1EEEA6AF003AE88E /* UIViewController+STSKeyboard.m in Sources */,
 				40A202381D77F93E00457359 /* MessageTableViewCell.m in Sources */,
 				9BEAD38A1ED735CF004B9DAB /* FloatingImageView.m in Sources */,
-				FF9C5C172152262A00BFED13 /* STSCircallIPCamBroadcastingHostViewController.m in Sources */,
 				9B551F281E23377600C9D06B /* ChatExampleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

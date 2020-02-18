@@ -3,7 +3,7 @@
 //  VideoChat
 //
 //  Created by Harry on 25/05/2017.
-//  Copyright © 2017 StraaS.io. All rights reserved.
+//  Copyright © 2020 StraaS.io. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

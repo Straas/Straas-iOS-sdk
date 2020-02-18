@@ -93,7 +93,7 @@ typedef NS_ENUM(NSUInteger, STSMSGErrorCode) {
      */
     STSMSGErrorCodeRawDataFormatNotAllowed = 18,
     /**
-     *  Requests over the rate limit.
+     *  Too many requests for the server, please try again later.
      */
     STSMSGErrorCodeTooManyRequests = 19,
     /**

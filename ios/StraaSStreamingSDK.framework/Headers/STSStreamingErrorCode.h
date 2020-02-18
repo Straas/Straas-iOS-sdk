@@ -61,6 +61,10 @@ typedef NS_ENUM(NSUInteger, STSStreamingErrorCode) {
      *  Couldn't find target live event. This error may be due to the event doesn't exist, is ended, or doesn't belong to current JWT.
      */
     STSStreamingErrorCodeEventNotFound = 11,
+    /**
+     *  Too many requests for the server, please try again later.
+     */
+    STSStreamingTooManyRequests = 12,
 };
 
 #endif /* STSStreamingSDKErrorCode_h */

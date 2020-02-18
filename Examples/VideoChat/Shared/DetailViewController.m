@@ -3,7 +3,7 @@
 //  VideoChat
 //
 //  Created by Luke Jang on 8/26/16.
-//  Copyright © 2016 StraaS.io. All rights reserved.
+//  Copyright © 2020 StraaS.io. All rights reserved.
 //
 
 #import "DetailViewController.h"
@@ -13,7 +13,6 @@
 #import "STSStreamingViewController.h"
 #import "StreamingFiltersViewController.h"
 #import "STSPlayerViewController.h"
-#import "STSCircallTokenViewController.h"
 
 NSString * const STSPlayerServiceBasicPlayerViewKeyword = @"StraaS.io PlayerView";
 NSString * const STSMessagingServiceKeyword = @"StraaS.io default chatroom";
@@ -21,9 +20,6 @@ NSString * const STSMessagingServiceCustomUIKeyword = @"StraaS.io customed chatr
 NSString * const STSMessagingServiceECommerceUIKeyword = @"StraaS.io ECommerce chatroom";
 NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 NSString * const STSStreamingFiltersServiceKeyword = @"StraaS.io streaming filters";
-NSString * const STSCircallServiceSingleVideoCallKeyword = @"StraaS.io Circall singleVideoCall";
-NSString * const STSCircallServiceIPCamBroadcastingHostViewKeyword = @"StraaS.io Circall IPCam host view";
-NSString * const STSCircallServiceIPCamBroadcastingViewerViewKeyword = @"StraaS.io Circall IPCam viewer view";
 
 @interface DetailViewController ()
 @property (nonatomic) UIViewController * contentViewController;
@@ -79,11 +75,6 @@ NSString * const STSCircallServiceIPCamBroadcastingViewerViewKeyword = @"StraaS.
     if ([self.detailItem isEqualToString:STSPlayerServiceBasicPlayerViewKeyword]) {
         [self addBasicPlayerView];
     }
-    if ([self.detailItem isEqualToString:STSCircallServiceSingleVideoCallKeyword] ||
-        [self.detailItem isEqualToString:STSCircallServiceIPCamBroadcastingHostViewKeyword] ||
-        [self.detailItem isEqualToString:STSCircallServiceIPCamBroadcastingViewerViewKeyword]) {
-        [self addCircallTokenView];
-    }
 }
 
 - (void)addBasicPlayerView {
@@ -121,19 +112,6 @@ NSString * const STSCircallServiceIPCamBroadcastingViewerViewKeyword = @"StraaS.
 - (void)addStreamingFiltersView {
     StreamingFiltersViewController * controller = [StreamingFiltersViewController viewControllerFromStoryboard];
     [self addControllerAndSetAutoLayout:controller];
-}
-
-- (void)addCircallTokenView {
-    STSCircallTokenViewController * circallTokenViewController = [STSCircallTokenViewController viewControllerFromStoryboard];
-    if ([self.detailItem isEqualToString:STSCircallServiceSingleVideoCallKeyword]) {
-        circallTokenViewController.type = STSCircallTokenViewControllerTypeSingleVideoCall;
-    } else if ([self.detailItem isEqualToString:STSCircallServiceIPCamBroadcastingHostViewKeyword]) {
-        circallTokenViewController.type = STSCircallTokenViewControllerTypeIPCamBroadcastingHost;
-    } else if ([self.detailItem isEqualToString:STSCircallServiceIPCamBroadcastingViewerViewKeyword]) {
-        circallTokenViewController.type = STSCircallTokenViewControllerTypeIPCamBroadcastingViewer;
-    }
-
-    [self addControllerAndSetAutoLayout:circallTokenViewController];
 }
 
 - (void)addControllerAndSetAutoLayout:(UIViewController *)controller {

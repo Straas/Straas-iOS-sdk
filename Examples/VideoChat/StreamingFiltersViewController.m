@@ -3,7 +3,7 @@
 //  VideoChat
 //
 //  Created by Allen on 2019/1/28.
-//  Copyright © 2019 StraaS.io. All rights reserved.
+//  Copyright © 2020 StraaS.io. All rights reserved.
 //
 
 #import "StreamingFiltersViewController.h"
@@ -172,6 +172,11 @@
 
 - (IBAction)smoothnessSliderValueChanged:(id)sender {
     [self updateSkinBeautifyFilter];
+}
+
+- (void)streamingManager:(STSStreamingManager *)streamingManager onError:(NSError *)error liveId:(NSString * _Nullable)liveId {
+    NSLog(@"streamingManager onError: %@", error);
+    NSAssert(false, error.localizedDescription);
 }
 
 @end

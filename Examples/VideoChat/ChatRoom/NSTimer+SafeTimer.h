@@ -3,13 +3,13 @@
 //  VideoChat
 //
 //  Created by Lee on 18/03/2017.
-//  Copyright © 2017 StraaS.io. All rights reserved.
+//  Copyright © 2020 StraaS.io. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 @interface NSTimer (SafeTimer)
 + (NSTimer*)safeScheduledTimerWithTimeInterval:(NSTimeInterval)interval
-                                         block:(void(^)())block
+                                         block:(void(^)(void))block
                                        repeats:(BOOL)repeats;
 @end

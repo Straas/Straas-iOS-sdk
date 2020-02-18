@@ -2,24 +2,23 @@ Pod::Spec.new do |s|
 
 
   s.name         = "StraaS-iOS-SDK"
-  s.version      = "0.49.0"
+  s.version      = "0.50.0"
   s.summary      = "StraaS.io iOS SDK"
 
   s.description  = "StraaS.io - Streaming as a Service, Your Best OTT Solution."
 
   s.homepage     = "https://github.com/StraaS/StraaS-iOS-sdk"
-  s.license      = { :type => "Copyright", :text => "Copyright (c) 2018 StraaS.io. All rights reserved." }
+  s.license      = { :type => "Copyright", :text => "Copyright (c) 2020 StraaS.io. All rights reserved." }
   s.author       = "StraaS.io"
 
   s.platform     = :ios, "8.0"
 
   s.source       = { :git => "https://github.com/StraaS/StraaS-iOS-sdk.git",
-                     :tag => "0.49.0" }
+                     :tag => "0.50.0" }
   s.static_framework = true
   s.resource_bundles = {
     'StraaSPlayerSDK' => ['ios/StraaSPlayerSDK.framework/Assets.car', 'ios/StraaSPlayerSDK.framework/*.lproj'],
-    'StraaSMessagingSDK' => ['ios/StraaSMessagingSDK.framework/*.lproj'],
-    'StraaSCircallSDK' => ['ios/StraaSCircallSDK.framework/*.lproj']
+    'StraaSMessagingSDK' => ['ios/StraaSMessagingSDK.framework/*.lproj']
   }
 
   s.subspec 'Messaging' do |msg|
@@ -48,17 +47,5 @@ Pod::Spec.new do |s|
   s.subspec 'PlayerLowLatencyExtension' do |playerLowLatencyExtension|
     playerLowLatencyExtension.vendored_frameworks = "ios/StraaSPlayerLowLatencyExtensionSDK.framework"
     playerLowLatencyExtension.dependency "StraaS-iOS-SDK/Player"
-  end
-  s.subspec 'Circall' do |circall|
-    circall.vendored_frameworks = "ios/StraaSCircallSDK.framework"
-    circall.dependency "StraaS-iOS-SDK/Core"
-    circall.dependency "Socket.IO-Client-Swift", "~> 15.1.0"
-    circall.dependency "PodRTC", "65.8.0.0"
-    circall.dependency "AFNetworking", "~> 3.2.1"
-    circall.pod_target_xcconfig = {
-      'ENABLE_BITCODE' => 'NO',
-      'SWIFT_VERSION' => '4.0',
-      'VALID_ARCHS' => 'x86_64 arm64'
-    }
   end
 end

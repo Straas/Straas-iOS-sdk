@@ -3,14 +3,14 @@
 //  VideoChat
 //
 //  Created by Lee on 18/03/2017.
-//  Copyright © 2017 StraaS.io. All rights reserved.
+//  Copyright © 2020 StraaS.io. All rights reserved.
 //
 
 #import "NSTimer+SafeTimer.h"
 
 @implementation NSTimer (SafeTimer)
 + (NSTimer*)safeScheduledTimerWithTimeInterval:(NSTimeInterval)interval
-                                         block:(void(^)())block
+                                         block:(void(^)(void))block
                                        repeats:(BOOL)repeats {
     return [self scheduledTimerWithTimeInterval:interval
                                          target:self
@@ -20,7 +20,7 @@
 }
 
 + (void)safeBlockInvoke:(NSTimer *)timer {
-    void (^block)() = timer.userInfo;
+    void (^block)(void) = timer.userInfo;
     if (block) {
         block();
     }
