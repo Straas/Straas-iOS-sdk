@@ -62,7 +62,7 @@
 		</data>
 		<key>Headers/StraaSStreamingSDK-Swift.h</key>
 		<data>
-		GyhEpt9X1/QS/LikvXZLVTt9QO0=
+		3IaT7VkPqiY1sB4QExtNmtZUNsM=
 		</data>
 		<key>Headers/StraaSStreamingSDK.h</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		WFD9xRPrguapCSMKbKkUF40ujIk=
+		6yX+AHlpmC6I6kM8cjfd7oQg4wU=
 		</data>
 		<key>Localizable.strings</key>
 		<data>
@@ -78,43 +78,43 @@
 		</data>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/arm.swiftdoc</key>
 		<data>
-		e54AyX9gkofo2JEYsUErbrUKB0U=
+		Upwu6G4jn4OZR/B+WpG+acHzEi8=
 		</data>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/arm.swiftmodule</key>
 		<data>
-		3XeZbMYdbNGvDpqOWduiNBYp9s0=
+		J5a9AKALTrqBGFiYQfwM8Q8EYhQ=
 		</data>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		UFJSf6DBC9LIdVJc9Q2R1WrVR0M=
+		yUaXnQodZzzVt5Bl1OLXNlgzvyo=
 		</data>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		emDz0eincRgxmmj1bAYGQLi1Fe8=
+		tIdUhxKlGguZnWPVoqT7byXmDBA=
 		</data>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		UFJSf6DBC9LIdVJc9Q2R1WrVR0M=
+		yUaXnQodZzzVt5Bl1OLXNlgzvyo=
 		</data>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		emDz0eincRgxmmj1bAYGQLi1Fe8=
+		tIdUhxKlGguZnWPVoqT7byXmDBA=
 		</data>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/armv7-apple-ios.swiftdoc</key>
 		<data>
-		e54AyX9gkofo2JEYsUErbrUKB0U=
+		Upwu6G4jn4OZR/B+WpG+acHzEi8=
 		</data>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/armv7-apple-ios.swiftmodule</key>
 		<data>
-		3XeZbMYdbNGvDpqOWduiNBYp9s0=
+		J5a9AKALTrqBGFiYQfwM8Q8EYhQ=
 		</data>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/armv7.swiftdoc</key>
 		<data>
-		e54AyX9gkofo2JEYsUErbrUKB0U=
+		Upwu6G4jn4OZR/B+WpG+acHzEi8=
 		</data>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/armv7.swiftmodule</key>
 		<data>
-		3XeZbMYdbNGvDpqOWduiNBYp9s0=
+		J5a9AKALTrqBGFiYQfwM8Q8EYhQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -281,11 +281,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GyhEpt9X1/QS/LikvXZLVTt9QO0=
+			3IaT7VkPqiY1sB4QExtNmtZUNsM=
 			</data>
 			<key>hash2</key>
 			<data>
-			t+Q3kq2ZDwbytx4NL+wXwQZTm8dysP92KmYTtD+EPfo=
+			xHWr+cM6MEnL2MIhyH7iI/wZvkJOwh4kRmJDAu70qtM=
 			</data>
 		</dict>
 		<key>Headers/StraaSStreamingSDK.h</key>
@@ -314,110 +314,110 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			e54AyX9gkofo2JEYsUErbrUKB0U=
+			Upwu6G4jn4OZR/B+WpG+acHzEi8=
 			</data>
 			<key>hash2</key>
 			<data>
-			bf2tbGHTW9zeHwyIh8EWganOHudIAog33pzjUtOUPbg=
+			xsq0on942bvTkQ8sn/RjySCf2k3IgLnwcdBCdy6h3kg=
 			</data>
 		</dict>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/arm.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3XeZbMYdbNGvDpqOWduiNBYp9s0=
+			J5a9AKALTrqBGFiYQfwM8Q8EYhQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			bIdfXX9yV8XU5HhqGJx8N/a6ImvubCxPxfCS9ReuEl8=
+			azIVPCptFoRFtg7TgRpCkbq1ZtlXqPDPnraKCB2oT3o=
 			</data>
 		</dict>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UFJSf6DBC9LIdVJc9Q2R1WrVR0M=
+			yUaXnQodZzzVt5Bl1OLXNlgzvyo=
 			</data>
 			<key>hash2</key>
 			<data>
-			e/i/Uya5CmAEFbcgihNxNYBErZs3uyBalfep9Bpq/FE=
+			Dhvr2NFUW8qRjlUUeS4HLAbku0ZrBZkO++UbyaQ60DU=
 			</data>
 		</dict>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			emDz0eincRgxmmj1bAYGQLi1Fe8=
+			tIdUhxKlGguZnWPVoqT7byXmDBA=
 			</data>
 			<key>hash2</key>
 			<data>
-			Mp93sRXvsaWqutt9WwO9E/fkkW9hoKvpmxtFGEzj1hg=
+			a4zQgiZuNXjUDBRzOnaSVaJypTYMKZkWD1t9sARdBd0=
 			</data>
 		</dict>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UFJSf6DBC9LIdVJc9Q2R1WrVR0M=
+			yUaXnQodZzzVt5Bl1OLXNlgzvyo=
 			</data>
 			<key>hash2</key>
 			<data>
-			e/i/Uya5CmAEFbcgihNxNYBErZs3uyBalfep9Bpq/FE=
+			Dhvr2NFUW8qRjlUUeS4HLAbku0ZrBZkO++UbyaQ60DU=
 			</data>
 		</dict>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			emDz0eincRgxmmj1bAYGQLi1Fe8=
+			tIdUhxKlGguZnWPVoqT7byXmDBA=
 			</data>
 			<key>hash2</key>
 			<data>
-			Mp93sRXvsaWqutt9WwO9E/fkkW9hoKvpmxtFGEzj1hg=
+			a4zQgiZuNXjUDBRzOnaSVaJypTYMKZkWD1t9sARdBd0=
 			</data>
 		</dict>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/armv7-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			e54AyX9gkofo2JEYsUErbrUKB0U=
+			Upwu6G4jn4OZR/B+WpG+acHzEi8=
 			</data>
 			<key>hash2</key>
 			<data>
-			bf2tbGHTW9zeHwyIh8EWganOHudIAog33pzjUtOUPbg=
+			xsq0on942bvTkQ8sn/RjySCf2k3IgLnwcdBCdy6h3kg=
 			</data>
 		</dict>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/armv7-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3XeZbMYdbNGvDpqOWduiNBYp9s0=
+			J5a9AKALTrqBGFiYQfwM8Q8EYhQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			bIdfXX9yV8XU5HhqGJx8N/a6ImvubCxPxfCS9ReuEl8=
+			azIVPCptFoRFtg7TgRpCkbq1ZtlXqPDPnraKCB2oT3o=
 			</data>
 		</dict>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/armv7.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			e54AyX9gkofo2JEYsUErbrUKB0U=
+			Upwu6G4jn4OZR/B+WpG+acHzEi8=
 			</data>
 			<key>hash2</key>
 			<data>
-			bf2tbGHTW9zeHwyIh8EWganOHudIAog33pzjUtOUPbg=
+			xsq0on942bvTkQ8sn/RjySCf2k3IgLnwcdBCdy6h3kg=
 			</data>
 		</dict>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/armv7.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3XeZbMYdbNGvDpqOWduiNBYp9s0=
+			J5a9AKALTrqBGFiYQfwM8Q8EYhQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			bIdfXX9yV8XU5HhqGJx8N/a6ImvubCxPxfCS9ReuEl8=
+			azIVPCptFoRFtg7TgRpCkbq1ZtlXqPDPnraKCB2oT3o=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
