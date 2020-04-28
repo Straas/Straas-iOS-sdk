@@ -257,6 +257,10 @@
     [self.playerView loadLiveWithId:liveId lowLatency:isLowLatency];
 }
 
+- (IBAction)playAtLiveEdge:(id)sender {
+    [self.playerView playAtLiveEdge];
+}
+
 - (IBAction)listenLive:(id)sender {
     if (self.liveEventListener) {
         [self stopLiveEventListener];
