@@ -735,7 +735,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/VideoChat/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 0.53.0;
+				MARKETING_VERSION = 1.0.0-beta;
 				PRODUCT_BUNDLE_IDENTIFIER = io.straas.VideoChat;
 				PRODUCT_NAME = VideoChat;
 				SWIFT_OBJC_BRIDGING_HEADER = "VideoChat/Shared/VideoChat-Bridging-Header.h";
@@ -756,7 +756,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/VideoChat/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 0.53.0;
+				MARKETING_VERSION = 1.0.0-beta;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.straas.VideoChat;
 				PRODUCT_NAME = VideoChat;
