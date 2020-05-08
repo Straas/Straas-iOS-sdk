@@ -31,6 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) NSString *streamKey;
 
+@property (nonatomic, nullable) NSString *ownerId;
+
 @end
 
 NS_ASSUME_NONNULL_END

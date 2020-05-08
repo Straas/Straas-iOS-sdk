@@ -44,6 +44,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic) UIInterfaceOrientation outputImageOrientation;
 
+@property (nonatomic, assign) CGSize maxVideoSize;
+
 @end
 
 NS_ASSUME_NONNULL_END
