@@ -35,6 +35,7 @@ Pod::Spec.new do |s|
     streaming.vendored_frameworks = "ios/StraaSStreamingSDK.framework"
     streaming.dependency "StraaS-iOS-SDK/Core"
     streaming.dependency "GPUImage-StraaS", "~> 0.1.9"
+    streaming.dependency "HaishinKit-Straas", "~> 1.0.9"
   end
   s.subspec 'Player' do |player|
     player.vendored_frameworks = "ios/StraaSPlayerSDK.framework"
