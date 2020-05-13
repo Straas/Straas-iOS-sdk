@@ -10,6 +10,7 @@
 #import "ChatExampleViewController.h"
 #import "ECommerceChatViewController.h"
 #import "ChatStickerExampleViewController.h"
+#import "STSNewStreamingViewController.h"
 #import "STSStreamingViewController.h"
 #import "StreamingFiltersViewController.h"
 #import "STSPlayerViewController.h"
@@ -20,6 +21,7 @@ NSString * const STSMessagingServiceCustomUIKeyword = @"StraaS.io customed chatr
 NSString * const STSMessagingServiceECommerceUIKeyword = @"StraaS.io ECommerce chatroom";
 NSString * const STSStreamingServiceKeyword = @"StraaS.io streaming";
 NSString * const STSStreamingFiltersServiceKeyword = @"StraaS.io streaming filters";
+NSString * const STSStreamingNewServiceKeyword = @"StraaS.io new streaming";
 
 @interface DetailViewController ()
 @property (nonatomic) UIViewController * contentViewController;
@@ -74,6 +76,9 @@ NSString * const STSStreamingFiltersServiceKeyword = @"StraaS.io streaming filte
     }
     if ([self.detailItem isEqualToString:STSPlayerServiceBasicPlayerViewKeyword]) {
         [self addBasicPlayerView];
+    }
+    if ([self.detailItem isEqualToString:STSStreamingNewServiceKeyword]) {
+        [self addNewStreamingView];
     }
 }
 
@@ -131,6 +136,11 @@ NSString * const STSStreamingFiltersServiceKeyword = @"StraaS.io streaming filte
     [NSLayoutConstraint activateConstraints:constraints];
     [self.view setNeedsLayout];
     [self.view layoutIfNeeded];
+}
+
+- (void)addNewStreamingView {
+    STSNewStreamingViewController * controller = [STSNewStreamingViewController viewControllerFromStoryboard];
+    [self addControllerAndSetAutoLayout:controller];
 }
 
 - (void)didReceiveMemoryWarning {

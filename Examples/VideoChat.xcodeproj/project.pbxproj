@@ -47,6 +47,7 @@
 		FF68F92522818FF600ABBC46 /* UIViewController+Keyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F92422818FF500ABBC46 /* UIViewController+Keyboard.m */; };
 		FF68F9282281904500ABBC46 /* NSLayoutConstraint+STSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F9272281904400ABBC46 /* NSLayoutConstraint+STSUtility.m */; };
 		FF68F92C2281920300ABBC46 /* UIColor+STSColor.m in Sources */ = {isa = PBXBuildFile; fileRef = FF68F92B2281920300ABBC46 /* UIColor+STSColor.m */; };
+		FFAAB164246CDE2300BF6C9E /* STSNewStreamingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAAB163246CDE2300BF6C9E /* STSNewStreamingViewController.swift */; };
 		FFB667F72328E2BF00480E1E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB667F62328E2BF00480E1E /* File.swift */; };
 		FFB6689520E3961F004CE075 /* STSQRCodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6689420E3961F004CE075 /* STSQRCodeScannerViewController.m */; };
 		FFC4073F21FE8ADE001DB97C /* StreamingFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFC4073E21FE8ADE001DB97C /* StreamingFiltersViewController.m */; };
@@ -154,6 +155,7 @@
 		FF68F929228190C700ABBC46 /* STSConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSConstant.h; sourceTree = "<group>"; };
 		FF68F92A2281920300ABBC46 /* UIColor+STSColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+STSColor.h"; sourceTree = "<group>"; };
 		FF68F92B2281920300ABBC46 /* UIColor+STSColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+STSColor.m"; sourceTree = "<group>"; };
+		FFAAB163246CDE2300BF6C9E /* STSNewStreamingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSNewStreamingViewController.swift; sourceTree = "<group>"; };
 		FFB667F52328E2BF00480E1E /* VideoChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		FFB667F62328E2BF00480E1E /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		FFB6689320E3961F004CE075 /* STSQRCodeScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSQRCodeScannerViewController.h; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				40C779EE1D7091D0004F61CA /* Info.plist */,
+				FFBAC20C246AA83B0078D92D /* NewStreaming */,
 				FF154BEF228195B300D542FA /* Shared */,
 				72E0939F1DD080B70045E587 /* Streaming */,
 				40A2022E1D77F93E00457359 /* ChatRoom */,
@@ -361,6 +364,14 @@
 				FFB667F52328E2BF00480E1E /* VideoChat-Bridging-Header.h */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		FFBAC20C246AA83B0078D92D /* NewStreaming */ = {
+			isa = PBXGroup;
+			children = (
+				FFAAB163246CDE2300BF6C9E /* STSNewStreamingViewController.swift */,
+			);
+			path = NewStreaming;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -554,6 +565,7 @@
 				FF68F92522818FF600ABBC46 /* UIViewController+Keyboard.m in Sources */,
 				9B4310471DD32504002CD178 /* NSFileManager+Sticker.m in Sources */,
 				9BB9B32F1E7C569C00245AB7 /* NSTimer+SafeTimer.m in Sources */,
+				FFAAB164246CDE2300BF6C9E /* STSNewStreamingViewController.swift in Sources */,
 				40A2023A1D77F93E00457359 /* TypingIndicatorView.m in Sources */,
 				40A202451D7804B400457359 /* STSChatMessage+VideoChatUtility.m in Sources */,
 				4A3A2BB81ED7DEE900A22863 /* TransparentChatViewController.m in Sources */,

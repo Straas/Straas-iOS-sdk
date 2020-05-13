@@ -40,7 +40,8 @@
                      STSMessagingServiceCustomUIKeyword,
                      STSMessagingServiceECommerceUIKeyword,
                      STSStreamingServiceKeyword,
-                     STSStreamingFiltersServiceKeyword];
+                     STSStreamingFiltersServiceKeyword,
+                     STSStreamingNewServiceKeyword];
     }
     return _objects;
 }

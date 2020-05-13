@@ -14,6 +14,7 @@ extern NSString * const STSMessagingServiceCustomUIKeyword;
 extern NSString * const STSMessagingServiceECommerceUIKeyword;
 extern NSString * const STSStreamingServiceKeyword;
 extern NSString * const STSStreamingFiltersServiceKeyword;
+extern NSString * const STSStreamingNewServiceKeyword;
 
 @interface DetailViewController : UIViewController
 
