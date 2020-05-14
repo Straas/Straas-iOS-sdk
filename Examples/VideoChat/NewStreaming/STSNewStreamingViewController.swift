@@ -458,6 +458,8 @@ final class STSNewStreamingViewController: UIViewController {
                 self.enableAllInputs(true)
                 self.startButton.setTitle("Start", for: .normal)
             }
+        } else {
+            showAlert(with: title, message: errorMessage)
         }
     }
 
