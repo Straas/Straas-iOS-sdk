@@ -41,9 +41,6 @@ final class STSNewStreamingViewController: UIViewController {
 
     private var streamingManager: StreamingManager!
 
-    public func viewControllerFromStoryboard() -> UIViewController {
-        
-    }
 //    + (instancetype)viewControllerFromStoryboard {
 //        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 //        STSStreamingViewController * vc =
@@ -94,15 +91,7 @@ final class STSNewStreamingViewController: UIViewController {
         func setupStreamingManager() {
 
             func memberJWT() -> String {
-                #if DEBUG
-                    return kStraaSStagingMemberJWT;
-                #elseif RCAuthTest
-                    return kStraaSRcAuthTestMemberJWT;
-                #elseif RC
-                    return kStraaSRcMemberJWT;
-                #else
-                    return kStraaSProdMemberJWT;
-                #endif
+                return kStraaSProdMemberJWT;
             }
 
             self.streamingManager = StreamingManager.getInstance(with: memberJWT())

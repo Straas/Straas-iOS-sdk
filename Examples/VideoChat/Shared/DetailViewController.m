@@ -10,10 +10,11 @@
 #import "ChatExampleViewController.h"
 #import "ECommerceChatViewController.h"
 #import "ChatStickerExampleViewController.h"
-#import "STSNewStreamingViewController.h"
 #import "STSStreamingViewController.h"
 #import "StreamingFiltersViewController.h"
 #import "STSPlayerViewController.h"
+#import "STSConstant.h"
+#import <VideoChat-Swift.h>
 
 NSString * const STSPlayerServiceBasicPlayerViewKeyword = @"StraaS.io PlayerView";
 NSString * const STSMessagingServiceKeyword = @"StraaS.io default chatroom";

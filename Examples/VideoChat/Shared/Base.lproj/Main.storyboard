@@ -937,7 +937,7 @@
         <!--New Streaming View Controller-->
         <scene sceneID="W0b-rX-0uM">
             <objects>
-                <viewController storyboardIdentifier="STSStreamingViewController" id="unC-DL-tcr" customClass="STSNewStreamingViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="STSNewStreamingViewController" id="unC-DL-tcr" customClass="STSNewStreamingViewController" customModule="VideoChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2B5-46-p7I"/>
                         <viewControllerLayoutGuide type="bottom" id="Ve4-2z-Ih7"/>
@@ -1160,7 +1160,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="audioButton" destination="s3m-bj-IyG" id="Mpp-gx-YDC"/>
+                        <outlet property="audioButton" destination="s3m-bj-IyG" id="wBl-fx-Ldl"/>
                         <outlet property="bitrateLabel" destination="zBv-qg-U7v" id="nlv-iN-Djz"/>
                         <outlet property="cameraButton" destination="En6-lf-ard" id="tbJ-m3-vRM"/>
                         <outlet property="flipOutputButton" destination="45Z-Rl-wMK" id="6kj-AV-MAJ"/>
@@ -1178,7 +1178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qav-uw-adg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="460" y="844.22788605697156"/>
+            <point key="canvasLocation" x="460" y="1560"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
