@@ -18,8 +18,7 @@ Pod::Spec.new do |s|
   s.static_framework = true
   s.resource_bundles = {
     'StraaSPlayerSDK' => ['ios/StraaSPlayerSDK.framework/Assets.car', 'ios/StraaSPlayerSDK.framework/*.lproj'],
-    'StraaSMessagingSDK' => ['ios/StraaSMessagingSDK.framework/*.lproj'],
-    'StraaSStreamingSDK' => ['ios/StraaSStreamingSDK.framework/Assets.car']
+    'StraaSMessagingSDK' => ['ios/StraaSMessagingSDK.framework/*.lproj']
   }
 
   s.subspec 'Messaging' do |msg|
@@ -29,7 +28,7 @@ Pod::Spec.new do |s|
   end
   s.subspec 'Core' do |co|
     co.vendored_frameworks = "ios/StraaSCoreSDK.framework"
-    co.dependency "AFNetworking", "~> 3.2.1"
+    co.dependency "AFNetworking", "~> 4.0.0"
     co.dependency "Socket.IO-Client-Swift", "~> 15.1.0"
   end
   s.subspec 'Streaming' do |streaming|
@@ -44,7 +43,7 @@ Pod::Spec.new do |s|
     player.dependency "Socket.IO-Client-Swift", "~> 15.1.0"
     player.dependency "GoogleAds-IMA-iOS-SDK", "~> 3.6.0"
     player.dependency "KVOController", "~> 1.2.0"
-    player.dependency "AFNetworking", "~> 3.2.1"
+    player.dependency "AFNetworking", "~> 4.0.0"
   end
   s.subspec 'PlayerLowLatencyExtension' do |playerLowLatencyExtension|
     playerLowLatencyExtension.vendored_frameworks = "ios/StraaSPlayerLowLatencyExtensionSDK.framework"
