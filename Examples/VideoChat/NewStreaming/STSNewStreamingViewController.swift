@@ -214,7 +214,7 @@ final class STSNewStreamingViewController: UIViewController {
         }
 
         //FIXME:
-//        self.streamingManager.isFlipFrontCameraOutputHorizontal = !self.streamingManager.isFlipFrontCameraOutputHorizontal
+        self.streamingManager.isFlipFrontCameraOutputHorizontal = !self.streamingManager.isFlipFrontCameraOutputHorizontal
         updateMirrorButton()
     }
 
@@ -225,11 +225,11 @@ final class STSNewStreamingViewController: UIViewController {
         }
 
         //FIXME:
-//        if streamingManager.isFlipFrontCameraOutputHorizontal {
-//            flipOutputButton.setTitleColor(UIColor.systemBlue, for: .normal)
-//        } else {
-//            flipOutputButton.setTitleColor(UIColor.white, for: .normal)
-//        }
+        if streamingManager.isFlipFrontCameraOutputHorizontal {
+            flipOutputButton.setTitleColor(UIColor.systemBlue, for: .normal)
+        } else {
+            flipOutputButton.setTitleColor(UIColor.white, for: .normal)
+        }
     }
 
     @IBAction private func streamWayControlValueChanged(_ segment: UISegmentedControl) {
