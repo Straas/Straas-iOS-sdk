@@ -31,7 +31,7 @@ final class STSNewStreamingViewController: UIViewController {
     @IBOutlet private weak var settingView: UIView!
     @IBOutlet private weak var streamKeySettingView: UIView!
     @IBOutlet private weak var previewViewWidthConstraint: NSLayoutConstraint!
-    var filterType: STSStreamingFilterType!
+//    var filterType: STSStreamingFilterType!
     var shouldPrepareAgain: Bool!
 
     enum StreamWay: Int {
@@ -213,7 +213,8 @@ final class STSNewStreamingViewController: UIViewController {
             return
         }
 
-        self.streamingManager.isFlipFrontCameraOutputHorizontal = !self.streamingManager.isFlipFrontCameraOutputHorizontal
+        //FIXME:
+//        self.streamingManager.isFlipFrontCameraOutputHorizontal = !self.streamingManager.isFlipFrontCameraOutputHorizontal
         updateMirrorButton()
     }
 
@@ -223,11 +224,12 @@ final class STSNewStreamingViewController: UIViewController {
             return
         }
 
-        if streamingManager.isFlipFrontCameraOutputHorizontal {
-            flipOutputButton.setTitleColor(UIColor.systemBlue, for: .normal)
-        } else {
-            flipOutputButton.setTitleColor(UIColor.white, for: .normal)
-        }
+        //FIXME:
+//        if streamingManager.isFlipFrontCameraOutputHorizontal {
+//            flipOutputButton.setTitleColor(UIColor.systemBlue, for: .normal)
+//        } else {
+//            flipOutputButton.setTitleColor(UIColor.white, for: .normal)
+//        }
     }
 
     @IBAction private func streamWayControlValueChanged(_ segment: UISegmentedControl) {
