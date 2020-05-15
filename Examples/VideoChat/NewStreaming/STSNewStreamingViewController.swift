@@ -31,7 +31,6 @@ final class STSNewStreamingViewController: UIViewController {
     @IBOutlet private weak var settingView: UIView!
     @IBOutlet private weak var streamKeySettingView: UIView!
     @IBOutlet private weak var previewViewWidthConstraint: NSLayoutConstraint!
-//    var filterType: STSStreamingFilterType!
     var shouldPrepareAgain: Bool!
 
     enum StreamWay: Int {
@@ -40,13 +39,6 @@ final class STSNewStreamingViewController: UIViewController {
     }
 
     private var streamingManager: StreamingManager!
-
-//    + (instancetype)viewControllerFromStoryboard {
-//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        STSStreamingViewController * vc =
-//        [storyboard instantiateViewControllerWithIdentifier:@"STSStreamingViewController"];
-//        return vc;
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,14 +92,8 @@ final class STSNewStreamingViewController: UIViewController {
                 return
             }
 
-            streamingManager.addObserver(self, forKeyPath: "currentFPS", options: .new, context: nil)
-
             streamingManager.delegate = self
-            //        self.streamingManager.captureDevicePosition = AVCaptureDevicePositionBack;
-            //        self.streamingManager.flipFrontCameraOutputHorizontally = YES;
             updateFlipOutputButtonVisibility()
-//                self.filterType = STSStreamingFilterTypeNone;
-//                [self updateFilter:self.filterType];
         }
 
         setupStreamingManager()
@@ -147,8 +133,6 @@ final class STSNewStreamingViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         streamingManager?.removeObserver(self, forKeyPath: "currentFPS")
-//        rtmpStream.close()
-//        rtmpStream.dispose()
     }
 
     func shouldAutorotate() -> Bool {
@@ -196,10 +180,6 @@ final class STSNewStreamingViewController: UIViewController {
                 }
 
                 startStreamingWithTitle(title)
-
-                //for testing startStreamingWithConfiguration
-//                let configuration = STSStreamingLiveEventConfig(title: "test title", listed: true)
-//                startStreamingWithConfiguration(configuration)
             }
         } else if streamingManager.state == .streaming {
             statusLabel.text = "disconnecting"
@@ -277,7 +257,7 @@ final class STSNewStreamingViewController: UIViewController {
             self?.startStreamingWithLiveId(liveId)
         }) { [weak self] (error, liveId) in
             if error.domain == STSStreamingErrorDomain && error.code == STSStreamingErrorCode.errorCodeLiveCountLimit.rawValue {
-                print("Current member has an unended live event, try to start streaming by reusing that event. liveId = \(liveId)")
+                print("Current member has an unended live event, try to start streaming by reusing that event. liveId = \(String(describing: liveId))")
                 guard let liveId = liveId else {
                     assert(false)
                     return
@@ -421,26 +401,6 @@ final class STSNewStreamingViewController: UIViewController {
         flipOutputButton.isHidden = streamingManager?.captureDevicePosition == .back
     }
 
-    @IBAction private func onFPSValueChanged(_ segment: UISegmentedControl) {
-    }
-
-    @IBAction private func onEffectValueChanged(_ segment: UISegmentedControl) {
-    }
-
-    @objc
-    private func on(_ notification: Notification) {
-        guard let orientation = DeviceUtil.videoOrientation(by: UIApplication.shared.statusBarOrientation) else {
-            return
-        }
-//        rtmpStream.orientation = orientation
-    }
-
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        if Thread.isMainThread {
-            fpsLabel?.text = "\(streamingManager.currentFPS) fps"
-        }
-    }
-
     func onError(with title: String, errorMessage: String) {
 
         func showAlert(with title: String, message: String) {
@@ -473,30 +433,6 @@ final class STSNewStreamingViewController: UIViewController {
 }
 
 //MARK: UIViewController interface rotation methods
-
-//- (void)hideNavigationControllerIfNecessary {
-//    if ([[UIDevice currentDevice] userInterfaceIdiom] != UIUserInterfaceIdiomPhone) {
-//        return;
-//    }
-//    BOOL isLandscape =
-//    UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation);
-//    self.navigationController.navigationBarHidden = isLandscape;
-//}
-//
-//- (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-//    [super willTransitionToTraitCollection:newCollection withTransitionCoordinator:coordinator];
-//    [coordinator animateAlongsideTransition:nil completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-//        if (self.isViewLoaded && self.view.window) {
-//            [self prepare];
-//        } else {
-//            self.shouldPrepareAgain = YES;
-//        }
-//        if (newCollection.userInterfaceIdiom != UIUserInterfaceIdiomPhone) {
-//            return;
-//        }
-//        [self hideNavigationControllerIfNecessary];
-//    }];
-//}
 
 extension STSNewStreamingViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
