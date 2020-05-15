@@ -451,12 +451,12 @@ extension STSNewStreamingViewController: STSStreamingManagerDelegate {
         self.onError(with: errorTitle, errorMessage: errorMessage)
     }
 
-//    - (void)streamingManager:(STSStreamingManager *)streamingManager didUpdateStreamingStatsReport:(STSStreamingStatsReport *)statsReport {
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [self updateUIWithBitrate:statsReport.currentBitrate];
-//            [self updateUIWithFPS:statsReport.currentFPS];
-//        });
-//    }
+    func streamingManager(_: StreamingManager, didUpdate statsReport: STSStreamingStatsReport) {
+        DispatchQueue.main.async {
+            self.updateUIWithFPS(fps: CGFloat(statsReport.currentBitrate))
+            self.updateUIWithFPS(fps: statsReport.currentFPS)
+        }
+    }
 }
 
 extension STSNewStreamingViewController: STSQRCodeScannerViewControllerDelegate {
