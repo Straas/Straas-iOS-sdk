@@ -33,3 +33,4 @@ FOUNDATION_EXPORT const unsigned char StraaSStreamingSDKVersionString[];
 #import <StraaSStreamingSDK/STSStreamingUtility.h>
 #import <StraaSStreamingSDK/NSError+StraaSStreamingSDK.h>
 //#import <StraaSStreamingSDK/STSStreamingInfo+Internal.h>
+#import <StraaSStreamingSDK/STSStreamingStatsReport+Internal.h>

@@ -8,6 +8,7 @@ import Swift
 import UIKit
 public protocol STSStreamingManagerDelegate : AnyObject {
   func streamingManager(_: StraaSStreamingSDK.StreamingManager, onError: Foundation.NSError, liveId: Swift.String)
+  func streamingManager(_: StraaSStreamingSDK.StreamingManager, didUpdate statsReport: StraaSStreamingSDK.STSStreamingStatsReport)
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers public class StreamingManager : ObjectiveC.NSObject {
   weak public var delegate: StraaSStreamingSDK.STSStreamingManagerDelegate?
