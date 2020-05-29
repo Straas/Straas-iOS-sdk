@@ -190,6 +190,18 @@ __attribute__((deprecated("prepareWithVideoSize:previewView:outputImageOrientati
 - (void)startStreamingWithStreamKey:(NSString *)streamKey
                             success:(void(^)(void))success
                             failure:(void(^)(NSError * error))failure;
+
+/**
+*  If you have the RTMP URL of a live event, you could use this method to publish your stream to it.
+*  This method should only be called when the STSStreamingManager's state is  STSStreamingStatePrepared.
+*  @param RTMPURL The full RTMP URL.
+*  @param success A block object to be executed when the task finishes successfully.
+*  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+*/
+- (void)startStreamingWithRTMPURL:(NSURL *)RTMPURL
+                          success:(void(^)(void))success
+                          failure:(void(^)(NSError * error))failure;
+
 /**
  *  Stops the current live streaming.
  *
