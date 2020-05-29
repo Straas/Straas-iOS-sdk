@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -815,7 +815,7 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" image="scan"/>
                                                 <connections>
-                                                    <action selector="streamKeyScanButtonPressed:" destination="W1W-Ha-Kq9" eventType="touchUpInside" id="JM0-NJ-9WJ"/>
+                                                    <action selector="scanButtonPressed:" destination="W1W-Ha-Kq9" eventType="touchUpInside" id="JM0-NJ-9WJ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -828,6 +828,42 @@
                                             <constraint firstAttribute="height" constant="30" id="TaK-Tn-Gi8"/>
                                             <constraint firstItem="0ua-Xs-gzK" firstAttribute="top" secondItem="NF3-BJ-eiM" secondAttribute="top" id="as7-gb-b8I"/>
                                             <constraint firstItem="ldx-Yt-Ck6" firstAttribute="centerY" secondItem="0ua-Xs-gzK" secondAttribute="centerY" id="nab-zM-gjV"/>
+                                        </constraints>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAr-CT-fE6" userLabel="Strean URL Setting View">
+                                        <rect key="frame" x="10" y="149" width="355" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Scan or paste your stream URL." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="scr-GR-awK" userLabel="Stream URL Field">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="W1W-Ha-Kq9" id="p7a-w6-9u9"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHD-IJ-R4S" userLabel="Stream URL Scan Button">
+                                                <rect key="frame" x="325" y="2" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="tPH-3E-znd"/>
+                                                    <constraint firstAttribute="height" constant="30" id="z5a-b9-d3V"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" image="scan"/>
+                                                <connections>
+                                                    <action selector="scanButtonPressed:" destination="W1W-Ha-Kq9" eventType="touchUpInside" id="zcr-D5-NMU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="CHD-IJ-R4S" firstAttribute="leading" secondItem="scr-GR-awK" secondAttribute="trailing" constant="10" id="3Sm-Tp-5iZ"/>
+                                            <constraint firstItem="scr-GR-awK" firstAttribute="leading" secondItem="dAr-CT-fE6" secondAttribute="leading" id="Jky-5L-vvQ"/>
+                                            <constraint firstItem="CHD-IJ-R4S" firstAttribute="centerY" secondItem="scr-GR-awK" secondAttribute="centerY" id="K0J-gB-wt6"/>
+                                            <constraint firstItem="CHD-IJ-R4S" firstAttribute="leading" secondItem="scr-GR-awK" secondAttribute="trailing" constant="10" id="YF8-Fx-hKj"/>
+                                            <constraint firstAttribute="trailing" secondItem="CHD-IJ-R4S" secondAttribute="trailing" id="jnV-gW-ovn"/>
+                                            <constraint firstItem="scr-GR-awK" firstAttribute="top" secondItem="dAr-CT-fE6" secondAttribute="top" id="kMR-3n-uvj"/>
+                                            <constraint firstAttribute="height" constant="30" id="mtl-su-VHl"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mR2-Zy-BPb">
@@ -850,6 +886,7 @@
                                         <segments>
                                             <segment title="By live event"/>
                                             <segment title="By stream key"/>
+                                            <segment title="By stream URL"/>
                                         </segments>
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
@@ -879,7 +916,9 @@
                                     <constraint firstAttribute="bottom" secondItem="NF3-BJ-eiM" secondAttribute="bottom" constant="10" id="LYZ-BL-sB2"/>
                                     <constraint firstAttribute="trailing" secondItem="ZdS-Lr-Ygr" secondAttribute="trailing" constant="10" id="Okt-hG-SqO"/>
                                     <constraint firstAttribute="trailing" secondItem="OhG-6d-AcL" secondAttribute="trailing" constant="10" id="PuF-cJ-Km9"/>
+                                    <constraint firstItem="dAr-CT-fE6" firstAttribute="top" secondItem="NF3-BJ-eiM" secondAttribute="top" id="TBK-9E-Z0K"/>
                                     <constraint firstItem="xmX-L1-t6O" firstAttribute="width" secondItem="Gac-on-Sjd" secondAttribute="width" multiplier="0.2" id="Ueo-ER-y5a"/>
+                                    <constraint firstItem="dAr-CT-fE6" firstAttribute="bottom" secondItem="NF3-BJ-eiM" secondAttribute="bottom" id="VNa-ea-0TB"/>
                                     <constraint firstItem="wz9-rK-Otf" firstAttribute="top" secondItem="ht1-v7-roP" secondAttribute="bottom" constant="8" id="WXA-Ky-SPx"/>
                                     <constraint firstItem="OhG-6d-AcL" firstAttribute="top" secondItem="ZdS-Lr-Ygr" secondAttribute="bottom" constant="10" id="YkM-gt-0X1"/>
                                     <constraint firstItem="NF3-BJ-eiM" firstAttribute="top" secondItem="ZdS-Lr-Ygr" secondAttribute="bottom" constant="10" id="Zxw-ln-laF"/>
@@ -889,10 +928,12 @@
                                     <constraint firstItem="ZdS-Lr-Ygr" firstAttribute="leading" secondItem="Gac-on-Sjd" secondAttribute="leading" constant="10" id="dwZ-HL-9wH"/>
                                     <constraint firstItem="xmX-L1-t6O" firstAttribute="leading" secondItem="ht1-v7-roP" secondAttribute="trailing" constant="10" id="efh-tV-nXN"/>
                                     <constraint firstItem="ht1-v7-roP" firstAttribute="width" secondItem="Gac-on-Sjd" secondAttribute="width" multiplier="0.2" id="faD-SU-0V1"/>
+                                    <constraint firstItem="dAr-CT-fE6" firstAttribute="leading" secondItem="NF3-BJ-eiM" secondAttribute="leading" id="fq4-s5-v36"/>
                                     <constraint firstItem="wz9-rK-Otf" firstAttribute="leading" secondItem="ht1-v7-roP" secondAttribute="leading" id="gnc-SE-259"/>
                                     <constraint firstItem="xmX-L1-t6O" firstAttribute="centerY" secondItem="ht1-v7-roP" secondAttribute="centerY" id="hHJ-xD-bXS"/>
                                     <constraint firstItem="mR2-Zy-BPb" firstAttribute="centerY" secondItem="ht1-v7-roP" secondAttribute="centerY" id="kcQ-Qb-Z3u"/>
                                     <constraint firstItem="mR2-Zy-BPb" firstAttribute="leading" secondItem="sgT-OC-flM" secondAttribute="trailing" constant="10" id="nD6-DJ-uq3"/>
+                                    <constraint firstItem="dAr-CT-fE6" firstAttribute="trailing" secondItem="NF3-BJ-eiM" secondAttribute="trailing" id="oFK-QR-vAk"/>
                                     <constraint firstItem="sgT-OC-flM" firstAttribute="width" secondItem="Gac-on-Sjd" secondAttribute="width" multiplier="0.2" id="vA8-9n-gIV"/>
                                     <constraint firstItem="NF3-BJ-eiM" firstAttribute="leading" secondItem="Gac-on-Sjd" secondAttribute="leading" constant="10" id="x3p-E9-OLL"/>
                                     <constraint firstItem="ht1-v7-roP" firstAttribute="leading" secondItem="Gac-on-Sjd" secondAttribute="leading" constant="10" id="y0R-5o-CMe"/>
@@ -926,6 +967,9 @@
                         <outlet property="streamKeyField" destination="0ua-Xs-gzK" id="wzH-6F-3Ra"/>
                         <outlet property="streamKeyScanButton" destination="ldx-Yt-Ck6" id="S9o-V0-MrA"/>
                         <outlet property="streamKeySettingView" destination="NF3-BJ-eiM" id="Q4Q-Ei-jOp"/>
+                        <outlet property="streamURLScanButton" destination="CHD-IJ-R4S" id="wOG-E5-68X"/>
+                        <outlet property="streamURLSettingView" destination="dAr-CT-fE6" id="wWP-Q1-4Ru"/>
+                        <outlet property="streamURLTextField" destination="scr-GR-awK" id="cHI-95-z3o"/>
                         <outlet property="streamWayControl" destination="ZdS-Lr-Ygr" id="zNe-pe-Va6"/>
                         <outlet property="titleField" destination="OhG-6d-AcL" id="Qxl-Zz-YJF"/>
                     </connections>

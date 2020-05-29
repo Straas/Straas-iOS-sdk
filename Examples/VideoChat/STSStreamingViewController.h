@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, STSStreamWay) {
+    STSStreamWayLiveEvent = 0,
+    STSStreamWayStreamKey = 1,
+    STSStreamWayStreamURL = 2,
+};
+
 @interface STSStreamingViewController : UIViewController
 
 + (instancetype)viewControllerFromStoryboard;

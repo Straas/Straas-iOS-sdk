@@ -23,18 +23,16 @@ typedef NS_ENUM(NSUInteger, STSStreamingFilterType){
     STSStreamingFilterTypeSkinSmooth
 };
 
-typedef NS_ENUM(NSUInteger, STSStreamWay){
-    STSStreamWayLiveEvent = 0,
-    STSStreamWayStreamKey = 1
-};
-
 NSUInteger const kSTSStreamingFilterCount = 4;
 NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
+NSString * const kUserDefaultsKeyStreamURL = @"kUserDefaultsKeyStreamURL";
 
 @interface STSStreamingViewController()<UITextFieldDelegate, STSStreamingManagerDelegate, STSQRCodeScannerViewControllerDelegate>
 @property (nonatomic, weak) IBOutlet UITextField *titleField;
 @property (nonatomic, weak) IBOutlet UITextField * streamKeyField;
+@property (nonatomic, weak) IBOutlet UITextField *streamURLTextField;
 @property (nonatomic, weak) IBOutlet UIButton * streamKeyScanButton;
+@property (nonatomic, weak) IBOutlet UIButton * streamURLScanButton;
 @property (nonatomic, weak) IBOutlet UISegmentedControl * streamWayControl;
 @property (nonatomic, weak) IBOutlet UIButton * startButton;
 @property (nonatomic, weak) IBOutlet UIButton * cameraButton;
@@ -46,10 +44,11 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
 @property (nonatomic, weak) IBOutlet UIView * previewView;
 @property (nonatomic, weak) IBOutlet UIView * settingView;
 @property (nonatomic, weak) IBOutlet UIView * streamKeySettingView;
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *previewViewWidthConstraint;
+@property (nonatomic, weak) IBOutlet UIView * streamURLSettingView;
 @property (nonatomic) STSStreamingFilterType filterType;
 @property (nonatomic) STSStreamingManager *streamingManager;
 @property (nonatomic) BOOL shouldPrepareAgain;
+@property (nonatomic, assign) STSStreamWay streamWay;
 @end
 
 @implementation STSStreamingViewController
@@ -83,6 +82,10 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
     NSString *cachedStreamKey = [[NSUserDefaults standardUserDefaults]
                               stringForKey:kUserDefaultsKeyStreamKey];
     self.streamKeyField.text = cachedStreamKey;
+
+    NSString *cachedStreamURL = [[NSUserDefaults standardUserDefaults]
+    stringForKey:kUserDefaultsKeyStreamURL];
+    self.streamURLTextField.text = cachedStreamURL;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -121,12 +124,25 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
     if (self.streamingManager.state == STSStreamingStatePrepared) {
         self.statusLabel.text = @"connecting";
         [self enableAllInputs:NO];
-        if (self.streamWayControl.selectedSegmentIndex == STSStreamWayLiveEvent) {
-            NSString * title = self.titleField.text;
-            [self startStreamingWithTitle:title];
-        } else {
-            NSString * streamKey = self.streamKeyField.text;
-            [self startStreamingWithStreamKey:streamKey];
+        switch (self.streamWayControl.selectedSegmentIndex) {
+            case STSStreamWayLiveEvent:
+            {
+                NSString * title = self.titleField.text;
+                [self startStreamingWithTitle:title];
+                break;
+            }
+            case STSStreamWayStreamKey:
+            {
+                NSString * streamKey = self.streamKeyField.text;
+                [self startStreamingWithStreamKey:streamKey];
+                break;
+            }
+            case STSStreamWayStreamURL:
+            {
+                NSString *streaUrlString = self.streamURLTextField.text;
+                [self startStreamingWithStreamURLString:streaUrlString];
+                break;
+            }
         }
         return;
     }
@@ -163,14 +179,28 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
 
 - (IBAction)streamWayControlValueChanged:(id)sender {
     UISegmentedControl * streamWayControl = (UISegmentedControl *)sender;
+    switch (streamWayControl.selectedSegmentIndex) {
+        case STSStreamWayLiveEvent:
+            self.streamWay = STSStreamWayLiveEvent;
+            break;
+        case STSStreamWayStreamKey:
+            self.streamWay = STSStreamWayStreamKey;
+            break;
+        case STSStreamWayStreamURL:
+            self.streamWay = STSStreamWayStreamURL;
+            break;
+    }
+
     self.titleField.hidden = !(streamWayControl.selectedSegmentIndex == STSStreamWayLiveEvent);
     self.streamKeySettingView.hidden = !(streamWayControl.selectedSegmentIndex == STSStreamWayStreamKey);
+    self.streamURLSettingView.hidden = !(streamWayControl.selectedSegmentIndex == STSStreamWayStreamURL);
     [self.view endEditing:YES];
 }
 
-- (IBAction)streamKeyScanButtonPressed:(id)sender {
+- (IBAction)scanButtonPressed:(id)sender {
     STSQRCodeScannerViewController * vc = [STSQRCodeScannerViewController new];
     vc.delegate = self;
+    vc.streamWay = self.streamWay;
     [self presentViewController:vc animated:YES completion:nil];
 }
 
@@ -298,6 +328,22 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
     }];
 }
 
+- (void)startStreamingWithStreamURLString:(NSString *)streamURLString {
+    if ([streamURLString length] == 0) {
+        [self onErrorWithTitle:@"Error" message:@"The stream url should not be empty."];
+        return;
+    }
+    __weak STSStreamingViewController * weakSelf = self;
+    [self.streamingManager startStreamingWithRTMPURL:[NSURL URLWithString:streamURLString] success:^{
+        NSLog(@"Did start streaming with given stream url.");
+        [weakSelf didStartStreaming];
+    } failure:^(NSError * error) {
+        NSString * errorTitle = @"STSStreamingManager failed to start streaming with given stream url.";
+        NSString * errorMsg = [NSString stringWithFormat: @"Error: %@", error];
+        [weakSelf onErrorWithTitle:errorTitle message:errorMsg];
+    }];
+}
+
 - (void)didStartStreaming {
     self.statusLabel.text = @"start";
     self.startButton.enabled = YES;
@@ -407,6 +453,7 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
     self.startButton.enabled = enabled;
     self.streamKeyField.enabled = enabled;
     self.streamKeyScanButton.enabled = enabled;
+    self.streamURLScanButton.enabled = enabled;
     self.titleField.enabled = enabled;
     self.streamWayControl.enabled = enabled;
 }
@@ -470,9 +517,21 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
 #pragma mark - STSQRCodeScannerViewControllerDelegate
 
 - (void)scanner:(STSQRCodeScannerViewController *)scanner didGetQRCode:(NSString *)qrCode {
-    self.streamKeyField.text = qrCode;
-    [[NSUserDefaults standardUserDefaults] setObject:qrCode forKey:kUserDefaultsKeyStreamKey];
+    switch (scanner.streamWay) {
+        case STSStreamWayLiveEvent:
+            break;
+        case STSStreamWayStreamKey:
+            self.streamKeyField.text = qrCode;
+            [[NSUserDefaults standardUserDefaults] setObject:qrCode forKey:kUserDefaultsKeyStreamKey];
+            break;
+        case STSStreamWayStreamURL:
+            self.streamURLTextField.text = qrCode;
+            [[NSUserDefaults standardUserDefaults] setObject:qrCode forKey:kUserDefaultsKeyStreamURL];
+            break;
+    }
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 @end

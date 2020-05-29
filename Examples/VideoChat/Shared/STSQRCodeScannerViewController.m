@@ -7,6 +7,7 @@
 //
 
 #import "STSQRCodeScannerViewController.h"
+#import "STSStreamingViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface STSQRCodeScannerViewController ()<AVCaptureMetadataOutputObjectsDelegate>
