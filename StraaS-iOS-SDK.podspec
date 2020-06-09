@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "StraaS-iOS-SDK"
-  s.version      = "0.52.0"
+  s.version      = "0.53.0"
   s.summary      = "StraaS.io iOS SDK"
 
   s.description  = "StraaS.io - Streaming as a Service, Your Best OTT Solution."
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
 
   s.source       = { :git => "https://github.com/StraaS/StraaS-iOS-sdk.git",
-                     :tag => "0.52.0" }
+                     :tag => "0.53.0" }
   s.static_framework = true
   s.resource_bundles = {
     'StraaSPlayerSDK' => ['ios/StraaSPlayerSDK.framework/Assets.car', 'ios/StraaSPlayerSDK.framework/*.lproj'],
