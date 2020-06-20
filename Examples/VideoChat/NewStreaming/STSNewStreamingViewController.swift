@@ -27,7 +27,7 @@ final class STSNewStreamingViewController: UIViewController {
     @IBOutlet private weak var statusLabel: UILabel!
     @IBOutlet private weak var bitrateLabel: UILabel!
     @IBOutlet private weak var fpsLabel: UILabel!
-    @IBOutlet private weak var previewView: GLHKView?
+    @IBOutlet private weak var previewView: MTHKView?
     @IBOutlet private weak var settingView: UIView!
     @IBOutlet private weak var streamKeySettingView: UIView!
     @IBOutlet private weak var previewViewWidthConstraint: NSLayoutConstraint!
@@ -269,32 +269,6 @@ final class STSNewStreamingViewController: UIViewController {
             let errorTitle = "STSStreamingManager failed to create a new live event."
             let errorMessage = "Error: \(error.localizedDescription) \nLive id = \(String(describing: liveId))"
             self?.onError(with: errorTitle, errorMessage: errorMessage)
-        }
-    }
-
-    func startStreamingWithConfiguration(_ configuration: STSStreamingLiveEventConfig) {
-        guard let streamingManager = streamingManager else {
-            return
-        }
-
-        streamingManager.startStreamingWithConfguration(configuration, success: { (liveId) in
-            print("startStreamingWithConfguration success")
-        }) { (error, liveId) in
-            print("startStreamingWithConfguration failed")
-
-            if error.domain == STSStreamingErrorDomain && error.code == NSError.stsStreamingLiveCountLimitError().code {
-                guard let liveId = liveId else {
-                    assert(false)
-                    return
-                }
-
-                print("Current member has an unended live event, try to start streaming by reusing that event. liveId=\(liveId)")
-                self.startStreamingWithLiveId(liveId)
-                return
-            }
-            let errorTitle = "STSStreamingManager failed to create a new live event."
-            let errorMessage = "Error: \(error.localizedDescription) \nLive id=\(String(describing: liveId))"
-            self.onError(with: errorTitle, errorMessage: errorMessage)
         }
     }
 
