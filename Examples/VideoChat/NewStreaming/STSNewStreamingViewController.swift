@@ -126,13 +126,6 @@ final class STSNewStreamingViewController: UIViewController {
             shouldPrepareAgain = false
             prepare()
         }
-
-        streamingManager?.addObserver(self, forKeyPath: "currentFPS", options: .new, context: nil)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        streamingManager?.removeObserver(self, forKeyPath: "currentFPS")
     }
 
     func shouldAutorotate() -> Bool {
