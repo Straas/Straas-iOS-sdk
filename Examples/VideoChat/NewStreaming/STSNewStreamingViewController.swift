@@ -19,7 +19,7 @@ final class STSNewStreamingViewController: UIViewController {
     @IBOutlet private weak var titleField: UITextField!
     @IBOutlet private weak var streamKeyField: UITextField!
     @IBOutlet private weak var streamKeyScanButton: UIButton!
-    @IBOutlet private weak var streamWayControl: UISegmentedControl!
+    @IBOutlet private weak var streamWaySegmentedControl: UISegmentedControl!
     @IBOutlet private weak var startButton: UIButton!
     @IBOutlet private weak var cameraButton: UIButton!
     @IBOutlet private weak var flipOutputButton: UIButton!
@@ -161,13 +161,13 @@ final class STSNewStreamingViewController: UIViewController {
         if streamingManager.state == .prepared {
             statusLabel.text = "connecting"
             enableAllInputs(false)
-            if streamWayControl.selectedSegmentIndex == StreamWay.streamKey.rawValue {
+            if streamWaySegmentedControl.selectedSegmentIndex == StreamWay.streamKey.rawValue {
                 guard let streamKey = streamKeyField.text else {
                     return
                 }
 
                 startStreamingWithStreamKey(streamKey)
-            } else if streamWayControl.selectedSegmentIndex == StreamWay.title.rawValue {
+            } else if streamWaySegmentedControl.selectedSegmentIndex == StreamWay.title.rawValue {
                 guard let title = titleField.text else {
                     return
                 }
@@ -205,9 +205,9 @@ final class STSNewStreamingViewController: UIViewController {
         }
     }
 
-    @IBAction private func streamWayControlValueChanged(_ segment: UISegmentedControl) {
-        titleField.isHidden = !(streamWayControl.selectedSegmentIndex == StreamWay.title.rawValue)
-        streamKeySettingView.isHidden = !(streamWayControl.selectedSegmentIndex == StreamWay.streamKey.rawValue)
+    @IBAction private func streamWaySegmentedControlValueChanged(_ segment: UISegmentedControl) {
+        titleField.isHidden = !(streamWaySegmentedControl.selectedSegmentIndex == StreamWay.title.rawValue)
+        streamKeySettingView.isHidden = !(streamWaySegmentedControl.selectedSegmentIndex == StreamWay.streamKey.rawValue)
         view.endEditing(true)
     }
 
@@ -395,7 +395,7 @@ final class STSNewStreamingViewController: UIViewController {
         streamKeyField.isEnabled = enabled
         streamKeyScanButton.isEnabled = enabled
         titleField.isEnabled = enabled
-        streamWayControl.isEnabled = enabled
+        streamWaySegmentedControl.isEnabled = enabled
     }
 }
 
