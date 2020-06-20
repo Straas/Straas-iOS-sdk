@@ -1094,12 +1094,12 @@
                                         <rect key="frame" x="10" y="108" width="355" height="32"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <segments>
-                                            <segment title="By live event"/>
                                             <segment title="By stream key"/>
+                                            <segment title="By live event"/>
                                         </segments>
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <action selector="streamWayControlValueChanged:" destination="unC-DL-tcr" eventType="valueChanged" id="bpN-gk-AIb"/>
+                                            <action selector="streamWaySegmentedControlValueChanged:" destination="unC-DL-tcr" eventType="valueChanged" id="fd3-cz-Li4"/>
                                         </connections>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3m-bj-IyG">
@@ -1172,7 +1172,7 @@
                         <outlet property="streamKeyField" destination="bT0-49-R3D" id="5lw-kw-urm"/>
                         <outlet property="streamKeyScanButton" destination="VZd-JO-6dY" id="YzP-XA-csU"/>
                         <outlet property="streamKeySettingView" destination="sWg-JW-J7X" id="5UW-8p-a6k"/>
-                        <outlet property="streamWayControl" destination="nGf-x9-UAr" id="ayF-dp-oma"/>
+                        <outlet property="streamWaySegmentedControl" destination="nGf-x9-UAr" id="O3o-CZ-rXP"/>
                         <outlet property="titleField" destination="4Bk-Ge-8ga" id="Ckj-2v-iAM"/>
                     </connections>
                 </viewController>
