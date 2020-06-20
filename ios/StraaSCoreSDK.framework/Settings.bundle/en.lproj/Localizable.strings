@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  StraaS
+
+  Created by Lee on 26/10/2016.
+  Copyright © 2016 StraaS.io. All rights reserved.
+*/
+"server_error" = "Server side error happened, please try again later.";
+"internal_error" = "SDK internal error happened, please report issue.";
+"app_unauthorized_error" = "Unauthorized. Make sure you've set STSSDKClientID in project setting correctly, and the class `STSSDKAuthManager` is authorized.";
+"network_error" = "Could not connect to server.";
+"wrong_information" = "Please check if you've set STSSDKClientID corresponding with its bundle id in your project setting, and pass STSApplication configureApplication before use other method.";

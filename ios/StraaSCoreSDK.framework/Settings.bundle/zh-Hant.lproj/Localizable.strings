@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  StraaS
+
+  Created by Lee on 26/10/2016.
+  Copyright © 2016 StraaS.io. All rights reserved.
+*/
+"internal_error" = "SDK 內部發生錯誤，請協助回報問題";
+"server_error" = "伺服器發生錯誤，請稍候再試";
+"app_unauthorized_error" = "認證失敗，請檢查 Project setting 裡的 STSSDKClientID 及對應的 bundle id 是否正確，且 STSSDKAuthManager 已完成認證。";
+"network_error" = "無法連至伺服器";
+"wrong_information" = "請檢查是否在Project setting填妥STSSDKClientID及對應的bundle id，並用STSApplication configureApplication認證通過";

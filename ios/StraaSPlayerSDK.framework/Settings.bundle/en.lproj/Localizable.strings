@@ -1,0 +1,53 @@
+"access_permission_denial" = "No permission to access the resource.";
+
+"access_unavailable" = "Sorry, this content is unavailable.";
+
+"broadcast_state_offline" = "Offline";
+
+"broadcast_state_wait_for_stream" = "Unplanned outages happened. Please wait...";
+
+"common_error" = "An Error occurred. Please try again later.";
+
+"sdk_out_of_date" = "Your SDK is out of date. Please contact the developer directly.";
+
+"app_unauthorized_error" = "Unauthorized. Make sure you've set STSSDKClientID in project setting correctly, and the class `STSSDKAuthManager` is authorized.";
+
+"member_unauthorized_error" = "Unauthorized. The member JWT is invalid or expired. Please try to get a new one.";
+
+"network_no_connection" = "Could not connect to server.";
+
+"videos_no_exist" = "This content does not exist.";
+
+"playlist_no_exist" = "This playlist does not exist";
+
+"Forbidden" = "You have to buy the permission to access this media (video, playlist, live).";
+
+"common_cancel" = "Cancel";
+
+"common_not_available_region" = "Sorry, this content is not available in your region.";
+
+"common_selected" = "(selected)";
+
+"quality_auto" = "Auto";
+
+"quality_select" = "Quality";
+
+"playback_speed_select" = "Speed";
+
+"quality_source" = "Source";
+
+"refresh_token_error" = "The member token becomes invalid, please try to login again.";
+
+"server_error" = "Server side error happened, please try again later.";
+
+"internal_error" = "SDK internal error happened, please report issue.";
+
+"operation_denied" = "Operation denied.";
+
+"invalid_live_id" = "The live id should not be nil or empty string(@\"\").";
+
+"socket_connection_error" = "Failed to connect to the socket server to receive live related event (e.g., CCU or hit count change), or the connection was successfully established but broken due to unexpected reasons.";
+
+"too_many_requests" = "The server is busy. Please try again later.";
+
+"cancelled_error" = "The operation is cancelled.";

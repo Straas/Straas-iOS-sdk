@@ -1,0 +1,51 @@
+"access_permission_denial" = "您沒有權限存取所要求的資源";
+
+"access_unavailable" = "無法取得此內容";
+
+"broadcast_state_offline" = "目前無直播";
+
+"broadcast_state_wait_for_stream" = "直播意外中斷，請稍等";
+
+"network_no_connection" = "無法連至伺服器";
+
+"common_error" = "發生錯誤，請稍後再試";
+
+"sdk_out_of_date" = "SDK 已過期，請聯繫軟體開發商";
+
+"app_unauthorized_error" = "認證失敗，請檢查 Project setting 裡的 STSSDKClientID 及對應的 bundle id 是否正確，且 STSSDKAuthManager 已完成認證。";
+
+"member_unauthorized_error" = "認證失敗，member JWT 無效或已過期，請嘗試重新取得新的 member JWT。";
+
+"videos_no_exist" = "此內容不存在";
+
+"playlist_no_exist" = "此影片清單不存在";
+
+"common_not_available_region" = "您所在的地區無法觀看此內容";
+
+"common_cancel" = "取消";
+
+"common_selected" = "(已選取)";
+
+"quality_auto" = "自動";
+
+"quality_select" = "選擇影片畫質";
+
+"playback_speed_select" = "選擇播放速度";
+
+"quality_source" = "原始畫質";
+
+"refresh_token_error" = "登入時效已過期，請嘗試重新登入";
+
+"server_error" = "伺服器發生錯誤，請稍候再試";
+
+"internal_error" = "SDK 內部發生錯誤，請協助回報問題";
+
+"operation_denied" = "操作被拒。";
+
+"invalid_live_id" = "Live id 不可為 nil 或空字串(@\"\")。";
+
+"socket_connection_error" = "無法連線至 socket server 以接收 live event 相關事件(例如: CCU 或 hit count 變化)，或是已成功建立連線但卻因預期外的原因中斷。";
+
+"too_many_requests" = "伺服器忙碌中，請稍後重試。";
+
+"cancelled_error" = "操作在完成之前被取消。";

@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  StraaS
+
+  Created by Luke Jang on 8/23/16.
+  Copyright © 2016 StraaS.io. All rights reserved.
+*/
+
+"internal_error" = "SDK internal error happened, please report issue.";
+"unauthorized_error" = "Member JWT is wrong, please try again with a new member JWT.";
+"permission_error" = "Chat room user doesn't right permission to perform operation.";
+"archived_id_not_found" = "Archived id can not be found. Please make sure the archived messages have been created.";
+"archived_input_invalid" = "The start time or end time cannot be nil";
+"chatroom_not_found" = "Can't connect to chatroom since it can not be found.";
+"member_id_not_found" = "Member id can not be found. Please make sure StraaS Account has the member";
+"server_error" = "Server side error happened, please try again later.";
+"guest_creat_chat_not_supported" = "StraaS chat room only allow member to create chat.";
+"channel_not_connected" = "Channel is not connected.";
+"channel_already_connected" = "Channel is already connected.";
+"member_nickname_update_not_supported" = "Can't change member name via StraaS.io messaging service.";
+"update_user_role_error" = "User role only can be NORMAL or MODERATOR";
+"network_no_connection" = "Could not connect to server.";
+"nickname_length_error" = "Nickname length must be between 1~20 characters.";
+"message_length_error" = "Message length must be between 1~300 characters.";
+"aggregate_data_length_error" = "Aggregate data must be between 1~100 characters.";
+"raw_data_format_not_allowed" = "Raw data cannot be transfered. Check if raw data can be converted to JSON object.";
+"channel_code_length_error" = "Channel code must not be an empty string.";
+"metadata_key_invalid" = "The key of metadata is invalid. The key name must match the regular expression format \"^[A-Za-z0-9][A-Za-z0-9_@#-]{0,29}$\"";
+"metadata_value_invalid" = "The value of metadata is invalid. The value of metadata should be an instance of NSString, NSNumber, NSNull or a valid JSON object. The max size of broadcasting metadata is 1k and none-broadcasting is 4k.";
+"too_many_requests" = "The server is busy. Please try again later.";
+"banned_word_error" = "The message you sent contains banned word(s).";

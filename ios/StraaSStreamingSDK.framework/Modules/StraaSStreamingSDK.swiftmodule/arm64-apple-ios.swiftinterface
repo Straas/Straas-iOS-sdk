@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.2 (swiftlang-1103.0.32.1 clang-1103.0.32.29)
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
 // swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name StraaSStreamingSDK
 import AVFoundation
 import HaishinKit_Straas
@@ -12,15 +12,18 @@ public protocol STSStreamingManagerDelegate : AnyObject {
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers public class StreamingManager : ObjectiveC.NSObject {
   weak public var delegate: StraaSStreamingSDK.STSStreamingManagerDelegate?
+  @objc public var streamingStatsReport: StraaSStreamingSDK.STSStreamingStatsReport? {
+    get
+  }
   @objc public var captureDevicePosition: AVFoundation.AVCaptureDevice.Position {
     @objc get
     @objc set(value)
   }
-  @objc public var state: StraaSStreamingSDK.STSStreamingState {
-    get
+  @objc dynamic public var state: StraaSStreamingSDK.STSStreamingState {
+    @objc get
   }
-  @objc public var JWT: Swift.String? {
-    get
+  @objc public var JWT: Swift.String {
+    @objc get
   }
   @objc public var currentStreamingLiveId: Swift.String? {
     @objc get
@@ -36,31 +39,24 @@ public protocol STSStreamingManagerDelegate : AnyObject {
     @objc get
     @objc set(newValue)
   }
-  @objc public class func getInstance(with JWT: Swift.String) -> StraaSStreamingSDK.StreamingManager?
-  @objc dynamic public var currentFPS: Swift.UInt16 {
-    get
-  }
   @objc deinit
+  @objc public class func getInstance(with JWT: Swift.String) -> StraaSStreamingSDK.StreamingManager?
 }
 extension StreamingManager {
-  @objc dynamic public func prepare(previewView: HaishinKit_Straas.GLHKView, configuration: StraaSStreamingSDK.STSStreamingPrepareConfig, success: @escaping ((CoreGraphics.CGSize) -> ()), failure: @escaping ((Foundation.NSError) -> ()))
-  @objc dynamic public func prepare(videoSize: CoreGraphics.CGSize, previewView: HaishinKit_Straas.GLHKView, outputImageOrientation: UIKit.UIInterfaceOrientation, success: @escaping (() -> Swift.Void), failure: @escaping ((Foundation.NSError) -> Swift.Void))
-  @objc dynamic public func startStreamingWithConfguration(_ confguration: StraaSStreamingSDK.STSStreamingLiveEventConfig, success: @escaping ((Swift.String) -> Swift.Void), failure: @escaping ((Foundation.NSError, Swift.String?) -> Swift.Void))
+  @objc dynamic public func prepare(previewView: HaishinKit_Straas.MTHKView, configuration: StraaSStreamingSDK.STSStreamingPrepareConfig, success: @escaping ((CoreGraphics.CGSize) -> ()), failure: @escaping ((Foundation.NSError) -> ()))
+  @objc dynamic public func prepare(videoSize: CoreGraphics.CGSize, previewView: HaishinKit_Straas.MTHKView, outputImageOrientation: UIKit.UIInterfaceOrientation, success: @escaping (() -> Swift.Void), failure: @escaping ((Foundation.NSError) -> Swift.Void))
   @objc dynamic public func startStreamingWithLiveID(_ liveId: Swift.String, success: @escaping (() -> Swift.Void), failure: @escaping ((Foundation.NSError) -> Swift.Void))
   @objc dynamic public func startStreamingWithStreamKey(_ streamKey: Swift.String, success: @escaping (() -> Swift.Void), failure: @escaping ((Foundation.NSError) -> ()))
   @objc dynamic public func stopStreaming(with success: @escaping ((Swift.String) -> ()), failure: @escaping ((Foundation.NSError, Swift.String?) -> ()))
   @objc dynamic public func createLiveEvent(with configuration: StraaSStreamingSDK.STSStreamingLiveEventConfig, success: @escaping ((Swift.String) -> ()), failure: @escaping ((Foundation.NSError, Swift.String?) -> ()))
   @objc dynamic public func endLiveEvent(with liveId: Swift.String, success: @escaping ((Swift.String) -> ()), failure: @escaping ((Foundation.NSError) -> ()))
-  @objc dynamic public func getStreamingStatsReport() -> StraaSStreamingSDK.STSStreamingStatsReport?
   @objc dynamic public func getStreamingInfo(with liveId: Swift.String, success: @escaping ((StraaSStreamingSDK.STSStreamingInfo) -> ()), failure: @escaping ((Foundation.NSError) -> ()))
-}
-extension StreamingManager {
-  @objc override dynamic public func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
 }
 extension StreamingManager : HaishinKit_Straas.RTMPStreamDelegate {
   public func didPublishInsufficientBW(_ stream: HaishinKit_Straas.RTMPStream, withConnection: HaishinKit_Straas.RTMPConnection)
   public func didPublishSufficientBW(_ stream: HaishinKit_Straas.RTMPStream, withConnection: HaishinKit_Straas.RTMPConnection)
   @objc dynamic public func didOutputAudio(_ buffer: AVFoundation.AVAudioPCMBuffer, presentationTimeStamp: CoreMedia.CMTime)
   @objc dynamic public func didOutputVideo(_ buffer: CoreMedia.CMSampleBuffer)
+  public func didStatics(_ stream: HaishinKit_Straas.RTMPStream, withConneciton: HaishinKit_Straas.RTMPConnection)
   @objc dynamic public func clear()
 }

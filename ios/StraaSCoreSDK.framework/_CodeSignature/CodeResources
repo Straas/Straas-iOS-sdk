@@ -38,12 +38,43 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		cW46BOqXNCN5jd9pUa8GJe3tdxc=
+		d7ETHGSA5yQ++EGvhIW6+5CmwO4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		VZLVS79N+LWqla+dMjJrN26a+Fc=
 		</data>
+		<key>Settings.bundle/Root.plist</key>
+		<data>
+		jOhqEUF1/xyY+fuswiWT+ELC3dI=
+		</data>
+		<key>Settings.bundle/en.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mMkyqo1bLcRa2n2xUnLY6RafufQ=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Settings.bundle/en.lproj/Root.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			t4KY9Gh4uIiOv7VnHtRrKEuPRY8=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Settings.bundle/zh-Hant.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			UHT8M/70/jBsrcsoiOTcAR512+o=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
@@ -163,6 +194,56 @@
 			<data>
 			xkT87frvy68okLQU/JJJL9chNcyQQSzU64+w+UR77sA=
 			</data>
+		</dict>
+		<key>Settings.bundle/Root.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jOhqEUF1/xyY+fuswiWT+ELC3dI=
+			</data>
+			<key>hash2</key>
+			<data>
+			m26DmegPkB5jwUJkVEtLlObYALX8He100Ny0+NNJg/g=
+			</data>
+		</dict>
+		<key>Settings.bundle/en.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mMkyqo1bLcRa2n2xUnLY6RafufQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			D0pa5ajgQTg8e4pOpz9SWz+NbbT8+J8wGESzZ1o8uoc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Settings.bundle/en.lproj/Root.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			t4KY9Gh4uIiOv7VnHtRrKEuPRY8=
+			</data>
+			<key>hash2</key>
+			<data>
+			xUzNd7J7w99oAnMIWGe1dAGArHMuEXwQqxSziDU5vLk=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Settings.bundle/zh-Hant.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			UHT8M/70/jBsrcsoiOTcAR512+o=
+			</data>
+			<key>hash2</key>
+			<data>
+			SSNIl0Yzy7OVy9ABsnXvkYBUIKv255IFpy6Dvb5M7SA=
+			</data>
+			<key>optional</key>
+			<true/>
 		</dict>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>

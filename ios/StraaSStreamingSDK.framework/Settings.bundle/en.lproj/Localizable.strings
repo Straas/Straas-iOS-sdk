@@ -1,0 +1,23 @@
+"camera_error" = "Couldn't access the camera, may be the permission problem or other camera problems.";
+
+"event_expired_error" = "Live event expired, please remove this live event by calling STSStreamingManager's endLiveEvent:success:failure: method.";
+
+"event_not_found_error" = "Couldn't find target live event. This error may be due to the event doesn't exist, is ended, or doesn't belong to current JWT.";
+
+"internal_error" = "SDK internal error happened, please report issue.";
+
+"live_count_limit_error" = "Couldn't create new event because of limitation of user's live event count.";
+
+"microphone_error" = "Couldn't access the microphone, may be the permission problem or other microphone problems.";
+
+"network_error" = "Could not connect to server.";
+
+"operation_denied" = "Operation is denied, the cause may be calling a method in wrong state.";
+
+"parameter_not_support_error" = "Provided parameter is invalid.";
+
+"resolution_not_support" = "Resolution is not supported by camera in current device.";
+
+"server_error" = "Server side error happened, please try again later.";
+
+"unauthorized_error" = "Member JWT is wrong, please try again with a new member JWT.";

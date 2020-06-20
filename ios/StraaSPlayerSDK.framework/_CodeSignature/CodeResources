@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		uKrVfBzLBPHHUNQgaHVsOWC03P0=
+		QJRHgHUd9e+M5yFnnzZ0gTekrZQ=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -110,7 +110,7 @@
 		</data>
 		<key>Headers/StraaSPlayerSDK-Swift.h</key>
 		<data>
-		7pb+bec3Cw8cnSfkdbletr51FI0=
+		eVYkuZUAp2xGClMEk3mYRPpJ8tg=
 		</data>
 		<key>Headers/StraaSPlayerSDK.h</key>
 		<data>
@@ -118,72 +118,103 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		g4mM7nHHl6PW7VcYGn+vri67Ecg=
+		MAdcfP48Qu0LLZK/IxtZffbAn0w=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm.swiftdoc</key>
 		<data>
-		L5PvbXyf+AtSznG3ou8bmLciUto=
+		PM7LKtfMZGvcWA0cDgHS4ZJVfLI=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm.swiftinterface</key>
 		<data>
-		zHtufgxJXEEFCpTzsY/N9q+0FXs=
+		6hymat/qdksgOBqtR/orqc/Zpls=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm.swiftmodule</key>
 		<data>
-		m5VT5WXI23ZyraqQF1HmU284Hm4=
+		XMfbFUhnKuArxauRJLbvNCsExRE=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		W1iMdXkVD1M9evLdzgMJfYD9gdQ=
+		4H0mlsG+XrR/j1Yb8FjbMdJ5Raw=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		rHtrONFR6oQ6xTvIuSM58Zz1VJI=
+		8CqZEVnvzGTFJM0ijTMPaWUq7xE=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		18o2KxZfQGj3ugrshgFwhLKWo7k=
+		otFy32eXixCurgs2vdYkdobcgQo=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		W1iMdXkVD1M9evLdzgMJfYD9gdQ=
+		4H0mlsG+XrR/j1Yb8FjbMdJ5Raw=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		rHtrONFR6oQ6xTvIuSM58Zz1VJI=
+		8CqZEVnvzGTFJM0ijTMPaWUq7xE=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		18o2KxZfQGj3ugrshgFwhLKWo7k=
+		otFy32eXixCurgs2vdYkdobcgQo=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7-apple-ios.swiftdoc</key>
 		<data>
-		L5PvbXyf+AtSznG3ou8bmLciUto=
+		PM7LKtfMZGvcWA0cDgHS4ZJVfLI=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7-apple-ios.swiftinterface</key>
 		<data>
-		zHtufgxJXEEFCpTzsY/N9q+0FXs=
+		6hymat/qdksgOBqtR/orqc/Zpls=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7-apple-ios.swiftmodule</key>
 		<data>
-		m5VT5WXI23ZyraqQF1HmU284Hm4=
+		XMfbFUhnKuArxauRJLbvNCsExRE=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7.swiftdoc</key>
 		<data>
-		L5PvbXyf+AtSznG3ou8bmLciUto=
+		PM7LKtfMZGvcWA0cDgHS4ZJVfLI=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7.swiftinterface</key>
 		<data>
-		zHtufgxJXEEFCpTzsY/N9q+0FXs=
+		6hymat/qdksgOBqtR/orqc/Zpls=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7.swiftmodule</key>
 		<data>
-		m5VT5WXI23ZyraqQF1HmU284Hm4=
+		XMfbFUhnKuArxauRJLbvNCsExRE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		Vxi44xUJ14LYy0gki9JO/xP3Uks=
 		</data>
+		<key>Settings.bundle/Root.plist</key>
+		<data>
+		jOhqEUF1/xyY+fuswiWT+ELC3dI=
+		</data>
+		<key>Settings.bundle/en.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XV7bgEZ4kcHUL9pX3UilR40fMvE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Settings.bundle/en.lproj/Root.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			t4KY9Gh4uIiOv7VnHtRrKEuPRY8=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Settings.bundle/zh-Hant.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			UAa3W9/jXyArw7RNqN3DqBNpVtI=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 		<key>Shader.vsh</key>
 		<data>
 		/8iAcL4ocD5EG/m64BkcMKc6atM=
@@ -213,11 +244,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uKrVfBzLBPHHUNQgaHVsOWC03P0=
+			QJRHgHUd9e+M5yFnnzZ0gTekrZQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			t39+9oDGZdj0BfQoELbk28fmfvc+fUJGLjD/aNGOE8E=
+			Yp8TpXR5hs3hYWDOd/aCIVhcxCY6VYtdo2r3/9v1Hug=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -499,11 +530,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7pb+bec3Cw8cnSfkdbletr51FI0=
+			eVYkuZUAp2xGClMEk3mYRPpJ8tg=
 			</data>
 			<key>hash2</key>
 			<data>
-			UOesFR+6jcHT25Be/JG/kFM0FN6Hfkq67srscXYJmxo=
+			wKrf8OJxlZeXzBMteidz9uizwPUkat/ErnGDsiwmWoY=
 			</data>
 		</dict>
 		<key>Headers/StraaSPlayerSDK.h</key>
@@ -521,165 +552,165 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			L5PvbXyf+AtSznG3ou8bmLciUto=
+			PM7LKtfMZGvcWA0cDgHS4ZJVfLI=
 			</data>
 			<key>hash2</key>
 			<data>
-			1Jofig484g4uFC1szpZWxRSNzuMzbpm/U7opQ/48cSE=
+			xSh8MJ4UVYlriTMSPBzgMYeXdqCYdgjKkpGrNeqPXZ8=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zHtufgxJXEEFCpTzsY/N9q+0FXs=
+			6hymat/qdksgOBqtR/orqc/Zpls=
 			</data>
 			<key>hash2</key>
 			<data>
-			oiVl+tG1XDpKFW3B4bD72lhZEkMEcnFJD13i6fp9bQ4=
+			WJQfy4bMPbpBjIugUsvHtwEeqrOO9SqYt24yOA5IIdo=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			m5VT5WXI23ZyraqQF1HmU284Hm4=
+			XMfbFUhnKuArxauRJLbvNCsExRE=
 			</data>
 			<key>hash2</key>
 			<data>
-			gcnfFR7I3Pdqq0RRsxTftapDcZOIM/wwlBx+8H/ejwk=
+			kINeQlrRsfK7BIlHa9XHr9YdM0tWMKnrG1bZ78Poiqk=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			W1iMdXkVD1M9evLdzgMJfYD9gdQ=
+			4H0mlsG+XrR/j1Yb8FjbMdJ5Raw=
 			</data>
 			<key>hash2</key>
 			<data>
-			KF767vvOiXbGMtc7SfPYaQmKgx+d8UGr1X89ypA/SUc=
+			/U8mPJ6uB3aJsUUXJ5T41D54AIcQ40rthJoorM0N1VI=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rHtrONFR6oQ6xTvIuSM58Zz1VJI=
+			8CqZEVnvzGTFJM0ijTMPaWUq7xE=
 			</data>
 			<key>hash2</key>
 			<data>
-			KYtq5TrrBHpoIKI1yPFyhQR7/KzxW4f2/wl9K/Azu48=
+			vCirEIXyThVZNfj4N6K+2PXX01hsTVyLv7MfAM/NROc=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			18o2KxZfQGj3ugrshgFwhLKWo7k=
+			otFy32eXixCurgs2vdYkdobcgQo=
 			</data>
 			<key>hash2</key>
 			<data>
-			4q0ifl8mvJiop5x8soRwJGueDGqS7y2HM2GcNB0NQUY=
+			JGXMscKDu4ypq4B95+DMF/Xp27NVSGdaGmXHMPDC0a4=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			W1iMdXkVD1M9evLdzgMJfYD9gdQ=
+			4H0mlsG+XrR/j1Yb8FjbMdJ5Raw=
 			</data>
 			<key>hash2</key>
 			<data>
-			KF767vvOiXbGMtc7SfPYaQmKgx+d8UGr1X89ypA/SUc=
+			/U8mPJ6uB3aJsUUXJ5T41D54AIcQ40rthJoorM0N1VI=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rHtrONFR6oQ6xTvIuSM58Zz1VJI=
+			8CqZEVnvzGTFJM0ijTMPaWUq7xE=
 			</data>
 			<key>hash2</key>
 			<data>
-			KYtq5TrrBHpoIKI1yPFyhQR7/KzxW4f2/wl9K/Azu48=
+			vCirEIXyThVZNfj4N6K+2PXX01hsTVyLv7MfAM/NROc=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			18o2KxZfQGj3ugrshgFwhLKWo7k=
+			otFy32eXixCurgs2vdYkdobcgQo=
 			</data>
 			<key>hash2</key>
 			<data>
-			4q0ifl8mvJiop5x8soRwJGueDGqS7y2HM2GcNB0NQUY=
+			JGXMscKDu4ypq4B95+DMF/Xp27NVSGdaGmXHMPDC0a4=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			L5PvbXyf+AtSznG3ou8bmLciUto=
+			PM7LKtfMZGvcWA0cDgHS4ZJVfLI=
 			</data>
 			<key>hash2</key>
 			<data>
-			1Jofig484g4uFC1szpZWxRSNzuMzbpm/U7opQ/48cSE=
+			xSh8MJ4UVYlriTMSPBzgMYeXdqCYdgjKkpGrNeqPXZ8=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zHtufgxJXEEFCpTzsY/N9q+0FXs=
+			6hymat/qdksgOBqtR/orqc/Zpls=
 			</data>
 			<key>hash2</key>
 			<data>
-			oiVl+tG1XDpKFW3B4bD72lhZEkMEcnFJD13i6fp9bQ4=
+			WJQfy4bMPbpBjIugUsvHtwEeqrOO9SqYt24yOA5IIdo=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			m5VT5WXI23ZyraqQF1HmU284Hm4=
+			XMfbFUhnKuArxauRJLbvNCsExRE=
 			</data>
 			<key>hash2</key>
 			<data>
-			gcnfFR7I3Pdqq0RRsxTftapDcZOIM/wwlBx+8H/ejwk=
+			kINeQlrRsfK7BIlHa9XHr9YdM0tWMKnrG1bZ78Poiqk=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			L5PvbXyf+AtSznG3ou8bmLciUto=
+			PM7LKtfMZGvcWA0cDgHS4ZJVfLI=
 			</data>
 			<key>hash2</key>
 			<data>
-			1Jofig484g4uFC1szpZWxRSNzuMzbpm/U7opQ/48cSE=
+			xSh8MJ4UVYlriTMSPBzgMYeXdqCYdgjKkpGrNeqPXZ8=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zHtufgxJXEEFCpTzsY/N9q+0FXs=
+			6hymat/qdksgOBqtR/orqc/Zpls=
 			</data>
 			<key>hash2</key>
 			<data>
-			oiVl+tG1XDpKFW3B4bD72lhZEkMEcnFJD13i6fp9bQ4=
+			WJQfy4bMPbpBjIugUsvHtwEeqrOO9SqYt24yOA5IIdo=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/armv7.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			m5VT5WXI23ZyraqQF1HmU284Hm4=
+			XMfbFUhnKuArxauRJLbvNCsExRE=
 			</data>
 			<key>hash2</key>
 			<data>
-			gcnfFR7I3Pdqq0RRsxTftapDcZOIM/wwlBx+8H/ejwk=
+			kINeQlrRsfK7BIlHa9XHr9YdM0tWMKnrG1bZ78Poiqk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -692,6 +723,56 @@
 			<data>
 			9Zr1/9AU7ezUMKYZiQP1PggrKAgFnnodG3urD7qy6tk=
 			</data>
+		</dict>
+		<key>Settings.bundle/Root.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			jOhqEUF1/xyY+fuswiWT+ELC3dI=
+			</data>
+			<key>hash2</key>
+			<data>
+			m26DmegPkB5jwUJkVEtLlObYALX8He100Ny0+NNJg/g=
+			</data>
+		</dict>
+		<key>Settings.bundle/en.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XV7bgEZ4kcHUL9pX3UilR40fMvE=
+			</data>
+			<key>hash2</key>
+			<data>
+			1+fz2VFnndaUO5HVdBoq0rBe5RoYhbjLVfb4PkB1k5o=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Settings.bundle/en.lproj/Root.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			t4KY9Gh4uIiOv7VnHtRrKEuPRY8=
+			</data>
+			<key>hash2</key>
+			<data>
+			xUzNd7J7w99oAnMIWGe1dAGArHMuEXwQqxSziDU5vLk=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Settings.bundle/zh-Hant.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			UAa3W9/jXyArw7RNqN3DqBNpVtI=
+			</data>
+			<key>hash2</key>
+			<data>
+			gYWqyJDSf/c1v/r2uec6NdsBttMXLnn0+DhKOvZGZlk=
+			</data>
+			<key>optional</key>
+			<true/>
 		</dict>
 		<key>Shader.vsh</key>
 		<dict>

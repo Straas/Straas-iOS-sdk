@@ -165,7 +165,7 @@ __attribute__((deprecated("prepareWithVideoSize:previewView:outputImageOrientati
  */
 - (void)startStreamingWithConfguration:(STSStreamingLiveEventConfig *)configuration
                                success:(void(^)(NSString * liveId))success
-                               failure:(void(^)(NSError * error, NSString * _Nullable liveId))failure;
+                               failure:(void(^)(NSError * error, NSString * _Nullable liveId))failure __attribute__((deprecated("`startStreamingWithConfguration:success:failure:` has been deprecated.")));
 
 /**
  *  Starts to stream with given live event id.
@@ -181,15 +181,20 @@ __attribute__((deprecated("prepareWithVideoSize:previewView:outputImageOrientati
                          failure:(void(^)(NSError * error))failure;
 
 /**
- *  Starts to stream with given stream key.
- *
- *  @param streamKey The stream key got from StraaS server.
- *  @param success A block object to be executed when the task finishes successfully.
- *  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
- */
+*  Starts to stream with given stream key.
+*
+*  @param streamKey The stream key got from StraaS server.
+*  @param success A block object to be executed when the task finishes successfully.
+*  @param failure A block object to be executed when the task finishes unsuccessfully. This block has no return value and takes one argument: the error object describing the error that occurred.
+*/
 - (void)startStreamingWithStreamKey:(NSString *)streamKey
                             success:(void(^)(void))success
                             failure:(void(^)(NSError * error))failure;
+
+- (void)startStreamingWithRTMPURL:(NSURL *)RTMPURL
+                          success:(void(^)(void))success
+                          failure:(void(^)(NSError * error))failure;
+
 /**
  *  Stops the current live streaming.
  *

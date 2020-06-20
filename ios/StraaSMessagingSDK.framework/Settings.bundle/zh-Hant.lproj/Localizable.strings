@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  StraaS
+
+  Created by Luke Jang on 8/23/16.
+  Copyright © 2016 StraaS.io. All rights reserved.
+*/
+
+"internal_error" = "SDK 內部發生錯誤，請協助回報問題";
+"unauthorized_error" = "會員身份認證失敗，請用新的會員 JWT 重試";
+"permission_error" = "聊天室使用者無權限進行目前操作";
+"archived_id_not_found" = "找不到此archived id,請確保此archived messages已被建立";
+"chatroom_not_found" = "找不到聊天室，無法連線";
+"archived_input_invalid" = "參數start或end不能是nil";
+"member_id_not_found" = "找不到此member id,請確保在StraaS企業帳號上已有此會員";
+"server_error" = "伺服器發生錯誤，請稍候再試";
+"guest_creat_chat_not_supported" = "訪客無法建立新聊天室";
+"channel_not_connected" = "聊天室尚未連線";
+"channel_already_connected" = "聊天室已經連線";
+"member_nickname_update_not_supported" = "不能透過 StraaS.io 訊息服務更改會員名字";
+"update_user_role_error" = "角色只能改成NORMAL或MODERATOR";
+"network_no_connection" = "無法連至伺服器";
+"nickname_length_error" = "暱稱長度必須在 1~20 個字元內";
+"message_length_error" = "訊息長度必須在 1~300 個字元內";
+"aggregate_data_length_error" = "訊息長度必須在 1~100 個字元內";
+"raw_data_format_not_allowed" = "不能傳送Raw data，請檢查raw data是否為可被轉成JSON格式";
+"channel_code_length_error" = "聊天室代號不能是空字串";
+"metadata_key_invalid" = "無效的 metadata key。 Key 必須符合以下正規表示式 \"^[A-Za-z0-9][A-Za-z0-9_@#-]{0,29}$\"";
+"metadata_value_invalid" = "無效的 metadata value。Metadata 的 value 必須是 NSString, NSNubmer, NSNull 或可被轉成 JSON 格式。最大容量為 1k (broadcasting metadata) 或 4k (none-broadcasting metadata)。";
+"too_many_requests" = "伺服器忙碌中，請稍後重試。";
+"banned_word_error" = "您所發送的訊息包含了禁詞。";
