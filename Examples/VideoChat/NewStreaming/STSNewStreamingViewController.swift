@@ -371,21 +371,20 @@ final class STSNewStreamingViewController: UIViewController {
     func onError(with title: String, errorMessage: String) {
 
         func showAlert(with title: String, message: String) {
+            self.statusLabel.text = "error"
+            self.enableAllInputs(true)
+            self.startButton.setTitle("Start", for: .normal)
+
+            self.updateUIWithBitrate(bitrate: 0)
+            self.updateUIWithFPS(fps: 0.0)
+
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
             let action = UIAlertAction(title: "確定", style: .default, handler: nil)
             alertController.addAction(action)
             self.present(alertController, animated: true, completion: nil)
         }
 
-        if !Thread.isMainThread {
-            DispatchQueue.main.async {
-                showAlert(with: title, message: errorMessage)
-
-                self.statusLabel.text = "error"
-                self.enableAllInputs(true)
-                self.startButton.setTitle("Start", for: .normal)
-            }
-        } else {
+        DispatchQueue.main.async {
             showAlert(with: title, message: errorMessage)
         }
     }
