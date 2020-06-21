@@ -420,7 +420,7 @@ extension STSNewStreamingViewController: STSStreamingManagerDelegate {
 
     func streamingManager(_: StreamingManager, didUpdate statsReport: STSStreamingStatsReport) {
         DispatchQueue.main.async {
-            self.updateUIWithFPS(fps: CGFloat(statsReport.currentBitrate))
+            self.updateUIWithBitrate(bitrate: statsReport.currentBitrate)
             self.updateUIWithFPS(fps: statsReport.currentFPS)
         }
     }
