@@ -1,9 +1,9 @@
 //
 //  STSNewStreamingViewController.swift
-//  VideoChat
+//  StraaS
 //
-//  Created by Allen on 2020/5/14.
-//  Copyright © 2020 StraaS.io. All rights reserved.
+//  Created by allen.lin on 2020/3/18.
+//  Copyright © 2020年 StraaS.io. All rights reserved.
 //
 
 import AVFoundation
@@ -14,8 +14,11 @@ import VideoToolbox
 import StraaSStreamingSDK
 
 final class STSNewStreamingViewController: UIViewController {
+
+    // MARK: - Constants
     private static let kUserDefaultsKeyStreamKey = "kUserDefaultsKeyStreamKey"
 
+    // MARK: - Outlets
     @IBOutlet private weak var titleField: UITextField!
     @IBOutlet private weak var streamKeyField: UITextField!
     @IBOutlet private weak var streamKeyScanButton: UIButton!
@@ -30,34 +33,45 @@ final class STSNewStreamingViewController: UIViewController {
     @IBOutlet private weak var previewView: MTHKView?
     @IBOutlet private weak var settingView: UIView!
     @IBOutlet private weak var streamKeySettingView: UIView!
-    @IBOutlet private weak var previewViewWidthConstraint: NSLayoutConstraint!
-    var shouldPrepareAgain: Bool!
+
+    // MARK: - Private
+//    var filterType: STSStreamingFilterType!
 
     enum StreamWay: Int {
         case streamKey
         case title
     }
 
-    private var streamingManager: StreamingManager!
+    @objc private var streamingManager: StreamingManager!
 
+    private var memberJWT: String {
+        return kStraaSProdMemberJWT;
+    }
+
+    deinit {
+        observeration = nil
+    }
+    // MARK: - View Controller Life Cycle
+
+    //REVIEWED
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
+    //CODING
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        rtmpStream.close()
+//        rtmpStream.dispose()
+    }
+
+    // REVIEWED
     override func viewDidLoad() {
         super.viewDidLoad()
 
         edgesForExtendedLayout = []
 
-        func hideNavigationControllerIfNecessary() {
-            guard UIDevice.current.userInterfaceIdiom == .phone else {
-                return
-            }
-
-            let isLandscape = UIDevice.current.orientation.isLandscape
-            navigationController?.isNavigationBarHidden = isLandscape
-        }
-
-        hideNavigationControllerIfNecessary()
-
         settingView.isHidden = true
-        shouldPrepareAgain = false
         updateMirrorButton()
 
         STSApplication.configureApplication { [weak self] (success, error) in
@@ -74,32 +88,38 @@ final class STSNewStreamingViewController: UIViewController {
             self.prepare()
         }
 
-        let cachedStreamKey = UserDefaults.standard.string(forKey: type(of: self).kUserDefaultsKeyStreamKey)
-        streamKeyField.text = cachedStreamKey
+        do { // cache streamKey so it does not need to be entered the next time
+            let cachedStreamKey = UserDefaults.standard.string(forKey: type(of: self).kUserDefaultsKeyStreamKey)
+            streamKeyField.text = cachedStreamKey
+        }
     }
 
-    func prepare() {
+    //REVIEWED
+    private var observeration: NSKeyValueObservation?
 
-        func setupStreamingManager() {
+    //REVIEWED
+    private func prepare() {
 
-            func memberJWT() -> String {
-                return kStraaSProdMemberJWT;
-            }
-
-            self.streamingManager = StreamingManager.getInstance(with: memberJWT())
-
-            guard let streamingManager = self.streamingManager else {
-                return
-            }
+        do { //setupStreamingManager()
+            self.streamingManager = StreamingManager.getInstance(with: self.memberJWT)
+            self.observeration = streamingManager.observe(\.state, options:  [.new, .old], changeHandler: { (player, change) in
+                DispatchQueue.main.async {
+                    switch self.streamingManager.state {
+                        case .streaming:
+                            UIApplication.shared.isIdleTimerDisabled = true
+                        case .prepared:
+                            UIApplication.shared.isIdleTimerDisabled = false
+                        default:
+                            break
+                    }
+                }
+            })
 
             streamingManager.delegate = self
             updateFlipOutputButtonVisibility()
-        }
-
-        setupStreamingManager()
-
-        guard let streamingManager = self.streamingManager else {
-            return
+            //TODO: filter
+//                self.filterType = STSStreamingFilterTypeNone;
+//                [self updateFilter:self.filterType];
         }
 
         let config = STSStreamingPrepareConfig()
@@ -120,14 +140,7 @@ final class STSNewStreamingViewController: UIViewController {
         })
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if shouldPrepareAgain {
-            shouldPrepareAgain = false
-            prepare()
-        }
-    }
-
+    //REVIEWED
     func shouldAutorotate() -> Bool {
         if streamingManager?.state == .connecting
             || streamingManager?.state == .streaming
@@ -138,8 +151,8 @@ final class STSNewStreamingViewController: UIViewController {
         return true
     }
 
-    //MARK: IBActions
-
+    //MARK: - IBActions
+    //REVIEWED
     @IBAction func cameraButtonPressed(_ sender: UIButton) {
         view.endEditing(true)
         guard let streamingManager = self.streamingManager else {
@@ -152,6 +165,7 @@ final class STSNewStreamingViewController: UIViewController {
         updateMirrorButton()
     }
 
+    //REVIEWED
     @IBAction func startButtonPressed(_ sender: UIButton) {
         view.endEditing(true)
         guard let streamingManager = streamingManager else {
@@ -161,17 +175,11 @@ final class STSNewStreamingViewController: UIViewController {
         if streamingManager.state == .prepared {
             statusLabel.text = "connecting"
             enableAllInputs(false)
-            if streamWaySegmentedControl.selectedSegmentIndex == StreamWay.streamKey.rawValue {
-                guard let streamKey = streamKeyField.text else {
-                    return
-                }
-
+            if streamWaySegmentedControl.selectedSegmentIndex == StreamWay.streamKey.rawValue,
+                let streamKey = streamKeyField.text {
                 startStreamingWithStreamKey(streamKey)
-            } else if streamWaySegmentedControl.selectedSegmentIndex == StreamWay.title.rawValue {
-                guard let title = titleField.text else {
-                    return
-                }
-
+            } else if streamWaySegmentedControl.selectedSegmentIndex == StreamWay.title.rawValue,
+                let title = titleField.text {
                 startStreamingWithTitle(title)
             }
         } else if streamingManager.state == .streaming {
@@ -181,23 +189,23 @@ final class STSNewStreamingViewController: UIViewController {
         }
     }
 
+    //REVIEWED
     @IBAction func flipOutputButtonPressed(_ sender: UIButton) {
         guard self.streamingManager.captureDevicePosition == .front else {
             return
         }
 
-        //FIXME:
         self.streamingManager.isFlipFrontCameraOutputHorizontal = !self.streamingManager.isFlipFrontCameraOutputHorizontal
         updateMirrorButton()
     }
 
+    //REVIEWED
     private func updateMirrorButton() {
         guard let streamingManager = self.streamingManager else {
             flipOutputButton.setTitleColor(UIColor.systemBlue, for: .normal)
             return
         }
 
-        //FIXME:
         if streamingManager.isFlipFrontCameraOutputHorizontal {
             flipOutputButton.setTitleColor(UIColor.systemBlue, for: .normal)
         } else {
@@ -205,18 +213,21 @@ final class STSNewStreamingViewController: UIViewController {
         }
     }
 
+    //REVIEWED
     @IBAction private func streamWaySegmentedControlValueChanged(_ segment: UISegmentedControl) {
         titleField.isHidden = !(streamWaySegmentedControl.selectedSegmentIndex == StreamWay.title.rawValue)
         streamKeySettingView.isHidden = !(streamWaySegmentedControl.selectedSegmentIndex == StreamWay.streamKey.rawValue)
         view.endEditing(true)
     }
 
+    //REVIEWED
     @IBAction private func streamKeyScanButtonPressed(_ sender: UIButton) {
         let vc = STSQRCodeScannerViewController()
         vc.delegate = self
         present(vc, animated: true, completion: nil)
     }
 
+    //REVIEWED
     @IBAction func audioButtonPressed(_ sender: UIButton) {
         guard let streamingManager = streamingManager else {
             return
@@ -231,21 +242,20 @@ final class STSNewStreamingViewController: UIViewController {
         }
     }
 
-    //MARK: private methods
-
-    func startStreamingWithTitle(_ title: String) {
+    //MARK: - private methods
+    //REVIEWED
+    private func startStreamingWithTitle(_ title: String) {
         let trimmedTitle = title.trimmingCharacters(in: CharacterSet.whitespaces)
         if trimmedTitle.count == 0 {
             onError(with: "Error", errorMessage: "The title should not be empty.")
             return
         }
 
-        let configuration = STSStreamingLiveEventConfig(title: trimmedTitle, listed: true)
-
         guard let streamingManager = streamingManager else {
             return
         }
 
+        let configuration = STSStreamingLiveEventConfig(title: trimmedTitle, listed: true)
         streamingManager.createLiveEvent(with: configuration, success: { [weak self] (liveId) in
             self?.startStreamingWithLiveId(liveId)
         }) { [weak self] (error, liveId) in
@@ -265,7 +275,8 @@ final class STSNewStreamingViewController: UIViewController {
         }
     }
 
-    func startStreamingWithLiveId(_ liveId: String) {
+    //REVIEWED
+    private func startStreamingWithLiveId(_ liveId: String) {
         guard let streamingManager = self.streamingManager else {
             return
         }
@@ -276,11 +287,12 @@ final class STSNewStreamingViewController: UIViewController {
         }) { [weak self] (error) in
             guard let self = self else { return }
             if error.domain == STSStreamingErrorDomain && error.code == STSStreamingErrorCode.errorCodeEventExpired.rawValue {
-                print("The live event expired, try to end it and restart streaming. liveId = \(liveId)")
-                self.endLiveEvent(liveId: liveId, success: { [weak self] in
-                    guard let self = self else { return }
-                    if let title = self.titleField.text {
-                        self.startStreamingWithTitle(title)
+                    print("The live event expired, try to end it and restart streaming. liveId = \(liveId)")
+
+                    self.endLiveEvent(liveId: liveId, success: { [weak self] in
+                        guard let self = self else { return }
+                        if let title = self.titleField.text {
+                            self.startStreamingWithTitle(title)
                     }
                 }, failure: { (error) in
                     let errorTitle = "There is an unended live event(liveId = \(liveId), but STSStreamingManager failed to end it."
@@ -296,7 +308,8 @@ final class STSNewStreamingViewController: UIViewController {
         }
     }
 
-    func endLiveEvent(liveId: String, success:@escaping () -> Void, failure:@escaping (_ error: NSError) -> Void) {
+    //REVIEWED
+    private func endLiveEvent(liveId: String, success:@escaping () -> Void, failure:@escaping (_ error: NSError) -> Void) {
         guard let streamingManager = self.streamingManager else {
             return
         }
@@ -308,7 +321,8 @@ final class STSNewStreamingViewController: UIViewController {
         }
     }
 
-    func startStreamingWithStreamKey(_ streamKey: String) {
+    //REVIEWED
+    private func startStreamingWithStreamKey(_ streamKey: String) {
         guard let streamingManager = streamingManager else {
             return
         }
@@ -323,12 +337,13 @@ final class STSNewStreamingViewController: UIViewController {
             self?.didStartStreaming()
         }, failure: { [weak self] (error) in
             let errorTitle = "STSStreamingManager failed to start streaming with given stream key."
-            let errorMessage = "Error: \(error.localizedDescription)"
+            let errorMessage = "Error: \(error)"
             self?.onError(with: errorTitle, errorMessage: errorMessage)
         })
     }
 
-    func didStartStreaming() {
+    //REVIEWED
+    private func didStartStreaming() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
 
@@ -341,7 +356,8 @@ final class STSNewStreamingViewController: UIViewController {
         }
     }
 
-    func stopStreaming() {
+    //REVIEWED
+    private func stopStreaming() {
         self.streamingManager.stopStreaming(with: { [weak self] (liveId) in
             guard let self = self else { return }
             self.statusLabel.text = "stop"
@@ -356,19 +372,23 @@ final class STSNewStreamingViewController: UIViewController {
         }
     }
 
-    func updateUIWithBitrate(bitrate: UInt) {
+    //REVIEWED
+    private func updateUIWithBitrate(bitrate: UInt) {
         self.bitrateLabel.text = "\(bitrate/1000) Kbps"
     }
 
-    func updateUIWithFPS(fps: CGFloat) {
+    //REVIEWED
+    private func updateUIWithFPS(fps: CGFloat) {
         self.fpsLabel.text = "\(fps) fps"
     }
 
-    func updateFlipOutputButtonVisibility() {
+    //REVIEWED
+    private func updateFlipOutputButtonVisibility() {
         flipOutputButton.isHidden = streamingManager?.captureDevicePosition == .back
     }
 
-    func onError(with title: String, errorMessage: String) {
+    //REVIEWED
+    private func onError(with title: String, errorMessage: String) {
 
         func showAlert(with title: String, message: String) {
             self.statusLabel.text = "error"
@@ -389,6 +409,7 @@ final class STSNewStreamingViewController: UIViewController {
         }
     }
 
+    //REVIEWED
     private func enableAllInputs(_ enabled: Bool) {
         startButton.isEnabled = enabled
         streamKeyField.isEnabled = enabled
@@ -398,8 +419,8 @@ final class STSNewStreamingViewController: UIViewController {
     }
 }
 
-//MARK: UIViewController interface rotation methods
-
+//MARK: - UITextFieldDelegate
+//REVIEWED
 extension STSNewStreamingViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == titleField || textField == streamKeyField {
@@ -410,6 +431,8 @@ extension STSNewStreamingViewController: UITextFieldDelegate {
     }
 }
 
+//MARK: - STSStreamingManagerDelegate
+//REVIEWED
 extension STSNewStreamingViewController: STSStreamingManagerDelegate {
     func streamingManager(_: StreamingManager, onError: NSError, liveId: String) {
         let errorTitle = "STSStreamingManager encounters an error."
@@ -425,6 +448,8 @@ extension STSNewStreamingViewController: STSStreamingManagerDelegate {
     }
 }
 
+//MARK: - STSQRCodeScannerViewControllerDelegate
+//REVIEWED
 extension STSNewStreamingViewController: STSQRCodeScannerViewControllerDelegate {
     func scanner(_ scanner: STSQRCodeScannerViewController, didGetQRCode qrCode: String) {
         streamKeyField.text = qrCode
@@ -434,6 +459,8 @@ extension STSNewStreamingViewController: STSQRCodeScannerViewControllerDelegate 
     }
 }
 
+//MARK: - viewControllerFromStoryboard
+//REVIEWED
 extension STSNewStreamingViewController {
     @objc
     class func viewControllerFromStoryboard() -> STSNewStreamingViewController {
