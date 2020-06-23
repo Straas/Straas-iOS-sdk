@@ -15,21 +15,20 @@
 #import "STSQRCodeScannerViewController.h"
 #import "STSConstant.h"
 #import "UIColor+STSColor.h"
+#import <YUGPUImageHighPassSkinSmoothing/YUGPUImageHighPassSkinSmoothingFilter.h>
 
 typedef NS_ENUM(NSUInteger, STSStreamingFilterType){
     STSStreamingFilterTypeNone,
     STSStreamingFilterTypeGray,
     STSStreamingFilterTypeRed,
-    STSStreamingFilterTypeSkinSmooth
+    STSStreamingFilterTypeSkinSmooth,
+    STSStreamingFilterTypeSkinHighPass,
 };
 
-typedef NS_ENUM(NSUInteger, STSStreamWay){
-    STSStreamWayLiveEvent = 0,
-    STSStreamWayStreamKey = 1
-};
+NSUInteger const kSTSStreamingFilterCount = 5;
 
-NSUInteger const kSTSStreamingFilterCount = 4;
 NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
+NSString * const kUserDefaultsKeyStreamURL = @"kUserDefaultsKeyStreamURL";
 
 @interface STSStreamingViewController()<UITextFieldDelegate, STSStreamingManagerDelegate, STSQRCodeScannerViewControllerDelegate>
 @property (nonatomic, weak) IBOutlet UITextField *titleField;
@@ -46,10 +45,10 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
 @property (nonatomic, weak) IBOutlet UIView * previewView;
 @property (nonatomic, weak) IBOutlet UIView * settingView;
 @property (nonatomic, weak) IBOutlet UIView * streamKeySettingView;
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *previewViewWidthConstraint;
 @property (nonatomic) STSStreamingFilterType filterType;
 @property (nonatomic) STSStreamingManager *streamingManager;
 @property (nonatomic) BOOL shouldPrepareAgain;
+@property (nonatomic, assign) STSStreamWay streamWay;
 @end
 
 @implementation STSStreamingViewController
@@ -121,12 +120,19 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
     if (self.streamingManager.state == STSStreamingStatePrepared) {
         self.statusLabel.text = @"connecting";
         [self enableAllInputs:NO];
-        if (self.streamWayControl.selectedSegmentIndex == STSStreamWayLiveEvent) {
-            NSString * title = self.titleField.text;
-            [self startStreamingWithTitle:title];
-        } else {
-            NSString * streamKey = self.streamKeyField.text;
-            [self startStreamingWithStreamKey:streamKey];
+        switch (self.streamWayControl.selectedSegmentIndex) {
+            case STSStreamWayLiveEvent:
+            {
+                NSString *title = self.titleField.text;
+                [self startStreamingWithTitle:title];
+                break;
+            }
+            case STSStreamWayStreamKey:
+            {
+                NSString *streamKey = self.streamKeyField.text;
+                [self startStreamingWithStreamKey:streamKey];
+                break;
+            }
         }
         return;
     }
@@ -163,6 +169,15 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
 
 - (IBAction)streamWayControlValueChanged:(id)sender {
     UISegmentedControl * streamWayControl = (UISegmentedControl *)sender;
+    switch (streamWayControl.selectedSegmentIndex) {
+        case STSStreamWayLiveEvent:
+            self.streamWay = STSStreamWayLiveEvent;
+            break;
+        case STSStreamWayStreamKey:
+            self.streamWay = STSStreamWayStreamKey;
+            break;
+    }
+
     self.titleField.hidden = !(streamWayControl.selectedSegmentIndex == STSStreamWayLiveEvent);
     self.streamKeySettingView.hidden = !(streamWayControl.selectedSegmentIndex == STSStreamWayStreamKey);
     [self.view endEditing:YES];
@@ -171,6 +186,7 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
 - (IBAction)streamKeyScanButtonPressed:(id)sender {
     STSQRCodeScannerViewController * vc = [STSQRCodeScannerViewController new];
     vc.delegate = self;
+    vc.streamWay = self.streamWay;
     [self presentViewController:vc animated:YES completion:nil];
 }
 
@@ -182,7 +198,6 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
         [self.audioButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
 }
-
 #pragma mark - private methods
 
 - (void)prepare {
@@ -337,6 +352,7 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
 }
 
 - (NSString *)memberJWT {
+    #warning It is a placeholder, should be replaced with a member JWT.
     return kStraaSProdMemberJWT;
 }
 
@@ -364,6 +380,13 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
         {
             filter = [STSSkinBeautifyFilter filter];
             break;
+        }
+        case STSStreamingFilterTypeSkinHighPass:
+        {
+            YUGPUImageHighPassSkinSmoothingFilter *highPassFilter = [[YUGPUImageHighPassSkinSmoothingFilter alloc] init];
+            highPassFilter.amount = 0.7;
+            self.streamingManager.filterGroup = highPassFilter;
+            return;
         }
         case STSStreamingFilterTypeNone:
         default:
@@ -470,8 +493,15 @@ NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
 #pragma mark - STSQRCodeScannerViewControllerDelegate
 
 - (void)scanner:(STSQRCodeScannerViewController *)scanner didGetQRCode:(NSString *)qrCode {
-    self.streamKeyField.text = qrCode;
-    [[NSUserDefaults standardUserDefaults] setObject:qrCode forKey:kUserDefaultsKeyStreamKey];
+    switch (scanner.streamWay) {
+        case STSStreamWayLiveEvent:
+            break;
+        case STSStreamWayStreamKey:
+            self.streamKeyField.text = qrCode;
+            [[NSUserDefaults standardUserDefaults] setObject:qrCode forKey:kUserDefaultsKeyStreamKey];
+            break;
+    }
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
