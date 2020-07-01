@@ -490,7 +490,6 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-VideoChat/Pods-VideoChat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
 				"${BUILT_PRODUCTS_DIR}/GPUImage-StraaS/GPUImage.framework",
 				"${PODS_ROOT}/GoogleAds-IMA-iOS-SDK/GoogleInteractiveMediaAds/GoogleInteractiveMediaAds.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
@@ -501,7 +500,7 @@
 				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/YUGPUImageHighPassSkinSmoothing/YUGPUImageHighPassSkinSmoothing.framework",
+				"${BUILT_PRODUCTS_DIR}/YUGPUImageHighPassSkinSmoothing-Straas/YUGPUImageHighPassSkinSmoothing_Straas.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -516,7 +515,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YUGPUImageHighPassSkinSmoothing.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YUGPUImageHighPassSkinSmoothing_Straas.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
