@@ -15,17 +15,14 @@
 #import "STSQRCodeScannerViewController.h"
 #import "STSConstant.h"
 #import "UIColor+STSColor.h"
-#import <YUGPUImageHighPassSkinSmoothing/YUGPUImageHighPassSkinSmoothingFilter.h>
 
 typedef NS_ENUM(NSUInteger, STSStreamingFilterType){
     STSStreamingFilterTypeNone,
     STSStreamingFilterTypeGray,
     STSStreamingFilterTypeRed,
-    STSStreamingFilterTypeSkinSmooth,
-    STSStreamingFilterTypeSkinHighPass,
 };
 
-NSUInteger const kSTSStreamingFilterCount = 5;
+NSUInteger const kSTSStreamingFilterCount = 3;
 
 NSString * const kUserDefaultsKeyStreamKey = @"kUserDefaultsKeyStreamKey";
 NSString * const kUserDefaultsKeyStreamURL = @"kUserDefaultsKeyStreamURL";
@@ -375,18 +372,6 @@ NSString * const kUserDefaultsKeyStreamURL = @"kUserDefaultsKeyStreamURL";
             ((GPUImageRGBFilter *)filter).green = 0.5;
             ((GPUImageRGBFilter *)filter).blue = 0.5;
             break;
-        }
-        case STSStreamingFilterTypeSkinSmooth:
-        {
-            filter = [STSSkinBeautifyFilter filter];
-            break;
-        }
-        case STSStreamingFilterTypeSkinHighPass:
-        {
-            YUGPUImageHighPassSkinSmoothingFilter *highPassFilter = [[YUGPUImageHighPassSkinSmoothingFilter alloc] init];
-            highPassFilter.amount = 0.7;
-            self.streamingManager.filterGroup = highPassFilter;
-            return;
         }
         case STSStreamingFilterTypeNone:
         default:
