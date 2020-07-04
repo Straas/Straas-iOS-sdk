@@ -73,7 +73,7 @@
     if (!self.streamingManager) {
         return;
     }
-    __weak STSStreamingFiltersViewController * weakSelf = self;
+    __weak StreamingFiltersViewController * weakSelf = self;
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     STSStreamingPrepareConfig * config = [STSStreamingPrepareConfig new];
     config.outputImageOrientation = orientation;
