@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "StraaS-iOS-SDK"
-  s.version      = "0.53.0"
+  s.version      = "0.54.0"
   s.summary      = "StraaS.io iOS SDK"
 
   s.description  = "StraaS.io - Streaming as a Service, Your Best OTT Solution."
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
 
   s.source       = { :git => "https://github.com/StraaS/StraaS-iOS-sdk.git",
-                     :tag => "0.53.0" }
+                     :tag => s.version }
   s.static_framework = true
   s.resource_bundles = {
     'StraaSPlayerSDK' => ['ios/StraaSPlayerSDK.framework/Assets.car', 'ios/StraaSPlayerSDK.framework/*.lproj'],
@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
   s.subspec 'Streaming' do |streaming|
     streaming.vendored_frameworks = "ios/StraaSStreamingSDK.framework"
     streaming.dependency "StraaS-iOS-SDK/Core"
-    streaming.dependency "GPUImage-StraaS", "~> 0.1.9"
+    streaming.dependency "GPUImage-StraaS", "~> 0.1.10"
   end
   s.subspec 'Player' do |player|
     player.vendored_frameworks = "ios/StraaSPlayerSDK.framework"

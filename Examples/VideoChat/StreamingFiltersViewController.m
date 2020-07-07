@@ -9,6 +9,7 @@
 #import "StreamingFiltersViewController.h"
 #import <StraaSStreamingSDK/StraaSStreamingSDK.h>
 #import <StraaSCoreSDK/StraaSCoreSDK.h>
+#import "YUGPUImageHighPassSkinSmoothingFilter.h"
 #import "UIColor+STSColor.h"
 
 @interface StreamingFiltersViewController() <STSStreamingManagerDelegate>
@@ -19,10 +20,9 @@
 
 @property (nonatomic) STSStreamingManager *streamingManager;
 
-@property (weak, nonatomic) IBOutlet UISlider *brightnessSlider;
 @property (weak, nonatomic) IBOutlet UISlider *smoothnessSlider;
 
-@property (strong, nonatomic) STSSkinBeautifyFilter *skinBeautifyFilter;
+@property (strong, nonatomic) YUGPUImageHighPassSkinSmoothingFilter *skinBeautifyFilter;
 @property (strong, nonatomic) GPUImageFilterGroup *skinBeautifyFilterGroup;
 
 @property (nonatomic, assign) BOOL isSkinBeautifyFilterOn;
@@ -43,9 +43,9 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     [self hideNavigationControllerIfNecessary];
 
-    self.smoothnessSlider.maximumValue = 2.0;
+    self.smoothnessSlider.maximumValue = 1.0;
 
-    self.skinBeautifyFilter = [STSSkinBeautifyFilter filter];
+    self.skinBeautifyFilter = [[YUGPUImageHighPassSkinSmoothingFilter alloc] init];
 
     GPUImageFilterGroup *filterGroup = [[GPUImageFilterGroup alloc] init];
     [filterGroup addFilter:self.skinBeautifyFilter];
@@ -143,13 +143,11 @@
     _isSkinBeautifyFilterOn = isSkinBeautifyFilterOn;
 
     if (_isSkinBeautifyFilterOn) {
-        self.brightnessSlider.enabled = YES;
         self.smoothnessSlider.enabled = YES;
         [self.skinBeautifyButton setTitleColor:[UIColor STSBlueButtonColor] forState:UIControlStateNormal];
 
         self.streamingManager.filterGroup = self.skinBeautifyFilterGroup;
     } else {
-        self.brightnessSlider.enabled = NO;
         self.smoothnessSlider.enabled = NO;
         [self.skinBeautifyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 
@@ -162,12 +160,7 @@
         return;
     }
 
-    self.skinBeautifyFilter.brightnessLevel = self.brightnessSlider.value;
-    self.skinBeautifyFilter.skinSmoothnessLevel = self.smoothnessSlider.value;
-}
-
-- (IBAction)brightnessSliderValueChanged:(id)sender {
-    [self updateSkinBeautifyFilter];
+    self.skinBeautifyFilter.amount = (CGFloat)self.smoothnessSlider.value;
 }
 
 - (IBAction)smoothnessSliderValueChanged:(id)sender {
@@ -175,8 +168,9 @@
 }
 
 - (void)streamingManager:(STSStreamingManager *)streamingManager onError:(NSError *)error liveId:(NSString * _Nullable)liveId {
-    NSLog(@"streamingManager onError: %@", error);
-    NSAssert(false, error.localizedDescription);
+    NSString *errorMessage = [NSString stringWithFormat:@"streamingManager error: %@", error];
+    NSLog(@"streamingManager error: %@", errorMessage);
+    NSAssert(false, errorMessage);
 }
 
 @end

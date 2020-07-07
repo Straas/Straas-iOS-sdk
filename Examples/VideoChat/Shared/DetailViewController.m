@@ -13,6 +13,7 @@
 #import "STSStreamingViewController.h"
 #import "StreamingFiltersViewController.h"
 #import "STSPlayerViewController.h"
+#import "STSConstant.h"
 
 NSString * const STSPlayerServiceBasicPlayerViewKeyword = @"StraaS.io PlayerView";
 NSString * const STSMessagingServiceKeyword = @"StraaS.io default chatroom";

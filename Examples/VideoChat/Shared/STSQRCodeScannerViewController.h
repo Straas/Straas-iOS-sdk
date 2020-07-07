@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, STSStreamWay);
+
 @class STSQRCodeScannerViewController;
 
 @protocol STSQRCodeScannerViewControllerDelegate <NSObject>
@@ -17,5 +19,7 @@
 @interface STSQRCodeScannerViewController : UIViewController
 
 @property (nonatomic, weak) id<STSQRCodeScannerViewControllerDelegate> delegate;
+
+@property (nonatomic, assign) STSStreamWay streamWay;
 
 @end
