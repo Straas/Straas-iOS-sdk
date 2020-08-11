@@ -27,27 +27,27 @@ PODS:
   - Socket.IO-Client-Swift (15.1.0):
     - Starscream (~> 3.1)
   - Starscream (3.1.0)
-  - StraaS-iOS-SDK (0.56.0):
-    - StraaS-iOS-SDK/Core (= 0.56.0)
-    - StraaS-iOS-SDK/Messaging (= 0.56.0)
-    - StraaS-iOS-SDK/Player (= 0.56.0)
-    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.56.0)
-    - StraaS-iOS-SDK/Streaming (= 0.56.0)
-  - StraaS-iOS-SDK/Core (0.56.0):
+  - StraaS-iOS-SDK (0.57.0):
+    - StraaS-iOS-SDK/Core (= 0.57.0)
+    - StraaS-iOS-SDK/Messaging (= 0.57.0)
+    - StraaS-iOS-SDK/Player (= 0.57.0)
+    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.57.0)
+    - StraaS-iOS-SDK/Streaming (= 0.57.0)
+  - StraaS-iOS-SDK/Core (0.57.0):
     - AFNetworking (~> 4.0.0)
     - Socket.IO-Client-Swift (~> 15.1.0)
-  - StraaS-iOS-SDK/Messaging (0.56.0):
+  - StraaS-iOS-SDK/Messaging (0.57.0):
     - Socket.IO-Client-Swift (~> 15.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Player (0.56.0):
+  - StraaS-iOS-SDK/Player (0.57.0):
     - AFNetworking (~> 4.0.0)
     - GoogleAds-IMA-iOS-SDK (~> 3.6.0)
     - KVOController (~> 1.2.0)
     - Socket.IO-Client-Swift (~> 15.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.56.0):
+  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.57.0):
     - StraaS-iOS-SDK/Player
-  - StraaS-iOS-SDK/Streaming (0.56.0):
+  - StraaS-iOS-SDK/Streaming (0.57.0):
     - GPUImage-StraaS (~> 0.1.10)
     - StraaS-iOS-SDK/Core
   - TTTAttributedLabel (2.0.0)
@@ -97,7 +97,7 @@ SPEC CHECKSUMS:
   SlackTextViewController: b854e62c1c156336bc4fd409c6ca79b5773e8f9d
   Socket.IO-Client-Swift: 7cb44c0ffb86e158cee32d0642d30ec5fdcf8f61
   Starscream: 08172b481e145289c4930cb567230fb55897cfa4
-  StraaS-iOS-SDK: 2cfaab54e71e0f853a45690b87685a1c0ce504ac
+  StraaS-iOS-SDK: 074b7a9a0f3f7870452217f0a7d0321c4c93758c
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   YUGPUImageHighPassSkinSmoothing-Straas: 4f48e63b66f0cc920d1c9027549075444f62a8f4
 
