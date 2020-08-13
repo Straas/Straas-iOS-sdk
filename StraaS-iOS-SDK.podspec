@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "Copyright", :text => "Copyright (c) 2020 StraaS.io. All rights reserved." }
   s.author       = "StraaS.io"
 
-  s.platform     = :ios, "9.0"
+  s.platform     = :ios, "12.0"
 
   s.source       = { :git => "https://github.com/StraaS/StraaS-iOS-sdk.git",
                      :tag => s.version }

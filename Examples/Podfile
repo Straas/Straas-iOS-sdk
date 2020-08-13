@@ -1,16 +1,8 @@
 # Uncomment this line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '12.0'
 
 use_modular_headers!
 use_frameworks!
-
-post_install do |installer|
-    installer.pods_project.targets.each do |target|
-        target.build_configurations.each do |config|
-            config.build_settings['SWIFT_VERSION'] = '4.0'
-        end
-    end
-end
 
 target 'VideoChat' do
   pod 'SlackTextViewController'
