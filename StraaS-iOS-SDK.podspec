@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "StraaS-iOS-SDK"
-  s.version      = "0.57.1"
+  s.version      = "0.58.0"
   s.summary      = "StraaS.io iOS SDK"
 
   s.description  = "StraaS.io - Streaming as a Service, Your Best OTT Solution."
@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
     player.vendored_frameworks = "ios/StraaSPlayerSDK.framework"
     player.dependency "StraaS-iOS-SDK/Core"
     player.dependency "Socket.IO-Client-Swift", "~> 15.1.0"
-    player.dependency "GoogleAds-IMA-iOS-SDK", "~> 3.6.0"
+    player.dependency "GoogleAds-IMA-iOS-SDK", "~> 3.11.4"
     player.dependency "KVOController", "~> 1.2.0"
     player.dependency "AFNetworking", "~> 4.0.0"
   end

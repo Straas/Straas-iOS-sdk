@@ -62,7 +62,7 @@
 		</data>
 		<key>Headers/StraaSMessagingSDK-Swift.h</key>
 		<data>
-		qKifAKVcKRwNwJEPircXxHbJfOk=
+		IVUmcgx6Tb+0zhrZzWaLEhUCHow=
 		</data>
 		<key>Headers/StraaSMessagingSDK.h</key>
 		<data>
@@ -70,31 +70,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		EUW2jGbj6l1lf1R1jYvDYOORaZQ=
+		K1g15HkdwRXkooSzpotzOJ2OdkU=
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		ykxQbdsgboYzBArEYj9sipqnv0U=
+		+vNCuoj8E0J4Zb6yixGtSZAAdcY=
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		aLK02eQvKekG1cX3hSlL2BAvYrs=
+		BdrXsiSRWYBeQm8hq+0bOsqPoZo=
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		iBmc6/dhm2KVal0+6qDJAVRAHE8=
+		mf2mvtyoVM/3/CP+gR3uA0QSTJU=
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		ykxQbdsgboYzBArEYj9sipqnv0U=
+		+vNCuoj8E0J4Zb6yixGtSZAAdcY=
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		aLK02eQvKekG1cX3hSlL2BAvYrs=
+		BdrXsiSRWYBeQm8hq+0bOsqPoZo=
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		iBmc6/dhm2KVal0+6qDJAVRAHE8=
+		mf2mvtyoVM/3/CP+gR3uA0QSTJU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -279,11 +279,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qKifAKVcKRwNwJEPircXxHbJfOk=
+			IVUmcgx6Tb+0zhrZzWaLEhUCHow=
 			</data>
 			<key>hash2</key>
 			<data>
-			BgzYa/qsP/79PFG089PHsNHEZM2tLIYQkX0Qxmchnj4=
+			fBBLEw8mtzpQ15L/OsqBEDLWqU0eIZ/FmxQdaCiUCZI=
 			</data>
 		</dict>
 		<key>Headers/StraaSMessagingSDK.h</key>
@@ -301,66 +301,66 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ykxQbdsgboYzBArEYj9sipqnv0U=
+			+vNCuoj8E0J4Zb6yixGtSZAAdcY=
 			</data>
 			<key>hash2</key>
 			<data>
-			Tu+vH//Yi9+fY8wot3I/sz/hVdjNqiIRcrbN1a3EjtI=
+			5koP/P87NDMBzqFWE4uHUry64mtDQKz828bbYHDWD1o=
 			</data>
 		</dict>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			aLK02eQvKekG1cX3hSlL2BAvYrs=
+			BdrXsiSRWYBeQm8hq+0bOsqPoZo=
 			</data>
 			<key>hash2</key>
 			<data>
-			zdEkWhB0RBh0QAiCDoveZb3hlvt9tg/33ZH1hRUFLpk=
+			Fbt1ugusC57Ju9qmaH2Kuy9kCKMp1+UIuXZNFAlceuo=
 			</data>
 		</dict>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			iBmc6/dhm2KVal0+6qDJAVRAHE8=
+			mf2mvtyoVM/3/CP+gR3uA0QSTJU=
 			</data>
 			<key>hash2</key>
 			<data>
-			tEuH2c8u1fFe8CePbDBFJD+1Z3qqdxjsjhZwo843+yc=
+			OCx6CmfD9AVo9K0leNNX/1M9ewSnDdnYF6UhRj7XaJ0=
 			</data>
 		</dict>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ykxQbdsgboYzBArEYj9sipqnv0U=
+			+vNCuoj8E0J4Zb6yixGtSZAAdcY=
 			</data>
 			<key>hash2</key>
 			<data>
-			Tu+vH//Yi9+fY8wot3I/sz/hVdjNqiIRcrbN1a3EjtI=
+			5koP/P87NDMBzqFWE4uHUry64mtDQKz828bbYHDWD1o=
 			</data>
 		</dict>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			aLK02eQvKekG1cX3hSlL2BAvYrs=
+			BdrXsiSRWYBeQm8hq+0bOsqPoZo=
 			</data>
 			<key>hash2</key>
 			<data>
-			zdEkWhB0RBh0QAiCDoveZb3hlvt9tg/33ZH1hRUFLpk=
+			Fbt1ugusC57Ju9qmaH2Kuy9kCKMp1+UIuXZNFAlceuo=
 			</data>
 		</dict>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			iBmc6/dhm2KVal0+6qDJAVRAHE8=
+			mf2mvtyoVM/3/CP+gR3uA0QSTJU=
 			</data>
 			<key>hash2</key>
 			<data>
-			tEuH2c8u1fFe8CePbDBFJD+1Z3qqdxjsjhZwo843+yc=
+			OCx6CmfD9AVo9K0leNNX/1M9ewSnDdnYF6UhRj7XaJ0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

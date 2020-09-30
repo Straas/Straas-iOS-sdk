@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - GoogleAds-IMA-iOS-SDK (3.6.1)
+  - GoogleAds-IMA-iOS-SDK (3.11.4)
   - GPUImage-StraaS (0.1.10)
   - IJKMediaFramework (0.1.2)
   - IQKeyboardManager (6.2.0)
@@ -27,27 +27,27 @@ PODS:
   - Socket.IO-Client-Swift (15.1.0):
     - Starscream (~> 3.1)
   - Starscream (3.1.0)
-  - StraaS-iOS-SDK (0.57.1):
-    - StraaS-iOS-SDK/Core (= 0.57.1)
-    - StraaS-iOS-SDK/Messaging (= 0.57.1)
-    - StraaS-iOS-SDK/Player (= 0.57.1)
-    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.57.1)
-    - StraaS-iOS-SDK/Streaming (= 0.57.1)
-  - StraaS-iOS-SDK/Core (0.57.1):
+  - StraaS-iOS-SDK (0.58.0):
+    - StraaS-iOS-SDK/Core (= 0.58.0)
+    - StraaS-iOS-SDK/Messaging (= 0.58.0)
+    - StraaS-iOS-SDK/Player (= 0.58.0)
+    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.58.0)
+    - StraaS-iOS-SDK/Streaming (= 0.58.0)
+  - StraaS-iOS-SDK/Core (0.58.0):
     - AFNetworking (~> 4.0.0)
     - Socket.IO-Client-Swift (~> 15.1.0)
-  - StraaS-iOS-SDK/Messaging (0.57.1):
+  - StraaS-iOS-SDK/Messaging (0.58.0):
     - Socket.IO-Client-Swift (~> 15.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Player (0.57.1):
+  - StraaS-iOS-SDK/Player (0.58.0):
     - AFNetworking (~> 4.0.0)
-    - GoogleAds-IMA-iOS-SDK (~> 3.6.0)
+    - GoogleAds-IMA-iOS-SDK (~> 3.11.4)
     - KVOController (~> 1.2.0)
     - Socket.IO-Client-Swift (~> 15.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.57.1):
+  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.58.0):
     - StraaS-iOS-SDK/Player
-  - StraaS-iOS-SDK/Streaming (0.57.1):
+  - StraaS-iOS-SDK/Streaming (0.58.0):
     - GPUImage-StraaS (~> 0.1.10)
     - StraaS-iOS-SDK/Core
   - TTTAttributedLabel (2.0.0)
@@ -87,7 +87,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  GoogleAds-IMA-iOS-SDK: 5825cb7d5f6004618527828936a077e118da556e
+  GoogleAds-IMA-iOS-SDK: 7f5b78b31ce97ec1f515866ed54118922004f987
   GPUImage-StraaS: 2fd283446cf90bb5f9ef4a1554f4d50eb4cd29b6
   IJKMediaFramework: a1df7357a01a11e65568b8d6cd16ca270be01034
   IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
@@ -97,7 +97,7 @@ SPEC CHECKSUMS:
   SlackTextViewController: b854e62c1c156336bc4fd409c6ca79b5773e8f9d
   Socket.IO-Client-Swift: 7cb44c0ffb86e158cee32d0642d30ec5fdcf8f61
   Starscream: 08172b481e145289c4930cb567230fb55897cfa4
-  StraaS-iOS-SDK: c06379b47d7241554366bbe9c177401dd33e4a90
+  StraaS-iOS-SDK: fb9e55ca3cd3de971e8495e3a2c4bd606209f01b
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   YUGPUImageHighPassSkinSmoothing-Straas: 4f48e63b66f0cc920d1c9027549075444f62a8f4
 
