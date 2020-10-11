@@ -29,6 +29,7 @@ typedef NSArray <NSString *>* (^QualityNamesMappingType)(NSArray <NSString *>* r
 @property (nonatomic) float playbackSpeedForContinue;
 
 - (void)setStreamURL:(NSURL * _Nullable)URL;
+- (void)setStreamURL:(NSURL * _Nullable)URL cookie:(NSHTTPCookie * _Nullable)cookie;
 - (void)play;
 - (void)pause;
 - (void)resume;

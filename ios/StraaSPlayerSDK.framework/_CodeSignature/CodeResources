@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		KkfaV9AK9IgewxDRNaYkCuBpS3s=
+		DtwkU+Jhy2GU0ZV/VE/j9cSa52M=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Headers/STSPlayerPlayback.h</key>
 		<data>
-		dGjP8ywDhB4r2z7JaTEadLgm6eU=
+		c6lTzZJ31SHyUPzDUZC1yc91MYs=
 		</data>
 		<key>Headers/STSPlayerPlaybackEventDelegate.h</key>
 		<data>
@@ -118,7 +118,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		33Sz1IWLIo4u4K2wnX2c6YytByM=
+		NgTDFqSNenrgNsjGhuZyy9E7JoM=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -177,11 +177,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KkfaV9AK9IgewxDRNaYkCuBpS3s=
+			DtwkU+Jhy2GU0ZV/VE/j9cSa52M=
 			</data>
 			<key>hash2</key>
 			<data>
-			MH+NnAJ7yfyZbjg6hGp3xbs+Qf1k0Ea1WacfXTl6bAg=
+			xXRnKZu9t1u6q1NlPwGlhnJwoKbaQRLVj/Xv54bLo0A=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -320,11 +320,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dGjP8ywDhB4r2z7JaTEadLgm6eU=
+			c6lTzZJ31SHyUPzDUZC1yc91MYs=
 			</data>
 			<key>hash2</key>
 			<data>
-			S/VGIgeIFEdtDN0OVB3rf0ofBPtnnJMzgsESHDy3TWA=
+			ebpy4B/vr+SabzuED3VIS5Ct1+Kml7l+ihWL2pV9Pb0=
 			</data>
 		</dict>
 		<key>Headers/STSPlayerPlaybackEventDelegate.h</key>
