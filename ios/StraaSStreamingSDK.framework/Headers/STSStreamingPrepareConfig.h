@@ -44,6 +44,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic) UIInterfaceOrientation outputImageOrientation;
 
+/**
+ *  The maximum video bitrate in bits per second.
+ *  By default, no value is set and the SDK calculates the maximum bitrate automatically using an algorithm which considers the output video size. We recommend to set maxVideoBitrate to at least more than 100000.
+ */
+@property (nonatomic) NSNumber * maxVideoBitrate;
+
 @end
 
 NS_ASSUME_NONNULL_END
