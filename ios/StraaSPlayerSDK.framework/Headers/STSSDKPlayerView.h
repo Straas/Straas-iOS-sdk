@@ -367,5 +367,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (BOOL)setMediaQuality:(NSString *)qualityName;
 
+/**
+ * Change server domain name.
+ * This is for CDN customization scenario such as china access.
+ *
+ * NOTE: If the startListeningLiveEvent method has been called, it should be called again to make sure the new custom host is applied to it.
+ * @param customHost The new host to be applied.
+ * @return YES if apply new custom host to API requests successfully; otherwise, NO.
+ */
+- (BOOL)setCustomHost:(NSString *)customHost;
+
 @end
 NS_ASSUME_NONNULL_END
