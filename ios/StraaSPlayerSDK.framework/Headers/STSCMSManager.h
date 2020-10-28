@@ -31,6 +31,14 @@ NS_ASSUME_NONNULL_BEGIN
 + (STSCMSManager *)sharedManager;
 
 /**
+ * Initialize a new STSCMSManager object with custom host.
+ *
+ *  @param customHost The cutom host to be applied.
+ *  @return The STSCMSManager object.
+ */
+- (instancetype)initWithCustomHost:(NSString * _Nullable)customHost;
+
+/**
  *  Set the member JWT, the JWT will be used when sending request to CMS API.
  *  We strongly suggest calling this method as soon as you get your member JWT.
  *  If you don't call this method, other STSCMSManager methods would return the resources that a guest can reach only.

@@ -16,6 +16,7 @@
 #import "STSArchivedMessagesMeta.h"
 #import "STSGetUsersType.h"
 #import "STSChatMetadata.h"
+#import "STSChatManagerConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -159,6 +160,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface STSChatManager : NSObject
 
 /**
+ *  Init STSChatManager with the config.
+ *
+ *  @param STSChatManagerConfig The STSChatManagerConfig. Not to set this or sets this to nil to use the default value.
+ */
+- (instancetype)initWithChatManagerConfig:(STSChatManagerConfig * _Nullable)chatManagerConfig;
+
+/**
  *  Connect to chat room with user JWT.
  *
  *  @param chatroomName Identifier of chat room. Don't pass nil or this method return early.
@@ -167,7 +175,8 @@ NS_ASSUME_NONNULL_BEGIN
                         method return early.
  *  @param eventDelegate Chat event delegate. Chat manager not retain this delegate.
  */
-- (void)connectToChatroom:(NSString *)chatroomName JWT:(NSString *)JWT
+- (void)connectToChatroom:(NSString *)chatroomName
+                      JWT:(NSString *)JWT
             eventDelegate:(nullable id<STSChatEventDelegate>)eventDelegate;
 
 /**
