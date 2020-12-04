@@ -732,24 +732,28 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
     if (!message) {
         return;
     }
-    [self.cachedAddedMessages insertObject:message atIndex:0];
+    @synchronized (self.cachedAddedMessages) {
+        [self.cachedAddedMessages insertObject:message atIndex:0];
+    }
 }
 
 - (void)chatroom:(STSChat *)chatroom messageRemoved:(NSString *)messageId {
     if (!messageId) {
         return;
     }
-    __block BOOL deleteMesageFromCached = NO;
-    [self.cachedAddedMessages enumerateObjectsUsingBlock:^(STSChatMessage * msg, NSUInteger index, BOOL * _Nonnull stop) {
-        if ([msg.messageId isEqualToString:messageId]) {
-            [self.cachedAddedMessages removeObject:msg];
-            deleteMesageFromCached = YES;
-            * stop = YES;
-            return;
+    @synchronized (self.cachedAddedMessages) {
+        __block BOOL deleteMesageFromCached = NO;
+        [self.cachedAddedMessages enumerateObjectsUsingBlock:^(STSChatMessage * msg, NSUInteger index, BOOL * _Nonnull stop) {
+            if ([msg.messageId isEqualToString:messageId]) {
+                [self.cachedAddedMessages removeObject:msg];
+                deleteMesageFromCached = YES;
+                * stop = YES;
+                return;
+            }
+        }];
+        if (!deleteMesageFromCached) {
+            [self.cachedRemovedMessageIds addObject:messageId];
         }
-    }];
-    if (!deleteMesageFromCached) {
-        [self.cachedRemovedMessageIds addObject:messageId];
     }
 }
 
@@ -1227,46 +1231,49 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
 }
 
 - (void)updateTabelViewTimerFired {
-    NSUInteger cachedAddedMessagesCount = self.cachedAddedMessages.count;
-    NSUInteger cachedRemovedMessageIdsCount = self.cachedRemovedMessageIds.count;
-    if (cachedAddedMessagesCount == 0 && cachedRemovedMessageIdsCount == 0) {
-        return;
-    }
-    if (cachedAddedMessagesCount != 0) {
-        NSIndexSet * indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, cachedAddedMessagesCount)];
-        [self.messages insertObjects:self.cachedAddedMessages atIndexes:indexSet];
-        [self showJumpToLatestButtonIfNeeded];
-}
-    for (NSString * messageId in self.cachedRemovedMessageIds) {
-        for (STSChatMessage * message in self.messages) {
-            if ([message.messageId isEqualToString:messageId]) {
-                [self.messages removeObject:message];
-                break;
+    @synchronized (self.cachedAddedMessages) {
+        NSUInteger cachedAddedMessagesCount = self.cachedAddedMessages.count;
+        NSUInteger cachedRemovedMessageIdsCount = self.cachedRemovedMessageIds.count;
+        if (cachedAddedMessagesCount == 0 && cachedRemovedMessageIdsCount == 0) {
+            return;
+        }
+        if (cachedAddedMessagesCount != 0) {
+            NSIndexSet * indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, cachedAddedMessagesCount)];
+            [self.messages insertObjects:self.cachedAddedMessages atIndexes:indexSet];
+            [self showJumpToLatestButtonIfNeeded];
+        }
+        for (NSString * messageId in self.cachedRemovedMessageIds) {
+            for (STSChatMessage * message in self.messages) {
+                if ([message.messageId isEqualToString:messageId]) {
+                    [self.messages removeObject:message];
+                    break;
+                }
             }
         }
+        
+        if (![self isTableViewReachBottom:self.tableView]) {
+            CGPoint contentOffset = self.tableView.contentOffset;
+            [self.tableView reloadData];
+            //Force tableview layout, or content offset would have issue.
+            [self.tableView setNeedsLayout];
+            [self.tableView layoutIfNeeded];
+            CGFloat diffContentOffsetY = [self diffContentOffSetYForTableView:self.tableView
+                                                     cachedAddedMessagesCount:cachedAddedMessagesCount];
+            contentOffset.y += diffContentOffsetY;
+            self.tableView.contentOffset = contentOffset;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView setContentOffset:contentOffset animated:NO];
+            });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+            });
+        }
+        
+        [self.cachedAddedMessages removeAllObjects];
+        [self.cachedRemovedMessageIds removeAllObjects];
+        [self removeMessagesCachedIfNeeded];
     }
-    if (![self isTableViewReachBottom:self.tableView]) {
-        CGPoint contentOffset = self.tableView.contentOffset;
-        [self.tableView reloadData];
-        //Force tableview layout, or content offset would have issue.
-        [self.tableView setNeedsLayout];
-        [self.tableView layoutIfNeeded];
-        CGFloat diffContentOffsetY = [self diffContentOffSetYForTableView:self.tableView
-                                                 cachedAddedMessagesCount:cachedAddedMessagesCount];
-        contentOffset.y += diffContentOffsetY;
-        self.tableView.contentOffset = contentOffset;
-        dispatch_async(dispatch_get_main_queue(), ^{
-          [self.tableView setContentOffset:contentOffset animated:NO];
-        });
-    } else {
-      dispatch_async(dispatch_get_main_queue(), ^{
-          [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-      });
-    }
-
-    [self.cachedAddedMessages removeAllObjects];
-    [self.cachedRemovedMessageIds removeAllObjects];
-    [self removeMessagesCachedIfNeeded];
 }
 
 - (CGFloat)diffContentOffSetYForTableView:(UITableView *)tableView
