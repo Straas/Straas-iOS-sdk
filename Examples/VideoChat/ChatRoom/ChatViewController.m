@@ -1090,8 +1090,7 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
 };
 
 - (void)forceToUpdateTableSectionHeaderAndFooter {
-    [self.tableView beginUpdates];
-    [self.tableView endUpdates];
+    [self.tableView reloadData];
 }
 
 - (void)getPinnedMessage {
