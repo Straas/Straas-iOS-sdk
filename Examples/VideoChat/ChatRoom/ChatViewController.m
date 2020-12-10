@@ -698,9 +698,9 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
     STSGetMessagesConfiguration * configuration = [STSGetMessagesConfiguration new];
     configuration.perPage = @40;
     [self.manager getMessagesForChatroom:chatroom configuration:configuration success:^(NSArray<STSChatMessage *> * _Nonnull messages) {
-        [weakSelf.messages removeAllObjects];
-        [weakSelf.messages addObjectsFromArray:messages];
         dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.messages removeAllObjects];
+            [weakSelf.messages addObjectsFromArray:messages];
             [weakSelf.tableView reloadData];
             [weakSelf updateTextViewForChatroom:chatroom];
         });
@@ -758,8 +758,8 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
 }
 
 - (void)chatroomMessageFlushed:(STSChat *)chatroom {
-    [self.messages removeAllObjects];
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self.messages removeAllObjects];
         [self.tableView reloadData];
     });
 }
