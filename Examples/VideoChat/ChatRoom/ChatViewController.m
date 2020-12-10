@@ -40,6 +40,7 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
 @property (nonatomic) STSChatUser * currentUser;
 
 @property (nonatomic, getter=hasUpdatedNickname) BOOL updatedNickname;
+@property (nonatomic, assign) BOOL connected;
 @property (nonatomic) NSString * fakeName;
 
 //Custom view
@@ -95,6 +96,7 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
     _autoConnect = YES;
     _shouldAddIndicatorView = YES;
     _shouldShowPinnedMessage = YES;
+    _connected = NO;
     _pinnedMessagePosition = STSPinnedMessagePositionTop;
     _allLayoutConstraints = [NSMutableArray new];
 #if DEBUG_CUSTOM_TYPING_INDICATOR
@@ -109,6 +111,17 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
     [self.textInputbar bringSubviewToFront:self.textInputbar.textView];
     [self.textInputbar bringSubviewToFront:self.textInputbar.leftButton];
     [self.textInputbar bringSubviewToFront:self.textInputbar.rightButton];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.connected && !self.updateTableViewTimer) {
+        [self startUpdateTableViewTimer];
+    }
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self cancelUpdateTableViewTimer];
 }
 
 #pragma mark - Custom accessors
@@ -708,6 +721,7 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
 
     }];
     [self getPinnedMessage];
+    _connected = YES;
 }
 
 - (void)chatroomInputModeChanged:(STSChat *)chatroom {
@@ -1224,6 +1238,7 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
 - (void)startUpdateTableViewTimer {
     __weak ChatViewController * weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self cancelUpdateTableViewTimer];
         self.updateTableViewTimer = [NSTimer safeScheduledTimerWithTimeInterval:weakSelf.refreshTableViewTimeInteval
                                                                           block:^{[weakSelf updateTabelViewTimerFired];}
                                                                         repeats:YES];
