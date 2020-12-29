@@ -38,7 +38,7 @@
 		</data>
 		<key>Headers/STSStreamingPrepareConfig.h</key>
 		<data>
-		PjmBrc8sB1FFd5Cxrd446+gXp8I=
+		4FmijcT0V/bKKLvBDNW9BJnz3zE=
 		</data>
 		<key>Headers/STSStreamingProfile.h</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		22ScI98XtY8a6KQZ+8TLVh5cHCI=
+		Zvh5sfrhzTd3C74tnUef6bP5xiE=
 		</data>
 		<key>Localizable.strings</key>
 		<data>
@@ -86,7 +86,7 @@
 		</data>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		rCUAHQ/NJKBiAe41IK4zADjex9M=
+		yKKBTYT69z2oYE5ks9dc9RQZ7Lg=
 		</data>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -98,7 +98,7 @@
 		</data>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		rCUAHQ/NJKBiAe41IK4zADjex9M=
+		yKKBTYT69z2oYE5ks9dc9RQZ7Lg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -199,11 +199,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			PjmBrc8sB1FFd5Cxrd446+gXp8I=
+			4FmijcT0V/bKKLvBDNW9BJnz3zE=
 			</data>
 			<key>hash2</key>
 			<data>
-			bSzhuFmelnmReuBEnb6tkLzt80NtP+mu7grFFJzS+UI=
+			wY+6YOkTYPC8qVZ9+hedxsP2q99FQsOquT8r/tfZOxE=
 			</data>
 		</dict>
 		<key>Headers/STSStreamingProfile.h</key>
@@ -320,11 +320,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rCUAHQ/NJKBiAe41IK4zADjex9M=
+			yKKBTYT69z2oYE5ks9dc9RQZ7Lg=
 			</data>
 			<key>hash2</key>
 			<data>
-			z0neD79hKVw3cWHYoagjpsCX7ACe/SrBWUhAVVQyk+4=
+			EeHmUjn1gmbL1MifZsBcv4pYCNneCZauLVwPRw8GzuA=
 			</data>
 		</dict>
 		<key>Modules/StraaSStreamingSDK.swiftmodule/arm64.swiftdoc</key>
@@ -353,11 +353,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rCUAHQ/NJKBiAe41IK4zADjex9M=
+			yKKBTYT69z2oYE5ks9dc9RQZ7Lg=
 			</data>
 			<key>hash2</key>
 			<data>
-			z0neD79hKVw3cWHYoagjpsCX7ACe/SrBWUhAVVQyk+4=
+			EeHmUjn1gmbL1MifZsBcv4pYCNneCZauLVwPRw8GzuA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

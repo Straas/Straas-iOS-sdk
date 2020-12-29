@@ -37,7 +37,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Both the width and the height of the output video will be limited by this value.
  *  This property will be used only when `targetOutputSize` is equal to `CGSizeZero`.
  */
-@property (nonatomic) STSStreamingResolution maxResolution;
+@property (nonatomic) STSStreamingResolution maxResolution __attribute__((deprecated("`maxResolution` has been deprecated. Use `maxVideoHeight` instead.")));
+
+/**
+ *  The max video hieght of the output video. Defaluts to 720.
+ *  The height of the output video will be limited by this value, and the width is limited by the calculated width based on `maxVideoHeight` and the aspect ratio of the `previewView` in `STSStreamingManager`. This value is usually as same as the `profile` in `STSStreamingLiveEventConfig` if you create a live event by iOS client SDK.
+ *  This property will be used only when `targetOutputSize` is equal to `CGSizeZero`.
+ */
+@property (nonatomic) NSUInteger maxVideoHeight;
 
 /**
  *  The orientation of the output video. Defaults to `UIInterfaceOrientationPortrait`.
