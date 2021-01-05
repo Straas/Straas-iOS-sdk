@@ -11,6 +11,9 @@ Pod::Spec.new do |s|
   s.license      = { :type => "Copyright", :text => "Copyright (c) 2020 StraaS.io. All rights reserved." }
   s.author       = "StraaS.io"
 
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+
   s.platform     = :ios, "11.0"
 
   s.source       = { :git => "https://github.com/StraaS/StraaS-iOS-sdk.git",
