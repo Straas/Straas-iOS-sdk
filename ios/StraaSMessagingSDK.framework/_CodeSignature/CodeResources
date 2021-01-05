@@ -86,7 +86,7 @@
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		Sv39hELGqHShSpbJP3oOhvzyPr0=
+		E3rsU7UEoa/+viF73dULEsz71EY=
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -98,7 +98,7 @@
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		Sv39hELGqHShSpbJP3oOhvzyPr0=
+		E3rsU7UEoa/+viF73dULEsz71EY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -338,11 +338,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Sv39hELGqHShSpbJP3oOhvzyPr0=
+			E3rsU7UEoa/+viF73dULEsz71EY=
 			</data>
 			<key>hash2</key>
 			<data>
-			VTeLkq9+66AWvOFx3LdxOTAV2wNb/w9RCUHwKngxXF8=
+			5vr4jMbuYmB6t19ZP4NoNEyA3y/uJ+r7z8NMhaB65SY=
 			</data>
 		</dict>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64.swiftdoc</key>
@@ -371,11 +371,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Sv39hELGqHShSpbJP3oOhvzyPr0=
+			E3rsU7UEoa/+viF73dULEsz71EY=
 			</data>
 			<key>hash2</key>
 			<data>
-			VTeLkq9+66AWvOFx3LdxOTAV2wNb/w9RCUHwKngxXF8=
+			5vr4jMbuYmB6t19ZP4NoNEyA3y/uJ+r7z8NMhaB65SY=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
