@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "StraaS-iOS-SDK"
-  s.version      = "0.61.0"
+  s.version      = "0.66.0"
   s.summary      = "StraaS.io iOS SDK"
 
   s.description  = "StraaS.io - Streaming as a Service, Your Best OTT Solution."
@@ -24,25 +24,25 @@ Pod::Spec.new do |s|
   s.subspec 'Messaging' do |msg|
     msg.vendored_frameworks = "ios/StraaSMessagingSDK.framework"
     msg.dependency "StraaS-iOS-SDK/Core"
-    msg.dependency "Socket.IO-Client-Swift", "~> 15.1.0"
+    msg.dependency "Socket.IO-Client-Swift", "= 15.1.0"
   end
   s.subspec 'Core' do |co|
     co.vendored_frameworks = "ios/StraaSCoreSDK.framework"
-    co.dependency "AFNetworking", "~> 4.0.0"
-    co.dependency "Socket.IO-Client-Swift", "~> 15.1.0"
+    co.dependency "AFNetworking", "= 4.0.1"
+    co.dependency "Socket.IO-Client-Swift", "= 15.1.0"
   end
   s.subspec 'Streaming' do |streaming|
     streaming.vendored_frameworks = "ios/StraaSStreamingSDK.framework"
     streaming.dependency "StraaS-iOS-SDK/Core"
-    streaming.dependency "GPUImage-StraaS", "~> 0.1.10"
+    streaming.dependency "GPUImage-StraaS", "= 0.1.10"
   end
   s.subspec 'Player' do |player|
     player.vendored_frameworks = "ios/StraaSPlayerSDK.framework"
     player.dependency "StraaS-iOS-SDK/Core"
-    player.dependency "Socket.IO-Client-Swift", "~> 15.1.0"
-    player.dependency "GoogleAds-IMA-iOS-SDK", "~> 3.11.4"
-    player.dependency "KVOController", "~> 1.2.0"
-    player.dependency "AFNetworking", "~> 4.0.0"
+    player.dependency "Socket.IO-Client-Swift", "= 15.1.0"
+    player.dependency "GoogleAds-IMA-iOS-SDK", "= 3.13.0"
+    player.dependency "KVOController", "= 1.2.0"
+    player.dependency "AFNetworking", "= 4.0.1"
   end
   s.subspec 'PlayerLowLatencyExtension' do |playerLowLatencyExtension|
     playerLowLatencyExtension.vendored_frameworks = "ios/StraaSPlayerLowLatencyExtensionSDK.framework"

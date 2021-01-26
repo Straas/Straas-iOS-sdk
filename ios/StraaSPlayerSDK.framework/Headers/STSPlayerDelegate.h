@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol STSPlayerDelegate <NSObject>
 
 - (void)playerIsReadyToPlay:(id<STSPlayerPlayback>)player;
+- (void)playerItemReadyToPlay:(id<STSPlayerPlayback>)player;
 - (void)playerStartToPlay:(id<STSPlayerPlayback>)player;
 - (void)player:(id<STSPlayerPlayback>)player onBuffering:(BOOL)isBuffering;
 - (void)playerDidStop:(id<STSPlayerPlayback>)player;
