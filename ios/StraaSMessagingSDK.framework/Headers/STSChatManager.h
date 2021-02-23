@@ -167,13 +167,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithChatManagerConfig:(STSChatManagerConfig * _Nullable)chatManagerConfig;
 
 /**
- *  Connect to chat room with user JWT.
+ * Connect to chat room with user JWT.
  *
- *  @param chatroomName Identifier of chat room. Don't pass nil or this method return early.
- *  @param JWT          User identity information. For StraaS.io CMS member, a member JWT should be
-                        used here. Use an empty string to represent guest. Don't pass nil or this
-                        method return early.
- *  @param eventDelegate Chat event delegate. Chat manager not retain this delegate.
+ * @param chatroomName Identifier of chat room. Don't pass nil or this method return early.
+ * @param JWT          User identity information. For StraaS.io CMS member, a member JWT should be
+ *                     used here. Use an empty string to represent guest. Don't pass nil or this
+ *                     method return early.
+ * @param eventDelegate Chat event delegate. Chat manager not retain this delegate.
  */
 - (void)connectToChatroom:(NSString *)chatroomName
                       JWT:(NSString *)JWT
