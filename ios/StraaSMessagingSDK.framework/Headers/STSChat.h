@@ -43,6 +43,33 @@ typedef NS_ENUM(NSUInteger, STSChatInputMode) {
     STSChatInputMaster
 };
 
+typedef NS_ENUM(NSUInteger, STSChatStatus) {
+    /**
+     *  The chatroom just initialized.
+     */
+    STSChatStatusEmptyProfile,
+    /**
+     *  The chatroom is ready to connect.
+     */
+    STSChatStatusReady,
+    /**
+     *  The chatroom is connecting.
+     */
+    STSChatStatusConnecting,
+    /**
+     *  The chatroom is connected.
+     */
+    STSChatStatusConnected,
+    /**
+     *  The chatroom is disconnecting.
+     */
+    STSChatStatusDisconnecting,
+    /**
+     *  The connection of chatroom has be canceled.
+     */
+    STSChatStatusCanceled
+};
+
 /**
  *  Input mode of chat.
  */
@@ -52,6 +79,11 @@ typedef NS_ENUM(NSUInteger, STSChatInputMode) {
  *  Chatroom name.
  */
 @property (nonatomic, readonly) NSString * chatroomName;
+
+/**
+ The status of chat.
+ */
+@property (nonatomic, readonly) STSChatStatus status;
 
 /**
  *  The current user object in this chat.
