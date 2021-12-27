@@ -12,17 +12,13 @@
 		<data>
 		R6vP2xnUhJs//Y47CWe7J4Efktw=
 		</data>
-		<key>Headers/STSArchivedMessagesMeta.h</key>
-		<data>
-		n0/5JsoHQz3QVXbo6pTlOZI+9C0=
-		</data>
 		<key>Headers/STSChat.h</key>
 		<data>
 		WJoXMvGKhn5e3gb19bFFSEdtmjA=
 		</data>
 		<key>Headers/STSChatManager.h</key>
 		<data>
-		vLYWNYvWvSY8SpUpXotvfn9EO8Y=
+		6LnLinSXYCYuMeeQ56kt8IZYnng=
 		</data>
 		<key>Headers/STSChatManagerConfig.h</key>
 		<data>
@@ -43,10 +39,6 @@
 		<key>Headers/STSChatUser.h</key>
 		<data>
 		MwJ7wcYWvQTyVB3XLD2UI5/B4bw=
-		</data>
-		<key>Headers/STSGetArchivedMessagesConfiguration.h</key>
-		<data>
-		oi4aiGuJXf05MmaYvM6LgeS0B5o=
 		</data>
 		<key>Headers/STSGetMessagesConfiguration.h</key>
 		<data>
@@ -70,11 +62,11 @@
 		</data>
 		<key>Headers/StraaSMessagingSDK.h</key>
 		<data>
-		DOZhrQRTrZYtNME0xanMkRezE8o=
+		wgqkrfFq4bU7fFi9Oz7yEr8y14g=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		MhJk7bByD90CtndOhqLNxD0JoX8=
+		1T/RGepdZ1+N3Su1Ib0AbFb+nk4=
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -147,17 +139,6 @@
 			gUlGdZFmo85eaGlJQD/Y9jDB03dCe6L/175p1Vsti9E=
 			</data>
 		</dict>
-		<key>Headers/STSArchivedMessagesMeta.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			n0/5JsoHQz3QVXbo6pTlOZI+9C0=
-			</data>
-			<key>hash2</key>
-			<data>
-			Pg67KWnWqPzSFYazwIce8U57FhJ1lOm6+5ZRKd6tFWQ=
-			</data>
-		</dict>
 		<key>Headers/STSChat.h</key>
 		<dict>
 			<key>hash</key>
@@ -173,11 +154,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vLYWNYvWvSY8SpUpXotvfn9EO8Y=
+			6LnLinSXYCYuMeeQ56kt8IZYnng=
 			</data>
 			<key>hash2</key>
 			<data>
-			ubBAPqKKGg+KRXsephA6j/evOVukqInlmk8gNIp8ZoY=
+			cDpySdYAPMAoTc4ihZdr3c0agAzeezn99s/o4A2BKho=
 			</data>
 		</dict>
 		<key>Headers/STSChatManagerConfig.h</key>
@@ -233,17 +214,6 @@
 			<key>hash2</key>
 			<data>
 			Jp5qVVdBD2CEgmNFSBJmYFWxKDmnK8MpNFBA2kfdlWw=
-			</data>
-		</dict>
-		<key>Headers/STSGetArchivedMessagesConfiguration.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			oi4aiGuJXf05MmaYvM6LgeS0B5o=
-			</data>
-			<key>hash2</key>
-			<data>
-			1NcS/nZB8iUN/5CAi+WApyMM77s1UtSBKgQmkObcuyc=
 			</data>
 		</dict>
 		<key>Headers/STSGetMessagesConfiguration.h</key>
@@ -305,11 +275,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DOZhrQRTrZYtNME0xanMkRezE8o=
+			wgqkrfFq4bU7fFi9Oz7yEr8y14g=
 			</data>
 			<key>hash2</key>
 			<data>
-			cQ+Sm0oQpfZn9372VF1uGXwUJMdz44Rcb4IDoP2Sups=
+			5LBMGGOgVi7A8t/BHxrf0t63wnJM0mnK4F6UX4fxxvk=
 			</data>
 		</dict>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>

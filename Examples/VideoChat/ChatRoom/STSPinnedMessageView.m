@@ -137,7 +137,7 @@ static const CGFloat kSTSPinnedMessageViewPinButtonMarginLeft = 5;
 - (TTTAttributedLabel *)bodyLabel
 {
     if (!_bodyLabel) {
-        _bodyLabel = [TTTAttributedLabel new];
+        _bodyLabel = [[TTTAttributedLabel alloc] initWithFrame:CGRectZero];
         _bodyLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _bodyLabel.backgroundColor = [UIColor clearColor];
         _bodyLabel.userInteractionEnabled = YES;

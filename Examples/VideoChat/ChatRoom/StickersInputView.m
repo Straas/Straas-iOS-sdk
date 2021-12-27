@@ -234,7 +234,15 @@ NSString * const kStickersInputView = @"StickersInputView";
         scrollView.scrollEnabled = YES;
         self.noRecentlyStickerLabel.hidden = YES;
         [recentlyUsedSticker enumerateObjectsUsingBlock:^(NSDictionary * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [self addButtonWithImageURL:obj.allValues[0] key:obj.allKeys[0] toScrollView:scrollView];
+            if ([obj.allKeys count] == 0) {
+                return;
+            }
+            NSString *key = [obj.allKeys objectAtIndex:0];
+            NSString *imageURL = [self imageURLWithStickerText:key];
+            if (!imageURL) {
+                return;
+            }
+            [self addButtonWithImageURL:imageURL key:key toScrollView:scrollView];
         }];
     } else {
         self.noRecentlyStickerLabel.hidden = NO;
@@ -314,6 +322,9 @@ NSString * const kStickersInputView = @"StickersInputView";
     self.shouldUpdateRecentlyScrollView = YES;
     NSString * stickerText = button.currentTitle;
     NSString * imageURL = [self imageURLWithStickerText:stickerText];
+    if (!stickerText || !imageURL) {
+        return;
+    }
     [NSFileManager addRecentlyUsedStickerItem:@{stickerText: imageURL}];
     [self reloadRecentlyUsedStickerScrollView];
     if ([self.delegate respondsToSelector:@selector(didSelectStickerKey:imageURL:)]) {

@@ -49,7 +49,7 @@
 }
 
 - (TTTAttributedLabel *)labelWithText:(NSString *)text {
-    TTTAttributedLabel * label = [TTTAttributedLabel new];
+    TTTAttributedLabel * label = [[TTTAttributedLabel alloc] initWithFrame:CGRectZero];
     label.translatesAutoresizingMaskIntoConstraints = NO;
     label.textInsets = UIEdgeInsetsMake(12, 12, 12, 12);
     label.numberOfLines = 0;

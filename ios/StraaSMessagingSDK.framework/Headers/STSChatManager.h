@@ -12,8 +12,6 @@
 #import "STSChatMessage.h"
 #import "STSAggregatedData.h"
 #import "STSGetMessagesConfiguration.h"
-#import "STSGetArchivedMessagesConfiguration.h"
-#import "STSArchivedMessagesMeta.h"
 #import "STSGetUsersType.h"
 #import "STSChatMetadata.h"
 #import "STSChatManagerConfig.h"
@@ -478,40 +476,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-/**
- *  The following methods are about archived messages which is designed to replay history messages.
- */
-@interface STSChatManager (ArchivedMessage)
-
-/**
- *  Get archived message meta object by archived id.
- *
- *  @param chatroomName The chatroom name you want to get archived messages.
- *  @param archivedId   The archived id to retrieve archived messages meta.
- *  @param success      Handler for successful request. It takes an STSArchivedMessagesMeta
-                        argument that contains the specific archived meta.
- *  @param failure      Error handler.
- */
-- (void)getArchivedMessageMetaForChatroom:(NSString *)chatroomName
-                               archivedId:(NSString *)archivedId
-                                  success:(void(^)(STSArchivedMessagesMeta * archivedMessageMeta))success
-                                  failure:(void(^)(NSError * error))failure;
-/**
- *  Get chat room archived messages.
- *  The response time is increasing with the number of messages included in one single request. 
- *  Normally, our best practice suggests |endTime-startTime| < 10000 (10 sec).
- *
- *  @param chatroomName  The chatroom name you want to get archived messages.
- *  @param configuration The STSGetArchivedMessagesConfiguration object that specifies the request rules for getting archived messages.
- *  @param success       Handler for successful request. It takes an 'NSArray' of 'STSChatMessage'
-                         argument that contains the specific archived messages.
- *  @param failure       Error handler.
- */
-- (void)getArchivedMessagesForChatroom:(NSString *)chatroomName
-                         configuration:(STSGetArchivedMessagesConfiguration *)configuration
-                               success:(void(^)(NSArray<STSChatMessage *> * messages))success
-                               failure:(void(^)(NSError * error))failure;
-
-
-@end
 NS_ASSUME_NONNULL_END
