@@ -17,37 +17,37 @@ PODS:
   - GoogleAds-IMA-iOS-SDK (3.13.0)
   - GPUImage-StraaS (0.1.10)
   - IJKMediaFramework (0.1.5)
-  - IQKeyboardManager (6.5.6)
+  - IQKeyboardManager (6.5.9)
   - KVOController (1.2.0)
   - MBProgressHUD (1.2.0)
-  - SDWebImage (5.11.1):
-    - SDWebImage/Core (= 5.11.1)
-  - SDWebImage/Core (5.11.1)
+  - SDWebImage (5.12.3):
+    - SDWebImage/Core (= 5.12.3)
+  - SDWebImage/Core (5.12.3)
   - SlackTextViewController (1.9.6)
   - Socket.IO-Client-Swift (15.1.0):
     - Starscream (~> 3.1)
   - Starscream (3.1.1)
-  - StraaS-iOS-SDK (0.69.0):
-    - StraaS-iOS-SDK/Core (= 0.69.0)
-    - StraaS-iOS-SDK/Messaging (= 0.69.0)
-    - StraaS-iOS-SDK/Player (= 0.69.0)
-    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.69.0)
-    - StraaS-iOS-SDK/Streaming (= 0.69.0)
-  - StraaS-iOS-SDK/Core (0.69.0):
+  - StraaS-iOS-SDK (0.70.0):
+    - StraaS-iOS-SDK/Core (= 0.70.0)
+    - StraaS-iOS-SDK/Messaging (= 0.70.0)
+    - StraaS-iOS-SDK/Player (= 0.70.0)
+    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.70.0)
+    - StraaS-iOS-SDK/Streaming (= 0.70.0)
+  - StraaS-iOS-SDK/Core (0.70.0):
     - AFNetworking (= 4.0.1)
     - Socket.IO-Client-Swift (= 15.1.0)
-  - StraaS-iOS-SDK/Messaging (0.69.0):
+  - StraaS-iOS-SDK/Messaging (0.70.0):
     - Socket.IO-Client-Swift (= 15.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Player (0.69.0):
+  - StraaS-iOS-SDK/Player (0.70.0):
     - AFNetworking (= 4.0.1)
     - GoogleAds-IMA-iOS-SDK (= 3.13.0)
     - KVOController (= 1.2.0)
     - Socket.IO-Client-Swift (= 15.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.69.0):
+  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.70.0):
     - StraaS-iOS-SDK/Player
-  - StraaS-iOS-SDK/Streaming (0.69.0):
+  - StraaS-iOS-SDK/Streaming (0.70.0):
     - GPUImage-StraaS (= 0.1.10)
     - StraaS-iOS-SDK/Core
   - TTTAttributedLabel (2.0.0)
@@ -90,14 +90,14 @@ SPEC CHECKSUMS:
   GoogleAds-IMA-iOS-SDK: b8d3693d370edcbd1440c827897c2b2a0b76673d
   GPUImage-StraaS: 2fd283446cf90bb5f9ef4a1554f4d50eb4cd29b6
   IJKMediaFramework: f1119f6324c96bc4654f3045a5beaa95ba0596c0
-  IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
+  IQKeyboardManager: 241cc94ccabc9deb8f8bd7d12f00d73288d13ecc
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SDWebImage: 53179a2dba77246efa8a9b85f5c5b21f8f43e38f
   SlackTextViewController: b854e62c1c156336bc4fd409c6ca79b5773e8f9d
   Socket.IO-Client-Swift: 7cb44c0ffb86e158cee32d0642d30ec5fdcf8f61
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
-  StraaS-iOS-SDK: 344691898e33a701512c3a43378e1864e618e01b
+  StraaS-iOS-SDK: bbef91b07a35f305633f9c5add66cc97fb039c4e
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   YUGPUImageHighPassSkinSmoothing-Straas: 4f48e63b66f0cc920d1c9027549075444f62a8f4
 

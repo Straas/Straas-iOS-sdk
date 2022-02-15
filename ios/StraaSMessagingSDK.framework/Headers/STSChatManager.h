@@ -274,7 +274,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Send message to chatroom. 
  *  Note: Call this method more than once a second is not allowed.
  *
- *  @param message      Message text. Should be between 1~300 characters.
+ *  @param message      Message text. Should be between 1~500 characters.
  *  @param chatroom     The STSChat object you want to send message.
  *  @param success      Handler for successful request.
  *  @param failure      Error handler.
