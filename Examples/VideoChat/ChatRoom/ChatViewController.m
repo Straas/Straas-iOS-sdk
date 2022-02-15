@@ -593,7 +593,7 @@ NSString * const STSChatViewControllerSendMessageFailureNotification = @"STSChat
     [self.rightButton setTitle:NSLocalizedString(@"Send", nil) forState:UIControlStateNormal];
     [self.singleTapGesture addTarget:self action:@selector(didTapTableView)];
     self.textInputbar.autoHideRightButton = YES;
-    self.textInputbar.maxCharCount = 120;
+    self.textInputbar.maxCharCount = 500;
     self.textInputbar.counterStyle = SLKCounterStyleSplit;
     self.textInputbar.counterPosition = SLKCounterPositionTop;
 

@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/STSChatManager.h</key>
 		<data>
-		6LnLinSXYCYuMeeQ56kt8IZYnng=
+		Ce7vMUpSxLoE3hASZQce6b6tvGs=
 		</data>
 		<key>Headers/STSChatManagerConfig.h</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		1T/RGepdZ1+N3Su1Ib0AbFb+nk4=
+		Cx7p2nFv5equkYake+OD0RTYdiY=
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -100,7 +100,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			HKsWGKbUtn4j2yzlCJ789rOz+5w=
+			Q4M+D2P42UT8WGY3Ivyc6O/prHs=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -109,7 +109,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qeKvqKdda3Pxo0GnT+XCzVlS0uc=
+			7C7sfqZSEhCW3H5Q6aBhvi22gTI=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -154,11 +154,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6LnLinSXYCYuMeeQ56kt8IZYnng=
+			Ce7vMUpSxLoE3hASZQce6b6tvGs=
 			</data>
 			<key>hash2</key>
 			<data>
-			cDpySdYAPMAoTc4ihZdr3c0agAzeezn99s/o4A2BKho=
+			eyvC7lJ03VUlLs/UDpzrwG9Sh4XF45ADZPiYQKKlZmo=
 			</data>
 		</dict>
 		<key>Headers/STSChatManagerConfig.h</key>
@@ -363,11 +363,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			HKsWGKbUtn4j2yzlCJ789rOz+5w=
+			Q4M+D2P42UT8WGY3Ivyc6O/prHs=
 			</data>
 			<key>hash2</key>
 			<data>
-			FKCO4gQdj8TKU8ndIaY/HaxuMe/IxgfKPOtts9vWmfQ=
+			GatCnK6nHaQ14NEG0OnIxNKykyOcyw/0FWAYNDlmZWM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -376,11 +376,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qeKvqKdda3Pxo0GnT+XCzVlS0uc=
+			7C7sfqZSEhCW3H5Q6aBhvi22gTI=
 			</data>
 			<key>hash2</key>
 			<data>
-			kRKzxTK3p3l4jhYxjpLaW6RUyLkWnLUV9KbW8npkH4g=
+			tCNwwA6jNGE/4eGxkTusS3PqMZa/4IrkoYXR2Ei2KbU=
 			</data>
 			<key>optional</key>
 			<true/>
