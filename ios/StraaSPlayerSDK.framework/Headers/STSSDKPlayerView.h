@@ -171,6 +171,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) float playbackSpeed;
 
 /**
+ *  The desired maximum resolution of a video that is to be downloaded. Defaults to CGSizeZero, which indicates there is no limit on the video resolution. Any other value indicates a preferred maximum video resolution. This property only applies to HTTP Live Streaming assets.
+ */
+@property (nonatomic) CGSize preferredMaximumResolution;
+
+/**
+ *  The size at which the visual portion of the item is presented by the player. This property can be accessed at any time, but may return a value of CGSizeZero prior to the player item becoming ready to play. You can use key-value observing to obtain the player item’s valid presentation size as early as possible.
+ */
+@property (nonatomic, readonly) CGSize presentationSize;
+
+/**
  *  The member token got from StraaS server. Set this property to nil if the current user is a guest.
  *
  *  If you update this property when the player is playing, the new value will work the next time you load a media (live, VOD, or playlist).

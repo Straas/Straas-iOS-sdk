@@ -27,6 +27,8 @@ typedef NSArray <NSString *>* (^QualityNamesMappingType)(NSArray <NSString *>* r
 @property (nonatomic) BOOL muted;
 @property (nonatomic) float playbackSpeed;
 @property (nonatomic) float playbackSpeedForContinue;
+@property (nonatomic) CGSize preferredMaximumResolution;
+@property (nonatomic, readonly) CGSize presentationSize;
 
 - (void)setStreamURL:(NSURL * _Nullable)URL;
 - (void)setStreamURL:(NSURL * _Nullable)URL cookie:(NSHTTPCookie * _Nullable)cookie;
