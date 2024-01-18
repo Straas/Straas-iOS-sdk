@@ -1,0 +1,187 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "StraaSPlayerSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "StraaSPlayerSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "StraaSPlayerSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "DeveloperToolsSupport",
+        "printedName": "DeveloperToolsSupport",
+        "declKind": "Import",
+        "moduleName": "StraaSPlayerSDK"
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 742,
+      "length": 18,
+      "value": "\"btn-icon-pause_h\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 899,
+      "length": 18,
+      "value": "\"btn-icon-pause_n\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1054,
+      "length": 17,
+      "value": "\"btn-icon-play_h\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1208,
+      "length": 17,
+      "value": "\"btn-icon-play_n\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1368,
+      "length": 20,
+      "value": "\"btn-icon-quality_h\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1531,
+      "length": 20,
+      "value": "\"btn-icon-quality_n\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1692,
+      "length": 19,
+      "value": "\"btn-icon-replay_h\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1852,
+      "length": 19,
+      "value": "\"btn-icon-replay_n\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 2026,
+      "length": 26,
+      "value": "\"btn_icon_player_skipNext\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 2207,
+      "length": 26,
+      "value": "\"btn_icon_player_skipPrev\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 2354,
+      "length": 8,
+      "value": "\"ic_360\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 2496,
+      "length": 15,
+      "value": "\"ic_dvr_player\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 2649,
+      "length": 17,
+      "value": "\"ic_error_player\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 2802,
+      "length": 16,
+      "value": "\"ic_live_player\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 2956,
+      "length": 17,
+      "value": "\"ic_motion_video\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 3109,
+      "length": 16,
+      "value": "\"ic_player_mute\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 3265,
+      "length": 18,
+      "value": "\"ic_player_volume\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 3423,
+      "length": 18,
+      "value": "\"ic_viewer_player\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 3577,
+      "length": 16,
+      "value": "\"img-video-mask\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 3728,
+      "length": 15,
+      "value": "\"subtitles_off\""
+    },
+    {
+      "filePath": "\/Users\/doublelight\/Desktop\/ikala\/straas\/Archives\/StraaSPlayerSDK\/Build\/Intermediates.noindex\/ArchiveIntermediates\/StraaSPlayerSDK\/IntermediateBuildFilesPath\/StraaS.build\/Release-iphoneos\/StraaSPlayerSDK.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 3876,
+      "length": 14,
+      "value": "\"subtitles_on\""
+    }
+  ]
+}

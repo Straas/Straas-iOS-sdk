@@ -1,11 +1,11 @@
 framework module StraaSMessagingSDK {
   umbrella header "StraaSMessagingSDK.h"
-
   export *
+
   module * { export * }
 }
 
 module StraaSMessagingSDK.Swift {
-    header "StraaSMessagingSDK-Swift.h"
-    requires objc
+  header "StraaSMessagingSDK-Swift.h"
+  requires objc
 }

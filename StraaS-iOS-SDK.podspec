@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "StraaS-iOS-SDK"
-  s.version      = "0.72.0"
+  s.version      = "0.73.0"
   s.summary      = "StraaS.io iOS SDK"
 
   s.description  = "StraaS.io - Streaming as a Service, Your Best OTT Solution."
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "Copyright", :text => "Copyright (c) 2020 StraaS.io. All rights reserved." }
   s.author       = "StraaS.io"
 
-  s.platform     = :ios, "11.0"
+  s.platform     = :ios, "13.0"
 
   s.source       = { :git => "https://github.com/StraaS/StraaS-iOS-sdk.git",
                      :tag => s.version }

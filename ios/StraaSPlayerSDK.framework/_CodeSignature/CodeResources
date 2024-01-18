@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		LgyohOvu0xp4CnIW42kxF9jvMWI=
+		NoppdzGzWQHeYdVuCN/V/7Z+65o=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -110,7 +110,7 @@
 		</data>
 		<key>Headers/StraaSPlayerSDK-Swift.h</key>
 		<data>
-		zXIK5sqLipNrMh7vNsXUcx1ymsk=
+		n97jBMLas0esES2+zn0ijFaCuHY=
 		</data>
 		<key>Headers/StraaSPlayerSDK.h</key>
 		<data>
@@ -118,23 +118,35 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		0quXdK1Mkx9b71t0stgids9z8T0=
+		bsNjyBz/j83ndr/fMHGJ+aVqyR4=
+		</data>
+		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.abi.json</key>
+		<data>
+		2lD/0qK6992BSaryPMe1KQIjjeA=
+		</data>
+		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
+		<data>
+		CEbxIRJIsUOnXdhSbyYtQJ/+Tr0=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		SwFzj3nSxHdrRLA6nk1AJFPq8Uo=
+		ed9CFA397oJV/8dqtx3TYPMnDwU=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		p8OoadLborY+wClTHSbVy8dMCnc=
+		CEbxIRJIsUOnXdhSbyYtQJ/+Tr0=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		qPuMh3Xj0rzmfQSB6Pc+fmpc2g8=
+		NJYEHQVoKm0Rv86OY89/ofj2MiY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		Vxi44xUJ14LYy0gki9JO/xP3Uks=
+		TeDAya5LAfGUknv9J3PUr3nLA8s=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		/HbKT9Kl6rHqbofH2a6+CLJ2cUw=
 		</data>
 		<key>Shader.vsh</key>
 		<data>
@@ -165,11 +177,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LgyohOvu0xp4CnIW42kxF9jvMWI=
+			NoppdzGzWQHeYdVuCN/V/7Z+65o=
 			</data>
 			<key>hash2</key>
 			<data>
-			YixPKLb0jMojjWgngdvPV3y9E2fqbzQG7Q7BpMR2WJk=
+			yGTLKs552DKo9VymF6YLK90js/7Nd5psxlpOmPGyLWk=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -451,11 +463,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zXIK5sqLipNrMh7vNsXUcx1ymsk=
+			n97jBMLas0esES2+zn0ijFaCuHY=
 			</data>
 			<key>hash2</key>
 			<data>
-			tFHvDka2o1UNBi9mt/mr4cfVO2r+tCeb0YR55wiVGco=
+			9WoAVdKnwRvBbfq1rBDvuOfeqEYTjytn4dK43OtZo+g=
 			</data>
 		</dict>
 		<key>Headers/StraaSPlayerSDK.h</key>
@@ -469,48 +481,81 @@
 			HSgpRJ9UqmxocU6j88N4mIn6X3IbZA4YvVwJjiEyCgw=
 			</data>
 		</dict>
+		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.abi.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2lD/0qK6992BSaryPMe1KQIjjeA=
+			</data>
+			<key>hash2</key>
+			<data>
+			FdpkuiMxcJTIP0VoHT4ej67UwwKx8riBa3QaAFA81ng=
+			</data>
+		</dict>
+		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			CEbxIRJIsUOnXdhSbyYtQJ/+Tr0=
+			</data>
+			<key>hash2</key>
+			<data>
+			J5FHsc7BvGKuPKH+SN+7C8tk26yUqmquQ31wKbZ743U=
+			</data>
+		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SwFzj3nSxHdrRLA6nk1AJFPq8Uo=
+			ed9CFA397oJV/8dqtx3TYPMnDwU=
 			</data>
 			<key>hash2</key>
 			<data>
-			/TP1KEdTL5IfSCu19o2wYaomzSvSW0CG8jne9CUv7rQ=
+			ahFFwTIXXz68gcrCYP6Xbp2ZqOJvKpJDlNk6By4kj4I=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			p8OoadLborY+wClTHSbVy8dMCnc=
+			CEbxIRJIsUOnXdhSbyYtQJ/+Tr0=
 			</data>
 			<key>hash2</key>
 			<data>
-			wyZZbd5htiGFcWN9In0WxeToNGWuIE4enYdIgMGXZ+0=
+			J5FHsc7BvGKuPKH+SN+7C8tk26yUqmquQ31wKbZ743U=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qPuMh3Xj0rzmfQSB6Pc+fmpc2g8=
+			NJYEHQVoKm0Rv86OY89/ofj2MiY=
 			</data>
 			<key>hash2</key>
 			<data>
-			q9NoWJWHvY5sSFvtXifF6Df0jVhlxN3VhA72FiCCZ6s=
+			2CcRHUD6ufGHFDm9A1lGZr0Hb/d+zD3zS/mZgUKNtYo=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Vxi44xUJ14LYy0gki9JO/xP3Uks=
+			TeDAya5LAfGUknv9J3PUr3nLA8s=
 			</data>
 			<key>hash2</key>
 			<data>
-			9Zr1/9AU7ezUMKYZiQP1PggrKAgFnnodG3urD7qy6tk=
+			YVPtoQlHXQh4rle5jyvdX20Rjargn46j0gZTwP4LkC8=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/HbKT9Kl6rHqbofH2a6+CLJ2cUw=
+			</data>
+			<key>hash2</key>
+			<data>
+			dJPTT9ga4YJLan8wPE4AW9g1h3Rsc6j8sJgfREdZ2Lg=
 			</data>
 		</dict>
 		<key>Shader.vsh</key>
