@@ -27,27 +27,27 @@ PODS:
   - Socket.IO-Client-Swift (15.1.0):
     - Starscream (~> 3.1)
   - Starscream (3.1.1)
-  - StraaS-iOS-SDK (0.72.0):
-    - StraaS-iOS-SDK/Core (= 0.72.0)
-    - StraaS-iOS-SDK/Messaging (= 0.72.0)
-    - StraaS-iOS-SDK/Player (= 0.72.0)
-    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.72.0)
-    - StraaS-iOS-SDK/Streaming (= 0.72.0)
-  - StraaS-iOS-SDK/Core (0.72.0):
+  - StraaS-iOS-SDK (0.73.0):
+    - StraaS-iOS-SDK/Core (= 0.73.0)
+    - StraaS-iOS-SDK/Messaging (= 0.73.0)
+    - StraaS-iOS-SDK/Player (= 0.73.0)
+    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.73.0)
+    - StraaS-iOS-SDK/Streaming (= 0.73.0)
+  - StraaS-iOS-SDK/Core (0.73.0):
     - AFNetworking (= 4.0.1)
     - Socket.IO-Client-Swift (= 15.1.0)
-  - StraaS-iOS-SDK/Messaging (0.72.0):
+  - StraaS-iOS-SDK/Messaging (0.73.0):
     - Socket.IO-Client-Swift (= 15.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Player (0.72.0):
+  - StraaS-iOS-SDK/Player (0.73.0):
     - AFNetworking (= 4.0.1)
     - GoogleAds-IMA-iOS-SDK (= 3.13.0)
     - KVOController (= 1.2.0)
     - Socket.IO-Client-Swift (= 15.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.72.0):
+  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.73.0):
     - StraaS-iOS-SDK/Player
-  - StraaS-iOS-SDK/Streaming (0.72.0):
+  - StraaS-iOS-SDK/Streaming (0.73.0):
     - GPUImage-StraaS (= 0.1.10)
     - StraaS-iOS-SDK/Core
   - TTTAttributedLabel (2.0.0)
@@ -97,10 +97,10 @@ SPEC CHECKSUMS:
   SlackTextViewController: b854e62c1c156336bc4fd409c6ca79b5773e8f9d
   Socket.IO-Client-Swift: 7cb44c0ffb86e158cee32d0642d30ec5fdcf8f61
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
-  StraaS-iOS-SDK: cb080bce252ab9fea0cf2359a1c21f8ee639d27e
+  StraaS-iOS-SDK: bfa150d58fe9168e50fdf7be411fb45354b693de
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   YUGPUImageHighPassSkinSmoothing-Straas: 4f48e63b66f0cc920d1c9027549075444f62a8f4
 
-PODFILE CHECKSUM: 5d67e57f2150ee3ebf653d555b1109b236abba4e
+PODFILE CHECKSUM: 020414638fb3d6f0be8b622a158c6c4af34278af
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3
