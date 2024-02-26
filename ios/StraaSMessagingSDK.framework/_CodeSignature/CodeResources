@@ -58,7 +58,7 @@
 		</data>
 		<key>Headers/StraaSMessagingSDK-Swift.h</key>
 		<data>
-		OsEDMpcJ9Qa2yrw3E4fT3ciD68M=
+		TVFaLVZ/sQmvfDdi07JpoSnV22U=
 		</data>
 		<key>Headers/StraaSMessagingSDK.h</key>
 		<data>
@@ -66,23 +66,27 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		PLb329a4ugTOL1wjqW20HCrSmUE=
+		DTRNvxKMFNR9zhKwTogCAr816wg=
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		5TMO89wtQqV2YHL6yWGmEVZjsN4=
+		12mIMCHicgB2OvDsK6XS+ScU15w=
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		LflIPxbKp/0bxeNSz47MIPlvhdw=
+		E+hxPhIlNMAOawZp1YJNgOdzG14=
 		</data>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		jEOSsRj0e0Sgp984wWwj9WPzF3c=
+		FOpy52IpKtkNHsmZgsEf9jwQHg0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		zqCrl39RuRkfTPpZZERBl69N2BM=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		yhAAzwhx7p+/1V6hni5ANQdu5tU=
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
@@ -252,11 +256,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OsEDMpcJ9Qa2yrw3E4fT3ciD68M=
+			TVFaLVZ/sQmvfDdi07JpoSnV22U=
 			</data>
 			<key>hash2</key>
 			<data>
-			ylubgthzlaCmNyEsWmL+aOQueqd0c2qRpAm5yPb/JTs=
+			PKMixZcYPcxH0u2PAyE4UtsABOUfwwBha02+Pup/+Y4=
 			</data>
 		</dict>
 		<key>Headers/StraaSMessagingSDK.h</key>
@@ -274,33 +278,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5TMO89wtQqV2YHL6yWGmEVZjsN4=
+			12mIMCHicgB2OvDsK6XS+ScU15w=
 			</data>
 			<key>hash2</key>
 			<data>
-			abJXtlMmrW0a6kHuUadFw2ShosGxx5PJMoPQ1sow/j0=
+			NZN/AI+AwoP+5PRwlSbw5PzhRLZRjyga9GBXH2Ct8Zs=
 			</data>
 		</dict>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LflIPxbKp/0bxeNSz47MIPlvhdw=
+			E+hxPhIlNMAOawZp1YJNgOdzG14=
 			</data>
 			<key>hash2</key>
 			<data>
-			20s74XhpRVm9dtw9BqrHXIHhFKXupylwXSVgBAgxYqA=
+			h5ZcXux/q/n86ChINvbBkvGoGXMP17mfud4CPFB1/lE=
 			</data>
 		</dict>
 		<key>Modules/StraaSMessagingSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jEOSsRj0e0Sgp984wWwj9WPzF3c=
+			FOpy52IpKtkNHsmZgsEf9jwQHg0=
 			</data>
 			<key>hash2</key>
 			<data>
-			INpN1AqrRuMOgtrUjldHrtI7jOxVSoEzoV6KqhRTyCE=
+			Y7gOAL86J2PV74Sdjlrt9MZagnVd+KG/7ReW/ec+/x8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -312,6 +316,17 @@
 			<key>hash2</key>
 			<data>
 			Dzopkj828cUJ5ORan/tRR0A4mcBl7mt4cRHJdfsZSBg=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yhAAzwhx7p+/1V6hni5ANQdu5tU=
+			</data>
+			<key>hash2</key>
+			<data>
+			d2zDrjPR5ilgrJyFQyD/Srj5QlGcVnIUFopl5GfyJug=
 			</data>
 		</dict>
 		<key>en.lproj/Localizable.strings</key>

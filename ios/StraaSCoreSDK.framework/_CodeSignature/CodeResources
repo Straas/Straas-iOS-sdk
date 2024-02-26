@@ -38,11 +38,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Mrjk2BbHECrN8HOG/zCoR+tuQyE=
+		mL8zAkDRbEnBetGYhi51DmaufC8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		VZLVS79N+LWqla+dMjJrN26a+Fc=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		yhAAzwhx7p+/1V6hni5ANQdu5tU=
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
@@ -162,6 +166,17 @@
 			<key>hash2</key>
 			<data>
 			xkT87frvy68okLQU/JJJL9chNcyQQSzU64+w+UR77sA=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yhAAzwhx7p+/1V6hni5ANQdu5tU=
+			</data>
+			<key>hash2</key>
+			<data>
+			d2zDrjPR5ilgrJyFQyD/Srj5QlGcVnIUFopl5GfyJug=
 			</data>
 		</dict>
 		<key>en.lproj/Localizable.strings</key>
