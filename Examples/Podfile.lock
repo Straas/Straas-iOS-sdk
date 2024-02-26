@@ -27,27 +27,27 @@ PODS:
   - Socket.IO-Client-Swift (15.1.0):
     - Starscream (~> 3.1)
   - Starscream (3.1.1)
-  - StraaS-iOS-SDK (0.73.0):
-    - StraaS-iOS-SDK/Core (= 0.73.0)
-    - StraaS-iOS-SDK/Messaging (= 0.73.0)
-    - StraaS-iOS-SDK/Player (= 0.73.0)
-    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.73.0)
-    - StraaS-iOS-SDK/Streaming (= 0.73.0)
-  - StraaS-iOS-SDK/Core (0.73.0):
+  - StraaS-iOS-SDK (0.74.0):
+    - StraaS-iOS-SDK/Core (= 0.74.0)
+    - StraaS-iOS-SDK/Messaging (= 0.74.0)
+    - StraaS-iOS-SDK/Player (= 0.74.0)
+    - StraaS-iOS-SDK/PlayerLowLatencyExtension (= 0.74.0)
+    - StraaS-iOS-SDK/Streaming (= 0.74.0)
+  - StraaS-iOS-SDK/Core (0.74.0):
     - AFNetworking (= 4.0.1)
     - Socket.IO-Client-Swift (= 15.1.0)
-  - StraaS-iOS-SDK/Messaging (0.73.0):
+  - StraaS-iOS-SDK/Messaging (0.74.0):
     - Socket.IO-Client-Swift (= 15.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/Player (0.73.0):
+  - StraaS-iOS-SDK/Player (0.74.0):
     - AFNetworking (= 4.0.1)
     - GoogleAds-IMA-iOS-SDK (= 3.13.0)
     - KVOController (= 1.2.0)
     - Socket.IO-Client-Swift (= 15.1.0)
     - StraaS-iOS-SDK/Core
-  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.73.0):
+  - StraaS-iOS-SDK/PlayerLowLatencyExtension (0.74.0):
     - StraaS-iOS-SDK/Player
-  - StraaS-iOS-SDK/Streaming (0.73.0):
+  - StraaS-iOS-SDK/Streaming (0.74.0):
     - GPUImage-StraaS (= 0.1.10)
     - StraaS-iOS-SDK/Core
   - TTTAttributedLabel (2.0.0)
@@ -86,7 +86,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   GoogleAds-IMA-iOS-SDK: b8d3693d370edcbd1440c827897c2b2a0b76673d
   GPUImage-StraaS: 2fd283446cf90bb5f9ef4a1554f4d50eb4cd29b6
   IJKMediaFramework: f1119f6324c96bc4654f3045a5beaa95ba0596c0
@@ -97,10 +97,10 @@ SPEC CHECKSUMS:
   SlackTextViewController: b854e62c1c156336bc4fd409c6ca79b5773e8f9d
   Socket.IO-Client-Swift: 7cb44c0ffb86e158cee32d0642d30ec5fdcf8f61
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
-  StraaS-iOS-SDK: bfa150d58fe9168e50fdf7be411fb45354b693de
+  StraaS-iOS-SDK: 64633c0a76dc167adafa9e17cd496432cc2482c4
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   YUGPUImageHighPassSkinSmoothing-Straas: 4f48e63b66f0cc920d1c9027549075444f62a8f4
 
-PODFILE CHECKSUM: 020414638fb3d6f0be8b622a158c6c4af34278af
+PODFILE CHECKSUM: e5effcf9831cb2b137db3762a18977fcfde6da0b
 
 COCOAPODS: 1.11.3

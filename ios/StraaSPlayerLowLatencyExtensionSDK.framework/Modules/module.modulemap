@@ -1,6 +1,6 @@
 framework module StraaSPlayerLowLatencyExtensionSDK {
   umbrella header "StraaSPlayerLowLatencyExtensionSDK.h"
-  export *
 
+  export *
   module * { export * }
 }

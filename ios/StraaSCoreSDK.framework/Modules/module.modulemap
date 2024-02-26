@@ -1,6 +1,6 @@
 framework module StraaSCoreSDK {
   umbrella header "StraaSCoreSDK.h"
-  export *
 
+  export *
   module * { export * }
 }

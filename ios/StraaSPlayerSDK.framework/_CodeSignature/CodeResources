@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		NoppdzGzWQHeYdVuCN/V/7Z+65o=
+		ixhujcXkRFnQ0/FMWMqtrF34bJs=
 		</data>
 		<key>Headers/STSCMSManager.h</key>
 		<data>
@@ -110,7 +110,7 @@
 		</data>
 		<key>Headers/StraaSPlayerSDK-Swift.h</key>
 		<data>
-		n97jBMLas0esES2+zn0ijFaCuHY=
+		X57VSbbMvTsIxnQZLmdwhDpt/ss=
 		</data>
 		<key>Headers/StraaSPlayerSDK.h</key>
 		<data>
@@ -118,31 +118,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		bsNjyBz/j83ndr/fMHGJ+aVqyR4=
-		</data>
-		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.abi.json</key>
-		<data>
-		2lD/0qK6992BSaryPMe1KQIjjeA=
-		</data>
-		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
-		<data>
-		CEbxIRJIsUOnXdhSbyYtQJ/+Tr0=
+		GE2nndb/oe502Xr/5bUQkSO0dTA=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		ed9CFA397oJV/8dqtx3TYPMnDwU=
+		LziU3rGLkfPQ2NX2pNXZtVtq07c=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		CEbxIRJIsUOnXdhSbyYtQJ/+Tr0=
+		s5CpevZ1UALA9WXJCcNbvvqoqZY=
 		</data>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		NJYEHQVoKm0Rv86OY89/ofj2MiY=
+		7XGbMOmCSY+/fsaBKhAdkh/Jsn0=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		TeDAya5LAfGUknv9J3PUr3nLA8s=
+		Vxi44xUJ14LYy0gki9JO/xP3Uks=
 		</data>
 		<key>PrivacyInfo.xcprivacy</key>
 		<data>
@@ -177,11 +169,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			NoppdzGzWQHeYdVuCN/V/7Z+65o=
+			ixhujcXkRFnQ0/FMWMqtrF34bJs=
 			</data>
 			<key>hash2</key>
 			<data>
-			yGTLKs552DKo9VymF6YLK90js/7Nd5psxlpOmPGyLWk=
+			JFNYpkQK1ANeALZ6o4Pyjp5ayiXjB1QHmkedKRCs3dg=
 			</data>
 		</dict>
 		<key>Headers/STSCMSManager.h</key>
@@ -463,11 +455,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			n97jBMLas0esES2+zn0ijFaCuHY=
+			X57VSbbMvTsIxnQZLmdwhDpt/ss=
 			</data>
 			<key>hash2</key>
 			<data>
-			9WoAVdKnwRvBbfq1rBDvuOfeqEYTjytn4dK43OtZo+g=
+			xsnmA4ydVRMMA4UVFEDJwJlcvQyDvH0oEFgpS+5qF9k=
 			</data>
 		</dict>
 		<key>Headers/StraaSPlayerSDK.h</key>
@@ -481,70 +473,48 @@
 			HSgpRJ9UqmxocU6j88N4mIn6X3IbZA4YvVwJjiEyCgw=
 			</data>
 		</dict>
-		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.abi.json</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2lD/0qK6992BSaryPMe1KQIjjeA=
-			</data>
-			<key>hash2</key>
-			<data>
-			FdpkuiMxcJTIP0VoHT4ej67UwwKx8riBa3QaAFA81ng=
-			</data>
-		</dict>
-		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			CEbxIRJIsUOnXdhSbyYtQJ/+Tr0=
-			</data>
-			<key>hash2</key>
-			<data>
-			J5FHsc7BvGKuPKH+SN+7C8tk26yUqmquQ31wKbZ743U=
-			</data>
-		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ed9CFA397oJV/8dqtx3TYPMnDwU=
+			LziU3rGLkfPQ2NX2pNXZtVtq07c=
 			</data>
 			<key>hash2</key>
 			<data>
-			ahFFwTIXXz68gcrCYP6Xbp2ZqOJvKpJDlNk6By4kj4I=
+			Pyv8Hac+kn8N/eSLqCbC4n3FzGy3yyuNd6OA1BSxoco=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CEbxIRJIsUOnXdhSbyYtQJ/+Tr0=
+			s5CpevZ1UALA9WXJCcNbvvqoqZY=
 			</data>
 			<key>hash2</key>
 			<data>
-			J5FHsc7BvGKuPKH+SN+7C8tk26yUqmquQ31wKbZ743U=
+			2HzOFlH/0MvS8WnDm1ClGNC8BFganBc4+8I8Tg0wleM=
 			</data>
 		</dict>
 		<key>Modules/StraaSPlayerSDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NJYEHQVoKm0Rv86OY89/ofj2MiY=
+			7XGbMOmCSY+/fsaBKhAdkh/Jsn0=
 			</data>
 			<key>hash2</key>
 			<data>
-			2CcRHUD6ufGHFDm9A1lGZr0Hb/d+zD3zS/mZgUKNtYo=
+			TxdMMywI9bxrHdO1BlcfqRBzQpdQuTwlu0lxtAl7EvA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			TeDAya5LAfGUknv9J3PUr3nLA8s=
+			Vxi44xUJ14LYy0gki9JO/xP3Uks=
 			</data>
 			<key>hash2</key>
 			<data>
-			YVPtoQlHXQh4rle5jyvdX20Rjargn46j0gZTwP4LkC8=
+			9Zr1/9AU7ezUMKYZiQP1PggrKAgFnnodG3urD7qy6tk=
 			</data>
 		</dict>
 		<key>PrivacyInfo.xcprivacy</key>

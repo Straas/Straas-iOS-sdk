@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "StraaS-iOS-SDK"
-  s.version      = "0.73.0"
+  s.version      = "0.74.0"
   s.summary      = "StraaS.io iOS SDK"
 
   s.description  = "StraaS.io - Streaming as a Service, Your Best OTT Solution."
@@ -12,6 +12,9 @@ Pod::Spec.new do |s|
   s.author       = "StraaS.io"
 
   s.platform     = :ios, "13.0"
+  
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
   s.source       = { :git => "https://github.com/StraaS/StraaS-iOS-sdk.git",
                      :tag => s.version }
